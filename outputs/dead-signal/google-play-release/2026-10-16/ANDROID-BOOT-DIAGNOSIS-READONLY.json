@@ -1,0 +1,130 @@
+{
+  "checkedAtUTC": "2026-10-16T02:44:53.235420+00:00",
+  "scope": "read_only_boot_failure_diagnosis_no_emulator_boot_no_profile_key_source_or_sdk_changes",
+  "confirmedCause": null,
+  "failedAVD": "DeadSignal_PlayRelease_QA",
+  "failedAVDStoppedAndPreserved": true,
+  "ownOldPids3369And4807Absent": true,
+  "installedImageInventory": [
+    {
+      "package": "system-images;android-36;google_apis_playstore;arm64-v8a",
+      "revision": 6,
+      "api": 36,
+      "extensionLevel": 17,
+      "declaredMinimumEmulator": "35.2.10",
+      "installedEmulator": "35.6.11",
+      "declaredDependencySatisfied": true
+    }
+  ],
+  "otherInstalledAPIImagesAvailable": false,
+  "physicalADBDevicesAvailable": false,
+  "observedOtherEmulators": [
+    "emulator-5558"
+  ],
+  "otherDevicesUntouched": true,
+  "hostSnapshot": {
+    "ramBytes": 34359738368,
+    "swapTotalMiB": 19456,
+    "swapUsedMiB": 18088.62,
+    "systemMemoryFreePercent": 36,
+    "diskFreeBytes": 109658157056,
+    "hardwareAccelerationCheckExit": 0,
+    "hardwareAcceleration": "Hypervisor.Framework",
+    "snapshotIsCurrentNotProofOfFailureTimeCause": true
+  },
+  "adb": {
+    "clientAndServerVersion": "36.0.0-13206524",
+    "sameClientAndServerSDKBinary": true,
+    "customServerSocketEnvSet": false,
+    "vendorKeysEnvSet": false,
+    "emulatorBootPublicKeyMatchesCurrentGlobalPublicKey": true,
+    "privateADBKeyContentsRead": false,
+    "globalADBServerRestartedOrReconfigured": false,
+    "authenticationMismatchConfirmed": false
+  },
+  "priorSuccessfulOwnAVD": {
+    "name": "DeadSignal_Release_QA",
+    "sameEmulator35_6_11": true,
+    "sameAPI36ImagePath": true,
+    "bootCompletedMilliseconds": 27919,
+    "sameVulkanVirtualQueueWarning": true,
+    "sameInitialAdbOfflineWarning": true,
+    "initialGUIFailedBootPropertyDifferences": [
+      "androidboot.qemu.avd_name"
+    ],
+    "swiftshaderFailedBootPropertyDifferences": [
+      "androidboot.qemu.avd_name",
+      "androidboot.opengles.version"
+    ],
+    "hardwareDifferenceOfUnprovenSignificance": {
+      "PlayStore.enabled": {
+        "prior": false,
+        "failed": true
+      }
+    },
+    "oldBootedUserdataQcow2ActualBytes": 2495610880,
+    "failedUserdataQcow2ActualBytes": 380108800,
+    "bothUserdataVirtualBytes": 6442450944,
+    "bothQcow2DirtyFlag": false,
+    "note": "Qcow2 metadata clean does not verify guest filesystem health. Userdata allocation difference indicates different initialization progress, not a confirmed root cause."
+  },
+  "evidenceLimits": [
+    "App was never installed on failed AVD; failure cannot establish an APK defect.",
+    "No guest kernel or guest logcat captured during the two failed boots, so boot stage and root cause remain unknown.",
+    "ADB offline means not connected/responding; not a definitive full-OS boot verdict.",
+    "Vulkan warning occurred in previously successful boot and alone is not fatal evidence.",
+    "SwiftShader indirect still used ANGLE/Vulkan; it was not an explicit Vulkan-disabled boot.",
+    "No retry of the failed AVD was performed in this diagnostic turn."
+  ],
+  "alternatives": [
+    {
+      "option": "Google Play pre-launch report after authorized test-track upload",
+      "availableWithoutLocalSDKInstall": true,
+      "executionStatus": "not_performed_by_child",
+      "limits": "Device-lab capacity and app eligibility mean report generation is not guaranteed. Basic crawler does not replace direct play/save/control checks; game-loop support may be needed for useful game coverage."
+    },
+    {
+      "option": "Physical Android device using signed QA APK or Play internal-test delivery",
+      "availableNow": false,
+      "limits": "No physical adb device connected. Upload-key QA APK and Google-managed app-signing APK have different certificates; preserve any human game data and do not overwrite an incompatible installation."
+    },
+    {
+      "option": "Clone stopped previously successful own QA AVD into a new isolated path",
+      "availableWithoutSDKDownload": true,
+      "executionStatus": "proposal_only_not_executed",
+      "limits": "Copy only own initialized QA profile; leave original and all other emulators untouched. Clone contains old debug-signed app, so install of upload-signed APK requires removing only that app inside disposable clone after explicit GO. This would test release configuration without repeating failed cold initialization, but CUA emulator access remains unavailable."
+    },
+    {
+      "option": "Another already installed official API system-image",
+      "availableNow": false,
+      "limits": "Only API36 installed. New images/SDK updates would require separate authorized download and possible license decisions; none performed."
+    },
+    {
+      "option": "Explicit Vulkan-disabled emulator diagnostic",
+      "executionStatus": "proposal_only_not_executed",
+      "limits": "Official troubleshooting documents -feature -Vulkan for GLES graphics problems. It is distinct from SwiftShader indirect but is not a proven fix for this offline failure and does not justify retrying the same failed AVD."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://developer.android.com/studio/releases/emulator?hl=en",
+      "supports": "35.6.11 date and newer graphics fixes; no exact M5/macOS26.6 offline failure established"
+    },
+    {
+      "url": "https://developer.android.com/studio/run/emulator-troubleshooting",
+      "supports": "Apple Silicon Vulkan limitations and documented rendering options"
+    },
+    {
+      "url": "https://developer.android.com/tools/adb",
+      "supports": "Meaning of offline device state"
+    },
+    {
+      "url": "https://support.google.com/googleplay/android-developer/answer/9842757?hl=en-GB",
+      "supports": "Pre-launch automation, capacity limits, game crawler coverage limits"
+    },
+    {
+      "url": "https://support.google.com/googleplay/android-developer/answer/9845334?hl=en-GB",
+      "supports": "Internal testing distribution context"
+    }
+  ]
+}

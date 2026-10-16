@@ -1,0 +1,4850 @@
+{
+  "format": "dead-signal-runtime-animation-audit-v1",
+  "createdAt": "2026-10-16T05:20:56.036078+00:00",
+  "scope": "Read-only frozen v0.26.1 and production gallery/source GLB; no browser or active game/save interactions. New audit files only.",
+  "runtime": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/playable/v0.26.1/dist",
+  "canonical": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/production-assets",
+  "runtimeManifestSHA256": "e6763a4b455ff7fb181a3919ec41bfc12e6790b3d3647a788d926b9374186436",
+  "galleryManifestSHA256": "300a105c43c7543e44a040d275c8c956c8151366e4b973539342441716721294",
+  "counts": {
+    "bosses": 24,
+    "midBosses": 12,
+    "staticFinalBosses": 12,
+    "enemyTypes": 7,
+    "heroWeaponProfiles": 2,
+    "activeActorAssetIds": 37,
+    "nativeAttackClips": 0,
+    "nativeHitClips": 0,
+    "nativeDeathClips": 0,
+    "nativeSkillWindupClips": 0
+  },
+  "staticFinalBosses": [
+    "boss-07-final",
+    "boss-01-final",
+    "boss-02-final",
+    "boss-03-final",
+    "boss-04-final",
+    "boss-05-final",
+    "boss-06-final",
+    "boss-08-final",
+    "boss-09-final",
+    "boss-11-final",
+    "boss-12-final",
+    "boss-10-final"
+  ],
+  "walkOnlyMidBosses": [
+    "boss-01-mid",
+    "boss-02-mid",
+    "boss-03-mid",
+    "boss-04-mid",
+    "boss-05-mid",
+    "boss-06-mid",
+    "boss-07-mid",
+    "boss-08-mid",
+    "boss-09-mid",
+    "boss-10-mid",
+    "boss-11-mid",
+    "boss-12-mid"
+  ],
+  "actors": [
+    {
+      "section": "characters",
+      "id": "survivor-shotgun",
+      "binding": {
+        "idle": "survivor-shotgun-idle",
+        "walk": "survivor-shotgun-walk",
+        "run": "survivor-shotgun-run"
+      },
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "gallerySelectedModel": "survivor-v2",
+      "nativeRuntimePoses": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "missingNativePoses": [
+        "shoot",
+        "reload",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "characters",
+      "id": "survivor-nailgun",
+      "binding": {
+        "idle": "survivor-nailgun-idle",
+        "walk": "survivor-nailgun-walk",
+        "run": "survivor-nailgun-run"
+      },
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "gallerySelectedModel": "survivor-v2",
+      "nativeRuntimePoses": [
+        "idle",
+        "walk",
+        "run"
+      ],
+      "missingNativePoses": [
+        "shoot",
+        "reload",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-01-mid",
+      "binding": {
+        "idle": "boss-01-mid",
+        "walk": "boss-01-mid",
+        "run": "boss-01-mid"
+      },
+      "assetIds": [
+        "boss-01-mid"
+      ],
+      "gallerySelectedModel": "boss-01-mid-v2",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-07-final",
+      "binding": "boss-07-final",
+      "assetIds": [
+        "boss-07-final"
+      ],
+      "gallerySelectedModel": "boss-07-final-v2",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-01-final",
+      "binding": "boss-01-final",
+      "assetIds": [
+        "boss-01-final"
+      ],
+      "gallerySelectedModel": "boss-01-final-v2",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-02-mid",
+      "binding": {
+        "idle": "boss-02-mid",
+        "walk": "boss-02-mid",
+        "run": "boss-02-mid"
+      },
+      "assetIds": [
+        "boss-02-mid"
+      ],
+      "gallerySelectedModel": "boss-02-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-02-final",
+      "binding": "boss-02-final",
+      "assetIds": [
+        "boss-02-final"
+      ],
+      "gallerySelectedModel": "boss-02-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-03-mid",
+      "binding": {
+        "idle": "boss-03-mid",
+        "walk": "boss-03-mid",
+        "run": "boss-03-mid"
+      },
+      "assetIds": [
+        "boss-03-mid"
+      ],
+      "gallerySelectedModel": "boss-03-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-03-final",
+      "binding": "boss-03-final",
+      "assetIds": [
+        "boss-03-final"
+      ],
+      "gallerySelectedModel": "boss-03-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-04-mid",
+      "binding": {
+        "idle": "boss-04-mid",
+        "walk": "boss-04-mid",
+        "run": "boss-04-mid"
+      },
+      "assetIds": [
+        "boss-04-mid"
+      ],
+      "gallerySelectedModel": "boss-04-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-04-final",
+      "binding": "boss-04-final",
+      "assetIds": [
+        "boss-04-final"
+      ],
+      "gallerySelectedModel": "boss-04-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-05-final",
+      "binding": "boss-05-final",
+      "assetIds": [
+        "boss-05-final"
+      ],
+      "gallerySelectedModel": "boss-05-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-06-final",
+      "binding": "boss-06-final",
+      "assetIds": [
+        "boss-06-final"
+      ],
+      "gallerySelectedModel": "boss-06-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-05-mid",
+      "binding": "boss-05-mid",
+      "assetIds": [
+        "boss-05-mid"
+      ],
+      "gallerySelectedModel": "boss-05-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-06-mid",
+      "binding": "boss-06-mid",
+      "assetIds": [
+        "boss-06-mid"
+      ],
+      "gallerySelectedModel": "boss-06-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-07-mid",
+      "binding": "boss-07-mid",
+      "assetIds": [
+        "boss-07-mid"
+      ],
+      "gallerySelectedModel": "boss-07-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-08-mid",
+      "binding": "boss-08-mid",
+      "assetIds": [
+        "boss-08-mid"
+      ],
+      "gallerySelectedModel": "boss-08-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-08-final",
+      "binding": "boss-08-final",
+      "assetIds": [
+        "boss-08-final"
+      ],
+      "gallerySelectedModel": "boss-08-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-09-mid",
+      "binding": "boss-09-mid",
+      "assetIds": [
+        "boss-09-mid"
+      ],
+      "gallerySelectedModel": "boss-09-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-09-final",
+      "binding": "boss-09-final",
+      "assetIds": [
+        "boss-09-final"
+      ],
+      "gallerySelectedModel": "boss-09-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-10-mid",
+      "binding": "boss-10-mid",
+      "assetIds": [
+        "boss-10-mid"
+      ],
+      "gallerySelectedModel": "boss-10-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-11-mid",
+      "binding": "boss-11-mid",
+      "assetIds": [
+        "boss-11-mid"
+      ],
+      "gallerySelectedModel": "boss-11-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-11-final",
+      "binding": "boss-11-final",
+      "assetIds": [
+        "boss-11-final"
+      ],
+      "gallerySelectedModel": "boss-11-final-v2",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-12-mid",
+      "binding": "boss-12-mid",
+      "assetIds": [
+        "boss-12-mid"
+      ],
+      "gallerySelectedModel": "boss-12-mid-v1",
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-12-final",
+      "binding": "boss-12-final",
+      "assetIds": [
+        "boss-12-final"
+      ],
+      "gallerySelectedModel": "boss-12-final-v1",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "bosses",
+      "id": "boss-10-final",
+      "binding": "boss-10-final-repaired-v2",
+      "assetIds": [
+        "boss-10-final-repaired-v2"
+      ],
+      "gallerySelectedModel": "boss-10-final-repaired-v2",
+      "nativeRuntimePoses": [
+        "static-direction"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "locomotion",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "enemies",
+      "id": "walker",
+      "binding": "enemy-walker",
+      "assetIds": [
+        "enemy-walker"
+      ],
+      "gallerySelectedModel": null,
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "enemies",
+      "id": "runner",
+      "binding": "enemy-runner",
+      "assetIds": [
+        "enemy-runner"
+      ],
+      "gallerySelectedModel": null,
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "enemies",
+      "id": "shield",
+      "binding": "enemy-shield",
+      "assetIds": [
+        "enemy-shield"
+      ],
+      "gallerySelectedModel": null,
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "enemies",
+      "id": "screamer",
+      "binding": "enemy-screamer",
+      "assetIds": [
+        "enemy-screamer"
+      ],
+      "gallerySelectedModel": null,
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "enemies",
+      "id": "gas",
+      "binding": "enemy-gas",
+      "assetIds": [
+        "enemy-gas"
+      ],
+      "gallerySelectedModel": null,
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "enemies",
+      "id": "elite",
+      "binding": "enemy-elite",
+      "assetIds": [
+        "enemy-elite"
+      ],
+      "gallerySelectedModel": null,
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    },
+    {
+      "section": "enemies",
+      "id": "collector",
+      "binding": "enemy-collector",
+      "assetIds": [
+        "enemy-collector"
+      ],
+      "gallerySelectedModel": null,
+      "nativeRuntimePoses": [
+        "walk"
+      ],
+      "missingNativePoses": [
+        "idle",
+        "run",
+        "attack",
+        "windup",
+        "hit",
+        "death"
+      ]
+    }
+  ],
+  "assets": {
+    "survivor-shotgun-idle": {
+      "assetId": "survivor-shotgun-idle",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/survivor-shotgun-idle/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-idle",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": true
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.169233544478334e-08,
+          -9.56745869960918e-08,
+          0.9999999999999913
+        ]
+      },
+      "sourceStats": {
+        "meshes": 2,
+        "triangles": 42412,
+        "skinnedMeshes": 1,
+        "materials": 2
+      },
+      "sourceFile": "survivor-v2-rig.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 3.018703149268429,
+        "footPivot": {
+          "x": 128,
+          "y": 194.41146947455474
+        },
+        "subjectHeight": 44,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/survivor-v2-rig.glb",
+        "bytes": 15915928,
+        "sha256": "7ed9174986135ee0bab4e5fa81ed2e7eee436ce7910681426a43cb18bd50831a",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|clip0|baselayer",
+            "channels": 72,
+            "targetNodes": 24
+          }
+        ]
+      }
+    },
+    "survivor-shotgun-walk": {
+      "assetId": "survivor-shotgun-walk",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/survivor-shotgun-walk-hq32/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-walk-hq32",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 4096,
+        "height": 8192,
+        "columns": 16,
+        "rows": 32,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 32,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": true
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 32,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 3.536095676826001e-07,
+            "y": -3.771835391574996e-06,
+            "z": 0
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.169233544478334e-08,
+          -9.56745869960918e-08,
+          0.9999999999999913
+        ]
+      },
+      "sourceStats": {
+        "meshes": 2,
+        "triangles": 42412,
+        "skinnedMeshes": 1,
+        "materials": 2
+      },
+      "sourceFile": "survivor-v2-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.826945142072781,
+        "footPivot": {
+          "x": 128.000000020291,
+          "y": 189.89902865540898
+        },
+        "subjectHeight": 44,
+        "frontYawRadians": 0
+      },
+      "frames": 512,
+      "clippedFrames": [],
+      "uniqueFrames": 496,
+      "uniqueSamplesByDirection": {
+        "0": 31,
+        "1": 31,
+        "2": 31,
+        "3": 31,
+        "4": 31,
+        "5": 31,
+        "6": 31,
+        "7": 31,
+        "8": 31,
+        "9": 31,
+        "10": 31,
+        "11": 31,
+        "12": 31,
+        "13": 31,
+        "14": 31,
+        "15": 31
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/survivor-v2-walk.glb",
+        "bytes": 15895992,
+        "sha256": "392e02801d4d03be6c7b1b2d98544b281aa0477f9278f7b1f17622e436bd8f36",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "survivor-shotgun-run": {
+      "assetId": "survivor-shotgun-run",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/survivor-shotgun-run-hq32/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-run-hq32",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 4096,
+        "height": 8192,
+        "columns": 16,
+        "rows": 32,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 32,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": true
+      },
+      "animation": {
+        "name": "Armature|running|baselayer",
+        "duration": 0.6666666865348816,
+        "loop": true,
+        "samples": 32,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.156806195394381e-07,
+            "y": 1.885917694011141e-06,
+            "z": 7.072191356982671e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 0.6666666865348816
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.169233544478334e-08,
+          -9.56745869960918e-08,
+          0.9999999999999913
+        ]
+      },
+      "sourceStats": {
+        "meshes": 2,
+        "triangles": 42412,
+        "skinnedMeshes": 1,
+        "materials": 2
+      },
+      "sourceFile": "survivor-v2-run.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.8004810908879723,
+        "footPivot": {
+          "x": 128,
+          "y": 190.4202342328196
+        },
+        "subjectHeight": 44,
+        "frontYawRadians": 0
+      },
+      "frames": 512,
+      "clippedFrames": [],
+      "uniqueFrames": 496,
+      "uniqueSamplesByDirection": {
+        "0": 31,
+        "1": 31,
+        "2": 31,
+        "3": 31,
+        "4": 31,
+        "5": 31,
+        "6": 31,
+        "7": 31,
+        "8": 31,
+        "9": 31,
+        "10": 31,
+        "11": 31,
+        "12": 31,
+        "13": 31,
+        "14": 31,
+        "15": 31
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/survivor-v2-run.glb",
+        "bytes": 15885384,
+        "sha256": "f1070a26240d6e988c4e388fc237ccb8f5a402d395cf3769a07146fd60fdb429",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|running|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "survivor-nailgun-idle": {
+      "assetId": "survivor-nailgun-idle",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/survivor-nailgun-idle/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-idle",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": true
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.169233544478334e-08,
+          -9.56745869960918e-08,
+          0.9999999999999913
+        ]
+      },
+      "sourceStats": {
+        "meshes": 2,
+        "triangles": 42456,
+        "skinnedMeshes": 1,
+        "materials": 2
+      },
+      "sourceFile": "survivor-v2-rig.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 3.0841339117874393,
+        "footPivot": {
+          "x": 128.0000005701576,
+          "y": 195.8509462177663
+        },
+        "subjectHeight": 44,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/survivor-v2-rig.glb",
+        "bytes": 15915928,
+        "sha256": "7ed9174986135ee0bab4e5fa81ed2e7eee436ce7910681426a43cb18bd50831a",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|clip0|baselayer",
+            "channels": 72,
+            "targetNodes": 24
+          }
+        ]
+      }
+    },
+    "survivor-nailgun-walk": {
+      "assetId": "survivor-nailgun-walk",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/survivor-nailgun-walk-hq32/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-walk-hq32",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 4096,
+        "height": 8192,
+        "columns": 16,
+        "rows": 32,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 32,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": true
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 32,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 3.536095676826001e-07,
+            "y": -3.771835391574996e-06,
+            "z": 0
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.169233544478334e-08,
+          -9.56745869960918e-08,
+          0.9999999999999913
+        ]
+      },
+      "sourceStats": {
+        "meshes": 2,
+        "triangles": 42456,
+        "skinnedMeshes": 1,
+        "materials": 2
+      },
+      "sourceFile": "survivor-v2-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.9543714589568077,
+        "footPivot": {
+          "x": 128.00000049103852,
+          "y": 193.2616817152629
+        },
+        "subjectHeight": 44,
+        "frontYawRadians": 0
+      },
+      "frames": 512,
+      "clippedFrames": [],
+      "uniqueFrames": 496,
+      "uniqueSamplesByDirection": {
+        "0": 31,
+        "1": 31,
+        "2": 31,
+        "3": 31,
+        "4": 31,
+        "5": 31,
+        "6": 31,
+        "7": 31,
+        "8": 31,
+        "9": 31,
+        "10": 31,
+        "11": 31,
+        "12": 31,
+        "13": 31,
+        "14": 31,
+        "15": 31
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/survivor-v2-walk.glb",
+        "bytes": 15895992,
+        "sha256": "392e02801d4d03be6c7b1b2d98544b281aa0477f9278f7b1f17622e436bd8f36",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "survivor-nailgun-run": {
+      "assetId": "survivor-nailgun-run",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/survivor-nailgun-run-hq32/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-run-hq32",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 4096,
+        "height": 8192,
+        "columns": 16,
+        "rows": 32,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 32,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": true
+      },
+      "animation": {
+        "name": "Armature|running|baselayer",
+        "duration": 0.6666666865348816,
+        "loop": true,
+        "samples": 32,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.156806195394381e-07,
+            "y": 1.885917694011141e-06,
+            "z": 7.072191356982671e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 0.6666666865348816
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.169233544478334e-08,
+          -9.56745869960918e-08,
+          0.9999999999999913
+        ]
+      },
+      "sourceStats": {
+        "meshes": 2,
+        "triangles": 42456,
+        "skinnedMeshes": 1,
+        "materials": 2
+      },
+      "sourceFile": "survivor-v2-run.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.9573036234248833,
+        "footPivot": {
+          "x": 128.00000067195035,
+          "y": 193.40416068104
+        },
+        "subjectHeight": 44,
+        "frontYawRadians": 0
+      },
+      "frames": 512,
+      "clippedFrames": [],
+      "uniqueFrames": 496,
+      "uniqueSamplesByDirection": {
+        "0": 31,
+        "1": 31,
+        "2": 31,
+        "3": 31,
+        "4": 31,
+        "5": 31,
+        "6": 31,
+        "7": 31,
+        "8": 31,
+        "9": 31,
+        "10": 31,
+        "11": 31,
+        "12": 31,
+        "13": 31,
+        "14": 31,
+        "15": 31
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/survivor-v2-run.glb",
+        "bytes": 15885384,
+        "sha256": "f1070a26240d6e988c4e388fc237ccb8f5a402d395cf3769a07146fd60fdb429",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|running|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-01-mid": {
+      "assetId": "boss-01-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-01-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-01-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.677688647010015e-07,
+            "y": -2.2710754592480953e-06,
+            "z": 1.7742777014273514e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          3.3112997429030436e-08,
+          5.967573892030876e-08,
+          0.9999999999999977
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25884,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-01-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.8155619017449944,
+        "footPivot": {
+          "x": 128,
+          "y": 184.63327991430108
+        },
+        "subjectHeight": 64,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-01-mid-walk.glb",
+        "bytes": 19485620,
+        "sha256": "20d93b4bc5f140b678ff9d4b2d570c32dcef7da908135fe28e33a5927827ec0d",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-07-final": {
+      "assetId": "boss-07-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-07-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-07-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36404,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-07-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.0700296761012045,
+        "footPivot": {
+          "x": 128,
+          "y": 183.64154315726262
+        },
+        "subjectHeight": 104,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-07-final.glb",
+        "bytes": 19166632,
+        "sha256": "30cc02e9094b1f88ec00598f9d353d3d1674c4cc5876d8f9bee540bd74a8597e",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-01-final": {
+      "assetId": "boss-01-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-01-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-01-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36345,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-01-final-v2.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 0.8921657831343395,
+        "footPivot": {
+          "x": 128,
+          "y": 170.8239575904483
+        },
+        "subjectHeight": 96,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-01-final-v2.glb",
+        "bytes": 20183408,
+        "sha256": "9e29094802e80878bf33cadd65cbb3332155f6e91e1121c3f871680ae6437c2b",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-02-mid": {
+      "assetId": "boss-02-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-02-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-02-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 2.799777982787077e-07,
+            "y": 0,
+            "z": 0
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -1.622749848269347e-08,
+          -4.163935805289794e-07,
+          0.9999999999999131
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25808,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-02-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.5866326548094654,
+        "footPivot": {
+          "x": 128,
+          "y": 168.21102574895343
+        },
+        "subjectHeight": 63.99999999999999,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-02-mid-walk.glb",
+        "bytes": 19845680,
+        "sha256": "a7caab4b5145951d583c40876d3947ec1f1b5217b1e2ec65bed0939dba31f378",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-02-final": {
+      "assetId": "boss-02-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-02-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-02-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36245,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-02-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 0.9312067076276704,
+        "footPivot": {
+          "x": 128.00000000000003,
+          "y": 173.62912867375584
+        },
+        "subjectHeight": 97.99999999999999,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-02-final.glb",
+        "bytes": 20640168,
+        "sha256": "857c68b436243e70dadcea9747510cb08a08b905d4bdd433d427cb23ca3fdb82",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-03-mid": {
+      "assetId": "boss-03-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-03-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-03-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.404154599375488e-07,
+            "y": -5.7644315702987114e-06,
+            "z": 1.8334896255943218e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          1.0268699515366425e-07,
+          2.0464237685115554e-07,
+          0.9999999999999739
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25866,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-03-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.049697507850656,
+        "footPivot": {
+          "x": 128,
+          "y": 189.57801996394215
+        },
+        "subjectHeight": 68,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-03-mid-walk.glb",
+        "bytes": 18418400,
+        "sha256": "2a331c4b94cc2fd7099c36d374e758e03e298d52b557b7b47b0e40cbbc1386ad",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-03-final": {
+      "assetId": "boss-03-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-03-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-03-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36039,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-03-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 0.9172906028186474,
+        "footPivot": {
+          "x": 128,
+          "y": 173.86453014093237
+        },
+        "subjectHeight": 100,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-03-final.glb",
+        "bytes": 20256352,
+        "sha256": "82cb4f2e12adaf1fb91a505e48a27b09179e1cf51aeaba81fe5bbca85dfdea0e",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-04-mid": {
+      "assetId": "boss-04-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-04-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-04-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 7.20553859689943e-07,
+            "y": 0,
+            "z": 1.801384649779969e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          2.1680253916036014e-08,
+          7.91323207097129e-07,
+          0.9999999999996867
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25682,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-04-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.8563894930958231,
+        "footPivot": {
+          "x": 128,
+          "y": 190.9220053086289
+        },
+        "subjectHeight": 68,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-04-mid-walk.glb",
+        "bytes": 18258168,
+        "sha256": "3f96c527550b751509a4f7d164a92f5353309cfb3cc3611f383662529876d392",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-04-final": {
+      "assetId": "boss-04-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-04-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-04-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36343,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-04-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.2856422214715686,
+        "footPivot": {
+          "x": 128,
+          "y": 189.71082663063527
+        },
+        "subjectHeight": 96,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-04-final.glb",
+        "bytes": 19022216,
+        "sha256": "c756f456fc57f1268a64e91a813fe912d441b308589fd2720e81596c1f3b8cf4",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-05-final": {
+      "assetId": "boss-05-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-05-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-05-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36051,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-05-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.111373161883603,
+        "footPivot": {
+          "x": 128,
+          "y": 183.56865809418014
+        },
+        "subjectHeight": 100,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-05-final.glb",
+        "bytes": 18267828,
+        "sha256": "cfd8d019e82d2c8fcad4e0c23dba6700785d8863e4d44fb4bfdeb17d36eb7bc8",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-06-final": {
+      "assetId": "boss-06-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-06-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-06-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36079,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-06-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 0.7620494954224526,
+        "footPivot": {
+          "x": 128,
+          "y": 165.34042527570017
+        },
+        "subjectHeight": 98,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-06-final.glb",
+        "bytes": 20989956,
+        "sha256": "07fcb2a608c73511cd99909cfa5bc3d7d42dea75b27af7920beceade3547fd99",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-05-mid": {
+      "assetId": "boss-05-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-05-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-05-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 3.6027694050311254e-07,
+            "y": 0,
+            "z": 9.006923518128929e-08
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          0.04665497092558255,
+          -0.04862441272398764,
+          0.9977269066108122
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25662,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-05-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.679868883070362,
+        "footPivot": {
+          "x": 128,
+          "y": 182.191467811267
+        },
+        "subjectHeight": 68,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-05-mid-walk.glb",
+        "bytes": 16701068,
+        "sha256": "36c06c72f48c514173fbb8a4da21058d0900c413b6659c9be3704b022f6bc2a8",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-06-mid": {
+      "assetId": "boss-06-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-06-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-06-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 4.927316976932605e-07,
+            "y": -2.7126734352123094e-06,
+            "z": 3.3908417895744947e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.75973046460621e-08,
+          -8.966960124040877e-08,
+          0.9999999999999912
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25882,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-06-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.944341314657827,
+        "footPivot": {
+          "x": 127.99999999999999,
+          "y": 190.25903353677757
+        },
+        "subjectHeight": 64,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-06-mid-walk.glb",
+        "bytes": 17767452,
+        "sha256": "eaaaac11b5adbe5ea6b70dfe0d99ceb1977af7329adffb5c3ad0a7ac73a55cdc",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-07-mid": {
+      "assetId": "boss-07-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-07-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-07-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.722045655076613e-07,
+            "y": -3.051757680339051e-06,
+            "z": 1.907348554652799e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.841109333750177e-08,
+          1.3546745777940782e-07,
+          0.999999999999986
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25914,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-07-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.7019781794107083,
+        "footPivot": {
+          "x": 127.99999999999999,
+          "y": 186.40187111214732
+        },
+        "subjectHeight": 72,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-07-mid-walk.glb",
+        "bytes": 18129272,
+        "sha256": "3b54e4c0e8145db532a9aca758f4c8facbe2da56743163dcf3e2a8eca6790f67",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-08-mid": {
+      "assetId": "boss-08-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-08-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-08-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.404156022681406e-07,
+            "y": -2.8822165489827967e-06,
+            "z": 7.205541363575207e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -0.01308967746776245,
+          -0.17657885226053913,
+          0.9841994560444244
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25831,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-08-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.5766880497766524,
+        "footPivot": {
+          "x": 128,
+          "y": 179.7488860788108
+        },
+        "subjectHeight": 68,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-08-mid-walk.glb",
+        "bytes": 20857052,
+        "sha256": "53b75ee58ef51172332b4bc667611038bc3fe2d1637113df5ed97f8518076ffa",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-08-final": {
+      "assetId": "boss-08-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-08-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-08-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36427,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-08-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.0223555607642991,
+        "footPivot": {
+          "x": 127.99999999999999,
+          "y": 181.16248915974356
+        },
+        "subjectHeight": 104,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-08-final.glb",
+        "bytes": 20999948,
+        "sha256": "5649e785c909c37c995a2fc49c692c0d52e84392f47f0d9f54b45aed061e35a6",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-09-mid": {
+      "assetId": "boss-09-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-09-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-09-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.826354827140334e-07,
+            "y": -2.8822161084463005e-06,
+            "z": 1.8013850677789378e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -5.021058860909737e-09,
+          5.854676181335533e-07,
+          0.9999999999998286
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25794,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-09-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.778983520625519,
+        "footPivot": {
+          "x": 128,
+          "y": 186.6880572246206
+        },
+        "subjectHeight": 68,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-09-mid-walk.glb",
+        "bytes": 17237348,
+        "sha256": "c2aef61f0605e6745b9a09c49b7e75c88fd0ea0c16f65a75180bd7a2df2a152c",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-09-final": {
+      "assetId": "boss-09-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-09-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-09-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36377,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-09-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.0084067830057681,
+        "footPivot": {
+          "x": 128,
+          "y": 178.4203391502884
+        },
+        "subjectHeight": 100,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-09-final.glb",
+        "bytes": 19956300,
+        "sha256": "332eead135397cd46b5485c18d8bc0ceae0b9999d5036df03408709b57547d65",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-10-mid": {
+      "assetId": "boss-10-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-10-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-10-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 5.404153848864723e-07,
+            "y": -5.764430774490847e-06,
+            "z": 1.8013846170283898e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -0.01180810542399996,
+          -0.19420825560738592,
+          0.9808892506803364
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25533,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-10-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.4791479140154105,
+        "footPivot": {
+          "x": 128,
+          "y": 175.9473508443028
+        },
+        "subjectHeight": 68,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-10-mid-walk.glb",
+        "bytes": 20466548,
+        "sha256": "1083e320dfd0366eb5f724e2b703eca7f9c411ba4adb6cc7e0ff806fa30e81e7",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-11-mid": {
+      "assetId": "boss-11-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-11-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-11-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 1.9073489010423827e-07,
+            "y": -6.103516483335625e-06,
+            "z": 1.8477442478154193e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -8.559647787660233e-08,
+          -1.0260105646021303e-06,
+          0.9999999999994699
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25798,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-11-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.6607829472752622,
+        "footPivot": {
+          "x": 128,
+          "y": 185.7482110398871
+        },
+        "subjectHeight": 72,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-11-mid-walk.glb",
+        "bytes": 16696420,
+        "sha256": "2801797258e0bdcadc0fa9385740523ffc6a8721ed5a2222a98388d40429f76a",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-11-final": {
+      "assetId": "boss-11-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-11-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-11-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36165,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-11-final-v2.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 0.9439247002398345,
+        "footPivot": {
+          "x": 127.99999999999999,
+          "y": 177.08408441247138
+        },
+        "subjectHeight": 104,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-11-final-v2.glb",
+        "bytes": 18530988,
+        "sha256": "13bd9bb6776fb6ee0b4ad49ddcadc8ed5f9f6e68207fa42f058d52f4415e5130",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-12-mid": {
+      "assetId": "boss-12-mid",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-12-mid/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-12-mid",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 4.7683713311208464e-07,
+            "y": -3.0517576519173417e-06,
+            "z": 1.9073485324483386e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -1.4539427428296893e-07,
+          2.548740403931029e-07,
+          0.999999999999957
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 25745,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "boss-12-mid-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.8127432734981321,
+        "footPivot": {
+          "x": 128,
+          "y": 192.8288961730724
+        },
+        "subjectHeight": 72,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-12-mid-walk.glb",
+        "bytes": 18466932,
+        "sha256": "6eba3da3e6a1b3820541fe448c16f2d55c8fd10a599172904e166a47fd8f72dd",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "boss-12-final": {
+      "assetId": "boss-12-final",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-12-final/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-12-final",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 36070,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-12-final.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 0.6814369967690234,
+        "footPivot": {
+          "x": 128,
+          "y": 165.47903482229628
+        },
+        "subjectHeight": 110.00000000000001,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-12-final.glb",
+        "bytes": 21444780,
+        "sha256": "079d68953420edfb8c236eaf68e58dac7b6fe865f5a372828d6cf00c3edf696a",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": null,
+            "mesh": 0,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "boss-10-final-repaired-v2": {
+      "assetId": "boss-10-final-repaired-v2",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/boss-10-final-repaired-v2/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/boss-10-final-repaired-v2",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 512,
+        "columns": 8,
+        "rows": 2,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 1,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": null,
+      "sourceRig": {
+        "skins": 0,
+        "bones": 0,
+        "restForward": null
+      },
+      "sourceStats": {
+        "meshes": 5,
+        "triangles": 46183,
+        "skinnedMeshes": 0,
+        "materials": 1
+      },
+      "sourceFile": "boss-10-final-repaired-v2.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 0.716796253466917,
+        "footPivot": {
+          "x": 128,
+          "y": 165.27340518027967
+        },
+        "subjectHeight": 103.99999999999999,
+        "frontYawRadians": 0
+      },
+      "frames": 16,
+      "clippedFrames": [],
+      "uniqueFrames": 16,
+      "uniqueSamplesByDirection": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 1,
+        "15": 1
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/boss-10-final-repaired-v2.glb",
+        "bytes": 23381300,
+        "sha256": "11167d631fc9725ee1b9b9d95df66dcf37006256de297fc65776188691fefed0",
+        "skins": 0,
+        "jointCounts": [],
+        "meshCount": 5,
+        "meshNodes": [
+          {
+            "name": "original-v1-body-with-rear-track-region-cut",
+            "mesh": 0,
+            "skin": null
+          },
+          {
+            "name": "actual-left-front-track-rigid-copy-to-right-rear",
+            "mesh": 1,
+            "skin": null
+          },
+          {
+            "name": "actual-right-front-track-rigid-copy-to-left-rear",
+            "mesh": 2,
+            "skin": null
+          },
+          {
+            "name": "actual-steel-crossbeam-rear-diagonal-A",
+            "mesh": 3,
+            "skin": null
+          },
+          {
+            "name": "actual-steel-crossbeam-rear-diagonal-B",
+            "mesh": 4,
+            "skin": null
+          }
+        ],
+        "animations": []
+      }
+    },
+    "enemy-walker": {
+      "assetId": "enemy-walker",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/enemy-walker/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/enemy-walker",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 3.54647618924786e-07,
+            "y": -3.5603839414477534e-06,
+            "z": 1.1126199805921999e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -2.631682466240467e-07,
+          -9.824373742207674e-07,
+          0.9999999999994829
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 18603,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "enemy-walker-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 3.008779405716683,
+        "footPivot": {
+          "x": 128,
+          "y": 191.08835633356603
+        },
+        "subjectHeight": 42,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/enemy-walker-walk.glb",
+        "bytes": 15930880,
+        "sha256": "308ca4734996fb5c426034a8c1d46f2c4da3ba9d812c0cafe2d74455643b439c",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "enemy-runner": {
+      "assetId": "enemy-runner",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/enemy-runner/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/enemy-runner",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 2.5166409806098855e-07,
+            "y": -3.221300456601739e-06,
+            "z": 0
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -9.449384075687497e-08,
+          -1.6154047663208962e-08,
+          0.9999999999999954
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 18610,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "enemy-runner-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.6694488924076047,
+        "footPivot": {
+          "x": 127.99999999999999,
+          "y": 177.6245513642985
+        },
+        "subjectHeight": 38,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/enemy-runner-walk.glb",
+        "bytes": 15775392,
+        "sha256": "9f843b2afe0e56bafefcf36ad8b7caaf8bd8da6983d7dd45ac7023640cc70ce0",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "enemy-shield": {
+      "assetId": "enemy-shield",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/enemy-shield/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/enemy-shield",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 3.65575169691823e-07,
+            "y": 0,
+            "z": 4.874335592930379e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          8.161614697257094e-08,
+          -6.976480443291501e-07,
+          0.9999999999997532
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 18430,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "enemy-shield-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.0331925301418448,
+        "footPivot": {
+          "x": 127.99999999999999,
+          "y": 162.00974958633253
+        },
+        "subjectHeight": 46,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/enemy-shield-walk.glb",
+        "bytes": 15246668,
+        "sha256": "677b3f414a9d0020fd01d34e5d8223e1a1962a4b1166bca26e9d9777c5de1d32",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "enemy-screamer": {
+      "assetId": "enemy-screamer",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/enemy-screamer/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/enemy-screamer",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 4.559754946502348e-07,
+            "y": -4.577636339320179e-06,
+            "z": 1.4305113557600002e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -0.012132671065190177,
+          -0.1237978936227565,
+          0.9922332789356505
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 18723,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "enemy-screamer-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.4442805488750423,
+        "footPivot": {
+          "x": 127.99999999999999,
+          "y": 191.39155273710168
+        },
+        "subjectHeight": 54,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/enemy-screamer-walk.glb",
+        "bytes": 16468508,
+        "sha256": "cd38a4b36e1298222da876965dfeaa97a80206bceefbcee0c927a931e36c5e00",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "enemy-gas": {
+      "assetId": "enemy-gas",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/enemy-gas/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/enemy-gas",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 3.351105534177279e-07,
+            "y": -3.899468257628769e-06,
+            "z": 0
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -1.8833850536421144e-07,
+          -7.981101405544533e-08,
+          0.999999999999979
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 18477,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "enemy-gas-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.4666377408748827,
+        "footPivot": {
+          "x": 128,
+          "y": 183.08497013247828
+        },
+        "subjectHeight": 46,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/enemy-gas-walk.glb",
+        "bytes": 17608632,
+        "sha256": "cad86a68def0b67f6069adca8bca1382022933d258b0cacb258537b7c625c008",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "enemy-elite": {
+      "assetId": "enemy-elite",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/enemy-elite/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/enemy-elite",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 3.9736432755344e-07,
+            "y": -2.1192764130262276e-06,
+            "z": 1.3245477581413923e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          -5.9358365359668416e-08,
+          -5.589518135168987e-07,
+          0.999999999999842
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 18560,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "enemy-elite-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.9575041067044872,
+        "footPivot": {
+          "x": 128,
+          "y": 164.94400761900556
+        },
+        "subjectHeight": 50,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/enemy-elite-walk.glb",
+        "bytes": 16351956,
+        "sha256": "74b95fc3d9cfe6e541f848c6bb938af929e04e755d15c6ae9549eae2e7b554b7",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    },
+    "enemy-collector": {
+      "assetId": "enemy-collector",
+      "runtimeMetadata": "outputs/dead-signal/playable/v0.26.1/dist/assets/production/enemy-collector/metadata.json",
+      "canonicalSpriteFolder": "outputs/dead-signal/production-assets/sprites/enemy-collector",
+      "canonicalFilesByteMatch": {
+        "metadata.json": true,
+        "atlas.png": true,
+        "body-alpha.png": true
+      },
+      "atlas": {
+        "width": 2048,
+        "height": 4096,
+        "columns": 8,
+        "rows": 16,
+        "frameSize": 256,
+        "directions": 16,
+        "samples": 8,
+        "order": "direction-major, sample-minor",
+        "transparent": true,
+        "alphaThreshold": 8,
+        "includesWeapon": false
+      },
+      "animation": {
+        "name": "Armature|walking_man|baselayer",
+        "duration": 1.066666603088379,
+        "loop": true,
+        "samples": 8,
+        "rootMotionRemoved": false,
+        "rootMotion": {
+          "bone": "Hips",
+          "delta": {
+            "x": 6.51677483753943e-07,
+            "y": -6.951226495743867e-06,
+            "z": 1.9007259949299637e-07
+          },
+          "significant": false,
+          "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+          "preservesVerticalMotion": true,
+          "timeSpan": {
+            "start": 0.03333333507180214,
+            "end": 1.066666603088379
+          }
+        }
+      },
+      "sourceRig": {
+        "skins": 1,
+        "bones": 24,
+        "restForward": [
+          1.2850844538295935e-07,
+          -1.608137967247381e-06,
+          0.9999999999986987
+        ]
+      },
+      "sourceStats": {
+        "meshes": 1,
+        "triangles": 18494,
+        "skinnedMeshes": 1,
+        "materials": 1
+      },
+      "sourceFile": "enemy-collector-walk.glb",
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.225696842199157,
+        "footPivot": {
+          "x": 128,
+          "y": 174.0088782834786
+        },
+        "subjectHeight": 82,
+        "frontYawRadians": 0
+      },
+      "frames": 128,
+      "clippedFrames": [],
+      "uniqueFrames": 128,
+      "uniqueSamplesByDirection": {
+        "0": 8,
+        "1": 8,
+        "2": 8,
+        "3": 8,
+        "4": 8,
+        "5": 8,
+        "6": 8,
+        "7": 8,
+        "8": 8,
+        "9": 8,
+        "10": 8,
+        "11": 8,
+        "12": 8,
+        "13": 8,
+        "14": 8,
+        "15": 8
+      },
+      "uniqueDirectionStartFrames": 16,
+      "actualGLB": {
+        "path": "work/meshy-sprite-baker/models/enemy-collector-walk.glb",
+        "bytes": 18992348,
+        "sha256": "1a3a0437ac7bb362069b05cd3cb44f8701d5909b7e97ea7de009e97d8e7f1786",
+        "skins": 1,
+        "jointCounts": [
+          24
+        ],
+        "meshCount": 1,
+        "meshNodes": [
+          {
+            "name": "char1",
+            "mesh": 0,
+            "skin": 0
+          }
+        ],
+        "animations": [
+          {
+            "name": "Armature|walking_man|baselayer",
+            "channels": 66,
+            "targetNodes": 22
+          }
+        ]
+      }
+    }
+  },
+  "findings": [
+    {
+      "priority": "P1",
+      "id": "all-final-boss-static",
+      "detail": "All 12 final boss source GLBs have zero skins and zero animation clips. Runtime contains 16 directional views of one rest pose; movement visually slides that unchanged pose. Gallery native-integrated means source artwork installed, not complete animation."
+    },
+    {
+      "priority": "P1",
+      "id": "state-animation-missing",
+      "detail": "ProductionPoseClock/actorFrame choose only idle/walk/run/dash from travel. Boss attackState, windup, charge, recover and skill state never choose body clips. Native hero fire/reload also do not change body pose. Hit reaction is a same-sprite screen flash."
+    },
+    {
+      "priority": "P1",
+      "id": "boss-death-identity-lost",
+      "detail": "engine.killEnemy saves corpse type but drops bossKey, radius, source asset and pose. drawCorpse uses generic Canvas body by enemy type, so native appearance vanishes at death. Final boss victory ends immediately; there is no dying/death clip."
+    },
+    {
+      "priority": "P2",
+      "id": "walk-only-low-sampling",
+      "detail": "All 12 mid bosses and 7 enemy types have real 24-joint walk deformation, but only 8 sampled poses per direction and no alternate native clips. Hero has32 walk/run samples; idle remains one pose. Merely increasing sample count will not create missing actions."
+    },
+    {
+      "priority": "P2",
+      "id": "enemy-gait-speed-and-grounding",
+      "detail": "Enemy and boss use engine distance-driven walkPhase (0.08 rad/world-unit); one cycle is 78.54 world units regardless of scale/anatomy. Only hero gets measured gait duration and sole height correction. Enemy/boss footing and stride synchronization require actual source pose measurement, not whole-sprite bounce."
+    }
+  ],
+  "feasibleLocalWork": [
+    {
+      "order": 1,
+      "action": "Add unique inspectable animation coverage status to review cards and summary; distinguish rigged walk-only, static final, runtime-integrated, missing action clips. Preserve approved source textures/UV and active saves."
+    },
+    {
+      "order": 2,
+      "action": "For 12 midboss+7enemy rigged originals, generate added attack/windup/hit/death clips on actual existing24-joint skeleton with per-role configurations; bake new uniquely named atlases. Reuse actual original meshes and embedded textures, no substitute generics. Increase locomotion to32 samples if atlas memory/performance is validated."
+    },
+    {
+      "order": 3,
+      "action": "For 12 finalboss originals, create new model files with anatomy-specific skinning/rig. Boss10 is quadruped tracked machine with repaired original geometry, so humanoid auto-rig is unsuitable; retain body/track/Xbrace meshes and semantic attachment joints. All other final meshes are single fused textured mesh and need weights/part segmentation before joint articulation."
+    },
+    {
+      "order": 4,
+      "action": "Add native runtime pose dispatch driven by actual simulation action state and visual state clocks; clamp oneshots, freeze while paused, reset cleanly, no RNG or saved physics changes. Native actor death requires backwards compatible corpse identity handling."
+    }
+  ],
+  "limitations": [
+    "Source geometry and frame pixel uniqueness measured; browser-visible GPU animation and footing not verified in this audit.",
+    "No new rig, animation clips, exported sprites or active runtime changes were created in this audit.",
+    "Pixel uniqueness demonstrates distinct baked poses, not correct anatomy, movement quality, or unoccluded feet."
+  ]
+}

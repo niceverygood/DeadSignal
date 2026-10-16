@@ -1,0 +1,2358 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-16T08:58:26.026Z",
+  "modelCount": 32,
+  "groundedLocomotionModels": 19,
+  "models": [
+    {
+      "id": "survivor",
+      "name": "생존자 · 원본 공통 리그",
+      "kind": "hero",
+      "model": "models/survivor-motion-v1/model.glb",
+      "bytes": 16207244,
+      "sha256": "ba9171cbd61cc8dbd86f58f88ba4368c0734b2cb7f32030981c1b21e522bcba3",
+      "provenance": "models/survivor-motion-v1/motion-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.3499999999999999,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.42,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        }
+      ],
+      "preferredClip": "Armature|walking_man|baselayer",
+      "preservation": {
+        "meshes": true,
+        "skins": true,
+        "nodes": true,
+        "materials": true,
+        "images": true,
+        "textures": true,
+        "samplers": true,
+        "scenes": true,
+        "scene": true,
+        "originalBinaryPrefixExact": true,
+        "originalBufferViewsExact": true,
+        "originalAccessorsExact": true,
+        "originalWalkingClipExact": true
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-01-mid",
+      "name": "1탄 중간 · 추격 반장",
+      "kind": "boss",
+      "model": "models/boss-01-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 19850968,
+      "sha256": "9735f4264affa9b69487519de8eb782edc29560bf57592b6d3942cbb54a90301",
+      "provenance": "models/boss-01-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.6,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-01-final",
+      "name": "1탄 최종 · 철거 감독관",
+      "kind": "boss",
+      "model": "models/boss-01-final-motion-v1/model.glb",
+      "bytes": 21877968,
+      "sha256": "6c065ad1d100a6a77588399aa1500c8f78a46dfc0c4c9fe1063741774d408c51",
+      "provenance": "models/boss-01-final-motion-v1/rig-provenance.json",
+      "jointCount": 15,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 30,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 30,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 30,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 20181540
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-02-mid",
+      "name": "2탄 중간 · 맨홀 작업자",
+      "kind": "boss",
+      "model": "models/boss-02-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 20209120,
+      "sha256": "ed5405c13f8f0626901eca77e3d362b2fde5616549fa91d2cb29a60fed17d3eb",
+      "provenance": "models/boss-02-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.56,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.58,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-02-final",
+      "name": "2탄 최종 · 준설 기사",
+      "kind": "boss",
+      "model": "models/boss-02-final-motion-v1/model.glb",
+      "bytes": 22166948,
+      "sha256": "cdaa5879d022ed12f9bb4e63789d56cec5f52ba5e98f79271222ae3dffae8e59",
+      "provenance": "models/boss-02-final-motion-v1/rig-provenance.json",
+      "jointCount": 19,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 38,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 20638304
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-03-mid",
+      "name": "3탄 중간 · 컨테이너 반장",
+      "kind": "boss",
+      "model": "models/boss-03-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 18781816,
+      "sha256": "5a903bfe5e6a940a4d2d470bd3da1a6a55a9ec9c9b6d3522fe6e4174fa469f68",
+      "provenance": "models/boss-03-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.56,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.58,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-03-final",
+      "name": "3탄 최종 · 하역 지휘관",
+      "kind": "boss",
+      "model": "models/boss-03-final-motion-v1/model.glb",
+      "bytes": 21848964,
+      "sha256": "6807d08a80f6260c268c77cd999cf709ed92609f3786512dc797da679a0f2598",
+      "provenance": "models/boss-03-final-motion-v1/rig-provenance.json",
+      "jointCount": 19,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 38,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 20254504
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-04-mid",
+      "name": "4탄 중간 · 수액 간호사",
+      "kind": "boss",
+      "model": "models/boss-04-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 18621484,
+      "sha256": "0b643fc6c699281a7e817f07ed271c67fac1ebfdfcf689a7f49ef75470ff421c",
+      "provenance": "models/boss-04-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.56,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.58,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-04-final",
+      "name": "4탄 최종 · 격리 병동장",
+      "kind": "boss",
+      "model": "models/boss-04-final-motion-v1/model.glb",
+      "bytes": 20470312,
+      "sha256": "76419b5212171a1ad5d1160f651ab800e6590d6f5175aa2ddd9b04c4cf9752b8",
+      "provenance": "models/boss-04-final-motion-v1/rig-provenance.json",
+      "jointCount": 15,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 30,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 30,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 30,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 19020380
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-05-mid",
+      "name": "5탄 중간 · 방패 순찰대원",
+      "kind": "boss",
+      "model": "models/boss-05-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 17066388,
+      "sha256": "52708e840e9090a41d93f1fb32b3552b79d3a79ea0103c08d7462a2d1a38952a",
+      "provenance": "models/boss-05-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.6,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-05-final",
+      "name": "5탄 최종 · 진압 대장",
+      "kind": "boss",
+      "model": "models/boss-05-final-motion-v1/model.glb",
+      "bytes": 19727800,
+      "sha256": "89681063a412296380e73e48d35b4ed29d36f3aaebd442134914842437303a1e",
+      "provenance": "models/boss-05-final-motion-v1/rig-provenance.json",
+      "jointCount": 15,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 30,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 30,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 30,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 30,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 18265988
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-06-mid",
+      "name": "6탄 중간 · 배달 질주자",
+      "kind": "boss",
+      "model": "models/boss-06-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 18125992,
+      "sha256": "c355755644bf75eb9e772ab31af03a75872ee84d22c3787665951070a0f9d386",
+      "provenance": "models/boss-06-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.42,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.54,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-06-final",
+      "name": "6탄 최종 · 택배 집하장장",
+      "kind": "boss",
+      "model": "models/boss-06-final-motion-v1/model.glb",
+      "bytes": 22621796,
+      "sha256": "3d6858aecb3caf01f2a86beea2216718fde73cbe37f9fa16143f22406b212e2e",
+      "provenance": "models/boss-06-final-motion-v1/rig-provenance.json",
+      "jointCount": 19,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 38,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 20988092
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-07-mid",
+      "name": "7탄 중간 · 검침 기사",
+      "kind": "boss",
+      "model": "models/boss-07-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 18492568,
+      "sha256": "ba9601d08a77a55789294891f58ba24a4a3b7b3989b1a67af4d8ec98fb9aa411",
+      "provenance": "models/boss-07-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.56,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.58,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-07-final",
+      "name": "7탄 최종 · 송전 정비장",
+      "kind": "boss",
+      "model": "models/boss-07-final-motion-v1/model.glb",
+      "bytes": 20672784,
+      "sha256": "ebde4ee170c59388e0d124ba03a355434861193caaf7bfa4dd1a01e3b99cdbb4",
+      "provenance": "models/boss-07-final-motion-v1/rig-provenance.json",
+      "jointCount": 19,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 38,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 19164780
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-08-mid",
+      "name": "8탄 중간 · 화염 진압대원",
+      "kind": "boss",
+      "model": "models/boss-08-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 21226224,
+      "sha256": "5c5314f04ece401aad846a000cb3f77648336848090e755954d3972eba29e688",
+      "provenance": "models/boss-08-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.66,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.7,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-08-final",
+      "name": "8탄 최종 · 소각 담당관",
+      "kind": "boss",
+      "model": "models/boss-08-final-motion-v1/model.glb",
+      "bytes": 22559104,
+      "sha256": "a901e30c57544e513d4b86500d215e25e68cae63303c2ce5e5dc6b026dbb6a5f",
+      "provenance": "models/boss-08-final-motion-v1/rig-provenance.json",
+      "jointCount": 19,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 38,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 20998080
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-09-mid",
+      "name": "9탄 중간 · 폭발물 처리반",
+      "kind": "boss",
+      "model": "models/boss-09-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 17600716,
+      "sha256": "07457485b6ad804365b7d163ac77af96e6526115ad7c49d4a49dcec49396b688",
+      "provenance": "models/boss-09-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.56,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.58,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-09-final",
+      "name": "9탄 최종 · 탄약 관리관",
+      "kind": "boss",
+      "model": "models/boss-09-final-motion-v1/model.glb",
+      "bytes": 21555008,
+      "sha256": "9007343dd8119b75284d5d177b815e1d0d298d42d668e11a7044148c289122e5",
+      "provenance": "models/boss-09-final-motion-v1/rig-provenance.json",
+      "jointCount": 19,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 38,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 19954448
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-10-mid",
+      "name": "10탄 중간 · 견인 기사",
+      "kind": "boss",
+      "model": "models/boss-10-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 20829984,
+      "sha256": "dcaa0a89dbab6d5662f54e175deb531126eacee9cb0f19b804605fef669a4a8a",
+      "provenance": "models/boss-10-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.56,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.58,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-10-final",
+      "name": "10탄 최종 · 압축 작업반장",
+      "kind": "boss",
+      "model": "models/boss-10-final-motion-v1/model.glb",
+      "bytes": 25365548,
+      "sha256": "16bd7a4420ccede811683b9bceed03bd863ce3ecc107b19e6221cd01d076a501",
+      "provenance": "models/boss-10-final-motion-v1/rig-provenance.json",
+      "jointCount": 19,
+      "skinnedMeshes": 5,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 38,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 38,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 38,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 23373500
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-11-mid",
+      "name": "11탄 중간 · 농약 살포원",
+      "kind": "boss",
+      "model": "models/boss-11-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 17065600,
+      "sha256": "c802146154677c2edd77867d0849e8b562241fde16ace967d230a7d90686a162",
+      "provenance": "models/boss-11-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.66,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.7,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-11-final",
+      "name": "11탄 최종 · 격리 재배사",
+      "kind": "boss",
+      "model": "models/boss-11-final-motion-v1/model.glb",
+      "bytes": 20456960,
+      "sha256": "960ad5ffa3cf7fe2960c0e01ef5661d696e399e2728dcf748b39cf9658b97e17",
+      "provenance": "models/boss-11-final-motion-v1/rig-provenance.json",
+      "jointCount": 23,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 46,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 46,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 46,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 18529172
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "boss-12-mid",
+      "name": "12탄 중간 · 방벽 관측관",
+      "kind": "boss",
+      "model": "models/boss-12-mid-grounded-locomotion-v1/model.glb",
+      "bytes": 18832252,
+      "sha256": "a6159e3fe2b31d0616fa68dbfc4e7703334be81cee2902e828c286d57c65d800",
+      "provenance": "models/boss-12-mid-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.6,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "boss-12-final",
+      "name": "12탄 최종 · 등대 지기",
+      "kind": "boss",
+      "model": "models/boss-12-final-motion-v1/model.glb",
+      "bytes": 23188056,
+      "sha256": "d2c3c2eafbda7ba1f9a6bf15ae099401e81155518836832f1577d59f6f550d44",
+      "provenance": "models/boss-12-final-motion-v1/rig-provenance.json",
+      "jointCount": 23,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "DS_idle",
+          "duration": 1.7999999523162842,
+          "tracks": 46,
+          "loop": true
+        },
+        {
+          "name": "DS_walk",
+          "duration": 1.2000000476837158,
+          "tracks": 46,
+          "loop": true
+        },
+        {
+          "name": "DS_windup",
+          "duration": 0.800000011920929,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_attack",
+          "duration": 0.550000011920929,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_hit",
+          "duration": 0.2199999988079071,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_death",
+          "duration": 1.149999976158142,
+          "tracks": 46,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666667461395264,
+          "tracks": 46,
+          "loop": false
+        }
+      ],
+      "preferredClip": "DS_walk",
+      "preservation": {
+        "originalBinaryBytesUnchanged": 21442928
+      },
+      "note": "실제 제작 GLB의 관절 변형 검수용입니다. 게임 atlas 적용·실제 전투 검수와 구분합니다."
+    },
+    {
+      "id": "enemy-walker",
+      "name": "보행 감염자",
+      "kind": "enemy",
+      "model": "models/enemy-walker-grounded-locomotion-v1/model.glb",
+      "bytes": 16294220,
+      "sha256": "10137adca452ecccc6598695b20c0579f0c742622fea6b1bd162955684da16e9",
+      "provenance": "models/enemy-walker-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.56,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.58,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "enemy-runner",
+      "name": "질주 감염자",
+      "kind": "enemy",
+      "model": "models/enemy-runner-grounded-locomotion-v1/model.glb",
+      "bytes": 16133960,
+      "sha256": "746c3e0473a927387e9c5e1a792de5b4a90986a842ad666f379bdf5a1a12c854",
+      "provenance": "models/enemy-runner-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.42,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.54,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedRun",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "enemy-shield",
+      "name": "방패 감염자",
+      "kind": "enemy",
+      "model": "models/enemy-shield-grounded-locomotion-v1/model.glb",
+      "bytes": 15612096,
+      "sha256": "e1f93aa724b386248fa766fe5dcd389ebf01233b89e31146c7ab90724eb513eb",
+      "provenance": "models/enemy-shield-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.6,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "enemy-screamer",
+      "name": "비명 감염자",
+      "kind": "enemy",
+      "model": "models/enemy-screamer-grounded-locomotion-v1/model.glb",
+      "bytes": 16835744,
+      "sha256": "0b3ce229248ad79e7430b9550ed09ded56e1f1ae4bc0da46c99cd6779c7de17d",
+      "provenance": "models/enemy-screamer-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.64,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "enemy-gas",
+      "name": "가스 감염자",
+      "kind": "enemy",
+      "model": "models/enemy-gas-grounded-locomotion-v1/model.glb",
+      "bytes": 17977696,
+      "sha256": "6f6ff0def9c6015e4f20e32b56525159c1dcbca87cdc0adfc1fa3cb9a114940b",
+      "provenance": "models/enemy-gas-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.66,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.7,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "enemy-elite",
+      "name": "경보 정예",
+      "kind": "enemy",
+      "model": "models/enemy-elite-grounded-locomotion-v1/model.glb",
+      "bytes": 16718236,
+      "sha256": "9dd253f0fa0ebeeea4516c9ce1c658f7252b973e965c10fe8cd45cb7c1ae5bec",
+      "provenance": "models/enemy-elite-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    },
+    {
+      "id": "enemy-collector",
+      "name": "수집가",
+      "kind": "enemy",
+      "model": "models/enemy-collector-grounded-locomotion-v1/model.glb",
+      "bytes": 19358644,
+      "sha256": "7351835c802d81d640ead09ec8da6ce6497620359b12c9ab7789f9424dc636a3",
+      "provenance": "models/enemy-collector-grounded-locomotion-v1/grounding-provenance.json",
+      "jointCount": 24,
+      "skinnedMeshes": 1,
+      "embeddedTextures": 1,
+      "clips": [
+        {
+          "name": "Armature|walking_man|baselayer",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "Armature|running|baselayer",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_Idle",
+          "duration": 2,
+          "tracks": 72,
+          "loop": true
+        },
+        {
+          "name": "DS_Windup",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Attack",
+          "duration": 0.62,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Hit",
+          "duration": 0.38000000000000006,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_Death",
+          "duration": 1.12,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_MotionReel",
+          "duration": 2.6666666666666665,
+          "tracks": 72,
+          "loop": false
+        },
+        {
+          "name": "DS_GroundedWalk",
+          "duration": 1.066666603088379,
+          "tracks": 66,
+          "loop": true
+        },
+        {
+          "name": "DS_GroundedRun",
+          "duration": 0.6666666865348816,
+          "tracks": 66,
+          "loop": true
+        }
+      ],
+      "preferredClip": "DS_GroundedWalk",
+      "preservation": {
+        "originalBinaryPrefixExact": true,
+        "originalGeometrySkinUVTextureExact": true,
+        "originalClipsExact": true
+      },
+      "note": "발·다리 접지 이동 클립을 추가한 실제 GLB입니다. 기존 메시·스킨·텍스처·원본 동작을 보존했습니다. 게임 atlas 적용·브라우저 검수와 구분합니다."
+    }
+  ]
+}

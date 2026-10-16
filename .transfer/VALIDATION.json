@@ -1,0 +1,43 @@
+{
+  "version": "0.29.0",
+  "validatedAt": "2026-10-16T11:52:21.213179+00:00",
+  "environment": "same Mac, separate portable workspace and fresh 8851/8852 browser origins; another physical computer and other operating systems not yet tested",
+  "gameTests": {
+    "passed": 524,
+    "failed": 0,
+    "log": ".transfer/game-tests.log"
+  },
+  "mobileSourceTests": {
+    "passed": 479,
+    "failed": 0,
+    "log": ".transfer/mobile-tests.log",
+    "nativeBuild": false,
+    "baseWebVersion": "0.26.0"
+  },
+  "browser": {
+    "gameNativeAssets": "passed",
+    "rigGroundedWalk": "passed",
+    "errors": [],
+    "evidence": ".transfer/browser-qa/"
+  },
+  "dependencies": {
+    "Three": "0.186.1",
+    "lockedNpmRestore": "passed",
+    "Pillow": "12.3.0 optional asset tools",
+    "numpy": "2.3.5 optional asset tools"
+  },
+  "toolVerification": ".transfer/tool-portability-changes.json",
+  "portabilityChanges": ".transfer/portability-changes.json",
+  "mobileVerification": ".transfer/mobile-portability-changes.json",
+  "sourceGameRuntimeChanged": false,
+  "gitPush": false,
+  "credentialsAndSigningMaterialIncluded": false,
+  "playerLocalStorageIncluded": false,
+  "archiveFreshExtractionVerification": "external transfer result after archiving",
+  "limits": [
+    "mobile1.0.0 source remains web0.26.0-based",
+    "native Android/iOS compilation, signing, real-device RAM/FPS and store submission not part of this handoff check",
+    "Git LFS install and repository storage/access must be checked before uploading",
+    "old historical one-time registration scripts are not startup commands"
+  ]
+}

@@ -1,0 +1,15 @@
+import { build } from 'esbuild';
+import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+await build({entryPoints:[resolve(root,'native/main.js')],outfile:resolve(root,'dist/mobile-runtime.js'),bundle:true,format:'esm',target:['es2022'],minify:true,sourcemap:false,external:['./app.js?v=0.26.0'],logLevel:'info'});
+const p=resolve(root,'dist/index.html');let html=await readFile(p,'utf8');
+const original='<script type="module" src="./app.js?v=0.26.0"></script>';
+const replacement='<script type="module" src="./mobile-runtime.js?v=1.0.0"></script>';
+if(html.includes(original))html=html.replace(original,replacement);
+else if(!html.includes(replacement))throw Error('Unknown game entry; refusing to replace');
+await writeFile(p,html);
+const files={};for(const name of ['index.html','mobile-runtime.js','app.js','audio.js','mobile.css','mobile-privacy.js'])files[name]=createHash('sha256').update(await readFile(resolve(root,'dist',name))).digest('hex');
+await writeFile(resolve(root,'release/mobile-runtime-hashes.json'),JSON.stringify({version:'1.0.0',webGameBase:'0.26.0',files},null,2)+'\n');

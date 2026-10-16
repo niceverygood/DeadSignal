@@ -1,0 +1,61 @@
+DEAD SIGNAL iOS 자산 URL 프로토콜 호환 결함
+기록일: 2026-10-16 (Asia/Seoul)
+상태: 소스 수준 재현 완료, 수정 미실행, 네이티브 UI 영향 직접 관찰 미완료.
+작업 경계: 동결된 1.0.0(1) 소스·iOS/Android 프로젝트·출시 후보·기존 사용자 데이터는 변경하지 않습니다. 아래 계획은 향후 별도 수정 버전에서 실행할 제안이며 이번에 구현한 변경이 아닙니다.
+
+대상과 확인 근거
+
+work/dead-signal-mobile/capacitor.config.json은 iosScheme='capacitor', hostname='localhost'이며 server.url은 없습니다. iOS 로컬 번들 기준 URL은 capacitor://localhost/assets/production/입니다. Android는 https://localhost/assets/production/입니다.
+work/dead-signal-mobile/dist/production-art.js의 assetURL 함수는 현재 372행에서 시작합니다. 주요 검사 두 곳이 iOS base와 맞지 않습니다.
+1. 380행: decodedPath = new URL(decoded, url.origin).pathname
+   WHATWG URL에서 capacitor://localhost/...의 origin은 문자열 'null'입니다. 이를 base로 사용하는 new URL은 Invalid URL 오류를 내고 catch에서 invalid-asset-path로 바뀝니다. 이 실패는 이후 프로토콜 검사보다 먼저 일어날 수 있습니다.
+2. 382행: ['http:', 'https:'].includes(url.protocol)
+   위 정규화를 고쳐도 capacitor:는 허용 목록에 없어 다시 거부됩니다. capacitor:를 허용 목록에 추가하는 것만으로 해결되지 않습니다.
+
+재현 명령 (앱 소스·파일 변경 또는 실제 네트워크 요청 없음)
+
+node --input-type=module <<'JS'
+import {ProductionArt} from './work/dead-signal-mobile/dist/production-art.js';
+import {productionManifest} from './work/dead-signal-mobile/dist/production-manifest.js';
+for (const baseURL of ['capacitor://localhost/assets/production/','https://localhost/assets/production/']) {
+ let fetchCalls=0; const events=[];
+ const art=new ProductionArt({
+  manifest:productionManifest,baseURL,
+  fetchImpl:async()=>{fetchCalls++;throw new Error('audit-probe-fetch-reached');},
+  ImageCtor:class {},onChange:e=>events.push(e)
+ });
+ const loaded=await art.load('survivor-shotgun-idle');
+ console.log(JSON.stringify({baseURL,loaded,fetchCalls,lastEvent:events.at(-1)}));
+}
+JS
+
+실제 결과
+{"baseURL":"capacitor://localhost/assets/production/","loaded":false,"fetchCalls":0,"lastEvent":{"id":"survivor-shotgun-idle","status":"failed","error":"invalid-asset-path"}}
+{"baseURL":"https://localhost/assets/production/","loaded":false,"fetchCalls":1,"lastEvent":{"id":"survivor-shotgun-idle","status":"failed","error":"audit-probe-fetch-reached"}}
+
+두 번째 결과는 성공한 전체 로드가 아닙니다. 네트워크를 사용하지 않는 mock fetch가 의도한 예외를 던졌으며, Android와 같은 https base가 URL 검사를 통과하여 fetch까지 도달함을 뜻합니다. 첫 번째 결과는 iOS base에서 fetch를 시작하기도 전에 경로 검사가 실패함을 뜻합니다. 실제 productionManifest를 전달해야 최종 survivor-shotgun-idle ID를 검사할 수 있습니다.
+
+추가로 확인한 URL 특성
+capacitor://localhost/assets/production/a.png -> origin='null', protocol='capacitor:', hostname='localhost', port=''
+capacitor://foreign.example/assets/production/a.png -> origin='null', protocol='capacitor:', hostname='foreign.example', port=''
+따라서 custom scheme에서 url.origin === baseURL.origin만 비교하면 서로 다른 호스트도 같다고 판정할 수 있습니다. 향후 수정에서 origin 검사만 유지한 채 capacitor:를 전역 허용하는 방식은 충분하지 않습니다.
+
+영향 범위와 아직 확인하지 않은 사항
+
+ProductionArt가 실제 iOS 기본 URL에서 로드하는 자산에 공통 URL 검사를 사용하므로 해당 로딩 경로 전반이 영향을 받을 수 있습니다. 이번 직접 재현 대상은 survivor-shotgun-idle 한 자산이며 실제 WKWebView의 전체 93개 자산을 관찰한 것은 아닙니다. 무드보드 기반 캐릭터·보스·배경의 폴백/미표시 가능성을 네이티브에서 확인해야 합니다.
+Android https base에는 이 custom scheme 특유의 두 문제가 동일하게 발생하지 않습니다. 이 기록은 Android 전체 플레이 검수 완료를 뜻하지 않습니다. 이전 iOS 빌드 성공·번들 일치 검사도 자산 표시 성공을 증명하지 않습니다. 이 감사는 Simulator 실행, 사용자 브라우저 조작, 새 빌드, 설치, 서명, 업로드를 수행하지 않았습니다.
+
+향후 수정 방향 (별도 버전·작업 승인을 받은 후)
+
+1. URL 정규화를 custom scheme에서도 유효한 실제 base URL로 수행합니다. 'null' origin을 URL base로 사용하지 않습니다. 기존 percent decode, 경로 이탈, 확장자, 사용자 정보, query/hash 입력 거부와 revision 검증을 유지합니다.
+2. 허용 대상은 실제 앱의 고정 로컬 origin과 번들 경로입니다. capacitor:는 localhost, 기대 port 및 /assets/production/ 경로 범위와 함께 검증합니다. protocol/hostname/port를 개별 비교하고, custom scheme의 origin='null' 동등성에 의존하지 않습니다. 외부 custom scheme URL이나 임의 호스트를 네이티브 브리지에 열어 주지 않습니다.
+3. http/https 웹·Android 기존 동작과 콘텐츠 revision 방식은 보존합니다. 앱의 서버 URL을 임의 외부 HTTPS로 바꾸는 우회는 사용하지 않습니다. iOS 번들 로더만을 위한 허용 근거와 범위를 코드에서 분명하게 합니다.
+
+필수 회귀 검사 계획
+
+- 정상: 실제 productionManifest의 모든 활성 자산 93개에 대해 capacitor://localhost 및 Android https://localhost, 웹 http/https base의 URL/메타데이터/이미지 로드를 검사합니다. mock으로 URL 검사를 확인한 뒤 실제 WKWebView에서는 JSON fetch와 이미지 decode 및 필수 캐릭터·보스·환경 표시를 확인합니다.
+- 경계: foreign host, 다른 port/scheme, protocol-relative URL, user:pass URL, base 경로 밖 절대/상대 경로, ../ 및 percent-encoded dot/slash/backslash, 잘못된 percent encoding, 제어문자, 입력 query/hash, 잘못된 확장자·revision은 fetch 전에 거부되는지 검사합니다. revision이 올바를 때에만 로더가 생성한 rev query를 허용하는 기존 동작을 보존합니다.
+- 네이티브: 전용 QA 환경의 새 iOS 후보로 최초 실행, 실제 플레이, 장비·보스 도감, 배경 전환, 앱 백그라운드·복귀 및 저장·이어하기를 확인합니다. 사용자 기존 플레이 프로필은 사용하지 않습니다. 로더 실패 수와 필수 자산 ready 상태를 관찰 가능한 근거로 남깁니다.
+- 산출물: 수정 버전의 웹 테스트·Android 회귀 검사, iOS Simulator 빌드·unsigned archive 및 번들 내용 일치를 다시 확인합니다. 새 파일 SHA와 기존 1.0.0(1) 파일 SHA를 분리 기록하여 동결본을 덮어쓰지 않습니다.
+
+완료 판정은 URL 단위 테스트 통과뿐 아니라 실제 iOS 앱에서 필수 제작 자산이 표시되고 장면·저장 경로가 정상이라는 관찰 증거가 확보되었을 때 내립니다. 코드 변경·새 네이티브 후보·실기 확인·스토어 제출 상태는 각각 구분해 보고합니다.

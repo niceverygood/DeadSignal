@@ -1,0 +1,114 @@
+.campaign-panel, .codex-panel { width: min(1140px, 100%); }
+.campaign-summary { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 18px; font-size: 11px; color: var(--muted); }
+.campaign-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; align-items: start; }
+.mission-map { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.mission-node { display: flex; align-items: center; gap: 10px; min-width: 0; min-height: 77px; padding: 11px; text-align: left; background: #17211e; border: 1px solid #445247; border-left: 3px solid var(--mission-accent); border-radius: 2px; }
+.mission-node > span:nth-child(2) { min-width: 0; }
+.mission-node strong { display: block; font-size: 12px; }
+.mission-node small { display: block; margin-top: 5px; font-size: 9px; color: #96a395; line-height: 1.4; }
+.mission-number { font: 700 19px/1 ui-monospace, monospace; color: var(--mission-accent); }
+.mission-lock { margin-left: auto; font-size: 9px; color: #9bab96; flex-shrink: 0; }
+.mission-node.locked { opacity: .44; }
+.mission-node.selected { border-color: var(--amber); background: #343b28; box-shadow: inset 0 0 0 1px #cda34b44; }
+.mission-node.cleared .mission-lock { color: var(--green); }
+.mission-dossier, .boss-dossier { min-width: 0; padding: 18px; border: 1px solid #465344; border-top: 3px solid var(--mission-accent); background: #0d1817aa; }
+.mission-dossier h3, .boss-dossier h3 { margin: 0 0 8px; font-size: 24px; letter-spacing: -.04em; }
+.mission-dossier > p, .boss-dossier > p { font-size: 11px; color: #aab5a5; line-height: 1.7; word-break: keep-all; }
+.mission-dossier > .eyebrow, .boss-dossier > .eyebrow { margin: 0 0 12px; color: var(--mission-accent); font-size: 9px; }
+.mission-threat, .boss-stat-line { display: flex; flex-wrap: wrap; gap: 9px 14px; margin: 15px 0; color: #a1ae9a; font-size: 10px; }
+.mission-threat strong, .boss-stat-line strong { display: block; margin-top: 5px; color: var(--ivory); font: 700 16px/1 ui-monospace, monospace; }
+.mission-enemies { padding: 11px 0; border-top: 1px solid var(--line); }
+.mission-bosses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.mission-boss { min-width: 0; background: #17201d; border: 1px solid #465344; padding: 8px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.boss-portrait { display: block; width: 100%; height: 128px; }
+.mission-boss strong { font-size: 13px; }
+.mission-boss small { font-size: 9px; color: #a7b39f; }
+.boss-role { color: var(--amber); font-size: 9px; }
+.mission-prepare { width: 100%; margin-top: 6px; }
+.codex-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: start; }
+.boss-roster { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.boss-roster-card { min-width: 0; padding: 6px; background: #131f1c; border: 1px solid #3e4e42; display: flex; flex-direction: column; gap: 5px; align-items: center; }
+.boss-roster-card .boss-portrait { height: 92px; }
+.boss-roster-card strong { font-size: 10px; line-height: 1.4; text-align: center; }
+.boss-roster-card small { font-size: 8px; color: #a0ad98; }
+.boss-roster-card.selected { border-color: var(--amber); background: #333c2b; }
+.boss-record { font-size: 8px; color: #89978c; }
+.boss-record.defeated { color: var(--green); }
+.boss-dossier { position: sticky; top: 0; }
+.boss-dossier-art { position: relative; margin: -18px -18px 16px; padding: 8px; background: radial-gradient(ellipse at 50% 85%, #33423a, #0a1313); border-bottom: 1px solid #445348; }
+.boss-dossier-art .large { height: 220px; }
+.boss-dossier-art > .boss-record { position: absolute; right: 12px; bottom: 12px; font-size: 10px; }
+.boss-title { color: var(--mission-accent) !important; }
+.boss-skill, .boss-counter { padding: 12px 0; border-top: 1px solid var(--line); }
+.boss-skill > span, .boss-counter > span { font-size: 9px; color: var(--mission-accent); }
+.boss-skill h4 { margin: 6px 0; font-size: 14px; }
+.boss-skill p, .boss-counter p { font-size: 11px; line-height: 1.7; margin: 6px 0 0; color: #bac4b1; word-break: keep-all; }
+.loadout-mission { margin-bottom: 16px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+.loadout-mission small { font-size: 10px; color: var(--muted); }
+@media (max-width: 850px) {
+  .campaign-layout, .codex-layout { gap: 14px; grid-template-columns: 1fr 1fr; }
+  .mission-map { grid-template-columns: 1fr; }
+  .boss-roster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 650px) {
+  .campaign-layout, .codex-layout { grid-template-columns: 1fr; }
+  .mission-dossier, .boss-dossier { grid-row: 1; position: static; padding: 14px; }
+  .mission-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mission-node { padding: 9px 7px; min-height: 90px; gap: 7px; }
+  .mission-node strong { font-size: 11px; }
+  .mission-number { font-size: 15px; }
+  .mission-lock { display: none; }
+  .boss-dossier-art { margin: -14px -14px 14px; }
+  .boss-dossier-art .large { height: 180px; }
+  .boss-roster { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .campaign-summary { font-size: 10px; }
+}
+
+/* Mobile codex: choose a boss before reading its dossier. */
+@media (max-width: 620px) {
+  .codex-panel { min-width: 0; max-width: 100%; padding: 16px 12px; overflow-x: hidden; }
+  .codex-panel .dialog-header { gap: 10px; margin-bottom: 12px; padding-bottom: 12px; }
+  .codex-panel .dialog-header > div { min-width: 0; }
+  .codex-panel .dialog-header .eyebrow { gap: 7px; font-size: 8px; letter-spacing: .12em; line-height: 1.5; }
+  .codex-panel .dialog-header .eyebrow::before { width: 18px; flex-shrink: 0; }
+  .codex-panel .campaign-summary { gap: 8px 12px; margin-bottom: 10px; }
+  .codex-panel button { min-height: 44px; }
+  .codex-panel .codex-layout { min-width: 0; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .codex-panel .codex-layout > .boss-roster {
+    grid-column: 1; grid-row: 1;
+    min-width: 0; max-width: 100%;
+    grid-template-columns: none; grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 16px) / 2.75);
+    gap: 8px; align-items: stretch;
+    overflow-x: auto; overflow-y: hidden;
+    padding: 7px 7px 11px;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity; scroll-padding-inline: 7px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .codex-panel .boss-roster-card { min-width: 0; gap: 3px; scroll-snap-align: start; }
+  .codex-panel .boss-roster-card .boss-portrait { height: 68px; flex-shrink: 0; }
+  .codex-panel .boss-roster-card strong { min-height: 2.8em; font-size: 11px; line-height: 1.4; white-space: normal; word-break: keep-all; overflow-wrap: anywhere; }
+  .codex-panel .boss-roster-card small { font-size: 10px; line-height: 1.3; }
+  .codex-panel .boss-roster-card .boss-record { font-size: 9px; line-height: 1.3; }
+  .codex-panel .boss-roster-card.selected { border-width: 2px; padding: 5px; }
+  .codex-panel .codex-layout > .boss-dossier { grid-column: 1; grid-row: 2; position: static; }
+}
+
+/* Keep a long desktop roster inside its own scrollport. At 720px tall,
+ * 56px overlay + 68px panel chrome + ~176px header/summary leave ~420px.
+ * The 180px floor retains one card on short windows; outer dossier scrolling
+ * remains available. Mobile <=620px keeps the original horizontal roster. */
+@media (min-width: 621px) {
+  .codex-panel .codex-layout > .boss-roster {
+    min-width: 0; min-height: 0;
+    max-height: max(180px, calc(100dvh - 300px));
+    overflow-x: hidden; overflow-y: auto;
+    overscroll-behavior-y: contain;
+    overflow-anchor: none;
+    scrollbar-gutter: stable; scrollbar-width: thin;
+    align-content: start;
+    padding: 7px; scroll-padding-block: 7px;
+  }
+}

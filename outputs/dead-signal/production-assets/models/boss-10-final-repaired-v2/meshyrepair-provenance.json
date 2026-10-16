@@ -1,0 +1,945 @@
+{
+  "version": 1,
+  "status": "actual-native-repair-candidate; final-render-approval-pending",
+  "originals": {
+    "v1": {
+      "file": "outputs/dead-signal/production-assets/models/boss-10-final-v1/model.glb",
+      "bytes": 20401092,
+      "sha256": "a33f29e8df08845b6b4d4da1c9c4ee5cf5d28099ad536c0773c5d55e3089af57"
+    },
+    "v2": {
+      "file": "outputs/dead-signal/production-assets/models/boss-10-final-v2/model.glb",
+      "bytes": 19207812,
+      "sha256": "1984e59463d8fa1df522cd01e0ddb8ca6effcb1717ebdbdf18e299b2480767a1"
+    },
+    "preRemesh": {
+      "file": "outputs/dead-signal/production-assets/models/boss-10-final-v1/model-original.glb",
+      "sha256": "cc1f8e7ba8bfd13d17836539fb953a7587c0168bbb5189266325757560a00a77",
+      "bytes": 96391580,
+      "presentAtRepair": false,
+      "note": "Previously measured by boss10-component-audit; no longer present before this repair began. This script never deletes or modifies originals."
+    }
+  },
+  "sourceTexture": {
+    "mimeType": "image/jpeg",
+    "bytes": 17968204,
+    "sha256": "a1174e097a05d7198c0178e96b772dbc26bed16cc8b4288e22b88b65dc941ee6",
+    "exactBinaryRetained": true,
+    "pixelsEdited": false,
+    "uvPolicy": "Uncut vertices retain original UV; clipping interpolates original UV barycentrically; rigid copies keep donor UV unchanged."
+  },
+  "sourcePrimitive": {
+    "vertices": 62450,
+    "triangles": 36053
+  },
+  "donors": {
+    "leftFrontTrack": {
+      "selectionBox": {
+        "min": [
+          -0.59,
+          -0.585,
+          0.13
+        ],
+        "max": [
+          -0.2,
+          -0.18,
+          0.716
+        ]
+      },
+      "actualBounds": {
+        "min": [
+          -0.59,
+          -0.5815629959106445,
+          0.13
+        ],
+        "max": [
+          -0.22311002016067505,
+          -0.18,
+          0.7134091258049011
+        ],
+        "extent": [
+          0.3668899798393249,
+          0.40156299591064454,
+          0.5834091258049011
+        ],
+        "center": [
+          -0.4065550100803375,
+          -0.38078149795532223,
+          0.42170456290245056
+        ]
+      },
+      "triangles": 3927,
+      "method": "Clip original existing triangles to spatial donor region; interpolate their original normal/UV. No generic primitive or raster edit."
+    },
+    "rightFrontTrack": {
+      "selectionBox": {
+        "min": [
+          0.2,
+          -0.585,
+          0.13
+        ],
+        "max": [
+          0.59,
+          -0.18,
+          0.716
+        ]
+      },
+      "actualBounds": {
+        "min": [
+          0.22204101085662842,
+          -0.5814700126647949,
+          0.13
+        ],
+        "max": [
+          0.59,
+          -0.18,
+          0.7138240933418274
+        ],
+        "extent": [
+          0.36795898914337155,
+          0.40147001266479493,
+          0.5838240933418274
+        ],
+        "center": [
+          0.4060205054283142,
+          -0.38073500633239743,
+          0.4219120466709137
+        ]
+      },
+      "triangles": 3975,
+      "method": "Clip original existing triangles to spatial donor region; interpolate their original normal/UV. No generic primitive or raster edit."
+    },
+    "steelCrossbeam": {
+      "selectionBox": {
+        "min": [
+          -0.35,
+          0.408,
+          0.1
+        ],
+        "max": [
+          0.35,
+          0.49,
+          0.3
+        ]
+      },
+      "actualBounds": {
+        "min": [
+          -0.35,
+          0.408,
+          0.09999999999999998
+        ],
+        "max": [
+          0.35,
+          0.49,
+          0.2835559844970703
+        ],
+        "extent": [
+          0.7,
+          0.08200000000000002,
+          0.18355598449707033
+        ],
+        "center": [
+          0,
+          0.44899999999999995,
+          0.19177799224853515
+        ]
+      },
+      "triangles": 282,
+      "method": "Clip original existing triangles to spatial donor region; interpolate their original normal/UV. No generic primitive or raster edit."
+    }
+  },
+  "removedRearRegions": [
+    {
+      "min": [
+        -0.51,
+        -0.6,
+        -0.71
+      ],
+      "max": [
+        -0.1,
+        -0.25,
+        -0.14
+      ]
+    },
+    {
+      "min": [
+        0.1,
+        -0.6,
+        -0.71
+      ],
+      "max": [
+        0.51,
+        -0.25,
+        -0.14
+      ]
+    }
+  ],
+  "bodyTrianglesBefore": 36053,
+  "bodyTrianglesAfter": 37717,
+  "patches": [
+    {
+      "name": "actual-left-front-track-rigid-copy-to-right-rear",
+      "donorName": "leftFrontTrack",
+      "bounds": {
+        "min": [
+          0.15489950907230376,
+          -0.5815629959106445,
+          -0.6625341066122055
+        ],
+        "max": [
+          0.48510049092769625,
+          -0.22015629959106445,
+          -0.13746589338779452
+        ],
+        "extent": [
+          0.3302009818553925,
+          0.3614066963195801,
+          0.5250682132244109
+        ],
+        "center": [
+          0.32,
+          -0.4008596477508545,
+          -0.4
+        ]
+      },
+      "sourceTriangleUVSHA256": "8a3704ab18dec37575cb631b515032e228c8d5ba7007a55b229d3f14bcfd0712",
+      "transform": {
+        "sourceOrigin": [
+          -0.4065550100803375,
+          -0.38078149795532223,
+          0.42170456290245056
+        ],
+        "targetCenter": [
+          0.32,
+          -0.4008596477508545,
+          -0.4
+        ],
+        "uniformScale": 0.9,
+        "rotationYRadians": 3.141592653589793,
+        "rotationZRadians": 0,
+        "groundAligned": -0.5815629959106445,
+        "matrix": [
+          -0.9,
+          0,
+          -1.1021821192326179e-16,
+          0,
+          0,
+          0.9,
+          0,
+          0,
+          1.1021821192326179e-16,
+          0,
+          -0.9,
+          0,
+          -0.045899509072303835,
+          -0.05815629959106444,
+          -0.020465893387794587,
+          1
+        ]
+      },
+      "uvCopiedWithoutChanges": true,
+      "triangles": 3927
+    },
+    {
+      "name": "actual-right-front-track-rigid-copy-to-left-rear",
+      "donorName": "rightFrontTrack",
+      "bounds": {
+        "min": [
+          -0.48558154511451723,
+          -0.5815629959106445,
+          -0.6627208420038224
+        ],
+        "max": [
+          -0.15441845488548284,
+          -0.2202399845123291,
+          -0.13727915799617768
+        ],
+        "extent": [
+          0.3311630902290344,
+          0.36132301139831546,
+          0.5254416840076448
+        ],
+        "center": [
+          -0.32000000000000006,
+          -0.4009014902114868,
+          -0.4
+        ]
+      },
+      "sourceTriangleUVSHA256": "e255d46571e925e5c0e9918bada26494bbac6bb5b58e2025a4b9a97d4a72e8c6",
+      "transform": {
+        "sourceOrigin": [
+          0.4060205054283142,
+          -0.38073500633239743,
+          0.4219120466709137
+        ],
+        "targetCenter": [
+          -0.32,
+          -0.4009014902114868,
+          -0.4
+        ],
+        "uniformScale": 0.9,
+        "rotationYRadians": 3.141592653589793,
+        "rotationZRadians": 0,
+        "groundAligned": -0.5815629959106445,
+        "matrix": [
+          -0.9,
+          0,
+          -1.1021821192326179e-16,
+          0,
+          0,
+          0.9,
+          0,
+          0,
+          1.1021821192326179e-16,
+          0,
+          -0.9,
+          0,
+          0.04541845488548274,
+          -0.05823998451232909,
+          -0.020279157996177632,
+          1
+        ]
+      },
+      "uvCopiedWithoutChanges": true,
+      "triangles": 3975
+    },
+    {
+      "name": "actual-steel-crossbeam-rear-diagonal-A",
+      "donorName": "steelCrossbeam",
+      "bounds": {
+        "min": [
+          -0.44388010576699144,
+          0.14718274622458752,
+          -0.5993113899230957
+        ],
+        "max": [
+          0.44388010576699144,
+          0.5728172537754125,
+          -0.3606886100769042
+        ],
+        "extent": [
+          0.8877602115339829,
+          0.425634507550825,
+          0.2386227798461915
+        ],
+        "center": [
+          0,
+          0.36,
+          -0.48
+        ]
+      },
+      "sourceTriangleUVSHA256": "705285533c72f97c4e0eb42f1c993e1ecc1d327438414af845939ed120c73055",
+      "transform": {
+        "sourceOrigin": [
+          0,
+          0.44899999999999995,
+          0.19177799224853515
+        ],
+        "targetCenter": [
+          0,
+          0.36,
+          -0.48
+        ],
+        "uniformScale": 1.3,
+        "rotationYRadians": 3.141592653589793,
+        "rotationZRadians": 0.3665191429188092,
+        "groundAligned": null,
+        "matrix": [
+          -1.2136545544463624,
+          -0.4658783344088904,
+          -1.5920408388915596e-16,
+          0,
+          -0.4658783344088904,
+          1.2136545544463624,
+          0,
+          0,
+          1.486298165373345e-16,
+          5.705364110259479e-17,
+          -1.3,
+          0,
+          0.20917937214959176,
+          -0.18493089494641668,
+          -0.23068861007690428,
+          1
+        ]
+      },
+      "uvCopiedWithoutChanges": true,
+      "triangles": 282
+    },
+    {
+      "name": "actual-steel-crossbeam-rear-diagonal-B",
+      "donorName": "steelCrossbeam",
+      "bounds": {
+        "min": [
+          -0.44388010576699144,
+          0.14718274622458752,
+          -0.6093113899230957
+        ],
+        "max": [
+          0.44388010576699144,
+          0.5728172537754125,
+          -0.37068861007690423
+        ],
+        "extent": [
+          0.8877602115339829,
+          0.425634507550825,
+          0.2386227798461915
+        ],
+        "center": [
+          0,
+          0.36,
+          -0.49
+        ]
+      },
+      "sourceTriangleUVSHA256": "705285533c72f97c4e0eb42f1c993e1ecc1d327438414af845939ed120c73055",
+      "transform": {
+        "sourceOrigin": [
+          0,
+          0.44899999999999995,
+          0.19177799224853515
+        ],
+        "targetCenter": [
+          0,
+          0.36,
+          -0.49
+        ],
+        "uniformScale": 1.3,
+        "rotationYRadians": 3.141592653589793,
+        "rotationZRadians": -0.3665191429188092,
+        "groundAligned": null,
+        "matrix": [
+          -1.2136545544463624,
+          0.4658783344088904,
+          -1.5920408388915596e-16,
+          0,
+          0.4658783344088904,
+          1.2136545544463624,
+          0,
+          0,
+          1.486298165373345e-16,
+          -5.705364110259479e-17,
+          -1.3,
+          0,
+          -0.2091793721495918,
+          -0.18493089494641668,
+          -0.24068861007690429,
+          1
+        ]
+      },
+      "uvCopiedWithoutChanges": true,
+      "triangles": 282
+    }
+  ],
+  "fourTrackBounds": {
+    "frontLeft": {
+      "min": [
+        -0.59,
+        -0.5815629959106445,
+        0.13
+      ],
+      "max": [
+        -0.22311002016067505,
+        -0.18,
+        0.7134091258049011
+      ],
+      "extent": [
+        0.3668899798393249,
+        0.40156299591064454,
+        0.5834091258049011
+      ],
+      "center": [
+        -0.4065550100803375,
+        -0.38078149795532223,
+        0.42170456290245056
+      ]
+    },
+    "frontRight": {
+      "min": [
+        0.22204101085662842,
+        -0.5814700126647949,
+        0.13
+      ],
+      "max": [
+        0.59,
+        -0.18,
+        0.7138240933418274
+      ],
+      "extent": [
+        0.36795898914337155,
+        0.40147001266479493,
+        0.5838240933418274
+      ],
+      "center": [
+        0.4060205054283142,
+        -0.38073500633239743,
+        0.4219120466709137
+      ]
+    },
+    "rearLeft": {
+      "min": [
+        -0.48558154511451723,
+        -0.5815629959106445,
+        -0.6627208420038224
+      ],
+      "max": [
+        -0.15441845488548284,
+        -0.2202399845123291,
+        -0.13727915799617768
+      ],
+      "extent": [
+        0.3311630902290344,
+        0.36132301139831546,
+        0.5254416840076448
+      ],
+      "center": [
+        -0.32000000000000006,
+        -0.4009014902114868,
+        -0.4
+      ]
+    },
+    "rearRight": {
+      "min": [
+        0.15489950907230376,
+        -0.5815629959106445,
+        -0.6625341066122055
+      ],
+      "max": [
+        0.48510049092769625,
+        -0.22015629959106445,
+        -0.13746589338779452
+      ],
+      "extent": [
+        0.3302009818553925,
+        0.3614066963195801,
+        0.5250682132244109
+      ],
+      "center": [
+        0.32,
+        -0.4008596477508545,
+        -0.4
+      ]
+    }
+  },
+  "candidate": {
+    "file": "outputs/dead-signal/production-assets/models/boss-10-final-repaired-v2/model.glb",
+    "localFile": "work/meshy-sprite-baker/models/boss-10-final-repaired-v2.glb",
+    "bytes": 23381300,
+    "sha256": "11167d631fc9725ee1b9b9d95df66dcf37006256de297fc65776188691fefed0",
+    "meshes": 5,
+    "bounds": {
+      "min": [
+        -0.9508190751075745,
+        -0.5815629959106445,
+        -0.6627208420038224
+      ],
+      "max": [
+        0.9459429979324341,
+        0.5802039504051208,
+        0.7138240933418274
+      ],
+      "extent": [
+        1.8967620730400085,
+        1.1617669463157654,
+        1.3765449353456498
+      ],
+      "center": [
+        -0.0024380385875701904,
+        -0.0006795227527618408,
+        0.025551625669002487
+      ]
+    }
+  },
+  "verification": {
+    "exactOriginalTextureBinary": true,
+    "exactMaterialDefinitions": true,
+    "exactDonorUVs": true,
+    "positiveUniformRigidTransforms": true,
+    "fourGroundTrackRegionsSeparated": true,
+    "rearTrackGroundAligned": true,
+    "braceAttachmentInRearFrameRegion": true,
+    "originalFileHashesUnchanged": true,
+    "unchangedBodyAndTrackBinary": true,
+    "continuousActualSteelAcrossBothDiagonals": true,
+    "bothRealBeamEndCollarsOverlapActualRearBodyDepth": true
+  },
+  "reviewRequired": [
+    "Inspect real GPU front/back/left/right and all 16 atlas directions",
+    "Inspect donor cut seams and any inherited organic fragments",
+    "Inspect overlapping rear collars and original organic support joints",
+    "Inspect rear X braces against the original canonical back frame",
+    "No final model approval or game application is implied",
+    "Review the continuous main steel surface plus original clipped corner pieces; three welded position components remain per beam, so do not assume watertightness.",
+    "Rear negative-Z face must visibly show two crossing steel bars outside the press, with no detached-looking collars."
+  ],
+  "intendedNativeBake": {
+    "job": {
+      "id": "boss-10-final-repaired-v2",
+      "exportName": "boss-10-final-repaired-v2",
+      "model": "boss-10-final-repaired-v2.glb",
+      "ready": true,
+      "directions": 16,
+      "samples": 1,
+      "frameSize": 256,
+      "padding": 24,
+      "outlinePx": 4,
+      "shading": "unlit",
+      "rootMotion": true,
+      "frontYawDegrees": 0,
+      "coreRegion": [
+        0.18,
+        0.2,
+        0.82,
+        0.72
+      ],
+      "subjectHeight": 104,
+      "clip": null,
+      "weaponReady": false
+    },
+    "planFile": "work/meshy-sprite-baker/batches/boss10-repaired-v2-review.json",
+    "geometricFit": {
+      "density": 0.716796253466917,
+      "pivot": {
+        "x": 128,
+        "y": 165.27340518027967
+      },
+      "projectedBounds": {
+        "left": -145.09004406340696,
+        "top": -187.76777599674267,
+        "right": 145.09004406340694,
+        "bottom": 83.76777599674267
+      },
+      "directions": 16,
+      "samples": 1,
+      "subjectHeight": 104,
+      "allFrameBoundsFit": true
+    },
+    "sourceNormalization": {
+      "scale": 89.51881470703596,
+      "originPivot": {
+        "x": -0.0024380385875701904,
+        "y": -0.5815629959106445,
+        "z": 0.02555161714553833
+      }
+    },
+    "approval": "Pending actual root GPU native pixel/semantic review; ready means a renderable candidate only."
+  },
+  "revision": {
+    "version": 2,
+    "changes": "Only two actual native steel beam donor meshes are reselected and repositioned; original body and both repaired track meshes are byte-identical.",
+    "previousCandidate": {
+      "file": "outputs/dead-signal/production-assets/models/boss-10-final-repaired/model.glb",
+      "sha256": "a1bb7e1338c5fc32e62bcfb3a668ef219cd9baaa9e0998b4828a9bf95eab4258",
+      "provenanceFile": "outputs/dead-signal/production-assets/models/boss-10-final-repaired/meshyrepair-provenance.json",
+      "provenanceSHA256": "bccd7d756b653ebc0f63aeeee06242ac4424f33ea0fb6c875a37c2a1ed1f5ec1",
+      "planFile": "work/meshy-sprite-baker/batches/boss10-repaired-review.json",
+      "planSHA256": "59e54f220cd1c56563ff6d148b1a6ad40b07c4c32d9784645229e0aac3717f24"
+    },
+    "cause": "Previous donor selection excluded the central front steel face; copied X meshes had no triangle coverage near x=-.20..+.20. Their rear plane also lay inside the original body.",
+    "donorChoice": "Actual continuous front upper steel band at native y=.408..49, including real corner surface depth z=.10..30; original UVs, normals, texture and material retained. Positive uniform scale 1.30 and rigid rotations only.",
+    "realPixelEvidence": [
+      "outputs/dead-signal/production-assets/qa/boss-10-repaired-direction-08.png",
+      "outputs/dead-signal/production-assets/qa/boss-10-repaired-direction-12.png"
+    ],
+    "unchangedNativeMeshes": [
+      {
+        "index": 0,
+        "name": "original-v1-body-with-rear-track-region-cut",
+        "dataSHA256": {
+          "POSITION": "1c410ecb9af4fde957f2d622283d74e68d54f2ae64995e13e8660ff8268a5a77",
+          "NORMAL": "e3d0989a109319ff7e5ad9659bb5a71bd91a1a4b3e256a2e4cf1ad94ac1aed39",
+          "TEXCOORD_0": "ccfdf0b3387eab8c7ff864705a019e13c23dae4bedb29ffbce319f185aa319ed",
+          "indices": "3242ff884159c5ff3ef6dd4dfa20dd8af532032afc226d9df265d0ab1bfbd6dc"
+        }
+      },
+      {
+        "index": 1,
+        "name": "actual-left-front-track-rigid-copy-to-right-rear",
+        "dataSHA256": {
+          "POSITION": "7e16d121397812c264e290d7ea81b4f07c85f9a964e76a33802747b038e1d4cf",
+          "NORMAL": "d92c060f7e0e0fb9b7e7d2453e27699f55e4d24c92827c306cafdd6a57ea05f8",
+          "TEXCOORD_0": "57298e28a8a5ad2dac3b3056a3d37ca14b24eec6cdc769a0dc7003a794711369",
+          "indices": "d1622eb424cca80c52cf897178ff9100d74fca6024c7d47e4d6a78a604ca5808"
+        }
+      },
+      {
+        "index": 2,
+        "name": "actual-right-front-track-rigid-copy-to-left-rear",
+        "dataSHA256": {
+          "POSITION": "de398ded06ea711113a9f8bc0678846e0d66f2a9444cc6eed9633f0b86b28347",
+          "NORMAL": "fa7b26ad1290f32697831052a0d56e167f175eb2fd6d3e596bb493bdf8cddd05",
+          "TEXCOORD_0": "c1860d48e11787e28f6f6acc494bc6facb20f2c46388913f4882d418c2583100",
+          "indices": "aef9db09b34a76ee819e4870194c6edf8b70ae371b5cf43b5309bb81e65adf91"
+        }
+      }
+    ],
+    "rearBraceGeometry": {
+      "method": "Barycentric XY rays through actual native triangles; negative Z is the rear plane. Position seams welded at 1e-6 only for connectivity measurement.",
+      "braces": [
+        {
+          "meshIndex": 3,
+          "name": "actual-steel-crossbeam-rear-diagonal-A",
+          "connectedComponentTriangleCounts": [
+            182,
+            57,
+            43
+          ],
+          "centerline": [
+            {
+              "x": -0.35,
+              "y": 0.2256475877376045,
+              "bodyRear": -0.48732327660357994,
+              "beamRear": -0.5871452371354855,
+              "clearance": 0.09982196053190556
+            },
+            {
+              "x": -0.3,
+              "y": 0.24484078948937527,
+              "bodyRear": -0.5459217564014075,
+              "beamRear": -0.588086651615735,
+              "clearance": 0.042164895214327536
+            },
+            {
+              "x": -0.2,
+              "y": 0.2832271929929168,
+              "bodyRear": -0.5455318731624361,
+              "beamRear": -0.5896945652335059,
+              "clearance": 0.04416269207106982
+            },
+            {
+              "x": -0.1,
+              "y": 0.3216135964964584,
+              "bodyRear": -0.5443220242667605,
+              "beamRear": -0.589271717862877,
+              "clearance": 0.04494969359611656
+            },
+            {
+              "x": 0,
+              "y": 0.36,
+              "bodyRear": -0.4941984075350717,
+              "beamRear": -0.5900616245294186,
+              "clearance": 0.09586321699434686
+            },
+            {
+              "x": 0.1,
+              "y": 0.3983864035035416,
+              "bodyRear": -0.4928372035602533,
+              "beamRear": -0.5897461804274522,
+              "clearance": 0.0969089768671989
+            },
+            {
+              "x": 0.2,
+              "y": 0.43677280700708315,
+              "bodyRear": -0.5591011456986373,
+              "beamRear": -0.5891898964403544,
+              "clearance": 0.03008875074171702
+            },
+            {
+              "x": 0.3,
+              "y": 0.4751592105106247,
+              "bodyRear": -0.556874368496614,
+              "beamRear": -0.5869391850637952,
+              "clearance": 0.030064816567181185
+            },
+            {
+              "x": 0.35,
+              "y": 0.49435241226239546,
+              "bodyRear": -0.4909562800128796,
+              "beamRear": -0.5865627740128574,
+              "clearance": 0.09560649399997778
+            }
+          ],
+          "continuousCenterline": true,
+          "externalCenterline": true,
+          "minCenterlineClearance": 0.030064816567181185,
+          "collarRays": [
+            {
+              "x": -0.42,
+              "y": 0.19877710528512538,
+              "bodyRear": -0.4491212184249508,
+              "beamMin": -0.47611752393752677,
+              "beamMax": -0.3968995301801783
+            },
+            {
+              "x": -0.42,
+              "y": 0.2137771052851254,
+              "bodyRear": -0.44863130569358156,
+              "beamMin": -0.4764610552491425,
+              "beamMax": -0.3772289163393318
+            },
+            {
+              "x": -0.42,
+              "y": 0.22877710528512538,
+              "bodyRear": -0.4483994166372789,
+              "beamMin": -0.5471850192731992,
+              "beamMax": -0.4325822245907289
+            },
+            {
+              "x": 0.4,
+              "y": 0.5285456140141663,
+              "bodyRear": -0.4722061884795452,
+              "beamMin": -0.5454210620912839,
+              "beamMax": -0.4320765362569919
+            },
+            {
+              "x": 0.4,
+              "y": 0.5435456140141663,
+              "bodyRear": -0.46949329730944267,
+              "beamMin": -0.5347670559785836,
+              "beamMax": -0.4318274096849684
+            },
+            {
+              "x": 0.42,
+              "y": 0.5062228947148746,
+              "bodyRear": -0.48357510470339077,
+              "beamMin": -0.5182733164367109,
+              "beamMax": -0.36897061124366587
+            }
+          ],
+          "bothEndCollarsIntersectBodyDepth": true
+        },
+        {
+          "meshIndex": 4,
+          "name": "actual-steel-crossbeam-rear-diagonal-B",
+          "connectedComponentTriangleCounts": [
+            182,
+            57,
+            43
+          ],
+          "centerline": [
+            {
+              "x": -0.35,
+              "y": 0.49435241226239546,
+              "bodyRear": -0.4931210171872427,
+              "beamRear": -0.5971452774691143,
+              "clearance": 0.10402426028187156
+            },
+            {
+              "x": -0.3,
+              "y": 0.4751592105106247,
+              "bodyRear": -0.55789126430783,
+              "beamRear": -0.5980866509369585,
+              "clearance": 0.04019538662912847
+            },
+            {
+              "x": -0.2,
+              "y": 0.43677280700708315,
+              "bodyRear": -0.5535828388016791,
+              "beamRear": -0.5996945558156079,
+              "clearance": 0.0461117170139288
+            },
+            {
+              "x": -0.1,
+              "y": 0.3983864035035416,
+              "bodyRear": -0.49520271474372823,
+              "beamRear": -0.5992717081548706,
+              "clearance": 0.1040689934111424
+            },
+            {
+              "x": 0,
+              "y": 0.36,
+              "bodyRear": -0.4941984075350717,
+              "beamRear": -0.6000616148856172,
+              "clearance": 0.10586320735054544
+            },
+            {
+              "x": 0.1,
+              "y": 0.3216135964964584,
+              "bodyRear": -0.5451348458342916,
+              "beamRear": -0.5997461709240409,
+              "clearance": 0.05461132508974931
+            },
+            {
+              "x": 0.2,
+              "y": 0.2832271929929168,
+              "bodyRear": -0.545103105732633,
+              "beamRear": -0.5991898866554537,
+              "clearance": 0.05408678092282071
+            },
+            {
+              "x": 0.3,
+              "y": 0.24484078948937527,
+              "bodyRear": -0.5491260200223572,
+              "beamRear": -0.5969391853949081,
+              "clearance": 0.04781316537255087
+            },
+            {
+              "x": 0.35,
+              "y": 0.2256475877376045,
+              "bodyRear": -0.4868210272550188,
+              "beamRear": -0.5965628008921475,
+              "clearance": 0.10974177363712873
+            }
+          ],
+          "continuousCenterline": true,
+          "externalCenterline": true,
+          "minCenterlineClearance": 0.04019538662912847,
+          "collarRays": [
+            {
+              "x": -0.42,
+              "y": 0.49122289471487457,
+              "bodyRear": -0.4835585872663378,
+              "beamMin": -0.4895542376318511,
+              "beamMax": -0.44193212176967045
+            },
+            {
+              "x": -0.42,
+              "y": 0.5062228947148746,
+              "bodyRear": -0.4835603640879898,
+              "beamMin": -0.4882969587399318,
+              "beamMax": -0.4031939577374571
+            },
+            {
+              "x": -0.42,
+              "y": 0.5212228947148746,
+              "bodyRear": -0.4836821053797925,
+              "beamMin": -0.48611753026021887,
+              "beamMax": -0.40689953248570876
+            },
+            {
+              "x": -0.4,
+              "y": 0.5435456140141663,
+              "bodyRear": -0.4696584637708835,
+              "beamMin": -0.5549533036598658,
+              "beamMax": -0.44255590418333246
+            },
+            {
+              "x": 0.42,
+              "y": 0.19877710528512538,
+              "bodyRear": -0.44792756473109757,
+              "beamMin": -0.48742638953788336,
+              "beamMax": -0.39966216860738585
+            },
+            {
+              "x": 0.42,
+              "y": 0.2137771052851254,
+              "bodyRear": -0.44750960216595603,
+              "beamMin": -0.48783222892944234,
+              "beamMax": -0.4407873023750223
+            },
+            {
+              "x": 0.42,
+              "y": 0.22877710528512538,
+              "bodyRear": -0.44747179109941426,
+              "beamMin": -0.5447679531102241,
+              "beamMax": -0.44183696747537365
+            }
+          ],
+          "bothEndCollarsIntersectBodyDepth": true
+        }
+      ],
+      "approval": "Geometric candidate evidence only; root native GPU front/back/side/seam review is required."
+    },
+    "approval": "Pending real native GPU X shape, seam and collar review; geometric evidence is not final approval."
+  },
+  "reproducibility": {
+    "scriptFile": "work/boss10-repair-v2.mjs",
+    "scriptSHA256": "f9817fca3b4778058291801d7e042eec63488ae91aeedd40b063f28c001b6a11",
+    "command": "node work/boss10-repair-v2.mjs",
+    "deterministicCandidateSHA256": "11167d631fc9725ee1b9b9d95df66dcf37006256de297fc65776188691fefed0",
+    "writesCompletedOtherBatchFiles": false,
+    "geometryEvidenceHelper": {
+      "file": "work/boss10-brace-inspection.mjs",
+      "sha256": "5c9ff0a0404c0e534f714201d1cf8ab5a04aaec2c37063a0e56a65c37741aca4"
+    }
+  }
+}

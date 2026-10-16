@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T11:36:25.423216+00:00",
+  "scope": "Read-only audit of local rendering, rigging and review tooling needed by independent v0.29 development. Original files were not modified. No paid API, browser UI or credential access performed.",
+  "requiredLayout": "Preserve project-root work/ and outputs/dead-signal/production-assets/ relative trees. Most tools resolve relative to import.meta.url or __file__, not the original workstation absolute path.",
+  "additionalRequiredFiles": [
+    {
+      "path": "work/asset-final-rig-v027/build_final_rigs.py",
+      "exists": true,
+      "bytes": 14281,
+      "role": "local authoring/support dependency"
+    },
+    {
+      "path": "work/asset-final-rig-v027/integrate_motion_assets.py",
+      "exists": true,
+      "bytes": 3522,
+      "role": "local authoring/support dependency"
+    },
+    {
+      "path": "work/asset-final-rig-v027/pack_motion_atlas.py",
+      "exists": true,
+      "bytes": 4505,
+      "role": "packing import dependency"
+    },
+    {
+      "path": "work/native-contour-derivation-report.json",
+      "exists": true,
+      "bytes": 19423,
+      "role": "local authoring/support dependency"
+    },
+    {
+      "path": "work/environment-input-progress.json",
+      "exists": true,
+      "bytes": 33098,
+      "role": "local authoring/support dependency"
+    },
+    {
+      "path": "work/production-environment-plan.json",
+      "exists": true,
+      "bytes": 249001,
+      "role": "local authoring/support dependency"
+    },
+    {
+      "path": "work/environment-orientation-review.json",
+      "exists": true,
+      "bytes": 2243,
+      "role": "local authoring/support dependency"
+    },
+    {
+      "path": "work/build-env-native-registration.mjs",
+      "exists": true,
+      "bytes": 8598,
+      "role": "local authoring/support dependency"
+    }
+  ],
+  "bakers": [
+    {
+      "path": "work/meshy-sprite-baker",
+      "threeVersion": "0.186.1",
+      "hasPackageLock": true,
+      "modelFiles": [
+        "work/meshy-sprite-baker/models/boss-01-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-01-final-v2.glb",
+        "work/meshy-sprite-baker/models/boss-01-final.glb",
+        "work/meshy-sprite-baker/models/boss-01-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-01-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-01-mid-v2.glb",
+        "work/meshy-sprite-baker/models/boss-01-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-01-mid.glb",
+        "work/meshy-sprite-baker/models/boss-02-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-02-final.glb",
+        "work/meshy-sprite-baker/models/boss-02-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-02-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-02-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-03-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-03-final.glb",
+        "work/meshy-sprite-baker/models/boss-03-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-03-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-03-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-04-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-04-final.glb",
+        "work/meshy-sprite-baker/models/boss-04-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-04-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-04-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-05-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-05-final.glb",
+        "work/meshy-sprite-baker/models/boss-05-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-05-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-05-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-06-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-06-final.glb",
+        "work/meshy-sprite-baker/models/boss-06-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-06-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-06-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-07-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-07-final.glb",
+        "work/meshy-sprite-baker/models/boss-07-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-07-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-07-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-08-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-08-final.glb",
+        "work/meshy-sprite-baker/models/boss-08-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-08-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-08-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-09-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-09-final.glb",
+        "work/meshy-sprite-baker/models/boss-09-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-09-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-09-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-10-final-repaired-v2.glb",
+        "work/meshy-sprite-baker/models/boss-10-final-repaired.glb",
+        "work/meshy-sprite-baker/models/boss-10-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-10-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-10-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-10-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-11-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-11-final-v2.glb",
+        "work/meshy-sprite-baker/models/boss-11-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-11-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-11-mid-walk.glb",
+        "work/meshy-sprite-baker/models/boss-12-final-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-12-final.glb",
+        "work/meshy-sprite-baker/models/boss-12-mid-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/boss-12-mid-rig-motion.glb",
+        "work/meshy-sprite-baker/models/boss-12-mid-walk.glb",
+        "work/meshy-sprite-baker/models/enemy-collector-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/enemy-collector-rig-motion.glb",
+        "work/meshy-sprite-baker/models/enemy-collector-walk.glb",
+        "work/meshy-sprite-baker/models/enemy-elite-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/enemy-elite-rig-motion.glb",
+        "work/meshy-sprite-baker/models/enemy-elite-walk.glb",
+        "work/meshy-sprite-baker/models/enemy-gas-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/enemy-gas-rig-motion.glb",
+        "work/meshy-sprite-baker/models/enemy-gas-walk.glb",
+        "work/meshy-sprite-baker/models/enemy-runner-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/enemy-runner-rig-motion.glb",
+        "work/meshy-sprite-baker/models/enemy-runner-walk.glb",
+        "work/meshy-sprite-baker/models/enemy-screamer-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/enemy-screamer-rig-motion.glb",
+        "work/meshy-sprite-baker/models/enemy-screamer-walk.glb",
+        "work/meshy-sprite-baker/models/enemy-shield-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/enemy-shield-rig-motion.glb",
+        "work/meshy-sprite-baker/models/enemy-shield-walk.glb",
+        "work/meshy-sprite-baker/models/enemy-walker-grounded-locomotion-v1.glb",
+        "work/meshy-sprite-baker/models/enemy-walker-rig-motion.glb",
+        "work/meshy-sprite-baker/models/enemy-walker-walk.glb",
+        "work/meshy-sprite-baker/models/env-amber-worklamp.glb",
+        "work/meshy-sprite-baker/models/env-armory-bunker.glb",
+        "work/meshy-sprite-baker/models/env-breakwater-control-building.glb",
+        "work/meshy-sprite-baker/models/env-broken-car.glb",
+        "work/meshy-sprite-baker/models/env-checkpoint-guardhouse.glb",
+        "work/meshy-sprite-baker/models/env-common-brick.glb",
+        "work/meshy-sprite-baker/models/env-demolition-scaffold-bay.glb",
+        "work/meshy-sprite-baker/models/env-fence.glb",
+        "work/meshy-sprite-baker/models/env-greenhouse-isolation.glb",
+        "work/meshy-sprite-baker/models/env-harbor-container.glb",
+        "work/meshy-sprite-baker/models/env-hospital-quarantine-wing.glb",
+        "work/meshy-sprite-baker/models/env-power-transformer-bank.glb",
+        "work/meshy-sprite-baker/models/env-red-fuel-barrel.glb",
+        "work/meshy-sprite-baker/models/env-refinery-tank-pump.glb",
+        "work/meshy-sprite-baker/models/env-scrapyard-compressor.glb",
+        "work/meshy-sprite-baker/models/env-sewers-pump-station.glb",
+        "work/meshy-sprite-baker/models/env-terminal-bus-depot.glb",
+        "work/meshy-sprite-baker/models/lure-speaker.glb",
+        "work/meshy-sprite-baker/models/survivor-rig-motion.glb",
+        "work/meshy-sprite-baker/models/survivor-v2-rig.glb",
+        "work/meshy-sprite-baker/models/survivor-v2-run.glb",
+        "work/meshy-sprite-baker/models/survivor-v2-walk.glb",
+        "work/meshy-sprite-baker/models/survivor.glb",
+        "work/meshy-sprite-baker/models/throwable-molotov.glb",
+        "work/meshy-sprite-baker/models/weapon-nailgun.glb",
+        "work/meshy-sprite-baker/models/weapon-shotgun.glb"
+      ],
+      "modelBytes": 1983930140,
+      "missingBatchModels": [],
+      "defaultPort": 8804,
+      "portEnvironment": "BAKER_PORT",
+      "localHostOnly": true,
+      "mustKeepOwnModelsDirectory": true,
+      "note": "Keep independent model file bytes. Server realpath guard rejects symlinks resolving outside the baker root; shared writable hardlinks/symlinks risk accidental original overwrite."
+    },
+    {
+      "path": "work/asset-motion-baker-v027",
+      "threeVersion": "0.186.1",
+      "hasPackageLock": false,
+      "modelFiles": [
+        "work/asset-motion-baker-v027/models/boss-01-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-01-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-02-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-02-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-03-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-03-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-04-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-04-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-05-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-05-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-06-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-06-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-07-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-07-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-08-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-08-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-09-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-09-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-10-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-10-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-11-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-11-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-12-final-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/boss-12-mid-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/enemy-collector-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/enemy-elite-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/enemy-gas-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/enemy-runner-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/enemy-screamer-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/enemy-shield-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/enemy-walker-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/survivor-rig-motion.glb",
+        "work/asset-motion-baker-v027/models/weapon-nailgun.glb",
+        "work/asset-motion-baker-v027/models/weapon-shotgun.glb"
+      ],
+      "modelBytes": 651410080,
+      "missingBatchModels": [],
+      "defaultPort": 8804,
+      "portEnvironment": "BAKER_PORT",
+      "localHostOnly": true,
+      "mustKeepOwnModelsDirectory": true,
+      "note": "Keep independent model file bytes. Server realpath guard rejects symlinks resolving outside the baker root; shared writable hardlinks/symlinks risk accidental original overwrite."
+    },
+    {
+      "path": "work/asset-enemy-motion-baker-v029",
+      "threeVersion": "0.186.1",
+      "hasPackageLock": false,
+      "modelFiles": [
+        "work/asset-enemy-motion-baker-v029/models/boss-01-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-01-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-01-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-02-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-02-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-02-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-03-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-03-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-03-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-04-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-04-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-04-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-05-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-05-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-05-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-06-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-06-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-06-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-07-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-07-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-07-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-08-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-08-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-08-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-09-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-09-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-09-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-10-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-10-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-10-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-11-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-11-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-11-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-12-final-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-12-mid-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/boss-12-mid-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-collector-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-collector-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-elite-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-elite-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-gas-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-gas-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-runner-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-runner-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-screamer-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-screamer-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-shield-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-shield-rig-motion.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-walker-grounded-locomotion-v1.glb",
+        "work/asset-enemy-motion-baker-v029/models/enemy-walker-rig-motion.glb"
+      ],
+      "modelBytes": 952970460,
+      "missingBatchModels": [],
+      "defaultPort": 8804,
+      "portEnvironment": "BAKER_PORT",
+      "localHostOnly": true,
+      "mustKeepOwnModelsDirectory": true,
+      "note": "Keep independent model file bytes. Server realpath guard rejects symlinks resolving outside the baker root; shared writable hardlinks/symlinks risk accidental original overwrite."
+    }
+  ],
+  "rigLabRestore": {
+    "path": "outputs/dead-signal/production-assets/rig-lab",
+    "currentPackageManifestExists": false,
+    "currentInstalledThreeVersion": "0.186.1",
+    "proposedPortablePackage": {
+      "name": "dead-signal-rig-lab",
+      "version": "0.29.0",
+      "private": true,
+      "type": "module",
+      "dependencies": {
+        "three": "0.186.1"
+      }
+    },
+    "install": "npm install --package-lock-only --ignore-scripts then npm ci --ignore-scripts in this exact rig-lab folder",
+    "reason": "Viewer importmaps resolve /production-assets/rig-lab/node_modules/three; omitting node_modules without a manifest breaks 3D review."
+  },
+  "python": {
+    "requiredLibraries": [
+      "Pillow",
+      "numpy"
+    ],
+    "requiresPython": "3.9+ (str.removeprefix/removesuffix used)",
+    "currentShellPython": "Xcode Python3.9",
+    "systemNumpyInstalled": false,
+    "note": "Original packing used bundled Python. The portable copy needs a venv plus explicit dependencies; do not assume system python3 provides them."
+  },
+  "draftPathFixCandidates": [
+    {
+      "path": "work/asset-enemy-motion-v029/integrate_locomotion.py",
+      "line": 9,
+      "hardcoded": "work/dead-signal-enemy-motion-v029-draft",
+      "kind": "one-shot historical registration",
+      "recommendedAction": "Do not automatically run or redirect this registration on already-registered v029. Keep a clear one-shot warning and use a fresh pre-registration manifest/draft for future variants."
+    },
+    {
+      "path": "work/asset-enemy-motion-v029/calculate_residency.mjs",
+      "line": 7,
+      "hardcoded": "work/dead-signal-enemy-motion-v029-draft/dist",
+      "kind": "read actual assets and overwrite residency report",
+      "recommendedAction": "Portable-copy-only DEAD_SIGNAL_GAME_DIR optional absolute/relative game-dist override with canonical work/dead-signal-game/dist fallback; require local path and existing manifest."
+    },
+    {
+      "path": "work/enemy-locomotion-measure-20261016.mjs",
+      "line": 246,
+      "hardcoded": "work/dead-signal-enemy-motion-v029-draft/dist/enemy-motion-profiles.js",
+      "kind": "measure and overwrite QA report/profiles",
+      "recommendedAction": "Portable-copy-only output destination override with canonical fallback; keep production report writes explicit and never auto-run as startup."
+    },
+    {
+      "path": "work/asset-final-rig-v027/integrate_motion_assets.py",
+      "line": 6,
+      "hardcoded": "work/dead-signal-animation-v027-draft",
+      "kind": "one-shot historical v027 registration",
+      "recommendedAction": "Keep legacy warning; never run against latest registered v029."
+    },
+    {
+      "path": "work/asset-review-locomotion-v029-draft/verify-final-integration.mjs",
+      "line": 9,
+      "hardcoded": [
+        "outputs/dead-signal/playable/v0.29.0",
+        "outputs/dead-signal/playable/v0.28.0"
+      ],
+      "kind": "historical immutable-snapshot comparison",
+      "recommendedAction": "Keep required baselines or clearly mark historical verification unavailable; portable main-game tests are separate."
+    }
+  ],
+  "baselineDependencies": [
+    {
+      "consumer": "work/player-locomotion-measure-20261016.mjs",
+      "paths": [
+        "outputs/dead-signal/playable/v0.27.0/dist/engine.js",
+        "outputs/dead-signal/playable/v0.27.0/dist/production-art.js",
+        "outputs/dead-signal/playable/v0.27.0/dist/renderer.js"
+      ],
+      "role": "Read-only historical hash checks; not gameplay runtime dependency"
+    },
+    {
+      "consumer": "work/asset-review-locomotion-v029-draft/locomotion-review.test.mjs",
+      "paths": [
+        "work/asset-review-locomotion-v029-draft/before-shared-apply/review-audit.json"
+      ],
+      "role": "Preservation baseline for older capture evidence"
+    },
+    {
+      "consumer": "work/asset-review-locomotion-v029-draft/review-rig.test.mjs",
+      "paths": [
+        "outputs/dead-signal/production-assets/qa/rig-v027/browser-runtime-evidence.json"
+      ],
+      "role": "Recorded real browser verification evidence"
+    },
+    {
+      "consumer": "work/asset-enemy-motion-v029/verify_locomotion_pixels.py",
+      "paths": [
+        "work/asset-enemy-motion-baker-v029/exports/<31 exact batch export folders>"
+      ],
+      "role": "Raw source GPU PNGs required to rerun pixel-perfect crop verification. Preserve these 93 files if that test is included."
+    }
+  ],
+  "exclude": {
+    "directoryNames": [
+      "node_modules",
+      "__pycache__",
+      ".venv",
+      ".git",
+      ".gradle",
+      "build",
+      "DerivedData"
+    ],
+    "filePatterns": [
+      ".DS_Store",
+      "*.log",
+      "*.pid",
+      "server-state.json",
+      "*-server.json",
+      ".env",
+      ".env.*",
+      "*.key",
+      "*.p12",
+      "*.jks",
+      "*.keystore"
+    ],
+    "rawOldExports": {
+      "excludeDefault": [
+        "work/meshy-sprite-baker/exports",
+        "work/asset-motion-baker-v027/exports"
+      ],
+      "keepRequired": [
+        "work/asset-enemy-motion-baker-v029/exports"
+      ],
+      "note": "Raw old renders duplicate retained packed artifacts and can be regenerated. Current v029 raw PNGs are exact-test inputs, not unconditionally disposable."
+    },
+    "doNotExclude": [
+      "batches/*.json",
+      "models/*.glb",
+      "package-lock.json",
+      "required baseline audit JSON",
+      "original GLBs/textures",
+      "current packed atlases/masks/metadata"
+    ]
+  },
+  "absolutePathAudit": {
+    "executableAuthoringCodeHasOriginalUserAbsolutePaths": false,
+    "onlyFoundLocations": [
+      "work/meshy-sprite-baker/README.md",
+      "work/asset-enemy-motion-baker-v029/server-state.json"
+    ],
+    "note": "README cwd example can be made project-relative in portable copy; exclude old server state. Original provenance/audit sourceDirectory fields may contain absolute evidence paths and must be handled by the game-baseline inventory, not silently resolved against the original computer."
+  },
+  "commands": {
+    "game": "python3 -m http.server 8806 --bind 127.0.0.1 --directory work/dead-signal-game/dist",
+    "gallery": "python3 -m http.server 8812 --bind 127.0.0.1 --directory outputs/dead-signal",
+    "baker": "BAKER_PORT=8840 node work/asset-enemy-motion-baker-v029/server.mjs",
+    "reviewManifest": "node work/build-production-review.mjs",
+    "reviewAudit": "node work/asset-review-locomotion-v029-draft/build-review-audit.mjs --manifest outputs/dead-signal/production-assets/review-manifest.json --output work/asset-review-locomotion-v029-draft/production-assets",
+    "rigRegistry": "node work/asset-review-locomotion-v029-draft/build-rig-viewer-registry.mjs --grounded-locomotion",
+    "toolTests": "node --test work/meshy-sprite-baker/tests/*.test.mjs",
+    "galleryTests": "node --test work/asset-review-locomotion-v029-draft/*.test.mjs"
+  },
+  "verifiedRuntimeVersions": {
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "three": "0.186.1"
+  },
+  "limitations": [
+    "This inventory is static dependency inspection, not proof all authoring tools reran successfully after relocation.",
+    "Authoring and registration scripts can overwrite reports or newly derived models. They must not be invoked blindly as bootstrap or startup steps.",
+    "Bakers are GPU/browser tools. Node dependency installation alone does not prove WebGL baking or texture decode on the other computer.",
+    "No player browser profile, localStorage save, sign-in account, paid API credit or signing certificate is included."
+  ]
+}

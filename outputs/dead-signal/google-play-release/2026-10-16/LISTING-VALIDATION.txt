@@ -1,0 +1,61 @@
+DEAD SIGNAL Google Play 등록 문구 검증
+검토일: 2026년 10월 16일 Asia/Seoul
+범위: 새 출력 폴더의 제출용 문구 준비. 원본 모바일 1.0.0, 게임 코드, 계정과 저장 데이터는 변경하지 않음.
+
+입력
+outputs/dead-signal/mobile/v1.0.0/store/listing.json
+SHA256: 09171180a187a88b7508d328ac376918ab05358aa2a26dfe410619544bc58ba9
+
+작성 파일
+store-listing-release.json: Google Play용 KO/EN 이름·짧은 설명·전체 설명과 releaseNotes.
+release-notes-google-play.txt: Console의 별도 언어 태그 형식으로 복사 가능한 KO/EN 출시 노트.
+등록·업로드·심사 제출·공개 상태: 수행하지 않음.
+
+변경 범위
+기존 KO 이름·짧은 설명·전체 설명은 원문 그대로 복사.
+기존 EN 이름·전체 설명은 원문 그대로 복사.
+EN 짧은 설명만 기존 82자에서 77자로 축약.
+Google Play에 별도 필드가 없는 Apple subtitle/keywords와 iOS 관련 항목은 출력 문구에서 제외.
+광고/IAP 기획, 미래 기능, Apple 구현 문제를 Android 설명에 섞지 않음.
+
+Unicode 글자 수 검증
+KO name: 6 / 30 — 통과
+KO shortDescription: 38 / 80 — 통과
+KO description: 551 / 4000 — 통과
+EN name: 11 / 30 — 통과
+EN shortDescription: 77 / 80 — 통과
+EN description: 789 / 4000 — 통과
+출시 노트 ko-KR: 177 / 500 — 통과
+출시 노트 en-US: 317 / 500 — 통과
+
+개행도 한 글자로 계산했다. 이 문구에는 서로게이트 쌍을 쓰는 이모지가 없다.
+등록 제한 공식 근거: https://support.google.com/googleplay/android-developer/answer/9859152?hl=en
+출시 노트 언어 태그·500 Unicode 글자 제한 공식 근거: https://support.google.com/googleplay/android-developer/answer/9859348?hl=en
+
+현재 기능 대조
+모바일 동결 소스의 export를 직접 읽어 미션 12개·보스 24종·무기 2종(shotgun/nailgun)·개조 12종을 확인.
+첫 맵 철거 공사장 / 마지막 맵 태풍방벽을 확인.
+app.js의 storeRelease 장비 상점 메뉴/gear-* 액션 차단을 확인.
+오토·수동 사격, nativeRuntime 터치 조작, suspendMobileSession의 입력 초기화·일시정지·저장·오디오 중단을 확인.
+storage.js의 기기 내 프로필 저장과 이어하기를 확인. 클라우드/브라우저 저장 자동 이전은 설명하지 않음.
+현재 광고 SDK·실제 결제·계정 생성 없음은 기존 AAB/STORE-FACTS 검토와 일치.
+영어 등록문에도 게임 UI 언어가 한국어임을 명시. 영어 게임 화면을 제공한다고 주장하지 않음.
+등록문구의 기능 검증은 소스·번들에 대한 정적 확인이며 실제 Android 기기 검수나 스토어 승인 증거가 아님.
+
+출시 노트
+첫 Android 버전의 실제 콘텐츠·조작·로컬 저장·오프라인·무광고/무결제 사실만 기재.
+할인·순위·최고·다운로드 유도 같은 광고 문구와 검증되지 않은 성능/등급/완료 주장은 없음.
+ko-KR와 en-US 번역 등록이 준비된 Console에서 해당 태그를 사용. 현재 Console 언어 설정을 변경한 것은 아님.
+
+남은 입력의 처리
+실제 공개 지원 이메일과 공개 개인정보 URL은 null로 남김. 가짜 이메일·URL·개인 전화번호를 추가하지 않음.
+무료 오프라인 출시 후보에 맞춘 문구이지만 실제 Play Console 가격 설정은 이 작업에서 확인하지 않음.
+네이티브 제출용 스크린샷과 등급·Data safety의 계정 제출 작업은 root 담당. 본 문서는 STORE-FACTS의 정책/콘텐츠 분석을 반복하지 않음.
+
+원본 보존
+입력 listing.json의 작업 전후 SHA256 일치 확인.
+게임/기존 모바일 산출물/브라우저 탭/사용자 프로필/서명 키/계정에는 쓰기 수행 없음.
+
+새 출력 SHA256
+store-listing-release.json: dfb2678d56b43fca44fa6366ccf5b2db5b49e0d8c3c05b1d96cfabdf2319051a
+release-notes-google-play.txt: f5bb2d205ec594a114836f4d6c2c706ed8a58ba2a66f4e71583276f6253a7375

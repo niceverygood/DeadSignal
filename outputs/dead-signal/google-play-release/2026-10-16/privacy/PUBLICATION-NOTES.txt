@@ -1,0 +1,32 @@
+개인정보 처리방침 게시 준비 — 출시 정책 기준 파일과 운영 확인 기록
+
+출시 정책 기준 파일 (canonical): privacy-policy.ko.html
+게시 대상은 위 HTML 본문 하나입니다. 이전 검토 이력 파일, 이 노트 및 감사 문서는 내부 보존용이며 정책 사이트에 함께 복사하지 않습니다.
+작성일: 2026-10-16 (Asia/Seoul)
+이 담당 작업에서는 게시·호스팅·계정 설정·앱 바이너리 변경을 수행하지 않았습니다. 공개 예정 위치는 root가 검토 중인 support 전용 GitHub Pages 저장소 niceverygood/dead-signal-support입니다. 이 노트는 저장소 생성·Pages 활성화·실제 URL 접근 완료를 의미하지 않습니다. 기존 회사 및 다른 운영 사이트는 변경하지 않습니다.
+
+반영한 검증 사실
+- 실제 Android 1.0.0 AAB의 추출 Manifest에서 INTERNET/AD_ID/BILLING/민감 권한이 없음을 확인했습니다.
+- Android 디버그 APK를 aapt2 dump permissions로 독립 검사하여 동일한 권한 구성을 확인했습니다.
+- 게임과 93개 활성 자산은 앱 안에 포함되고, 프로필/진행/설정은 기기 내 localStorage에 기록합니다.
+- package.json은 Capacitor core/android/ios 8.5.3 및 App 8.1.2이며, 광고·분석·결제 SDK를 연결하지 않았습니다.
+- Android allowBackup=false, fullBackupContent=false와 데이터 추출 제한을 확인했습니다.
+- 공식 Google Play INK Chat 앱의 개발자 소개에서 '주식회사 바틀'과 alphameet.official@gmail.com을 독립 확인했습니다. root가 동일 계정의 새 게임 운영자/공개 문의 주소로 사용하도록 요청한 정보를 반영했습니다.
+  https://play.google.com/store/apps/details?id=com.bottle.ink&hl=ko
+- help@inkchat.ai는 다른 제품의 지원 주소이므로 재사용하지 않았습니다. 공개 주소의 수신·응답 시험이나 회사 내부 문의 처리 운영을 확인했다는 뜻은 아닙니다.
+
+게시 전에 남은 실제 운영 입력
+1. 이메일 문의의 구체적인 보유 기간 또는 목적 달성 후 삭제 기준과 실행 책임자.
+2. 문의 종결 후 삭제 시점, 법령 등으로 별도 보관하는 경우의 대상·근거·기간.
+3. 최종 정책 시행일, 새 게임의 실제 지원 담당 체계.
+4. 공개할 HTTPS URL 및 그 주소에 대한 운영 권한. 로그인·지역 제한·PDF/편집 가능한 문서 형태 없이 접근되어야 합니다.
+5. 새 게임 Store settings의 지원 이메일과 Play Console 정책 URL 입력값 일치, 실제 URL의 모바일/익명 접근 확인.
+
+privacy-policy.ko.html은 출시 정책의 단일 기준 본문입니다. 앱의 서버 수집·보유 없음과 사용자가 별도로 보내는 이메일 문의를 구분합니다. 앱이 개발자 서버로 수집·전송하는 개인정보는 없으므로 해당 앱 데이터에 대한 개발자 서버 보유 기간도 없습니다. 기기 내 게임 기록은 사용자가 삭제할 수 있습니다. 외부 이메일 문의의 보유·삭제 기준은 별도로 미확정이며, 앱 서버 보유 없음이라는 사실이 문의 메일의 보유 기간도 없다는 뜻은 아닙니다.
+본문에는 초안·미확정 표시가 없고 임의의 일수/년수나 확인되지 않은 삭제 운영 약속을 넣지 않았습니다. 실제 운영 기준을 게시 전에 검토해야 합니다. 현재 문서 날짜는 작성일이며 시행일 확정이 아닙니다. HTML의 noindex는 접근 제한이 아니며 익명으로 문서를 읽을 수 있어야 합니다.
+
+검수 범위: HTML 구문 파싱, JavaScript/폼/iframe/원격 리소스 없음, mailto 공개 주소 확인. 실제 호스팅 및 브라우저 렌더링·익명 URL 접근 검수는 아직 수행하지 않았습니다.
+
+Google Play 공식 근거
+https://support.google.com/googleplay/android-developer/answer/10144311?hl=en
+https://support.google.com/googleplay/android-developer/answer/9859152?hl=en

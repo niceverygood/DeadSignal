@@ -1,0 +1,15 @@
+import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {Box3,Vector3} from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const source='../../outputs/dead-signal/production-assets/models/env-common-brick-v1/model.glb';
+const bytes=await fs.readFile(new URL(source,import.meta.url));
+const loader=new GLTFLoader();loader.register(()=>({name:'OfflineGeometryWithoutTextureDecode',loadTexture:()=>Promise.resolve(null)}));
+const gltf=await loader.parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
+gltf.scene.updateMatrixWorld(true);const bounds=new Box3().setFromObject(gltf.scene,true),size=bounds.getSize(new Vector3()),center=bounds.getCenter(new Vector3());
+const job={id:'env-common-brick',exportName:'env-common-brick',model:'env-common-brick.glb',ready:true,directions:8,samples:1,frameSize:512,subjectHeight:180,padding:24,outlinePx:2,shading:'unlit',clip:null,weaponReady:false,rootMotion:false,frontYawDegrees:-90,coreRegion:[.05,.05,.95,.95],originPivot:{x:center.x,y:bounds.min.y,z:center.z}};
+await fs.copyFile(new URL(source,import.meta.url),new URL('models/'+job.model,import.meta.url));
+await fs.writeFile(new URL('batches/common-building-ready-jobs.json',import.meta.url),JSON.stringify({version:1,jobs:[job]},null,2)+'\n');
+const record={source,sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length,size:size.toArray(),world180:{width:size.x/size.y*180,depth:size.z/size.y*180,height:180},job};
+await fs.writeFile(new URL('../common-building-geometry.json',import.meta.url),JSON.stringify(record,null,2)+'\n');
+console.log(JSON.stringify(record));

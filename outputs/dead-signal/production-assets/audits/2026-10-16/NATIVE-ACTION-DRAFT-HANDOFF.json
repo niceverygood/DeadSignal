@@ -1,0 +1,166 @@
+{
+  "format": "dead-signal-native-animation-draft-handoff-v1",
+  "draft": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/work/dead-signal-animation-v027-draft",
+  "status": "code_and_tests_frozen_after_cache_update_all492pass_root_browser_verified",
+  "files": [
+    {
+      "file": "dist/native-action-animation.js",
+      "draftSHA256": "50ca2882edcda606c081ca26403311d9bc21a6d85fbe5dbb191cfbec27e5af4e",
+      "baselineSHA256": null,
+      "kind": "new"
+    },
+    {
+      "file": "dist/production-art.js",
+      "draftSHA256": "483caef452fffe87434255ec257552e7f4df6eb130d71d347f5b9a1421d2f328",
+      "baselineSHA256": "b99485032fe2e5fa637f64618f08e0b41a5b09c67655a775b9ac1f1ea4ec7345",
+      "kind": "modified"
+    },
+    {
+      "file": "dist/renderer.js",
+      "draftSHA256": "e0454c4afae7ffae390618fcbc04f691d37a62aa10956bc4b476205e3d214714",
+      "baselineSHA256": "a2a14714e2e7f990410fb99b3f339a5db469c11acf4f53788101732d1fdcb530",
+      "kind": "modified"
+    },
+    {
+      "file": "dist/engine.js",
+      "draftSHA256": "98c15305cb4e988025217f9015cd91c7998d2fddf89da449c2c3cc3807908a54",
+      "baselineSHA256": "3e1e003c269545c3b061bf2cae36ac89e1e083c72bcaa2240c302f65a9c06528",
+      "kind": "modified"
+    },
+    {
+      "file": "tests/native-action-animation.test.mjs",
+      "draftSHA256": "f423c3328b188bce38c48aa5eca5dfef1208dfac2bc28b2133e52f1cd04cedb0",
+      "baselineSHA256": null,
+      "kind": "new"
+    },
+    {
+      "file": "dist/rig-review.html",
+      "draftSHA256": "9ef46259fdef15474dc81aa24f36edacada961b879b49735391697f786117eb8",
+      "baselineSHA256": null,
+      "kind": "new"
+    },
+    {
+      "file": "dist/rig-review.js",
+      "draftSHA256": "fc3e317440ceac1bf51f2da5dd2a7bd1dc1940f7cd43a19aa7b877668c2380d2",
+      "baselineSHA256": null,
+      "kind": "new"
+    },
+    {
+      "file": "tests/production-content.test.mjs",
+      "draftSHA256": "37d81abcca31c0f946c1d2361372ff9dbb4e8221d5943b2a21d69f730ad726dd",
+      "kind": "modified_content_contract_after_native_catalog_registration"
+    }
+  ],
+  "tests": {
+    "newNativeActionFocused": 18,
+    "additionalSourceContentContracts": 4,
+    "allIntegrated": 492,
+    "failures": 0,
+    "log": "outputs/dead-signal/production-assets/audits/2026-10-16/NATIVE-ACTION-CACHE-FINAL-TESTS.txt",
+    "cacheFinalTotal": 492
+  },
+  "implemented": [
+    "Strict optional named animation spans with no overlaps and one-shot clamping. Existing single-clip assets retain their prior math.",
+    "Boss skills follow saved countdowns, so pause and restored skill progress do not restart body motion.",
+    "NPC contact attacks and screamer release use existing saved cooldowns; generic hit and death clips work for all newly rigged NPC assets.",
+    "Corpse bossKey optionally preserves exact boss identity without changing old checkpoint compatibility; generic NPCs use existing type/angle.",
+    "Native dying bodies share normal actor depth sort. Terminal victory permits only render-time one-shot completion; no simulation/RNG/save/result/lifetime mutation.",
+    "trimmed-v1 packed atlases validate variable non-overlapping rects/local bounds/pivots; per-frame anchors preserve exact world placements. Unknown packing and malformed extents fail closed.",
+    "Optional equipped hero action reel: real recoil->shoot, real hurt flash->hit, HP0->terminal death. Existing packed walk/run/idle aliases remain unchanged; actual player object remains the pose clock key. No invented reload gesture.",
+    "Isolated rig-review.html/js harness has33choices/all6native actions+run/16directions/normalRenderer floor/liveGame combat buttons. It never imports app.js, reads storage, saves a profile or accesses a user browser tab."
+  ],
+  "actualMetadataChecks": {
+    "packedHeroAssets": 4,
+    "packedHeroSamples": 2048,
+    "groundingMuzzleWorldBoundsExact": true,
+    "completedMotionAssetsSnapshotFile": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/production-assets/audits/2026-10-16/NATIVE-MOTION-METADATA-DRAFT-COMPATIBILITY.json",
+    "completedMotionAssets": 33,
+    "hitDeathWalkIdleWindupDistinctForAll33": true
+  },
+  "integrationNotes": [
+    "Seven listed files changed/added in the isolated copy. Root integrates actual asset folders, manifest new IDs/revisions and cache version bumps before release. Draft source tested488/488.",
+    "Keep compact static bossPortraits/bossDetailPortraits mappings, never whole new motion atlases for all codex cards.",
+    "Existing per-mission launch gate and successful-commit eviction already avoid whole-catalog loading; no active scene is evicted before a replacement is valid.",
+    "Keep metadata.source.file unchanged for lossless packed hero so measured sole correction remains authoritative.",
+    "Source metadata compatibility and CPU tests are not actual GPU/native render approval."
+  ],
+  "activeGameAccess": false,
+  "sharedRuntimeChanged": false,
+  "userSaveAccessed": false,
+  "newMeshyAPICalls": false,
+  "reports": [
+    "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/production-assets/audits/2026-10-16/RUNTIME-ANIMATION-AUDIT.json",
+    "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/production-assets/audits/2026-10-16/NATIVE-RESIDENCY-BUDGET.json",
+    "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/production-assets/audits/2026-10-16/PACKED-HERO-RUNTIME-COMPATIBILITY.json"
+  ],
+  "qaHarness": {
+    "files": [
+      "dist/rig-review.html",
+      "dist/rig-review.js"
+    ],
+    "URLPath": "/rig-review.html",
+    "nativeDrawProofAttributes": [
+      "qaAsset",
+      "qaNativePainted",
+      "qaClip",
+      "qaSample",
+      "qaSource",
+      "qaPacking",
+      "qaObservedSamples",
+      "qaPauseUnchanged",
+      "qaSignature"
+    ],
+    "browserProof": "Root must perform actual CUA browser verification; this agent did not run browser automation."
+  },
+  "limitations": [
+    "GPU/browser native action/footing quality needs root review.",
+    "Hero reload hands, magazines, fingers and per-character special skill choreography remain future refinements; current native actions are actual body rig clips with equipped weapons.",
+    "Ten final boss attack spans contain legitimate pose holds (3-5unique of6); all33 other evaluated spans have full sample pixel uniqueness at direction2."
+  ],
+  "integrationContentProof": {
+    "nativeActorReels": 33,
+    "uniqueRiggedBodies": 32,
+    "weightedEveryVertexNormalized": true,
+    "originalBinaryPrefixAndGeometryUVTextureDataPreserved": true,
+    "sixVaryingActualGLBClipsPerBody": true,
+    "portraitHDDescriptorsAndBytesUnchanged": 48,
+    "packedHeroSamplesGroundMuzzleContourExact": 2048,
+    "canonicalPackedAssetCopiesAndRevisionsVerified": 37
+  },
+  "cacheVersionUpdate": "outputs/dead-signal/production-assets/audits/2026-10-16/V027-CACHE-VERSION-UPDATE.json",
+  "rootBrowserEvidenceReported": "Root reported33actor161state inspections,20representative fullclip and actual mission01/07/10 boss skill/death checks; source agent did not operate browser.",
+  "finalCodeFiles": [
+    {
+      "file": "dist/native-action-animation.js",
+      "sha256": "50ca2882edcda606c081ca26403311d9bc21a6d85fbe5dbb191cfbec27e5af4e"
+    },
+    {
+      "file": "dist/production-art.js",
+      "sha256": "7869c685c6224fd8438a5227ab4a785e35e4ef69107761d9933db68d6b5b02df"
+    },
+    {
+      "file": "dist/renderer.js",
+      "sha256": "0babfbe56adec0c0d4e05b2dae0baad506541ebb0a7b67e4a02fdde135b68daf"
+    },
+    {
+      "file": "dist/engine.js",
+      "sha256": "092b843ff118629b4344d33112c22dca470e5bb25629846435f35cc2f9161b52"
+    },
+    {
+      "file": "tests/native-action-animation.test.mjs",
+      "sha256": "f423c3328b188bce38c48aa5eca5dfef1208dfac2bc28b2133e52f1cd04cedb0"
+    },
+    {
+      "file": "dist/rig-review.html",
+      "sha256": "9ef46259fdef15474dc81aa24f36edacada961b879b49735391697f786117eb8"
+    },
+    {
+      "file": "dist/rig-review.js",
+      "sha256": "e6c1887e6a1dd8ef5d9488e38fa3d2f101f5ef2e5f343e64659e835c3ab01f33"
+    },
+    {
+      "file": "tests/production-content.test.mjs",
+      "sha256": "37d81abcca31c0f946c1d2361372ff9dbb4e8221d5943b2a21d69f730ad726dd"
+    }
+  ]
+}

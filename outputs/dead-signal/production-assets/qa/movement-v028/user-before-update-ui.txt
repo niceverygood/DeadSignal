@@ -1,0 +1,58 @@
+- main "데드 시그널 게임":
+  - generic "데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요."
+  - region "생존자 상태":
+    - generic: SURVIVOR ONLINE
+    - generic: 체력
+    - strong: 188 / 250
+    - generic: 전기 못총
+    - strong: 13 / 24
+  - region "임무 정보":
+    - generic: 작전 경과
+    - strong: 00:27
+    - generic: 05 / 검문구역
+  - region "전투 기록":
+    - button "현재 오토 모드. 수동 모드로 전환" [pressed]: 오토 모드
+    - button "사운드 설정" [pressed]:
+    - button "일시정지":
+    - generic: 처치
+    - strong: "45"
+    - generic: 레벨
+    - strong: "4"
+  - region "성장과 소음":
+    - generic: 소음
+    - generic: 경보 정예 출현
+    - generic: ≋
+    - generic: 경보 정예 처치 → 추가 개조
+    - generic: 경험치
+    - generic: 다음 개조까지
+  - region "전투 장비":
+    - button "E 소음탄 준비" [disabled]:
+      - generic: E
+      - generic: 소음탄
+      - generic: 준비
+    - button "Q 화염병 준비" [disabled]:
+      - generic: Q
+      - generic: 화염병
+      - generic: 준비
+    - button "SPACE 회피 준비" [disabled]:
+      - generic: SPACE
+      - generic: 회피
+      - generic: 준비
+  - paragraph: LEVEL UP / CHOOSE YOUR BUILD
+  - heading "무기 개조 선택" [level=2]
+  - paragraph: 레벨 4 · 하나를 선택하면 전투가 이어집니다.
+  - button "응급 처치 최대 체력 +20, 체력 30을 즉시 회복합니다. 1 키로 선택 · 1 / 3 단계" [active]:
+    - generic: 응급 처치
+    - generic: 최대 체력 +20, 체력 30을 즉시 회복합니다.
+    - generic: 1 키로 선택 · 1 / 3 단계
+  - button "휘발성 감염 처치한 좀비가 폭발해 주변에 피해를 줍니다. 2 키로 선택 · 1 / 3 단계":
+    - generic: 휘발성 감염
+    - generic: 처치한 좀비가 폭발해 주변에 피해를 줍니다.
+    - generic: 2 키로 선택 · 1 / 3 단계
+  - button "탄환 분열 추가 탄환 2발. 못총은 두 발을 동시에 쏩니다. 3 키로 선택 · 1 / 2 단계":
+    - generic: 탄환 분열
+    - generic: 추가 탄환 2발. 못총은 두 발을 동시에 쏩니다.
+    - generic: 3 키로 선택 · 1 / 2 단계
+  - generic: 가벼운 발걸음 1
+  - generic: 관통 탄환 1
+  - status

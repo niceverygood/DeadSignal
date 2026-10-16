@@ -1,0 +1,24 @@
+Read-only diagnosis: exact boot-failure cause remains unconfirmed.
+
+The previous own DeadSignal_Release_QA booted in 27919ms with the same Emulator35.6.11 and same API36 GooglePlay ARM64 image, including the same VulkanVirtualQueue warning and initial adb-offline warning. The API36 revision6 image declares minimum Emulator35.2.10; installed35.6.11 satisfies it. SDK incompatibility or that warning alone is therefore not an established cause.
+
+Hypervisor.Framework acceleration check passed. Current free disk109.7GB. Current swap usage18.1GB/19.5GB suggests host resource pressure can be considered, but this later snapshot does not establish failure-time causation. The new and old AVDs both resolve6GB userdata volumes; qcow2 dirty flags are false, which does not verify guest filesystem health. New userdata has380MB allocated versus2.50GB in prior initialized own QA profile. Current ADB client/server are the same SDK36.0.0 binary and boot-injected PUBLIC adb key matches current global PUBLIC key; no private key contents were read and no ADB/server/key settings changed.
+
+No guest kernel/logcat was captured during failed boots. The app was never installed on that AVD. Native execution and the root cause remain unverified; there is no evidence attributing this boot failure to the signed APK.
+
+Only API36 system-image is installed; no alternative installed API image or attached physical Android device is available. Current device inventory has another emulator5558 only; it was not manipulated. Previously stopped own5580 and its profile remain preserved. No new emulator boot occurred in this diagnostic turn.
+
+Practical next options, not executed:
+1. Google Play pre-launch report after authorized test-track upload. Report generation depends on device-lab capacity/eligibility, and crawler results do not replace direct game play/save/touch checks. Game-loop support may be needed for useful game coverage.
+2. Physical Android device using the signed QA APK or Play internal-test delivery, when one is connected/authorized. Preserve human data and account for upload-key versus Google app-signing certificate differences.
+3. Copy the stopped, previously booted own QA AVD into a NEW disposable path, preserving the original. Its old debug-signed app would require removal in the clone only before upload-signed APK install. This avoids repeating fresh userdata initialization but does not solve CUA app-selection limits. Requires a separate GO; not executed.
+4. Official -feature -Vulkan is a distinct GLES graphics diagnostic; prior SwiftShader indirect still used ANGLE/Vulkan. It is not a proven fix for this offline condition. No further same-AVD boot performed.
+
+Primary official references:
+https://developer.android.com/studio/releases/emulator?hl=en
+https://developer.android.com/studio/run/emulator-troubleshooting
+https://developer.android.com/tools/adb
+https://support.google.com/googleplay/android-developer/answer/9842757?hl=en-GB
+https://support.google.com/googleplay/android-developer/answer/9845334?hl=en-GB
+
+No source, original artifact, key, SDK installation/license, account, web game, UI or other emulator was modified in this diagnosis. No adb input, screenshot or DevTools workaround used.

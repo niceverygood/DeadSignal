@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-16T11:42:02.675651+00:00",
+  "scope": "Portable copy only; original workspace tools are preserved.",
+  "project": ".",
+  "changedFiles": [
+    {
+      "path": "work/asset-enemy-motion-v029/calculate_residency.mjs",
+      "originalSHA256": "3dbfb8bd5d64ca80f762cc0b13d4c5bf00a2e28e15b74672e2af69a3d886a03b",
+      "portableSHA256": "d21ea0c561a0f2332c45b2e53ac794cf1e083d5eb82496ac308967b5563fbb33",
+      "reason": "Canonical current game-dist fallback and explicit portable environment override; dry-run output suppression; measurement runtime-profile writes opt-in only."
+    },
+    {
+      "path": "work/enemy-locomotion-measure-20261016.mjs",
+      "originalSHA256": "c906cf8d762faaf5ccf1cfa8054487b96fff55f5eea68d67bc98463595593506",
+      "portableSHA256": "45d3fd8002d80c97a7e3500b44dff25027844e746486199c02729e3a5c715f54",
+      "reason": "Canonical current game-dist fallback and explicit portable environment override; dry-run output suppression; measurement runtime-profile writes opt-in only."
+    }
+  ],
+  "newFiles": [
+    ".transfer/TOOLS.txt",
+    ".transfer/tool-portability-changes.json"
+  ],
+  "configuration": {
+    "gameDistEnvironment": "DEAD_SIGNAL_GAME_DIR",
+    "gameDistDefault": "work/dead-signal-game/dist",
+    "profilesCLI": "--profiles-output <file>",
+    "profilesEnvironment": "DEAD_SIGNAL_PROFILES_OUTPUT",
+    "profilesDefaultWrite": false,
+    "dryRunFlag": "--dry-run",
+    "dryRunWritesReportsOrProfiles": false,
+    "groundedInputSelectionContractPreserved": true,
+    "generatedMeasurementSourceIdentifiesActualInput": true
+  },
+  "validation": {
+    "syntaxChecks": {
+      "calculate_residency.mjs": "passed",
+      "enemy-locomotion-measure-20261016.mjs": "passed"
+    },
+    "additionalRequiredFiles": {
+      "count": 8,
+      "allPresent": true,
+      "originalBytesExact": true
+    },
+    "bakerModels": {
+      "count": 195,
+      "allPresent": true,
+      "originalSizesExact": true,
+      "contentSHA256Compared": false
+    },
+    "residencyDryRun": {
+      "passed": true,
+      "assets": 157,
+      "steadyMaxMiB": 526.9140625,
+      "transitionMaxMiB": 758.2890625,
+      "reportWritten": false,
+      "existingReportDiagnosisProfilesSHA256Unchanged": true
+    },
+    "measurementDryRun": {
+      "status": "passed",
+      "command": "node work/enemy-locomotion-measure-20261016.mjs --grounded --dry-run",
+      "elapsedSeconds": 6.62,
+      "cwd": "unrelated temporary directory",
+      "gameDirEnvironment": "work/dead-signal-game/dist",
+      "explicitProfilesEnvironment": ".transfer/dry-run-should-not-create/enemy-motion-profiles.js",
+      "exitCode": 0,
+      "originalAndPortableReportsProfilesAndToolsSHA256Unchanged": true,
+      "checkedFilesPerTree": 6,
+      "explicitProfileFileAndParentNotCreated": true,
+      "originalAndPortableSHA256": {
+        "original": {
+          "outputs/dead-signal/production-assets/audits/2026-10-16/V029-NATIVE-RESIDENCY-BUDGET.json": "ff5cc5ce478f90fddef691985a8e436593a3455bb397776c3982f2e73dadb269",
+          "outputs/dead-signal/production-assets/qa/enemy-locomotion-diagnosis-20261016.json": "473a96cf5da68a031bd60c2b407636e91711cf2e1bd2f48f5f88226073cd4272",
+          "outputs/dead-signal/production-assets/qa/enemy-grounded-locomotion-diagnosis-20261016.json": "a27c231da941b18aa77d3b882c906aa5157f9178b17f4c16f539d342e73ce858",
+          "work/dead-signal-game/dist/enemy-motion-profiles.js": "9dce3ee7ffffba588529f947d2cdd87526ddf80854fd7d9a4b27509c343a3ffd",
+          "work/asset-enemy-motion-v029/calculate_residency.mjs": "3dbfb8bd5d64ca80f762cc0b13d4c5bf00a2e28e15b74672e2af69a3d886a03b",
+          "work/enemy-locomotion-measure-20261016.mjs": "c906cf8d762faaf5ccf1cfa8054487b96fff55f5eea68d67bc98463595593506"
+        },
+        "portable": {
+          "outputs/dead-signal/production-assets/audits/2026-10-16/V029-NATIVE-RESIDENCY-BUDGET.json": "ff5cc5ce478f90fddef691985a8e436593a3455bb397776c3982f2e73dadb269",
+          "outputs/dead-signal/production-assets/qa/enemy-locomotion-diagnosis-20261016.json": "473a96cf5da68a031bd60c2b407636e91711cf2e1bd2f48f5f88226073cd4272",
+          "outputs/dead-signal/production-assets/qa/enemy-grounded-locomotion-diagnosis-20261016.json": "a27c231da941b18aa77d3b882c906aa5157f9178b17f4c16f539d342e73ce858",
+          "work/dead-signal-game/dist/enemy-motion-profiles.js": "9dce3ee7ffffba588529f947d2cdd87526ddf80854fd7d9a4b27509c343a3ffd",
+          "work/asset-enemy-motion-v029/calculate_residency.mjs": "d21ea0c561a0f2332c45b2e53ac794cf1e083d5eb82496ac308967b5563fbb33",
+          "work/enemy-locomotion-measure-20261016.mjs": "45d3fd8002d80c97a7e3500b44dff25027844e746486199c02729e3a5c715f54"
+        }
+      },
+      "summary": {
+        "output": "outputs/dead-signal/production-assets/qa/enemy-grounded-locomotion-diagnosis-20261016.json",
+        "humanoids": 19,
+        "approximateFinalBosses": 12,
+        "profilesPath": ".transfer/dry-run-should-not-create/enemy-motion-profiles.js",
+        "gameDir": "work/dead-signal-game/dist",
+        "dryRun": true,
+        "reportWritten": false,
+        "profilesWritten": false,
+        "walkCycleRange": [
+          37.60144567143824,
+          76.9376986964339
+        ],
+        "runCycleRange": [
+          84.97961632285102,
+          171.83371708175355
+        ]
+      }
+    },
+    "residencyPortableCwdAndRelativeEnvironmentOverride": {
+      "passed": true,
+      "cwd": "unrelated temporary directory",
+      "environment": "DEAD_SIGNAL_GAME_DIR=work/dead-signal-game/dist",
+      "assets": 157,
+      "reportsAndProfilesSHA256Unchanged": true
+    },
+    "correctedDuringValidation": [
+      {
+        "issue": "New node:path import name shadowed an existing local model path variable during the first execution.",
+        "resolution": "Portable measurement uses nodePath import name; original authoring source is unchanged.",
+        "finalStatus": "passed"
+      }
+    ]
+  },
+  "originalSourceHashes": {
+    "work/asset-enemy-motion-v029/calculate_residency.mjs": "3dbfb8bd5d64ca80f762cc0b13d4c5bf00a2e28e15b74672e2af69a3d886a03b",
+    "work/enemy-locomotion-measure-20261016.mjs": "c906cf8d762faaf5ccf1cfa8054487b96fff55f5eea68d67bc98463595593506"
+  },
+  "limitations": [
+    "No browser GPU export or actual Three viewer UI was rerun as part of this path modification.",
+    "Legacy one-shot registration scripts remain historical and must not be rerun against the current catalog."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "dead-signal-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-concurrency=2 tests/*.test.mjs",
+    "build:bridge": "node scripts/build-bridge.mjs",
+    "sync": "npm run build:bridge && cap sync",
+    "android:release": "cd android && ./gradlew bundleRelease",
+    "ios:project": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/ios": "8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "3.0.5",
+    "@capacitor/cli": "8.5.3",
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,62 @@
+DEAD SIGNAL runtime animation audit — frozen v0.26.1
+
+Bosses24: mid12 real24-joint walk8x16; final12 static16 directions with0skins/0clips.
+Enemy7: real24-joint walk8x16 only. Hero2 weapon profiles: idle1x16 / walk32x16 / run32x16.
+All actor source attacks, windup, hit and death clips missing in active runtime.
+
+Critical findings:
+P1 all-final-boss-static: All 12 final boss source GLBs have zero skins and zero animation clips. Runtime contains 16 directional views of one rest pose; movement visually slides that unchanged pose. Gallery native-integrated means source artwork installed, not complete animation.
+P1 state-animation-missing: ProductionPoseClock/actorFrame choose only idle/walk/run/dash from travel. Boss attackState, windup, charge, recover and skill state never choose body clips. Native hero fire/reload also do not change body pose. Hit reaction is a same-sprite screen flash.
+P1 boss-death-identity-lost: engine.killEnemy saves corpse type but drops bossKey, radius, source asset and pose. drawCorpse uses generic Canvas body by enemy type, so native appearance vanishes at death. Final boss victory ends immediately; there is no dying/death clip.
+P2 walk-only-low-sampling: All 12 mid bosses and 7 enemy types have real 24-joint walk deformation, but only 8 sampled poses per direction and no alternate native clips. Hero has32 walk/run samples; idle remains one pose. Merely increasing sample count will not create missing actions.
+P2 enemy-gait-speed-and-grounding: Enemy and boss use engine distance-driven walkPhase (0.08 rad/world-unit); one cycle is 78.54 world units regardless of scale/anatomy. Only hero gets measured gait duration and sole height correction. Enemy/boss footing and stride synchronization require actual source pose measurement, not whole-sprite bounce.
+
+Active source/artifact coverage:
+characters/survivor-shotgun -> survivor-shotgun-idle: 16dir x1samples, 16unique pixels, 1skins/[24]joints, source=survivor-v2-rig.glb, clip=NONE, unchangedCanonical=True
+characters/survivor-shotgun -> survivor-shotgun-walk: 16dir x32samples, 496unique pixels, 1skins/[24]joints, source=survivor-v2-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+characters/survivor-shotgun -> survivor-shotgun-run: 16dir x32samples, 496unique pixels, 1skins/[24]joints, source=survivor-v2-run.glb, clip=Armature|running|baselayer, unchangedCanonical=True
+characters/survivor-nailgun -> survivor-nailgun-idle: 16dir x1samples, 16unique pixels, 1skins/[24]joints, source=survivor-v2-rig.glb, clip=NONE, unchangedCanonical=True
+characters/survivor-nailgun -> survivor-nailgun-walk: 16dir x32samples, 496unique pixels, 1skins/[24]joints, source=survivor-v2-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+characters/survivor-nailgun -> survivor-nailgun-run: 16dir x32samples, 496unique pixels, 1skins/[24]joints, source=survivor-v2-run.glb, clip=Armature|running|baselayer, unchangedCanonical=True
+bosses/boss-01-mid -> boss-01-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-01-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-07-final -> boss-07-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-07-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-01-final -> boss-01-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-01-final-v2.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-02-mid -> boss-02-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-02-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-02-final -> boss-02-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-02-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-03-mid -> boss-03-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-03-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-03-final -> boss-03-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-03-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-04-mid -> boss-04-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-04-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-04-final -> boss-04-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-04-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-05-final -> boss-05-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-05-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-06-final -> boss-06-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-06-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-05-mid -> boss-05-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-05-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-06-mid -> boss-06-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-06-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-07-mid -> boss-07-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-07-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-08-mid -> boss-08-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-08-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-08-final -> boss-08-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-08-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-09-mid -> boss-09-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-09-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-09-final -> boss-09-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-09-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-10-mid -> boss-10-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-10-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-11-mid -> boss-11-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-11-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-11-final -> boss-11-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-11-final-v2.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-12-mid -> boss-12-mid: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=boss-12-mid-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+bosses/boss-12-final -> boss-12-final: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-12-final.glb, clip=NONE, unchangedCanonical=True
+bosses/boss-10-final -> boss-10-final-repaired-v2: 16dir x1samples, 16unique pixels, 0skins/[]joints, source=boss-10-final-repaired-v2.glb, clip=NONE, unchangedCanonical=True
+enemies/walker -> enemy-walker: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=enemy-walker-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+enemies/runner -> enemy-runner: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=enemy-runner-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+enemies/shield -> enemy-shield: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=enemy-shield-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+enemies/screamer -> enemy-screamer: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=enemy-screamer-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+enemies/gas -> enemy-gas: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=enemy-gas-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+enemies/elite -> enemy-elite: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=enemy-elite-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+enemies/collector -> enemy-collector: 16dir x8samples, 128unique pixels, 1skins/[24]joints, source=enemy-collector-walk.glb, clip=Armature|walking_man|baselayer, unchangedCanonical=True
+
+Local improvement order:
+1. Add unique inspectable animation coverage status to review cards and summary; distinguish rigged walk-only, static final, runtime-integrated, missing action clips. Preserve approved source textures/UV and active saves.
+2. For 12 midboss+7enemy rigged originals, generate added attack/windup/hit/death clips on actual existing24-joint skeleton with per-role configurations; bake new uniquely named atlases. Reuse actual original meshes and embedded textures, no substitute generics. Increase locomotion to32 samples if atlas memory/performance is validated.
+3. For 12 finalboss originals, create new model files with anatomy-specific skinning/rig. Boss10 is quadruped tracked machine with repaired original geometry, so humanoid auto-rig is unsuitable; retain body/track/Xbrace meshes and semantic attachment joints. All other final meshes are single fused textured mesh and need weights/part segmentation before joint articulation.
+4. Add native runtime pose dispatch driven by actual simulation action state and visual state clocks; clamp oneshots, freeze while paused, reset cleanly, no RNG or saved physics changes. Native actor death requires backwards compatible corpse identity handling.
+
+Limitations:
+Source geometry and frame pixel uniqueness measured; browser-visible GPU animation and footing not verified in this audit.
+No new rig, animation clips, exported sprites or active runtime changes were created in this audit.
+Pixel uniqueness demonstrates distinct baked poses, not correct anatomy, movement quality, or unoccluded feet.

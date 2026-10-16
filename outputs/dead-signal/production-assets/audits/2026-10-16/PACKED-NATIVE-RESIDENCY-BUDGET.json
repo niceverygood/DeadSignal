@@ -1,0 +1,3561 @@
+{
+  "format": "dead-signal-packed-native-image-residency-budget-v1",
+  "checkedDate": "2026-10-16",
+  "meaning": "Dimension-derived decoded RGBA equivalents, counted once per resident image asset ID under the same 24 campaign launch plans and successful two-scene transition model as NATIVE-RESIDENCY-BUDGET.json. NOT actual browser, process, compositor or GPU/VRAM memory measurement.",
+  "inputs": {
+    "manifest": {
+      "path": "work/dead-signal-animation-v027-draft/dist/production-manifest.js",
+      "sha256": "95bfbb4a3eb0cbaa94ea59b16329353bb057ce7074d3227826abe5cbb502f426"
+    },
+    "baselineBudget": {
+      "path": "outputs/dead-signal/production-assets/audits/2026-10-16/NATIVE-RESIDENCY-BUDGET.json",
+      "sha256": "adb6b9fe92e850a72c7ef08694a624d48b9fda5917ea1321858829975d5de21f"
+    },
+    "loadingPlan": "work/dead-signal-animation-v027-draft/dist/launch-gate.js",
+    "scope": "12 missions x 2 weapons; actual productionLaunchPlan + deterministic launchWorld; original plan ID selection independently reproduced"
+  },
+  "checks": {
+    "all126MetadataDimensionsMatchActualPngIHDR": true,
+    "all24BaselineLoadingSelectionsReproduced": true,
+    "allLegacyUnmappedProceduralPropsUnchanged": true,
+    "actionAtlases33Trimmed": true,
+    "heroHQ32Atlases4Trimmed": true,
+    "totalTrimmedAtlases37": true,
+    "allPlannedHeroMasksSkippedByContours": true,
+    "regularPortraitDimensionsUnchanged": true,
+    "originalReportPreserved": true
+  },
+  "counts": {
+    "registeredAssets": 126,
+    "packedAssets": 37,
+    "actionAssets": 33,
+    "packedHQ32HeroAssets": 4,
+    "campaignPlans": 24,
+    "modeledTransitions": 576
+  },
+  "steadyMax": {
+    "mission": "mission-10",
+    "weapon": "nailgun",
+    "assetIds": [
+      "survivor-nailgun-idle",
+      "survivor-nailgun-walk",
+      "survivor-nailgun-run",
+      "survivor-nailgun-rig-motion",
+      "boss-10-mid-rig-motion",
+      "boss-10-final-rig-motion",
+      "enemy-walker-rig-motion",
+      "enemy-runner-rig-motion",
+      "enemy-shield-rig-motion",
+      "enemy-screamer-rig-motion",
+      "enemy-gas-rig-motion",
+      "enemy-elite-rig-motion",
+      "lure-speaker",
+      "env-common-brick",
+      "env-scrapyard-compressor",
+      "env-broken-car",
+      "env-red-fuel-barrel",
+      "env-fence-vertical",
+      "env-fence-horizontal",
+      "env-amber-worklamp"
+    ],
+    "packed": {
+      "imageBytes": 318758912,
+      "imageMiB": 303.9921875,
+      "maskBytes": 0,
+      "maskMiB": 0,
+      "totalBytes": 318758912,
+      "totalMiB": 303.9921875,
+      "decodedMaskIds": []
+    },
+    "oldMaximumMiB": 520,
+    "deltaMiB": -216.0078125,
+    "percentReduction": 41.539963942307686
+  },
+  "transitionMax": {
+    "from": "shotgun/mission-02",
+    "to": "nailgun/mission-10",
+    "assetIds": [
+      "survivor-shotgun-idle",
+      "survivor-shotgun-walk",
+      "survivor-shotgun-run",
+      "survivor-shotgun-rig-motion",
+      "boss-02-mid-rig-motion",
+      "boss-02-final-rig-motion",
+      "enemy-walker-rig-motion",
+      "enemy-runner-rig-motion",
+      "enemy-shield-rig-motion",
+      "enemy-gas-rig-motion",
+      "enemy-elite-rig-motion",
+      "lure-speaker",
+      "env-common-brick",
+      "env-sewers-pump-station",
+      "env-broken-car",
+      "env-red-fuel-barrel",
+      "env-fence-vertical",
+      "env-amber-worklamp",
+      "survivor-nailgun-idle",
+      "survivor-nailgun-walk",
+      "survivor-nailgun-run",
+      "survivor-nailgun-rig-motion",
+      "boss-10-mid-rig-motion",
+      "boss-10-final-rig-motion",
+      "enemy-screamer-rig-motion",
+      "env-scrapyard-compressor",
+      "env-fence-horizontal"
+    ],
+    "packed": {
+      "imageBytes": 482631680,
+      "imageMiB": 460.2734375,
+      "maskBytes": 0,
+      "maskMiB": 0,
+      "totalBytes": 482631680,
+      "totalMiB": 460.2734375,
+      "decodedMaskIds": []
+    },
+    "oldMaximumMiB": 824,
+    "deltaMiB": -363.7265625,
+    "percentReduction": 44.141573118932044
+  },
+  "phaseDifferences": {
+    "tacticalPortraitCatalog": {
+      "assetIds": [
+        "boss-01-mid-portrait",
+        "boss-02-mid-portrait",
+        "boss-03-mid-portrait",
+        "boss-04-mid-portrait",
+        "boss-05-mid-portrait",
+        "boss-06-mid-portrait",
+        "boss-07-mid-portrait",
+        "boss-08-mid-portrait",
+        "boss-09-mid-portrait",
+        "boss-10-mid-portrait",
+        "boss-11-mid-portrait",
+        "boss-12-mid-portrait",
+        "boss-07-final",
+        "boss-01-final",
+        "boss-02-final",
+        "boss-03-final",
+        "boss-04-final",
+        "boss-05-final",
+        "boss-06-final",
+        "boss-08-final",
+        "boss-09-final",
+        "boss-11-final",
+        "boss-12-final",
+        "boss-10-final-repaired-v2"
+      ],
+      "images": {
+        "imageBytes": 75497472,
+        "imageMiB": 72,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 75497472,
+        "totalMiB": 72,
+        "decodedMaskIds": []
+      },
+      "oldImagesMiB": 72,
+      "unchanged": true,
+      "maximumSingleHDImage": {
+        "id": "boss-01-mid-detail-hd",
+        "MiB": 8
+      },
+      "heroPlusPortraitsExamples": [
+        {
+          "weapon": "shotgun",
+          "heroIds": [
+            "survivor-shotgun-idle",
+            "survivor-shotgun-walk",
+            "survivor-shotgun-run",
+            "survivor-shotgun-rig-motion"
+          ],
+          "hero": {
+            "imageBytes": 80658432,
+            "imageMiB": 76.921875,
+            "maskBytes": 0,
+            "maskMiB": 0,
+            "totalBytes": 80658432,
+            "totalMiB": 76.921875,
+            "decodedMaskIds": []
+          },
+          "allRegularPortraits": {
+            "imageBytes": 156155904,
+            "imageMiB": 148.921875,
+            "maskBytes": 0,
+            "maskMiB": 0,
+            "totalBytes": 156155904,
+            "totalMiB": 148.921875,
+            "decodedMaskIds": []
+          },
+          "allRegularPortraitsAndOneHD": {
+            "imageBytes": 164544512,
+            "imageMiB": 156.921875,
+            "maskBytes": 0,
+            "maskMiB": 0,
+            "totalBytes": 164544512,
+            "totalMiB": 156.921875,
+            "decodedMaskIds": []
+          }
+        },
+        {
+          "weapon": "nailgun",
+          "heroIds": [
+            "survivor-nailgun-idle",
+            "survivor-nailgun-walk",
+            "survivor-nailgun-run",
+            "survivor-nailgun-rig-motion"
+          ],
+          "hero": {
+            "imageBytes": 83492864,
+            "imageMiB": 79.625,
+            "maskBytes": 0,
+            "maskMiB": 0,
+            "totalBytes": 83492864,
+            "totalMiB": 79.625,
+            "decodedMaskIds": []
+          },
+          "allRegularPortraits": {
+            "imageBytes": 158990336,
+            "imageMiB": 151.625,
+            "maskBytes": 0,
+            "maskMiB": 0,
+            "totalBytes": 158990336,
+            "totalMiB": 151.625,
+            "decodedMaskIds": []
+          },
+          "allRegularPortraitsAndOneHD": {
+            "imageBytes": 167378944,
+            "imageMiB": 159.625,
+            "maskBytes": 0,
+            "maskMiB": 0,
+            "totalBytes": 167378944,
+            "totalMiB": 159.625,
+            "decodedMaskIds": []
+          }
+        }
+      ],
+      "explanation": "Tactical/codex portraits retain 24 compact static IDs (72 MiB total). Drawing a boss portrait never requests the action atlas. One optional selected HD image adds 8 MiB. Hero preloads include one packed action atlas, packed walk/run and idle. A paused committed scene may also remain resident."
+    },
+    "ordinaryCombat": {
+      "samePlanAsBaseline": true,
+      "steadyMaximumMiB": 303.9921875,
+      "bossesPreloadedAtLaunch": 2,
+      "explanation": "Launch preloads selected mission midboss and final boss, fixed enemy roster, environment and selected hero. Repeated instances share the same atlas record."
+    },
+    "bossCombat": {
+      "sameResidentImageSetAsOrdinaryCombat": true,
+      "additionalBossEncounterImageMiB": 0,
+      "explanation": "Both boss action atlases are already resident. Selecting animation frame ranges does not allocate another native sprite sheet."
+    },
+    "optionalPortraitOverlayOnLargestSteady": {
+      "imageBytes": 402644992,
+      "imageMiB": 383.9921875,
+      "maskBytes": 0,
+      "maskMiB": 0,
+      "totalBytes": 402644992,
+      "totalMiB": 383.9921875,
+      "decodedMaskIds": [],
+      "explanation": "Largest committed campaign plan plus every compact portrait and one HD image."
+    },
+    "optionalPortraitOverlayDuringLargestTransition": {
+      "imageBytes": 566517760,
+      "imageMiB": 540.2734375,
+      "maskBytes": 0,
+      "maskMiB": 0,
+      "totalBytes": 566517760,
+      "totalMiB": 540.2734375,
+      "decodedMaskIds": [],
+      "explanation": "Previous+new campaign plans plus every compact portrait and one HD image before commit eviction."
+    }
+  },
+  "atlasStorageComparison": {
+    "baselineAllRegisteredWithoutMasksMiB": 1516,
+    "packedAllRegisteredWithoutMasks": {
+      "imageBytes": 2143870976,
+      "imageMiB": 2044.5546875,
+      "maskBytes": 0,
+      "maskMiB": 0,
+      "totalBytes": 2143870976,
+      "totalMiB": 2044.5546875,
+      "decodedMaskIds": []
+    },
+    "meaning": "Catalog total includes retained old models/portraits and new action entries; it is not a launch preload total. Compressed PNG bytes and decoded RGBA are separate."
+  },
+  "cancelledLaunchQualification": {
+    "twoSceneMaximumIsNotUnconditionalGlobalPeak": true,
+    "explanation": "Failed/cancelled loads retain the old scene and can leave already fetched candidate images cached until successful commit. Repeated distinct cancellations can exceed the two-plan union. The following is an all-24-campaign-plan union plus compact portraits and one HD image, not measured peak.",
+    "allCampaignPlansPlusPortraitsAndOneHD": {
+      "imageBytes": 1280696320,
+      "imageMiB": 1221.3671875,
+      "maskBytes": 0,
+      "maskMiB": 0,
+      "totalBytes": 1280696320,
+      "totalMiB": 1221.3671875,
+      "decodedMaskIds": []
+    }
+  },
+  "exclusions": [
+    "Non-native/UI/title/equipment images, floor materials, VFX, canvas backing stores, metadata/contour JS objects, decode work buffers, compositor/GPU texture copies, mipmaps, browser cache and driver overhead are excluded.",
+    "Legacy procedural rubble/hydrant/trash/sign and patrol-car selection gaps are unchanged and consume no registered native sprite image allocation.",
+    "No browser-process or GPU/VRAM peak was measured. Dimension-derived RGBA reduction alone does not prove frame-rate or real-device stability."
+  ],
+  "plans": [
+    {
+      "mission": "mission-01",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-01-mid-rig-motion",
+        "boss-01-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-demolition-scaffold-bay",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 454,
+        "maskMiB": 0,
+        "totalMiB": 454
+      },
+      "packed": {
+        "imageBytes": 262651904,
+        "imageMiB": 250.484375,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 262651904,
+        "totalMiB": 250.484375,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-01-mid-rig-motion",
+        "boss-01-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 60.6640625,
+      "comparison": {
+        "deltaMiB": -203.515625,
+        "percentReduction": 44.82723017621145
+      }
+    },
+    {
+      "mission": "mission-02",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-02-mid-rig-motion",
+        "boss-02-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-sewers-pump-station",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 486,
+        "maskMiB": 0,
+        "totalMiB": 486
+      },
+      "packed": {
+        "imageBytes": 296722432,
+        "imageMiB": 282.9765625,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 296722432,
+        "totalMiB": 282.9765625,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-02-mid-rig-motion",
+        "boss-02-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 71.359375,
+      "comparison": {
+        "deltaMiB": -203.0234375,
+        "percentReduction": 41.77436985596707
+      }
+    },
+    {
+      "mission": "mission-03",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-03-mid-rig-motion",
+        "boss-03-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-harbor-container",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "packed": {
+        "imageBytes": 315416576,
+        "imageMiB": 300.8046875,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 315416576,
+        "totalMiB": 300.8046875,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-03-mid-rig-motion",
+        "boss-03-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 68.78125,
+      "comparison": {
+        "deltaMiB": -217.1953125,
+        "percentReduction": 41.92959700772201
+      }
+    },
+    {
+      "mission": "mission-04",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-04-mid-rig-motion",
+        "boss-04-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-hospital-quarantine-wing",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "packed": {
+        "imageBytes": 298000384,
+        "imageMiB": 284.1953125,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 298000384,
+        "totalMiB": 284.1953125,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-04-mid-rig-motion",
+        "boss-04-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 52.171875,
+      "comparison": {
+        "deltaMiB": -233.8046875,
+        "percentReduction": 45.13604005791506
+      }
+    },
+    {
+      "mission": "mission-05",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-05-mid-rig-motion",
+        "boss-05-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-checkpoint-guardhouse",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:car:patrol",
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "packed": {
+        "imageBytes": 303652864,
+        "imageMiB": 289.5859375,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 303652864,
+        "totalMiB": 289.5859375,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-05-mid-rig-motion",
+        "boss-05-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 59.5625,
+      "comparison": {
+        "deltaMiB": -226.4140625,
+        "percentReduction": 43.87869428294574
+      }
+    },
+    {
+      "mission": "mission-06",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-06-mid-rig-motion",
+        "boss-06-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-terminal-bus-depot",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 309084160,
+        "imageMiB": 294.765625,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 309084160,
+        "totalMiB": 294.765625,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-06-mid-rig-motion",
+        "boss-06-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 60.7421875,
+      "comparison": {
+        "deltaMiB": -225.234375,
+        "percentReduction": 43.31430288461539
+      }
+    },
+    {
+      "mission": "mission-07",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-07-mid-rig-motion",
+        "boss-07-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-power-transformer-bank",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 304136192,
+        "imageMiB": 290.046875,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 304136192,
+        "totalMiB": 290.046875,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-07-mid-rig-motion",
+        "boss-07-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 56.0234375,
+      "comparison": {
+        "deltaMiB": -229.953125,
+        "percentReduction": 44.22175480769231
+      }
+    },
+    {
+      "mission": "mission-08",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-08-mid-rig-motion",
+        "boss-08-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-refinery-tank-pump",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 307519488,
+        "imageMiB": 293.2734375,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 307519488,
+        "totalMiB": 293.2734375,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-08-mid-rig-motion",
+        "boss-08-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 59.25,
+      "comparison": {
+        "deltaMiB": -226.7265625,
+        "percentReduction": 43.60126201923077
+      }
+    },
+    {
+      "mission": "mission-09",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-09-mid-rig-motion",
+        "boss-09-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-armory-bunker",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:car:patrol",
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "packed": {
+        "imageBytes": 303194112,
+        "imageMiB": 289.1484375,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 303194112,
+        "totalMiB": 289.1484375,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-09-mid-rig-motion",
+        "boss-09-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 59.125,
+      "comparison": {
+        "deltaMiB": -226.8515625,
+        "percentReduction": 43.96348110465116
+      }
+    },
+    {
+      "mission": "mission-10",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-10-mid-rig-motion",
+        "boss-10-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-scrapyard-compressor",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 315924480,
+        "imageMiB": 301.2890625,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 315924480,
+        "totalMiB": 301.2890625,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-10-mid-rig-motion",
+        "boss-10-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 67.265625,
+      "comparison": {
+        "deltaMiB": -218.7109375,
+        "percentReduction": 42.05979567307693
+      }
+    },
+    {
+      "mission": "mission-11",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-11-mid-rig-motion",
+        "boss-11-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-greenhouse-isolation",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 313081856,
+        "imageMiB": 298.578125,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 313081856,
+        "totalMiB": 298.578125,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-11-mid-rig-motion",
+        "boss-11-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 64.5546875,
+      "comparison": {
+        "deltaMiB": -221.421875,
+        "percentReduction": 42.58112980769231
+      }
+    },
+    {
+      "mission": "mission-12",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion",
+        "boss-12-mid-rig-motion",
+        "boss-12-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-breakwater-control-building",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "survivor-shotgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 308535296,
+        "imageMiB": 294.2421875,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 308535296,
+        "totalMiB": 294.2421875,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-12-mid-rig-motion",
+        "boss-12-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 60.21875,
+      "comparison": {
+        "deltaMiB": -225.7578125,
+        "percentReduction": 43.41496394230769
+      }
+    },
+    {
+      "mission": "mission-01",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-01-mid-rig-motion",
+        "boss-01-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-demolition-scaffold-bay",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 454,
+        "maskMiB": 0,
+        "totalMiB": 454
+      },
+      "packed": {
+        "imageBytes": 265486336,
+        "imageMiB": 253.1875,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 265486336,
+        "totalMiB": 253.1875,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-01-mid-rig-motion",
+        "boss-01-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 60.6640625,
+      "comparison": {
+        "deltaMiB": -200.8125,
+        "percentReduction": 44.2318281938326
+      }
+    },
+    {
+      "mission": "mission-02",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-02-mid-rig-motion",
+        "boss-02-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-sewers-pump-station",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 486,
+        "maskMiB": 0,
+        "totalMiB": 486
+      },
+      "packed": {
+        "imageBytes": 299556864,
+        "imageMiB": 285.6796875,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 299556864,
+        "totalMiB": 285.6796875,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-02-mid-rig-motion",
+        "boss-02-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 71.359375,
+      "comparison": {
+        "deltaMiB": -200.3203125,
+        "percentReduction": 41.21817129629629
+      }
+    },
+    {
+      "mission": "mission-03",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-03-mid-rig-motion",
+        "boss-03-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-harbor-container",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "packed": {
+        "imageBytes": 318251008,
+        "imageMiB": 303.5078125,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 318251008,
+        "totalMiB": 303.5078125,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-03-mid-rig-motion",
+        "boss-03-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 68.78125,
+      "comparison": {
+        "deltaMiB": -214.4921875,
+        "percentReduction": 41.407758204633204
+      }
+    },
+    {
+      "mission": "mission-04",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-04-mid-rig-motion",
+        "boss-04-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-hospital-quarantine-wing",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "packed": {
+        "imageBytes": 300834816,
+        "imageMiB": 286.8984375,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 300834816,
+        "totalMiB": 286.8984375,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-04-mid-rig-motion",
+        "boss-04-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 52.171875,
+      "comparison": {
+        "deltaMiB": -231.1015625,
+        "percentReduction": 44.614201254826256
+      }
+    },
+    {
+      "mission": "mission-05",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-05-mid-rig-motion",
+        "boss-05-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-checkpoint-guardhouse",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:car:patrol",
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "packed": {
+        "imageBytes": 306487296,
+        "imageMiB": 292.2890625,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 306487296,
+        "totalMiB": 292.2890625,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-05-mid-rig-motion",
+        "boss-05-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 59.5625,
+      "comparison": {
+        "deltaMiB": -223.7109375,
+        "percentReduction": 43.35483284883721
+      }
+    },
+    {
+      "mission": "mission-06",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-06-mid-rig-motion",
+        "boss-06-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-terminal-bus-depot",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 311918592,
+        "imageMiB": 297.46875,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 311918592,
+        "totalMiB": 297.46875,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-06-mid-rig-motion",
+        "boss-06-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 60.7421875,
+      "comparison": {
+        "deltaMiB": -222.53125,
+        "percentReduction": 42.79447115384616
+      }
+    },
+    {
+      "mission": "mission-07",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-07-mid-rig-motion",
+        "boss-07-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-power-transformer-bank",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 306970624,
+        "imageMiB": 292.75,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 306970624,
+        "totalMiB": 292.75,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-07-mid-rig-motion",
+        "boss-07-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 56.0234375,
+      "comparison": {
+        "deltaMiB": -227.25,
+        "percentReduction": 43.70192307692308
+      }
+    },
+    {
+      "mission": "mission-08",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-08-mid-rig-motion",
+        "boss-08-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-refinery-tank-pump",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 310353920,
+        "imageMiB": 295.9765625,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 310353920,
+        "totalMiB": 295.9765625,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-08-mid-rig-motion",
+        "boss-08-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 59.25,
+      "comparison": {
+        "deltaMiB": -224.0234375,
+        "percentReduction": 43.08143028846154
+      }
+    },
+    {
+      "mission": "mission-09",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-09-mid-rig-motion",
+        "boss-09-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-armory-bunker",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:car:patrol",
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "packed": {
+        "imageBytes": 306028544,
+        "imageMiB": 291.8515625,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 306028544,
+        "totalMiB": 291.8515625,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-09-mid-rig-motion",
+        "boss-09-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 59.125,
+      "comparison": {
+        "deltaMiB": -224.1484375,
+        "percentReduction": 43.43961967054264
+      }
+    },
+    {
+      "mission": "mission-10",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-10-mid-rig-motion",
+        "boss-10-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-scrapyard-compressor",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 318758912,
+        "imageMiB": 303.9921875,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 318758912,
+        "totalMiB": 303.9921875,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-10-mid-rig-motion",
+        "boss-10-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 67.265625,
+      "comparison": {
+        "deltaMiB": -216.0078125,
+        "percentReduction": 41.539963942307686
+      }
+    },
+    {
+      "mission": "mission-11",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-11-mid-rig-motion",
+        "boss-11-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-greenhouse-isolation",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 315916288,
+        "imageMiB": 301.28125,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 315916288,
+        "totalMiB": 301.28125,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-11-mid-rig-motion",
+        "boss-11-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 64.5546875,
+      "comparison": {
+        "deltaMiB": -218.71875,
+        "percentReduction": 42.06129807692308
+      }
+    },
+    {
+      "mission": "mission-12",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion",
+        "boss-12-mid-rig-motion",
+        "boss-12-final-rig-motion",
+        "enemy-walker-rig-motion",
+        "enemy-runner-rig-motion",
+        "enemy-shield-rig-motion",
+        "enemy-screamer-rig-motion",
+        "enemy-gas-rig-motion",
+        "enemy-elite-rig-motion",
+        "lure-speaker",
+        "env-common-brick",
+        "env-breakwater-control-building",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "survivor-nailgun-rig-motion"
+      ],
+      "legacyUnmappedProceduralProps": [
+        "environment:rubble:",
+        "environment:hydrant:",
+        "environment:trash:",
+        "environment:sign:"
+      ],
+      "baselineLoadingSelectionMatch": true,
+      "original": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "packed": {
+        "imageBytes": 311369728,
+        "imageMiB": 296.9453125,
+        "maskBytes": 0,
+        "maskMiB": 0,
+        "totalBytes": 311369728,
+        "totalMiB": 296.9453125,
+        "decodedMaskIds": []
+      },
+      "bossAtlasIds": [
+        "boss-12-mid-rig-motion",
+        "boss-12-final-rig-motion"
+      ],
+      "bossOnlyImageMiB": 60.21875,
+      "comparison": {
+        "deltaMiB": -223.0546875,
+        "percentReduction": 42.89513221153847
+      }
+    }
+  ],
+  "dimensions": {
+    "survivor-shotgun-idle": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "survivor-shotgun-idle/metadata.json",
+      "atlas": "survivor-shotgun-idle/atlas.png",
+      "atlasPngBytes": 330196,
+      "masksSkippedByContours": true,
+      "atlasSha256": "88408aaccc50abc8f75b0ced66da83dbecca7f74c4e99a8643da169bd226be64"
+    },
+    "survivor-shotgun-walk": {
+      "width": 2048,
+      "height": 3208,
+      "rgbaBytes": 26279936,
+      "rgbaMiB": 25.0625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "survivor-shotgun-walk-hq32-packed/metadata.json",
+      "atlas": "survivor-shotgun-walk-hq32-packed/atlas.png",
+      "atlasPngBytes": 7130018,
+      "masksSkippedByContours": true,
+      "atlasSha256": "31976321e70650fd46b586a03eb0882ade74dbb2e7d9dae112cc29f8893ebc9d"
+    },
+    "survivor-shotgun-run": {
+      "width": 2560,
+      "height": 2640,
+      "rgbaBytes": 27033600,
+      "rgbaMiB": 25.78125,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "survivor-shotgun-run-hq32-packed/metadata.json",
+      "atlas": "survivor-shotgun-run-hq32-packed/atlas.png",
+      "atlasPngBytes": 6873257,
+      "masksSkippedByContours": true,
+      "atlasSha256": "8fe29b7d97f222fcb9d87fd445d4392b2343c050fb8ab7045a8cd6e6c67a357c"
+    },
+    "boss-01-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-01-mid/metadata.json",
+      "atlas": "boss-01-mid/atlas.png",
+      "atlasPngBytes": 2971951,
+      "masksSkippedByContours": false,
+      "atlasSha256": "81847b612368a6520d6486a031c5b6f82535d5346711e08b678f32ef0faffee2"
+    },
+    "boss-07-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-07-final/metadata.json",
+      "atlas": "boss-07-final/atlas.png",
+      "atlasPngBytes": 386179,
+      "masksSkippedByContours": false,
+      "atlasSha256": "8a91fd30e150549cf9b085bf820755f13aea7caf08bdbff179e15fe0a9ce1102"
+    },
+    "boss-01-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-01-final/metadata.json",
+      "atlas": "boss-01-final/atlas.png",
+      "atlasPngBytes": 476220,
+      "masksSkippedByContours": false,
+      "atlasSha256": "49640150c1cb1baadef45c06b6b699e619c36a320dd99030659edcfb2e6d7233"
+    },
+    "boss-02-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-02-mid/metadata.json",
+      "atlas": "boss-02-mid/atlas.png",
+      "atlasPngBytes": 2888318,
+      "masksSkippedByContours": false,
+      "atlasSha256": "a3ea5f2c470b86128ab81c89134e2e750d28329fdbc473aa01c7c4c9b9a8ca3f"
+    },
+    "boss-02-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-02-final/metadata.json",
+      "atlas": "boss-02-final/atlas.png",
+      "atlasPngBytes": 577317,
+      "masksSkippedByContours": false,
+      "atlasSha256": "f9e3f46c4c123a4283f9bf7af4b586db2034762bd1f34cbde0b324dd51bb40f7"
+    },
+    "survivor-nailgun-idle": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "survivor-nailgun-idle/metadata.json",
+      "atlas": "survivor-nailgun-idle/atlas.png",
+      "atlasPngBytes": 345205,
+      "masksSkippedByContours": true,
+      "atlasSha256": "4592fdbac1a7d55d20226166518d1ec30bc469951b9c18edf26c70844755d3ed"
+    },
+    "survivor-nailgun-walk": {
+      "width": 1536,
+      "height": 4404,
+      "rgbaBytes": 27058176,
+      "rgbaMiB": 25.8046875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "survivor-nailgun-walk-hq32-packed/metadata.json",
+      "atlas": "survivor-nailgun-walk-hq32-packed/atlas.png",
+      "atlasPngBytes": 7794805,
+      "masksSkippedByContours": true,
+      "atlasSha256": "a23e3fac91fcced40b606ae0896b7e51a3c888b130c421865d2ac7d7391d75a1"
+    },
+    "survivor-nailgun-run": {
+      "width": 2560,
+      "height": 2780,
+      "rgbaBytes": 28467200,
+      "rgbaMiB": 27.1484375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "survivor-nailgun-run-hq32-packed/metadata.json",
+      "atlas": "survivor-nailgun-run-hq32-packed/atlas.png",
+      "atlasPngBytes": 7639117,
+      "masksSkippedByContours": true,
+      "atlasSha256": "453a6be0d035be59b745750f444c14f463494ebc2540914f94224ae77bb468c8"
+    },
+    "env-demolition-scaffold-bay": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-demolition-scaffold-bay/metadata.json",
+      "atlas": "env-demolition-scaffold-bay/atlas.png",
+      "atlasPngBytes": 1068014,
+      "masksSkippedByContours": false,
+      "atlasSha256": "2276873e5692901934e8e6b4647bd4260570b39a62bc7466a42ee37a8b61347f"
+    },
+    "env-sewers-pump-station": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-sewers-pump-station/metadata.json",
+      "atlas": "env-sewers-pump-station/atlas.png",
+      "atlasPngBytes": 1158996,
+      "masksSkippedByContours": false,
+      "atlasSha256": "dcabc9b94ff096d570e872b633d78fa7df1fc375ea944b4c65b5121ad3a83651"
+    },
+    "boss-03-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-03-mid/metadata.json",
+      "atlas": "boss-03-mid/atlas.png",
+      "atlasPngBytes": 2713047,
+      "masksSkippedByContours": false,
+      "atlasSha256": "cc8e7a687463971bf4a16ca7a0ada0612c4ca92c1d76c6bbb4c8b54c7655bfcb"
+    },
+    "boss-03-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-03-final/metadata.json",
+      "atlas": "boss-03-final/atlas.png",
+      "atlasPngBytes": 494049,
+      "masksSkippedByContours": false,
+      "atlasSha256": "4638263abc29b69020caaeea7ee481278d5dc504664415cbba05ce5839b1d5d1"
+    },
+    "boss-04-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-04-mid/metadata.json",
+      "atlas": "boss-04-mid/atlas.png",
+      "atlasPngBytes": 2709879,
+      "masksSkippedByContours": false,
+      "atlasSha256": "666cce84908e14bcc496b4f08fdbbc098a9548dee0e8ae9efa86983cc694bb58"
+    },
+    "boss-04-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-04-final/metadata.json",
+      "atlas": "boss-04-final/atlas.png",
+      "atlasPngBytes": 427986,
+      "masksSkippedByContours": false,
+      "atlasSha256": "54ae1a578f89af6151b1587ff3ed3094b6bba6fa3aa515b3ef5447aaccbf67c3"
+    },
+    "boss-05-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-05-final/metadata.json",
+      "atlas": "boss-05-final/atlas.png",
+      "atlasPngBytes": 582433,
+      "masksSkippedByContours": false,
+      "atlasSha256": "2f178162ed13209abaa05f427d97a459d5cda78108555e50476daedbea983d6c"
+    },
+    "boss-06-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-06-final/metadata.json",
+      "atlas": "boss-06-final/atlas.png",
+      "atlasPngBytes": 464418,
+      "masksSkippedByContours": false,
+      "atlasSha256": "63620ba6eccdb08549daecf2e7b2bc26edfb43591137fa7c3635c4e090da269b"
+    },
+    "env-harbor-container": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-harbor-container/metadata.json",
+      "atlas": "env-harbor-container/atlas.png",
+      "atlasPngBytes": 806288,
+      "masksSkippedByContours": false,
+      "atlasSha256": "6fb348250079676a0cfa09b17b3845271f368346f925264d4e7eb26137ac997b"
+    },
+    "env-hospital-quarantine-wing": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-hospital-quarantine-wing/metadata.json",
+      "atlas": "env-hospital-quarantine-wing/atlas.png",
+      "atlasPngBytes": 800291,
+      "masksSkippedByContours": false,
+      "atlasSha256": "e7bce47b0f72a996121ab98574b582dc833a944baefa52c662402906e1d63a09"
+    },
+    "env-checkpoint-guardhouse": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-checkpoint-guardhouse/metadata.json",
+      "atlas": "env-checkpoint-guardhouse/atlas.png",
+      "atlasPngBytes": 1167594,
+      "masksSkippedByContours": false,
+      "atlasSha256": "42682ba624726b0e96d0df3c701387433888933882e12147a8af4992cdd2131e"
+    },
+    "env-terminal-bus-depot": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-terminal-bus-depot/metadata.json",
+      "atlas": "env-terminal-bus-depot/atlas.png",
+      "atlasPngBytes": 1068849,
+      "masksSkippedByContours": false,
+      "atlasSha256": "33ada80717b8a047f8e7774b373d99d76c6e5b8a5107ddd8aa0e8758b12ab8ea"
+    },
+    "env-power-transformer-bank": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-power-transformer-bank/metadata.json",
+      "atlas": "env-power-transformer-bank/atlas.png",
+      "atlasPngBytes": 1230265,
+      "masksSkippedByContours": false,
+      "atlasSha256": "760bb76e13d1a7c9d194d387a8f04d2b4485ebd5a2c1d78c3528f0e4e36f0c46"
+    },
+    "env-refinery-tank-pump": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-refinery-tank-pump/metadata.json",
+      "atlas": "env-refinery-tank-pump/atlas.png",
+      "atlasPngBytes": 1105691,
+      "masksSkippedByContours": false,
+      "atlasSha256": "2e3954afd9df9e028f57ffced0a94258a72715ae1ed58ac245007da5fb23e362"
+    },
+    "env-armory-bunker": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-armory-bunker/metadata.json",
+      "atlas": "env-armory-bunker/atlas.png",
+      "atlasPngBytes": 903546,
+      "masksSkippedByContours": false,
+      "atlasSha256": "175305776c34a262b92d4cfa45127bbfc4c80189cff29811c640d7c20c8ed141"
+    },
+    "env-scrapyard-compressor": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-scrapyard-compressor/metadata.json",
+      "atlas": "env-scrapyard-compressor/atlas.png",
+      "atlasPngBytes": 1294686,
+      "masksSkippedByContours": false,
+      "atlasSha256": "c6356db3fcd69967eda0843811e690a0700f88ebf8d87233d6802d7f769ab02f"
+    },
+    "env-greenhouse-isolation": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-greenhouse-isolation/metadata.json",
+      "atlas": "env-greenhouse-isolation/atlas.png",
+      "atlasPngBytes": 854291,
+      "masksSkippedByContours": false,
+      "atlasSha256": "d54574a5f4b56dc87e766b861001933d338e86f905001da4e1b134771cec9013"
+    },
+    "env-breakwater-control-building": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-breakwater-control-building/metadata.json",
+      "atlas": "env-breakwater-control-building/atlas.png",
+      "atlasPngBytes": 1136862,
+      "masksSkippedByContours": false,
+      "atlasSha256": "04988c2ae5fade6a3130bc3b009dde668cc2aacfa3ec605b8510536ec44e7775"
+    },
+    "env-fence-horizontal": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-fence-horizontal/metadata.json",
+      "atlas": "env-fence-horizontal/atlas.png",
+      "atlasPngBytes": 128079,
+      "masksSkippedByContours": false,
+      "atlasSha256": "232cc8c0844a28fbfa00725fe3983825a499b30e489ef9ea925b8c21898c80ca"
+    },
+    "env-fence-vertical": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-fence-vertical/metadata.json",
+      "atlas": "env-fence-vertical/atlas.png",
+      "atlasPngBytes": 128099,
+      "masksSkippedByContours": false,
+      "atlasSha256": "54a151c47cde756ae356de04043619f2e5bbbb25fd41ad38d9651d237aa7f96e"
+    },
+    "env-broken-car": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "env-broken-car/metadata.json",
+      "atlas": "env-broken-car/atlas.png",
+      "atlasPngBytes": 415878,
+      "masksSkippedByContours": false,
+      "atlasSha256": "3a22fcf3ad353d6ab19f31d954628e238db5101da184d4adadfbf9361b35165d"
+    },
+    "env-red-fuel-barrel": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-red-fuel-barrel/metadata.json",
+      "atlas": "env-red-fuel-barrel/atlas.png",
+      "atlasPngBytes": 453191,
+      "masksSkippedByContours": false,
+      "atlasSha256": "0573484ccef6aaeb8030903213434e4fdf7b9802be1bfae710abcb8d67029bb0"
+    },
+    "env-amber-worklamp": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-amber-worklamp/metadata.json",
+      "atlas": "env-amber-worklamp/atlas.png",
+      "atlasPngBytes": 102786,
+      "masksSkippedByContours": false,
+      "atlasSha256": "9cab5f37a7167c562c124688b47246c626775ea7ff2a99c4e21cb341947a92f3"
+    },
+    "boss-05-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-05-mid/metadata.json",
+      "atlas": "boss-05-mid/atlas.png",
+      "atlasPngBytes": 2650114,
+      "masksSkippedByContours": false,
+      "atlasSha256": "0249413fc211da4aeb2704c1e15a0f30d09590ca01147c9282e1e899186c4eac"
+    },
+    "boss-06-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-06-mid/metadata.json",
+      "atlas": "boss-06-mid/atlas.png",
+      "atlasPngBytes": 2503996,
+      "masksSkippedByContours": false,
+      "atlasSha256": "4f3d430112d6845aea3fe19a3d1cd607c961f3bb620ada4ba26efc2e2aa55396"
+    },
+    "boss-07-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-07-mid/metadata.json",
+      "atlas": "boss-07-mid/atlas.png",
+      "atlasPngBytes": 3141614,
+      "masksSkippedByContours": false,
+      "atlasSha256": "bb16aabd954fa4a0d2c5f4191c8f82c3bd78e90e3fce7115b369813989c7d269"
+    },
+    "boss-08-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-08-mid/metadata.json",
+      "atlas": "boss-08-mid/atlas.png",
+      "atlasPngBytes": 2247729,
+      "masksSkippedByContours": false,
+      "atlasSha256": "2623d3b9c75b9880f799fb527799ee34be717d74cb6ec6e777e773a77c71d113"
+    },
+    "boss-08-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-08-final/metadata.json",
+      "atlas": "boss-08-final/atlas.png",
+      "atlasPngBytes": 517128,
+      "masksSkippedByContours": false,
+      "atlasSha256": "3a6b91737d1ed58f96371fe9dddf5bf1a93ae37083eb1c125483681573fb7e19"
+    },
+    "boss-09-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-09-mid/metadata.json",
+      "atlas": "boss-09-mid/atlas.png",
+      "atlasPngBytes": 2807265,
+      "masksSkippedByContours": false,
+      "atlasSha256": "465386d138693e35afd1e077d1a6c9f61940e635f81e34889a5c43756f45eca6"
+    },
+    "boss-09-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-09-final/metadata.json",
+      "atlas": "boss-09-final/atlas.png",
+      "atlasPngBytes": 540030,
+      "masksSkippedByContours": false,
+      "atlasSha256": "9eed5a5d6156fa9fe8fa04c8e9608c24772fae3ac0b7fcc46449ba5d37c05fcc"
+    },
+    "boss-10-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-10-mid/metadata.json",
+      "atlas": "boss-10-mid/atlas.png",
+      "atlasPngBytes": 2969367,
+      "masksSkippedByContours": false,
+      "atlasSha256": "90444591bb346ba4273a46032583e8199ea6e04fb85dcf3f7652f1bc7cd0b2c4"
+    },
+    "boss-11-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-11-mid/metadata.json",
+      "atlas": "boss-11-mid/atlas.png",
+      "atlasPngBytes": 2596737,
+      "masksSkippedByContours": false,
+      "atlasSha256": "9e643041173ccfaef393d94012e6a5e83f8be61b9c81fc8185b9017f7a9d68e3"
+    },
+    "boss-11-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-11-final/metadata.json",
+      "atlas": "boss-11-final/atlas.png",
+      "atlasPngBytes": 596118,
+      "masksSkippedByContours": false,
+      "atlasSha256": "ca387c65442a4e09ff99df746eeaeb60156a2057f05f5639e946702cec8c7638"
+    },
+    "boss-12-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "boss-12-mid/metadata.json",
+      "atlas": "boss-12-mid/atlas.png",
+      "atlasPngBytes": 2366152,
+      "masksSkippedByContours": false,
+      "atlasSha256": "2636c079f1326ad7f7d481da689bccf5d9a2a6b4a0888b027603088d0f4a386a"
+    },
+    "boss-12-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-12-final/metadata.json",
+      "atlas": "boss-12-final/atlas.png",
+      "atlasPngBytes": 400906,
+      "masksSkippedByContours": false,
+      "atlasSha256": "2c8e083fb4beb649e451b9af59fd53ad58d294d1bfab30cb946591ac64578e2e"
+    },
+    "enemy-walker": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "enemy-walker/metadata.json",
+      "atlas": "enemy-walker/atlas.png",
+      "atlasPngBytes": 2276809,
+      "masksSkippedByContours": false,
+      "atlasSha256": "99405f53680efd3426cb4b2bda8d962ba20109c4f13a521773ba960bcc96154d"
+    },
+    "enemy-runner": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "enemy-runner/metadata.json",
+      "atlas": "enemy-runner/atlas.png",
+      "atlasPngBytes": 2229696,
+      "masksSkippedByContours": false,
+      "atlasSha256": "cc3bc64b68e6ba2dd5f72abf1319f2c737e65111710fe771ad05cca1c2d1490e"
+    },
+    "enemy-shield": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "enemy-shield/metadata.json",
+      "atlas": "enemy-shield/atlas.png",
+      "atlasPngBytes": 2445012,
+      "masksSkippedByContours": false,
+      "atlasSha256": "be407417367bcf9428842a119bbc323e017c63723d29289932c37c9560e634e3"
+    },
+    "enemy-screamer": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "enemy-screamer/metadata.json",
+      "atlas": "enemy-screamer/atlas.png",
+      "atlasPngBytes": 2378546,
+      "masksSkippedByContours": false,
+      "atlasSha256": "6522a73df1c6d15600e946d08203707f773f3eeb3e9e1889195769e67d5c331b"
+    },
+    "enemy-gas": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "enemy-gas/metadata.json",
+      "atlas": "enemy-gas/atlas.png",
+      "atlasPngBytes": 2371173,
+      "masksSkippedByContours": false,
+      "atlasSha256": "749b412a9f62697a594c01b43c0fe23250585654b9b8973dd54e2193db1cf990"
+    },
+    "enemy-elite": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "enemy-elite/metadata.json",
+      "atlas": "enemy-elite/atlas.png",
+      "atlasPngBytes": 2658472,
+      "masksSkippedByContours": false,
+      "atlasSha256": "c7c3805221b15fc0fe6c29f886b003cc345d7bc3337faf1b010f4a19c973cd44"
+    },
+    "enemy-collector": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "rgbaMiB": 32,
+      "atlasFrames": 128,
+      "packing": null,
+      "metadata": "enemy-collector/metadata.json",
+      "atlas": "enemy-collector/atlas.png",
+      "atlasPngBytes": 3455708,
+      "masksSkippedByContours": false,
+      "atlasSha256": "f6f7f8e76e8fe41cf70bf19ae2254e1be0d963ea384daa2c68fcabccf7977882"
+    },
+    "lure-speaker": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "lure-speaker/metadata.json",
+      "atlas": "lure-speaker/atlas.png",
+      "atlasPngBytes": 507759,
+      "masksSkippedByContours": false,
+      "atlasSha256": "4903b1349b1a3a7120f293153887db9e01881cf7dc13581a7b548e29d4c3e13a"
+    },
+    "throwable-molotov": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "throwable-molotov/metadata.json",
+      "atlas": "throwable-molotov/atlas.png",
+      "atlasPngBytes": 325889,
+      "masksSkippedByContours": false,
+      "atlasSha256": "7c361c4c24a3109ac59ad00a2756c4dbd92a626e34d420b5368702ff9e853f05"
+    },
+    "boss-01-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-01-mid-portrait/metadata.json",
+      "atlas": "boss-01-mid-portrait/atlas.png",
+      "atlasPngBytes": 207730,
+      "masksSkippedByContours": false,
+      "atlasSha256": "4488fa88d4d4295031c45fe892dc346132b208ab3d8659379cdbb1b2ca316eaa"
+    },
+    "boss-02-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-02-mid-portrait/metadata.json",
+      "atlas": "boss-02-mid-portrait/atlas.png",
+      "atlasPngBytes": 215711,
+      "masksSkippedByContours": false,
+      "atlasSha256": "ef6b5189f346c8229e4f3caa4b40dee800ebe1404d4ed7d6e33bb9389387aa83"
+    },
+    "boss-03-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-03-mid-portrait/metadata.json",
+      "atlas": "boss-03-mid-portrait/atlas.png",
+      "atlasPngBytes": 189163,
+      "masksSkippedByContours": false,
+      "atlasSha256": "74c0f827b05020ce9afde64225f8d55c9bcb164eacbd5b4fb4e3aedb11d78638"
+    },
+    "boss-04-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-04-mid-portrait/metadata.json",
+      "atlas": "boss-04-mid-portrait/atlas.png",
+      "atlasPngBytes": 207810,
+      "masksSkippedByContours": false,
+      "atlasSha256": "748631fd40e5192b1d6fd15052737035ac15483f077cfebb645452a1aa0c168a"
+    },
+    "boss-05-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-05-mid-portrait/metadata.json",
+      "atlas": "boss-05-mid-portrait/atlas.png",
+      "atlasPngBytes": 215777,
+      "masksSkippedByContours": false,
+      "atlasSha256": "6c14bfb4360848bb052140798d032c5e9f3cf9375e8a2b326df002aae99eac88"
+    },
+    "boss-06-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-06-mid-portrait/metadata.json",
+      "atlas": "boss-06-mid-portrait/atlas.png",
+      "atlasPngBytes": 195026,
+      "masksSkippedByContours": false,
+      "atlasSha256": "47434f681c6d53d9feeaf0bc967165b1e7e235517ff1b5feb5fc1e967ed00655"
+    },
+    "boss-07-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-07-mid-portrait/metadata.json",
+      "atlas": "boss-07-mid-portrait/atlas.png",
+      "atlasPngBytes": 218549,
+      "masksSkippedByContours": false,
+      "atlasSha256": "db331cd778caae241482b0e392513006a93d0a0edd21cd62477ca66f31832189"
+    },
+    "boss-08-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-08-mid-portrait/metadata.json",
+      "atlas": "boss-08-mid-portrait/atlas.png",
+      "atlasPngBytes": 152534,
+      "masksSkippedByContours": false,
+      "atlasSha256": "7cea99dcab99e9d52dcafcd32a8668144c0d1a7f5c6749e16ce13defab985bd3"
+    },
+    "boss-09-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-09-mid-portrait/metadata.json",
+      "atlas": "boss-09-mid-portrait/atlas.png",
+      "atlasPngBytes": 207843,
+      "masksSkippedByContours": false,
+      "atlasSha256": "5e1022729ef726de38eeab3825162f8c329fa3e1d97c3bbba528f2ae397fd254"
+    },
+    "boss-10-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-10-mid-portrait/metadata.json",
+      "atlas": "boss-10-mid-portrait/atlas.png",
+      "atlasPngBytes": 206526,
+      "masksSkippedByContours": false,
+      "atlasSha256": "913167d9565f8f81d12c30a2c0635e7bd5d5dd6b487a606f085c9f83ed36dc33"
+    },
+    "boss-11-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-11-mid-portrait/metadata.json",
+      "atlas": "boss-11-mid-portrait/atlas.png",
+      "atlasPngBytes": 188003,
+      "masksSkippedByContours": false,
+      "atlasSha256": "fba92030063903053f79d571d48a8c124ab6b25b838de442d87d38ba809c49c1"
+    },
+    "boss-12-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "rgbaMiB": 2,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-12-mid-portrait/metadata.json",
+      "atlas": "boss-12-mid-portrait/atlas.png",
+      "atlasPngBytes": 167684,
+      "masksSkippedByContours": false,
+      "atlasSha256": "a2e514f93f6d0494e5845aea2cf4d2ec3729241312000f42b1bff38424c8aeef"
+    },
+    "boss-10-final-repaired-v2": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "rgbaMiB": 4,
+      "atlasFrames": 16,
+      "packing": null,
+      "metadata": "boss-10-final-repaired-v2/metadata.json",
+      "atlas": "boss-10-final-repaired-v2/atlas.png",
+      "atlasPngBytes": 600190,
+      "masksSkippedByContours": false,
+      "atlasSha256": "0977ce450907ea8534c7087f9b7d80809e6ac6ea9c0aee48d03e2f6b78257d8f"
+    },
+    "env-common-brick": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "env-common-brick/metadata.json",
+      "atlas": "env-common-brick/atlas.png",
+      "atlasPngBytes": 1345012,
+      "masksSkippedByContours": false,
+      "atlasSha256": "b09859064cef3922648ee05950c8a380897c982dd2dacd3ad64da08e2f3ecc72"
+    },
+    "boss-01-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-01-mid-detail-hd/metadata.json",
+      "atlas": "boss-01-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 883883,
+      "masksSkippedByContours": false,
+      "atlasSha256": "712645a2319a074ee0c354038ea032bb9695236d64897baad8c568fbff1f6d5a"
+    },
+    "boss-01-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-01-final-detail-hd/metadata.json",
+      "atlas": "boss-01-final-detail-hd/atlas.png",
+      "atlasPngBytes": 979936,
+      "masksSkippedByContours": false,
+      "atlasSha256": "879eb7b31156864d5be13a8c5399f53782977f227eed5f2fa96abfad4a9ed769"
+    },
+    "boss-02-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-02-mid-detail-hd/metadata.json",
+      "atlas": "boss-02-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 924733,
+      "masksSkippedByContours": false,
+      "atlasSha256": "6c05b35d94798a357ffc31665aace24bec526990307673e749e654910ac0d971"
+    },
+    "boss-02-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-02-final-detail-hd/metadata.json",
+      "atlas": "boss-02-final-detail-hd/atlas.png",
+      "atlasPngBytes": 1273089,
+      "masksSkippedByContours": false,
+      "atlasSha256": "48c42a764ea4ad727b9adb823022f156e7f0c4df94c8d7661a0f92a3e1ca2010"
+    },
+    "boss-03-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-03-mid-detail-hd/metadata.json",
+      "atlas": "boss-03-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 786830,
+      "masksSkippedByContours": false,
+      "atlasSha256": "4df2516527f4e7cb30e6e70429045a990f8eb25b982223becd03bf6e14bf9010"
+    },
+    "boss-03-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-03-final-detail-hd/metadata.json",
+      "atlas": "boss-03-final-detail-hd/atlas.png",
+      "atlasPngBytes": 1027097,
+      "masksSkippedByContours": false,
+      "atlasSha256": "fe4aa704da6ce0cbc18f6c33362431ea3dc7164a36f2387b7bbf25bdf9cfb7a7"
+    },
+    "boss-04-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-04-mid-detail-hd/metadata.json",
+      "atlas": "boss-04-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 845483,
+      "masksSkippedByContours": false,
+      "atlasSha256": "f6fc3435e050f85b8ca0d8269cc38cf6e6bec5256604689c903ecd5e4c3ff9c3"
+    },
+    "boss-04-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-04-final-detail-hd/metadata.json",
+      "atlas": "boss-04-final-detail-hd/atlas.png",
+      "atlasPngBytes": 910320,
+      "masksSkippedByContours": false,
+      "atlasSha256": "0e379dbb2c6197f1de767df89bd6369f07dfcc5f1a997cf11a0bcbd4a0188708"
+    },
+    "boss-05-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-05-mid-detail-hd/metadata.json",
+      "atlas": "boss-05-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 923679,
+      "masksSkippedByContours": false,
+      "atlasSha256": "12b84d6c309701c1d806af24b7b5e5b2eb2ee8b785fb9f6ec469a9d5178e185d"
+    },
+    "boss-05-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-05-final-detail-hd/metadata.json",
+      "atlas": "boss-05-final-detail-hd/atlas.png",
+      "atlasPngBytes": 1277008,
+      "masksSkippedByContours": false,
+      "atlasSha256": "17d2ea20a03f23d462e898a63dc9a593967fcf2674a36751789adfead02ed06f"
+    },
+    "boss-06-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-06-mid-detail-hd/metadata.json",
+      "atlas": "boss-06-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 807222,
+      "masksSkippedByContours": false,
+      "atlasSha256": "bdb18f9943a9190b5a57e9cfa693e355dd12a20efdead62dc49348eb1ba32962"
+    },
+    "boss-06-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-06-final-detail-hd/metadata.json",
+      "atlas": "boss-06-final-detail-hd/atlas.png",
+      "atlasPngBytes": 946268,
+      "masksSkippedByContours": false,
+      "atlasSha256": "aa9d3f94409d2ca90ab80887b61a854a9b5ff8908807c63ecedec6c4136fcf6d"
+    },
+    "boss-07-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-07-mid-detail-hd/metadata.json",
+      "atlas": "boss-07-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 924323,
+      "masksSkippedByContours": false,
+      "atlasSha256": "da042d091ae655abc2a9d944b2eea22abb9a936038050de99f3bc2ebfcb8ac3c"
+    },
+    "boss-07-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-07-final-detail-hd/metadata.json",
+      "atlas": "boss-07-final-detail-hd/atlas.png",
+      "atlasPngBytes": 772764,
+      "masksSkippedByContours": false,
+      "atlasSha256": "5c594511a10b4e70493fd9ef4eb71977b7a91e6ce8ace675cafad6bc01ebfaec"
+    },
+    "boss-08-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-08-mid-detail-hd/metadata.json",
+      "atlas": "boss-08-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 630855,
+      "masksSkippedByContours": false,
+      "atlasSha256": "9ed3146adc24b78b9dfd40ac1e978fc008d51d10fa480a7088dd1cfe2b77f5df"
+    },
+    "boss-08-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-08-final-detail-hd/metadata.json",
+      "atlas": "boss-08-final-detail-hd/atlas.png",
+      "atlasPngBytes": 1145404,
+      "masksSkippedByContours": false,
+      "atlasSha256": "23a068c7d2bce6268545bc7d9589f562f0d17730b5f7a6cb306cc30178114444"
+    },
+    "boss-09-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-09-mid-detail-hd/metadata.json",
+      "atlas": "boss-09-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 889949,
+      "masksSkippedByContours": false,
+      "atlasSha256": "d2644518374f16b21038106ccce72c8af6e8055693db0c4a3b622ad70697fc68"
+    },
+    "boss-09-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-09-final-detail-hd/metadata.json",
+      "atlas": "boss-09-final-detail-hd/atlas.png",
+      "atlasPngBytes": 1191174,
+      "masksSkippedByContours": false,
+      "atlasSha256": "15d83a4a2369ca70dfa7d348141d583e3c5b3b0e795c70470f5b07cfea01d84d"
+    },
+    "boss-10-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-10-mid-detail-hd/metadata.json",
+      "atlas": "boss-10-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 886058,
+      "masksSkippedByContours": false,
+      "atlasSha256": "aed25d34836c664c260dda42170ec5f44dd7bf133a9302612abb03e3570f9ac9"
+    },
+    "boss-10-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-10-final-detail-hd/metadata.json",
+      "atlas": "boss-10-final-detail-hd/atlas.png",
+      "atlasPngBytes": 1317686,
+      "masksSkippedByContours": false,
+      "atlasSha256": "8fb1062f019d87ca5ea3a6eff6cb93dce209cc1b65676f9445f86bd19fe734b8"
+    },
+    "boss-11-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-11-mid-detail-hd/metadata.json",
+      "atlas": "boss-11-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 757525,
+      "masksSkippedByContours": false,
+      "atlasSha256": "0e1b8f70fb471a4f76f5f1cb46709c63f1b6a138b21e2557b5e3e8362708f561"
+    },
+    "boss-11-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-11-final-detail-hd/metadata.json",
+      "atlas": "boss-11-final-detail-hd/atlas.png",
+      "atlasPngBytes": 1259668,
+      "masksSkippedByContours": false,
+      "atlasSha256": "3ad16c41a46c839200cbac5734d97161e6b02add1ff8ca257f9e15a7349d8321"
+    },
+    "boss-12-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-12-mid-detail-hd/metadata.json",
+      "atlas": "boss-12-mid-detail-hd/atlas.png",
+      "atlasPngBytes": 689096,
+      "masksSkippedByContours": false,
+      "atlasSha256": "8ca8e5d538e49975966c05b3261739a2ffcd9197191d0ba1ca33371c8f2821f8"
+    },
+    "boss-12-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "rgbaMiB": 8,
+      "atlasFrames": 8,
+      "packing": null,
+      "metadata": "boss-12-final-detail-hd/metadata.json",
+      "atlas": "boss-12-final-detail-hd/atlas.png",
+      "atlasPngBytes": 816191,
+      "masksSkippedByContours": false,
+      "atlasSha256": "2c7ef4e4760df961284d7b2078db08545ec8d3962e89a2835f69824fc956721e"
+    },
+    "boss-01-mid-rig-motion": {
+      "width": 2560,
+      "height": 2628,
+      "rgbaBytes": 26910720,
+      "rgbaMiB": 25.6640625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-01-mid-rig-motion/metadata.json",
+      "atlas": "boss-01-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 7191793,
+      "masksSkippedByContours": true,
+      "atlasSha256": "137e674eb23d06836b57d67794b46fa2aa891d7a5527c7c1fd6a55efd59627c4"
+    },
+    "boss-01-final-rig-motion": {
+      "width": 2560,
+      "height": 3584,
+      "rgbaBytes": 36700160,
+      "rgbaMiB": 35,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-01-final-rig-motion/metadata.json",
+      "atlas": "boss-01-final-rig-motion/atlas.png",
+      "atlasPngBytes": 8442594,
+      "masksSkippedByContours": true,
+      "atlasSha256": "821c6fe1d115f399d1c8afefafb94cf2adee235151c2d04b3200470b234c0313"
+    },
+    "boss-02-mid-rig-motion": {
+      "width": 2048,
+      "height": 3284,
+      "rgbaBytes": 26902528,
+      "rgbaMiB": 25.65625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-02-mid-rig-motion/metadata.json",
+      "atlas": "boss-02-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 6963043,
+      "masksSkippedByContours": true,
+      "atlasSha256": "7ad713bb97b844c3c4155a0e21883531d0ef8b8452b8300880f9c8919d04ea28"
+    },
+    "boss-02-final-rig-motion": {
+      "width": 2560,
+      "height": 4680,
+      "rgbaBytes": 47923200,
+      "rgbaMiB": 45.703125,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-02-final-rig-motion/metadata.json",
+      "atlas": "boss-02-final-rig-motion/atlas.png",
+      "atlasPngBytes": 10382928,
+      "masksSkippedByContours": true,
+      "atlasSha256": "d192bd5ef24b9b4d4a7809d72521c66ec7793769c57c54f09b4ea352df877777"
+    },
+    "boss-03-mid-rig-motion": {
+      "width": 1536,
+      "height": 3904,
+      "rgbaBytes": 23986176,
+      "rgbaMiB": 22.875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-03-mid-rig-motion/metadata.json",
+      "atlas": "boss-03-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 5924677,
+      "masksSkippedByContours": true,
+      "atlasSha256": "0c3cef206d30a2a107af2f53dade91a9545a69c63ad5d368d2c31ac4a1597b49"
+    },
+    "boss-03-final-rig-motion": {
+      "width": 2048,
+      "height": 5876,
+      "rgbaBytes": 48136192,
+      "rgbaMiB": 45.90625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-03-final-rig-motion/metadata.json",
+      "atlas": "boss-03-final-rig-motion/atlas.png",
+      "atlasPngBytes": 8729161,
+      "masksSkippedByContours": true,
+      "atlasSha256": "3484fc1749a3f9a3eeba04b425bad2f3d09e288b7327469e7c3b256ea18c5492"
+    },
+    "boss-04-mid-rig-motion": {
+      "width": 3072,
+      "height": 1784,
+      "rgbaBytes": 21921792,
+      "rgbaMiB": 20.90625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-04-mid-rig-motion/metadata.json",
+      "atlas": "boss-04-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 5361636,
+      "masksSkippedByContours": true,
+      "atlasSha256": "3efc2c872a3d6f396462e4e474d5c1745f0698d0c030769cead0c649c6ed2bf2"
+    },
+    "boss-04-final-rig-motion": {
+      "width": 3072,
+      "height": 2668,
+      "rgbaBytes": 32784384,
+      "rgbaMiB": 31.265625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-04-final-rig-motion/metadata.json",
+      "atlas": "boss-04-final-rig-motion/atlas.png",
+      "atlasPngBytes": 7471483,
+      "masksSkippedByContours": true,
+      "atlasSha256": "603a02bf5e61f322c822e18df638ba4ca6d22aa7bf774f3a421226435e305c3d"
+    },
+    "boss-05-mid-rig-motion": {
+      "width": 2048,
+      "height": 2840,
+      "rgbaBytes": 23265280,
+      "rgbaMiB": 22.1875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-05-mid-rig-motion/metadata.json",
+      "atlas": "boss-05-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 5947302,
+      "masksSkippedByContours": true,
+      "atlasSha256": "c7bf3e072616af1cd45f33f125112833c911ace8d97ff7e4e8704fc2f637f0f8"
+    },
+    "boss-05-final-rig-motion": {
+      "width": 2048,
+      "height": 4784,
+      "rgbaBytes": 39190528,
+      "rgbaMiB": 37.375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-05-final-rig-motion/metadata.json",
+      "atlas": "boss-05-final-rig-motion/atlas.png",
+      "atlasPngBytes": 11061739,
+      "masksSkippedByContours": true,
+      "atlasSha256": "f5279eda54023197df14ca119a7bf773415cd5031ab0f390e4078f7d69ae2355"
+    },
+    "boss-06-mid-rig-motion": {
+      "width": 2048,
+      "height": 2800,
+      "rgbaBytes": 22937600,
+      "rgbaMiB": 21.875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-06-mid-rig-motion/metadata.json",
+      "atlas": "boss-06-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 5587412,
+      "masksSkippedByContours": true,
+      "atlasSha256": "d316fbca67e246284b2f6c3af1d2f2ed9ecf3852f2dfd7cedc31a0878608b16a"
+    },
+    "boss-06-final-rig-motion": {
+      "width": 2560,
+      "height": 3980,
+      "rgbaBytes": 40755200,
+      "rgbaMiB": 38.8671875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-06-final-rig-motion/metadata.json",
+      "atlas": "boss-06-final-rig-motion/atlas.png",
+      "atlasPngBytes": 8113507,
+      "masksSkippedByContours": true,
+      "atlasSha256": "7c731b311c0515aae9e410da4e06882393c56670f2933a5ec0e9bc50613734ed"
+    },
+    "boss-07-mid-rig-motion": {
+      "width": 2048,
+      "height": 3256,
+      "rgbaBytes": 26673152,
+      "rgbaMiB": 25.4375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-07-mid-rig-motion/metadata.json",
+      "atlas": "boss-07-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 7105000,
+      "masksSkippedByContours": true,
+      "atlasSha256": "525287b90a73e15c6d1b0726ae5a2d60e3dfb2f20b6dd91948f57b36fcea3da2"
+    },
+    "boss-07-final-rig-motion": {
+      "width": 2560,
+      "height": 3132,
+      "rgbaBytes": 32071680,
+      "rgbaMiB": 30.5859375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-07-final-rig-motion/metadata.json",
+      "atlas": "boss-07-final-rig-motion/atlas.png",
+      "atlasPngBytes": 6812991,
+      "masksSkippedByContours": true,
+      "atlasSha256": "314ae3a9f12cda9d03d1b337fe34909a4bbdf4415c082cdb8665db9d1191e828"
+    },
+    "boss-08-mid-rig-motion": {
+      "width": 3072,
+      "height": 1876,
+      "rgbaBytes": 23052288,
+      "rgbaMiB": 21.984375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-08-mid-rig-motion/metadata.json",
+      "atlas": "boss-08-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 4872145,
+      "masksSkippedByContours": true,
+      "atlasSha256": "b2b951596209c6bd0b429dd76b407622a3455fba3f2d9af8d308a9ec4c92201b"
+    },
+    "boss-08-final-rig-motion": {
+      "width": 2560,
+      "height": 3816,
+      "rgbaBytes": 39075840,
+      "rgbaMiB": 37.265625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-08-final-rig-motion/metadata.json",
+      "atlas": "boss-08-final-rig-motion/atlas.png",
+      "atlasPngBytes": 9220340,
+      "masksSkippedByContours": true,
+      "atlasSha256": "fbededf325cf2359d49639033cb0361dbf1e07b935ad7aa5bd2434cb01281896"
+    },
+    "boss-09-mid-rig-motion": {
+      "width": 1024,
+      "height": 5552,
+      "rgbaBytes": 22740992,
+      "rgbaMiB": 21.6875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-09-mid-rig-motion/metadata.json",
+      "atlas": "boss-09-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 6042129,
+      "masksSkippedByContours": true,
+      "atlasSha256": "cece1ab5c2a6ccf6a6e2522bd38066224192c0dd934c4028f1b1ccc606d2552e"
+    },
+    "boss-09-final-rig-motion": {
+      "width": 4096,
+      "height": 2396,
+      "rgbaBytes": 39256064,
+      "rgbaMiB": 37.4375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-09-final-rig-motion/metadata.json",
+      "atlas": "boss-09-final-rig-motion/atlas.png",
+      "atlasPngBytes": 9694179,
+      "masksSkippedByContours": true,
+      "atlasSha256": "ca3d1fc606cc3efe19ba5f2bf9817617a0cbac628fa9325f32ea37b5960e7df1"
+    },
+    "boss-10-mid-rig-motion": {
+      "width": 2560,
+      "height": 2624,
+      "rgbaBytes": 26869760,
+      "rgbaMiB": 25.625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-10-mid-rig-motion/metadata.json",
+      "atlas": "boss-10-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 6672822,
+      "masksSkippedByContours": true,
+      "atlasSha256": "8deb42aebc3765f2c93c0d2ad5d942cbf8fb52b549430baa24acb60580c996ce"
+    },
+    "boss-10-final-rig-motion": {
+      "width": 2560,
+      "height": 4264,
+      "rgbaBytes": 43663360,
+      "rgbaMiB": 41.640625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-10-final-rig-motion/metadata.json",
+      "atlas": "boss-10-final-rig-motion/atlas.png",
+      "atlasPngBytes": 10472089,
+      "masksSkippedByContours": true,
+      "atlasSha256": "8f40a143eae5ac364910e4db1b4e7ee7599803c00845fe930843c841c69559fd"
+    },
+    "boss-11-mid-rig-motion": {
+      "width": 2048,
+      "height": 3008,
+      "rgbaBytes": 24641536,
+      "rgbaMiB": 23.5,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-11-mid-rig-motion/metadata.json",
+      "atlas": "boss-11-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 5284270,
+      "masksSkippedByContours": true,
+      "atlasSha256": "c36bb98769e43772f2ec4f40d5882bb8413d00001b865bb3f4e1ebb5793f1989"
+    },
+    "boss-11-final-rig-motion": {
+      "width": 2560,
+      "height": 4204,
+      "rgbaBytes": 43048960,
+      "rgbaMiB": 41.0546875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-11-final-rig-motion/metadata.json",
+      "atlas": "boss-11-final-rig-motion/atlas.png",
+      "atlasPngBytes": 10666951,
+      "masksSkippedByContours": true,
+      "atlasSha256": "756b141f5f79cb3d5897c1632fe0da9b320cef60d16b6f996ee1b0d7167150a8"
+    },
+    "boss-12-mid-rig-motion": {
+      "width": 4096,
+      "height": 1432,
+      "rgbaBytes": 23461888,
+      "rgbaMiB": 22.375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-12-mid-rig-motion/metadata.json",
+      "atlas": "boss-12-mid-rig-motion/atlas.png",
+      "atlasPngBytes": 4986938,
+      "masksSkippedByContours": true,
+      "atlasSha256": "590b5430e9b53aace7f9087de13b1a461236e78075446011f5b0acbe8b94a2fa"
+    },
+    "boss-12-final-rig-motion": {
+      "width": 2048,
+      "height": 4844,
+      "rgbaBytes": 39682048,
+      "rgbaMiB": 37.84375,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "boss-12-final-rig-motion/metadata.json",
+      "atlas": "boss-12-final-rig-motion/atlas.png",
+      "atlasPngBytes": 7168810,
+      "masksSkippedByContours": true,
+      "atlasSha256": "aa151e469ae5c0bbe73a4bf92aa3f43ff6d5c7cb52590c751824e6c16e591682"
+    },
+    "enemy-walker-rig-motion": {
+      "width": 2560,
+      "height": 2084,
+      "rgbaBytes": 21340160,
+      "rgbaMiB": 20.3515625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "enemy-walker-rig-motion/metadata.json",
+      "atlas": "enemy-walker-rig-motion/atlas.png",
+      "atlasPngBytes": 4897385,
+      "masksSkippedByContours": true,
+      "atlasSha256": "c567494f818d0c4f4830b665e400327e67b4b9ab1998e15d848a3d9fad3ec201"
+    },
+    "enemy-runner-rig-motion": {
+      "width": 3072,
+      "height": 1612,
+      "rgbaBytes": 19808256,
+      "rgbaMiB": 18.890625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "enemy-runner-rig-motion/metadata.json",
+      "atlas": "enemy-runner-rig-motion/atlas.png",
+      "atlasPngBytes": 4522751,
+      "masksSkippedByContours": true,
+      "atlasSha256": "ad84b5b846c6bd97feadbb51c1491073a443ce933597eb97c290436dcfe63bfe"
+    },
+    "enemy-shield-rig-motion": {
+      "width": 3072,
+      "height": 1860,
+      "rgbaBytes": 22855680,
+      "rgbaMiB": 21.796875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "enemy-shield-rig-motion/metadata.json",
+      "atlas": "enemy-shield-rig-motion/atlas.png",
+      "atlasPngBytes": 5636166,
+      "masksSkippedByContours": true,
+      "atlasSha256": "b534f1895d82c3a61e8b7f8968d3380dd706704811fdc0234162a2a42edca6c3"
+    },
+    "enemy-screamer-rig-motion": {
+      "width": 2048,
+      "height": 2612,
+      "rgbaBytes": 21397504,
+      "rgbaMiB": 20.40625,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "enemy-screamer-rig-motion/metadata.json",
+      "atlas": "enemy-screamer-rig-motion/atlas.png",
+      "atlasPngBytes": 4894099,
+      "masksSkippedByContours": true,
+      "atlasSha256": "ecaf46468d07e74da3b41bacb6e80ac5d260bfeceb6f6f271b090d6ba5562106"
+    },
+    "enemy-gas-rig-motion": {
+      "width": 2048,
+      "height": 2672,
+      "rgbaBytes": 21889024,
+      "rgbaMiB": 20.875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "enemy-gas-rig-motion/metadata.json",
+      "atlas": "enemy-gas-rig-motion/atlas.png",
+      "atlasPngBytes": 5544697,
+      "masksSkippedByContours": true,
+      "atlasSha256": "b318cad1f41891c0dcc72fc3880f66fa96f0f86f6474fd81840d970322ac0ade"
+    },
+    "enemy-elite-rig-motion": {
+      "width": 2048,
+      "height": 2916,
+      "rgbaBytes": 23887872,
+      "rgbaMiB": 22.78125,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "enemy-elite-rig-motion/metadata.json",
+      "atlas": "enemy-elite-rig-motion/atlas.png",
+      "atlasPngBytes": 6411948,
+      "masksSkippedByContours": true,
+      "atlasSha256": "b0dc688c0b7ba26b42d02a213440faa8a87117fe68db6ad55902588a456e5b2b"
+    },
+    "enemy-collector-rig-motion": {
+      "width": 2048,
+      "height": 3480,
+      "rgbaBytes": 28508160,
+      "rgbaMiB": 27.1875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "enemy-collector-rig-motion/metadata.json",
+      "atlas": "enemy-collector-rig-motion/atlas.png",
+      "atlasPngBytes": 8397933,
+      "masksSkippedByContours": true,
+      "atlasSha256": "39efe4cc360ddadebebcf778bd21d16a8c56b799df2dfddf37418e338d5bf3ef"
+    },
+    "survivor-shotgun-rig-motion": {
+      "width": 3072,
+      "height": 1884,
+      "rgbaBytes": 23150592,
+      "rgbaMiB": 22.078125,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "survivor-shotgun-rig-motion/metadata.json",
+      "atlas": "survivor-shotgun-rig-motion/atlas.png",
+      "atlasPngBytes": 5019959,
+      "masksSkippedByContours": true,
+      "atlasSha256": "216fbd3fa1a8a5757d0bcfe5fa32fc1c5b8dd44f36d0e98504eaae8ffd94eee3"
+    },
+    "survivor-nailgun-rig-motion": {
+      "width": 1024,
+      "height": 5804,
+      "rgbaBytes": 23773184,
+      "rgbaMiB": 22.671875,
+      "atlasFrames": 512,
+      "packing": "trimmed-v1",
+      "metadata": "survivor-nailgun-rig-motion/metadata.json",
+      "atlas": "survivor-nailgun-rig-motion/atlas.png",
+      "atlasPngBytes": 5731496,
+      "masksSkippedByContours": true,
+      "atlasSha256": "bb0cbc53f99fd1a1835dcdf8c1db2e75827c3aa853c8ed9966949282f3f5d3c6"
+    }
+  }
+}

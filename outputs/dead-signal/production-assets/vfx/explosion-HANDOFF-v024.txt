@@ -1,0 +1,38 @@
+DEAD SIGNAL v0.24 explosion VFX integrated record
+
+Separate image_gen raster based on canonical moodboard05, not a Meshy GLB.
+Original PNG copied exactly; no image resize/crop/reencode/alpha edits.
+SHA256 8dc57e3e099c12f2f3d953f11b5d606f8ce461dda547c16396a8ea4e76193fb4
+1254x1254 RGBA, encoded1941313B, decoded6290064B. Sixteen4x4cells use edges
+0,313,627,940,1254. Analysis records actual alpha bounds/border max1..4.
+All visible alpha>=8 avoids cell borders; frame10 top padding is only1pixel.
+A strict zero-alpha gutter is not claimed. Common anchor(.5,.57), fixed common
+pixel scale width/313.5; width=min(180,radius*1.2). Original expansion retained.
+
+Integrated helper oneImage optionalwarmup, readiness/error checks and fallback.
+Actual Game.explode shockwave kind is the hook; .32sec life drives one-shot
+clamped0..15, inheritedlifealpha fades tozero. Existing ring/glow/ember/smoke,
+particlecounts, damage, RNG/input/saves unchanged. Ready burst bodies join
+existing depth-sort with actors/buildings. Rings/glow/debris remain overlay for
+visibility. Each burst attempts image once per render; draw failure retains
+legacy body. No persistent effect records or new Game fields.
+
+Native game whole suite453/453 pass. Actual browser single and real chain3,
+four base ages0/.08/.16/.28 plus frame10 age.2 and pause, oneImage actual
+1/3draws. Actual chain damages/destroys original vehicle16 and barrel19 after
+one Game.explode, not fabricated emitters. Single intentionally damage0 visual
+diagnostic, target1260/990 open street. Initial5enemies omitted in both cases.
+HP100 normal, player moved by actualGame/Nav; no HP/invulnerability overrides.
+Rendering kept Game/world/RNG baseline unchanged. Pause froze actualtimers.
+Mobile390x844 DPR2, no documentoverflow/visiblecellseams inframe10. These are
+bounded desktop-browser checks, not real-device mobile performance evidence.
+
+UI original PNGs remain byte-identical to v23. Source windows exclude original
+English labels while preserving whole weapon/prop contours. Utility images fit
+card width; shell artwork max105px avoids3x enlargement. Actualadapter3loadout,
+12upgrade and8preview windows on desktop and390px: crop/loadedtrue, clipping[]
+and document scrollWidth equals clientWidth. UI fixtures have no gameplay/save.
+
+Accepted screenshots/DOM proofs in ../qa/*-v024.*. Provisional screenshots with
+staleCSS/transientcomposition or pre-depth render are preserved separately in
+work/dead-signal-capture-transients and do not support the final art approval.

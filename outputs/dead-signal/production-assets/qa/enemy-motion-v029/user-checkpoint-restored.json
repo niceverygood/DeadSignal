@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-10-16T09:29:11.129Z",
+  "before": "- main \"데드 시그널 게임\":\n  - generic \"데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요.\"\n  - region \"생존자 상태\":\n    - generic: SURVIVOR ONLINE\n    - generic: 체력\n    - strong: 188 / 250\n    - generic: 전기 못총\n    - strong: 13 / 24\n  - region \"임무 정보\":\n    - generic: 작전 경과\n    - strong: 00:27\n    - generic: 05 / 검문구역\n  - region \"전투 기록\":\n    - button \"현재 오토 모드. 수동 모드로 전환\" [pressed]: 오토 모드\n    - button \"사운드 설정\" [pressed]:\n    - button \"일시정지\":\n    - generic: 처치\n    - strong: \"45\"\n    - generic: 레벨\n    - strong: \"4\"\n  - region \"성장과 소음\":\n    - generic: 소음\n    - generic: 경보 정예 출현\n    - generic: ≋\n    - generic: 경보 정예 처치 → 추가 개조\n    - generic: 경험치\n    - generic: 다음 개조까지\n  - region \"전투 장비\":\n    - button \"E 소음탄 준비\" [disabled]:\n      - generic: E\n      - generic: 소음탄\n      - generic: 준비\n    - button \"Q 화염병 준비\" [disabled]:\n      - generic: Q\n      - generic: 화염병\n      - generic: 준비\n    - button \"SPACE 회피 준비\" [disabled]:\n      - generic: SPACE\n      - generic: 회피\n      - generic: 준비\n  - paragraph: LEVEL UP / CHOOSE YOUR BUILD\n  - heading \"무기 개조 선택\" [level=2]\n  - paragraph: 레벨 4 · 하나를 선택하면 전투가 이어집니다.\n  - button \"응급 처치 최대 체력 +20, 체력 30을 즉시 회복합니다. 1 키로 선택 · 1 / 3 단계\" [active]:\n    - generic: 응급 처치\n    - generic: 최대 체력 +20, 체력 30을 즉시 회복합니다.\n    - generic: 1 키로 선택 · 1 / 3 단계\n  - button \"휘발성 감염 처치한 좀비가 폭발해 주변에 피해를 줍니다. 2 키로 선택 · 1 / 3 단계\":\n    - generic: 휘발성 감염\n    - generic: 처치한 좀비가 폭발해 주변에 피해를 줍니다.\n    - generic: 2 키로 선택 · 1 / 3 단계\n  - button \"탄환 분열 추가 탄환 2발. 못총은 두 발을 동시에 쏩니다. 3 키로 선택 · 1 / 2 단계\":\n    - generic: 탄환 분열\n    - generic: 추가 탄환 2발. 못총은 두 발을 동시에 쏩니다.\n    - generic: 3 키로 선택 · 1 / 2 단계\n  - generic: 가벼운 발걸음 1\n  - generic: 관통 탄환 1\n  - status",
+  "after": "- main \"데드 시그널 게임\":\n  - generic \"데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요.\"\n  - region \"생존자 상태\":\n    - generic: SURVIVOR ONLINE\n    - generic: 체력\n    - strong: 188 / 250\n    - generic: 전기 못총\n    - strong: 13 / 24\n  - region \"임무 정보\":\n    - generic: 작전 경과\n    - strong: 00:27\n    - generic: 05 / 검문구역\n  - region \"전투 기록\":\n    - button \"현재 오토 모드. 수동 모드로 전환\" [pressed]: 오토 모드\n    - button \"사운드 설정\" [pressed]:\n    - button \"일시정지\":\n    - generic: 처치\n    - strong: \"45\"\n    - generic: 레벨\n    - strong: \"4\"\n  - region \"성장과 소음\":\n    - generic: 소음\n    - generic: 경보 정예 출현\n    - generic: ≋\n    - generic: 경보 정예 처치 → 추가 개조\n    - generic: 경험치\n    - generic: 다음 개조까지\n  - region \"전투 장비\":\n    - button \"E 소음탄 준비\" [disabled]:\n      - generic: E\n      - generic: 소음탄\n      - generic: 준비\n    - button \"Q 화염병 준비\" [disabled]:\n      - generic: Q\n      - generic: 화염병\n      - generic: 준비\n    - button \"SPACE 회피 준비\" [disabled]:\n      - generic: SPACE\n      - generic: 회피\n      - generic: 준비\n  - paragraph: LEVEL UP / CHOOSE YOUR BUILD\n  - heading \"무기 개조 선택\" [level=2]\n  - paragraph: 레벨 4 · 하나를 선택하면 전투가 이어집니다.\n  - button \"응급 처치 최대 체력 +20, 체력 30을 즉시 회복합니다. 1 키로 선택 · 1 / 3 단계\" [active]:\n    - generic: 응급 처치\n    - generic: 최대 체력 +20, 체력 30을 즉시 회복합니다.\n    - generic: 1 키로 선택 · 1 / 3 단계\n  - button \"휘발성 감염 처치한 좀비가 폭발해 주변에 피해를 줍니다. 2 키로 선택 · 1 / 3 단계\":\n    - generic: 휘발성 감염\n    - generic: 처치한 좀비가 폭발해 주변에 피해를 줍니다.\n    - generic: 2 키로 선택 · 1 / 3 단계\n  - button \"탄환 분열 추가 탄환 2발. 못총은 두 발을 동시에 쏩니다. 3 키로 선택 · 1 / 2 단계\":\n    - generic: 탄환 분열\n    - generic: 추가 탄환 2발. 못총은 두 발을 동시에 쏩니다.\n    - generic: 3 키로 선택 · 1 / 2 단계\n  - generic: 가벼운 발걸음 1\n  - generic: 관통 탄환 1\n  - status",
+  "visibleStateExact": true,
+  "scripts": [
+    "./app.js?v=0.29.0"
+  ],
+  "native": {
+    "productionCause": "",
+    "productionCharacter": "survivor-nailgun",
+    "productionDrawStatus": "native",
+    "productionError": "",
+    "productionFailedAsset": "",
+    "productionFrame": "341",
+    "productionGaitCycleDistance": "84.94224",
+    "productionGaitPhase": "0",
+    "productionGaitReverse": "false",
+    "productionGaitSpeed": "0",
+    "productionIdentification": "baked-contour",
+    "productionLastAsset": "survivor-nailgun-rig-motion",
+    "productionLastStatus": "body-alpha-ready",
+    "productionPlayer": "survivor-nailgun-rig-motion",
+    "productionPlayerAssets": "[{\"id\":\"survivor-nailgun-idle\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-nailgun-walk\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-nailgun-run\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-nailgun-rig-motion\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"}]",
+    "productionPose": "idle",
+    "productionStatus": "ready",
+    "productionWeapon": "nailgun"
+  },
+  "errors": []
+}

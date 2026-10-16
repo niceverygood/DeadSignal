@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-16T11:54:54.841269+00:00",
+  "scope": "Independent read-only verification of the portable copy; only this new report is written. Original workspace and game servers unchanged.",
+  "gameDist": {
+    "files": 564,
+    "bytes": 965166970,
+    "allSHA256Exact": true,
+    "issues": []
+  },
+  "mobileSource": {
+    "files": 552,
+    "bytes": 218633968,
+    "allSHA256Exact": true,
+    "issues": []
+  },
+  "externalBaselineAndEvidenceDependencies": {
+    "files": 679,
+    "allPresent": true,
+    "allSizesEqualOriginal": true,
+    "missing": [],
+    "wrongSize": [],
+    "additionalV020PortraitMetadata": {
+      "files": 24,
+      "allSHA256Exact": true,
+      "issues": []
+    },
+    "v020CombinedMetadataFiles": 48
+  },
+  "bakerModels": {
+    "total": 195,
+    "groups": [
+      {
+        "prefix": "work/meshy-sprite-baker/models/",
+        "files": 111,
+        "allPresentAndSizeExact": true,
+        "issues": [],
+        "SHA256Compared": false
+      },
+      {
+        "prefix": "work/asset-motion-baker-v027/models/",
+        "files": 34,
+        "allPresentAndSizeExact": true,
+        "issues": [],
+        "SHA256Compared": false
+      },
+      {
+        "prefix": "work/asset-enemy-motion-baker-v029/models/",
+        "files": 50,
+        "allPresentAndSizeExact": true,
+        "issues": [],
+        "SHA256Compared": false
+      }
+    ]
+  },
+  "copiedCodeAudit": {
+    "filesSHA256Checked": 355,
+    "changedFiles": [
+      "work/asset-enemy-motion-v029/calculate_residency.mjs",
+      "work/dead-signal-game/tests/production-content.test.mjs",
+      "work/enemy-locomotion-measure-20261016.mjs"
+    ],
+    "allowedChangedFiles": [
+      "work/asset-enemy-motion-v029/calculate_residency.mjs",
+      "work/dead-signal-game/tests/production-content.test.mjs",
+      "work/enemy-locomotion-measure-20261016.mjs"
+    ],
+    "unexpectedChangedFiles": []
+  },
+  "originalAuditAndEvidenceText": {
+    "filesSHA256Checked": 101,
+    "allExactToOriginalAndSourceManifest": true,
+    "issues": []
+  },
+  "exclusions": {
+    "sourceManifestForbiddenPaths": [],
+    "physicalForbiddenNonDependencyPaths": [],
+    "restoredNodeModulesDirectories": [
+      "work/asset-motion-baker-v027/node_modules",
+      "work/meshy-sprite-baker/node_modules",
+      "work/asset-enemy-motion-baker-v029/node_modules",
+      "outputs/dead-signal/production-assets/rig-lab/node_modules"
+    ],
+    "dependencyDirectoriesMayExistForLocalQA": true,
+    "archiveMustExcludeNodeModules": true,
+    "archiveExclusionNotYetVerified": true,
+    "textFilesCredentialPatternScanned": 1657,
+    "credentialPatternDetectedInFiles": [],
+    "noCredentialValuesPrinted": true
+  },
+  "limits": [
+    "Full source-manifest binary SHA256 comparison is reserved for root final manifest and archive extraction verification; 195 baker model files were checked for presence and byte sizes only.",
+    "node_modules currently exists for local QA in four dependency locations; archive must use manifest/file filtering and omit it.",
+    "This report does not establish another physical computer, native Android/iOS compilation or store release."
+  ],
+  "passed": true
+}

@@ -1,0 +1,25 @@
+{
+  "url": "http://127.0.0.1:8851/index.html?qa=1",
+  "dom": "- main \"데드 시그널 게임\":\n  - generic \"데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요.\"\n  - region \"생존자 상태\":\n    - text: SURVIVOR ONLINE\n    - generic: DS—01\n    - generic: 체력\n    - strong: 100 / 100\n    - generic: 산탄총\n    - strong: 재장전\n    - generic: R\n  - region \"임무 정보\":\n    - generic: 작전 경과\n    - strong: 00:11\n    - generic: 01 / 철거 공사장\n  - region \"전투 기록\":\n    - button \"현재 오토 모드. 수동 모드로 전환\" [pressed]: 오토 모드\n    - button \"미니맵\" [pressed]: 지도 M\n    - button \"사운드 설정\" [pressed]:\n    - button \"일시정지\":\n    - generic: 처치\n    - strong: \"13\"\n    - generic: 레벨\n    - strong: \"1\"\n  - region \"성장과 소음\":\n    - generic: 소음\n    - generic: 무리가 몰려온다\n    - generic: ≋\n    - generic: 소음이 높을수록 더 많은 좀비가 몰립니다.\n    - generic: 경험치\n    - generic: 다음 개조까지\n  - region \"전투 장비\":\n    - button \"E 소음탄 준비\" [disabled]:\n      - generic: E\n      - generic: 소음탄\n      - generic: 준비\n    - button \"Q 화염병 준비\" [disabled]:\n      - generic: Q\n      - generic: 화염병\n      - generic: 준비\n    - button \"SPACE 회피 준비\" [disabled]:\n      - generic: SPACE\n      - generic: 회피\n      - generic: 준비\n  - paragraph: SIGNAL ON HOLD\n  - heading \"일시정지\" [level=2]\n  - paragraph: 작전은 여기서 기다립니다.\n  - generic: 철거 공사장 · 00:11 · 13마리 처치\n  - button \"작전 중단\"\n  - button \"저장하고 메뉴로\": 저장하고 메뉴로\n  - button \"설정\"\n  - button \"계속하기 ↗\" [active]: 계속하기 ↗\n  - status\n  - generic: W A S D\n  - text: 이동\n  - generic: 오토 · 자동 조준·발사\n  - generic: F\n  - text: 모드 전환\n  - generic: Space\n  - text: 회피\n  - generic: E\n  - text: 유인\n  - generic: Q\n  - text: 화염병\n  - generic: R\n  - text: 재장전\n  - generic: Esc\n  - text: 일시정지",
+  "canvas": {
+    "productionCause": "",
+    "productionCharacter": "survivor-shotgun",
+    "productionDrawStatus": "native",
+    "productionError": "",
+    "productionFailedAsset": "",
+    "productionFrame": "5",
+    "productionGaitCycleDistance": "84.94224",
+    "productionGaitPhase": "0",
+    "productionGaitReverse": "false",
+    "productionGaitSpeed": "0",
+    "productionIdentification": "baked-contour",
+    "productionLastAsset": "enemy-elite-locomotion-hq32",
+    "productionLastStatus": "ready",
+    "productionPlayer": "survivor-shotgun-idle",
+    "productionPlayerAssets": "[{\"id\":\"survivor-shotgun-idle\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-shotgun-walk\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-shotgun-run\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-shotgun-rig-motion\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"}]",
+    "productionPose": "idle",
+    "productionStatus": "ready",
+    "productionWeapon": "shotgun"
+  },
+  "errors": []
+}

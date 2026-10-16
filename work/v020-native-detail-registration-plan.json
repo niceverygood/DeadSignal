@@ -1,0 +1,2334 @@
+{
+  "version": 1,
+  "targetVersion": "0.20.0",
+  "status": "validated-registration-proposal; NOT APPLIED",
+  "applyAfter": "Root v19 snapshot and v20 selected-detail runtime implementation only.",
+  "baseManifest": {
+    "file": "work/dead-signal-game/dist/production-manifest.js",
+    "sha256": "b5d5e5621b1d9e33fad483861d06fdf8c76d9c4a50cf136247af837f96b43028"
+  },
+  "jobPlan": {
+    "file": "work/meshy-sprite-baker/batches/boss-detail-hd-jobs.json",
+    "sha256": "c1fa0b02eee88acebe4ae64d314eaf874f80a1bcdb4b4afbc1c731cbdeae441b"
+  },
+  "additions": {
+    "assets": {
+      "boss-01-mid-detail-hd": {
+        "metadata": "boss-01-mid-detail-hd/metadata.json",
+        "atlas": "boss-01-mid-detail-hd/atlas.png",
+        "worldHeight": 64
+      },
+      "boss-01-final-detail-hd": {
+        "metadata": "boss-01-final-detail-hd/metadata.json",
+        "atlas": "boss-01-final-detail-hd/atlas.png",
+        "worldHeight": 96
+      },
+      "boss-02-mid-detail-hd": {
+        "metadata": "boss-02-mid-detail-hd/metadata.json",
+        "atlas": "boss-02-mid-detail-hd/atlas.png",
+        "worldHeight": 63.99999999999999
+      },
+      "boss-02-final-detail-hd": {
+        "metadata": "boss-02-final-detail-hd/metadata.json",
+        "atlas": "boss-02-final-detail-hd/atlas.png",
+        "worldHeight": 97.99999999999999
+      },
+      "boss-03-mid-detail-hd": {
+        "metadata": "boss-03-mid-detail-hd/metadata.json",
+        "atlas": "boss-03-mid-detail-hd/atlas.png",
+        "worldHeight": 68
+      },
+      "boss-03-final-detail-hd": {
+        "metadata": "boss-03-final-detail-hd/metadata.json",
+        "atlas": "boss-03-final-detail-hd/atlas.png",
+        "worldHeight": 100
+      },
+      "boss-04-mid-detail-hd": {
+        "metadata": "boss-04-mid-detail-hd/metadata.json",
+        "atlas": "boss-04-mid-detail-hd/atlas.png",
+        "worldHeight": 68
+      },
+      "boss-04-final-detail-hd": {
+        "metadata": "boss-04-final-detail-hd/metadata.json",
+        "atlas": "boss-04-final-detail-hd/atlas.png",
+        "worldHeight": 96
+      },
+      "boss-05-mid-detail-hd": {
+        "metadata": "boss-05-mid-detail-hd/metadata.json",
+        "atlas": "boss-05-mid-detail-hd/atlas.png",
+        "worldHeight": 68
+      },
+      "boss-05-final-detail-hd": {
+        "metadata": "boss-05-final-detail-hd/metadata.json",
+        "atlas": "boss-05-final-detail-hd/atlas.png",
+        "worldHeight": 100
+      },
+      "boss-06-mid-detail-hd": {
+        "metadata": "boss-06-mid-detail-hd/metadata.json",
+        "atlas": "boss-06-mid-detail-hd/atlas.png",
+        "worldHeight": 64
+      },
+      "boss-06-final-detail-hd": {
+        "metadata": "boss-06-final-detail-hd/metadata.json",
+        "atlas": "boss-06-final-detail-hd/atlas.png",
+        "worldHeight": 98
+      },
+      "boss-07-mid-detail-hd": {
+        "metadata": "boss-07-mid-detail-hd/metadata.json",
+        "atlas": "boss-07-mid-detail-hd/atlas.png",
+        "worldHeight": 72
+      },
+      "boss-07-final-detail-hd": {
+        "metadata": "boss-07-final-detail-hd/metadata.json",
+        "atlas": "boss-07-final-detail-hd/atlas.png",
+        "worldHeight": 104
+      },
+      "boss-08-mid-detail-hd": {
+        "metadata": "boss-08-mid-detail-hd/metadata.json",
+        "atlas": "boss-08-mid-detail-hd/atlas.png",
+        "worldHeight": 68
+      },
+      "boss-08-final-detail-hd": {
+        "metadata": "boss-08-final-detail-hd/metadata.json",
+        "atlas": "boss-08-final-detail-hd/atlas.png",
+        "worldHeight": 104
+      },
+      "boss-09-mid-detail-hd": {
+        "metadata": "boss-09-mid-detail-hd/metadata.json",
+        "atlas": "boss-09-mid-detail-hd/atlas.png",
+        "worldHeight": 68
+      },
+      "boss-09-final-detail-hd": {
+        "metadata": "boss-09-final-detail-hd/metadata.json",
+        "atlas": "boss-09-final-detail-hd/atlas.png",
+        "worldHeight": 100
+      },
+      "boss-10-mid-detail-hd": {
+        "metadata": "boss-10-mid-detail-hd/metadata.json",
+        "atlas": "boss-10-mid-detail-hd/atlas.png",
+        "worldHeight": 68
+      },
+      "boss-10-final-detail-hd": {
+        "metadata": "boss-10-final-detail-hd/metadata.json",
+        "atlas": "boss-10-final-detail-hd/atlas.png",
+        "worldHeight": 103.99999999999999
+      },
+      "boss-11-mid-detail-hd": {
+        "metadata": "boss-11-mid-detail-hd/metadata.json",
+        "atlas": "boss-11-mid-detail-hd/atlas.png",
+        "worldHeight": 72
+      },
+      "boss-11-final-detail-hd": {
+        "metadata": "boss-11-final-detail-hd/metadata.json",
+        "atlas": "boss-11-final-detail-hd/atlas.png",
+        "worldHeight": 104
+      },
+      "boss-12-mid-detail-hd": {
+        "metadata": "boss-12-mid-detail-hd/metadata.json",
+        "atlas": "boss-12-mid-detail-hd/atlas.png",
+        "worldHeight": 72
+      },
+      "boss-12-final-detail-hd": {
+        "metadata": "boss-12-final-detail-hd/metadata.json",
+        "atlas": "boss-12-final-detail-hd/atlas.png",
+        "worldHeight": 110.00000000000001
+      }
+    },
+    "bossDetailPortraits": {
+      "boss-01-mid": "boss-01-mid-detail-hd",
+      "boss-01-final": "boss-01-final-detail-hd",
+      "boss-02-mid": "boss-02-mid-detail-hd",
+      "boss-02-final": "boss-02-final-detail-hd",
+      "boss-03-mid": "boss-03-mid-detail-hd",
+      "boss-03-final": "boss-03-final-detail-hd",
+      "boss-04-mid": "boss-04-mid-detail-hd",
+      "boss-04-final": "boss-04-final-detail-hd",
+      "boss-05-mid": "boss-05-mid-detail-hd",
+      "boss-05-final": "boss-05-final-detail-hd",
+      "boss-06-mid": "boss-06-mid-detail-hd",
+      "boss-06-final": "boss-06-final-detail-hd",
+      "boss-07-mid": "boss-07-mid-detail-hd",
+      "boss-07-final": "boss-07-final-detail-hd",
+      "boss-08-mid": "boss-08-mid-detail-hd",
+      "boss-08-final": "boss-08-final-detail-hd",
+      "boss-09-mid": "boss-09-mid-detail-hd",
+      "boss-09-final": "boss-09-final-detail-hd",
+      "boss-10-mid": "boss-10-mid-detail-hd",
+      "boss-10-final": "boss-10-final-detail-hd",
+      "boss-11-mid": "boss-11-mid-detail-hd",
+      "boss-11-final": "boss-11-final-detail-hd",
+      "boss-12-mid": "boss-12-mid-detail-hd",
+      "boss-12-final": "boss-12-final-detail-hd"
+    }
+  },
+  "records": [
+    {
+      "bossKey": "boss-01-mid",
+      "assetId": "boss-01-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-01-mid-detail-hd-2026-10-15T03-58-20-014Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-01-mid-walk.glb",
+        "bytes": 19485620,
+        "sha256": "20d93b4bc5f140b678ff9d4b2d570c32dcef7da908135fe28e33a5927827ec0d",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 883883,
+          "sha256": "712645a2319a074ee0c354038ea032bb9695236d64897baad8c568fbff1f6d5a"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 85884,
+          "sha256": "00b436ea4a47385e5e545ae3076d7c7e31635a9a2a1299ce2bc4cd6596f6eb11"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15963,
+          "sha256": "bec72fbb831711dca16b59dbfc6adfea5e66131a20cf08833eb48a4e8377e7b0"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 64,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-01-final",
+      "assetId": "boss-01-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-01-final-detail-hd-2026-10-15T03-58-21-798Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-01-final-v2.glb",
+        "bytes": 20183408,
+        "sha256": "9e29094802e80878bf33cadd65cbb3332155f6e91e1121c3f871680ae6437c2b",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 979936,
+          "sha256": "879eb7b31156864d5be13a8c5399f53782977f227eed5f2fa96abfad4a9ed769"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 115318,
+          "sha256": "85e4f568cb41193255895c216f2198757a61bf0105b8b8145e7ab03e3c67b1b3"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15209,
+          "sha256": "289ac8725b8ad8d2d9ba7a8e4cfff2bb96cebe0f4237c241ec4146e2dc86dc45"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 96,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-02-mid",
+      "assetId": "boss-02-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-02-mid-detail-hd-2026-10-15T03-58-23-728Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-02-mid-walk.glb",
+        "bytes": 19845680,
+        "sha256": "a7caab4b5145951d583c40876d3947ec1f1b5217b1e2ec65bed0939dba31f378",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 924733,
+          "sha256": "6c05b35d94798a357ffc31665aace24bec526990307673e749e654910ac0d971"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 89192,
+          "sha256": "6a78a835d72ce27587b61d4f6030477d005b66935df12db3eaf8e0885d1fb2c3"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15912,
+          "sha256": "f9e8e156082cd6e2a0b27c2168297151653800ee51f7d65e2ce857e19bfcdaa3"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 63.99999999999999,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-02-final",
+      "assetId": "boss-02-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-02-final-detail-hd-2026-10-15T03-58-26-839Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-02-final.glb",
+        "bytes": 20640168,
+        "sha256": "857c68b436243e70dadcea9747510cb08a08b905d4bdd433d427cb23ca3fdb82",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 1273089,
+          "sha256": "48c42a764ea4ad727b9adb823022f156e7f0c4df94c8d7661a0f92a3e1ca2010"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 127818,
+          "sha256": "89b5f409b46df0c125383425bf30cc2e0cd93fc94c009d716adec1ee25dfaad0"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15349,
+          "sha256": "37c80ce455e3739f6804bf50e09a09b161cb1a12f125875089dac77f2ea5f3db"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 97.99999999999999,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-03-mid",
+      "assetId": "boss-03-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-03-mid-detail-hd-2026-10-15T03-58-29-893Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-03-mid-walk.glb",
+        "bytes": 18418400,
+        "sha256": "2a331c4b94cc2fd7099c36d374e758e03e298d52b557b7b47b0e40cbbc1386ad",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 786830,
+          "sha256": "4df2516527f4e7cb30e6e70429045a990f8eb25b982223becd03bf6e14bf9010"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 92634,
+          "sha256": "a4e95462dff532e46663dea94600be243fde1e2a9c76b1f177b97db7581aea60"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 16079,
+          "sha256": "1d711d20ffcf9acc727331e27f08c6e952e9ef910b4ae591320692d39b55ed9a"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 68,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-03-final",
+      "assetId": "boss-03-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-03-final-detail-hd-2026-10-15T03-58-31-614Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-03-final.glb",
+        "bytes": 20256352,
+        "sha256": "82cb4f2e12adaf1fb91a505e48a27b09179e1cf51aeaba81fe5bbca85dfdea0e",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 1027097,
+          "sha256": "fe4aa704da6ce0cbc18f6c33362431ea3dc7164a36f2387b7bbf25bdf9cfb7a7"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 116614,
+          "sha256": "e3fb5bfe86a42d5bfd6def1f923f0b708b3c4e83e02e547f65f8ef91a1644d6b"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15196,
+          "sha256": "917557f54deed1708a7fae3bc272afa2265ff6ca7cb07afbfcc784402816b676"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 100,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-04-mid",
+      "assetId": "boss-04-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-04-mid-detail-hd-2026-10-15T03-58-33-864Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-04-mid-walk.glb",
+        "bytes": 18258168,
+        "sha256": "3f96c527550b751509a4f7d164a92f5353309cfb3cc3611f383662529876d392",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 845483,
+          "sha256": "f6fc3435e050f85b8ca0d8269cc38cf6e6bec5256604689c903ecd5e4c3ff9c3"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 113565,
+          "sha256": "bc586bdc1b5ab78a7aa1c59a0e61d1b0ad8af95a1480f707525de69b2421a548"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15903,
+          "sha256": "17841944897d24a827506c8a84a64331d6348868d14f494a02d87392a16390d5"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 68,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-04-final",
+      "assetId": "boss-04-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-04-final-detail-hd-2026-10-15T03-58-36-831Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-04-final.glb",
+        "bytes": 19022216,
+        "sha256": "c756f456fc57f1268a64e91a813fe912d441b308589fd2720e81596c1f3b8cf4",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 910320,
+          "sha256": "0e379dbb2c6197f1de767df89bd6369f07dfcc5f1a997cf11a0bcbd4a0188708"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 114603,
+          "sha256": "9921be1dada17507e6185658084cc33b4977e1170cf8eca6b45d38abb298afd5"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15229,
+          "sha256": "3c8bbd98551ff0d82cbe96e65341cd7200d0a34a41931309d773a013924f58ef"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 96,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-05-mid",
+      "assetId": "boss-05-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-05-mid-detail-hd-2026-10-15T03-58-38-890Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-05-mid-walk.glb",
+        "bytes": 16701068,
+        "sha256": "36c06c72f48c514173fbb8a4da21058d0900c413b6659c9be3704b022f6bc2a8",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 923679,
+          "sha256": "12b84d6c309701c1d806af24b7b5e5b2eb2ee8b785fb9f6ec469a9d5178e185d"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 85820,
+          "sha256": "b668e4be8a11ac07e7b188f02ee5c19cecfe11bbab79d86e500346220aefa87d"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15903,
+          "sha256": "9986ea2ef6deb5ec095ef694b3a1761427b462c3617ff094624a459d929a73f5"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 68,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-05-final",
+      "assetId": "boss-05-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-05-final-detail-hd-2026-10-15T03-58-41-655Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-05-final.glb",
+        "bytes": 18267828,
+        "sha256": "cfd8d019e82d2c8fcad4e0c23dba6700785d8863e4d44fb4bfdeb17d36eb7bc8",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 1277008,
+          "sha256": "17d2ea20a03f23d462e898a63dc9a593967fcf2674a36751789adfead02ed06f"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 96561,
+          "sha256": "643ede6d434eeeb6de2f2de6f2c2a1e5c7716d1ff019c8d02d1f5a482b4248f1"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15211,
+          "sha256": "83e9ba75b72eb7a48eb759249869ff9ec189edb2b038930e8045d0ac9b82828f"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 100,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-06-mid",
+      "assetId": "boss-06-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-06-mid-detail-hd-2026-10-15T03-58-44-338Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-06-mid-walk.glb",
+        "bytes": 17767452,
+        "sha256": "eaaaac11b5adbe5ea6b70dfe0d99ceb1977af7329adffb5c3ad0a7ac73a55cdc",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 807222,
+          "sha256": "bdb18f9943a9190b5a57e9cfa693e355dd12a20efdead62dc49348eb1ba32962"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 97773,
+          "sha256": "7cb30837290e420cd0c340b1fe340961ff9ddc2b266a6725be6906172d3333e1"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15938,
+          "sha256": "90bc6e081e25d610a6d1a90694071b9089530edb0dad63552e87a1b076acac6d"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 64,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-06-final",
+      "assetId": "boss-06-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-06-final-detail-hd-2026-10-15T03-58-46-700Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-06-final.glb",
+        "bytes": 20989956,
+        "sha256": "07fcb2a608c73511cd99909cfa5bc3d7d42dea75b27af7920beceade3547fd99",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 946268,
+          "sha256": "aa9d3f94409d2ca90ab80887b61a854a9b5ff8908807c63ecedec6c4136fcf6d"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 121514,
+          "sha256": "f218c7c9100ffa9ab49fd5c3c78e0f0dd3d515e93cbfab300be614b252b1236d"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15189,
+          "sha256": "eef2f83e44e34222408c2b0f262b791649a2c487aef8ad7832ca0c422e2f7d95"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 98,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-07-mid",
+      "assetId": "boss-07-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-07-mid-detail-hd-2026-10-15T03-58-49-115Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-07-mid-walk.glb",
+        "bytes": 18129272,
+        "sha256": "3b54e4c0e8145db532a9aca758f4c8facbe2da56743163dcf3e2a8eca6790f67",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 924323,
+          "sha256": "da042d091ae655abc2a9d944b2eea22abb9a936038050de99f3bc2ebfcb8ac3c"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 95797,
+          "sha256": "90eb0ae7d535cc18339031502b422a435585b04483caf9ded5a1874a95d7334b"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15939,
+          "sha256": "a18a53ff6d7c1b7c8a92d336740d6c2562a99913748503e1f0663f1acc9a6740"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 72,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-07-final",
+      "assetId": "boss-07-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-07-final-detail-hd-2026-10-15T03-58-51-077Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-07-final.glb",
+        "bytes": 19166632,
+        "sha256": "30cc02e9094b1f88ec00598f9d353d3d1674c4cc5876d8f9bee540bd74a8597e",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 772764,
+          "sha256": "5c594511a10b4e70493fd9ef4eb71977b7a91e6ce8ace675cafad6bc01ebfaec"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 115806,
+          "sha256": "f56d47416fb14be5c089cc7555ffc7016191edb9f0dfc408d1b9ed346e97f83b"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15230,
+          "sha256": "53ae58583fa4908f674c077e47042e9ea9ca47793786d58c02b0c131a39d30b0"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 104,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-08-mid",
+      "assetId": "boss-08-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-08-mid-detail-hd-2026-10-15T03-58-53-258Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-08-mid-walk.glb",
+        "bytes": 20857052,
+        "sha256": "53b75ee58ef51172332b4bc667611038bc3fe2d1637113df5ed97f8518076ffa",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 630855,
+          "sha256": "9ed3146adc24b78b9dfd40ac1e978fc008d51d10fa480a7088dd1cfe2b77f5df"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 87965,
+          "sha256": "73abfbecd6aa95409625682781c3785cb1a3954319fb888b9d89952cb84e87c2"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15940,
+          "sha256": "b58fe48e9cb20a208822e44321ed9b1ff8220103d20d6aa89156fef0e67acd26"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 68,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-08-final",
+      "assetId": "boss-08-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-08-final-detail-hd-2026-10-15T03-58-55-524Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-08-final.glb",
+        "bytes": 20999948,
+        "sha256": "5649e785c909c37c995a2fc49c692c0d52e84392f47f0d9f54b45aed061e35a6",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 1145404,
+          "sha256": "23a068c7d2bce6268545bc7d9589f562f0d17730b5f7a6cb306cc30178114444"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 100387,
+          "sha256": "0845def2bcbf1cb25261deed16195f16dc3d9d98e4b8a83d2dd22d4aa588d544"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15239,
+          "sha256": "40a1aa062769ea63fab84658734032649432fab429abec5f3f2b667e9e372208"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 104,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-09-mid",
+      "assetId": "boss-09-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-09-mid-detail-hd-2026-10-15T03-58-57-675Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-09-mid-walk.glb",
+        "bytes": 17237348,
+        "sha256": "c2aef61f0605e6745b9a09c49b7e75c88fd0ea0c16f65a75180bd7a2df2a152c",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 889949,
+          "sha256": "d2644518374f16b21038106ccce72c8af6e8055693db0c4a3b622ad70697fc68"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 80518,
+          "sha256": "bf4507f4245b2d92f85fad2e2c44353211ab4d0aaef7ffa2560741f0e37f0237"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15929,
+          "sha256": "2fdca0000cb935c18ac2c618ca13aa994ee0781d79ad441ed75931c1513ef1b4"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 68,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-09-final",
+      "assetId": "boss-09-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-09-final-detail-hd-2026-10-15T03-59-00-187Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-09-final.glb",
+        "bytes": 19956300,
+        "sha256": "332eead135397cd46b5485c18d8bc0ceae0b9999d5036df03408709b57547d65",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 1191174,
+          "sha256": "15d83a4a2369ca70dfa7d348141d583e3c5b3b0e795c70470f5b07cfea01d84d"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 102360,
+          "sha256": "47919958a071ccc5145924155d0c173ca65ed03e4e39dfb7980a8b8f7eb95f51"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15227,
+          "sha256": "e3a3506d7c1fbea725115623da352f6792998e1307e98964846a80a4cafa3ff4"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 100,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-10-mid",
+      "assetId": "boss-10-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-10-mid-detail-hd-2026-10-15T03-59-02-905Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-10-mid-walk.glb",
+        "bytes": 20466548,
+        "sha256": "1083e320dfd0366eb5f724e2b703eca7f9c411ba4adb6cc7e0ff806fa30e81e7",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 886058,
+          "sha256": "aed25d34836c664c260dda42170ec5f44dd7bf133a9302612abb03e3570f9ac9"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 95657,
+          "sha256": "3a7baed43c1fb9216ed2e91418806df1403d5b05d521d8f2d0ede48e6b8f4bb2"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15934,
+          "sha256": "cddca9345c3458e82d40fa2e151bf451b2d321aad94cf47d83c7f250dae24a9e"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 68,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-10-final",
+      "assetId": "boss-10-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-10-final-detail-hd-2026-10-15T03-59-04-763Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-10-final-repaired-v2.glb",
+        "bytes": 23381300,
+        "sha256": "11167d631fc9725ee1b9b9d95df66dcf37006256de297fc65776188691fefed0",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 1317686,
+          "sha256": "8fb1062f019d87ca5ea3a6eff6cb93dce209cc1b65676f9445f86bd19fe734b8"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 96695,
+          "sha256": "9971db1fc69f5b24938f807a85b24e3775f77a9dd3ab1b7382892892e926d4b2"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15259,
+          "sha256": "d81c43b36c5e65568792459f359d9d461d8b87c0a795af6eafdaa91b64e4ca24"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 103.99999999999999,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-11-mid",
+      "assetId": "boss-11-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-11-mid-detail-hd-2026-10-15T03-59-06-767Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-11-mid-walk.glb",
+        "bytes": 16696420,
+        "sha256": "2801797258e0bdcadc0fa9385740523ffc6a8721ed5a2222a98388d40429f76a",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 757525,
+          "sha256": "0e1b8f70fb471a4f76f5f1cb46709c63f1b6a138b21e2557b5e3e8362708f561"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 104960,
+          "sha256": "ab66b5e203cc1c280628be776f9a265077400c57b9648d55709dce465abd0266"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 16083,
+          "sha256": "43d2a5e6d2cc5412099a91e25ac2c7c4bf03d667d18aaa9cc8fbf758340a3329"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 72,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-11-final",
+      "assetId": "boss-11-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-11-final-detail-hd-2026-10-15T03-59-08-740Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-11-final-v2.glb",
+        "bytes": 18530988,
+        "sha256": "13bd9bb6776fb6ee0b4ad49ddcadc8ed5f9f6e68207fa42f058d52f4415e5130",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 1259668,
+          "sha256": "3ad16c41a46c839200cbac5734d97161e6b02add1ff8ca257f9e15a7349d8321"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 184196,
+          "sha256": "4f615d092cc8b6e33ac9ca3bddc6c20f3eae8abaa247dbeef8a2dae2f7375b55"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15210,
+          "sha256": "2e3f3816d1aa2805d6132e96d1af4ee3a79ddcfced98ac94e70692b59b0c6643"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 104,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-12-mid",
+      "assetId": "boss-12-mid-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-12-mid-detail-hd-2026-10-15T03-59-10-614Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-12-mid-walk.glb",
+        "bytes": 18466932,
+        "sha256": "6eba3da3e6a1b3820541fe448c16f2d55c8fd10a599172904e166a47fd8f72dd",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 689096,
+          "sha256": "8ca8e5d538e49975966c05b3261739a2ffcd9197191d0ba1ca33371c8f2821f8"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 96724,
+          "sha256": "ddcbf839d141f37f860aaf4180440e5d26d0aff4ff18157e2bbf5b5261531799"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15946,
+          "sha256": "83505492a3d674c0745cb4709143cafbcb6502ac99d5fac063d24beee38655e5"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": "Armature|walking_man|baselayer",
+      "sampleTime": 0,
+      "subjectHeight": 72,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    },
+    {
+      "bossKey": "boss-12-final",
+      "assetId": "boss-12-final-detail-hd",
+      "sourceExport": "work/meshy-sprite-baker/exports/boss-12-final-detail-hd-2026-10-15T03-59-12-624Z",
+      "sourceGLB": {
+        "file": "work/meshy-sprite-baker/models/boss-12-final.glb",
+        "bytes": 21444780,
+        "sha256": "079d68953420edfb8c236eaf68e58dac7b6fe865f5a372828d6cf00c3edf696a",
+        "matchesApprovedPlan": true
+      },
+      "files": [
+        {
+          "name": "atlas.png",
+          "bytes": 816191,
+          "sha256": "2c7ef4e4760df961284d7b2078db08545ec8d3962e89a2835f69824fc956721e"
+        },
+        {
+          "name": "body-alpha.png",
+          "bytes": 114986,
+          "sha256": "c656bee81fed6a1e971017f70da6cc89599e0f594af15f844b15a53344c21608"
+        },
+        {
+          "name": "metadata.json",
+          "bytes": 15207,
+          "sha256": "cc9cbe0adc2d86b44ccdf13d57b59f5f6a5c5bd9eb91bd41efb49dd6809d74bf"
+        }
+      ],
+      "frames": 8,
+      "frameSize": 512,
+      "atlasWidth": 2048,
+      "atlasHeight": 1024,
+      "decodedRGBABytes": 8388608,
+      "metadataVerified": true,
+      "clippedFrames": 0,
+      "clip": null,
+      "sampleTime": 0,
+      "subjectHeight": 110.00000000000001,
+      "frontYawRadians": 0,
+      "visualApproval": "Root actual native GPU/source design review; this report verifies file/metadata/pixel boundaries only."
+    }
+  ],
+  "copyOperations": [
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-mid-detail-hd-2026-10-15T03-58-20-014Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-01-mid-detail-hd/atlas.png",
+      "bytes": 883883,
+      "sha256": "712645a2319a074ee0c354038ea032bb9695236d64897baad8c568fbff1f6d5a",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-mid-detail-hd-2026-10-15T03-58-20-014Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-01-mid-detail-hd/atlas.png",
+      "bytes": 883883,
+      "sha256": "712645a2319a074ee0c354038ea032bb9695236d64897baad8c568fbff1f6d5a",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-mid-detail-hd-2026-10-15T03-58-20-014Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-01-mid-detail-hd/body-alpha.png",
+      "bytes": 85884,
+      "sha256": "00b436ea4a47385e5e545ae3076d7c7e31635a9a2a1299ce2bc4cd6596f6eb11",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-mid-detail-hd-2026-10-15T03-58-20-014Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-01-mid-detail-hd/body-alpha.png",
+      "bytes": 85884,
+      "sha256": "00b436ea4a47385e5e545ae3076d7c7e31635a9a2a1299ce2bc4cd6596f6eb11",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-mid-detail-hd-2026-10-15T03-58-20-014Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-01-mid-detail-hd/metadata.json",
+      "bytes": 15963,
+      "sha256": "bec72fbb831711dca16b59dbfc6adfea5e66131a20cf08833eb48a4e8377e7b0",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-mid-detail-hd-2026-10-15T03-58-20-014Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-01-mid-detail-hd/metadata.json",
+      "bytes": 15963,
+      "sha256": "bec72fbb831711dca16b59dbfc6adfea5e66131a20cf08833eb48a4e8377e7b0",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-final-detail-hd-2026-10-15T03-58-21-798Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-01-final-detail-hd/atlas.png",
+      "bytes": 979936,
+      "sha256": "879eb7b31156864d5be13a8c5399f53782977f227eed5f2fa96abfad4a9ed769",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-final-detail-hd-2026-10-15T03-58-21-798Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-01-final-detail-hd/atlas.png",
+      "bytes": 979936,
+      "sha256": "879eb7b31156864d5be13a8c5399f53782977f227eed5f2fa96abfad4a9ed769",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-final-detail-hd-2026-10-15T03-58-21-798Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-01-final-detail-hd/body-alpha.png",
+      "bytes": 115318,
+      "sha256": "85e4f568cb41193255895c216f2198757a61bf0105b8b8145e7ab03e3c67b1b3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-final-detail-hd-2026-10-15T03-58-21-798Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-01-final-detail-hd/body-alpha.png",
+      "bytes": 115318,
+      "sha256": "85e4f568cb41193255895c216f2198757a61bf0105b8b8145e7ab03e3c67b1b3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-final-detail-hd-2026-10-15T03-58-21-798Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-01-final-detail-hd/metadata.json",
+      "bytes": 15209,
+      "sha256": "289ac8725b8ad8d2d9ba7a8e4cfff2bb96cebe0f4237c241ec4146e2dc86dc45",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-01-final-detail-hd-2026-10-15T03-58-21-798Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-01-final-detail-hd/metadata.json",
+      "bytes": 15209,
+      "sha256": "289ac8725b8ad8d2d9ba7a8e4cfff2bb96cebe0f4237c241ec4146e2dc86dc45",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-mid-detail-hd-2026-10-15T03-58-23-728Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-02-mid-detail-hd/atlas.png",
+      "bytes": 924733,
+      "sha256": "6c05b35d94798a357ffc31665aace24bec526990307673e749e654910ac0d971",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-mid-detail-hd-2026-10-15T03-58-23-728Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-02-mid-detail-hd/atlas.png",
+      "bytes": 924733,
+      "sha256": "6c05b35d94798a357ffc31665aace24bec526990307673e749e654910ac0d971",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-mid-detail-hd-2026-10-15T03-58-23-728Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-02-mid-detail-hd/body-alpha.png",
+      "bytes": 89192,
+      "sha256": "6a78a835d72ce27587b61d4f6030477d005b66935df12db3eaf8e0885d1fb2c3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-mid-detail-hd-2026-10-15T03-58-23-728Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-02-mid-detail-hd/body-alpha.png",
+      "bytes": 89192,
+      "sha256": "6a78a835d72ce27587b61d4f6030477d005b66935df12db3eaf8e0885d1fb2c3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-mid-detail-hd-2026-10-15T03-58-23-728Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-02-mid-detail-hd/metadata.json",
+      "bytes": 15912,
+      "sha256": "f9e8e156082cd6e2a0b27c2168297151653800ee51f7d65e2ce857e19bfcdaa3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-mid-detail-hd-2026-10-15T03-58-23-728Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-02-mid-detail-hd/metadata.json",
+      "bytes": 15912,
+      "sha256": "f9e8e156082cd6e2a0b27c2168297151653800ee51f7d65e2ce857e19bfcdaa3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-final-detail-hd-2026-10-15T03-58-26-839Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-02-final-detail-hd/atlas.png",
+      "bytes": 1273089,
+      "sha256": "48c42a764ea4ad727b9adb823022f156e7f0c4df94c8d7661a0f92a3e1ca2010",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-final-detail-hd-2026-10-15T03-58-26-839Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-02-final-detail-hd/atlas.png",
+      "bytes": 1273089,
+      "sha256": "48c42a764ea4ad727b9adb823022f156e7f0c4df94c8d7661a0f92a3e1ca2010",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-final-detail-hd-2026-10-15T03-58-26-839Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-02-final-detail-hd/body-alpha.png",
+      "bytes": 127818,
+      "sha256": "89b5f409b46df0c125383425bf30cc2e0cd93fc94c009d716adec1ee25dfaad0",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-final-detail-hd-2026-10-15T03-58-26-839Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-02-final-detail-hd/body-alpha.png",
+      "bytes": 127818,
+      "sha256": "89b5f409b46df0c125383425bf30cc2e0cd93fc94c009d716adec1ee25dfaad0",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-final-detail-hd-2026-10-15T03-58-26-839Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-02-final-detail-hd/metadata.json",
+      "bytes": 15349,
+      "sha256": "37c80ce455e3739f6804bf50e09a09b161cb1a12f125875089dac77f2ea5f3db",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-02-final-detail-hd-2026-10-15T03-58-26-839Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-02-final-detail-hd/metadata.json",
+      "bytes": 15349,
+      "sha256": "37c80ce455e3739f6804bf50e09a09b161cb1a12f125875089dac77f2ea5f3db",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-mid-detail-hd-2026-10-15T03-58-29-893Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-03-mid-detail-hd/atlas.png",
+      "bytes": 786830,
+      "sha256": "4df2516527f4e7cb30e6e70429045a990f8eb25b982223becd03bf6e14bf9010",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-mid-detail-hd-2026-10-15T03-58-29-893Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-03-mid-detail-hd/atlas.png",
+      "bytes": 786830,
+      "sha256": "4df2516527f4e7cb30e6e70429045a990f8eb25b982223becd03bf6e14bf9010",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-mid-detail-hd-2026-10-15T03-58-29-893Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-03-mid-detail-hd/body-alpha.png",
+      "bytes": 92634,
+      "sha256": "a4e95462dff532e46663dea94600be243fde1e2a9c76b1f177b97db7581aea60",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-mid-detail-hd-2026-10-15T03-58-29-893Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-03-mid-detail-hd/body-alpha.png",
+      "bytes": 92634,
+      "sha256": "a4e95462dff532e46663dea94600be243fde1e2a9c76b1f177b97db7581aea60",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-mid-detail-hd-2026-10-15T03-58-29-893Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-03-mid-detail-hd/metadata.json",
+      "bytes": 16079,
+      "sha256": "1d711d20ffcf9acc727331e27f08c6e952e9ef910b4ae591320692d39b55ed9a",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-mid-detail-hd-2026-10-15T03-58-29-893Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-03-mid-detail-hd/metadata.json",
+      "bytes": 16079,
+      "sha256": "1d711d20ffcf9acc727331e27f08c6e952e9ef910b4ae591320692d39b55ed9a",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-final-detail-hd-2026-10-15T03-58-31-614Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-03-final-detail-hd/atlas.png",
+      "bytes": 1027097,
+      "sha256": "fe4aa704da6ce0cbc18f6c33362431ea3dc7164a36f2387b7bbf25bdf9cfb7a7",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-final-detail-hd-2026-10-15T03-58-31-614Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-03-final-detail-hd/atlas.png",
+      "bytes": 1027097,
+      "sha256": "fe4aa704da6ce0cbc18f6c33362431ea3dc7164a36f2387b7bbf25bdf9cfb7a7",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-final-detail-hd-2026-10-15T03-58-31-614Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-03-final-detail-hd/body-alpha.png",
+      "bytes": 116614,
+      "sha256": "e3fb5bfe86a42d5bfd6def1f923f0b708b3c4e83e02e547f65f8ef91a1644d6b",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-final-detail-hd-2026-10-15T03-58-31-614Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-03-final-detail-hd/body-alpha.png",
+      "bytes": 116614,
+      "sha256": "e3fb5bfe86a42d5bfd6def1f923f0b708b3c4e83e02e547f65f8ef91a1644d6b",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-final-detail-hd-2026-10-15T03-58-31-614Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-03-final-detail-hd/metadata.json",
+      "bytes": 15196,
+      "sha256": "917557f54deed1708a7fae3bc272afa2265ff6ca7cb07afbfcc784402816b676",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-03-final-detail-hd-2026-10-15T03-58-31-614Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-03-final-detail-hd/metadata.json",
+      "bytes": 15196,
+      "sha256": "917557f54deed1708a7fae3bc272afa2265ff6ca7cb07afbfcc784402816b676",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-mid-detail-hd-2026-10-15T03-58-33-864Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-04-mid-detail-hd/atlas.png",
+      "bytes": 845483,
+      "sha256": "f6fc3435e050f85b8ca0d8269cc38cf6e6bec5256604689c903ecd5e4c3ff9c3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-mid-detail-hd-2026-10-15T03-58-33-864Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-04-mid-detail-hd/atlas.png",
+      "bytes": 845483,
+      "sha256": "f6fc3435e050f85b8ca0d8269cc38cf6e6bec5256604689c903ecd5e4c3ff9c3",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-mid-detail-hd-2026-10-15T03-58-33-864Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-04-mid-detail-hd/body-alpha.png",
+      "bytes": 113565,
+      "sha256": "bc586bdc1b5ab78a7aa1c59a0e61d1b0ad8af95a1480f707525de69b2421a548",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-mid-detail-hd-2026-10-15T03-58-33-864Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-04-mid-detail-hd/body-alpha.png",
+      "bytes": 113565,
+      "sha256": "bc586bdc1b5ab78a7aa1c59a0e61d1b0ad8af95a1480f707525de69b2421a548",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-mid-detail-hd-2026-10-15T03-58-33-864Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-04-mid-detail-hd/metadata.json",
+      "bytes": 15903,
+      "sha256": "17841944897d24a827506c8a84a64331d6348868d14f494a02d87392a16390d5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-mid-detail-hd-2026-10-15T03-58-33-864Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-04-mid-detail-hd/metadata.json",
+      "bytes": 15903,
+      "sha256": "17841944897d24a827506c8a84a64331d6348868d14f494a02d87392a16390d5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-final-detail-hd-2026-10-15T03-58-36-831Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-04-final-detail-hd/atlas.png",
+      "bytes": 910320,
+      "sha256": "0e379dbb2c6197f1de767df89bd6369f07dfcc5f1a997cf11a0bcbd4a0188708",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-final-detail-hd-2026-10-15T03-58-36-831Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-04-final-detail-hd/atlas.png",
+      "bytes": 910320,
+      "sha256": "0e379dbb2c6197f1de767df89bd6369f07dfcc5f1a997cf11a0bcbd4a0188708",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-final-detail-hd-2026-10-15T03-58-36-831Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-04-final-detail-hd/body-alpha.png",
+      "bytes": 114603,
+      "sha256": "9921be1dada17507e6185658084cc33b4977e1170cf8eca6b45d38abb298afd5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-final-detail-hd-2026-10-15T03-58-36-831Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-04-final-detail-hd/body-alpha.png",
+      "bytes": 114603,
+      "sha256": "9921be1dada17507e6185658084cc33b4977e1170cf8eca6b45d38abb298afd5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-final-detail-hd-2026-10-15T03-58-36-831Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-04-final-detail-hd/metadata.json",
+      "bytes": 15229,
+      "sha256": "3c8bbd98551ff0d82cbe96e65341cd7200d0a34a41931309d773a013924f58ef",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-04-final-detail-hd-2026-10-15T03-58-36-831Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-04-final-detail-hd/metadata.json",
+      "bytes": 15229,
+      "sha256": "3c8bbd98551ff0d82cbe96e65341cd7200d0a34a41931309d773a013924f58ef",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-mid-detail-hd-2026-10-15T03-58-38-890Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-05-mid-detail-hd/atlas.png",
+      "bytes": 923679,
+      "sha256": "12b84d6c309701c1d806af24b7b5e5b2eb2ee8b785fb9f6ec469a9d5178e185d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-mid-detail-hd-2026-10-15T03-58-38-890Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-05-mid-detail-hd/atlas.png",
+      "bytes": 923679,
+      "sha256": "12b84d6c309701c1d806af24b7b5e5b2eb2ee8b785fb9f6ec469a9d5178e185d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-mid-detail-hd-2026-10-15T03-58-38-890Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-05-mid-detail-hd/body-alpha.png",
+      "bytes": 85820,
+      "sha256": "b668e4be8a11ac07e7b188f02ee5c19cecfe11bbab79d86e500346220aefa87d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-mid-detail-hd-2026-10-15T03-58-38-890Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-05-mid-detail-hd/body-alpha.png",
+      "bytes": 85820,
+      "sha256": "b668e4be8a11ac07e7b188f02ee5c19cecfe11bbab79d86e500346220aefa87d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-mid-detail-hd-2026-10-15T03-58-38-890Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-05-mid-detail-hd/metadata.json",
+      "bytes": 15903,
+      "sha256": "9986ea2ef6deb5ec095ef694b3a1761427b462c3617ff094624a459d929a73f5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-mid-detail-hd-2026-10-15T03-58-38-890Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-05-mid-detail-hd/metadata.json",
+      "bytes": 15903,
+      "sha256": "9986ea2ef6deb5ec095ef694b3a1761427b462c3617ff094624a459d929a73f5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-final-detail-hd-2026-10-15T03-58-41-655Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-05-final-detail-hd/atlas.png",
+      "bytes": 1277008,
+      "sha256": "17d2ea20a03f23d462e898a63dc9a593967fcf2674a36751789adfead02ed06f",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-final-detail-hd-2026-10-15T03-58-41-655Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-05-final-detail-hd/atlas.png",
+      "bytes": 1277008,
+      "sha256": "17d2ea20a03f23d462e898a63dc9a593967fcf2674a36751789adfead02ed06f",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-final-detail-hd-2026-10-15T03-58-41-655Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-05-final-detail-hd/body-alpha.png",
+      "bytes": 96561,
+      "sha256": "643ede6d434eeeb6de2f2de6f2c2a1e5c7716d1ff019c8d02d1f5a482b4248f1",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-final-detail-hd-2026-10-15T03-58-41-655Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-05-final-detail-hd/body-alpha.png",
+      "bytes": 96561,
+      "sha256": "643ede6d434eeeb6de2f2de6f2c2a1e5c7716d1ff019c8d02d1f5a482b4248f1",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-final-detail-hd-2026-10-15T03-58-41-655Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-05-final-detail-hd/metadata.json",
+      "bytes": 15211,
+      "sha256": "83e9ba75b72eb7a48eb759249869ff9ec189edb2b038930e8045d0ac9b82828f",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-05-final-detail-hd-2026-10-15T03-58-41-655Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-05-final-detail-hd/metadata.json",
+      "bytes": 15211,
+      "sha256": "83e9ba75b72eb7a48eb759249869ff9ec189edb2b038930e8045d0ac9b82828f",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-mid-detail-hd-2026-10-15T03-58-44-338Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-06-mid-detail-hd/atlas.png",
+      "bytes": 807222,
+      "sha256": "bdb18f9943a9190b5a57e9cfa693e355dd12a20efdead62dc49348eb1ba32962",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-mid-detail-hd-2026-10-15T03-58-44-338Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-06-mid-detail-hd/atlas.png",
+      "bytes": 807222,
+      "sha256": "bdb18f9943a9190b5a57e9cfa693e355dd12a20efdead62dc49348eb1ba32962",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-mid-detail-hd-2026-10-15T03-58-44-338Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-06-mid-detail-hd/body-alpha.png",
+      "bytes": 97773,
+      "sha256": "7cb30837290e420cd0c340b1fe340961ff9ddc2b266a6725be6906172d3333e1",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-mid-detail-hd-2026-10-15T03-58-44-338Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-06-mid-detail-hd/body-alpha.png",
+      "bytes": 97773,
+      "sha256": "7cb30837290e420cd0c340b1fe340961ff9ddc2b266a6725be6906172d3333e1",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-mid-detail-hd-2026-10-15T03-58-44-338Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-06-mid-detail-hd/metadata.json",
+      "bytes": 15938,
+      "sha256": "90bc6e081e25d610a6d1a90694071b9089530edb0dad63552e87a1b076acac6d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-mid-detail-hd-2026-10-15T03-58-44-338Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-06-mid-detail-hd/metadata.json",
+      "bytes": 15938,
+      "sha256": "90bc6e081e25d610a6d1a90694071b9089530edb0dad63552e87a1b076acac6d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-final-detail-hd-2026-10-15T03-58-46-700Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-06-final-detail-hd/atlas.png",
+      "bytes": 946268,
+      "sha256": "aa9d3f94409d2ca90ab80887b61a854a9b5ff8908807c63ecedec6c4136fcf6d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-final-detail-hd-2026-10-15T03-58-46-700Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-06-final-detail-hd/atlas.png",
+      "bytes": 946268,
+      "sha256": "aa9d3f94409d2ca90ab80887b61a854a9b5ff8908807c63ecedec6c4136fcf6d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-final-detail-hd-2026-10-15T03-58-46-700Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-06-final-detail-hd/body-alpha.png",
+      "bytes": 121514,
+      "sha256": "f218c7c9100ffa9ab49fd5c3c78e0f0dd3d515e93cbfab300be614b252b1236d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-final-detail-hd-2026-10-15T03-58-46-700Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-06-final-detail-hd/body-alpha.png",
+      "bytes": 121514,
+      "sha256": "f218c7c9100ffa9ab49fd5c3c78e0f0dd3d515e93cbfab300be614b252b1236d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-final-detail-hd-2026-10-15T03-58-46-700Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-06-final-detail-hd/metadata.json",
+      "bytes": 15189,
+      "sha256": "eef2f83e44e34222408c2b0f262b791649a2c487aef8ad7832ca0c422e2f7d95",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-06-final-detail-hd-2026-10-15T03-58-46-700Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-06-final-detail-hd/metadata.json",
+      "bytes": 15189,
+      "sha256": "eef2f83e44e34222408c2b0f262b791649a2c487aef8ad7832ca0c422e2f7d95",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-mid-detail-hd-2026-10-15T03-58-49-115Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-07-mid-detail-hd/atlas.png",
+      "bytes": 924323,
+      "sha256": "da042d091ae655abc2a9d944b2eea22abb9a936038050de99f3bc2ebfcb8ac3c",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-mid-detail-hd-2026-10-15T03-58-49-115Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-07-mid-detail-hd/atlas.png",
+      "bytes": 924323,
+      "sha256": "da042d091ae655abc2a9d944b2eea22abb9a936038050de99f3bc2ebfcb8ac3c",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-mid-detail-hd-2026-10-15T03-58-49-115Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-07-mid-detail-hd/body-alpha.png",
+      "bytes": 95797,
+      "sha256": "90eb0ae7d535cc18339031502b422a435585b04483caf9ded5a1874a95d7334b",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-mid-detail-hd-2026-10-15T03-58-49-115Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-07-mid-detail-hd/body-alpha.png",
+      "bytes": 95797,
+      "sha256": "90eb0ae7d535cc18339031502b422a435585b04483caf9ded5a1874a95d7334b",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-mid-detail-hd-2026-10-15T03-58-49-115Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-07-mid-detail-hd/metadata.json",
+      "bytes": 15939,
+      "sha256": "a18a53ff6d7c1b7c8a92d336740d6c2562a99913748503e1f0663f1acc9a6740",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-mid-detail-hd-2026-10-15T03-58-49-115Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-07-mid-detail-hd/metadata.json",
+      "bytes": 15939,
+      "sha256": "a18a53ff6d7c1b7c8a92d336740d6c2562a99913748503e1f0663f1acc9a6740",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-final-detail-hd-2026-10-15T03-58-51-077Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-07-final-detail-hd/atlas.png",
+      "bytes": 772764,
+      "sha256": "5c594511a10b4e70493fd9ef4eb71977b7a91e6ce8ace675cafad6bc01ebfaec",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-final-detail-hd-2026-10-15T03-58-51-077Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-07-final-detail-hd/atlas.png",
+      "bytes": 772764,
+      "sha256": "5c594511a10b4e70493fd9ef4eb71977b7a91e6ce8ace675cafad6bc01ebfaec",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-final-detail-hd-2026-10-15T03-58-51-077Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-07-final-detail-hd/body-alpha.png",
+      "bytes": 115806,
+      "sha256": "f56d47416fb14be5c089cc7555ffc7016191edb9f0dfc408d1b9ed346e97f83b",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-final-detail-hd-2026-10-15T03-58-51-077Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-07-final-detail-hd/body-alpha.png",
+      "bytes": 115806,
+      "sha256": "f56d47416fb14be5c089cc7555ffc7016191edb9f0dfc408d1b9ed346e97f83b",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-final-detail-hd-2026-10-15T03-58-51-077Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-07-final-detail-hd/metadata.json",
+      "bytes": 15230,
+      "sha256": "53ae58583fa4908f674c077e47042e9ea9ca47793786d58c02b0c131a39d30b0",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-07-final-detail-hd-2026-10-15T03-58-51-077Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-07-final-detail-hd/metadata.json",
+      "bytes": 15230,
+      "sha256": "53ae58583fa4908f674c077e47042e9ea9ca47793786d58c02b0c131a39d30b0",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-mid-detail-hd-2026-10-15T03-58-53-258Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-08-mid-detail-hd/atlas.png",
+      "bytes": 630855,
+      "sha256": "9ed3146adc24b78b9dfd40ac1e978fc008d51d10fa480a7088dd1cfe2b77f5df",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-mid-detail-hd-2026-10-15T03-58-53-258Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-08-mid-detail-hd/atlas.png",
+      "bytes": 630855,
+      "sha256": "9ed3146adc24b78b9dfd40ac1e978fc008d51d10fa480a7088dd1cfe2b77f5df",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-mid-detail-hd-2026-10-15T03-58-53-258Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-08-mid-detail-hd/body-alpha.png",
+      "bytes": 87965,
+      "sha256": "73abfbecd6aa95409625682781c3785cb1a3954319fb888b9d89952cb84e87c2",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-mid-detail-hd-2026-10-15T03-58-53-258Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-08-mid-detail-hd/body-alpha.png",
+      "bytes": 87965,
+      "sha256": "73abfbecd6aa95409625682781c3785cb1a3954319fb888b9d89952cb84e87c2",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-mid-detail-hd-2026-10-15T03-58-53-258Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-08-mid-detail-hd/metadata.json",
+      "bytes": 15940,
+      "sha256": "b58fe48e9cb20a208822e44321ed9b1ff8220103d20d6aa89156fef0e67acd26",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-mid-detail-hd-2026-10-15T03-58-53-258Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-08-mid-detail-hd/metadata.json",
+      "bytes": 15940,
+      "sha256": "b58fe48e9cb20a208822e44321ed9b1ff8220103d20d6aa89156fef0e67acd26",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-final-detail-hd-2026-10-15T03-58-55-524Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-08-final-detail-hd/atlas.png",
+      "bytes": 1145404,
+      "sha256": "23a068c7d2bce6268545bc7d9589f562f0d17730b5f7a6cb306cc30178114444",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-final-detail-hd-2026-10-15T03-58-55-524Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-08-final-detail-hd/atlas.png",
+      "bytes": 1145404,
+      "sha256": "23a068c7d2bce6268545bc7d9589f562f0d17730b5f7a6cb306cc30178114444",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-final-detail-hd-2026-10-15T03-58-55-524Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-08-final-detail-hd/body-alpha.png",
+      "bytes": 100387,
+      "sha256": "0845def2bcbf1cb25261deed16195f16dc3d9d98e4b8a83d2dd22d4aa588d544",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-final-detail-hd-2026-10-15T03-58-55-524Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-08-final-detail-hd/body-alpha.png",
+      "bytes": 100387,
+      "sha256": "0845def2bcbf1cb25261deed16195f16dc3d9d98e4b8a83d2dd22d4aa588d544",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-final-detail-hd-2026-10-15T03-58-55-524Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-08-final-detail-hd/metadata.json",
+      "bytes": 15239,
+      "sha256": "40a1aa062769ea63fab84658734032649432fab429abec5f3f2b667e9e372208",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-08-final-detail-hd-2026-10-15T03-58-55-524Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-08-final-detail-hd/metadata.json",
+      "bytes": 15239,
+      "sha256": "40a1aa062769ea63fab84658734032649432fab429abec5f3f2b667e9e372208",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-mid-detail-hd-2026-10-15T03-58-57-675Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-09-mid-detail-hd/atlas.png",
+      "bytes": 889949,
+      "sha256": "d2644518374f16b21038106ccce72c8af6e8055693db0c4a3b622ad70697fc68",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-mid-detail-hd-2026-10-15T03-58-57-675Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-09-mid-detail-hd/atlas.png",
+      "bytes": 889949,
+      "sha256": "d2644518374f16b21038106ccce72c8af6e8055693db0c4a3b622ad70697fc68",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-mid-detail-hd-2026-10-15T03-58-57-675Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-09-mid-detail-hd/body-alpha.png",
+      "bytes": 80518,
+      "sha256": "bf4507f4245b2d92f85fad2e2c44353211ab4d0aaef7ffa2560741f0e37f0237",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-mid-detail-hd-2026-10-15T03-58-57-675Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-09-mid-detail-hd/body-alpha.png",
+      "bytes": 80518,
+      "sha256": "bf4507f4245b2d92f85fad2e2c44353211ab4d0aaef7ffa2560741f0e37f0237",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-mid-detail-hd-2026-10-15T03-58-57-675Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-09-mid-detail-hd/metadata.json",
+      "bytes": 15929,
+      "sha256": "2fdca0000cb935c18ac2c618ca13aa994ee0781d79ad441ed75931c1513ef1b4",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-mid-detail-hd-2026-10-15T03-58-57-675Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-09-mid-detail-hd/metadata.json",
+      "bytes": 15929,
+      "sha256": "2fdca0000cb935c18ac2c618ca13aa994ee0781d79ad441ed75931c1513ef1b4",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-final-detail-hd-2026-10-15T03-59-00-187Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-09-final-detail-hd/atlas.png",
+      "bytes": 1191174,
+      "sha256": "15d83a4a2369ca70dfa7d348141d583e3c5b3b0e795c70470f5b07cfea01d84d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-final-detail-hd-2026-10-15T03-59-00-187Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-09-final-detail-hd/atlas.png",
+      "bytes": 1191174,
+      "sha256": "15d83a4a2369ca70dfa7d348141d583e3c5b3b0e795c70470f5b07cfea01d84d",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-final-detail-hd-2026-10-15T03-59-00-187Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-09-final-detail-hd/body-alpha.png",
+      "bytes": 102360,
+      "sha256": "47919958a071ccc5145924155d0c173ca65ed03e4e39dfb7980a8b8f7eb95f51",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-final-detail-hd-2026-10-15T03-59-00-187Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-09-final-detail-hd/body-alpha.png",
+      "bytes": 102360,
+      "sha256": "47919958a071ccc5145924155d0c173ca65ed03e4e39dfb7980a8b8f7eb95f51",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-final-detail-hd-2026-10-15T03-59-00-187Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-09-final-detail-hd/metadata.json",
+      "bytes": 15227,
+      "sha256": "e3a3506d7c1fbea725115623da352f6792998e1307e98964846a80a4cafa3ff4",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-09-final-detail-hd-2026-10-15T03-59-00-187Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-09-final-detail-hd/metadata.json",
+      "bytes": 15227,
+      "sha256": "e3a3506d7c1fbea725115623da352f6792998e1307e98964846a80a4cafa3ff4",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-mid-detail-hd-2026-10-15T03-59-02-905Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-10-mid-detail-hd/atlas.png",
+      "bytes": 886058,
+      "sha256": "aed25d34836c664c260dda42170ec5f44dd7bf133a9302612abb03e3570f9ac9",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-mid-detail-hd-2026-10-15T03-59-02-905Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-10-mid-detail-hd/atlas.png",
+      "bytes": 886058,
+      "sha256": "aed25d34836c664c260dda42170ec5f44dd7bf133a9302612abb03e3570f9ac9",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-mid-detail-hd-2026-10-15T03-59-02-905Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-10-mid-detail-hd/body-alpha.png",
+      "bytes": 95657,
+      "sha256": "3a7baed43c1fb9216ed2e91418806df1403d5b05d521d8f2d0ede48e6b8f4bb2",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-mid-detail-hd-2026-10-15T03-59-02-905Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-10-mid-detail-hd/body-alpha.png",
+      "bytes": 95657,
+      "sha256": "3a7baed43c1fb9216ed2e91418806df1403d5b05d521d8f2d0ede48e6b8f4bb2",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-mid-detail-hd-2026-10-15T03-59-02-905Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-10-mid-detail-hd/metadata.json",
+      "bytes": 15934,
+      "sha256": "cddca9345c3458e82d40fa2e151bf451b2d321aad94cf47d83c7f250dae24a9e",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-mid-detail-hd-2026-10-15T03-59-02-905Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-10-mid-detail-hd/metadata.json",
+      "bytes": 15934,
+      "sha256": "cddca9345c3458e82d40fa2e151bf451b2d321aad94cf47d83c7f250dae24a9e",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-final-detail-hd-2026-10-15T03-59-04-763Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-10-final-detail-hd/atlas.png",
+      "bytes": 1317686,
+      "sha256": "8fb1062f019d87ca5ea3a6eff6cb93dce209cc1b65676f9445f86bd19fe734b8",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-final-detail-hd-2026-10-15T03-59-04-763Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-10-final-detail-hd/atlas.png",
+      "bytes": 1317686,
+      "sha256": "8fb1062f019d87ca5ea3a6eff6cb93dce209cc1b65676f9445f86bd19fe734b8",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-final-detail-hd-2026-10-15T03-59-04-763Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-10-final-detail-hd/body-alpha.png",
+      "bytes": 96695,
+      "sha256": "9971db1fc69f5b24938f807a85b24e3775f77a9dd3ab1b7382892892e926d4b2",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-final-detail-hd-2026-10-15T03-59-04-763Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-10-final-detail-hd/body-alpha.png",
+      "bytes": 96695,
+      "sha256": "9971db1fc69f5b24938f807a85b24e3775f77a9dd3ab1b7382892892e926d4b2",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-final-detail-hd-2026-10-15T03-59-04-763Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-10-final-detail-hd/metadata.json",
+      "bytes": 15259,
+      "sha256": "d81c43b36c5e65568792459f359d9d461d8b87c0a795af6eafdaa91b64e4ca24",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-10-final-detail-hd-2026-10-15T03-59-04-763Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-10-final-detail-hd/metadata.json",
+      "bytes": 15259,
+      "sha256": "d81c43b36c5e65568792459f359d9d461d8b87c0a795af6eafdaa91b64e4ca24",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-mid-detail-hd-2026-10-15T03-59-06-767Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-11-mid-detail-hd/atlas.png",
+      "bytes": 757525,
+      "sha256": "0e1b8f70fb471a4f76f5f1cb46709c63f1b6a138b21e2557b5e3e8362708f561",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-mid-detail-hd-2026-10-15T03-59-06-767Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-11-mid-detail-hd/atlas.png",
+      "bytes": 757525,
+      "sha256": "0e1b8f70fb471a4f76f5f1cb46709c63f1b6a138b21e2557b5e3e8362708f561",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-mid-detail-hd-2026-10-15T03-59-06-767Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-11-mid-detail-hd/body-alpha.png",
+      "bytes": 104960,
+      "sha256": "ab66b5e203cc1c280628be776f9a265077400c57b9648d55709dce465abd0266",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-mid-detail-hd-2026-10-15T03-59-06-767Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-11-mid-detail-hd/body-alpha.png",
+      "bytes": 104960,
+      "sha256": "ab66b5e203cc1c280628be776f9a265077400c57b9648d55709dce465abd0266",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-mid-detail-hd-2026-10-15T03-59-06-767Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-11-mid-detail-hd/metadata.json",
+      "bytes": 16083,
+      "sha256": "43d2a5e6d2cc5412099a91e25ac2c7c4bf03d667d18aaa9cc8fbf758340a3329",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-mid-detail-hd-2026-10-15T03-59-06-767Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-11-mid-detail-hd/metadata.json",
+      "bytes": 16083,
+      "sha256": "43d2a5e6d2cc5412099a91e25ac2c7c4bf03d667d18aaa9cc8fbf758340a3329",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-final-detail-hd-2026-10-15T03-59-08-740Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-11-final-detail-hd/atlas.png",
+      "bytes": 1259668,
+      "sha256": "3ad16c41a46c839200cbac5734d97161e6b02add1ff8ca257f9e15a7349d8321",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-final-detail-hd-2026-10-15T03-59-08-740Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-11-final-detail-hd/atlas.png",
+      "bytes": 1259668,
+      "sha256": "3ad16c41a46c839200cbac5734d97161e6b02add1ff8ca257f9e15a7349d8321",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-final-detail-hd-2026-10-15T03-59-08-740Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-11-final-detail-hd/body-alpha.png",
+      "bytes": 184196,
+      "sha256": "4f615d092cc8b6e33ac9ca3bddc6c20f3eae8abaa247dbeef8a2dae2f7375b55",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-final-detail-hd-2026-10-15T03-59-08-740Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-11-final-detail-hd/body-alpha.png",
+      "bytes": 184196,
+      "sha256": "4f615d092cc8b6e33ac9ca3bddc6c20f3eae8abaa247dbeef8a2dae2f7375b55",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-final-detail-hd-2026-10-15T03-59-08-740Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-11-final-detail-hd/metadata.json",
+      "bytes": 15210,
+      "sha256": "2e3f3816d1aa2805d6132e96d1af4ee3a79ddcfced98ac94e70692b59b0c6643",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-11-final-detail-hd-2026-10-15T03-59-08-740Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-11-final-detail-hd/metadata.json",
+      "bytes": 15210,
+      "sha256": "2e3f3816d1aa2805d6132e96d1af4ee3a79ddcfced98ac94e70692b59b0c6643",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-mid-detail-hd-2026-10-15T03-59-10-614Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-12-mid-detail-hd/atlas.png",
+      "bytes": 689096,
+      "sha256": "8ca8e5d538e49975966c05b3261739a2ffcd9197191d0ba1ca33371c8f2821f8",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-mid-detail-hd-2026-10-15T03-59-10-614Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-12-mid-detail-hd/atlas.png",
+      "bytes": 689096,
+      "sha256": "8ca8e5d538e49975966c05b3261739a2ffcd9197191d0ba1ca33371c8f2821f8",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-mid-detail-hd-2026-10-15T03-59-10-614Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-12-mid-detail-hd/body-alpha.png",
+      "bytes": 96724,
+      "sha256": "ddcbf839d141f37f860aaf4180440e5d26d0aff4ff18157e2bbf5b5261531799",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-mid-detail-hd-2026-10-15T03-59-10-614Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-12-mid-detail-hd/body-alpha.png",
+      "bytes": 96724,
+      "sha256": "ddcbf839d141f37f860aaf4180440e5d26d0aff4ff18157e2bbf5b5261531799",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-mid-detail-hd-2026-10-15T03-59-10-614Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-12-mid-detail-hd/metadata.json",
+      "bytes": 15946,
+      "sha256": "83505492a3d674c0745cb4709143cafbcb6502ac99d5fac063d24beee38655e5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-mid-detail-hd-2026-10-15T03-59-10-614Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-12-mid-detail-hd/metadata.json",
+      "bytes": 15946,
+      "sha256": "83505492a3d674c0745cb4709143cafbcb6502ac99d5fac063d24beee38655e5",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-final-detail-hd-2026-10-15T03-59-12-624Z/atlas.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-12-final-detail-hd/atlas.png",
+      "bytes": 816191,
+      "sha256": "2c7ef4e4760df961284d7b2078db08545ec8d3962e89a2835f69824fc956721e",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-final-detail-hd-2026-10-15T03-59-12-624Z/atlas.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-12-final-detail-hd/atlas.png",
+      "bytes": 816191,
+      "sha256": "2c7ef4e4760df961284d7b2078db08545ec8d3962e89a2835f69824fc956721e",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-final-detail-hd-2026-10-15T03-59-12-624Z/body-alpha.png",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-12-final-detail-hd/body-alpha.png",
+      "bytes": 114986,
+      "sha256": "c656bee81fed6a1e971017f70da6cc89599e0f594af15f844b15a53344c21608",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-final-detail-hd-2026-10-15T03-59-12-624Z/body-alpha.png",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-12-final-detail-hd/body-alpha.png",
+      "bytes": 114986,
+      "sha256": "c656bee81fed6a1e971017f70da6cc89599e0f594af15f844b15a53344c21608",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-final-detail-hd-2026-10-15T03-59-12-624Z/metadata.json",
+      "destination": "work/dead-signal-game/dist/assets/production/boss-12-final-detail-hd/metadata.json",
+      "bytes": 15207,
+      "sha256": "cc9cbe0adc2d86b44ccdf13d57b59f5f6a5c5bd9eb91bd41efb49dd6809d74bf",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    },
+    {
+      "source": "work/meshy-sprite-baker/exports/boss-12-final-detail-hd-2026-10-15T03-59-12-624Z/metadata.json",
+      "destination": "outputs/dead-signal/production-assets/sprites/boss-12-final-detail-hd/metadata.json",
+      "bytes": 15207,
+      "sha256": "cc9cbe0adc2d86b44ccdf13d57b59f5f6a5c5bd9eb91bd41efb49dd6809d74bf",
+      "destinationState": "absent",
+      "operation": "copy-exact-bytes; no resize/reencode"
+    }
+  ],
+  "validation": {
+    "actualNativeExports": 24,
+    "actualSourceGLBSHA256Matches": 24,
+    "framesVerified": 192,
+    "allMetadataValid": true,
+    "allPixelBodyOutlineCoreBoundsExact": true,
+    "allFrameBorderAlphaZero": true,
+    "allMetadataUnder2MiB": true,
+    "allClippedFlagsFalse": true,
+    "sourceAndFrozenGameFilesUnchanged": true,
+    "copyTargetConflicts": 0,
+    "noGameOrSourceWrites": true,
+    "noImageGenerationOrResizing": true,
+    "pixelReport": {
+      "file": "work/v020-native-detail-pixel-report.json",
+      "sha256": "b0598208c320d20ccaa8325cf7fa59295553a72dbb2f33e097cf780423f2418e",
+      "summary": "{\"assets\": 24, \"framesVerified\": 192, \"allBoundsExact\": true, \"allFrameBordersTransparent\": true}"
+    }
+  },
+  "runtimePrerequisites": {
+    "existingV19UnsupportedSection": true,
+    "doNotRunCurrentRegistrarAgainstNewSection": true,
+    "changesForRoot": [
+      "register-native-bakes.mjs: accept bossDetailPortraits; strip /-detail-hd$/ to derive original boss key; omit bodyAlpha from portrait asset catalog entries while preserving the copied source mask file.",
+      "extendProductionAssets: preserve/validate/merge optional bossDetailPortraits with24 original boss keys referring to actual registered asset IDs. Existing v19 currently discards unknown catalog sections.",
+      "Renderer/UI: request HD only for selected large boss detail. Keep existing bossPortraits thumbnails. Explicit selected-only cache eviction; no mission launch gate preload or all24 detail preload.",
+      "Apply assets/data after v19 snapshot. Copy pinned exact bytes from these specific export folders; do not silently choose a newer unreviewed export."
+    ]
+  },
+  "memory": {
+    "existingThumbnailSetMiB": 72,
+    "oneHDAtlasMiB": 8,
+    "existingPlusSelectedHDMiB": 80,
+    "twoHDCacheSlotsWithThumbnailsMiB": 88,
+    "all24HDWithThumbnailsMiB": 264,
+    "bodyAlphaRegisteredForHD": false,
+    "note": "Mask copied as original deliverable, omitted from runtime HD asset entry so detail UI need not decode it."
+  },
+  "registrationScriptCompatibility": {
+    "file": "work/register-native-bakes.mjs",
+    "sha256": "a3c661abf7abd25f2e599c452605c9d7f55c62345d0bc045074ee531b25ababc",
+    "currentAcceptedSections": [
+      "bosses",
+      "enemies",
+      "environment",
+      "bossPortraits"
+    ],
+    "proposedNewSection": "bossDetailPortraits",
+    "newKeyRule": "assetID.replace(/-detail-hd$/, \"\")"
+  },
+  "reproducibility": {
+    "command": "node work/prepare-v020-detail-registration.mjs",
+    "scriptSHA256": "ec641846f0139aeabe5e8020dc2981db1d24aa5ec49707b8c659e65134a1e239"
+  }
+}

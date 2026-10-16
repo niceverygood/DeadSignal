@@ -1,0 +1,6 @@
+// A 30-degree orthographic camera: simulation stays on the flat world plane.
+export const ISO_C=Math.sqrt(3)/2;
+export const ISO_S=.5;
+export function project(x,y,z=0){return{x:(x-y)*ISO_C,y:(x+y)*ISO_S-z};}
+export function unproject(x,y,z=0){const sum=(y+z)/ISO_S,diff=x/ISO_C;return{x:(sum+diff)/2,y:(sum-diff)/2};}
+export function screenVectorToWorld(x,y){if(!x&&!y)return{x:0,y:0};const v=unproject(x,y),length=Math.hypot(v.x,v.y),strength=Math.min(1,Math.hypot(x,y));return{x:v.x/length*strength,y:v.y/length*strength};}

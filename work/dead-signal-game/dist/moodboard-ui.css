@@ -1,0 +1,238 @@
+/* Load last, after style.css + campaign.css + equipment.css. */
+.moodboard-ui {
+  --ivory: #eadfc8;
+  --muted: #aab2ad;
+  --amber: #ee963d;
+  --amber-light: #ffc472;
+  --line: rgba(174, 190, 195, .22);
+  --mood-coal: #10191e;
+  --mood-plate: #182229;
+  --mood-rim: #53616a;
+  --mood-cream: #eadfc8;
+  color: var(--mood-cream);
+}
+.mood-source-crop { display: block; position: relative; overflow: hidden; flex: none; pointer-events: none; user-select: none; }
+.mood-source-crop > img { position: absolute; display: block; max-width: none; pointer-events: none; user-select: none; }
+.mood-source-crop[hidden] { display: none; }
+.moodboard-ui .mood-plate { position: relative; isolation: isolate; }
+.moodboard-ui .mood-material { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: .2; border-radius: inherit; }
+.moodboard-ui .primary > .mood-material { opacity: .34; }
+.moodboard-ui .panel:not(.menu-screen), .moodboard-ui .dialog-panel, .moodboard-ui .upgrade-screen, .moodboard-ui .shop-screen, .moodboard-ui .result-screen {
+  background: linear-gradient(150deg, #202c33, #0e171b 76%);
+  border: 1px solid #566670;
+  border-top: 3px solid #d0b58a;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 3px rgba(7, 12, 15, .66), inset 0 0 0 4px rgba(157, 171, 173, .13), 0 24px 90px rgba(0, 0, 0, .65);
+  scrollbar-color: #8b7e64 #111d21;
+}
+.moodboard-ui .dialog-header { border-bottom-color: #596a70; }
+.moodboard-ui .dialog-header h2, .moodboard-ui .panel > h2, .moodboard-ui .result-screen h2 { color: var(--mood-cream); }
+.moodboard-ui .dialog-header p, .moodboard-ui .card-desc { color: #b8c0ba; }
+.moodboard-ui .eyebrow { color: #d1b386; }
+.moodboard-ui .close-button { border-color: #657178; color: #d9d8cd; background: #151f24; min-width: 36px; min-height: 36px; }
+.moodboard-ui .close-button:hover { color: #ffc472; border-color: #ffc472; background: #263137; }
+
+/* Existing city artwork remains the title background. Logo comes from board01. */
+.moodboard-ui .menu-screen { background: #10181d; overflow-y: auto; padding-top: max(34px, env(safe-area-inset-top)); padding-bottom: max(34px, env(safe-area-inset-bottom)); }
+.moodboard-ui .menu-screen::after { display: none; }
+.moodboard-ui .menu-screen::before { background: linear-gradient(90deg, rgba(8, 14, 17, .87), rgba(8, 14, 17, .69) 33%, rgba(8, 14, 17, .2) 62%, rgba(8, 14, 17, .04)), linear-gradient(0deg, rgba(8, 14, 17, .68), transparent 25%); }
+.moodboard-ui .wordmark { color: var(--mood-cream); text-shadow: 1px 2px 1px #000; margin-bottom: 15px; width: min(530px, 100%); }
+.moodboard-ui .wordmark .gold { color: var(--mood-cream); }
+.moodboard-ui .mood-wordmark-image { display: none; width: 100%; }
+.moodboard-ui .wordmark.mood-wordmark-ready { font-size: 0; line-height: 1; }
+.moodboard-ui .mood-wordmark-ready > span:not(.mood-wordmark-image), .moodboard-ui .mood-wordmark-ready > em { display: none; }
+.moodboard-ui .mood-wordmark-ready .mood-wordmark-image { display: block; }
+.moodboard-ui .signal-bars { height: 33px; margin-bottom: 16px; width: 27px; }
+.moodboard-ui .mood-signal-image { width: 23px; height: 34px; }
+.moodboard-ui .lead { color: #c0c3b8; font-size: 15px; margin-bottom: 22px; max-width: 460px; line-height: 1.75; }
+.moodboard-ui .menu-actions { width: min(460px, 100%); display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.moodboard-ui .menu-actions .primary { grid-column: 1 / -1; min-height: 52px; }
+.moodboard-ui .menu-actions button { min-height: 44px; padding: 11px 15px; width: 100%; }
+.moodboard-ui .menu-stats { margin-top: 20px; color: #a5b2ad; gap: 16px; }
+.moodboard-ui .instruction-strip { position: static; margin-top: 22px; width: min(680px, 100%); padding-top: 13px; color: #a5b2ad; }
+
+/* Worn orange controls on real charcoal plate pixels, never a baked UI button. */
+.moodboard-ui .primary { color: #171817; border: 1px solid #f7bb6b; background: #e89943; box-shadow: inset 0 0 0 2px #a96324, inset 0 0 0 3px rgba(255, 203, 128, .35), 0 3px 12px rgba(215, 119, 33, .14); border-radius: 2px; }
+.moodboard-ui .primary:hover:not(:disabled) { background: #f6ad57; border-color: #ffd592; box-shadow: inset 0 0 0 2px #a96a28, 0 0 15px rgba(236, 145, 51, .23); }
+.moodboard-ui .primary:disabled { background: #5c5b52; border-color: #6e746c; color: #aab0a8; box-shadow: none; }
+.moodboard-ui .secondary, .moodboard-ui .menu-actions .ghost { color: #e2dac8; border: 1px solid #657177; background: #151f24; border-radius: 2px; box-shadow: inset 0 0 0 2px rgba(8, 12, 15, .7), inset 0 0 0 3px rgba(143, 157, 158, .1); }
+.moodboard-ui .secondary:hover:not(:disabled), .moodboard-ui .menu-actions .ghost:hover:not(:disabled) { color: #ffe0a3; border-color: #cb9b55; background: #283036; }
+.moodboard-ui .choice-card, .moodboard-ui .route-node { background: #111b20; border: 1px solid #536670; border-top: 2px solid #829090; box-shadow: inset 0 0 0 3px rgba(7, 12, 15, .65); }
+.moodboard-ui .choice-card:hover:not(:disabled), .moodboard-ui .route-node:hover:not(:disabled) { transform: none; border-color: #ffb857; background: #182229; box-shadow: inset 0 0 0 2px rgba(242, 159, 57, .4), 0 0 12px rgba(241, 147, 38, .18); }
+.moodboard-ui .choice-card.selected, .moodboard-ui .route-node.selected { border: 2px solid #ffba5b; background: #192227; box-shadow: inset 0 0 0 2px #734a27, 0 0 14px rgba(252, 161, 58, .2); }
+.moodboard-ui .choice-card.selected::after, .moodboard-ui .route-node.selected::after { color: #ffc472; }
+.moodboard-ui .card-title { color: #ece0c8; font-size: 16px; }
+.moodboard-ui .card-meta { color: #d4b685; }
+.moodboard-ui .segmented { border-color: #5d6b70; background: #101a1f; }
+.moodboard-ui .segmented button.selected { border: 1px solid #f2aa52; color: #ffe0a3; background: #353025; }
+
+/* Source02's unlettered room/workbench crops are real decorative scene material. */
+.mood-safehouse-hero { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); height: 180px; gap: 7px; margin: -4px 0 20px; overflow: hidden; border: 1px solid #667477; background: #101a1f; box-shadow: inset 0 0 0 3px #0a1014; }
+.mood-safehouse-hero .mood-hero-cell { height: 100%; min-width: 0; overflow: hidden; display: grid; place-items: center; }
+.mood-safehouse-hero .mood-room, .mood-safehouse-hero .mood-workbench { width: auto; height: 100%; }
+.mood-safehouse-hero .mood-room > img, .mood-safehouse-hero .mood-workbench > img { filter: brightness(.82) contrast(1.05); }
+.moodboard-ui .mood-card-art { --mood-icon-height: 118px; display: flex; align-items: center; justify-content: center; align-self: stretch; width: 100%; height: 118px; margin: 0; overflow: hidden; }
+.moodboard-ui .mood-prop { width: min(100%, calc(var(--mood-icon-height) * var(--mood-art-ratio))); height: auto; }
+.moodboard-ui .mood-prop[data-mood-crop="shells"] { max-width: 105px; }
+.moodboard-ui .mood-utility-pair { width: 100%; height: 114px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.moodboard-ui .mood-utility-pair > .mood-source-crop { width: calc(102px * var(--mood-art-ratio)); max-width: calc((100% - 18px) / 2); height: auto; }
+.moodboard-ui .upgrade-screen { border-top-color: #ffb85d; }
+.moodboard-ui .upgrade-screen .choice-grid { gap: 17px; }
+.moodboard-ui .upgrade-screen .choice-card { min-height: 280px; align-items: stretch; padding: 17px; }
+.moodboard-ui .upgrade-screen .mood-card-art { --mood-icon-height: 125px; height: 136px; }
+.moodboard-ui .upgrade-screen .choice-card:focus-visible { border-color: #ffc166; box-shadow: inset 0 0 0 2px #8c5b2d, 0 0 15px rgba(245, 165, 70, .2); }
+.moodboard-ui .upgrade-screen .card-title { text-align: center; }
+.moodboard-ui .upgrade-screen .card-desc { min-height: 36px; }
+.moodboard-ui .upgrade-screen .card-meta { border-top: 1px solid #5e6b6b; padding-top: 11px; }
+
+/* Armory illustrations stay separate from the live price and purchase controls. */
+.moodboard-ui[data-art-screen="armory"] .armory-panel { width: min(900px, 100%); overflow-x: hidden; }
+.moodboard-ui[data-art-screen="armory"] .mood-safehouse-hero { height: 104px; margin-bottom: 18px; }
+.moodboard-ui[data-art-screen="armory"] .armory-card { min-width: 0; align-items: stretch; padding: 16px; gap: 9px; }
+.moodboard-ui[data-art-screen="armory"] .armory-card.locked { opacity: .82; }
+.moodboard-ui[data-art-screen="armory"] .armory-card-art {
+  position: relative; display: grid; place-items: center; flex: none;
+  width: 100%; min-width: 0; aspect-ratio: 16 / 9; margin: 0 0 5px; overflow: hidden;
+  border: 1px solid #45545c; background: radial-gradient(ellipse at 50% 62%, #293336, #111b20 78%);
+  box-shadow: inset 0 0 25px rgba(2, 8, 11, .42); pointer-events: none;
+}
+.moodboard-ui[data-art-screen="armory"] .armory-illustration { position: absolute; inset: 7%; width: 86%; height: 86%; object-fit: contain; }
+.moodboard-ui[data-art-screen="armory"] .armory-illustration[hidden] { display: none; }
+.moodboard-ui[data-art-screen="armory"] .mood-armory-prop { width: min(94%, calc(45% * var(--mood-art-ratio))); height: auto; }
+.moodboard-ui[data-art-screen="armory"] .card-title { line-height: 1.4; overflow-wrap: anywhere; }
+.moodboard-ui[data-art-screen="armory"] .card-desc { font-size: 12px; line-height: 1.7; }
+.moodboard-ui[data-art-screen="armory"] .card-meta { font-size: 10px; padding-top: 8px; }
+.moodboard-ui[data-art-screen="armory"] .training-card button { min-height: 44px; white-space: normal; overflow-wrap: anywhere; }
+.moodboard-ui[data-art-screen="armory"] .armory-build-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 700px) {
+  .moodboard-ui[data-art-screen="armory"] .armory-panel { padding: 20px; }
+  .moodboard-ui[data-art-screen="armory"] .training-grid,
+  .moodboard-ui[data-art-screen="armory"] .armory-build-grid { grid-template-columns: minmax(0, 1fr); }
+  .moodboard-ui[data-art-screen="armory"] .mood-safehouse-hero { height: 90px; }
+  .moodboard-ui[data-art-screen="armory"] .armory-card { padding: 14px; }
+}
+@media (max-width: 350px) {
+  .moodboard-ui[data-art-screen="armory"] .armory-panel { padding: 16px; }
+  .moodboard-ui[data-art-screen="armory"] .dialog-header { gap: 10px; }
+}
+
+/* Keep canonical mission accents, character canvases and sticky wallet semantics. */
+.moodboard-ui .mission-node, .moodboard-ui .mission-boss, .moodboard-ui .boss-roster-card { background: #141f25; border-color: #53656e; box-shadow: inset 0 0 0 2px rgba(4, 10, 13, .7); }
+.moodboard-ui .mission-node { border-left-color: var(--mission-accent); }
+.moodboard-ui .mission-node.selected, .moodboard-ui .boss-roster-card.selected { border-color: #f1ad57; background: #242a26; box-shadow: inset 0 0 0 2px #97632e, 0 0 10px rgba(242, 165, 63, .12); }
+.moodboard-ui .mission-dossier, .moodboard-ui .boss-dossier { background: #111b21; border-color: #566973; border-top-color: var(--mission-accent); }
+.moodboard-ui .boss-dossier { position: sticky; top: 0; }
+.moodboard-ui .boss-dossier-art { background: #16232a; border-bottom-color: #5b6e76; }
+.moodboard-ui .boss-portrait, .moodboard-ui .equipment-portrait { background-color: #101a20; }
+.moodboard-ui .equipment-card, .moodboard-ui .equipment-slot, .moodboard-ui .equipment-preview { background: #131f25; border-color: #586b73; }
+.moodboard-ui .equipment-card.equipped, .moodboard-ui .equipment-slot.has-equipment { border-color: #f1b15e; background: #222a25; box-shadow: inset 0 0 0 1px #ad7940; }
+/* Board49's real item art occupies the same 2:1 portrait strip as the canvas. */
+.moodboard-ui .equipment-card .mood-equipment-canvas-hidden { display: none; }
+.moodboard-ui .mood-equipment-portrait { display: flex; align-items: center; justify-content: center; width: min(100%, 290px); height: 145px; margin: 7px auto 9px; overflow: hidden; background: #10191e; border: 1px solid #53656e; }
+.moodboard-ui .mood-equipment-portrait[hidden] { display: none; }
+.moodboard-ui .mood-equipment-item { width: calc(138px * var(--mood-art-ratio)); height: 138px; }
+.moodboard-ui .equipment-art-status { margin: 0 0 13px; color: #b7c2b0; font-size: 11px; line-height: 1.6; }
+.moodboard-ui .equipment-wallet { position: sticky; top: 0; z-index: 3; background: #18232b; border: 1px solid #ce9a55; box-shadow: 0 8px 16px rgba(3, 8, 11, .72); }
+.moodboard-ui .equipment-wallet .mood-material { opacity: .16; }
+.moodboard-ui .equipment-rank-line, .moodboard-ui .equipment-stats, .moodboard-ui .equipment-stat { border-color: #58676d; }
+.moodboard-ui .equipment-effects .next-effect { background: #0e191f; border-left-color: #dba35d; }
+.moodboard-ui .equipment-unset { background: #202d32; border-color: #78827b; color: #dfd8c6; }
+.moodboard-ui button:focus-visible { outline: 2px solid #ffd18d; outline-offset: 4px; }
+
+/* Persistent field HUD: only material/color/weight change. Its native box
+   dimensions, responsive placement and pointer targets stay in style.css. */
+.moodboard-hud, .moodboard-controls { --mood-cream: #eadfc8; --mood-icon-size: 27px; color: #eadfc8; }
+.moodboard-hud .survivor-status, .moodboard-hud .mission-status, .moodboard-hud .combat-numbers, .moodboard-hud .growth-status, .moodboard-hud .hud-menu button { position: relative; }
+.moodboard-hud .mood-plate, .moodboard-controls .mood-plate { isolation: isolate; }
+.moodboard-hud .mood-material, .moodboard-controls .mood-material { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: .18; border-radius: inherit; }
+/* Stable CSS crop of board01's charcoal (1420,102,225,33); app may replace
+   the mode text, and touch-shoot's first span must remain its native label. */
+.moodboard-hud .hud-menu button::before, .moodboard-controls .touch-shoot::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; border-radius: inherit; opacity: .18; background-image: url('./assets/ui/source-01-title-menu.png'); background-size: 743.111111% 2851.515152%; background-position: 98.134071% 11.233480%; }
+.moodboard-hud .survivor-status, .moodboard-hud .growth-status { background: linear-gradient(100deg, rgba(16, 25, 30, .96), rgba(16, 25, 30, .86)); border-left-color: #c49a62; box-shadow: inset 0 1px rgba(158, 175, 181, .24), inset 0 -1px rgba(158, 175, 181, .16); }
+.moodboard-hud .mission-status { background: radial-gradient(ellipse at center top, rgba(16, 25, 30, .94), rgba(16, 25, 30, .24) 80%); }
+.moodboard-hud .combat-numbers { background: linear-gradient(270deg, rgba(16, 25, 30, .91), rgba(16, 25, 30, .14)); }
+.moodboard-hud .status-eyebrow, .moodboard-hud .hud-label { color: #c3c6ba; font-weight: 700; }
+.moodboard-hud .hud-code { color: #91a0a2; }
+.moodboard-hud .live-dot { background: #dbc7a0; box-shadow: 0 0 6px rgba(226, 191, 134, .26); }
+.moodboard-hud .health-heading strong, .moodboard-hud #timer, .moodboard-hud .combat-numbers strong { color: #eee2cb; font-weight: 700; }
+.moodboard-hud .health-meter { background: #344047; box-shadow: inset 0 1px rgba(1, 7, 10, .55); }
+.moodboard-hud .health-meter .meter-fill { background: linear-gradient(90deg, #b5b6a6, #e1d3b4); }
+.moodboard-hud .survivor-status.critical { border-left-color: #ce7968; }
+.moodboard-hud .survivor-status.critical .health-heading strong, .moodboard-hud .survivor-status.critical #health-label { color: #efaa96; }
+.moodboard-hud .survivor-status.critical .health-meter .meter-fill { background: #d8826d; }
+.moodboard-hud .weapon-status, .moodboard-hud #stage-name { color: #d2cec0; }
+.moodboard-hud .weapon-status strong { color: #ffd18d; font-weight: 700; }
+.moodboard-hud .keycap, .moodboard-controls kbd { background: #18242a; border-color: #687779; color: #d7d6c6; }
+.moodboard-hud .noise-heading .hud-label, .moodboard-hud .xp-heading .hud-label { color: #ded6c3; }
+.moodboard-hud #noise-label, .moodboard-hud .noise-warning { color: #efb76e; }
+.moodboard-hud .noise-meter { background: #343432; }
+.moodboard-hud .noise-meter .meter-fill { background: linear-gradient(90deg, #a88c59, #ddaa5d 63%, #c77c43); }
+.moodboard-hud .meter-mark { background: #171e20; }
+.moodboard-hud .noise-detail { color: #b7c0bd; }
+.moodboard-hud .xp-heading { color: #9aaeb0; }
+.moodboard-hud .xp-meter { background: #29383e; }
+.moodboard-hud .xp-meter .meter-fill { background: #a3b4ad; }
+.moodboard-hud .objective-status { background: linear-gradient(90deg, transparent, rgba(16, 25, 30, .94) 18%, rgba(16, 25, 30, .94) 82%, transparent); }
+.moodboard-hud #mission-objective { color: #eee2cb; font-weight: 700; }
+.moodboard-hud #mission-detail, .moodboard-hud .district-progress .current { color: #efb76e; }
+.moodboard-hud .district-progress { color: #92a3a1; }
+.moodboard-hud .district-progress .cleared { color: #c4cabb; }
+.moodboard-hud .objective-meter { background: #334048; }
+.moodboard-hud .objective-meter i { background: #d7a262; }
+.moodboard-hud .hud-menu button { background: rgba(17, 28, 34, .96); border-color: #627278; color: #e2dac7; box-shadow: inset 0 1px rgba(172, 184, 184, .11); }
+.moodboard-hud .hud-menu button.selected { background: rgba(55, 43, 28, .97); border-color: #e5ae63; color: #ffd18d; box-shadow: inset 0 0 0 1px rgba(224, 151, 63, .24); }
+.moodboard-hud .hud-menu button:hover { border-color: #edbd7c; color: #ffe0a3; }
+.moodboard-hud .ability-button { background: rgba(17, 28, 34, .97); border-color: #627278; border-bottom-color: #d8a368; color: #eadfc8; box-shadow: inset 0 1px rgba(178, 190, 188, .13); }
+.moodboard-hud .ability-button:hover:not(:disabled), .moodboard-hud .ability-button:active:not(:disabled) { background: #283033; border-color: #efb66e; }
+.moodboard-hud .ability-button:disabled { background: rgba(17, 28, 34, .91); border-color: #445158; border-bottom-color: #697879; color: #a0aeaf; }
+.moodboard-hud .ability-key { color: #a7b5b5; }
+.moodboard-hud .ability-icon { position: relative; color: #e6bb7b; }
+.moodboard-hud .ability-cd { color: #b6c5c4; }
+.moodboard-hud .ability-name { font-weight: 700; }
+.moodboard-hud .mood-hud-ability-art { position: absolute; left: 50%; top: 50%; width: calc(var(--mood-icon-size) * var(--mood-art-ratio)); height: var(--mood-icon-size); transform: translate(-50%, -50%); }
+.moodboard-hud .ability-icon:not(.mood-hud-ability-ready) .mood-hud-ability-art { visibility: hidden; }
+.moodboard-hud .mood-hud-ability-ready > svg { visibility: hidden; }
+.moodboard-hud .ability-button:disabled .mood-hud-ability-art { opacity: .55; filter: saturate(.5); }
+.moodboard-controls .touch-shoot { border-color: #d8a368; background: rgba(23, 34, 39, .93); color: #eadfc8; }
+.moodboard-controls .touch-shoot:active { background: rgba(90, 65, 35, .92); }
+.moodboard-controls .touch-shoot.automatic { border-color: #e4b477; background: rgba(58, 45, 28, .9); color: #ffd18d; }
+.moodboard-controls .move-stick { border-color: rgba(173, 188, 193, .52); background: rgba(17, 30, 37, .54); }
+.moodboard-controls .move-stick::before, .moodboard-controls .move-stick::after { background: rgba(189, 201, 200, .15); }
+.moodboard-controls .move-knob { border-color: rgba(212, 208, 189, .7); background: rgba(166, 180, 175, .36); }
+.controls-hint.moodboard-controls { color: #b0bebc; }
+.toast.moodboard-controls { color: #eadfc8; }
+.toast.moodboard-controls:not(:empty) { border-color: #627278; border-left-color: #d8a368; background: rgba(17, 28, 34, .97); }
+.moodboard-hud button:focus-visible, .moodboard-controls button:focus-visible { outline: 2px solid #ffd18d; outline-offset: 3px; }
+
+@media (max-width: 700px) {
+  .moodboard-hud { --mood-icon-size: 22px; }
+  .moodboard-ui .menu-screen { justify-content: flex-start; padding: 28px 23px; }
+  .moodboard-ui .menu-screen .eyebrow { margin-bottom: 16px; }
+  .moodboard-ui .wordmark { width: min(340px, 100%); margin-bottom: 12px; }
+  .moodboard-ui .lead { font-size: 12px; margin-bottom: 17px; line-height: 1.7; }
+  .moodboard-ui .menu-actions button { min-height: 44px; padding: 10px 8px; font-size: 11px; }
+  .moodboard-ui .menu-actions .primary { min-height: 48px; }
+  .moodboard-ui .menu-stats { gap: 12px; margin-top: 17px; }
+  .moodboard-ui .instruction-strip { margin-top: 17px; gap: 6px 11px; font-size: 8px; }
+  .moodboard-ui .close-button { min-width: 44px; min-height: 44px; }
+  .mood-safehouse-hero { height: 136px; margin-bottom: 16px; grid-template-columns: 1.4fr 1fr; }
+  .moodboard-ui .mood-card-art { --mood-icon-height: 104px; height: 108px; }
+  .moodboard-ui .upgrade-screen .choice-card { min-height: 220px; padding: 15px; }
+  .moodboard-ui .upgrade-screen .mood-card-art { --mood-icon-height: 96px; height: 100px; }
+  .moodboard-ui .mood-equipment-portrait { width: 100%; margin: 9px 0 12px; }
+}
+@media (max-width: 650px) {
+  .moodboard-ui .boss-dossier { position: static; }
+}
+@media (max-height: 500px) and (min-width: 701px) {
+  .moodboard-ui .menu-screen { display: grid; grid-template-columns: 1fr 1fr; align-content: center; gap: 10px 24px; padding: 20px 40px; }
+  .moodboard-ui .menu-screen .eyebrow, .moodboard-ui .wordmark, .moodboard-ui .lead { grid-column: 1; margin: 0; }
+  .moodboard-ui .menu-screen .signal-bars { display: none; }
+  .moodboard-ui .menu-actions { grid-column: 2; grid-row: 1 / span 4; align-self: center; }
+  .moodboard-ui .menu-stats, .moodboard-ui .continue-meta { margin: 0; grid-column: 1; }
+  .moodboard-ui .instruction-strip { margin: 0; grid-column: 1 / -1; padding-top: 8px; }
+  .mood-safehouse-hero { height: 110px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .moodboard-ui button, .moodboard-ui .choice-card, .moodboard-ui .route-node { transition: none; }
+}

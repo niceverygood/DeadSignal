@@ -1,0 +1,846 @@
+{
+  "count": 12,
+  "noPaidRequests": true,
+  "assets": [
+    {
+      "id": "boss-01-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-01-final-v2/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-01-final-motion-v1/model.glb",
+      "sha256": "6c065ad1d100a6a77588399aa1500c8f78a46dfc0c4c9fe1063741774d408c51",
+      "profile": "hammer",
+      "joints": 15,
+      "arms": 4,
+      "legs": 2,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 20181540,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 65068,
+          "weightedJoints": 15,
+          "maxWeightSumError": 3.3306690738754696e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-02-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-02-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-02-final-motion-v1/model.glb",
+      "sha256": "cdaa5879d022ed12f9bb4e63789d56cec5f52ba5e98f79271222ae3dffae8e59",
+      "profile": "crawler",
+      "joints": 19,
+      "arms": 4,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 20638304,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 56633,
+          "weightedJoints": 19,
+          "maxWeightSumError": 2.220446049250313e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-03-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-03-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-03-final-motion-v1/model.glb",
+      "sha256": "6807d08a80f6260c268c77cd999cf709ed92609f3786512dc797da679a0f2598",
+      "profile": "radio",
+      "joints": 19,
+      "arms": 4,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 20254504,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 59376,
+          "weightedJoints": 19,
+          "maxWeightSumError": 2.220446049250313e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-04-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-04-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-04-final-motion-v1/model.glb",
+      "sha256": "76419b5212171a1ad5d1160f651ab800e6590d6f5175aa2ddd9b04c4cf9752b8",
+      "profile": "toxin",
+      "joints": 15,
+      "arms": 4,
+      "legs": 2,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 19020380,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 54799,
+          "weightedJoints": 15,
+          "maxWeightSumError": 2.220446049250313e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-05-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-05-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-05-final-motion-v1/model.glb",
+      "sha256": "89681063a412296380e73e48d35b4ed29d36f3aaebd442134914842437303a1e",
+      "profile": "shield",
+      "joints": 15,
+      "arms": 4,
+      "legs": 2,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 18265988,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 55294,
+          "weightedJoints": 15,
+          "maxWeightSumError": 3.3306690738754696e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-06-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-06-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-06-final-motion-v1/model.glb",
+      "sha256": "3d6858aecb3caf01f2a86beea2216718fde73cbe37f9fa16143f22406b212e2e",
+      "profile": "leaper",
+      "joints": 19,
+      "arms": 4,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 20988092,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 61011,
+          "weightedJoints": 19,
+          "maxWeightSumError": 2.220446049250313e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-07-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-07-final-v2/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-07-final-motion-v1/model.glb",
+      "sha256": "ebde4ee170c59388e0d124ba03a355434861193caaf7bfa4dd1a01e3b99cdbb4",
+      "profile": "conductor",
+      "joints": 19,
+      "arms": 6,
+      "legs": 2,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 19164780,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 55776,
+          "weightedJoints": 19,
+          "maxWeightSumError": 3.3306690738754696e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-08-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-08-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-08-final-motion-v1/model.glb",
+      "sha256": "a901e30c57544e513d4b86500d215e25e68cae63303c2ce5e5dc6b026dbb6a5f",
+      "profile": "furnace",
+      "joints": 19,
+      "arms": 4,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 20998080,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 57982,
+          "weightedJoints": 19,
+          "maxWeightSumError": 2.220446049250313e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-09-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-09-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-09-final-motion-v1/model.glb",
+      "sha256": "9007343dd8119b75284d5d177b815e1d0d298d42d668e11a7044148c289122e5",
+      "profile": "mine",
+      "joints": 19,
+      "arms": 4,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 19954448,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 59630,
+          "weightedJoints": 19,
+          "maxWeightSumError": 3.3306690738754696e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-10-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-10-final-repaired-v2/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-10-final-motion-v1/model.glb",
+      "sha256": "16bd7a4420ccede811683b9bceed03bd863ce3ecc107b19e6221cd01d076a501",
+      "profile": "crusher",
+      "joints": 19,
+      "arms": 4,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 23373500,
+      "weights": [
+        {
+          "node": "original-v1-body-with-rear-track-region-cut",
+          "vertices": 60296,
+          "weightedJoints": 19,
+          "maxWeightSumError": 2.220446049250313e-16
+        },
+        {
+          "node": "actual-left-front-track-rigid-copy-to-right-rear",
+          "vertices": 7165,
+          "weightedJoints": 6,
+          "maxWeightSumError": 2.220446049250313e-16
+        },
+        {
+          "node": "actual-right-front-track-rigid-copy-to-left-rear",
+          "vertices": 7242,
+          "weightedJoints": 6,
+          "maxWeightSumError": 2.220446049250313e-16
+        },
+        {
+          "node": "actual-steel-crossbeam-rear-diagonal-A",
+          "vertices": 462,
+          "weightedJoints": 1,
+          "maxWeightSumError": 0.0
+        },
+        {
+          "node": "actual-steel-crossbeam-rear-diagonal-B",
+          "vertices": 462,
+          "weightedJoints": 1,
+          "maxWeightSumError": 0.0
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-11-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-11-final-v2/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-11-final-motion-v1/model.glb",
+      "sha256": "960ad5ffa3cf7fe2960c0e01ef5661d696e399e2728dcf748b39cf9658b97e17",
+      "profile": "artillery",
+      "joints": 23,
+      "arms": 6,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 18529172,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 71822,
+          "weightedJoints": 23,
+          "maxWeightSumError": 2.220446049250313e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    },
+    {
+      "id": "boss-12-final",
+      "source": "outputs/dead-signal/production-assets/models/boss-12-final-v1/model.glb",
+      "model": "outputs/dead-signal/production-assets/models/boss-12-final-motion-v1/model.glb",
+      "sha256": "d2c3c2eafbda7ba1f9a6bf15ae099401e81155518836832f1577d59f6f550d44",
+      "profile": "storm",
+      "joints": 23,
+      "arms": 6,
+      "legs": 4,
+      "clips": [
+        "DS_idle",
+        "DS_walk",
+        "DS_windup",
+        "DS_attack",
+        "DS_hit",
+        "DS_death",
+        "DS_MotionReel"
+      ],
+      "atlasClips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "originalBinaryBytesUnchanged": 21442928,
+      "weights": [
+        {
+          "node": "0",
+          "vertices": 64210,
+          "weightedJoints": 23,
+          "maxWeightSumError": 3.3306690738754696e-16
+        }
+      ],
+      "structuralValidation": "passed",
+      "visualApproval": "pending"
+    }
+  ]
+}

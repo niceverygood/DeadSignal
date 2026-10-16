@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-16T11:33:38.307727+00:00",
+  "purpose": "Read-only inventory for independently developing on another computer; originals untouched.",
+  "mobileVersion": "1.0.0",
+  "buildNumber": 1,
+  "mobileWebBaseVersion": "0.26.0",
+  "latestWebVersion": "0.29.0",
+  "v029ChangesIntegratedIntoMobile": false,
+  "sourceRoots": [
+    {
+      "path": "work/dead-signal-mobile",
+      "purpose": "Offline mobile app source, native containers, lockfile, bundled v0.26 game art/runtime, tests and historical verification records",
+      "portableFiles": 552,
+      "portableBytes": 218633968,
+      "includeNames": [
+        "package.json",
+        "package-lock.json",
+        "capacitor.config.json",
+        ".gitignore",
+        "README.txt",
+        "dist",
+        "native",
+        "resources",
+        "tests",
+        "scripts",
+        "android",
+        "ios",
+        "release"
+      ],
+      "rootBreakdown": {
+        ".gitignore": {
+          "files": 1,
+          "bytes": 141
+        },
+        "package-lock.json": {
+          "files": 1,
+          "bytes": 115130
+        },
+        "package.json": {
+          "files": 1,
+          "bytes": 650
+        },
+        "README.txt": {
+          "files": 1,
+          "bytes": 4362
+        },
+        "capacitor.config.json": {
+          "files": 1,
+          "bytes": 625
+        },
+        "native": {
+          "files": 2,
+          "bytes": 3509
+        },
+        "dist": {
+          "files": 340,
+          "bytes": 203612517
+        },
+        "resources": {
+          "files": 2,
+          "bytes": 2887750
+        },
+        "tests": {
+          "files": 67,
+          "bytes": 2488486
+        },
+        "release": {
+          "files": 8,
+          "bytes": 347062
+        },
+        "ios": {
+          "files": 34,
+          "bytes": 4504295
+        },
+        "android": {
+          "files": 89,
+          "bytes": 4653146
+        },
+        "scripts": {
+          "files": 5,
+          "bytes": 16295
+        }
+      }
+    },
+    {
+      "path": "outputs/dead-signal/mobile/v1.0.0/store",
+      "purpose": "Draft store listings, privacy text, icons, feature graphic and their verification record; not evidence of store publication",
+      "files": 14,
+      "bytes": 5960231,
+      "includeFiles": [
+        "apple-app-icon-1024.png",
+        "feature-graphic.html",
+        "google-app-icon-512.png",
+        "google-feature-graphic-1024x500.jpg",
+        "google-icon-render.html",
+        "icon-original.png",
+        "icon-prompt.txt",
+        "listing-en.txt",
+        "listing-ko.txt",
+        "listing.json",
+        "privacy-policy-draft.html",
+        "review-notes.txt",
+        "sources.txt",
+        "store-assets-verification.json"
+      ]
+    }
+  ],
+  "excludeNames": [
+    "node_modules",
+    "build",
+    ".gradle",
+    ".git",
+    "xcuserdata",
+    "DerivedData",
+    ".swiftpm",
+    "Pods",
+    "Carthage",
+    ".idea",
+    ".DS_Store",
+    ".build"
+  ],
+  "excludePatterns": [
+    "android/app/src/main/assets/public/**",
+    "ios/App/App/public/**",
+    "android/local.properties",
+    "**/local.properties",
+    "**/key.properties",
+    "**/keystore.properties",
+    "**/.env",
+    "**/.env.*",
+    "**/.npmrc",
+    "**/.netrc",
+    "**/.git-credentials",
+    "**/*.jks",
+    "**/*.keystore",
+    "**/*.p12",
+    "**/*.pfx",
+    "**/*.p8",
+    "**/*.pem",
+    "**/*.key",
+    "**/*.mobileprovision",
+    "**/*.cer",
+    "**/*.xcuserstate",
+    "**/*.apk",
+    "**/*.aab",
+    "**/*.ipa",
+    "**/*.xcarchive/**",
+    "**/*.log",
+    "**/*credentials*.json",
+    "**/*service-account*.json",
+    "**/google-services.json",
+    "**/GoogleService-Info.plist"
+  ],
+  "observedSensitiveOrMachineSpecificPathsExcluded": [
+    "work/dead-signal-mobile/android/local.properties"
+  ],
+  "observedSigningConfig": {
+    "androidReleaseSigningConfigured": false,
+    "appleDevelopmentTeamAssignments": 0,
+    "appleProvisioningProfileAssignments": 0,
+    "gradleCredentialPropertyKeysObserved": 0
+  },
+  "restoreCommands": [
+    {
+      "cwd": "work/dead-signal-mobile",
+      "command": "npm ci",
+      "prerequisites": [
+        "Node.js >=22",
+        "Network access for the existing lockfile dependencies"
+      ]
+    },
+    {
+      "cwd": "work/dead-signal-mobile",
+      "command": "npm test",
+      "notes": [
+        "Two legacy tests additionally require the repository-wide production-assets folder and v0.20.0 fixture described in limitations."
+      ]
+    },
+    {
+      "cwd": "work/dead-signal-mobile",
+      "command": "npm run build:bridge",
+      "notes": [
+        "Regenerates dist/mobile-runtime.js from native/main.js without updating the v0.26 game base."
+      ]
+    },
+    {
+      "cwd": "work/dead-signal-mobile",
+      "command": "npx cap sync",
+      "notes": [
+        "Regenerates the intentionally omitted android/app/src/main/assets/public and ios/App/App/public from dist; run before native builds, never during a build.",
+        "Verify the existing minimum iOS 16.0 settings and generated Swift package platform remain consistent after sync."
+      ]
+    },
+    {
+      "cwd": "work/dead-signal-mobile/android",
+      "command": "./gradlew :app:assembleDebug :app:bundleRelease :app:lintRelease :app:testDebugUnitTest --console=plain --no-daemon --max-workers=2",
+      "prerequisites": [
+        "JDK 21 via JAVA_HOME",
+        "Android SDK API 36 via ANDROID_HOME or a newly created private android/local.properties"
+      ],
+      "notes": [
+        "No existing machine SDK path is transported.",
+        "Release bundle remains unsigned unless the owner separately configures the correct upload key."
+      ]
+    },
+    {
+      "cwd": "work/dead-signal-mobile",
+      "command": "ios/scripts/build-ios.sh simulator",
+      "prerequisites": [
+        "macOS with Xcode compatible with this Capacitor 8 project (original README: Xcode 27 or compatible Xcode 26+)"
+      ],
+      "notes": [
+        "Creates only an unsigned simulator build."
+      ]
+    },
+    {
+      "cwd": "work/dead-signal-mobile",
+      "command": "ios/scripts/build-ios.sh archive",
+      "prerequisites": [
+        "macOS and suitable Xcode"
+      ],
+      "notes": [
+        "Creates an unsigned archive and refuses to overwrite an existing 1.0.0 archive.",
+        "Distribution certificates, profiles, account login and store approval are not copied or implied."
+      ]
+    }
+  ],
+  "executableFiles": [
+    "work/dead-signal-mobile/android/gradlew",
+    "work/dead-signal-mobile/ios/scripts/build-ios.sh"
+  ],
+  "portableVerificationDependencies": [
+    {
+      "consumer": "work/dead-signal-mobile/tests/production-content.test.mjs",
+      "neededPath": "outputs/dead-signal/production-assets/sprites",
+      "notes": "References workspace-relative production originals for byte identity verification."
+    },
+    {
+      "consumer": "work/dead-signal-mobile/tests/boss-rotation.test.mjs",
+      "neededPath": "outputs/dead-signal/playable/v0.20.0/dist/assets/production",
+      "notes": "References an older rotation baseline fixture outside the mobile project."
+    },
+    {
+      "consumer": "work/dead-signal-mobile/scripts/verify-web.mjs",
+      "neededPath": "outputs/dead-signal/playable/v0.26.0/dist",
+      "notes": "release/source-provenance.json retains an original absolute sourceFolder. It must be resolved to the new workspace in a transfer copy or via a future portable verifier; this inventory does not alter the original provenance."
+    }
+  ],
+  "limitations": [
+    "Mobile 1.0.0 is frozen on web v0.26.0. Hero v0.28 and NPC v0.29 locomotion are not integrated. Do not label current native sources or prior AAB/archive as v0.29.",
+    "No native compilation or tests were rerun for this read-only inventory. Historical reports remain historical, and original source/package/build artifacts were not modified.",
+    "No signing keys, certificates, provisioning profiles, SDK paths, user browser profiles, login tokens, developer-account sessions, or production credentials are included.",
+    "Browser localStorage gameplay does not migrate merely by cloning. Native progress is installation-local; this inventory does not export personal save data.",
+    "The original package-source script refuses to replace an existing source ZIP; use a new transfer-package destination or separate transfer builder, not an in-place rerun.",
+    "The original verify-web script uses an absolute baseline sourceFolder. Full standalone verification additionally needs the listed baselines or a documented verifier adjustment in the transferred copy.",
+    "Store copy is draft metadata for the v0.26-based free offline build with no ads or real-money billing SDK. Any newer monetization plan needs separate implementation and disclosure updates.",
+    "Physical-device performance, memory, native touch/audio/orientation/lifecycle and Android 16KB runtime validation, distribution signing, submission and publication still require separate evidence."
+  ]
+}

@@ -1,0 +1,29 @@
+DEAD SIGNAL Android 1.0.0 (1) release-candidate QA
+
+Prepared, not uploaded or published by this Android task.
+Package: kr.bottlecorp.deadsignal
+minSdk 24, target/compile SDK 36, release debuggable false (default/manifest audit).
+Allow backup, full backup and cleartext network traffic are false.
+No bundled native .so files; APK 4-byte / 16KB zip alignment passed.
+
+Signed AAB unchanged and bundletool validation passed:
+DeadSignal-1.0.0-1-google-play-signed.aab
+SHA256 311c40b6ef401d61fbf68d4972e44869ec8e26e5ed9bf827596c9a25005951bb
+
+Signed QA release APK:
+DeadSignal-1.0.0-1-upload-key-qa.apk
+192261086 bytes
+SHA256 0961b57604eb21c6b50cd6f428bb6c524091343602188bc24f3703af6c007516
+APK v2 and v3 signatures verified. Public signer certificate exactly matches newly authorized upload certificate:
+DER SHA256 ea64c115c9078ef6cb6c8f8869bd7bb5d1ea30e460fd4f40e19e194f07206e60
+All 803 unsigned release APK entries and all 340 mobile/dist files remain byte identical.
+The 1239 source files and original 10 Android artifacts were verified unchanged.
+
+The fixed signing helper timed out after 90 seconds; the APK appeared after its child signing process completed. The underlying reason for the delay is unconfirmed. No Keychain retry, ACL change, credential workaround or alternative QA key was used.
+This APK uses the app-specific upload certificate. Google-managed final app-signing certificate and Play-delivered APK are separate and were not created or verified here.
+Private keystore remains encrypted in its protected credential directory. Password remains in macOS Keychain; no password file, displayed password or argv password was created.
+
+Native runtime checks use only new DeadSignal_PlayRelease_QA / emulator-5580. Other emulator-5556 and profiles are preserved. Runtime result is recorded separately in ANDROID-NATIVE-LAUNCH.json when finished.
+CUA could not select the official emulator app. Native screen/touch/play behavior and actual store screenshots are NOT verified/generated. No adb input, screenshot, UI dump or DevTools workaround was used. Physical-device and 16KB-runtime checks remain unverified.
+
+Final native runtime result: initial visible GUI boot stayed adb offline; one authorized swiftshader_indirect headless cold restart also stayed offline through the 180-second limit. No install/start/runtime-crash check was possible. Cause unconfirmed; no fatal emulator log error established. Own emulator was stopped normally after exact AVD/PID validation; AVD files preserved. Other emulator-5556 and global ADB server were not stopped. Shipping signed AAB final SHA256 unchanged.

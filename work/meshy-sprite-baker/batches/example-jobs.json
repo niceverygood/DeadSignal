@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "survivor-walk-pilot",
+      "ready": false,
+      "model": "survivor-v2-walk.glb",
+      "exportName": "survivor-walk-pilot",
+      "directions": 16,
+      "samples": 8,
+      "frameSize": 256,
+      "subjectHeight": 44,
+      "clip": "Armature|walking_man|baselayer",
+      "weaponReady": true,
+      "gripHeight": null,
+      "rootMotion": true,
+      "shading": "cel",
+      "frontYawDegrees": 0,
+      "coreRegion": [0.15, 0.18, 0.85, 0.72]
+    },
+    {
+      "id": "boss-01-mid-pilot",
+      "ready": false,
+      "model": "boss-01-mid.glb",
+      "exportName": "boss-01-mid-pilot",
+      "directions": 16,
+      "samples": 1,
+      "frameSize": 256,
+      "subjectHeight": 64,
+      "clip": null,
+      "weaponReady": false,
+      "shading": "cel",
+      "coreRegion": [0.1, 0.15, 0.9, 0.8]
+    }
+  ]
+}

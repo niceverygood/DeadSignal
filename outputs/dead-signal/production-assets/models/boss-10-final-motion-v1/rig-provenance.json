@@ -1,0 +1,92 @@
+{
+  "id": "boss-10-final",
+  "source": "outputs/dead-signal/production-assets/models/boss-10-final-repaired-v2/model.glb",
+  "model": "outputs/dead-signal/production-assets/models/boss-10-final-motion-v1/model.glb",
+  "sha256": "16bd7a4420ccede811683b9bceed03bd863ce3ecc107b19e6221cd01d076a501",
+  "profile": "crusher",
+  "joints": 19,
+  "arms": 4,
+  "legs": 4,
+  "clips": [
+    "DS_idle",
+    "DS_walk",
+    "DS_windup",
+    "DS_attack",
+    "DS_hit",
+    "DS_death",
+    "DS_MotionReel"
+  ],
+  "atlasClips": {
+    "idle": {
+      "start": 0,
+      "count": 4,
+      "duration": 1.8,
+      "loop": true
+    },
+    "walk": {
+      "start": 4,
+      "count": 8,
+      "duration": 1.2,
+      "loop": true
+    },
+    "windup": {
+      "start": 12,
+      "count": 6,
+      "duration": 0.8,
+      "loop": false
+    },
+    "attack": {
+      "start": 18,
+      "count": 6,
+      "duration": 0.55,
+      "loop": false
+    },
+    "hit": {
+      "start": 24,
+      "count": 2,
+      "duration": 0.22,
+      "loop": false
+    },
+    "death": {
+      "start": 26,
+      "count": 6,
+      "duration": 1.15,
+      "loop": false
+    }
+  },
+  "originalBinaryBytesUnchanged": 23373500,
+  "weights": [
+    {
+      "node": "original-v1-body-with-rear-track-region-cut",
+      "vertices": 60296,
+      "weightedJoints": 19,
+      "maxWeightSumError": 2.220446049250313e-16
+    },
+    {
+      "node": "actual-left-front-track-rigid-copy-to-right-rear",
+      "vertices": 7165,
+      "weightedJoints": 6,
+      "maxWeightSumError": 2.220446049250313e-16
+    },
+    {
+      "node": "actual-right-front-track-rigid-copy-to-left-rear",
+      "vertices": 7242,
+      "weightedJoints": 6,
+      "maxWeightSumError": 2.220446049250313e-16
+    },
+    {
+      "node": "actual-steel-crossbeam-rear-diagonal-A",
+      "vertices": 462,
+      "weightedJoints": 1,
+      "maxWeightSumError": 0.0
+    },
+    {
+      "node": "actual-steel-crossbeam-rear-diagonal-B",
+      "vertices": 462,
+      "weightedJoints": 1,
+      "maxWeightSumError": 0.0
+    }
+  ],
+  "structuralValidation": "passed",
+  "visualApproval": "pending"
+}

@@ -1,0 +1,70 @@
+v0.29 locomotion gallery / actual rig viewer
+
+Changed shared builder (original backup in before-shared-apply):
+  work/build-production-review.mjs
+  preferredReviewBake() prefers the catalog's real walk then run source, ahead
+  of a retained action reel or static portrait. Each entry has preferredBakeId.
+  Existing canonical input models/sprites remain the physical source.
+  DEAD_SIGNAL_REVIEW_OUTPUT optionally writes only generated review files to a
+  staging folder, preserving canonical UI/data until reviewed.
+
+Draft UI files, not yet applied to canonical gallery:
+  production-assets/review.html, review.js, review.css
+  production-assets/rig-viewer.html, rig-viewer.js, rig-viewer.css,
+    rig-viewer-state.js, rig-viewer-registry.json
+  Legacy smokeVerification (including per-actor proof) and comprehensive art
+  approval remain exactly equal to the retained v027 records. The updated
+  audit's source metadata reflects all157 current native assets. Its retained
+  33-character and 161-binding figures are labelled v0.27 capture evidence.
+
+Actual 3D staged preview already added (old UI untouched):
+  outputs/dead-signal/production-assets/review-v029/rig-viewer.html?id=enemy-runner
+  19 grounded humanoids; runner defaults to DS_GroundedRun, other humanoids to
+  DS_GroundedWalk; 12 finals remain their custom weighted DS_walk rigs. One hero
+  remains the original shared motion-v1 rig. All original clips stay listed.
+  Models use exact allowlisted /production-assets/models/... original paths.
+
+After the final 31 native locomotion atlas records have been registered and
+copied into the game draft, generate the gallery against that final manifest:
+  DEAD_SIGNAL_REVIEW_GAME="$PWD/work/dead-signal-enemy-motion-v029-draft/dist" \
+  DEAD_SIGNAL_REVIEW_OUTPUT="$PWD/work/asset-review-locomotion-v029-draft/production-assets" \
+  node work/build-production-review.mjs
+Then generate the fresh structural audit while retaining the old v027 proof:
+  node work/asset-review-locomotion-v029-draft/build-review-audit.mjs \
+    --manifest work/asset-review-locomotion-v029-draft/production-assets/review-manifest.json \
+    --output work/asset-review-locomotion-v029-draft/production-assets
+Attach only the actually captured v029 proof in a separate supplemental field:
+  node work/asset-review-locomotion-v029-draft/build-locomotion-evidence.mjs \
+    --apply --output work/asset-review-locomotion-v029-draft/production-assets
+These steps have now been completed against the final157-asset v029 catalog.
+The actual proof reports31/31 native walk outputs,19/19 corrected GLB loads,
+16 characters with all32 movement samples observed, and16 special-case records.
+The remaining15 slow or large actors are not labelled as full-cycle observed.
+GLB proof retains only captured id/clip/source/joints/error fields; missing
+skin/texture/list fields are left null instead of inferred or fabricated.
+The new summary is supplementalLocomotionVerification, separate from v027.
+
+Rebuild the actual viewer registry after the final grounded model file hashes:
+  node work/asset-review-locomotion-v029-draft/build-rig-viewer-registry.mjs --grounded-locomotion
+This reads all actual GLBs, embedded textures, weighted skins and clip lists.
+It checks the 19 original source SHA values and preserved original clips.
+
+Independent tests (30 passed; test-results.txt):
+  node --test work/asset-review-locomotion-v029-draft/locomotion-evidence.test.mjs \
+    work/asset-review-locomotion-v029-draft/locomotion-review.test.mjs \
+    work/asset-review-locomotion-v029-draft/review-rig.test.mjs \
+    work/asset-review-locomotion-v029-draft/rig-viewer.test.mjs
+The new tests verify the new real UI default image, unchanged source geometry,
+skins, UV/accessors, materials, textures and binary prefix for all 19 models;
+they reject swapped paths/provenance and preserve legacy v027 QA SHA evidence.
+
+Separate actual runtime harness already in the v029 game draft:
+  dist/enemy-motion-review.html/js
+  tests/enemy-motion-review.test.mjs (5 passed)
+31 real NPCs; Game.move-controlled walk and Game.tick real AI; 60/120 ticks
+paced by elapsed screen time then freeze. Controls include wall, stop, 90/180
+turn, actual hit, actual knockback, actual death and actual skill activation.
+Actual drawFrame success records the native frame and locomotion diagnostics.
+No storage/profile/save access. Renderer-only camera follows NPC. Manual zoom
+survives resize. Final-victory death playback uses a bounded render-only clock
+while game state and both RNGs remain unchanged.

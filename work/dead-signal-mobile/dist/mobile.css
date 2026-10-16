@@ -1,0 +1,100 @@
+/* Store build only; these selectors never affect the separately served web game. */
+html[data-release-channel="store"] {
+  --mobile-safe-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+  --mobile-safe-right: max(env(safe-area-inset-right, 0px), var(--safe-area-inset-right, 0px));
+  --mobile-safe-bottom: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px));
+  --mobile-safe-left: max(env(safe-area-inset-left, 0px), var(--safe-area-inset-left, 0px));
+  -webkit-text-size-adjust: 100%;
+}
+html[data-release-channel="store"] body { overscroll-behavior: none; user-select: none; -webkit-user-select: none; }
+html[data-release-channel="store"] #game-shell { height: 100dvh; }
+html[data-release-channel="store"] #overlay { padding: calc(var(--mobile-safe-top) + 12px) calc(var(--mobile-safe-right) + 12px) calc(var(--mobile-safe-bottom) + 12px) calc(var(--mobile-safe-left) + 12px); }
+html[data-release-channel="store"] #overlay:has(.menu-screen) { padding: 0; }
+html[data-release-channel="store"] :is(.panel, .dialog-panel, .upgrade-screen, .shop-screen, .result-screen, .equipment-shop.panel) { max-height: calc(100dvh - var(--mobile-safe-top) - var(--mobile-safe-bottom) - 24px); overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+html[data-release-channel="store"] .hud-top { top: calc(var(--mobile-safe-top) + 8px); left: calc(var(--mobile-safe-left) + 10px); right: calc(var(--mobile-safe-right) + 10px); }
+html[data-release-channel="store"] .hud-bottom { left: calc(var(--mobile-safe-left) + 12px); right: calc(var(--mobile-safe-right) + 12px); }
+html[data-release-channel="store"] :is(.icon-button, .fire-mode-button, .map-toggle-button, .close-button) { min-width: 44px; min-height: 44px; }
+html[data-release-channel="store"] :is(.primary, .secondary, .ghost, .segmented button) { min-height: 44px; }
+html[data-release-channel="store"] :is(.settings-row .toggle, .settings-row input[type="range"]) { min-width: 44px; min-height: 44px; }
+html[data-release-channel="store"] .mobile-privacy-panel { color: #c9d1bf; font-size: 13px; line-height: 1.8; }
+html[data-release-channel="store"] .mobile-privacy-panel h3 { color: var(--ivory); font-size: 15px; margin: 22px 0 8px; }
+html[data-release-channel="store"] .mobile-privacy-panel p { overflow-wrap: anywhere; word-break: keep-all; }
+html[data-release-channel="store"] .controls-hint,
+html[data-release-channel="store"] .ability-key,
+html[data-release-channel="store"] .small-key { display: none; }
+html[data-release-channel="store"] .move-stick { left: calc(var(--mobile-safe-left) + 18px); bottom: calc(var(--mobile-safe-bottom) + 18px); }
+html[data-release-channel="store"] .touch-shoot { right: calc(var(--mobile-safe-right) + 18px); bottom: calc(var(--mobile-safe-bottom) + 18px); }
+html[data-release-channel="store"] .menu-screen,
+html[data-release-channel="store"] .menu-screen.panel { width: 100%; height: 100%; padding-left: calc(var(--mobile-safe-left) + 28px); padding-right: calc(var(--mobile-safe-right) + 28px); padding-top: calc(var(--mobile-safe-top) + 24px); padding-bottom: calc(var(--mobile-safe-bottom) + 72px); }
+html[data-release-channel="store"] .instruction-strip { left: calc(var(--mobile-safe-left) + 28px); right: calc(var(--mobile-safe-right) + 28px); bottom: calc(var(--mobile-safe-bottom) + 16px); }
+html[data-release-channel="store"] .toast { max-width: calc(100vw - var(--mobile-safe-left) - var(--mobile-safe-right) - 32px); }
+
+/* Landscape phones retain a broad central battlefield and controls at the edges. */
+@media (orientation: landscape) and (max-height: 600px) {
+  html[data-release-channel="store"] .hud-top { gap: 12px; }
+  html[data-release-channel="store"] .survivor-status { width: 184px; padding: 8px 10px; }
+  html[data-release-channel="store"] .status-eyebrow { margin-bottom: 7px; font-size: 7px; }
+  html[data-release-channel="store"] .health-meter { margin: 5px 0 7px; height: 4px; }
+  html[data-release-channel="store"] .health-heading strong { font-size: 12px; }
+  html[data-release-channel="store"] .weapon-status { font-size: 9px; }
+  html[data-release-channel="store"] .weapon-status strong { font-size: 13px; }
+  html[data-release-channel="store"] .mission-status { min-width: 96px; padding: 2px 8px 5px; }
+  html[data-release-channel="store"] #timer { font-size: 26px; }
+  html[data-release-channel="store"] #stage-name { max-width: 180px; font-size: 8px; }
+  html[data-release-channel="store"] .combat-status { min-width: 186px; gap: 4px; }
+  html[data-release-channel="store"] .hud-menu { display: flex; gap: 6px; }
+  html[data-release-channel="store"] .combat-numbers { gap: 15px; padding: 2px 0; }
+  html[data-release-channel="store"] .combat-numbers > div { flex-direction: row; align-items: baseline; gap: 5px; }
+  html[data-release-channel="store"] .combat-numbers strong { font-size: 15px; }
+  html[data-release-channel="store"] .objective-status { top: calc(var(--mobile-safe-top) + 70px); width: min(280px, 40vw); padding: 5px 8px; gap: 2px; }
+  html[data-release-channel="store"] .district-progress { display: none; }
+  html[data-release-channel="store"] #mission-objective { font-size: 10px; }
+  html[data-release-channel="store"] #mission-detail { font-size: 8px; }
+  html[data-release-channel="store"] .hud-bottom { bottom: calc(var(--mobile-safe-bottom) + 20px); align-items: flex-end; }
+  html[data-release-channel="store"] .hud:has(~ #touch-controls:not([hidden])) :is(.growth-status, .ability-bar) { margin-bottom: 0; }
+  html[data-release-channel="store"] .growth-status { position: absolute; left: 116px; bottom: 0; width: 150px; padding: 7px 9px; }
+  html[data-release-channel="store"] .noise-heading { margin-bottom: 4px; }
+  html[data-release-channel="store"] .noise-detail { display: none; }
+  html[data-release-channel="store"] #noise-label { font-size: 8px; }
+  html[data-release-channel="store"] .noise-meter { height: 4px; }
+  html[data-release-channel="store"] .xp-heading { margin: 6px 0 4px; font-size: 7px; }
+  html[data-release-channel="store"] .ability-bar { position: absolute; right: 94px; bottom: 0; gap: 6px; }
+  html[data-release-channel="store"] .ability-button { width: 54px; height: 64px; padding: 5px 2px; gap: 2px; }
+  html[data-release-channel="store"] .ability-icon svg { width: 22px; height: 22px; }
+  html[data-release-channel="store"] .ability-name { font-size: 9px; }
+  html[data-release-channel="store"] .ability-cd { font-size: 8px; }
+  html[data-release-channel="store"] .move-stick { width: 96px; height: 96px; }
+  html[data-release-channel="store"] .touch-shoot { width: 78px; height: 78px; }
+  html[data-release-channel="store"] .toast.field-notice { top: auto; bottom: calc(var(--mobile-safe-bottom) + 112px); }
+  html[data-release-channel="store"] .menu-screen,
+  html[data-release-channel="store"] .menu-screen.panel { overflow: auto; display: block; }
+  html[data-release-channel="store"] .wordmark { font-size: clamp(48px, 10vh, 70px); margin-bottom: 10px; }
+  html[data-release-channel="store"] .lead { margin-bottom: 14px; font-size: 11px; line-height: 1.6; }
+  html[data-release-channel="store"] .menu-actions { max-width: 410px; gap: 7px; }
+  html[data-release-channel="store"] .menu-stats { margin-top: 14px; }
+  html[data-release-channel="store"] .instruction-strip { position: static; margin-top: 18px; padding-bottom: 12px; }
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (min-width: 701px) {
+  html[data-release-channel="store"] .menu-screen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-content: center; gap: 10px 24px; padding-bottom: calc(var(--mobile-safe-bottom) + 24px); }
+  html[data-release-channel="store"] .menu-screen :is(.eyebrow, .wordmark, .lead, .menu-stats, .continue-meta) { grid-column: 1; margin: 0; }
+  html[data-release-channel="store"] .menu-screen .signal-bars { display: none; }
+  html[data-release-channel="store"] .menu-screen .menu-actions { grid-column: 2; grid-row: 1 / span 5; align-self: center; }
+  html[data-release-channel="store"] .menu-screen .instruction-strip { grid-column: 1 / -1; margin-top: 0; padding-block: 8px 0; }
+}
+
+/* Narrow portrait fallback is scrollable and does not hide buttons under a notch. */
+@media (orientation: portrait) and (max-width: 650px) {
+  html[data-release-channel="store"] .hud-menu { grid-template-columns: 44px 44px; }
+  html[data-release-channel="store"] .fire-mode-button { grid-column: 1 / -1; width: 94px; }
+  html[data-release-channel="store"] .combat-status { min-width: 94px; }
+  html[data-release-channel="store"] .survivor-status { width: min(39vw, 145px); }
+  html[data-release-channel="store"] .mission-status { min-width: 54px; padding-inline: 0; }
+  html[data-release-channel="store"] #timer { font-size: 23px; }
+  html[data-release-channel="store"] .objective-status { top: calc(var(--mobile-safe-top) + 112px); }
+  html[data-release-channel="store"] .toast.field-notice { top: calc(var(--mobile-safe-top) + 202px); }
+  html[data-release-channel="store"] .hud:has(~ #touch-controls:not([hidden])) .hud-bottom { bottom: calc(var(--mobile-safe-bottom) + 135px); }
+  html[data-release-channel="store"] .growth-status { width: 126px; }
+  html[data-release-channel="store"] .ability-button { width: 48px; height: 68px; }
+  html[data-release-channel="store"] .ability-bar { gap: 4px; }
+}

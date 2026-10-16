@@ -1,0 +1,258 @@
+{
+  "data": {
+    "actualAlive": "14",
+    "error": "",
+    "explosionReady": "true",
+    "fireReady": "true",
+    "frames": "128",
+    "gameState": "upgrade",
+    "gameTime": "2.9833333333333276",
+    "hp": "67",
+    "phase": "completed",
+    "probeLimit": "one-60-actor-run",
+    "ready": "true",
+    "rendererDrift": "false",
+    "requested": "60",
+    "results": "{\"fixture\":\"v25-one-native60-fire-and-synthetic-damage0-blast\",\"separateFromV19\":true,\"sourceVersion\":\"0.25.0\",\"seed\":19207,\"requestedEnemies\":60,\"complete\":false,\"reason\":\"game-upgrade\",\"wallActiveSeconds\":2.985,\"gameSeconds\":2.983,\"ticks\":179,\"targetTicks\":480,\"frames\":128,\"instrumentedFramesPerSecond\":42.878,\"renderMs\":{\"samples\":128,\"p50\":11.6,\"p95\":34.7,\"max\":94.7},\"renderWithFireMs\":{\"samples\":128,\"p50\":11.6,\"p95\":34.7,\"max\":94.7},\"renderWithExplosionMs\":{\"samples\":35,\"p50\":11.6,\"p95\":50.6,\"max\":94.7},\"tickMs\":{\"samples\":179,\"p50\":0.2,\"p95\":0.6,\"max\":4.8},\"stateProbeMs\":{\"samples\":128,\"p50\":1.3,\"p95\":2.9,\"max\":12.8},\"diagnosticEmissionMs\":{\"samples\":2,\"p50\":0.2,\"p95\":1.3,\"max\":1.3},\"nativeEnemies\":{\"min\":14,\"max\":60,\"mean\":52.547,\"last\":14},\"nativeHero\":{\"allMeasuredFrames\":true,\"frames\":128,\"assetIds\":[\"survivor-shotgun-run\",\"survivor-shotgun-walk\"]},\"actualAlive\":{\"start\":60,\"min\":14,\"max\":60,\"end\":14},\"hp\":{\"start\":100,\"min\":67,\"end\":67,\"maxHp\":100},\"initialActorDeaths\":46,\"additionalEnemyIdsSeen\":[],\"kills\":46,\"playerDead\":false,\"actualState\":\"upgrade\",\"renderStateAndRngInvariant\":true,\"renderChecks\":128,\"randomState\":2098256905,\"visualRandomState\":1012802744,\"initialFingerprint\":\"31d484e0\",\"finalFingerprint\":\"f2bb29e6\",\"fireThrow\":{\"accepted\":true,\"actualGameTime\":0,\"target\":{\"x\":1261.2293491784144,\"y\":782.1792747981941},\"nearbyAtThrow\":8,\"firesAfter\":1},\"diagnosticBlasts\":[{\"scheduledAt\":0,\"actualGameTime\":0,\"damage\":0,\"hurt\":false,\"target\":{\"x\":1200,\"y\":930},\"radius\":80,\"createdShockwaves\":1,\"hpUnchanged\":true,\"gameplayRngUnchanged\":true},{\"scheduledAt\":2,\"actualGameTime\":2,\"damage\":0,\"hurt\":false,\"target\":{\"x\":1477.696248846119,\"y\":878.4039329750282},\"radius\":80,\"createdShockwaves\":1,\"hpUnchanged\":true,\"gameplayRngUnchanged\":true}],\"diagnosticDamage\":0,\"diagnosticHurt\":false,\"fire\":{\"status\":\"ready\",\"sourceKind\":\"image_gen\",\"sha256\":\"30ee21bfc149380e1c56c519f3acd119dc19d5f6d29ddb9c2288207e3bc3237b\",\"loadedFrames\":16,\"width\":1254,\"height\":1254,\"singletonMatchesRenderer\":true,\"currentImage\":\"image-1\",\"sameImageAsStart\":true,\"drawnImageObjects\":[\"image-1\"],\"seenFrameIndices\":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],\"draws\":1152},\"explosion\":{\"status\":\"ready\",\"sourceKind\":\"image_gen\",\"sha256\":\"8dc57e3e099c12f2f3d953f11b5d606f8ce461dda547c16396a8ea4e76193fb4\",\"loadedFrames\":16,\"width\":1254,\"height\":1254,\"singletonMatchesRenderer\":true,\"currentImage\":\"image-2\",\"sameImageAsStart\":true,\"drawnImageObjects\":[\"image-2\"],\"seenFrameIndices\":[0,1,2,4,5,6,7,8,9,10,11,12,13,14,15],\"draws\":113},\"vfxDrawCallsPerRender\":{\"fire\":{\"samples\":128,\"p50\":9,\"p95\":9,\"max\":9},\"explosion\":{\"samples\":128,\"p50\":0,\"p95\":7,\"max\":7}},\"all7NativeReady\":true,\"playerUsesBakedContours\":true,\"requiredAssetIds\":[\"survivor-shotgun-idle\",\"survivor-shotgun-walk\",\"survivor-shotgun-run\",\"enemy-walker\",\"enemy-runner\",\"enemy-shield\",\"enemy-screamer\",\"enemy-gas\",\"enemy-elite\",\"enemy-collector\",\"lure-speaker\"],\"viewport\":{\"width\":1280,\"height\":720,\"dpr\":1,\"zoom\":1.1428571428571428},\"warmupFrames\":3,\"droppedBacklogMs\":0,\"pausedCount\":0,\"noPersistentStorageUsed\":true,\"limitations\":\"One bounded controlled 60-enemy local-browser probe. Synthetic damage0/hurt:false bursts are diagnostic load, not natural attacks. No HP/invulnerability/RNG resets. Renderer timings include draw instrumentation; frame rate includes full state probes and DOM. Not v19 FPS, production-wide FPS, GPU timing, or real-phone performance. Distinct Image objects evidence shared app images, not browser-internal decode events.\"}",
+    "running": "false",
+    "sourceVersion": "0.25.0",
+    "ticks": "179",
+    "used": "true",
+    "visibility": "visible"
+  },
+  "result": {
+    "actualAlive": {
+      "end": 14,
+      "max": 60,
+      "min": 14,
+      "start": 60
+    },
+    "actualState": "upgrade",
+    "additionalEnemyIdsSeen": [],
+    "all7NativeReady": true,
+    "complete": false,
+    "diagnosticBlasts": [
+      {
+        "actualGameTime": 0,
+        "createdShockwaves": 1,
+        "damage": 0,
+        "gameplayRngUnchanged": true,
+        "hpUnchanged": true,
+        "hurt": false,
+        "radius": 80,
+        "scheduledAt": 0,
+        "target": {
+          "x": 1200,
+          "y": 930
+        }
+      },
+      {
+        "actualGameTime": 2,
+        "createdShockwaves": 1,
+        "damage": 0,
+        "gameplayRngUnchanged": true,
+        "hpUnchanged": true,
+        "hurt": false,
+        "radius": 80,
+        "scheduledAt": 2,
+        "target": {
+          "x": 1477.696248846119,
+          "y": 878.4039329750282
+        }
+      }
+    ],
+    "diagnosticDamage": 0,
+    "diagnosticEmissionMs": {
+      "max": 1.3,
+      "p50": 0.2,
+      "p95": 1.3,
+      "samples": 2
+    },
+    "diagnosticHurt": false,
+    "droppedBacklogMs": 0,
+    "explosion": {
+      "currentImage": "image-2",
+      "drawnImageObjects": [
+        "image-2"
+      ],
+      "draws": 113,
+      "height": 1254,
+      "loadedFrames": 16,
+      "sameImageAsStart": true,
+      "seenFrameIndices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sha256": "8dc57e3e099c12f2f3d953f11b5d606f8ce461dda547c16396a8ea4e76193fb4",
+      "singletonMatchesRenderer": true,
+      "sourceKind": "image_gen",
+      "status": "ready",
+      "width": 1254
+    },
+    "finalFingerprint": "f2bb29e6",
+    "fire": {
+      "currentImage": "image-1",
+      "drawnImageObjects": [
+        "image-1"
+      ],
+      "draws": 1152,
+      "height": 1254,
+      "loadedFrames": 16,
+      "sameImageAsStart": true,
+      "seenFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sha256": "30ee21bfc149380e1c56c519f3acd119dc19d5f6d29ddb9c2288207e3bc3237b",
+      "singletonMatchesRenderer": true,
+      "sourceKind": "image_gen",
+      "status": "ready",
+      "width": 1254
+    },
+    "fireThrow": {
+      "accepted": true,
+      "actualGameTime": 0,
+      "firesAfter": 1,
+      "nearbyAtThrow": 8,
+      "target": {
+        "x": 1261.2293491784144,
+        "y": 782.1792747981941
+      }
+    },
+    "fixture": "v25-one-native60-fire-and-synthetic-damage0-blast",
+    "frames": 128,
+    "gameSeconds": 2.983,
+    "hp": {
+      "end": 67,
+      "maxHp": 100,
+      "min": 67,
+      "start": 100
+    },
+    "initialActorDeaths": 46,
+    "initialFingerprint": "31d484e0",
+    "instrumentedFramesPerSecond": 42.878,
+    "kills": 46,
+    "limitations": "One bounded controlled 60-enemy local-browser probe. Synthetic damage0/hurt:false bursts are diagnostic load, not natural attacks. No HP/invulnerability/RNG resets. Renderer timings include draw instrumentation; frame rate includes full state probes and DOM. Not v19 FPS, production-wide FPS, GPU timing, or real-phone performance. Distinct Image objects evidence shared app images, not browser-internal decode events.",
+    "nativeEnemies": {
+      "last": 14,
+      "max": 60,
+      "mean": 52.547,
+      "min": 14
+    },
+    "nativeHero": {
+      "allMeasuredFrames": true,
+      "assetIds": [
+        "survivor-shotgun-run",
+        "survivor-shotgun-walk"
+      ],
+      "frames": 128
+    },
+    "noPersistentStorageUsed": true,
+    "pausedCount": 0,
+    "playerDead": false,
+    "playerUsesBakedContours": true,
+    "randomState": 2098256905,
+    "reason": "game-upgrade",
+    "renderChecks": 128,
+    "renderMs": {
+      "max": 94.7,
+      "p50": 11.6,
+      "p95": 34.7,
+      "samples": 128
+    },
+    "renderStateAndRngInvariant": true,
+    "renderWithExplosionMs": {
+      "max": 94.7,
+      "p50": 11.6,
+      "p95": 50.6,
+      "samples": 35
+    },
+    "renderWithFireMs": {
+      "max": 94.7,
+      "p50": 11.6,
+      "p95": 34.7,
+      "samples": 128
+    },
+    "requestedEnemies": 60,
+    "requiredAssetIds": [
+      "survivor-shotgun-idle",
+      "survivor-shotgun-walk",
+      "survivor-shotgun-run",
+      "enemy-walker",
+      "enemy-runner",
+      "enemy-shield",
+      "enemy-screamer",
+      "enemy-gas",
+      "enemy-elite",
+      "enemy-collector",
+      "lure-speaker"
+    ],
+    "seed": 19207,
+    "separateFromV19": true,
+    "sourceVersion": "0.25.0",
+    "stateProbeMs": {
+      "max": 12.8,
+      "p50": 1.3,
+      "p95": 2.9,
+      "samples": 128
+    },
+    "targetTicks": 480,
+    "tickMs": {
+      "max": 4.8,
+      "p50": 0.2,
+      "p95": 0.6,
+      "samples": 179
+    },
+    "ticks": 179,
+    "vfxDrawCallsPerRender": {
+      "explosion": {
+        "max": 7,
+        "p50": 0,
+        "p95": 7,
+        "samples": 128
+      },
+      "fire": {
+        "max": 9,
+        "p50": 9,
+        "p95": 9,
+        "samples": 128
+      }
+    },
+    "viewport": {
+      "dpr": 1,
+      "height": 720,
+      "width": 1280,
+      "zoom": 1.1428571428571428
+    },
+    "visualRandomState": 1012802744,
+    "wallActiveSeconds": 2.985,
+    "warmupFrames": 3
+  }
+}

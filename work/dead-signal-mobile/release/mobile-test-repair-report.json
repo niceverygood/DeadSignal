@@ -1,0 +1,47 @@
+{
+  "scope": "mobile tests only",
+  "focusedTests": {
+    "pass": 36,
+    "fail": 0,
+    "command": "node --test --test-concurrency=2 tests/boss-rotation.test.mjs tests/codex-scroll.test.mjs tests/production-art-32frames.test.mjs tests/production-renderer.test.mjs"
+  },
+  "initialFullLog": {
+    "path": "work/dead-signal-mobile/release/web-initial-test-results.txt",
+    "sha256": "e1273a6cd684649b276f87c5fbf8bdf0072177b0a1d43dbedab343b773ccfd69",
+    "bytes": 76333
+  },
+  "harnessConstantEvaluatedFromActualApp": "const storeRelease=document.documentElement.dataset.releaseChannel==='store';",
+  "storeReleaseEnabledInHarness": true,
+  "assertionsRemovedOrWeakened": false,
+  "runtimeDistFilesModified": false,
+  "testFiles": {
+    "tests/boss-rotation.test.mjs": "b05dd6c8a77e08fee8d4d142f65f87f181c4123c3f305cc854aeb833f144ea23",
+    "tests/codex-scroll.test.mjs": "c7dca0923a110df7505bb1e45061dc6e85dea145377feb97a57d949f763330bb",
+    "tests/production-art-32frames.test.mjs": "edb77106a94d007cd667eb8d64c9bbf457d014a2d7513c367ad51db1f1a6884d",
+    "tests/production-renderer.test.mjs": "ee23862f905e12332e2b5e3c96296e39cb796a0dc6832078aeb805ca9ac3faa0"
+  },
+  "legacyFixtureProvenance": {
+    "sourceRelease": "immutable v0.26.0",
+    "purpose": "Legacy 8-frame schema and grounding fixtures only; no runtime HQ32 art substitution",
+    "files": [
+      {
+        "asset": "survivor-shotgun-walk",
+        "bytes": 894444,
+        "sha256": "ee1f6c50bc4d52a2253892e296555c7e0d24ba3ba023723384b77bd5d0e40898",
+        "source": "outputs/dead-signal/playable/v0.26.0/dist/assets/production/survivor-shotgun-walk/metadata.json",
+        "samples": 8,
+        "directions": 16,
+        "frameCount": 128
+      },
+      {
+        "asset": "survivor-shotgun-run",
+        "bytes": 868671,
+        "sha256": "0d5f6123de10f4283dd93d41bdfbe48f4381b241db10ee568e6ed3aef5001240",
+        "source": "outputs/dead-signal/playable/v0.26.0/dist/assets/production/survivor-shotgun-run/metadata.json",
+        "samples": 8,
+        "directions": 16,
+        "frameCount": 128
+      }
+    ]
+  }
+}

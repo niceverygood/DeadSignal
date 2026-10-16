@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "generation": "built-in image_gen; each original scene inspected; BACK references original + approved FRONT; no pixel alteration",
+  "status": "PNG modeling inputs ready; 3D model or release acceptance not implied",
+  "imageCount": 10,
+  "pairCount": 5,
+  "pixelValidation": "10/10 RGBA at requested landscape/portrait size, true alpha0 verified, alpha>16 body bounds inside canvas, prompt copies match",
+  "visualValidation": "Requested two-arm/two-leg counts visually inspected on 3 characters; original major props and natural poses maintained; no UI/floor/shadow/attack effects. Collector retains only original STOP text as requested; all other assets unmarked.",
+  "sourceLimitations": [
+    "Hospital scene08 has no separate gas-mask/tank study: root approved foreground infected extraction without fabricated gas gear.",
+    "Elite based on the larger central armored riot enemy; root plans worldHeight50 vs ordinary shield46 while physics remains unchanged.",
+    "Scene02 does not show full speaker rear: used restrained plain rear shell corresponding to front, without invented controls.",
+    "Rear views where original lacks full turnaround are constrained interpretations from approved front, not independent documentary references."
+  ],
+  "notes": [],
+  "refinements": [
+    "enemy-elite BACK removed a floating white sparkle above character with imagegen; final top60px alpha<=1/255."
+  ],
+  "assets": [
+    {
+      "id": "enemy-collector",
+      "view": "front",
+      "path": "outputs/dead-signal/production-assets/inputs/enemy-collector-front.png",
+      "sourceReference": "outputs/dead-signal/scenes/10-station-collector-boss.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaZeroPixels": 911583,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        224,
+        5,
+        1308,
+        1017
+      ],
+      "sha256": "4cb4631644c7996db1735565c01fd516878cbf4ba0c8c725770c03d1300a6999",
+      "prompt": "outputs/dead-signal/production-assets/inputs/enemy-collector-front.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "2 arms / 2 legs; scrap forearm shield and chain / original STOP shoulder plate / speaker rack and red beacon"
+    },
+    {
+      "id": "enemy-collector",
+      "view": "back",
+      "path": "outputs/dead-signal/production-assets/inputs/enemy-collector-back.png",
+      "sourceReference": "outputs/dead-signal/scenes/10-station-collector-boss.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaZeroPixels": 977517,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        258,
+        5,
+        1278,
+        1013
+      ],
+      "sha256": "4dc246e273bfb7769ccf2e224f53dd2d0f3ee1c2e3df33a4d685ed6af82b357c",
+      "prompt": "outputs/dead-signal/production-assets/inputs/enemy-collector-back.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "2 arms / 2 legs; scrap forearm shield and chain / original STOP shoulder plate / speaker rack and red beacon"
+    },
+    {
+      "id": "lure-speaker",
+      "view": "front",
+      "path": "outputs/dead-signal/production-assets/inputs/lure-speaker-front.png",
+      "sourceReference": "outputs/dead-signal/scenes/02-safehouse-loadout.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaZeroPixels": 1039726,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        371,
+        96,
+        1165,
+        928
+      ],
+      "sha256": "e7e7c49a2f80aaf8c650a294e892f96927b905d6839389a26ba1564cb795268c",
+      "prompt": "outputs/dead-signal/production-assets/inputs/lure-speaker-front.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "orange case / black circular front grille / handle / dark feet; plain restrained rear inferred from front shell"
+    },
+    {
+      "id": "lure-speaker",
+      "view": "back",
+      "path": "outputs/dead-signal/production-assets/inputs/lure-speaker-back.png",
+      "sourceReference": "outputs/dead-signal/scenes/02-safehouse-loadout.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaZeroPixels": 888459,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        312,
+        24,
+        1222,
+        966
+      ],
+      "sha256": "7ffbe5b4678e41c12938232e3f2fa0680132016bbd9cf86eb29548808fbb4267",
+      "prompt": "outputs/dead-signal/production-assets/inputs/lure-speaker-back.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "orange case / black circular front grille / handle / dark feet; plain restrained rear inferred from front shell"
+    },
+    {
+      "id": "throwable-molotov",
+      "view": "front",
+      "path": "outputs/dead-signal/production-assets/inputs/throwable-molotov-front.png",
+      "sourceReference": "outputs/dead-signal/scenes/02-safehouse-loadout.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaZeroPixels": 1163390,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        338,
+        107,
+        811,
+        1430
+      ],
+      "sha256": "808b1f6c85fbcff94fb845c07bc3bcfbf044143ecd19ca383ab76d444f0ee99a",
+      "prompt": "outputs/dead-signal/production-assets/inputs/throwable-molotov-front.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "olive bottle / plain dirty wraps / single hanging rag; no fire or smoke"
+    },
+    {
+      "id": "throwable-molotov",
+      "view": "back",
+      "path": "outputs/dead-signal/production-assets/inputs/throwable-molotov-back.png",
+      "sourceReference": "outputs/dead-signal/scenes/02-safehouse-loadout.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaZeroPixels": 1139005,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        209,
+        81,
+        688,
+        1441
+      ],
+      "sha256": "c8da49234a7ee6b64fd3829de9a047115062054cbbd71451da973f6b64241323",
+      "prompt": "outputs/dead-signal/production-assets/inputs/throwable-molotov-back.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "olive bottle / plain dirty wraps / single hanging rag; no fire or smoke"
+    },
+    {
+      "id": "enemy-gas",
+      "view": "front",
+      "path": "outputs/dead-signal/production-assets/inputs/enemy-gas-front.png",
+      "sourceReference": "outputs/dead-signal/scenes/08-hospital-event.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaZeroPixels": 1039472,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        199,
+        51,
+        842,
+        1479
+      ],
+      "sha256": "77d61252ed4886d20372f01405a0403cdcc810c50238f353ecd971c67110b1aa",
+      "prompt": "outputs/dead-signal/production-assets/inputs/enemy-gas-front.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "2 arms / 2 legs; hospital-door foreground ordinary stocky infected in torn cream shirt / dark full trousers; no fabricated mask or tank; engine role remains gas"
+    },
+    {
+      "id": "enemy-gas",
+      "view": "back",
+      "path": "outputs/dead-signal/production-assets/inputs/enemy-gas-back.png",
+      "sourceReference": "outputs/dead-signal/scenes/08-hospital-event.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaZeroPixels": 1031980,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        180,
+        45,
+        858,
+        1491
+      ],
+      "sha256": "0d2d06aa41a4345eafd6573cc7cb1515f5b572277ae1b1613fc4bb22051b8594",
+      "prompt": "outputs/dead-signal/production-assets/inputs/enemy-gas-back.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "2 arms / 2 legs; hospital-door foreground ordinary stocky infected in torn cream shirt / dark full trousers; no fabricated mask or tank; engine role remains gas"
+    },
+    {
+      "id": "enemy-elite",
+      "view": "front",
+      "path": "outputs/dead-signal/production-assets/inputs/enemy-elite-front.png",
+      "sourceReference": "outputs/dead-signal/scenes/09-police-alarm-elite.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaZeroPixels": 690668,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        50,
+        71,
+        1021,
+        1479
+      ],
+      "sha256": "0bd4d3acca75923a46162e2a5f2c716f7df022f2abb8af817343134101238e90",
+      "prompt": "outputs/dead-signal/production-assets/inputs/enemy-elite-front.prompt.txt",
+      "refinementPrompts": [],
+      "visualCheck": "2 arms / 2 legs; broader central-crowd riot infected / helmet and single plain shield; no new radio or sirens"
+    },
+    {
+      "id": "enemy-elite",
+      "view": "back",
+      "path": "outputs/dead-signal/production-assets/inputs/enemy-elite-back.png",
+      "sourceReference": "outputs/dead-signal/scenes/09-police-alarm-elite.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaZeroPixels": 733251,
+      "alphaRange": [
+        0,
+        254
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bodyBoundsAboveAlpha16": [
+        28,
+        67,
+        1005,
+        1486
+      ],
+      "sha256": "cc5019f9c503164ef0ed7ce3b527fd165033a828a6531885042d8a6185fb311a",
+      "prompt": "outputs/dead-signal/production-assets/inputs/enemy-elite-back.prompt.txt",
+      "refinementPrompts": [
+        "outputs/dead-signal/production-assets/inputs/enemy-elite-back-refinement.prompt.txt"
+      ],
+      "visualCheck": "2 arms / 2 legs; broader central-crowd riot infected / helmet and single plain shield; no new radio or sirens"
+    }
+  ]
+}

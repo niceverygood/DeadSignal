@@ -1,0 +1,221 @@
+{
+  "assetId": "boss-11-mid",
+  "sourceRigFolder": "boss-11-mid-v1-rig",
+  "model": "models/boss-11-mid-motion-v1/model.glb",
+  "bytes": 17023032,
+  "sha256": "a8357b8baf97c985019bec80df52111cc61ff86310de731f69a18484f7f760f7",
+  "profile": {
+    "name": "tank braced discharge",
+    "arm": 0.18,
+    "lean": 0.075,
+    "twist": 0.05,
+    "forearm": 0.12,
+    "windup": 0.66,
+    "attack": 0.7,
+    "strength": 0.85
+  },
+  "sourceWalking": "models/boss-11-mid-v1-rig/walking.glb",
+  "sourceRunning": "models/boss-11-mid-v1-rig/running.glb",
+  "sourceWalkingSha256": "2801797258e0bdcadc0fa9385740523ffc6a8721ed5a2222a98388d40429f76a",
+  "sourceRunningSha256": "b1ce4cc05bcd817dec2271f1de984c627e067a3db7418a47433a4404b7ce4d3c",
+  "preservation": {
+    "meshes": true,
+    "skins": true,
+    "nodes": true,
+    "materials": true,
+    "images": true,
+    "textures": true,
+    "samplers": true,
+    "scenes": true,
+    "scene": true,
+    "originalBinaryPrefixExact": true,
+    "originalBufferViewsExact": true,
+    "originalAccessorsExact": true,
+    "originalWalkingClipExact": true
+  },
+  "structuralIssues": [],
+  "clips": {
+    "idle": "DS_Idle",
+    "windup": "DS_Windup",
+    "attack": "DS_Attack",
+    "hit": "DS_Hit",
+    "death": "DS_Death"
+  },
+  "walkClip": "Armature|walking_man|baselayer",
+  "runClip": "Armature|running|baselayer",
+  "reelClip": "DS_MotionReel",
+  "reelDurationSeconds": 2.6666666666666665,
+  "reelSamples": 32,
+  "reelSegments": [
+    {
+      "name": "idle",
+      "startSample": 0,
+      "samples": 4
+    },
+    {
+      "name": "walk",
+      "startSample": 4,
+      "samples": 8
+    },
+    {
+      "name": "windup",
+      "startSample": 12,
+      "samples": 6
+    },
+    {
+      "name": "attack",
+      "startSample": 18,
+      "samples": 6
+    },
+    {
+      "name": "hit",
+      "startSample": 24,
+      "samples": 2
+    },
+    {
+      "name": "death",
+      "startSample": 26,
+      "samples": 6
+    }
+  ],
+  "clipStats": [
+    {
+      "name": "Armature|walking_man|baselayer",
+      "startSeconds": 0.03333333507180214,
+      "endSeconds": 1.066666603088379,
+      "durationSeconds": 1.0333332680165768,
+      "channels": 66,
+      "varyingChannels": 23,
+      "targetedNodes": 22,
+      "minKeys": 32,
+      "maxKeys": 32,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    },
+    {
+      "name": "Armature|running|baselayer",
+      "startSeconds": 0.03333333507180214,
+      "endSeconds": 0.6666666865348816,
+      "durationSeconds": 0.6333333514630795,
+      "channels": 66,
+      "varyingChannels": 23,
+      "targetedNodes": 22,
+      "minKeys": 20,
+      "maxKeys": 20,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    },
+    {
+      "name": "DS_Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 2.0,
+      "durationSeconds": 2.0,
+      "channels": 72,
+      "varyingChannels": 3,
+      "targetedNodes": 24,
+      "minKeys": 61,
+      "maxKeys": 61,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    },
+    {
+      "name": "DS_Windup",
+      "startSeconds": 0.0,
+      "endSeconds": 0.6600000262260437,
+      "durationSeconds": 0.6600000262260437,
+      "channels": 72,
+      "varyingChannels": 7,
+      "targetedNodes": 24,
+      "minKeys": 21,
+      "maxKeys": 21,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    },
+    {
+      "name": "DS_Attack",
+      "startSeconds": 0.0,
+      "endSeconds": 0.699999988079071,
+      "durationSeconds": 0.699999988079071,
+      "channels": 72,
+      "varyingChannels": 8,
+      "targetedNodes": 24,
+      "minKeys": 22,
+      "maxKeys": 22,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    },
+    {
+      "name": "DS_Hit",
+      "startSeconds": 0.0,
+      "endSeconds": 0.3799999952316284,
+      "durationSeconds": 0.3799999952316284,
+      "channels": 72,
+      "varyingChannels": 5,
+      "targetedNodes": 24,
+      "minKeys": 13,
+      "maxKeys": 13,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    },
+    {
+      "name": "DS_Death",
+      "startSeconds": 0.0,
+      "endSeconds": 1.1200000047683716,
+      "durationSeconds": 1.1200000047683716,
+      "channels": 72,
+      "varyingChannels": 10,
+      "targetedNodes": 24,
+      "minKeys": 35,
+      "maxKeys": 35,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    },
+    {
+      "name": "DS_MotionReel",
+      "startSeconds": 0.0,
+      "endSeconds": 2.6666667461395264,
+      "durationSeconds": 2.6666667461395264,
+      "channels": 72,
+      "varyingChannels": 23,
+      "targetedNodes": 24,
+      "minKeys": 33,
+      "maxKeys": 33,
+      "targetPaths": [
+        "rotation",
+        "scale",
+        "translation"
+      ],
+      "classification": "animated"
+    }
+  ],
+  "visualQA": "pending",
+  "runtimeApplied": false
+}

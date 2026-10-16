@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>DEAD SIGNAL — 프로덕션 아트 검수</title>
+  <link rel="stylesheet" href="review.css?v=b27c32bf4101">
+  <script defer src="review-data.js?v=1a84f29b879f"></script>
+  <script defer src="review-audit-data.js?v=dbb72e1684d4"></script>
+  <script defer src="review.js?v=ed7319f08ef7"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="wordmark" href="review.html">DEAD<span> SIGNAL</span><small>ART PRODUCTION REVIEW</small></a>
+    <div class="mast-right"><span class="live-dot"></span><span>원본부터 게임 화면까지</span><span id="updated" class="updated"></span></div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="sidebar-heading"><span>ASSET LIBRARY</span><b id="asset-count"></b></div>
+      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="에셋 이름 검색" aria-label="에셋 이름 검색"></label>
+      <nav id="categories" class="categories" aria-label="에셋 분류"></nav>
+      <label class="pending-filter"><input id="pending-only" type="checkbox">개선 필요한 에셋만 <span id="pending-count"></span></label>
+      <p id="filter-result" class="filter-result" aria-live="polite"></p>
+      <div id="asset-list" class="asset-list" aria-label="에셋 목록"></div>
+      <button id="qa-library" class="qa-library" type="button">실제 실행 화면 <span id="qa-count"></span><span>↗</span></button>
+      <p class="sidebar-note">무드보드 → 입력 이미지 → 실제 모델 → 게임 카메라</p>
+    </aside>
+    <main id="main">
+      <div class="overview"><div><span class="eyebrow">PRODUCTION SNAPSHOT</span><h1>디자인의 인상을 게임 안으로.</h1><p>같은 에셋을 제작 단계별로 비교하고 방향과 동작을 확인하세요.</p></div><div id="summary" class="summary"></div></div>
+      <section id="pipeline-overview" class="pipeline-overview" aria-label="리깅과 게임 동작 제작 현황"></section>
+      <section id="smoke-overview" class="smoke-overview" aria-label="브라우저 기능 검증과 종합 시각 승인 상태"></section>
+      <section id="asset-detail" aria-live="polite"></section>
+      <section id="qa-detail" hidden></section>
+      <footer><span>DEAD SIGNAL / NATIVE ASSET PIPELINE</span><span id="registration-note"></span></footer>
+    </main>
+  </div>
+  <dialog id="image-dialog"><button id="close-dialog" type="button" aria-label="이미지 닫기">×</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog>
+</body>
+</html>

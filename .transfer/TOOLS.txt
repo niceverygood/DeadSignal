@@ -1,0 +1,95 @@
+DEAD SIGNAL v0.29 independent development: local asset tools
+
+Scope
+This portable project keeps the original GLBs, textures, rigging source, native
+sprite outputs and captured QA evidence. All commands below run from the project
+root. No command here invokes Meshy, starts a paid API job or transfers a secret.
+Game/browser player progress is not carried by these asset tools.
+
+Restore dependencies
+Use Node 22 or newer. Every baker and the rig viewer require exact Three 0.186.1.
+Run the project setup instructions to restore node_modules. Do not copy old
+node_modules, server PIDs, old server-state JSON or logs from the source computer.
+The rig viewer dependency belongs at this exact path:
+  outputs/dead-signal/production-assets/rig-lab/node_modules/three
+The three baker model folders contain independent writable GLB files. Do not
+replace them with cross-folder symlinks: each baker enforces a realpath boundary.
+Packing and final-boss rig tools require Python 3.9+ with Pillow and numpy, using
+the project's own venv. System macOS/Xcode Python may lack both packages.
+
+Run local preview servers
+  python3 -m http.server 8806 --bind 127.0.0.1 --directory work/dead-signal-game/dist
+  python3 -m http.server 8812 --bind 127.0.0.1 --directory outputs/dead-signal
+  BAKER_PORT=8840 node work/asset-enemy-motion-baker-v029/server.mjs
+All three baker servers otherwise default to port 8804. Give each a distinct port
+when opening more than one. GPU sprite export requires a working WebGL browser;
+installing Node packages alone does not verify GPU output on a new computer.
+
+Portable input paths
+The following two scripts now default to the canonical current game dist rather
+than the old temporary v029 draft folder:
+  work/asset-enemy-motion-v029/calculate_residency.mjs
+  work/enemy-locomotion-measure-20261016.mjs
+DEAD_SIGNAL_GAME_DIR selects another game dist folder. Relative paths resolve
+against THIS project root; an explicitly supplied absolute path is also allowed.
+The input folder must contain production-manifest.js and its related assets.
+The measurement's --grounded flag keeps its original meaning: read the appended
+DS_GroundedWalk/DS_GroundedRun humanoid models. Without it, read the original
+motion-v1 humanoid models. Both modes still measure the regional final-boss rigs.
+
+Read-only validation
+  node work/asset-enemy-motion-v029/calculate_residency.mjs --dry-run
+  node work/enemy-locomotion-measure-20261016.mjs --grounded --dry-run
+--dry-run performs the actual reads/calculations and prints a compact result but
+writes no residency report, diagnosis report or runtime profile. It does not
+measure browser/GPU memory or prove animation aesthetics.
+
+Measurement outputs are deliberately separate
+Without --dry-run, the measurement retains its historical JSON report output:
+  outputs/dead-signal/production-assets/qa/enemy-locomotion-diagnosis-20261016.json
+or, with --grounded:
+  outputs/dead-signal/production-assets/qa/enemy-grounded-locomotion-diagnosis-20261016.json
+It NEVER replaces runtime enemy-motion-profiles.js by default in this portable
+copy. To intentionally write a new profile, use an explicit output path:
+  node work/enemy-locomotion-measure-20261016.mjs --grounded --profiles-output work/measurement-output/enemy-motion-profiles.js
+DEAD_SIGNAL_PROFILES_OUTPUT is the equivalent optional environment setting.
+--profiles-output takes precedence over that setting. Inspect the generated
+profile before intentionally integrating it into gameplay. --dry-run suppresses
+both JSON report writes and profile writes even when an output path is supplied.
+Without --dry-run the residency tool keeps its existing V029-NATIVE-RESIDENCY-
+BUDGET.json report output and intentionally replaces that generated report.
+
+Gallery tools
+  node work/build-production-review.mjs
+  node work/asset-review-locomotion-v029-draft/build-review-audit.mjs --manifest outputs/dead-signal/production-assets/review-manifest.json --output work/asset-review-locomotion-v029-draft/production-assets
+  node work/asset-review-locomotion-v029-draft/build-rig-viewer-registry.mjs --grounded-locomotion
+These commands regenerate report/registry files; do not run them automatically
+as game startup. Existing captured browser evidence must retain its provenance.
+The historical verify-final-integration.mjs additionally expects frozen playable
+v028/v029 snapshots. Its historical snapshot requirements are separate from the
+current game's normal test runner and the live gallery's runtime requirements.
+
+One-shot legacy registration: DO NOT RUN on this current v029 project
+  work/asset-final-rig-v027/integrate_motion_assets.py
+  work/asset-enemy-motion-v029/integrate_locomotion.py
+These scripts describe already completed historical registrations into old draft
+folders. They are retained for source history, not bootstrap, update, or repair.
+The v029 catalog is already registered. Do not redirect either script at the
+current project: doing so would duplicate or downgrade registrations.
+Likewise build_final_rigs.py and build-grounded-enemy-locomotion-20261016.mjs write
+derived GLBs; use a separate reviewed asset version before authoring new variants.
+pack_completed.py refuses to overwrite an existing packed sprite folder. This
+protective failure is intentional, not an installation problem.
+
+Raw exports and verification
+The 31 v029 raw export folders are retained as exact PNG crop verification inputs.
+verify_locomotion_pixels.py needs those raw PNGs as well as packed production
+sprites and pack_motion_atlas.py. The older v027 and original raw export caches
+are omitted; their retained models and packed final artifacts are sufficient for
+future editing/rebaking, but omitted raw caches cannot be retrospectively checked
+without first regenerating a new reviewed comparison source.
+
+Validation limits
+See .transfer/tool-portability-changes.json for checks actually performed on the
+portable copy. Syntax checks, numeric dry runs and dependency inspection are not
+a claim that every historical authoring job or every browser GPU export reran.

@@ -1,0 +1,71 @@
+DEAD SIGNAL Google Play 출시 감사
+확인일: 2026-10-16 (Asia/Seoul)
+작업 범위: 기존 Android 후보판 및 공식 요구사항 읽기 전용 재검증. 키 생성, 서명, 소스 변경, 빌드 재생성, 업로드 또는 공개는 수행하지 않음.
+
+현재 판정
+기술 패키지는 준비되어 있으나 업로드 가능한 서명판과 실제 Android UI 검수가 아직 완료되지 않았다. Play Console 내 기존 앱·패키지·업로드 인증서 확인은 루트 작업자가 진행 중이다. 이 문서는 계정 권한, 패키지 사용 가능 여부, 스토어 심사 통과 또는 출시를 확정하지 않는다.
+
+검증한 산출물
+패키지: kr.bottlecorp.deadsignal
+표시 이름: DEAD SIGNAL / 한국어 데드 시그널
+버전: 1.0.0, versionCode 1
+최소 SDK: 24, target/compile SDK: 36
+AAB: outputs/dead-signal/mobile/v1.0.0/Android/DeadSignal-1.0.0-1-unsigned.aab
+크기: 184,146,374바이트 (175.616 MiB)
+SHA256: 00526025686609890facf9d7cc28acd4c0f19e0b3a100ebfba5f3ecb7a626f4a
+디버그 APK: outputs/dead-signal/mobile/v1.0.0/Android/DeadSignal-1.0.0-1-debug.apk
+크기: 195,587,801바이트
+SHA256: 3b56cfd1b04f6e38817005ee9e309ab28954a8e19c91b1c53c17bc3aaf2472c1
+
+동결 목록에 있는 산출물·보고서 10개 모두 길이와 SHA256 일치. APK/AAB ZIP CRC 재검증 통과. 각 파일의 웹 소스 340개가 현재 mobile/dist와 바이트 단위 일치. 번들 내 웹 경로는 Capacitor 생성 파일 2개를 포함해 각각 342개이다. app.js SHA256은 899389e8542022d4557d2dd87771d3af1c7ef281c89589c4cd9d15153a2bd6d3이다.
+
+현재 AAB에 jarsigner 검증을 직접 실행한 결과 unsigned이다. 기존 bundletool 1.18.1 검증 기록과 실제 매니페스트·번들 설정은 위 AAB SHA256에 대응한다. 디버그 APK의 APK Signature Scheme v2 검증은 통과했지만 개발 인증서이므로 프로덕션 업로드에 사용하면 안 된다. 릴리스 설정은 debuggable=false, signingConfig=null이다. 원본 AAB를 보존하고 이후 승인된 서명 복사본을 별도 파일로 만들어야 한다.
+
+현재 공식 요구사항과 지원 조합
+2026-08-31부터 일반 휴대전화 신규 앱·업데이트는 API 36 이상을 대상으로 해야 한다. 이 후보판의 target SDK 36은 이 요건에 맞는다.
+https://developer.android.com/google/play/requirements/target-sdk
+
+새 앱은 Android App Bundle과 Play App Signing으로 배포한다. 업로드용 AAB에는 앱 전용 업로드 키로 서명해야 하며, 최종 배포 APK 서명은 Play App Signing의 앱 서명 키가 담당한다. 기존 앱이면 등록된 업로드 인증서와 일치하는 키 또는 공식 재설정 절차가 필요하다.
+https://developer.android.com/studio/publish/app-signing
+https://support.google.com/googleplay/android-developer/answer/9842756
+
+Play Console의 최신 크기 기준은 기초 모듈 압축 다운로드 500 MB, 설치 시 전체 모듈·팩 합계 4 GB이다. 200 MB는 모바일 데이터 다운로드 안내 표시 기준이며 현재 크기 한도 자체가 아니다. 일반 Android 최적화 문서 일부에 200 MB 표기가 남아 있어 Play Console 전용 한도 문서를 우선했다. AAB 파일 크기와 Play의 기기별 다운로드 계산은 서로 다르므로 업로드 뒤 Console 계산을 확인해야 한다.
+https://support.google.com/googleplay/android-developer/answer/9859372
+
+API 35 이상 앱은 64비트 기기의 16 KB 페이지를 지원해야 한다. 공식 문서는 호환되지 않는 업데이트의 차단 시작일을 2027-02-01로 안내한다. APK/AAB 양쪽에 .so 파일은 0개이며 현재 번들 설정은 PAGE_ALIGNMENT_16K다. 따라서 앱에 포함된 ELF 라이브러리의 재정렬 대상은 없다. Java/Kotlin만 사용하는 앱에 대한 공식 안내와 부합하지만, WebView·게임 동작의 16 KB 환경 실행을 직접 검증한 것은 아니다.
+https://developer.android.com/guide/practices/page-sizes
+
+현재 프로젝트는 Capacitor Android/Core 8.5.3, App 플러그인 8.1.2, AGP 8.13.0, Gradle 8.14.3, JBR 21.0.6, SDK 36을 사용한다. AGP 8.13은 API 36.1까지 지원하고 최소 Gradle 8.13/JDK 17을 요구한다. 이 프로젝트의 Capacitor Java 소스는 Java 21로 컴파일하므로 실제 빌드에는 JBR 21을 사용했다. SDK/Gradle/JBR 조합으로 기존 CLI 빌드는 성공했다.
+https://developer.android.com/build/releases/agp-8-13-0-release-notes
+https://capacitorjs.com/docs/updating/8-0
+
+다만 설치된 Android Studio는 2024.3이다. Capacitor 8의 공식 IDE 요구사항 2025.2.1 이상에는 미달한다. CLI 빌드 성공과 IDE 지원 충족을 구별해야 하며, 현재 IDE의 서명 마법사나 프로젝트 동기화가 정상이라고 주장하지 않는다. 시스템 IDE/SDK를 설치하거나 업데이트하지 않았다.
+
+실행 검수 상태
+nativeUITestStatus: not_verified_cua_app_unavailable
+최종 APK 실제 설치·실행: 미검증. 이전 후보 APK만 전용 AVD에 설치했고 앱 UI를 실행하지 않았다.
+기존 전용 AVD: work/dead-signal-mobile-android-draft/avd-home/DeadSignal_Release_QA.avd, API 36 ARM64. 보존되어 있고 현재 adb 연결 기기와 실행 중인 해당 에뮬레이터는 없다.
+기존 이미지의 WebView: 133.0.6943.137, 페이지 크기: 4096바이트.
+실기기·16 KB 기기·스토어 배포 APK 실행: 미검증.
+출시 전 해결할 실제 경로: 최종 APK/Play 테스트 배포 설치 → 오프라인 첫 실행 → 터치 이동·공격 → 배경 전환/복귀 → 저장·이어하기 → 회전·작은 화면 → 종료 후 재실행. UI 입력과 화면 증거는 CUA만 사용한다. 현재 에뮬레이터의 CUA 선택 문제는 루트가 다시 확인한다.
+
+기능·신고 일치 확인
+실제 매니페스트에는 INTERNET, 광고 ID 또는 Google Play Billing 권한이 없다. AndroidX의 앱 전용 signature 동적 리시버 권한만 있다. 현재 종속성은 Capacitor 코어와 App 플러그인이고 google-services.json도 없다. 실제 광고·인앱결제 SDK는 이 후보판에 통합되지 않았다. BM 정책 문서의 계획을 현재 출시판에 구현된 광고나 현금 결제로 신고하면 안 된다.
+평문 통신, 릴리스 WebView 디버깅, OS 클라우드/기기 전송 백업은 비활성화되어 있다. 게임 저장은 설치 내 로컬 데이터이며 삭제/재설치 시 유지된다고 약속할 수 없다. 개인정보처리방침 URL, Data safety, 연령·콘텐츠 등급, 앱 접근성 및 스토어 소재는 실제 Console에서 별도 확인해야 한다.
+
+새 앱이고 기존 업로드 키가 없을 때의 안전 절차 제안
+1. 조직 계정에서 표시 이름이 아닌 정확한 패키지 kr.bottlecorp.deadsignal의 신규 여부와 소유·출시 권한을 먼저 확인한다. 기존 등록이면 새 키를 임의 생성하거나 다른 앱 키를 재사용하지 않는다. 패키지 삭제 후 재사용 가능 여부도 임의로 가정하지 않는다.
+2. 신규 앱임이 확인되면 Google이 새 앱 서명 키를 관리하는 Play App Signing 구성을 사용하고, 이 게임 전용 업로드 키를 별도로 만든다. Google 배포 키와 업로드 키, 다른 앱의 키를 구별한다.
+3. 업로드 키는 공식 최소 RSA 2048비트 이상을 충족하도록 생성한다. 제안값은 RSA 3072비트, 인증서 유효기간 25년 이상이다. 키·인증서 소유자 정보는 확인된 조직 정보만 사용한다.
+4. 개인키를 포함한 keystore는 작업공간·Git·outputs·소스 ZIP 밖의 보호된 위치에 0600 권한으로 보관한다. 비밀번호는 비밀 저장소에 보관하며 채팅, 화면, 로그, 명령행 인수, Gradle 소스 또는 산출물에 기록하지 않는다. 사용자 소유의 암호화 백업도 마련한다. 이 감사에서는 키나 비밀번호를 생성·검색·복사하지 않았다.
+5. 공개 업로드 인증서와 SHA256 지문을 별도 기록하고, 서명된 AAB를 새 파일로 생성한다. AAB에는 jarsigner 또는 승인된 Gradle 서명을 사용한다. apksigner는 APK 검증 도구이며 AAB 서명에 대신 사용하지 않는다.
+6. 서명 후 서명자 인증서·인증서 유효기간·원본 웹/자산 바이트 유지·CRC·bundletool 검증을 다시 확인한다. 원본 unsigned AAB 및 기존 iOS/BM/웹 산출물은 보존한다.
+7. 내부 테스트 업로드에서 실제 package/versionCode/업로드 인증서 일치, Play App Signing 설정, 크기·지원 기기·정책 경고를 확인한다. 기존 versionCode가 있으면 중복 업로드하지 않고 이후 버전을 결정한다.
+8. 실제 배포 APK의 설치·플레이 및 필요한 스토어 설정을 완료한 뒤에만 프로덕션 제출을 진행한다. 준비/업로드/심사 중/공개 완료를 구별해 보고한다.
+
+이 절차의 근거
+https://support.google.com/googleplay/android-developer/answer/9842756
+https://developer.android.com/studio/publish/app-signing
+https://support.google.com/googleplay/android-developer/answer/9859152
+
+이 감사로 변경한 파일은 ANDROID-READINESS.txt뿐이다. 기존 8806 서버/사용자 프로필, Android 소스와 바이너리, iOS, BM 산출물 및 계정은 변경하지 않았다.

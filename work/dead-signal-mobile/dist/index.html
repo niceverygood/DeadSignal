@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko" data-release-channel="store">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101414" />
+    <meta name="description" content="소음으로 좀비를 유인하고, 무리를 한꺼번에 쓸어버리는 3/4 시점 액션 로그라이크. 데드 시그널." />
+    <title>DEAD SIGNAL · 데드 시그널</title>
+    <link rel="stylesheet" href="./style.css?v=0.26.0" />
+    <link rel="stylesheet" href="./campaign.css?v=0.26.0" />
+      <link rel="stylesheet" href="./equipment.css?v=0.26.0" />
+    <link rel="stylesheet" href="./moodboard-ui.css?v=0.26.0" />
+    <link rel="stylesheet" href="./mobile.css?v=1.0.0" />
+  </head>
+  <body>
+    <main id="game-shell" aria-label="데드 시그널 게임">
+      <canvas id="game" tabindex="0" aria-label="데드 시그널 전장. WASD로 이동하고 마우스로 조준하세요."></canvas>
+      <div class="screen-grain" aria-hidden="true"></div>
+
+      <div id="hud" class="hud" hidden>
+        <div class="hud-top">
+          <section class="survivor-status" aria-label="생존자 상태">
+            <div class="status-eyebrow"><span class="live-dot" aria-hidden="true"></span> SURVIVOR ONLINE <span class="hud-code">DS—01</span></div>
+            <div class="health-heading"><span id="health-label" class="hud-label">체력</span><strong id="hp">100 / 100</strong></div>
+            <div class="meter health-meter" role="presentation"><div id="hp-fill" class="meter-fill"></div></div>
+            <div class="weapon-status"><span id="weapon-name">산탄총</span><strong id="ammo">6 / 6</strong><span class="keycap small-key">R</span></div>
+          </section>
+
+          <section class="mission-status" aria-label="임무 정보">
+            <span class="hud-label mission-caption">작전 경과</span>
+            <strong id="timer">00:00</strong>
+            <span id="stage-name">주택가</span>
+          </section>
+
+          <section class="combat-status" aria-label="전투 기록">
+            <div class="hud-menu"><button id="fire-mode-btn" class="fire-mode-button" type="button" aria-label="사격 모드 전환" aria-pressed="false">사격 모드</button><button id="map-toggle-btn" class="map-toggle-button" type="button" aria-label="미니맵" aria-pressed="true" title="구역 지도 숨기기 · M">지도 <span aria-hidden="true">M</span></button><button id="sound-btn" class="icon-button" type="button" aria-label="사운드 설정" title="사운드 켜기 / 끄기"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><button id="pause-btn" class="icon-button" type="button" aria-label="일시정지" title="일시정지 · Esc"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/></svg></button></div>
+            <div class="combat-numbers"><div><span class="hud-label">처치</span><strong id="kills">0</strong></div><div><span class="hud-label">레벨</span><strong id="level">1</strong></div></div>
+          </section>
+        </div>
+
+        <section id="objective-status" class="objective-status" aria-label="현재 목표" hidden>
+          <div id="district-progress" class="district-progress" aria-label="구역 진행"></div>
+          <strong id="mission-objective" aria-live="polite"></strong>
+          <span id="mission-detail"></span>
+          <div class="objective-meter" aria-hidden="true"><i id="objective-fill"></i></div>
+        </section>
+
+        <div class="hud-bottom">
+          <section class="growth-status" aria-label="성장과 소음">
+            <div class="noise-heading"><span class="hud-label">소음</span><span id="noise-label">잠잠함</span><span class="noise-warning" aria-hidden="true">≋</span></div>
+            <div class="meter noise-meter" role="presentation"><div id="noise-fill" class="meter-fill"></div><span class="meter-mark" aria-hidden="true"></span></div>
+            <div id="noise-detail" class="noise-detail">소음이 높을수록 더 많은 좀비가 몰립니다.</div>
+            <div class="xp-heading"><span class="hud-label">경험치</span><span>다음 개조까지</span></div>
+            <div class="meter xp-meter" role="presentation"><div id="xp-fill" class="meter-fill"></div></div>
+          </section>
+
+          <section class="ability-bar" aria-label="전투 장비">
+            <button id="lure-btn" class="ability-button" type="button" title="소음탄 · E"><span class="ability-key">E</span><span class="ability-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M12 11h8v14h-8zM14 7h4v4M20 7l5-2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 13a9 9 0 0 0 0 10m18-10a9 9 0 0 1 0 10M3 10a14 14 0 0 0 0 16m26-16a14 14 0 0 1 0 16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="ability-name">소음탄</span><span id="lure-cd" class="ability-cd">준비</span></button>
+            <button id="fire-btn" class="ability-button" type="button" title="화염병 · Q"><span class="ability-key">Q</span><span class="ability-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="m18 9 5 3-3 5-1 10H7l1-10 7-5 3-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m18 9 3-4 4 3-2 4M23 5c1-3 5-2 4-5M12 21c-1-3 3-4 3-7 4 4 6 9 1 10-2 1-5-1-4-3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><span class="ability-name">화염병</span><span id="fire-cd" class="ability-cd">준비</span></button>
+            <button id="dash-btn" class="ability-button" type="button" title="회피 · Space"><span class="ability-key">SPACE</span><span class="ability-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="m13 7 9 9-9 9m6-18 9 9-9 9M3 12h7M1 16h8M3 20h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ability-name">회피</span><span id="dash-cd" class="ability-cd">준비</span></button>
+          </section>
+        </div>
+      </div>
+
+      <div id="overlay" aria-live="polite"></div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+      <div id="touch-controls" hidden>
+        <div id="move-stick" class="move-stick" aria-label="이동 조이스틱"><div id="move-knob" class="move-knob"></div></div>
+        <button id="touch-shoot" class="touch-shoot" type="button" aria-label="사격"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M18 2v9m0 14v9M2 18h9m14 0h9" stroke="currentColor" stroke-width="1.8"/></svg><span>사격</span></button>
+      </div>
+
+      <footer id="controls-hint" class="controls-hint"><span><kbd>W A S D</kbd> 이동</span><span id="firing-hint">오토 · 자동 조준·발사</span><span><kbd>F</kbd> 모드 전환</span><span><kbd>Space</kbd> 회피</span><span><kbd>E</kbd> 유인</span><span><kbd>Q</kbd> 화염병</span><span><kbd>R</kbd> 재장전</span><span><kbd>Esc</kbd> 일시정지</span></footer>
+    </main>
+    <script type="module" src="./mobile-runtime.js?v=1.0.0"></script>
+  </body>
+</html>

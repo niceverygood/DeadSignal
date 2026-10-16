@@ -1,0 +1,104 @@
+DEAD SIGNAL ASSET / RIG AUDIT
+Audit date: 2026-10-16
+Frozen runtime checked: outputs/dead-signal/playable/v0.26.1/dist
+
+{
+  "modelGlbFiles": 178,
+  "modelErrors": 0,
+  "reviewEntries": 53,
+  "uniqueRigFamilies": 20,
+  "glbWithSkins": 100,
+  "glbWithVaryingAnimation": 80,
+  "glbWithIssues": 0,
+  "entryStatus": {
+    "skinned-locomotion-present": 21,
+    "static-final-boss-custom-anatomy-rig-required": 12,
+    "static-prop-rig-not-required": 20
+  }
+}
+
+FINAL BOSSES: all 12 selected native GLBs have no skin, joint weights or clips.
+All 12 have four/six arms; eight have four legs. Preserve custom anatomy.
+MID BOSSES / ENEMIES / HERO: 20 unique rig families have actual 24-joint skins and walking/running clips.
+Review cards list static source models, not these rigs; this is a visibility/mapping gap.
+No native attack/hit/death clips are present in current model folders.
+
+ASSET MATRIX
+survivor-shotgun | 생존자 · 산탄총 | survivor-v2 | skinned-locomotion-present | survivor-shotgun-idle=16dir/1samples/static, survivor-shotgun-walk=16dir/32samples/animation, survivor-shotgun-run=16dir/32samples/animation
+survivor-nailgun | 생존자 · 네일건 | survivor-v2 | skinned-locomotion-present | survivor-nailgun-idle=16dir/1samples/static, survivor-nailgun-walk=16dir/32samples/animation, survivor-nailgun-run=16dir/32samples/animation
+boss-01-mid | 1탄 중간 · 추격 반장 | boss-01-mid-v2 | skinned-locomotion-present | boss-01-mid-detail-hd=8dir/1samples/animation, boss-01-mid=16dir/8samples/animation, boss-01-mid-portrait=8dir/1samples/animation
+boss-01-final | 1탄 최종 · 철거 감독관 | boss-01-final-v2 | static-final-boss-custom-anatomy-rig-required | boss-01-final-detail-hd=8dir/1samples/static, boss-01-final=16dir/1samples/static
+boss-02-mid | 2탄 중간 · 맨홀 작업자 | boss-02-mid-v1 | skinned-locomotion-present | boss-02-mid-detail-hd=8dir/1samples/animation, boss-02-mid=16dir/8samples/animation, boss-02-mid-portrait=8dir/1samples/animation
+boss-02-final | 2탄 최종 · 준설 기사 | boss-02-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-02-final-detail-hd=8dir/1samples/static, boss-02-final=16dir/1samples/static
+boss-03-mid | 3탄 중간 · 컨테이너 반장 | boss-03-mid-v1 | skinned-locomotion-present | boss-03-mid-detail-hd=8dir/1samples/animation, boss-03-mid=16dir/8samples/animation, boss-03-mid-portrait=8dir/1samples/animation
+boss-03-final | 3탄 최종 · 하역 지휘관 | boss-03-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-03-final-detail-hd=8dir/1samples/static, boss-03-final=16dir/1samples/static
+boss-04-mid | 4탄 중간 · 수액 간호사 | boss-04-mid-v1 | skinned-locomotion-present | boss-04-mid-detail-hd=8dir/1samples/animation, boss-04-mid=16dir/8samples/animation, boss-04-mid-portrait=8dir/1samples/animation
+boss-04-final | 4탄 최종 · 격리 병동장 | boss-04-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-04-final-detail-hd=8dir/1samples/static, boss-04-final=16dir/1samples/static
+boss-05-mid | 5탄 중간 · 방패 순찰대원 | boss-05-mid-v1 | skinned-locomotion-present | boss-05-mid-detail-hd=8dir/1samples/animation, boss-05-mid=16dir/8samples/animation, boss-05-mid-portrait=8dir/1samples/animation
+boss-05-final | 5탄 최종 · 진압 대장 | boss-05-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-05-final-detail-hd=8dir/1samples/static, boss-05-final=16dir/1samples/static
+boss-06-mid | 6탄 중간 · 배달 질주자 | boss-06-mid-v1 | skinned-locomotion-present | boss-06-mid-detail-hd=8dir/1samples/animation, boss-06-mid=16dir/8samples/animation, boss-06-mid-portrait=8dir/1samples/animation
+boss-06-final | 6탄 최종 · 택배 집하장장 | boss-06-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-06-final-detail-hd=8dir/1samples/static, boss-06-final=16dir/1samples/static
+boss-07-mid | 7탄 중간 · 검침 기사 | boss-07-mid-v1 | skinned-locomotion-present | boss-07-mid-detail-hd=8dir/1samples/animation, boss-07-mid=16dir/8samples/animation, boss-07-mid-portrait=8dir/1samples/animation
+boss-07-final | 7탄 최종 · 송전 정비장 | boss-07-final-v2 | static-final-boss-custom-anatomy-rig-required | boss-07-final-detail-hd=8dir/1samples/static, boss-07-final=16dir/1samples/static
+boss-08-mid | 8탄 중간 · 화염 진압대원 | boss-08-mid-v1 | skinned-locomotion-present | boss-08-mid-detail-hd=8dir/1samples/animation, boss-08-mid=16dir/8samples/animation, boss-08-mid-portrait=8dir/1samples/animation
+boss-08-final | 8탄 최종 · 소각 담당관 | boss-08-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-08-final-detail-hd=8dir/1samples/static, boss-08-final=16dir/1samples/static
+boss-09-mid | 9탄 중간 · 폭발물 처리반 | boss-09-mid-v1 | skinned-locomotion-present | boss-09-mid-detail-hd=8dir/1samples/animation, boss-09-mid=16dir/8samples/animation, boss-09-mid-portrait=8dir/1samples/animation
+boss-09-final | 9탄 최종 · 탄약 관리관 | boss-09-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-09-final-detail-hd=8dir/1samples/static, boss-09-final=16dir/1samples/static
+boss-10-mid | 10탄 중간 · 견인 기사 | boss-10-mid-v1 | skinned-locomotion-present | boss-10-mid-detail-hd=8dir/1samples/animation, boss-10-mid=16dir/8samples/animation, boss-10-mid-portrait=8dir/1samples/animation
+boss-10-final | 10탄 최종 · 압축 작업반장 | boss-10-final-repaired-v2 | static-final-boss-custom-anatomy-rig-required | boss-10-final-detail-hd=8dir/1samples/static, boss-10-final-repaired-v2=16dir/1samples/static
+boss-11-mid | 11탄 중간 · 농약 살포원 | boss-11-mid-v1 | skinned-locomotion-present | boss-11-mid-detail-hd=8dir/1samples/animation, boss-11-mid=16dir/8samples/animation, boss-11-mid-portrait=8dir/1samples/animation
+boss-11-final | 11탄 최종 · 격리 재배사 | boss-11-final-v2 | static-final-boss-custom-anatomy-rig-required | boss-11-final-detail-hd=8dir/1samples/static, boss-11-final=16dir/1samples/static
+boss-12-mid | 12탄 중간 · 방벽 관측관 | boss-12-mid-v1 | skinned-locomotion-present | boss-12-mid-detail-hd=8dir/1samples/animation, boss-12-mid=16dir/8samples/animation, boss-12-mid-portrait=8dir/1samples/animation
+boss-12-final | 12탄 최종 · 등대 지기 | boss-12-final-v1 | static-final-boss-custom-anatomy-rig-required | boss-12-final-detail-hd=8dir/1samples/static, boss-12-final=16dir/1samples/static
+enemy-walker | 보행 감염자 | enemy-walker-v1 | skinned-locomotion-present | enemy-walker=16dir/8samples/animation
+enemy-runner | 질주 감염자 | enemy-runner-v1 | skinned-locomotion-present | enemy-runner=16dir/8samples/animation
+enemy-shield | 방패 감염자 | enemy-shield-v1 | skinned-locomotion-present | enemy-shield=16dir/8samples/animation
+enemy-screamer | 비명 감염자 | enemy-screamer-v1 | skinned-locomotion-present | enemy-screamer=16dir/8samples/animation
+enemy-gas | 가스 감염자 | enemy-gas-v1 | skinned-locomotion-present | enemy-gas=16dir/8samples/animation
+enemy-elite | 경보 정예 | enemy-elite-v1 | skinned-locomotion-present | enemy-elite=16dir/8samples/animation
+enemy-collector | 수집가 | enemy-collector-v1 | skinned-locomotion-present | enemy-collector=16dir/8samples/animation
+env-demolition-scaffold-bay | 철거 공사장 가설 구조 | env-demolition-scaffold-bay-v1 | static-prop-rig-not-required | env-demolition-scaffold-bay=8dir/1samples/static
+env-sewers-pump-station | 하수 펌프장 | env-sewers-pump-station-v1 | static-prop-rig-not-required | env-sewers-pump-station=8dir/1samples/static
+env-harbor-container | 화물 컨테이너 | env-harbor-container-v1 | static-prop-rig-not-required | env-harbor-container=8dir/1samples/static
+env-hospital-quarantine-wing | 격리병원 병동 | env-hospital-quarantine-wing-v1 | static-prop-rig-not-required | env-hospital-quarantine-wing=8dir/1samples/static
+env-checkpoint-guardhouse | 검문 초소 | env-checkpoint-guardhouse-v1 | static-prop-rig-not-required | env-checkpoint-guardhouse=8dir/1samples/static
+env-terminal-bus-depot | 환승 터미널 | env-terminal-bus-depot-v1 | static-prop-rig-not-required | env-terminal-bus-depot=8dir/1samples/static
+env-power-transformer-bank | 송전소 변압기 | env-power-transformer-bank-v1 | static-prop-rig-not-required | env-power-transformer-bank=8dir/1samples/static
+env-refinery-tank-pump | 정유 탱크와 펌프 | env-refinery-tank-pump-v1 | static-prop-rig-not-required | env-refinery-tank-pump=8dir/1samples/static
+env-armory-bunker | 군수창고 벙커 | env-armory-bunker-v1 | static-prop-rig-not-required | env-armory-bunker=8dir/1samples/static
+env-scrapyard-compressor | 폐차 압축 시설 | env-scrapyard-compressor-v1 | static-prop-rig-not-required | env-scrapyard-compressor=8dir/1samples/static
+env-greenhouse-isolation | 폐온실 격리동 | env-greenhouse-isolation-v1 | static-prop-rig-not-required | env-greenhouse-isolation=8dir/1samples/static
+env-breakwater-control-building | 태풍방벽 관제동 | env-breakwater-control-building-v1 | static-prop-rig-not-required | env-breakwater-control-building=8dir/1samples/static
+env-fence-horizontal | 펜스 · 가로 | env-fence-v1 | static-prop-rig-not-required | env-fence-horizontal=8dir/1samples/static
+env-fence-vertical | 펜스 · 세로 | env-fence-v1 | static-prop-rig-not-required | env-fence-vertical=8dir/1samples/static
+env-broken-car | 파손 차량 | env-broken-car-v1 | static-prop-rig-not-required | env-broken-car=16dir/1samples/static
+env-red-fuel-barrel | 연료 드럼통 | env-red-fuel-barrel-v1 | static-prop-rig-not-required | env-red-fuel-barrel=8dir/1samples/static
+env-amber-worklamp | 호박색 작업등 | env-amber-worklamp-v1 | static-prop-rig-not-required | env-amber-worklamp=8dir/1samples/static
+env-common-brick | 공통 벽돌 주거·상가 | env-common-brick-v1 | static-prop-rig-not-required | env-common-brick=8dir/1samples/static
+lure-speaker | 휴대용 유인 스피커 | lure-speaker-v1 | static-prop-rig-not-required | lure-speaker=16dir/1samples/static
+throwable-molotov | 화염병 · 납품 모델 | throwable-molotov-v1 | static-prop-rig-not-required | throwable-molotov=16dir/1samples/static
+
+RETAINED UNSELECTED REVIEW MODELS
+boss-01-final-v1
+boss-01-mid-v1
+boss-07-final-v1
+boss-10-final-repaired
+boss-10-final-v1
+boss-10-final-v2
+boss-11-final-v1
+survivor-v1
+weapon-nailgun-v1
+weapon-shotgun-v1
+
+UNMAPPED NON-RIG MODEL FOLDERS
+none
+
+MODEL ERRORS
+none
+
+QUALIFICATIONS
+Does not establish visual anatomy, texture quality, deformation quality, ground contact or browser performance.
+Canonical arm/leg counts are design input prompt assertions, not automated geometry limb detection.
+Static environment/weapon/throwable assets do not need a humanoid skin merely to be valid props.
+A bind-pose-only clip is not an animated idle; locomotion presence is not attack/hit/death readiness.
+Historical/rejected model versions and armature variants are retained; unselected does not mean safe to delete.

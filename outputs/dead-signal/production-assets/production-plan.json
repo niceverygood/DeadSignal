@@ -1,0 +1,53 @@
+{
+  "styleReference": "../scenes/02-safehouse-loadout.png",
+  "pipeline": "Meshy original GLB -> fixed orthographic rendered atlas -> game renderer",
+  "survivor": {
+    "inputs": [
+      "inputs/survivor-front.png",
+      "inputs/survivor-back.png"
+    ],
+    "singleViewTaskId": "01a13b10-e62e-770e-be35-f0dce2193e1e",
+    "multiViewTaskId": "01a13b20-eda3-71f9-9fc9-4961e28b72e2",
+    "riggingTaskId": "01a13b39-ea6b-7442-ae54-a02edf4bf487",
+    "status": "models and walking/running downloaded; game atlas verification pending",
+    "settings": "inputs/survivor-meshy-settings.json",
+    "selectedSource": "models/survivor-v2-rig/",
+    "rejectedPilotReason": "single-view backpack details diverged from canonical reference"
+  },
+  "qualityChecks": [
+    "reference silhouette and costume",
+    "painted colors and ink outlines",
+    "front/back equipment consistency",
+    "foot pivot and original game camera",
+    "actual game screenshot comparison"
+  ],
+  "scope": [
+    "survivor",
+    "ordinary infected",
+    "24 distinctive bosses",
+    "environment modules",
+    "game HUD and menus"
+  ],
+  "note": "50 scene boards complete. Meshy survivor model and basic locomotion exist. Stable game v0.17 remains unchanged while production integration and actual screenshot comparison are underway.",
+  "updatedAt": "2026-10-14T16:49:00Z",
+  "bosses": {
+    "boss-01-mid": {
+      "status": "v2 shield preserved; locomotion rigging requested",
+      "selectedModel": "models/boss-01-mid-v2/model.glb",
+      "taskId": "01a13b5b-bc73-7021-b32c-942f6c23b118",
+      "rejectedPilot": "models/boss-01-mid-v1/model.glb missing shield after forced A pose"
+    },
+    "boss-07-final": {
+      "status": "v1 rejected; extra human arms and missing conductor arm; regenerating with original pose",
+      "rejectedPilot": "models/boss-07-final-v1/model.glb"
+    }
+  },
+  "weapons": {
+    "shotgun": {
+      "status": "model downloaded, orientation/grip attachment verification pending",
+      "model": "models/weapon-shotgun-v1/model.glb",
+      "taskId": "01a13b5e-37a3-71ae-a3c5-fca3c7db3db4"
+    }
+  },
+  "generationPolicy": "Preserve original pose for bosses and props; forcing A pose can remove or mutate canonical limbs/equipment. Every model needs silhouette, prop and limb count review before game use."
+}

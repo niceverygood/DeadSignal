@@ -1,0 +1,872 @@
+--- a/dist/native-action-animation.js
++++ b/dist/native-action-animation.js
+@@ -0,0 +1,101 @@
++const finite = Number.isFinite;
++const clamp01 = value => Math.max(0, Math.min(1, value));
++const plain = value => value && typeof value === 'object' && !Array.isArray(value)
++  && [Object.prototype, null].includes(Object.getPrototypeOf(value));
++
++// Spans contain actual separately sampled native clips inside one direction row.
++// An invalid span must never draw a neighbouring action or another direction.
++export function validAnimationClips(clips, samples) {
++  if (!plain(clips) || !Number.isInteger(samples) || samples < 1) return false;
++  const entries = Object.entries(clips), used = new Set();
++  if (!entries.length || entries.length > 16 || !Object.hasOwn(clips, 'idle')) return false;
++  for (const [name, clip] of entries) {
++    if (!/^[a-z][a-z0-9_-]{0,31}$/.test(name) || ['__proto__', 'constructor', 'prototype'].includes(name)
++      || !plain(clip) || !Number.isInteger(clip.start) || clip.start < 0
++      || !Number.isInteger(clip.count) || clip.count < 1 || clip.start + clip.count > samples
++      || !finite(clip.duration) || clip.duration <= 0 || clip.duration > 30 || typeof clip.loop !== 'boolean') return false;
++    for (let index = clip.start; index < clip.start + clip.count; index++) {
++      if (used.has(index)) return false;
++      used.add(index);
++    }
++  }
++  return true;
++}
++
++export function animationClip(metadata, name) {
++  const clips = metadata?.animation?.clips;
++  return clips && typeof name === 'string' && Object.hasOwn(clips, name) ? clips[name] : null;
++}
++
++// Attack clocks come from the simulation's saved countdowns, so rendering an
++// attack after pause/restore does not restart it or create another gameplay tick.
++export function nativeActionSelection(metadata, actor, {
++  pose = 'idle', phase, simulationTime = 0, animationTime = 0, actionDurations = {},
++} = {}) {
++  const clips = metadata?.animation?.clips;
++  if (!clips || !actor) return null;
++  const has = name => !!animationClip(metadata, name);
++  const action = (name, remaining, duration) => {
++    const clip = animationClip(metadata, name);
++    if (!clip) return null;
++    const time = finite(remaining) && finite(duration) && duration > 0
++      ? clamp01(1 - remaining / duration) * clip.duration
++      : Math.max(0, finite(animationTime) ? animationTime : 0);
++    return { clip: name, timeSeconds: time, phase: undefined, stationary: false };
++  };
++  if (pose === 'death' || actor.dead === true || finite(actor.hp) && actor.hp <= 0) {
++    if (has('death')) return action('death');
++  }
++  if (['windup', 'attack', 'hit'].includes(pose) && has(pose)) return action(pose);
++  if (actor.attackState === 'windup' && has('windup'))
++    return action('windup', actor.attackTime, actionDurations.windup);
++  if (actor.attackState === 'charge' && has('attack'))
++    return action('attack', actor.attackTime, actionDurations.charge);
++  if (actor.attackState === 'recover' && actionDurations.recoveryIsAttack && has('attack'))
++    return action('attack', actor.attackTime, actionDurations.recover);
++  // Damage never hides a boss's warning/active attack pose. Its existing flash
++  // remains visible throughout; this reaction is used in ordinary locomotion.
++  if (finite(actor.hitFlash) && actor.hitFlash > 0 && has('hit'))
++    return action('hit', actor.hitFlash, .12);
++  // The screamer already resets its saved skill cooldown to nine seconds when
++  // the real summon occurs. Its last warning fraction and first release fraction
++  // provide body motion without introducing another skill or gameplay clock.
++  if (actor.type === 'screamer' && finite(actor.skillCd)) {
++    if (actor.skillCd > 0 && actor.skillCd <= .3 && has('windup'))
++      return action('windup', actor.skillCd, .3);
++    if (actor.skillCd > 8.55 && actor.skillCd <= 9 && has('attack'))
++      return action('attack', actor.skillCd - 8.55, .45);
++  }
++  // Contact damage resets the existing attackCd to .9. Only its initial .25s
++  // represents the strike; the remaining cooldown returns to walk/idle.
++  if (finite(actor.attackCd) && actor.attackCd > .65 && actor.attackCd <= .9 && has('attack'))
++    return action('attack', actor.attackCd - .65, .25);
++  const requested = pose === 'dash' || pose === 'run' ? 'walk' : pose;
++  const name = [requested, pose === 'idle' ? 'idle' : 'walk', 'idle', 'walk'].find(has);
++  if (!name) return null;
++  return { clip: name, phase: name === 'walk' ? phase : undefined,
++    timeSeconds: Math.max(0, finite(simulationTime) ? simulationTime : 0), stationary: false };
++}
++
++export function namedAnimationSample(metadata, { clip, phase, timeSeconds = 0, stationary = false } = {}) {
++  const clips = metadata?.animation?.clips;
++  if (!clips) return null;
++  const selected = animationClip(metadata, clip)
++    || animationClip(metadata, stationary ? 'idle' : 'walk')
++    || animationClip(metadata, 'idle')
++    || Object.values(clips)[0];
++  if (!selected) return 0;
++  let sample = 0;
++  if (!stationary && selected.count > 1) {
++    if (selected.loop && finite(phase)) {
++      const tau = Math.PI * 2, wrapped = ((phase % tau) + tau) % tau;
++      sample = Math.min(selected.count - 1, Math.floor(wrapped / tau * selected.count + 1e-10));
++    } else {
++      const time = finite(timeSeconds) ? Math.max(0, timeSeconds) : 0;
++      sample = selected.loop
++        ? Math.min(selected.count - 1, Math.floor((time % selected.duration) / selected.duration * selected.count))
++        : Math.round(Math.min(1, time / selected.duration) * (selected.count - 1));
++    }
++  }
++  return selected.start + sample;
++}
+--- a/dist/production-art.js
++++ b/dist/production-art.js
+@@ -1,3 +1,4 @@
++import {validAnimationClips,nativeActionSelection,namedAnimationSample} from './native-action-animation.js?v=0.27.0';
+ import {validEnvironmentRule} from './production-rules.js?v=0.26.0';
+ const TAU = Math.PI * 2;
+ const CAMERA_ELEVATION = Math.asin(1 / Math.sqrt(3)) * 180 / Math.PI;
+@@ -84,7 +85,9 @@
+ }
+ 
+ /** The simulation's distance-driven walkPhase freezes naturally while paused. */
+-export function animationSample(metadata, { phase, timeSeconds = 0, stationary = false } = {}) {
++export function animationSample(metadata, { phase, timeSeconds = 0, stationary = false, clip } = {}) {
++  const named = namedAnimationSample(metadata, { phase, timeSeconds, stationary, clip });
++  if (named !== null) return named;
+   const samples = metadata?.atlas?.samples || 1;
+   const animation = metadata?.animation;
+   if (stationary || samples === 1 || !animation || !positive(animation.duration)) return 0;
+@@ -94,20 +97,20 @@
+   return Math.min(samples - 1, Math.floor((time % animation.duration) / animation.duration * samples));
+ }
+ 
+-function validBounds(bounds, frameSize, nullable = false) {
++function validBounds(bounds, frameSize, nullable = false, frameHeight = frameSize) {
+   if (nullable && bounds === null) return true;
+   return bounds && finite(bounds.x) && finite(bounds.y) && positive(bounds.width) && positive(bounds.height)
+-    && bounds.x >= 0 && bounds.y >= 0 && bounds.x + bounds.width <= frameSize && bounds.y + bounds.height <= frameSize;
+-}
+-
+-function validIdentificationContour(contour, frameSize) {
++    && bounds.x >= 0 && bounds.y >= 0 && bounds.x + bounds.width <= frameSize && bounds.y + bounds.height <= frameHeight;
++}
++
++function validIdentificationContour(contour, frameSize, frameHeight = frameSize) {
+   const plain = value => value && typeof value === 'object' && !Array.isArray(value)
+     && [Object.prototype, null].includes(Object.getPrototypeOf(value));
+   const point = value => plain(value) && Object.keys(value).length === 2
+-    && finite(value.x) && finite(value.y) && value.x >= 0 && value.x <= frameSize && value.y >= 0 && value.y <= frameSize;
++    && finite(value.x) && finite(value.y) && value.x >= 0 && value.x <= frameSize && value.y >= 0 && value.y <= frameHeight;
+   if (!plain(contour) || Object.keys(contour).length !== 3
+     || !Array.isArray(contour.left) || !Array.isArray(contour.right) || !Array.isArray(contour.top)
+-    || contour.left.length < 2 || contour.left.length > frameSize
++    || contour.left.length < 2 || contour.left.length > frameHeight
+     || contour.right.length !== contour.left.length || contour.top.length !== 2) return false;
+   for (let index = 0; index < contour.left.length; index++) {
+     const left = contour.left[index], right = contour.right[index];
+@@ -137,15 +140,17 @@
+   const fail = () => { throw new Error('invalid-atlas-metadata'); };
+   if (!value || value.format !== 'meshy-iso-sprite-atlas' || value.version !== 1) fail();
+   const { atlas, projection, frames, animation } = value;
++  const packed = atlas?.packing === 'trimmed-v1';
++  if (atlas && Object.hasOwn(atlas, 'packing') && !packed) fail();
+   if (!atlas || !projection || !Array.isArray(frames) || atlas.transparent !== true
+     || atlas.order !== 'direction-major, sample-minor' || ![1, 8, 16].includes(atlas.directions)
+     || !integer(atlas.samples) || atlas.samples > 32 || !integer(atlas.frameSize)
+     || atlas.frameSize > 512 || !integer(atlas.width) || !integer(atlas.height)
+     || atlas.width > 8192 || atlas.height > 8192 || atlas.width * atlas.height > 32 * 1024 * 1024
+-    || !integer(atlas.columns) || !integer(atlas.rows)
++    || frames.length !== atlas.directions * atlas.samples) fail();
++  if (!packed && (!integer(atlas.columns) || !integer(atlas.rows)
+     || atlas.width !== atlas.columns * atlas.frameSize || atlas.height !== atlas.rows * atlas.frameSize
+-    || atlas.rows !== Math.ceil(atlas.directions * atlas.samples / atlas.columns)
+-    || frames.length !== atlas.directions * atlas.samples) fail();
++    || atlas.rows !== Math.ceil(atlas.directions * atlas.samples / atlas.columns))) fail();
+   if (atlas.directions === 1 && (atlas.samples !== 1 || animation !== null)) fail();
+   if (!positive(projection.pixelsPerWorld) || !positive(projection.subjectHeight)
+     || !near(projection.azimuthDegrees, 45) || !near(projection.elevationDegrees, CAMERA_ELEVATION)
+@@ -154,17 +159,32 @@
+   if (projection.frontYawRadians !== undefined && !finite(projection.frontYawRadians)) fail();
+   if (animation !== null && (!animation || !positive(animation.duration)
+     || typeof animation.loop !== 'boolean' || animation.samples !== atlas.samples)) fail();
++  if (animation && Object.hasOwn(animation, 'clips') && !validAnimationClips(animation.clips, atlas.samples)) fail();
+   for (let index = 0; index < frames.length; index++) {
+     const frame = frames[index], rect = frame?.rect;
+     if (!frame || frame.index !== index || frame.direction !== Math.floor(index / atlas.samples)
+       || frame.sample !== index % atlas.samples || !near(frame.angle, frame.direction * TAU / atlas.directions)
+-      || !rect || rect.x !== index % atlas.columns * atlas.frameSize
++      || !rect || frame.clipped !== false) fail();
++    if (packed) {
++      if (!Number.isInteger(rect.x) || !Number.isInteger(rect.y) || rect.x < 0 || rect.y < 0
++        || !integer(rect.width) || !integer(rect.height) || rect.width > atlas.frameSize || rect.height > atlas.frameSize
++        || rect.x + rect.width > atlas.width || rect.y + rect.height > atlas.height
++        || !finite(frame.footPivot?.x) || !finite(frame.footPivot?.y)) fail();
++      // Frame pivots may legitimately lie outside a losslessly cropped image.
++      // Only the visible rectangles must be disjoint and inside the atlas.
++      for (let previous = 0; previous < index; previous++) {
++        const other = frames[previous].rect;
++        if (rect.x < other.x + other.width && rect.x + rect.width > other.x
++          && rect.y < other.y + other.height && rect.y + rect.height > other.y) fail();
++      }
++    } else if (rect.x !== index % atlas.columns * atlas.frameSize
+       || rect.y !== Math.floor(index / atlas.columns) * atlas.frameSize
+       || rect.width !== atlas.frameSize || rect.height !== atlas.frameSize
+-      || !near(frame.footPivot?.x, projection.footPivot.x) || !near(frame.footPivot?.y, projection.footPivot.y)
+-      || !validBounds(frame.alphaBounds, atlas.frameSize) || !validBounds(frame.outlineBounds, atlas.frameSize)
+-      || !validBounds(frame.coreBounds, atlas.frameSize, true) || frame.clipped !== false) fail();
+-    if (Object.hasOwn(frame, 'bodyIdentificationContour') && !validIdentificationContour(frame.bodyIdentificationContour, atlas.frameSize)) fail();
++      || !near(frame.footPivot?.x, projection.footPivot.x) || !near(frame.footPivot?.y, projection.footPivot.y)) fail();
++    if (!validBounds(frame.alphaBounds, rect.width, false, rect.height)
++      || !validBounds(frame.outlineBounds, rect.width, false, rect.height)
++      || !validBounds(frame.coreBounds, rect.width, true, rect.height)) fail();
++    if (Object.hasOwn(frame, 'bodyIdentificationContour') && !validIdentificationContour(frame.bodyIdentificationContour, rect.width, rect.height)) fail();
+     if (frame.weaponAnchor !== undefined && frame.weaponAnchor !== null
+       && (!validPoint(frame.weaponAnchor) || !validPoint(frame.weaponAnchor.support))) fail();
+     if (frame.weaponAnchor?.forward !== undefined
+@@ -172,7 +192,7 @@
+     if (frame.weaponPose !== undefined && frame.weaponPose !== null && !validWeaponPose(frame.weaponPose)) fail();
+     if (frame.weaponMuzzle !== undefined && frame.weaponMuzzle !== null && !validPoint(frame.weaponMuzzle)) fail();
+     if (atlas.includesWeapon === true && !validPoint(frame.weaponMuzzle)) fail();
+-    if (frame.combinedAlphaBounds !== undefined && !validBounds(frame.combinedAlphaBounds, atlas.frameSize)) fail();
++    if (frame.combinedAlphaBounds !== undefined && !validBounds(frame.combinedAlphaBounds, rect.width, false, rect.height)) fail();
+     if (frame.groundBounds !== undefined && frame.groundBounds !== null
+       && (!finite(frame.groundBounds.minX) || !finite(frame.groundBounds.minY)
+         || !finite(frame.groundBounds.maxX) || !finite(frame.groundBounds.maxY)
+@@ -181,9 +201,9 @@
+   return freezeTree(JSON.parse(JSON.stringify(value)));
+ }
+ 
+-export function selectAtlasFrame(metadata, { angle = 0, phase, timeSeconds = 0, stationary = false } = {}) {
++export function selectAtlasFrame(metadata, { angle = 0, phase, timeSeconds = 0, stationary = false, clip } = {}) {
+   const direction = directionIndex(angle, metadata.atlas.directions);
+-  const sample = animationSample(metadata, { phase, timeSeconds, stationary });
++  const sample = animationSample(metadata, { phase, timeSeconds, stationary, clip });
+   return metadata.frames[direction * metadata.atlas.samples + sample];
+ }
+ 
+@@ -548,7 +568,7 @@
+     const placement = spritePlacement(record.metadata, frame, options);
+     return placement ? { id, image: record.image, bodyAlpha: record.bodyAlpha, metadata: record.metadata, frame, placement } : null;
+   }
+-  actorFrame(poses, actor, { simulationTime = 0, pose, phase, foot, worldHeight, runThreshold = 0, animationTime = 0, groundedGait = false } = {}) {
++  actorFrame(poses, actor, { simulationTime = 0, pose, phase, foot, worldHeight, runThreshold = 0, animationTime = 0, groundedGait = false, actionDurations, visualAction } = {}) {
+     if (!poses || !actor || !finite(actor.x) || !finite(actor.y)) return null;
+     const gait = groundedGait && typeof poses === 'object' ? {
+       referenceSpeed: 214,
+@@ -558,10 +578,18 @@
+     const selection = this.poseClock.select(actor, simulationTime, { runThreshold, gait });
+     const chosenPose = pose || selection.pose;
+     const fallbacks = chosenPose === 'idle' ? ['idle', 'static', 'walk', 'run'] : [chosenPose, 'run', 'walk', 'idle', 'static'];
+-    const key = typeof poses === 'string' ? (this.isReady(poses) ? poses : null) : fallbacks.map(candidate => poses[candidate]).find(candidate => this.isReady(candidate));
++    const selectedPhase = finite(phase) ? phase : selection.phase;
++    const actionActor = visualAction && typeof visualAction === 'object' ? { ...actor, ...visualAction } : actor;
++    const actionOptions = { pose: chosenPose, phase: selectedPhase, simulationTime, animationTime, actionDurations };
++    const actionKey = typeof poses === 'object' ? poses.actions : null;
++    const actionSelection = this.isReady(actionKey) ? nativeActionSelection(this.get(actionKey).metadata, actionActor, actionOptions) : null;
++    const useActionReel = actionSelection && ['windup', 'attack', 'hit', 'death'].includes(actionSelection.clip);
++    const key = useActionReel ? actionKey : typeof poses === 'string' ? (this.isReady(poses) ? poses : null) : fallbacks.map(candidate => poses[candidate]).find(candidate => this.isReady(candidate));
+     if (!key) return null;
+     const projectedFoot = foot || { x: (actor.x - actor.y) * Math.sqrt(3) / 2, y: (actor.x + actor.y) * .5 };
+-    return this.frame(key, { foot: projectedFoot, worldHeight, angle: actor.angle, phase: finite(phase) ? phase : selection.phase, timeSeconds: animationTime, stationary: chosenPose === 'idle' });
++    const nativeAction = useActionReel ? actionSelection : nativeActionSelection(this.get(key).metadata, actionActor, actionOptions);
++    return this.frame(key, { foot: projectedFoot, worldHeight, angle: actor.angle,
++      ...(nativeAction || { phase: selectedPhase, timeSeconds: animationTime, stationary: chosenPose === 'idle' }) });
+   }
+   characterFrame(name, actor, options = {}) { return this.actorFrame(this.manifest.characters?.[name], actor, options); }
+   bossFrame(bossKey, actor, options = {}) { return this.actorFrame(this.manifest.bosses?.[bossKey], actor, options); }
+--- a/dist/renderer.js
++++ b/dist/renderer.js
+@@ -119,6 +119,7 @@
+     this.productionArt.onChange=change=>{if(previousProductionChange)try{previousProductionChange(change);}catch{}this.productionAssetChanged(change);};
+     this.nativeActorFrames=new WeakMap();this.nativeBuildingBlocks=new WeakMap();this.nativePlayerShots=new WeakMap();
+     this.nativeBulletShots=new WeakMap();this.nativeParticleShots=new WeakMap();
++    this.nativeCorpseEndClocks=new WeakMap();this.nativePlayerEndClocks=new WeakMap();
+     this.nativeContours=new WeakMap();this.nativeMaskCanvas=null;
+     if(productionManifest)this.configureProductionArt(productionManifest);
+     for(let i=0;i<72;i++){
+@@ -186,7 +187,19 @@
+     this.productionPlayerStatus(name);if(!name)return null;
+     this.requestProductionCatalog('characters',name);
+     if(!this.productionArt.isCharacterReady(name))return null;
+-    let selected=this.productionArt.characterFrame(name,p,{simulationTime:num(game?.time),worldHeight:44,runThreshold:214*1.15,groundedGait:true});
++    let deathElapsed=0;
++    if(p.hp<=0){
++      this.nativePlayerEndClocks??=new WeakMap();
++      if(!this.nativePlayerEndClocks.has(p))this.nativePlayerEndClocks.set(p,num(this.lastNow));
++      if(['dead','victory'].includes(game?.state))deathElapsed=Math.max(0,num(this.lastNow)-this.nativePlayerEndClocks.get(p));
++      if(this.motionEnabled===false)deathElapsed=30;
++    }
++    // These are render-only action hints. The actual player remains the pose
++    // clock key, and no transient field is attached to the save or simulation.
++    const visualAction={hitFlash:clamp(num(game?.flash)/.35,0,1)*.12,
++      attackState:num(p.recoil)>0?'charge':'walk',attackTime:num(p.recoil),dead:p.hp<=0};
++    let selected=this.productionArt.characterFrame(name,p,{simulationTime:num(game?.time),worldHeight:44,runThreshold:214*1.15,groundedGait:true,
++      visualAction,animationTime:deathElapsed,actionDurations:{charge:.12}});
+     const groundingHeight=playerGroundingHeight(selected);
+     if(selected&&Number.isFinite(groundingHeight)&&groundingHeight!==0){
+       const groundFoot=selected.placement.foot,foot={x:groundFoot.x,y:groundFoot.y+groundingHeight};
+@@ -218,7 +231,13 @@
+   nativeEnemyFrame(e,time,game,boss=null){
+     const section=boss?'bosses':'enemies',key=boss?e.bossKey:e.type||'walker';
+     this.requestProductionCatalog(section,key);
+-    const options={simulationTime:num(game?.time,time)};
++    const skill=boss?.skill;
++    const options={simulationTime:num(game?.time,time),...(skill?{actionDurations:{
++      windup:num(skill.windup,.9),
++      charge:num(skill.kind==='shield'?skill.guardDuration??skill.duration:skill.duration,skill.kind==='shield'?3:skill.kind==='leap'?.5:skill.kind==='pull'?1.1:.75),
++      recover:num(skill.recovery,['summon','spit'].includes(skill.kind)?.8:1),
++      recoveryIsAttack:!['charge','shield','leap','pull'].includes(skill.kind),
++    }}:e.type==='collector'?{actionDurations:{windup:1.15,charge:.95,recover:1.15,recoveryIsAttack:false}}:{})};
+     const selected=boss?this.productionArt.bossFrame(key,e,options):this.productionArt.enemyFrame(key,e,options);
+     if(!selected)return null;
+     const asset=this.productionArt.manifest.assets[selected.id],referenceRadius=num(asset?.referenceRadius,num(boss?.stats?.r,{walker:14,runner:12,shield:19,screamer:15,gas:18,elite:27,collector:49}[e.type]||num(e.r,14)));
+@@ -581,14 +600,19 @@
+     }
+     for(const o of game.world.obstacles||[])if(o.kind==='building'&&this.visible(o.x+o.w/2,o.y+o.h/2,Math.max(o.w,o.h)))this.drawBuildingShadow(c,o);
+     if(game.world.exit)this.drawExit(c,game.world.exit,time,game.stage);
+-    for(const corpse of game.corpses||[])if(this.visible(corpse.x,corpse.y,60))this.drawCorpse(c,corpse);
++    const nativeCorpses=[];
++    for(const corpse of game.corpses||[])if(this.visible(corpse.x,corpse.y,150)){
++      const native=this.nativeCorpseFrame(corpse,game,now);
++      if(native)nativeCorpses.push({depth:project(corpse.x,corpse.y).y,kind:'corpse',corpse,native});
++      else this.drawCorpse(c,corpse);
++    }
+     for(const e of game.enemies||[])if(!e.dead)this.drawTelegraph(c,e,time);
+     for(const hazard of game.bossHazards||[])this.drawBossHazard(c,hazard,game.world);
+     for(const f of game.fires||[])this.drawFire(c,f,time);
+     if(game.lure)this.drawLure(c,game.lure,time);
+     for(const item of game.pickups||[])if(this.visible(item.x,item.y,30))this.drawPickup(c,item,time);
+     // Native bodies join depth sorting; rings/debris keep their particle pass.
+-    const drawables=[],depthExplosionBodies=new Map();
++    const drawables=[...nativeCorpses],depthExplosionBodies=new Map();
+     if((this.explosionArt||explosionArt).status==='ready')for(const particle of game.particles||[]){
+       if(particle.kind==='shockwave'&&num(particle.life)>0&&Number.isFinite(particle.x)&&Number.isFinite(particle.y)&&this.visible(particle.x,particle.y,num(particle.radius,45)+40))
+         drawables.push({depth:project(particle.x,particle.y).y,kind:'explosion',particle});
+@@ -603,6 +627,7 @@
+       else if(item.kind==='obstacle')this.drawObstacle(c,item.o,game);
+       else if(item.kind==='decor')this.drawDecor(c,item.d,time,game);
+       else if(item.kind==='enemy')this.drawEnemy(c,item.e,time,game);
++      else if(item.kind==='corpse')this.drawNativeCorpse(c,item.corpse,item.native);
+       else this.drawPlayer(c,item.p,game,time);
+     }
+     for(const b of game.bullets||[])this.drawBullet(c,b,game);
+@@ -1065,7 +1090,7 @@
+       path(c,[[a.x-7,a.y],[a.x-4,a.y-29],[a.x+7,a.y-34],[a.x+8,a.y-8],[a.x+4,a.y]],'#c6b183');c.restore();
+     }
+     const native=this.nativePlayerFrame(p,game);
+-    if(native&&this.productionArt.drawFrame(c,native,{alpha:p.invul>0&&Math.floor(num(game?.time,time)*15)%2===0?.74:1})){
++    if(native&&this.productionArt.drawFrame(c,native,{alpha:p.hp>0&&p.invul>0&&Math.floor(num(game?.time,time)*15)%2===0?.74:1})){
+       this.productionDataset({productionPlayer:native.id,productionFrame:native.frame.index,productionDrawStatus:'native'});
+       this.nativeActorFrames.set(p,native);
+       const muzzle=spriteMuzzlePlacement(native.metadata,native.frame,{foot:native.placement.foot,worldHeight:44});
+@@ -1325,6 +1350,35 @@
+     glow(c,bx,-67,24,'#efb84e',pulse*.6);
+     c.restore();this.healthBar(c,e,78,-100);
+   }
++  nativeCorpseFrame(corpse,game,now=0){
++    if(!corpse)return null;
++    const boss=getBoss(corpse.bossKey),section=boss?'bosses':'enemies',key=boss?corpse.bossKey:corpse.type;
++    if(!key||!this.productionArt.manifest[section]?.[key])return null;
++    this.requestProductionCatalog(section,key);
++    let elapsed=Math.max(0,num(corpse.duration,12)-num(corpse.time,12));
++    // Final victory freezes simulation immediately. Only the already defeated
++    // native body completes its visual clip; results, RNG and saves stay frozen.
++    if(['victory','dead'].includes(game?.state)){
++      this.nativeCorpseEndClocks??=new WeakMap();
++      if(!this.nativeCorpseEndClocks.has(corpse))this.nativeCorpseEndClocks.set(corpse,num(now));
++      elapsed+=Math.max(0,num(now)-this.nativeCorpseEndClocks.get(corpse));
++    }
++    if(this.motionEnabled===false)elapsed=30;
++    const options={simulationTime:num(game?.time),pose:'death',animationTime:elapsed};
++    const selected=boss?this.productionArt.bossFrame(key,corpse,options):this.productionArt.enemyFrame(key,corpse,options);
++    if(!selected?.metadata.animation?.clips?.death)return null;
++    const asset=this.productionArt.manifest.assets[selected.id];
++    const height=num(asset?.worldHeight,selected.metadata.projection.subjectHeight);
++    return {...selected,placement:spritePlacement(selected.metadata,selected.frame,{foot:project(corpse.x,corpse.y),worldHeight:height})};
++  }
++  drawNativeCorpse(c,corpse,native){
++    if(!native)return false;
++    const q=project(corpse.x,corpse.y),boss=getBoss(corpse.bossKey),final=boss?.role==='final'||corpse.type==='collector';
++    const broad=!!boss||corpse.type==='elite';
++    c.save();c.globalAlpha*=clamp(num(corpse.time,12)/3.5,0,1)*.9;
++    ellipse(c,q.x+2,q.y+2,final?37:broad?24:14,final?11:broad?7:5,'rgba(4,13,19,.48)');
++    const drawn=this.productionArt.drawFrame(c,native);c.restore();return drawn;
++  }
+   drawCorpse(c,corpse){
+     const type=corpse.type||'walker',seed=num(corpse.seed),scale=type==='collector'?1.75:type==='elite'?1.35:1;
+     const coat={runner:'#735043',shield:'#405b60',screamer:'#8e8a71',gas:'#726e45',elite:'#695541',collector:'#6d624b'}[type]||['#5d6553','#4f625b','#6c6048','#52636a'][Math.floor(hash(seed+611)*4)];
+--- a/dist/engine.js
++++ b/dist/engine.js
+@@ -138,7 +138,13 @@
+     if(!number(b.px,-1000,3400)||!number(b.py,-1000,2800)||!number(b.vx,-2000,2000)||!number(b.vy,-2000,2000))return false;
+   }
+   for(const a of data.pickups)if(!position(a)||!identifier(a.id)||!['xp','heal'].includes(a.type)||!number(a.value,0,100000))return false;
+-  for(const c of data.corpses)if(!position(c)||!Object.hasOwn(TYPES,c.type)||!number(c.angle)||!number(c.duration,Number.MIN_VALUE,120)||!number(c.time,Number.MIN_VALUE,c.duration)||!integer(c.seed,1,data.id))return false;
++  for(const c of data.corpses){
++    if(!position(c)||!Object.hasOwn(TYPES,c.type)||!number(c.angle)||!number(c.duration,Number.MIN_VALUE,120)||!number(c.time,Number.MIN_VALUE,c.duration)||!integer(c.seed,1,data.id))return false;
++    if(c.bossKey!==undefined){
++      const catalog=getBoss(c.bossKey);
++      if(!mission||!catalog||catalog.missionId!==mission.id||c.type!==(catalog.role==='mid'?'elite':'collector')||!data.defeatedBossIds.includes(c.bossKey))return false;
++    }
++  }
+   for(const f of data.fires)if(!position(f,310)||!number(f.r,1,1000)||!number(f.duration,Number.MIN_VALUE,120)||!number(f.time,Number.MIN_VALUE,f.duration)||!number(f.emberClock,-1,1))return false;
+   if(data.lure!==null&&(!position(data.lure)||!number(data.lure.duration,Number.MIN_VALUE,120)||!number(data.lure.time,Number.MIN_VALUE,data.lure.duration)||!number(data.lure.radius,1,2000)))return false;
+   const a=data.alarm;if(!plain(a)||!bool(a.active)||!number(a.time,0,30)||!number(a.cooldown,0,10000)||!integer(a.count,0,2)||(a.eliteId!==null&&!integer(a.eliteId,1,data.id)))return false;
+@@ -261,7 +267,7 @@
+     if(e.hp<=0)this.killEnemy(e);
+   }
+   killEnemy(e){if(this.state!=='playing'||e.dead)return;e.dead=true;this.kills++;this.combo++;this.comboTime=3.5;this.parts+=e.type==='collector'?25:e.type==='elite'?12:1;
+-    this.corpses.push({x:e.x,y:e.y,type:e.type,angle:e.angle,time:12,duration:12,seed:e.id});if(this.corpses.length>70)this.corpses.shift();
++    this.corpses.push({x:e.x,y:e.y,type:e.type,angle:e.angle,time:12,duration:12,seed:e.id,...(e.bossKey?{bossKey:e.bossKey}:{})});if(this.corpses.length>70)this.corpses.shift();
+     this.pickups.push({id:++this.id,x:e.x,y:e.y,type:'xp',value:e.xp});
+     if(this.random()<.025)this.pickups.push({id:++this.id,x:e.x+10,y:e.y,type:'heal',value:12});
+     const level=this.upgrades.reload||0;if(level&&this.random()<level*.28)this.player.ammo=Math.min(this.player.maxAmmo,this.player.ammo+1);
+--- a/tests/native-action-animation.test.mjs
++++ b/tests/native-action-animation.test.mjs
+@@ -0,0 +1,377 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { Game } from '../dist/engine.js';
++import { getBoss } from '../dist/campaign.js';
++import { Navigation } from '../dist/navigation.js';
++import { ProductionArt, animationSample, validateAtlasMetadata, selectAtlasFrame, spritePlacement } from '../dist/production-art.js';
++import { Renderer } from '../dist/renderer.js';
++import { validAnimationClips, nativeActionSelection } from '../dist/native-action-animation.js';
++
++const clips = () => ({
++  idle: { start: 0, count: 4, duration: 1.2, loop: true },
++  walk: { start: 4, count: 8, duration: 1.1, loop: true },
++  windup: { start: 12, count: 6, duration: .9, loop: false },
++  attack: { start: 18, count: 6, duration: .6, loop: false },
++  hit: { start: 24, count: 2, duration: .12, loop: false },
++  death: { start: 26, count: 6, duration: 1.1, loop: false },
++});
++// Contract-only frame coordinates; no substitute artwork is generated here.
++function metadata() {
++  const directions = 8, samples = 32, frameSize = 128, columns = 8, rows = 32;
++  const footPivot = { x: 64, y: 110 };
++  return {
++    format: 'meshy-iso-sprite-atlas', version: 1,
++    projection: { subjectHeight: 100, pixelsPerWorld: 2, footPivot, azimuthDegrees: 45, elevationDegrees: 35.26438968275467, cameraScale: Math.sqrt(3 / 2) },
++    atlas: { width: columns * frameSize, height: rows * frameSize, columns, rows, frameSize, directions, samples, order: 'direction-major, sample-minor', transparent: true },
++    animation: { name: 'native action set', duration: 5.02, loop: false, samples, clips: clips() },
++    frames: Array.from({ length: directions * samples }, (_, index) => ({
++      index, direction: Math.floor(index / samples), sample: index % samples, angle: Math.floor(index / samples) * Math.PI / 4,
++      rect: { x: index % columns * frameSize, y: Math.floor(index / columns) * frameSize, width: frameSize, height: frameSize },
++      footPivot: { ...footPivot }, alphaBounds: { x: 42, y: 20, width: 40, height: 92 },
++      coreBounds: { x: 48, y: 40, width: 28, height: 46 }, outlineBounds: { x: 40, y: 18, width: 44, height: 96 }, clipped: false,
++    })),
++  };
++}
++async function artFixture(value = metadata()) {
++  const manifest = {
++    assets: { rigged: { metadata: 'rigged/metadata.json', atlas: 'rigged/atlas.png' } }, characters: {}, enemies: {walker:'rigged',screamer:'rigged',collector:'rigged'}, environment: {},
++    bosses: Object.fromEntries(Array.from({ length: 12 }, (_, i) => [`boss-${String(i + 1).padStart(2, '0')}-final`, 'rigged'])),
++  };
++  const ImageCtor = class {
++    constructor() { this.naturalWidth = value.atlas.width; this.naturalHeight = value.atlas.height; }
++    set src(url) { this.url = url; queueMicrotask(() => this.onload?.()); }
++  };
++  const art = new ProductionArt({ manifest, baseURL: 'https://game.example/assets/production/',
++    fetchImpl: async () => ({ ok: true, text: async () => JSON.stringify(value) }), ImageCtor });
++  assert.equal(await art.load('rigged'), true);
++  return art;
++}
++const actionDurations = boss => ({ windup: boss.skill.windup, charge: boss.skill.duration,
++  recover: boss.skill.recovery, recoveryIsAttack: !['charge', 'shield', 'leap', 'pull'].includes(boss.skill.kind) });
++function fresh(role = 'mid', missionId = 'mission-01') {
++  const game = new Game({ seed: 93882, missionId, stageDuration: 1e9 });
++  game.world.obstacles = []; game.world.decor = []; game.enemies = []; game.spawnClock = 1e9;
++  game.navigation = new Navigation(game.world); game.player.invul = 9999;
++  let actor = game.spawnMissionBoss('mid');
++  if (role === 'final') { game.damageEnemy(actor, actor.hp); actor = game.spawnMissionBoss('final'); }
++  return { game, actor, catalog: getBoss(actor.bossKey) };
++}
++
++// A combined atlas must never fall through a missing span into a neighbouring
++// action or the next direction, even when the simulation stalls or time is huge.
++test('all six named spans select only their own native samples and clamp one shots', () => {
++  const m = validateAtlasMetadata(metadata());
++  for (const [clip, span] of Object.entries(m.animation.clips)) {
++    assert.equal(animationSample(m, { clip, timeSeconds: 0 }), span.start);
++    assert.equal(animationSample(m, { clip, timeSeconds: -100 }), span.start);
++    const end = animationSample(m, { clip, timeSeconds: span.duration });
++    assert.equal(end, span.loop ? span.start : span.start + span.count - 1);
++    assert.ok(animationSample(m, { clip, timeSeconds: 1e9 }) >= span.start);
++    assert.ok(animationSample(m, { clip, timeSeconds: 1e9 }) < span.start + span.count);
++    const frame = selectAtlasFrame(m, { clip, timeSeconds: span.duration, angle: -Math.PI / 2 });
++    assert.equal(frame.direction, 6); assert.equal(frame.sample, end); assert.equal(frame.index, 6 * 32 + end);
++  }
++  assert.equal(animationSample(m, { stationary: true, clip: 'attack', timeSeconds: 999 }), 18);
++  assert.ok(animationSample(m, { clip: 'missing', timeSeconds: 999 }) < 12);
++});
++
++test('combined walk loops through its own phase and idle breathes without running an action', () => {
++  const m = metadata();
++  for (let i = 0; i < 8; i++) assert.equal(animationSample(m, { clip: 'walk', phase: i * Math.PI / 4 }), 4 + i);
++  assert.equal(animationSample(m, { clip: 'walk', phase: Math.PI * 2 }), 4);
++  const actor = { x: 4, y: 8, hp: 100, attackState: 'walk' };
++  const a = nativeActionSelection(m, actor, { pose: 'idle', simulationTime: .7 });
++  assert.equal(a.clip, 'idle'); assert.equal(animationSample(m, a), 2);
++});
++
++test('overlap, out-of-range spans, impossible time and missing idle reject the entire combined atlas', () => {
++  const mutations = [
++    c => { c.attack.start = 17; }, c => { c.death.count = 7; }, c => { c.idle.start = -1; },
++    c => { c.hit.duration = Infinity; }, c => { c.walk.loop = 'true'; }, c => { c.windup.count = .5; },
++    c => { delete c.idle; }, c => { c.constructor = { start: 32, count: 1, duration: 1, loop: false }; },
++  ];
++  for (const mutate of mutations) {
++    const m = metadata(); mutate(m.animation.clips);
++    assert.equal(validAnimationClips(m.animation.clips, 32), false);
++    assert.throws(() => validateAtlasMetadata(m), /invalid-atlas-metadata/);
++  }
++  assert.equal(validAnimationClips(clips(), 32), true);
++});
++
++test('legacy single-clip metadata retains its distance phase and stationary frame selection', () => {
++  const m = metadata(); delete m.animation.clips; m.animation.loop = true;
++  assert.equal(animationSample(m, { phase: Math.PI }), 16);
++  assert.equal(animationSample(m, { phase: Math.PI, stationary: true }), 0);
++  assert.equal(nativeActionSelection(m, { hp: 12 }, {}), null);
++});
++
++test('live boss warnings and recovery use saved countdowns; damage cannot hide the warning', async () => {
++  const art = await artFixture(), { game, actor, catalog } = fresh('final');
++  actor.skillCd = 0; game.tick(.01);
++  assert.equal(actor.attackState, 'windup');
++  actor.hitFlash = .12;
++  const options = { simulationTime: game.time, actionDurations: actionDurations(catalog) };
++  const first = art.bossFrame(actor.bossKey, actor, options);
++  assert.equal(first.frame.sample, 12);
++  for (let i = 0; i < 11; i++) game.tick(.05);
++  const advanced = art.bossFrame(actor.bossKey, actor, { ...options, simulationTime: game.time });
++  assert.ok(advanced.frame.sample > first.frame.sample && advanced.frame.sample <= 17);
++  game.pause(); const raw = game.snapshot(), before = JSON.stringify(raw);
++  for (let i = 0; i < 10; i++) {
++    game.tick(.1);
++    assert.equal(art.bossFrame(actor.bossKey, actor, { ...options, simulationTime: game.time }).frame.sample, advanced.frame.sample);
++  }
++  const copy = Game.restore(raw), restoredActor = copy.enemies.find(e => e.bossKey);
++  assert.ok(copy);
++  assert.equal(art.bossFrame(restoredActor.bossKey, restoredActor, { ...options, simulationTime: copy.time }).frame.sample, advanced.frame.sample);
++  assert.equal(JSON.stringify(game.snapshot()), before);
++});
++
++test('each of the twelve real final boss skill states selects the correct attack window', async () => {
++  const art = await artFixture();
++  for (let index = 1; index <= 12; index++) {
++    const { game, actor, catalog } = fresh('final', `mission-${String(index).padStart(2, '0')}`);
++    actor.skillCd = 0; game.tick(.01);
++    assert.equal(art.bossFrame(actor.bossKey, actor, { simulationTime: game.time, actionDurations: actionDurations(catalog) }).frame.sample, 12);
++    for (let ticks = 0; ticks < 200 && actor.attackState === 'windup'; ticks++) game.tick(.01);
++    assert.ok(['charge', 'recover'].includes(actor.attackState), catalog.id);
++    const captured = JSON.stringify({ actor, random: game.random.getState(), visual: game.visualRandom.getState(), result: game.result });
++    const selected = art.bossFrame(actor.bossKey, actor, { simulationTime: game.time, actionDurations: actionDurations(catalog) });
++    assert.ok(selected.frame.sample >= 18 && selected.frame.sample <= 23, `${catalog.id} should show attack, got ${selected.frame.sample}`);
++    assert.equal(JSON.stringify({ actor, random: game.random.getState(), visual: game.visualRandom.getState(), result: game.result }), captured);
++  }
++});
++
++test('ordinary hit reaction and native death stop inside their own one-shot spans', () => {
++  const m = metadata(), actor = { hp: 100, attackState: 'walk', hitFlash: .12 };
++  assert.equal(animationSample(m, nativeActionSelection(m, actor, { pose: 'walk' })), 24);
++  actor.hitFlash = .02;
++  assert.equal(animationSample(m, nativeActionSelection(m, actor, { pose: 'walk' })), 25);
++  actor.dead = true;
++  const selected = nativeActionSelection(m, actor, { pose: 'death', animationTime: 100 });
++  assert.equal(selected.clip, 'death'); assert.equal(animationSample(m, selected), 31);
++});
++
++test('boss corpse identity persists through new checkpoints and old identity-free saves still restore', () => {
++  const { game, actor } = fresh(); game.damageEnemy(actor, actor.hp);
++  assert.equal(game.corpses[0].bossKey, actor.bossKey);
++  const snapshot = game.snapshot(); assert.ok(snapshot);
++  const copy = Game.restore(snapshot); assert.ok(copy); assert.equal(copy.corpses[0].bossKey, actor.bossKey);
++  const legacy = structuredClone(snapshot); delete legacy.corpses[0].bossKey;
++  assert.ok(Game.restore(legacy));
++  for (const key of ['boss-12-mid', 'boss-01-final', 'missing', null, {}]) {
++    const invalid = structuredClone(snapshot); invalid.corpses[0].bossKey = key;
++    assert.equal(Game.restore(invalid), null, String(key));
++  }
++});
++
++test('native corpse animation follows simulation through pause and completes once after terminal victory without mutating it', async () => {
++  const art = await artFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {
++    productionArt: art, motionEnabled: true, nativeCorpseEndClocks: new WeakMap(), requestProductionCatalog() {},
++  });
++  const { game, actor } = fresh('final'); game.damageEnemy(actor, actor.hp);
++  assert.equal(game.state, 'victory');
++  const corpse = game.corpses.find(c => c.bossKey === actor.bossKey), before = JSON.stringify({ result: game.result, corpse, random: game.random.getState(), visual: game.visualRandom.getState() });
++  assert.equal(renderer.nativeCorpseFrame(corpse, game, 5).frame.sample, 26);
++  assert.ok(renderer.nativeCorpseFrame(corpse, game, 5.55).frame.sample > 26);
++  assert.equal(renderer.nativeCorpseFrame(corpse, game, 999).frame.sample, 31);
++  assert.equal(renderer.nativeCorpseFrame(corpse, game, 1000).frame.sample, 31);
++  assert.equal(JSON.stringify({ result: game.result, corpse, random: game.random.getState(), visual: game.visualRandom.getState() }), before);
++  const paused = { state: 'paused', time: game.time };
++  assert.equal(renderer.nativeCorpseFrame(corpse, paused, 1001).frame.sample, 26);
++  corpse.time -= .55;
++  assert.ok(renderer.nativeCorpseFrame(corpse, paused, 2000).frame.sample > 26);
++  renderer.motionEnabled = false;
++  assert.equal(renderer.nativeCorpseFrame(corpse, paused, 2001).frame.sample, 31);
++});
++
++test('native dying bodies share the live actor depth sort and do not use the generic ground prepass', () => {
++  const order = [], c = new Proxy({}, { get: (target, key) => key in target ? target[key] : () => ({ addColorStop() {} }) });
++  const renderer = Object.assign(Object.create(Renderer.prototype), {
++    ctx: c, dpr: 1, width: 800, height: 600, offsetY: 0, zoom: 1, cameraReady: true, camera: { x: 1000, y: 1000 }, lastNow: 0,
++    floor: {}, atmosphereEnabled: false, shakeEnabled: false, fireArt: { status: 'idle' }, explosionArt: { status: 'idle' },
++    makeFloor() {}, visible() { return true; }, nativeCorpseFrame() { return { native: true }; },
++    drawCorpse() { order.push('generic'); }, drawNativeCorpse() { order.push('native corpse'); }, drawEnemy() { order.push('enemy'); },
++    drawPlayer() { order.push('player'); }, drawTelegraph() {}, playerIdentificationNeeded() { return false; },
++    drawCursor() {}, drawHealthWarning() {}, drawObjectiveDirections() {}, drawMinimap() {},
++  });
++  const game = { time: 1, state: 'playing', world: { width: 2400, height: 1800, decor: [], obstacles: [] }, player: { x: 500, y: 500 },
++    corpses: [{ x: 200, y: 200 }], enemies: [{ x: 300, y: 300 }] };
++  renderer.render(game, {}, 1);
++  assert.deepEqual(order, ['native corpse', 'enemy', 'player']);
++});
++
++function packedMetadata(source = metadata()) {
++  const value = structuredClone(source), cellWidth = 56, cellHeight = 106, columns = 16;
++  value.atlas.packing = 'trimmed-v1'; value.atlas.width = cellWidth * columns;
++  value.atlas.height = cellHeight * Math.ceil(value.frames.length / columns);
++  delete value.atlas.columns; delete value.atlas.rows;
++  for (const frame of value.frames) {
++    const x = 38 - frame.index % 3, y = 16 - frame.index % 2;
++    frame.rect = { x: frame.index % columns * cellWidth, y: Math.floor(frame.index / columns) * cellHeight,
++      width: 48 + frame.index % 3 * 2, height: 100 + frame.index % 2 * 2 };
++    frame.footPivot.x -= x; frame.footPivot.y -= y;
++    for (const field of ['alphaBounds', 'outlineBounds', 'coreBounds', 'combinedAlphaBounds']) {
++      if (frame[field]) { frame[field].x -= x; frame[field].y -= y; }
++    }
++    if (frame.bodyIdentificationContour) for (const field of ['left', 'right', 'top'])
++      for (const point of frame.bodyIdentificationContour[field]) { point.x -= x; point.y -= y; }
++  }
++  return value;
++}
++
++test('losslessly packed variable rectangles preserve every frame world bounds, anchors and sample indices', () => {
++  const original = metadata();
++  for (const frame of original.frames) {
++    frame.combinedAlphaBounds = { ...frame.alphaBounds };
++    frame.bodyIdentificationContour = { left: [{ x: 48, y: 40 }, { x: 48, y: 50 }], right: [{ x: 76, y: 40 }, { x: 76, y: 50 }], top: [{ x: 48, y: 40 }, { x: 76, y: 40 }] };
++  }
++  const packed = validateAtlasMetadata(packedMetadata(original)), legacy = validateAtlasMetadata(original);
++  const near = (a, b) => assert.ok(Math.abs(a - b) < 1e-9, `${a} != ${b}`);
++  assert.ok(packed.atlas.width * packed.atlas.height < legacy.atlas.width * legacy.atlas.height / 2);
++  for (let index = 0; index < legacy.frames.length; index++) {
++    const options = { foot: { x: 500 + index, y: 900 - index }, worldHeight: 137 };
++    const a = spritePlacement(legacy, legacy.frames[index], options), b = spritePlacement(packed, packed.frames[index], options);
++    assert.deepEqual(a.foot, b.foot); assert.equal(a.depth, b.depth); assert.equal(a.scale, b.scale);
++    for (const kind of ['body', 'core', 'outline']) for (const edge of ['left', 'right', 'top', 'bottom']) near(a.bounds[kind][edge], b.bounds[kind][edge]);
++    const oldContour = legacy.frames[index].bodyIdentificationContour, newContour = packed.frames[index].bodyIdentificationContour;
++    for (const side of ['left', 'right', 'top']) for (let i = 0; i < oldContour[side].length; i++) {
++      near(a.x + oldContour[side][i].x * a.scale, b.x + newContour[side][i].x * b.scale);
++      near(a.y + oldContour[side][i].y * a.scale, b.y + newContour[side][i].y * b.scale);
++    }
++  }
++  for (const [clip, span] of Object.entries(clips())) for (let direction = 0; direction < 8; direction++) {
++    const options = { angle: direction * Math.PI / 4, clip, timeSeconds: span.duration / 2 };
++    assert.equal(selectAtlasFrame(packed, options).index, selectAtlasFrame(legacy, options).index);
++  }
++});
++
++test('packed pivots outside their cropped rectangle remain valid and keep the ground anchor exact', () => {
++  const original = metadata(); original.projection.footPivot = { x: 20, y: 125 };
++  for (const frame of original.frames) frame.footPivot = { ...original.projection.footPivot };
++  const packed = validateAtlasMetadata(packedMetadata(original)), frame = packed.frames[0];
++  assert.ok(frame.footPivot.x < 0); assert.ok(frame.footPivot.y > frame.rect.height);
++  const foot = { x: 500, y: 600 }, placed = spritePlacement(packed, frame, { foot });
++  assert.equal(placed.x + frame.footPivot.x * placed.scale, foot.x);
++  assert.equal(placed.y + frame.footPivot.y * placed.scale, foot.y);
++});
++
++test('packed validation rejects overlap, fractional or out-of-image rectangles, cropped bounds and unknown packing', () => {
++  const cases = [
++    p => { p.frames[1].rect.x = p.frames[0].rect.x; },
++    p => { p.frames[0].rect.x = .25; }, p => { p.frames[0].rect.x = -1; },
++    p => { p.frames[0].rect.width = p.atlas.frameSize + 1; }, p => { p.frames[0].rect.y = p.atlas.height; },
++    p => { p.frames[0].alphaBounds.width = p.frames[0].rect.width; },
++    p => { p.frames[0].coreBounds.height = p.frames[0].rect.height; },
++    p => { p.frames[0].outlineBounds.y = -1; }, p => { p.frames[0].footPivot.y = Infinity; },
++    p => { p.atlas.packing = 'trimmed-v2'; }, p => { p.atlas.width = 8193; },
++  ];
++  for (const change of cases) {
++    const p = packedMetadata(); change(p); assert.throws(() => validateAtlasMetadata(p), /invalid-atlas-metadata/);
++  }
++  const legacy = metadata(); legacy.frames[0].rect.width -= 1;
++  assert.throws(() => validateAtlasMetadata(legacy), /invalid-atlas-metadata/, 'Legacy grid strictness remains unchanged');
++});
++
++test('the atlas loader and draw path use each packed source rect rather than the original frame canvas size', async () => {
++  const m = packedMetadata(), art = await artFixture(m), actor = { x: 100, y: 100, angle: Math.PI / 2, hp: 0, dead: true };
++  const selected = art.bossFrame('boss-01-final', actor, { pose: 'death', animationTime: .55 });
++  const calls = [], context = { globalAlpha: 1, save() {}, restore() {}, drawImage(...args) { calls.push(args); } };
++  assert.equal(art.drawFrame(context, selected), true);
++  const rect = selected.frame.rect, placed = selected.placement;
++  assert.deepEqual(calls[0].slice(1), [rect.x, rect.y, rect.width, rect.height, placed.x, placed.y, placed.width, placed.height]);
++  assert.ok(rect.width < m.atlas.frameSize); assert.ok(rect.height < m.atlas.frameSize);
++  assert.equal(selected.frame.direction, 2); assert.equal(selected.frame.sample, 29);
++});
++
++test('real ordinary NPC contact strikes and scream releases use existing saved cooldowns without new gameplay', () => {
++  const m = metadata(), game = new Game({ seed: 2345 });
++  game.enemies = []; game.world.obstacles = []; game.navigation = new Navigation(game.world); game.spawnClock = 1e9; game.player.invul = 9999;
++  const walker = game.spawnEnemy('walker', 0, { x: game.player.x + 15, y: game.player.y });
++  game.move(walker, game.player.x + 15 - walker.x, game.player.y - walker.y);
++  game.tick(.01); assert.equal(walker.attackCd, .9);
++  const before = JSON.stringify({ actor: walker, random: game.random.getState(), visual: game.visualRandom.getState() });
++  assert.equal(animationSample(m, nativeActionSelection(m, walker, { pose: 'walk' })), 18);
++  assert.equal(JSON.stringify({ actor: walker, random: game.random.getState(), visual: game.visualRandom.getState() }), before);
++  walker.hitFlash = .12;
++  assert.equal(nativeActionSelection(m, walker, { pose: 'walk' }).clip, 'hit');
++  walker.hitFlash = 0; walker.attackCd = .5;
++  assert.equal(nativeActionSelection(m, walker, { pose: 'walk' }).clip, 'walk');
++  const screamer = game.spawnEnemy('screamer', 0, { x: game.player.x + 100, y: game.player.y });
++  screamer.skillCd = .2; assert.equal(nativeActionSelection(m, screamer, { pose: 'walk' }).clip, 'windup');
++  screamer.skillCd = 0; game.drainEvents(); game.tick(.01);
++  assert.ok(game.events.some(event => event.type === 'scream')); assert.equal(screamer.skillCd, 9);
++  assert.equal(animationSample(m, nativeActionSelection(m, screamer, { pose: 'walk' })), 18);
++});
++
++test('ordinary NPC death reuses its exact registered enemy identity and the same saved corpse lifetime', async () => {
++  const art = await artFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {
++    productionArt: art, motionEnabled: true, nativeCorpseEndClocks: new WeakMap(), requestProductionCatalog() {},
++  });
++  const game = new Game({ seed: 22 }); game.enemies = []; game.player.invul = 9999;
++  const enemy = game.spawnEnemy('walker', 0, { x: game.player.x + 100, y: game.player.y }); game.damageEnemy(enemy, enemy.hp);
++  const corpse = game.corpses[0]; assert.equal(corpse.type, 'walker'); assert.equal(corpse.bossKey, undefined);
++  assert.equal(renderer.nativeCorpseFrame(corpse, game, 1).frame.sample, 26);
++  const snapshot = game.snapshot(), restored = Game.restore(snapshot); assert.ok(restored);
++  assert.deepEqual(restored.corpses, game.corpses);
++  restored.corpses[0].time -= .55;
++  const before = JSON.stringify(restored.corpses);
++  assert.equal(renderer.nativeCorpseFrame(restored.corpses[0], restored, 999).frame.sample, 29);
++  assert.equal(JSON.stringify(restored.corpses), before);
++});
++
++async function heroArtFixture(withActions = true) {
++  const aliases = { idle: 'hero-idle', walk: 'hero-walk', run: 'hero-run', ...(withActions ? { actions: 'hero-actions' } : {}) };
++  const manifest = { assets: Object.fromEntries(Object.values(aliases).map(id => [id, { atlas: `${id}/atlas.png`, metadata: `${id}/metadata.json` }])),
++    characters: { 'survivor-shotgun': aliases }, enemies: {}, bosses: {}, environment: {} };
++  const sourceFor = id => {
++    const m = metadata(); m.atlas.includesWeapon = true; m.projection.subjectHeight = 44;
++    for (const frame of m.frames) frame.weaponMuzzle = { x: 20, y: 0, z: 32 };
++    if (id !== 'hero-actions') { delete m.animation.clips; m.animation.loop = true; }
++    return m;
++  };
++  const ImageCtor = class {
++    constructor() { this.naturalWidth = 1024; this.naturalHeight = 4096; }
++    set src(url) { this.url = url; queueMicrotask(() => this.onload?.()); }
++  };
++  const art = new ProductionArt({ manifest, baseURL: 'https://game.example/assets/production/', ImageCtor,
++    fetchImpl: async url => ({ ok: true, text: async () => JSON.stringify(sourceFor(url.split('/').at(-2))) }) });
++  await art.loadCharacter('survivor-shotgun'); return art;
++}
++
++test('optional hero action reel handles real shooting, hurt and death while preserving packed locomotion aliases and the actual player clock', async () => {
++  const art = await heroArtFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {
++    productionArt: art, nativePlayerEndClocks: new WeakMap(), lastNow: 10, motionEnabled: true,
++  });
++  const game = new Game({ seed: 20 }), player = game.player;
++  assert.equal(renderer.nativePlayerFrame(player, game).id, 'hero-idle');
++  game.shoot(); assert.ok(player.recoil > 0);
++  const before = JSON.stringify({ player, random: game.random.getState(), visual: game.visualRandom.getState() });
++  const shooting = renderer.nativePlayerFrame(player, game);
++  assert.equal(shooting.id, 'hero-actions'); assert.ok(shooting.frame.sample >= 18 && shooting.frame.sample <= 23);
++  assert.equal(JSON.stringify({ player, random: game.random.getState(), visual: game.visualRandom.getState() }), before);
++  assert.ok(art.poseClock.actors.has(player), 'Locomotion keeps the real player as its stable WeakMap key');
++  game.tick(.05); game.tick(.05); game.tick(.05, { moveX: 1 });
++  assert.equal(renderer.nativePlayerFrame(player, game).id, 'hero-walk');
++  player.invul = 0; game.hurtPlayer(5);
++  const hurt = renderer.nativePlayerFrame(player, game); assert.equal(hurt.id, 'hero-actions'); assert.equal(hurt.frame.sample, 24);
++  player.invul = 0; game.hurtPlayer(player.hp); assert.equal(game.state, 'dead');
++  renderer.lastNow = 10; assert.equal(renderer.nativePlayerFrame(player, game).frame.sample, 26);
++  const terminal = JSON.stringify({ player, result: game.result, random: game.random.getState(), visual: game.visualRandom.getState() });
++  renderer.lastNow = 20; assert.equal(renderer.nativePlayerFrame(player, game).frame.sample, 31);
++  assert.equal(JSON.stringify({ player, result: game.result, random: game.random.getState(), visual: game.visualRandom.getState() }), terminal);
++});
++
++test('a missing hero action reel and real reload cooldown retain original equipped hero art instead of substituting an unarmed model', async () => {
++  for (const withActions of [false, true]) {
++    const art = await heroArtFixture(withActions), game = new Game({ seed: 21 });
++    const renderer = Object.assign(Object.create(Renderer.prototype), { productionArt: art, lastNow: 0, motionEnabled: true });
++    game.player.reloadTime = 1; game.player.recoil = 0;
++    const selected = renderer.nativePlayerFrame(game.player, game);
++    assert.equal(selected.id, 'hero-idle'); assert.equal(selected.metadata.atlas.includesWeapon, true);
++    if (!withActions) {
++      game.shoot(); game.player.reloadTime = 0; game.shoot();
++      assert.equal(renderer.nativePlayerFrame(game.player, game).id, 'hero-idle');
++    }
++  }
++});
+--- a/dist/rig-review.html
++++ b/dist/rig-review.html
+@@ -0,0 +1,12 @@
++<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DEAD SIGNAL · 리깅과 실제 렌더 검수</title><style>
++:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#091318;color:#d9ddcf}*{box-sizing:border-box}body{margin:0}header{padding:20px 26px;border-bottom:1px solid #596157;background:#14221f}h1{font-size:23px;margin:3px 0 8px}p{margin:6px 0;font-size:13px;color:#a8b5ac;line-height:1.6}.eyebrow{color:#d2b56d;letter-spacing:.18em;font-size:10px}main{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:calc(100vh - 117px)}aside{padding:20px;background:#101e22;border-right:1px solid #40504c}label{display:block;font-size:12px;margin-bottom:7px;color:#b9c4b9}select,button,input{font:inherit}select,button{width:100%;border:1px solid #52625a;color:#e2e5d9;background:#1d2c2c;border-radius:2px;padding:11px;margin-bottom:16px}button{cursor:pointer;font-size:12px;margin-bottom:9px}.primary{background:#b98739;color:#10191d;border-color:#e3b663;font-weight:800}button:disabled{opacity:.45;cursor:wait}.row{display:flex;gap:8px}.row>*{flex:1}.small{font-size:11px;color:#8eaaa7}.panel{min-width:0;padding:16px}.stage{position:relative;height:min(70vh,760px);min-height:500px;border:1px solid #52665c;background:#14232a;overflow:hidden}.stage canvas{display:block;width:100%;height:100%;outline:none}.stage-label{position:absolute;top:14px;left:16px;pointer-events:none;padding:7px 11px;background:#0e1b20d9;color:#ead69e;font-size:12px;border-left:2px solid #c4a45d}.status{padding:11px 14px;margin:0;background:#12221e;border:1px solid #46564b;white-space:pre-wrap;font:11px/1.65 ui-monospace,monospace;min-height:115px}.notice{padding:13px 0;border-top:1px solid #3c514b;margin-top:12px}.meter{color:#dfc77f;font-size:12px;margin:10px 0}.error{color:#f3b2a2}kbd{font-family:inherit;border:1px solid #53665b;border-radius:3px;padding:1px 4px}.actions{margin-top:16px}@media(max-width:850px){main{grid-template-columns:1fr}aside{border-right:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}aside .wide{grid-column:1/-1}select,button{margin-bottom:5px}.stage{height:60vh;min-height:360px}.panel{padding:8px}header{padding:14px 18px}}
++</style></head><body><header><div class="eyebrow">DEAD SIGNAL / NATIVE RIG REVIEW</div><h1>리깅 · 동작 · 바닥 접지 검수</h1><p>게임과 동일한 Game·Renderer·ProductionArt를 사용합니다. 별도 검수 장면이며 플레이 기록을 읽거나 저장하지 않습니다.</p></header><main><aside>
++<div class="wide"><label for="actor">캐릭터 · 중간보스 · 최종보스</label><select id="actor"></select></div>
++<div><label for="mode">검수 방식</label><select id="mode"><option value="pose">동작 검수 · 렌더 프리셋</option><option value="combat">실제 전투 · 엔진 진행</option></select></div>
++<div><label for="pose">동작</label><select id="pose"><option value="idle">대기</option><option value="walk">걷기</option><option value="run">달리기 · 생존자</option><option value="windup">스킬 준비</option><option value="attack">공격 · 사격</option><option value="hit">피격</option><option value="death">사망</option></select></div>
++<div><label for="direction">방향 · 월드 좌표</label><select id="direction"></select></div>
++<div><label for="zoom">확대</label><select id="zoom"><option value="1">100%</option><option value="1.5" selected>150%</option><option value="2">200%</option><option value="2.5">250%</option></select></div>
++<div class="wide"><div class="row"><button id="previous">이전 에셋</button><button id="next">다음 에셋</button></div><button id="play" class="primary" aria-pressed="false">동작 재생</button><button id="restart">현재 장면 다시 준비</button><div class="meter" id="load-state" role="status">에셋 준비 중</div></div>
++<div class="wide actions"><label>실제 엔진 반응</label><div class="row"><button id="shoot">실제 사격</button><button id="damage">실제 피격</button></div><button id="kill">선택한 캐릭터 실제 처치</button><p class="small">전투 모드: WASD 이동 · 마우스 조준 · 누르고 사격 · Space 회피. 스킬과 피해는 실제 엔진에서 진행됩니다.</p></div>
++<div class="wide notice"><p>프리셋에서는 원본 3D에서 구운 동작의 관절 변형·접지·방향·투명 윤곽을 확인합니다. 실제 전투 모드에서는 기존 AI·스킬·물리·사격을 사용합니다.</p><p class="small">생존자 전용 재장전 손·탄창 동작은 아직 없습니다. 재장전 표시는 기존 게임 기능을 유지하며, 스킬 준비 동작으로 대신 표시하지 않습니다.</p><p class="small" id="pause-result">일시정지 상태 검사 대기</p></div>
++</aside><section class="panel"><div class="stage"><canvas id="stage" tabindex="0" aria-label="실제 게임 렌더 검수 장면"></canvas><div class="stage-label" id="scene-label">검수 장면 준비 중</div></div><pre class="status" id="diagnostics" aria-live="off">로딩 중…</pre></section></main><script type="module" src="./rig-review.js?v=0.27.0"></script></body></html>
+--- a/dist/rig-review.js
++++ b/dist/rig-review.js
+@@ -0,0 +1,67 @@
++import {Game} from './engine.js?v=0.27.0';
++import {Renderer} from './renderer.js?v=0.27.0';
++import {ProductionArt} from './production-art.js?v=0.27.0';
++import {productionManifest} from './production-manifest.js?v=0.27.0';
++import {BOSS_CATALOG,getBoss,getMission} from './campaign.js?v=0.26.0';
++import {productionLaunchPlan,preloadLaunchPlan} from './launch-gate.js?v=0.26.0';
++const $=id=>document.getElementById(id),canvas=$('stage'),art=new ProductionArt({manifest:productionManifest});
++const renderer=new Renderer(canvas,{productionArt:art});renderer.atmosphereEnabled=false;renderer.minimapEnabled=false;renderer.shakeEnabled=false;renderer.zoom=1.5;
++const names={walker:'보행자',runner:'질주자',shield:'방패병',screamer:'비명자',gas:'가스 운반자',elite:'정예',collector:'수집자'};
++const choices=[...BOSS_CATALOG.map(b=>({id:b.id,name:`${String(getMission(b.missionId).index+1).padStart(2,'0')} · ${b.role==='mid'?'중간':'최종'} · ${b.name}`,kind:'boss',missionId:b.missionId})),...Object.entries(names).map(([id,name])=>({id:`enemy:${id}`,name:`일반 적 · ${name}`,kind:'enemy',type:id})),...['shotgun','nailgun'].map(weapon=>({id:`hero:${weapon}`,name:`생존자 · ${weapon==='shotgun'?'산탄총':'전기 못총'}`,kind:'hero',weapon}))];
++for(const group of[['보스',choices.filter(c=>c.kind==='boss')],['일반 적',choices.filter(c=>c.kind==='enemy')],['생존자',choices.filter(c=>c.kind==='hero')]]){const element=document.createElement('optgroup');element.label=group[0];for(const choice of group[1]){const option=document.createElement('option');option.value=choice.id;option.textContent=choice.name;element.append(option);}$('actor').append(element);}
++for(let i=0;i<16;i++){const option=document.createElement('option');option.value=String(i);option.textContent=`방향 ${String(i).padStart(2,'0')} · ${i*22.5}°`;$('direction').append(option);}$('direction').value='2';
++const state={game:null,actor:null,corpse:null,choice:null,ready:false,playing:false,clock:0,age:0,serial:0,mode:'pose',pose:'idle',direction:2,observed:new Set(),lastDraw:null,pauseSignature:null,keys:new Set(),pointer:{x:1200,y:800},shooting:false};
++const rgba=metadata=>metadata.atlas.width*metadata.atlas.height*4/1048576;
++const mappingIds=mapping=>typeof mapping==='string'?[mapping]:Object.values(mapping||{});
++const selectionIds=()=>state.choice?.kind==='hero'?mappingIds(art.manifest.characters[`survivor-${state.choice.weapon}`]):state.choice?.kind==='boss'?mappingIds(art.manifest.bosses[state.choice.id]):mappingIds(art.manifest.enemies[state.choice?.type]);
++const originalDraw=art.drawFrame.bind(art);art.drawFrame=(context,selected,options)=>{const painted=originalDraw(context,selected,options);if(painted&&selected&&selectionIds().includes(selected.id)){state.lastDraw=selected;state.observed.add(selected.frame.sample);}return painted;};
++for(const method of['bossFrame','enemyFrame','characterFrame']){const original=art[method].bind(art);art[method]=(key,actor,options={})=>{
++  if(state.mode==='pose'&&actor===state.actor){const m=actionMetadata(),duration=poseDuration(m),progress=Math.min(1,state.age/Math.max(.01,duration));
++    options={...options,pose:state.pose,phase:state.pose==='walk'||state.pose==='run'?state.age/Math.max(.01,duration)*Math.PI*2:undefined,animationTime:state.age};
++    if(state.choice.kind==='hero')options.visualAction={hitFlash:state.pose==='hit'?.12*(1-progress):0,attackState:state.pose==='attack'?'charge':'walk',attackTime:.12*(1-progress),dead:state.pose==='death'};
++  }return original(key,actor,options);};}
++const originalCorpse=renderer.nativeCorpseFrame.bind(renderer);renderer.nativeCorpseFrame=(corpse,game,now)=>state.mode==='pose'&&corpse===state.corpse?originalCorpse(corpse,{...game,state:'paused'},now):originalCorpse(corpse,game,now);
++function actionMetadata(){const ids=selectionIds();return ids.map(id=>art.get(id)?.metadata).find(m=>m?.animation?.clips)||ids.map(id=>art.get(id)?.metadata).find(Boolean);}
++function poseDuration(metadata=actionMetadata()){const alias=state.pose==='run'?'walk':state.pose;return metadata?.animation?.clips?.[alias]?.duration||metadata?.animation?.duration||1.2;}
++function signature(){const g=state.game;if(!g)return'';return JSON.stringify({time:g.time,state:g.state,player:g.player,enemies:g.enemies,corpses:g.corpses,result:g.result,random:g.random.getState(),visual:g.visualRandom.getState()});}
++function shortHash(text){let h=2166136261;for(let i=0;i<text.length;i++)h=Math.imul(h^text.charCodeAt(i),16777619);return(h>>>0).toString(16).padStart(8,'0');}
++function resetInputs(){state.keys.clear();state.shooting=false;}
++function setPlaying(playing){state.playing=playing;resetInputs();if(state.game&&state.mode==='combat'){if(playing)state.game.resume();else state.game.pause();}state.pauseSignature=playing?null:signature();$('play').textContent=playing?'일시정지':state.mode==='combat'?'실제 전투 진행':'동작 재생';$('play').setAttribute('aria-pressed',String(playing));}
++function legalSpot(game,actor){const p=game.player;for(let ring=0;ring<5;ring++)for(let i=0;i<16;i++){const a=i/16*Math.PI*2,d=115+ring*35,x=p.x+Math.cos(a)*d,y=p.y+Math.sin(a)*d;if(!game.blocked(x,y,actor.r+3)){actor.x=x;actor.y=y;return;}}}
++async function prepare(){const serial=++state.serial;setPlaying(false);state.ready=false;state.observed.clear();state.lastDraw=null;$('load-state').textContent='원본 에셋과 현재 장면 로딩 중';$('load-state').className='meter';canvas.dataset.qaReady='loading';const choice=choices.find(c=>c.id===$('actor').value)||choices[0];
++ const game=new Game({seed:764208,weapon:choice.weapon||'shotgun',...(choice.kind==='boss'?{missionId:choice.missionId}:{}),stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;game.player.invul=9999;let actor;
++ if(choice.kind==='boss'){actor=game.spawnMissionBoss('mid');if(getBoss(choice.id).role==='final'){game.damageEnemy(actor,actor.hp);actor=game.spawnMissionBoss('final');game.corpses=[];}actor.skillCd=1.2;legalSpot(game,actor);}
++ else if(choice.kind==='enemy'){actor=game.spawnEnemy(choice.type,400);legalSpot(game,actor);}
++ else{actor=game.player;const enemy=game.spawnEnemy('walker',400);if(enemy)legalSpot(game,enemy);}
++ actor.angle=Number($('direction').value)*Math.PI/8;game.player.angle=actor.angle;
++ try{const mission=getMission(game.missionId),plan=productionLaunchPlan({manifest:art.manifest,weapon:game.player.weapon,mission,world:game.world});
++  const ids=new Set([...plan.playerIds,...mappingIds(choice.kind==='boss'?art.manifest.bosses[choice.id]:choice.kind==='enemy'?art.manifest.enemies[choice.type]:art.manifest.enemies.walker)]);
++  const environments=new Set(Object.values(art.manifest.environment||{}));for(const id of plan.assetIds)if(environments.has(id))ids.add(id);
++  const filtered={...plan,assetIds:[...ids]};if(!await preloadLaunchPlan(renderer,filtered))throw new Error('실제 atlas 로딩 또는 검증 실패');if(serial!==state.serial)return;
++  art.releaseUnusedAssets(filtered.assetIds);state.game=game;state.actor=actor;state.corpse=null;state.choice=choice;state.clock=0;state.age=0;state.mode=$('mode').value;state.pose=$('pose').value;state.direction=Number($('direction').value);state.ready=true;renderer.cameraReady=false;renderer.nativeCorpseEndClocks=new WeakMap();renderer.nativePlayerEndClocks=new WeakMap();
++  if(state.mode==='pose')applyInitialPose();game.pause();state.pauseSignature=signature();canvas.dataset.qaReady='ready';$('load-state').textContent='현재 장면 실제 렌더 준비 완료';$('scene-label').textContent=`${choice.name} / ${state.mode==='pose'?'동작 프리셋':'실제 전투'}`;updateDiagnostics();
++ }catch(error){if(serial!==state.serial)return;canvas.dataset.qaReady='failed';$('load-state').textContent=error.message;$('load-state').className='meter error';$('diagnostics').textContent=error.stack||error.message;}}
++function applyInitialPose(){const g=state.game,a=state.actor;if(!g||!a)return;g.state='playing';
++ if(state.pose==='death'){if(state.choice.kind==='hero'){g.player.invul=0;g.hurtPlayer(g.player.hp);}else{g.damageEnemy(a,a.hp);state.corpse=g.corpses.find(c=>c.seed===a.id)||null;}}
++ else if(state.pose==='hit'){if(state.choice.kind==='hero'){g.player.invul=0;g.hurtPlayer(1);}else g.damageEnemy(a,1);}
++ else if(state.pose==='attack'&&state.choice.kind==='hero')g.shoot();
++ updateManualPose();}
++function updateManualPose(){const g=state.game,a=state.actor;if(!g||!a)return;const duration=poseDuration(),progress=Math.min(1,state.age/Math.max(.01,duration));g.time=state.clock;a.angle=state.direction*Math.PI/8;
++ if(state.pose==='death'){if(state.corpse)state.corpse.time=Math.max(.001,state.corpse.duration-state.age);return;}
++ if(state.choice.kind==='hero'){g.flash=state.pose==='hit'?.35*(1-progress):0;a.recoil=state.pose==='attack'?.12*(1-progress):0;}
++ else{a.attackState=state.pose==='windup'?'windup':state.pose==='attack'?'charge':'walk';const boss=getBoss(a.bossKey),skill=boss?.skill;const attackDuration=state.pose==='windup'?(skill?.windup||1.15):(skill?.duration||.95);a.attackTime=attackDuration*(1-progress);a.hitFlash=state.pose==='hit'?.12*(1-progress):0;a.attackCd=0;if(a.type==='screamer')a.skillCd=3;}
++ a.walkPhase=state.age/Math.max(.01,duration)*Math.PI*2;}
++function updateDiagnostics(){const selected=state.lastDraw,g=state.game;if(!g)return;const metadata=selected?.metadata,span=metadata?.animation?.clips&&Object.entries(metadata.animation.clips).find(([,v])=>selected.frame.sample>=v.start&&selected.frame.sample<v.start+v.count)?.[0];const pausedMatch=!state.playing&&state.pauseSignature===signature();
++ Object.assign(canvas.dataset,{qaActor:state.choice.id,qaMode:state.mode,qaPose:state.pose,qaPlaying:String(state.playing),qaAsset:selected?.id||'',qaFrame:String(selected?.frame.index??-1),qaSample:String(selected?.frame.sample??-1),qaDirection:String(selected?.frame.direction??-1),qaClip:span||metadata?.animation?.name||'static',qaSource:metadata?.source?.file||'',qaPacking:metadata?.atlas.packing||'grid',qaFrames:String(metadata?.frames.length||0),qaNativePainted:String(!!selected),qaObservedSamples:JSON.stringify([...state.observed].sort((a,b)=>a-b)),qaPauseUnchanged:String(pausedMatch),qaSignature:shortHash(signature()),qaGameState:g.state,qaGameTime:g.time.toFixed(4)});
++ $('pause-result').textContent=state.playing?'동작 진행 중':pausedMatch?'일시정지 검사: Game·캐릭터·양쪽 RNG 상태가 그대로입니다.':'일시정지 직후 상태 확인 중';
++ $('diagnostics').textContent=`${state.choice.name} | ${state.mode==='pose'?'격리된 렌더 프리셋':'실제 Game.tick'} | ${state.playing?'재생':'정지'}\n현재 네이티브: ${selected?.id||'대기'} | 클립 ${span||metadata?.animation?.name||'정적'} | 방향 ${selected?.frame.direction??'-'} | 샘플 ${selected?.frame.sample??'-'}\nGLB ${metadata?.source?.file||'-'} | skins ${metadata?.source?.rig?.skins??'-'} · bones ${metadata?.source?.rig?.bones??'-'} | 전체 ${metadata?.frames.length||0}프레임\n${metadata?`${metadata.atlas.width}×${metadata.atlas.height} · RGBA ${rgba(metadata).toFixed(2)}MiB · ${metadata.atlas.packing||'고정 셀'}`:'에셋 준비 중'} | 관찰한 샘플 ${state.observed.size}개\n게임 ${g.state} · ${g.time.toFixed(3)}초 | 세이브/계정/스토리지 접근 없음 | 상태 지문 ${shortHash(signature())}`;}
++$('actor').addEventListener('change',prepare);$('mode').addEventListener('change',prepare);$('pose').addEventListener('change',prepare);$('restart').addEventListener('click',prepare);
++$('previous').addEventListener('click',()=>{const i=choices.findIndex(c=>c.id===$('actor').value);$('actor').value=choices[(i-1+choices.length)%choices.length].id;prepare();});$('next').addEventListener('click',()=>{const i=choices.findIndex(c=>c.id===$('actor').value);$('actor').value=choices[(i+1)%choices.length].id;prepare();});
++$('direction').addEventListener('change',()=>{state.direction=Number($('direction').value);if(state.actor)state.actor.angle=state.direction*Math.PI/8;state.pauseSignature=signature();});$('zoom').addEventListener('change',()=>{renderer.zoom=Number($('zoom').value);});$('play').addEventListener('click',()=>{if(state.ready)setPlaying(!state.playing);});
++function actualAction(action){if(!state.ready)return;const g=state.game,a=state.actor;state.mode='combat';$('mode').value='combat';if(g.state==='paused')g.resume();if(g.state!=='playing')return;
++ if(action==='shoot')g.shoot();if(action==='damage'){if(state.choice.kind==='hero'){g.player.invul=0;g.hurtPlayer(5);}else g.damageEnemy(a,Math.max(1,a.maxHp*.08));}if(action==='kill'){if(state.choice.kind==='hero'){g.player.invul=0;g.hurtPlayer(g.player.hp);}else{g.damageEnemy(a,a.hp);state.corpse=g.corpses.find(c=>c.seed===a.id);}}setPlaying(true);$('scene-label').textContent=`${state.choice.name} / 실제 엔진 반응`;}
++for(const id of['shoot','damage','kill'])$(id).addEventListener('click',()=>actualAction(id));
++canvas.addEventListener('pointermove',event=>{const r=canvas.getBoundingClientRect();state.pointer=renderer.screenToWorld(event.clientX-r.left,event.clientY-r.top);});canvas.addEventListener('pointerdown',event=>{canvas.focus();state.shooting=true;canvas.setPointerCapture(event.pointerId);});canvas.addEventListener('pointerup',()=>{state.shooting=false;});canvas.addEventListener('pointercancel',resetInputs);
++canvas.addEventListener('keydown',event=>{if(['KeyW','KeyA','KeyS','KeyD','Space'].includes(event.code)){state.keys.add(event.code);event.preventDefault();}});canvas.addEventListener('keyup',event=>state.keys.delete(event.code));window.addEventListener('blur',()=>setPlaying(false));document.addEventListener('visibilitychange',()=>{if(document.hidden)setPlaying(false);});new ResizeObserver(()=>renderer.resize()).observe(canvas.parentElement);
++let last=0,diagnosticClock=0;function frame(now){const dt=last?Math.min(.05,(now-last)/1000):0;last=now;if(state.ready){if(state.playing){state.clock+=dt;if(state.mode==='pose'){state.age+=dt;const duration=poseDuration();if(state.pose!=='death'&&state.age>duration+.45){state.age=0;}updateManualPose();}else{const input={moveX:Number(state.keys.has('KeyD'))-Number(state.keys.has('KeyA')),moveY:Number(state.keys.has('KeyS'))-Number(state.keys.has('KeyW')),shoot:state.shooting,aimX:state.pointer.x,aimY:state.pointer.y,dash:state.keys.has('Space')};state.game.tick(dt,input);state.keys.delete('Space');}}
++ renderer.render(state.game,{},state.clock);diagnosticClock+=dt;if(diagnosticClock>.1||!state.playing){diagnosticClock=0;updateDiagnostics();}}requestAnimationFrame(frame);}prepare();requestAnimationFrame(frame);

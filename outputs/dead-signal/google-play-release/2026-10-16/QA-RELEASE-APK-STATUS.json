@@ -1,0 +1,108 @@
+{
+  "checkedAtUTC": "2026-10-16T01:09:03.356269+00:00",
+  "sourceFiles": 1239,
+  "sourceUnchanged": true,
+  "changed": [],
+  "added": [],
+  "removed": [],
+  "originalArtifactsUnchanged": true,
+  "originalArtifacts": [
+    {
+      "path": "DeadSignal-1.0.0-1-debug.apk",
+      "unchanged": true
+    },
+    {
+      "path": "DeadSignal-1.0.0-1-unsigned.aab",
+      "unchanged": true
+    },
+    {
+      "path": "artifact-audit.json",
+      "unchanged": true
+    },
+    {
+      "path": "actual-aab-policy-audit.json",
+      "unchanged": true
+    },
+    {
+      "path": "actual-aab-manifest.xml",
+      "unchanged": true
+    },
+    {
+      "path": "actual-aab-config.json",
+      "unchanged": true
+    },
+    {
+      "path": "android-build.log",
+      "unchanged": true
+    },
+    {
+      "path": "bundletool-audit.log",
+      "unchanged": true
+    },
+    {
+      "path": "lint-results-release.txt",
+      "unchanged": true
+    },
+    {
+      "path": "ANDROID-RELEASE.md",
+      "unchanged": true
+    }
+  ],
+  "signedAabSHA256": "311c40b6ef401d61fbf68d4972e44869ec8e26e5ed9bf827596c9a25005951bb",
+  "signedAabBundletoolValidation": "passed in release-build-and-bundle-validation.log",
+  "qaApkSigningStatus": "completed_after_parent_helper_90_second_timeout; underlying_delay_cause_unconfirmed; no_credential_retry_or_acl_change",
+  "qaApkExists": true,
+  "nativeUITested": false,
+  "physicalDeviceTested": false,
+  "page16KRuntimeTested": false,
+  "qaApk": {
+    "path": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/google-play-release/2026-10-16/DeadSignal-1.0.0-1-upload-key-qa.apk",
+    "bytes": 192261086,
+    "sha256": "0961b57604eb21c6b50cd6f428bb6c524091343602188bc24f3703af6c007516",
+    "certificateDerSHA256": "ea64c115c9078ef6cb6c8f8869bd7bb5d1ea30e460fd4f40e19e194f07206e60",
+    "signerMatchesUploadCertificate": true,
+    "signatureV2Verified": true,
+    "signatureV3Verified": true,
+    "zipalign4And16KVerified": true,
+    "zipCRCVerified": true,
+    "unsignedReleaseEntryCountByteVerified": 803,
+    "addedZIPEntries": [
+      "META-INF/DEAD-SIG.RSA",
+      "META-INF/DEAD-SIG.SF",
+      "META-INF/MANIFEST.MF"
+    ],
+    "bundledDistFilesByteVerified": 340,
+    "nativeSOLibraries": [],
+    "releaseDebuggable": false,
+    "debuggableEvidence": "attribute absent; Android default false; aapt2 application-debuggable absent",
+    "allowBackup": false,
+    "fullBackupContent": false,
+    "usesCleartextTraffic": false,
+    "minSdk": 24,
+    "targetSdk": 36,
+    "packageId": "kr.bottlecorp.deadsignal",
+    "versionName": "1.0.0",
+    "versionCode": 1
+  },
+  "unsignedReleaseApk": {
+    "bytes": 192186191,
+    "sha256": "18f286c3733510699358b082bcb90f458ece42e2ef22a9d0390f3b2ea707483b"
+  },
+  "keychainAccessRetried": false,
+  "keychainAclChanged": false,
+  "temporaryAlternativeQaKeyCreated": false,
+  "finalPlayDeliveryVerified": false,
+  "qaCertificateNote": "QA APK uses the newly authorized upload certificate. Google-managed final app-signing certificate and Play-delivered APK are separate and not created or verified here.",
+  "nativeUITestStatus": "not_verified_cua_app_unavailable",
+  "storeScreenshotsGenerated": false,
+  "signedAABUntouchedByQA": true,
+  "playConsoleActionPerformedByAndroidChild": false,
+  "uiInputOrScreenshotOrDevtoolsWorkaroundsUsed": false,
+  "nativeRuntimeStatus": "not_verified_emulator_adb_offline_after_bounded_restart",
+  "nativeLaunchReport": "ANDROID-NATIVE-LAUNCH.json",
+  "qaAPKInstalled": false,
+  "qaAppLaunched": false,
+  "ownQAEmulatorStoppedNormally": true,
+  "ownAVDFilesPreserved": true,
+  "signedAabSHA256Final": "311c40b6ef401d61fbf68d4972e44869ec8e26e5ed9bf827596c9a25005951bb"
+}

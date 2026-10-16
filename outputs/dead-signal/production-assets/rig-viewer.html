@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-R/5Lkdq61iLVPoTE+PcSufO5BFGsl+KqABhmAfj/+hI='; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' blob:; worker-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>DEAD SIGNAL — 실제 3D 리깅 검수</title>
+  <link rel="stylesheet" href="rig-viewer.css?v=0.29.0">
+  <script type="importmap">{"imports":{"three":"/production-assets/rig-lab/node_modules/three/build/three.module.js","three/addons/":"/production-assets/rig-lab/node_modules/three/examples/jsm/"}}</script>
+  <script type="module" src="rig-viewer.js?v=0.29.0"></script>
+</head>
+<body>
+  <header class="masthead"><a class="wordmark" href="review.html">DEAD<span> SIGNAL</span><small>RIG / MOTION INSPECTION</small></a><a id="gallery-back" class="back" href="review.html">에셋 갤러리 ↗</a></header>
+  <main>
+    <div class="intro"><div><span class="eyebrow">ORIGINAL GLB / REAL WEIGHTED SKIN</span><h1>실제 리깅과 동작을 확인하세요.</h1><p>제작된 원본 모델의 관절과 메시 변형을 직접 재생합니다. 게임 적용과 전투 검수 상태는 갤러리에서 확인할 수 있습니다.</p></div><span id="model-count" class="count">32 MODELS</span></div>
+    <div class="workspace">
+      <section class="viewer" aria-label="실제 3D 캐릭터 미리보기">
+        <div class="viewport" id="viewport"><canvas id="rig-canvas" aria-label="원본 텍스처가 적용된 실제 리깅 GLB"></canvas><div class="stage-tag">FIXED BIND FLOOR / ORIGINAL TEXTURE</div><div id="load-state" class="load-state" role="status">리깅 목록을 준비하는 중…</div><div class="stage-caption"><span id="current-name">—</span><span>드래그: 회전 · 휠/두 손가락: 확대</span></div></div>
+        <div class="camera-tools" aria-label="카메라 방향"><button type="button" data-camera="three-quarter" aria-pressed="true">게임 ¾ 뷰</button><button type="button" data-camera="front" aria-pressed="false">정면</button><button type="button" data-camera="back" aria-pressed="false">후면</button><label><input type="checkbox" id="skeleton">관절 보기</label></div>
+        <div class="playback"><div class="playback-top"><button type="button" id="play" disabled>재생</button><div><b id="current-clip">바인드 포즈</b><small id="loop-state">—</small></div><output id="time-output">0.00 / 0.00초</output></div><label class="timeline-label" for="timeline">클립 시간</label><input id="timeline" type="range" min="0" max="1" value="0" step="0.001" disabled></div>
+      </section>
+      <aside class="inspector">
+        <section class="panel"><span class="eyebrow">ASSET / CLIP</span><h2>캐릭터와 동작</h2><label for="asset">캐릭터</label><select id="asset" disabled></select><label for="clip">원본 GLB 클립</label><select id="clip" disabled><option>불러오는 중</option></select><div class="rig-facts"><div><b id="joint-count">—</b><span>실제 관절</span></div><div><b id="skin-count">—</b><span>가중치 메시</span></div><div><b id="texture-count">—</b><span>원본 텍스처</span></div></div><p class="note">바닥과 카메라는 최초 바인드 포즈를 기준으로 고정합니다. 동작마다 모델 크기를 바꾸거나 바닥 높이를 재조정하지 않습니다.</p></section>
+        <section class="panel source-panel"><span class="eyebrow">FILE / PROVENANCE</span><h2>실제 제작 파일</h2><p id="source-name" class="source-name">—</p><p id="source-hash" class="hash">—</p><div class="source-links"><a id="model-download" hidden download>원본 GLB 내려받기 ↓</a><a id="provenance" hidden>제작·보존 기록 ↗</a></div><p id="preservation" class="note"></p><p class="note">이 화면은 리깅 원본 검수 도구입니다. 실제 게임의 공격 판정·피격 전환·사망 연출 검수를 대신하지 않습니다.</p></section>
+        <p id="viewer-error" class="error" role="alert" hidden></p>
+      </aside>
+    </div>
+    <footer>DEAD SIGNAL / LOCAL RIG VIEWER <span>같은 사이트의 지정된 32개 GLB만 불러옵니다.</span></footer>
+  </main>
+</body>
+</html>

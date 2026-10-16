@@ -1,0 +1,38 @@
+DEAD SIGNAL — iOS 빌드
+
+앱 식별자 초안: kr.bottlecorp.deadsignal
+표시 버전: 1.0.0 / 빌드: 1
+최소 iOS: 16.0, iPhone 및 iPad 지원
+전체 게임과 디자인 자산을 앱 안에 담으며 원격 서버에서 게임을 불러오지 않습니다.
+기존 웹 브라우저의 저장 데이터와 앱의 저장 공간은 서로 별개입니다.
+
+프로젝트 루트에서 웹 준비와 Capacitor sync를 마친 뒤 다음 명령으로 빌드합니다.
+ios/scripts/build-ios.sh simulator
+ios/scripts/build-ios.sh archive
+
+simulator: iOS Simulator용 App.app를 ios/build 안에 생성합니다.
+archive: iOS 기기용 Release 아카이브를 ios/build 안에 서명 없이 생성합니다.
+이미 존재하는 버전 아카이브는 덮어쓰지 않습니다.
+
+서명 없는 아카이브는 App Store에 업로드하거나 실제 iPhone/iPad에 설치할 수 없습니다.
+이 Mac의 초기 조사에서 유효한 코드 서명 인증서는 0개였습니다.
+정확한 앱 식별자와 맞는 Apple Developer 팀, 배포 인증서 및 프로비저닝 프로필을 확인한 뒤 Xcode에서 배포 서명/검증을 진행해야 합니다.
+이 빌드 스크립트는 인증서 생성, 자동 프로비저닝 업데이트, 앱 등록, 업로드, 결제 또는 약관 동의를 수행하지 않습니다.
+
+출시 전에는 실제 iPhone/iPad에서 성능과 저장 복구를 확인하고, App Store 지원/개인정보 URL, 연령 등급, 메타데이터를 완성해야 합니다.
+현재 빌드가 유료 상품을 제공하지 않는다면 App Store 상품을 등록할 필요가 없습니다. 이후 유료 아이템을 추가할 때는 StoreKit 구매 및 복원을 별도로 구현하고 검증해야 합니다.
+
+공식 자료
+https://developer.apple.com/news/upcoming-requirements/?id=04282026a
+https://developer.apple.com/app-store/review/guidelines/
+https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds/
+
+최종 검증 범위
+1.0.0(1) 미공개 후보의 Simulator 빌드와 서명 없는 iOS 기기용 Release archive 제작에 성공했습니다.
+웹 파일 340개와 32프레임 자산 4종이 두 앱에 정확히 포함된 것을 검사했습니다.
+초기 후보는 전용 Simulator에 설치·실행 명령을 완료했지만, Simulator UI 연결 도구가 Invalid app 오류를 반환하여 실제 네이티브 화면·터치 조작은 검증하지 못했습니다. 최종 터치 안내 문구를 반영한 후보는 다시 빌드했으며 재설치·실행하지 않았습니다.
+실제 iPhone/iPad의 화면·성능·저장 복구 검수, 배포 서명, App Store Connect 업로드/심사 검증은 아직 필요합니다. 모바일 브라우저 검수는 네이티브 실기 검증과 별개입니다.
+
+iOS 최소 버전 근거
+게임은 Object.hasOwn(), Array.at(), CSS 동적 뷰포트 단위(dvh), :has()를 사용합니다. WebKit 공식 자료는 이 기능들이 Safari/iOS 15.4에서 도입되었음을 명시합니다. iOS 15.0에는 필요한 기능이 없으므로, 이 앱은 보수적인 지원 정책에 따라 iOS 16.0 이상으로 제한했습니다. iOS 16 실기에서 게임을 검증했다는 뜻은 아닙니다.
+https://webkit.org/blog/12445/new-webkit-features-in-safari-15-4/

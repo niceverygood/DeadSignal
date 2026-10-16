@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "ready": true,
+      "directions": 16,
+      "frameSize": 256,
+      "padding": 24,
+      "outlinePx": 4,
+      "shading": "unlit",
+      "rootMotion": false,
+      "frontYawDegrees": 0,
+      "coreRegion": [
+        0.15,
+        0.18,
+        0.85,
+        0.72
+      ],
+      "id": "survivor-shotgun-rig-motion",
+      "exportName": "survivor-shotgun-rig-motion",
+      "model": "survivor-rig-motion.glb",
+      "clip": "DS_MotionReel",
+      "samples": 32,
+      "subjectHeight": 44,
+      "weaponReady": true,
+      "gripHeight": null,
+      "weaponModel": "weapon-shotgun.glb",
+      "weaponConfig": {
+        "forward": [
+          -1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "gripPosition": [
+          0.47,
+          -0.03,
+          0
+        ],
+        "supportPosition": [
+          -0.33,
+          -0.03,
+          0
+        ],
+        "muzzlePosition": [
+          -0.94,
+          0.131,
+          0
+        ],
+        "landmarkCoordinates": "model-space",
+        "fitToHands": false,
+        "alignMode": "aim",
+        "lengthWorld": 22,
+        "confidence": "character-render-checked; actual-game-review-pending",
+        "landmarkEvidence": "Actual GLB vertex sections plus native 16-direction body/shotgun bake, directions 0 and 6 visually checked. Hand contact and aim agreement are recorded in frame metadata."
+      }
+    },
+    {
+      "ready": true,
+      "directions": 16,
+      "frameSize": 256,
+      "padding": 24,
+      "outlinePx": 4,
+      "shading": "unlit",
+      "rootMotion": false,
+      "frontYawDegrees": 0,
+      "coreRegion": [
+        0.15,
+        0.18,
+        0.85,
+        0.72
+      ],
+      "id": "survivor-nailgun-rig-motion",
+      "exportName": "survivor-nailgun-rig-motion",
+      "model": "survivor-rig-motion.glb",
+      "clip": "DS_MotionReel",
+      "samples": 32,
+      "subjectHeight": 44,
+      "weaponReady": true,
+      "gripHeight": null,
+      "weaponModel": "weapon-nailgun.glb",
+      "weaponConfig": {
+        "forward": [
+          -1,
+          0,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "gripPosition": [
+          0.42,
+          -0.16,
+          0
+        ],
+        "supportPosition": [
+          -0.45,
+          0.2,
+          0
+        ],
+        "muzzlePosition": [
+          -0.94,
+          0.435,
+          0
+        ],
+        "landmarkCoordinates": "model-space",
+        "fitToHands": false,
+        "alignMode": "aim",
+        "lengthWorld": 14,
+        "confidence": "actual-model-manual-candidate; character-render-review-pending",
+        "landmarkEvidence": "Measured native GLB sections. root textured 16-direction hand-contact review pending."
+      }
+    }
+  ]
+}

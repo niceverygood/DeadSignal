@@ -1,0 +1,32 @@
+DEAD SIGNAL ground-fire VFX v0.23.0 integrated record
+
+Image provenance: image_gen raster, referenced moodboard 35. This is separate
+from the 93 Meshy GLB/native sprite catalog records. Original PNG copied byte
+for byte without raster processing, SHA256:
+30ee21bfc149380e1c56c519f3acd119dc19d5f6d29ddb9c2288207e3bc3237b
+1254 x 1254 RGBA; encoded 1,286,281 bytes; decoded RGBA 6,290,064 bytes.
+Four-by-four exact grid edges 0,313,627,940,1254. Per-frame alpha bounds and
+weighted ground pivots: fire-atlas-analysis.json. Visible alpha >=8 is padded;
+faint alpha1 exists at borders, so strictly zero-alpha padding is not claimed.
+
+Final integration: fire-art.js singleton, one optional Image, shared warmup in
+Renderer constructor. Nine original-frame clusters: centre plus eight evenly
+spaced ring anchors at r*.48, visible width min(44, r*.48, requestedWidth).
+Visible height about31.2..43.6 world units at width44. Drawn before actors.
+16fps loop uses actual duration-time, so pause freezes and restore resumes.
+No new RNG, wall-clock animation, image perframe, mask or pixel readback.
+Ground extent/rings, collision, HP/damage, timers, input and saves preserved.
+Loading/error/unavailable art retains original triangles with explicit retry.
+
+Verification: whole native game suite440/440, focused fire11/11.
+Actual CUA player6presets: new9clusters/one1254 Image, frame evolution,
+paused age/frame invariant, checkpoint equivalent and continued age/frame equal.
+All HP100, legal placement, no render state/RNG drift. Actual initial5normal
+fixture enemies omitted; no real browser save/audio linked in this fixedscene.
+Actual boss08mid:2fields18draws;final4fields36draws, one Image, required native
+assets ready. HP107/124 and103/124 reflect actual hazard damage, not invincibility.
+Mobile390x844 DPR2 visible with no document overflow or visible atlas seams.
+These are bounded desktop-browser checks, not real mobile device FPS evidence.
+Screenshots/DOM reports are in ../qa/fire-*-v023.*; early tiny and five-cluster
+comparison captures are preserved, so only files labelled nine/mobile and final
+browser JSON support this final integration.

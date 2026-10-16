@@ -1,0 +1,68 @@
+{
+  "id": "boss-05-final",
+  "source": "outputs/dead-signal/production-assets/models/boss-05-final-v1/model.glb",
+  "model": "outputs/dead-signal/production-assets/models/boss-05-final-motion-v1/model.glb",
+  "sha256": "89681063a412296380e73e48d35b4ed29d36f3aaebd442134914842437303a1e",
+  "profile": "shield",
+  "joints": 15,
+  "arms": 4,
+  "legs": 2,
+  "clips": [
+    "DS_idle",
+    "DS_walk",
+    "DS_windup",
+    "DS_attack",
+    "DS_hit",
+    "DS_death",
+    "DS_MotionReel"
+  ],
+  "atlasClips": {
+    "idle": {
+      "start": 0,
+      "count": 4,
+      "duration": 1.8,
+      "loop": true
+    },
+    "walk": {
+      "start": 4,
+      "count": 8,
+      "duration": 1.2,
+      "loop": true
+    },
+    "windup": {
+      "start": 12,
+      "count": 6,
+      "duration": 0.8,
+      "loop": false
+    },
+    "attack": {
+      "start": 18,
+      "count": 6,
+      "duration": 0.55,
+      "loop": false
+    },
+    "hit": {
+      "start": 24,
+      "count": 2,
+      "duration": 0.22,
+      "loop": false
+    },
+    "death": {
+      "start": 26,
+      "count": 6,
+      "duration": 1.15,
+      "loop": false
+    }
+  },
+  "originalBinaryBytesUnchanged": 18265988,
+  "weights": [
+    {
+      "node": "0",
+      "vertices": 55294,
+      "weightedJoints": 15,
+      "maxWeightSumError": 3.3306690738754696e-16
+    }
+  ],
+  "structuralValidation": "passed",
+  "visualApproval": "pending"
+}

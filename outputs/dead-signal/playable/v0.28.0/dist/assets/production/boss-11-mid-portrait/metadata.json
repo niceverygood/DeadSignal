@@ -1,0 +1,721 @@
+{
+  "format": "meshy-iso-sprite-atlas",
+  "version": 1,
+  "source": {
+    "file": "boss-11-mid-walk.glb",
+    "url": "/models/boss-11-mid-walk.glb",
+    "originalBounds": {
+      "min": [
+        -0.4522080727760554,
+        -9.745098363185761e-10,
+        -0.5017829923691082
+      ],
+      "max": [
+        0.45220809857622185,
+        1.7999997459451087,
+        0.5017830142207201
+      ]
+    },
+    "scale": 40.00000562400927,
+    "originPivot": {
+      "x": 1.2900083223854608e-8,
+      "y": -9.745098363185761e-10,
+      "z": 1.092580598216486e-8
+    },
+    "normalizationMode": "height",
+    "rig": {
+      "skins": 1,
+      "bones": 24,
+      "restForward": [
+        -8.559647787660233e-8,
+        -0.0000010260105646021303,
+        0.9999999999994699
+      ]
+    },
+    "format": "glb",
+    "stats": {
+      "meshes": 1,
+      "triangles": 25798,
+      "skinnedMeshes": 1,
+      "materials": 1
+    }
+  },
+  "projection": {
+    "gameAxes": "x,y on ground; z height",
+    "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+    "azimuthDegrees": 45,
+    "elevationDegrees": 35.26438968275467,
+    "cameraScale": 1.224744871391589,
+    "pixelsPerWorld": 1.8619030295523533,
+    "footPivot": {
+      "x": 128.00000000000003,
+      "y": 195.6486920852268
+    },
+    "subjectHeight": 72,
+    "frontYawRadians": 0
+  },
+  "atlas": {
+    "width": 1024,
+    "height": 512,
+    "columns": 4,
+    "rows": 2,
+    "frameSize": 256,
+    "directions": 8,
+    "samples": 1,
+    "order": "direction-major, sample-minor",
+    "transparent": true,
+    "alphaThreshold": 8,
+    "includesWeapon": false
+  },
+  "animation": {
+    "name": "Armature|walking_man|baselayer",
+    "duration": 1.066666603088379,
+    "loop": true,
+    "samples": 1,
+    "rootMotionRemoved": false,
+    "rootMotion": {
+      "bone": "Hips",
+      "delta": {
+        "x": 1.9073489010423827e-7,
+        "y": -0.000006103516483335625,
+        "z": 1.8477442478154193e-7
+      },
+      "significant": false,
+      "method": "remove net linear XZ travel only; preserve closed-cycle sway and vertical motion",
+      "preservesVerticalMotion": true,
+      "timeSpan": {
+        "start": 0.03333333507180214,
+        "end": 1.066666603088379
+      }
+    }
+  },
+  "weaponReady": null,
+  "appearance": {
+    "baseColor": "original GLB map and color factor",
+    "material": "unlit",
+    "lights": {
+      "hemisphereWhite": 0.65,
+      "keyWhite": 0.75,
+      "keyPosition": [
+        -4,
+        7,
+        6
+      ],
+      "fillWhite": 0.18,
+      "fillPosition": [
+        5,
+        3,
+        -4
+      ]
+    },
+    "toneMapping": "none",
+    "outputColorSpace": "sRGB",
+    "outline": {
+      "color": "#181c1e",
+      "pixels": 4
+    },
+    "floor": false,
+    "shadow": false
+  },
+  "coreRegion": {
+    "proportions": [
+      0.18,
+      0.2,
+      0.82,
+      0.72
+    ],
+    "method": "alpha-occupied torso band; requires visual review for unusual silhouettes"
+  },
+  "frames": [
+    {
+      "index": 0,
+      "direction": 0,
+      "sample": 0,
+      "angle": 0,
+      "time": 0,
+      "groundBounds": {
+        "minX": -15.993513975127822,
+        "minY": -18.475037101119746,
+        "maxX": 18.20380256014007,
+        "maxY": 17.306069505042686
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": 0.8660254037844386,
+        "y": 0.5
+      },
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 92,
+        "y": 45,
+        "width": 75,
+        "height": 163
+      },
+      "combinedAlphaBounds": {
+        "x": 92,
+        "y": 45,
+        "width": 75,
+        "height": 163
+      },
+      "outlineBounds": {
+        "x": 88,
+        "y": 41,
+        "width": 83,
+        "height": 171
+      },
+      "coreBounds": {
+        "x": 105,
+        "y": 77,
+        "width": 49,
+        "height": 86
+      },
+      "projectedBodyBounds": {
+        "left": -19.33505635288391,
+        "top": -80.91113752655873,
+        "right": 20.946311048957536,
+        "bottom": 6.63370096011002
+      },
+      "projectedCoreBounds": {
+        "left": -12.352952669898059,
+        "top": -63.72442076843971,
+        "right": 13.964207365971687,
+        "bottom": -17.535119480994847
+      },
+      "clipped": false
+    },
+    {
+      "index": 1,
+      "direction": 1,
+      "sample": 0,
+      "angle": 0.7853981633974483,
+      "time": 0,
+      "groundBounds": {
+        "minX": -15.534432253784082,
+        "minY": -20.39057633768712,
+        "maxX": 16.808553746664174,
+        "maxY": 21.806519767287327
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": 9.614813431917819e-17,
+        "y": 0.7071067811865475
+      },
+      "rect": {
+        "x": 256,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 88,
+        "y": 49,
+        "width": 82,
+        "height": 155
+      },
+      "combinedAlphaBounds": {
+        "x": 88,
+        "y": 49,
+        "width": 82,
+        "height": 155
+      },
+      "outlineBounds": {
+        "x": 84,
+        "y": 45,
+        "width": 90,
+        "height": 163
+      },
+      "coreBounds": {
+        "x": 102,
+        "y": 80,
+        "width": 54,
+        "height": 81
+      },
+      "projectedBodyBounds": {
+        "left": -21.483395947648788,
+        "top": -78.76279793179386,
+        "right": 22.557565745031194,
+        "bottom": 4.485361365345143
+      },
+      "projectedCoreBounds": {
+        "left": -13.964207365971717,
+        "top": -62.11316607236605,
+        "right": 15.038377163354125,
+        "bottom": -18.609289278377286
+      },
+      "clipped": false
+    },
+    {
+      "index": 2,
+      "direction": 2,
+      "sample": 0,
+      "angle": 1.5707963267948966,
+      "time": 0,
+      "groundBounds": {
+        "minX": -17.306069505042682,
+        "minY": -15.99351397512782,
+        "maxX": 18.475037101119746,
+        "maxY": 18.203802560140073
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": -0.8660254037844385,
+        "y": 0.5
+      },
+      "rect": {
+        "x": 512,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 78,
+        "y": 58,
+        "width": 97,
+        "height": 148
+      },
+      "combinedAlphaBounds": {
+        "x": 78,
+        "y": 58,
+        "width": 97,
+        "height": 148
+      },
+      "outlineBounds": {
+        "x": 74,
+        "y": 54,
+        "width": 105,
+        "height": 156
+      },
+      "coreBounds": {
+        "x": 95,
+        "y": 87,
+        "width": 63,
+        "height": 78
+      },
+      "projectedBodyBounds": {
+        "left": -26.85424493456098,
+        "top": -73.92903384357288,
+        "right": 25.24299023848729,
+        "bottom": 5.559531162727581
+      },
+      "projectedCoreBounds": {
+        "left": -17.723801656810252,
+        "top": -58.35357178152751,
+        "right": 16.112546960736566,
+        "bottom": -16.46094968361241
+      },
+      "clipped": false
+    },
+    {
+      "index": 3,
+      "direction": 3,
+      "sample": 0,
+      "angle": 2.356194490192345,
+      "time": 0,
+      "groundBounds": {
+        "minX": -21.80651976728733,
+        "minY": -15.53443225378408,
+        "maxX": 20.39057633768712,
+        "maxY": 16.808553746664174
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": -1.224744871391589,
+        "y": 5.551115123125783e-17
+      },
+      "rect": {
+        "x": 768,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 86,
+        "y": 66,
+        "width": 79,
+        "height": 144
+      },
+      "combinedAlphaBounds": {
+        "x": 86,
+        "y": 66,
+        "width": 79,
+        "height": 144
+      },
+      "outlineBounds": {
+        "x": 82,
+        "y": 62,
+        "width": 87,
+        "height": 152
+      },
+      "coreBounds": {
+        "x": 100,
+        "y": 94,
+        "width": 51,
+        "height": 76
+      },
+      "projectedBodyBounds": {
+        "left": -22.557565745031226,
+        "top": -69.63235465404313,
+        "right": 19.872141251575098,
+        "bottom": 7.707870757492459
+      },
+      "projectedCoreBounds": {
+        "left": -15.038377163354156,
+        "top": -54.59397749068898,
+        "right": 12.352952669898029,
+        "bottom": -13.775525190156314
+      },
+      "clipped": false
+    },
+    {
+      "index": 4,
+      "direction": 4,
+      "sample": 0,
+      "angle": 3.141592653589793,
+      "time": 0,
+      "groundBounds": {
+        "minX": -18.203802560140076,
+        "minY": -17.30606950504269,
+        "maxX": 15.993513975127822,
+        "maxY": 18.475037101119753
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": -0.8660254037844388,
+        "y": -0.49999999999999994
+      },
+      "rect": {
+        "x": 0,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 90,
+        "y": 58,
+        "width": 74,
+        "height": 151
+      },
+      "combinedAlphaBounds": {
+        "x": 90,
+        "y": 58,
+        "width": 74,
+        "height": 151
+      },
+      "outlineBounds": {
+        "x": 86,
+        "y": 54,
+        "width": 82,
+        "height": 159
+      },
+      "coreBounds": {
+        "x": 103,
+        "y": 88,
+        "width": 48,
+        "height": 79
+      },
+      "projectedBodyBounds": {
+        "left": -20.40922615026635,
+        "top": -73.92903384357288,
+        "right": 19.33505635288388,
+        "bottom": 7.170785858801239
+      },
+      "projectedCoreBounds": {
+        "left": -13.427122467280498,
+        "top": -57.816486882836294,
+        "right": 12.352952669898029,
+        "bottom": -15.386779886229972
+      },
+      "clipped": false
+    },
+    {
+      "index": 5,
+      "direction": 5,
+      "sample": 0,
+      "angle": 3.9269908169872414,
+      "time": 0,
+      "groundBounds": {
+        "minX": -16.808553746664174,
+        "minY": -21.806519767287327,
+        "maxX": 15.534432253784082,
+        "maxY": 20.39057633768712
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": -1.9229626863835638e-16,
+        "y": -0.7071067811865476
+      },
+      "rect": {
+        "x": 256,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 86,
+        "y": 50,
+        "width": 82,
+        "height": 151
+      },
+      "combinedAlphaBounds": {
+        "x": 86,
+        "y": 50,
+        "width": 82,
+        "height": 151
+      },
+      "outlineBounds": {
+        "x": 82,
+        "y": 46,
+        "width": 90,
+        "height": 159
+      },
+      "coreBounds": {
+        "x": 100,
+        "y": 80,
+        "width": 54,
+        "height": 79
+      },
+      "projectedBodyBounds": {
+        "left": -22.557565745031226,
+        "top": -78.22571303310264,
+        "right": 21.483395947648756,
+        "bottom": 2.874106669271485
+      },
+      "projectedCoreBounds": {
+        "left": -15.038377163354156,
+        "top": -62.11316607236605,
+        "right": 13.964207365971687,
+        "bottom": -19.683459075759725
+      },
+      "clipped": false
+    },
+    {
+      "index": 6,
+      "direction": 6,
+      "sample": 0,
+      "angle": 4.71238898038469,
+      "time": 0,
+      "groundBounds": {
+        "minX": -18.475037101119746,
+        "minY": -18.203802560140073,
+        "maxX": 17.306069505042682,
+        "maxY": 15.993513975127822
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": 0.8660254037844384,
+        "y": -0.5000000000000001
+      },
+      "rect": {
+        "x": 512,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 81,
+        "y": 47,
+        "width": 97,
+        "height": 149
+      },
+      "combinedAlphaBounds": {
+        "x": 81,
+        "y": 47,
+        "width": 97,
+        "height": 149
+      },
+      "outlineBounds": {
+        "x": 77,
+        "y": 43,
+        "width": 105,
+        "height": 157
+      },
+      "coreBounds": {
+        "x": 98,
+        "y": 76,
+        "width": 63,
+        "height": 79
+      },
+      "projectedBodyBounds": {
+        "left": -25.242990238487323,
+        "top": -79.8369677291763,
+        "right": 26.85424493456095,
+        "bottom": 0.1886821758153884
+      },
+      "projectedCoreBounds": {
+        "left": -16.112546960736594,
+        "top": -64.26150566713093,
+        "right": 17.72380165681022,
+        "bottom": -21.831798670524602
+      },
+      "clipped": false
+    },
+    {
+      "index": 7,
+      "direction": 7,
+      "sample": 0,
+      "angle": 5.497787143782138,
+      "time": 0,
+      "groundBounds": {
+        "minX": -20.39057633768711,
+        "minY": -16.808553746664163,
+        "maxX": 21.806519767287313,
+        "maxY": 15.534432253784072
+      },
+      "rootCompensation": [
+        0,
+        0,
+        0
+      ],
+      "weaponPose": null,
+      "weaponAnchor": null,
+      "weaponAttachment": null,
+      "weaponMuzzle": null,
+      "screenForward": {
+        "x": 1.224744871391589,
+        "y": -1.6653345369377348e-16
+      },
+      "rect": {
+        "x": 768,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      },
+      "footPivot": {
+        "x": 128.00000000000003,
+        "y": 195.6486920852268
+      },
+      "alphaBounds": {
+        "x": 91,
+        "y": 50,
+        "width": 79,
+        "height": 148
+      },
+      "combinedAlphaBounds": {
+        "x": 91,
+        "y": 50,
+        "width": 79,
+        "height": 148
+      },
+      "outlineBounds": {
+        "x": 87,
+        "y": 46,
+        "width": 87,
+        "height": 156
+      },
+      "coreBounds": {
+        "x": 105,
+        "y": 79,
+        "width": 51,
+        "height": 78
+      },
+      "projectedBodyBounds": {
+        "left": -19.87214125157513,
+        "top": -78.22571303310264,
+        "right": 22.557565745031194,
+        "bottom": 1.262851973197827
+      },
+      "projectedCoreBounds": {
+        "left": -12.352952669898059,
+        "top": -62.65025097105727,
+        "right": 15.038377163354125,
+        "bottom": -20.757628873142163
+      },
+      "clipped": false
+    }
+  ],
+  "nativeWeapon": null,
+  "files": {
+    "atlas": "atlas.png",
+    "bodyAlpha": "body-alpha.png",
+    "metadata": "metadata.json"
+  }
+}

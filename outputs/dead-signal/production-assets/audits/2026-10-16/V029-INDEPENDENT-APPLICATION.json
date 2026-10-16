@@ -1,0 +1,57 @@
+{
+  "recordedAt": "2026-10-16T09:29:32.277Z",
+  "scope": "Read-only independent canonical game, gallery and v029 freeze verification. No player storage, save, source, original art or release file is changed.",
+  "checks": [
+    {
+      "name": "canonical and frozen v029 have157 native records while all126 legacy records and protected mappings are preserved",
+      "status": "passed",
+      "currentAssets": 157,
+      "retainedLegacyAssets": 126
+    },
+    {
+      "name": "all31 NPC mappings point to complete native512-frame locomotion plus retained action reels in both canonical and frozen copies",
+      "status": "passed",
+      "npcMappings": 31,
+      "actualNativeFrames": 15872
+    },
+    {
+      "name": "every original v028 art asset including armory and VFX remains byte exact in canonical and frozen v029",
+      "status": "passed",
+      "retainedOriginalFiles": 415
+    },
+    {
+      "name": "canonical and frozen dist source files are identical and every manifest native path resolves",
+      "status": "passed",
+      "canonicalDistFiles": 564,
+      "nativePathReferences": 435
+    },
+    {
+      "name": "53-entry canonical gallery defaults all31 NPCs to their real new locomotion and all referenced media paths exist",
+      "status": "passed",
+      "galleryEntries": 53,
+      "npcDefaults": 31,
+      "mediaReferences": 802
+    },
+    {
+      "name": "canonical audit preserves old v027 proof and actual v029 evidence SHA and counts remain independent",
+      "status": "passed",
+      "legacyGameVariants": 33,
+      "legacyStateBindings": 161,
+      "controlledActors": 31,
+      "expectedActors": 31,
+      "groundedGlbModels": 19,
+      "expectedGroundedGlbModels": 19,
+      "completeCycleObservedActors": 16,
+      "specialCaseRecords": 16,
+      "verifiedSpecialCaseRecords": 16,
+      "evidenceSHA256": "fff32448f8c9ac80569728dac35341c4851e5492ff501eb9401370fb0f1568d7"
+    },
+    {
+      "name": "32 actual canonical viewer GLBs have exact SHA values and the19 corrected defaults use grounded locomotion",
+      "status": "passed",
+      "weightedSkinModels": 32,
+      "groundedModels": 19
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,32 @@
+{
+	"appId": "kr.bottlecorp.deadsignal",
+	"appName": "DEAD SIGNAL",
+	"webDir": "dist",
+	"backgroundColor": "#10191e",
+	"server": {
+		"hostname": "localhost",
+		"androidScheme": "https",
+		"iosScheme": "capacitor"
+	},
+	"android": {
+		"allowMixedContent": false,
+		"webContentsDebuggingEnabled": false,
+		"backgroundColor": "#10191e"
+	},
+	"ios": {
+		"contentInset": "never",
+		"allowsLinkPreview": false,
+		"backgroundColor": "#10191e",
+		"webContentsDebuggingEnabled": false
+	},
+	"plugins": {
+		"SystemBars": {
+			"hidden": true,
+			"style": "DARK",
+			"animation": "NONE"
+		}
+	},
+	"packageClassList": [
+		"AppPlugin"
+	]
+}

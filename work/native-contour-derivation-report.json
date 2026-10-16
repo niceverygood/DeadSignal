@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "status": "all-544-frames-exact; PNGs-and-original-baker-exports-unchanged",
+  "framesVerified": 544,
+  "assets": [
+    {
+      "id": "survivor-shotgun-idle",
+      "frames": 16,
+      "originalMetadataBytes": 85674,
+      "enrichedMetadataBytes": 119591,
+      "originalMetadataSHA256": "2063fb10b343f101105996d3c28d28196f10e646988630ce7febeb836c4d531d",
+      "enrichedMetadataSHA256": "38ac07b56f5b446f103087e43159821355c966b6edd0c05286edf60cc44b454a",
+      "contourPoints": 3414,
+      "minRows": 103,
+      "maxRows": 107,
+      "allOriginalJSComparisonsExact": true,
+      "allFutureBakerComparisonsExact": true,
+      "frameLocalOffsetsApplied": true
+    },
+    {
+      "id": "survivor-shotgun-walk",
+      "frames": 128,
+      "originalMetadataBytes": 653282,
+      "enrichedMetadataBytes": 894444,
+      "originalMetadataSHA256": "bd83c878914acc44595d15549f0a19ad6c068e32fcda6bedfb6e65207a9ff0e4",
+      "enrichedMetadataSHA256": "ee1f6c50bc4d52a2253892e296555c7e0d24ba3ba023723384b77bd5d0e40898",
+      "contourPoints": 25148,
+      "minRows": 90,
+      "maxRows": 107,
+      "allOriginalJSComparisonsExact": true,
+      "allFutureBakerComparisonsExact": true,
+      "frameLocalOffsetsApplied": true
+    },
+    {
+      "id": "survivor-shotgun-run",
+      "frames": 128,
+      "originalMetadataBytes": 653515,
+      "enrichedMetadataBytes": 868671,
+      "originalMetadataSHA256": "acae7c252fbc9c9d5a67cd00abb25808d53834f1f69967021d2aa974b1ab66ac",
+      "enrichedMetadataSHA256": "0d5f6123de10f4283dd93d41bdfbe48f4381b241db10ee568e6ed3aef5001240",
+      "contourPoints": 23844,
+      "minRows": 76,
+      "maxRows": 111,
+      "allOriginalJSComparisonsExact": true,
+      "allFutureBakerComparisonsExact": true,
+      "frameLocalOffsetsApplied": true
+    },
+    {
+      "id": "survivor-nailgun-idle",
+      "frames": 16,
+      "originalMetadataBytes": 86431,
+      "enrichedMetadataBytes": 121677,
+      "originalMetadataSHA256": "aa1e67dc515e178a983663cce3714eaace1391ff2290d8757dc6dfa5de8195d6",
+      "enrichedMetadataSHA256": "d9f583493df7c6012a4ef2d53ab313fd5f15ef2acbca3819d5b833dc0c382042",
+      "contourPoints": 3488,
+      "minRows": 105,
+      "maxRows": 109,
+      "allOriginalJSComparisonsExact": true,
+      "allFutureBakerComparisonsExact": true,
+      "frameLocalOffsetsApplied": true
+    },
+    {
+      "id": "survivor-nailgun-walk",
+      "frames": 128,
+      "originalMetadataBytes": 657874,
+      "enrichedMetadataBytes": 923305,
+      "originalMetadataSHA256": "20e5167b5dbd7a748e0ea1a5186be96cec8f9b0355c92c3d8c80e71ef64272b7",
+      "enrichedMetadataSHA256": "d68174d1fa614a3567b8d1761b0f89cffff8bba5a4f4214005126ce5c3c14a97",
+      "contourPoints": 26450,
+      "minRows": 95,
+      "maxRows": 113,
+      "allOriginalJSComparisonsExact": true,
+      "allFutureBakerComparisonsExact": true,
+      "frameLocalOffsetsApplied": true
+    },
+    {
+      "id": "survivor-nailgun-run",
+      "frames": 128,
+      "originalMetadataBytes": 657952,
+      "enrichedMetadataBytes": 895644,
+      "originalMetadataSHA256": "a1ba6d142ba6bc96d6a33717347a91732c5a9fe7d2d45b5853d12a838cf3daa5",
+      "enrichedMetadataSHA256": "25e0624907cf581fbb90ea6abc092e279a0f5648f94c0b04dc9bf48cb3df4da7",
+      "contourPoints": 25058,
+      "minRows": 80,
+      "maxRows": 116,
+      "allOriginalJSComparisonsExact": true,
+      "allFutureBakerComparisonsExact": true,
+      "frameLocalOffsetsApplied": true
+    }
+  ],
+  "algorithm": {
+    "source": "work/dead-signal-game/dist/production-art.js#bodyIdentificationContour",
+    "originalFunctionSHA256": "b83f113f0f397204629ce081ef200b07c6464fb384bfcfd1659bd74d3dac06b6",
+    "threshold": 8,
+    "coordinateSpace": "Frame-local. Read full atlas at frame.rect.x/y; alphaBounds/coreBounds remain local.",
+    "edges": "left x=min occupied; right x=max occupied+1; y=row+.5; top is first left/right; torso ends before floor(core.y+core.height).",
+    "independentDerivation": "Pillow RGBA analysis + Python row scan; exact deep comparison with original JS on cropped readPixels adapter and future baker helper.",
+    "pillowVersion": "11.3.0"
+  },
+  "preservation": {
+    "pngFiles": 36,
+    "originalBakerExportFiles": 18,
+    "allSHA256Unchanged": true,
+    "files": [
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-shotgun-idle/atlas.png",
+        "bytes": 330196,
+        "beforeSHA256": "88408aaccc50abc8f75b0ced66da83dbecca7f74c4e99a8643da169bd226be64",
+        "afterSHA256": "88408aaccc50abc8f75b0ced66da83dbecca7f74c4e99a8643da169bd226be64"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-shotgun-idle/body-alpha.png",
+        "bytes": 52603,
+        "beforeSHA256": "18043bc583ba9c4566bb704b796a5116d05fd239eba2b9f4791d67d716e55f6d",
+        "afterSHA256": "18043bc583ba9c4566bb704b796a5116d05fd239eba2b9f4791d67d716e55f6d"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-idle/atlas.png",
+        "bytes": 330196,
+        "beforeSHA256": "88408aaccc50abc8f75b0ced66da83dbecca7f74c4e99a8643da169bd226be64",
+        "afterSHA256": "88408aaccc50abc8f75b0ced66da83dbecca7f74c4e99a8643da169bd226be64"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-idle/body-alpha.png",
+        "bytes": 52603,
+        "beforeSHA256": "18043bc583ba9c4566bb704b796a5116d05fd239eba2b9f4791d67d716e55f6d",
+        "afterSHA256": "18043bc583ba9c4566bb704b796a5116d05fd239eba2b9f4791d67d716e55f6d"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-shotgun-walk/atlas.png",
+        "bytes": 2422054,
+        "beforeSHA256": "c3e39359982941ba35b830f4ad8843dcc8715b82d74b266a6d23072fdf9ef680",
+        "afterSHA256": "c3e39359982941ba35b830f4ad8843dcc8715b82d74b266a6d23072fdf9ef680"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-shotgun-walk/body-alpha.png",
+        "bytes": 416230,
+        "beforeSHA256": "52bc5cdb41e67a9aecffcc2627bf6cabc35bd498c79b2e07a1840e580b7e241d",
+        "afterSHA256": "52bc5cdb41e67a9aecffcc2627bf6cabc35bd498c79b2e07a1840e580b7e241d"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-walk/atlas.png",
+        "bytes": 2422054,
+        "beforeSHA256": "c3e39359982941ba35b830f4ad8843dcc8715b82d74b266a6d23072fdf9ef680",
+        "afterSHA256": "c3e39359982941ba35b830f4ad8843dcc8715b82d74b266a6d23072fdf9ef680"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-walk/body-alpha.png",
+        "bytes": 416230,
+        "beforeSHA256": "52bc5cdb41e67a9aecffcc2627bf6cabc35bd498c79b2e07a1840e580b7e241d",
+        "afterSHA256": "52bc5cdb41e67a9aecffcc2627bf6cabc35bd498c79b2e07a1840e580b7e241d"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-shotgun-run/atlas.png",
+        "bytes": 2334966,
+        "beforeSHA256": "2bb411468e9c6f126382eaac07b70824b26d06f804c52c2bc5cf15439689b6a4",
+        "afterSHA256": "2bb411468e9c6f126382eaac07b70824b26d06f804c52c2bc5cf15439689b6a4"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-shotgun-run/body-alpha.png",
+        "bytes": 412688,
+        "beforeSHA256": "d09a10104f753b5d50bfa0ff3a970a99e3f9f8ec237b7a9a294bfb29598d69b1",
+        "afterSHA256": "d09a10104f753b5d50bfa0ff3a970a99e3f9f8ec237b7a9a294bfb29598d69b1"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-run/atlas.png",
+        "bytes": 2334966,
+        "beforeSHA256": "2bb411468e9c6f126382eaac07b70824b26d06f804c52c2bc5cf15439689b6a4",
+        "afterSHA256": "2bb411468e9c6f126382eaac07b70824b26d06f804c52c2bc5cf15439689b6a4"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-shotgun-run/body-alpha.png",
+        "bytes": 412688,
+        "beforeSHA256": "d09a10104f753b5d50bfa0ff3a970a99e3f9f8ec237b7a9a294bfb29598d69b1",
+        "afterSHA256": "d09a10104f753b5d50bfa0ff3a970a99e3f9f8ec237b7a9a294bfb29598d69b1"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-nailgun-idle/atlas.png",
+        "bytes": 345205,
+        "beforeSHA256": "4592fdbac1a7d55d20226166518d1ec30bc469951b9c18edf26c70844755d3ed",
+        "afterSHA256": "4592fdbac1a7d55d20226166518d1ec30bc469951b9c18edf26c70844755d3ed"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-nailgun-idle/body-alpha.png",
+        "bytes": 53185,
+        "beforeSHA256": "2dab1c71958dbe3ecdab4ea95074e119a1558c5fd18468efc8ead023bacaf9b3",
+        "afterSHA256": "2dab1c71958dbe3ecdab4ea95074e119a1558c5fd18468efc8ead023bacaf9b3"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-idle/atlas.png",
+        "bytes": 345205,
+        "beforeSHA256": "4592fdbac1a7d55d20226166518d1ec30bc469951b9c18edf26c70844755d3ed",
+        "afterSHA256": "4592fdbac1a7d55d20226166518d1ec30bc469951b9c18edf26c70844755d3ed"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-idle/body-alpha.png",
+        "bytes": 53185,
+        "beforeSHA256": "2dab1c71958dbe3ecdab4ea95074e119a1558c5fd18468efc8ead023bacaf9b3",
+        "afterSHA256": "2dab1c71958dbe3ecdab4ea95074e119a1558c5fd18468efc8ead023bacaf9b3"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-nailgun-walk/atlas.png",
+        "bytes": 2631683,
+        "beforeSHA256": "1b749b5ba0b106adea3ca826c8d40a8f84b64bfd91825d51c8ddc5411a338eff",
+        "afterSHA256": "1b749b5ba0b106adea3ca826c8d40a8f84b64bfd91825d51c8ddc5411a338eff"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-nailgun-walk/body-alpha.png",
+        "bytes": 425837,
+        "beforeSHA256": "19b3e98b07f2c1e68cbd2d89ee8f2645c52c6b09d7ef7591706f5115fb9f441b",
+        "afterSHA256": "19b3e98b07f2c1e68cbd2d89ee8f2645c52c6b09d7ef7591706f5115fb9f441b"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-walk/atlas.png",
+        "bytes": 2631683,
+        "beforeSHA256": "1b749b5ba0b106adea3ca826c8d40a8f84b64bfd91825d51c8ddc5411a338eff",
+        "afterSHA256": "1b749b5ba0b106adea3ca826c8d40a8f84b64bfd91825d51c8ddc5411a338eff"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-walk/body-alpha.png",
+        "bytes": 425837,
+        "beforeSHA256": "19b3e98b07f2c1e68cbd2d89ee8f2645c52c6b09d7ef7591706f5115fb9f441b",
+        "afterSHA256": "19b3e98b07f2c1e68cbd2d89ee8f2645c52c6b09d7ef7591706f5115fb9f441b"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-nailgun-run/atlas.png",
+        "bytes": 2545310,
+        "beforeSHA256": "36dcad7a7e4765e58040cbcd5fd842d6d28a7ba52669d62c98f98ae94761713f",
+        "afterSHA256": "36dcad7a7e4765e58040cbcd5fd842d6d28a7ba52669d62c98f98ae94761713f"
+      },
+      {
+        "file": "work/dead-signal-game/dist/assets/production/survivor-nailgun-run/body-alpha.png",
+        "bytes": 425166,
+        "beforeSHA256": "9f0dab0cfcbbe95d8f5c89290ccce9909c4943a43b2532cce43aea89a354a228",
+        "afterSHA256": "9f0dab0cfcbbe95d8f5c89290ccce9909c4943a43b2532cce43aea89a354a228"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-run/atlas.png",
+        "bytes": 2545310,
+        "beforeSHA256": "36dcad7a7e4765e58040cbcd5fd842d6d28a7ba52669d62c98f98ae94761713f",
+        "afterSHA256": "36dcad7a7e4765e58040cbcd5fd842d6d28a7ba52669d62c98f98ae94761713f"
+      },
+      {
+        "file": "outputs/dead-signal/production-assets/sprites/survivor-nailgun-run/body-alpha.png",
+        "bytes": 425166,
+        "beforeSHA256": "9f0dab0cfcbbe95d8f5c89290ccce9909c4943a43b2532cce43aea89a354a228",
+        "afterSHA256": "9f0dab0cfcbbe95d8f5c89290ccce9909c4943a43b2532cce43aea89a354a228"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-idle-2026-10-14T18-32-10-394Z/metadata.json",
+        "bytes": 86431,
+        "beforeSHA256": "aa1e67dc515e178a983663cce3714eaace1391ff2290d8757dc6dfa5de8195d6",
+        "afterSHA256": "aa1e67dc515e178a983663cce3714eaace1391ff2290d8757dc6dfa5de8195d6"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-idle-2026-10-14T18-32-10-394Z/atlas.png",
+        "bytes": 345205,
+        "beforeSHA256": "4592fdbac1a7d55d20226166518d1ec30bc469951b9c18edf26c70844755d3ed",
+        "afterSHA256": "4592fdbac1a7d55d20226166518d1ec30bc469951b9c18edf26c70844755d3ed"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-idle-2026-10-14T18-32-10-394Z/body-alpha.png",
+        "bytes": 53185,
+        "beforeSHA256": "2dab1c71958dbe3ecdab4ea95074e119a1558c5fd18468efc8ead023bacaf9b3",
+        "afterSHA256": "2dab1c71958dbe3ecdab4ea95074e119a1558c5fd18468efc8ead023bacaf9b3"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-run-2026-10-14T18-32-22-159Z/metadata.json",
+        "bytes": 657952,
+        "beforeSHA256": "a1ba6d142ba6bc96d6a33717347a91732c5a9fe7d2d45b5853d12a838cf3daa5",
+        "afterSHA256": "a1ba6d142ba6bc96d6a33717347a91732c5a9fe7d2d45b5853d12a838cf3daa5"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-run-2026-10-14T18-32-22-159Z/atlas.png",
+        "bytes": 2545310,
+        "beforeSHA256": "36dcad7a7e4765e58040cbcd5fd842d6d28a7ba52669d62c98f98ae94761713f",
+        "afterSHA256": "36dcad7a7e4765e58040cbcd5fd842d6d28a7ba52669d62c98f98ae94761713f"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-run-2026-10-14T18-32-22-159Z/body-alpha.png",
+        "bytes": 425166,
+        "beforeSHA256": "9f0dab0cfcbbe95d8f5c89290ccce9909c4943a43b2532cce43aea89a354a228",
+        "afterSHA256": "9f0dab0cfcbbe95d8f5c89290ccce9909c4943a43b2532cce43aea89a354a228"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-walk-2026-10-14T18-32-16-328Z/metadata.json",
+        "bytes": 657874,
+        "beforeSHA256": "20e5167b5dbd7a748e0ea1a5186be96cec8f9b0355c92c3d8c80e71ef64272b7",
+        "afterSHA256": "20e5167b5dbd7a748e0ea1a5186be96cec8f9b0355c92c3d8c80e71ef64272b7"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-walk-2026-10-14T18-32-16-328Z/atlas.png",
+        "bytes": 2631683,
+        "beforeSHA256": "1b749b5ba0b106adea3ca826c8d40a8f84b64bfd91825d51c8ddc5411a338eff",
+        "afterSHA256": "1b749b5ba0b106adea3ca826c8d40a8f84b64bfd91825d51c8ddc5411a338eff"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-nailgun-walk-2026-10-14T18-32-16-328Z/body-alpha.png",
+        "bytes": 425837,
+        "beforeSHA256": "19b3e98b07f2c1e68cbd2d89ee8f2645c52c6b09d7ef7591706f5115fb9f441b",
+        "afterSHA256": "19b3e98b07f2c1e68cbd2d89ee8f2645c52c6b09d7ef7591706f5115fb9f441b"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-idle-2026-10-14T17-39-56-788Z/metadata.json",
+        "bytes": 85674,
+        "beforeSHA256": "2063fb10b343f101105996d3c28d28196f10e646988630ce7febeb836c4d531d",
+        "afterSHA256": "2063fb10b343f101105996d3c28d28196f10e646988630ce7febeb836c4d531d"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-idle-2026-10-14T17-39-56-788Z/atlas.png",
+        "bytes": 330196,
+        "beforeSHA256": "88408aaccc50abc8f75b0ced66da83dbecca7f74c4e99a8643da169bd226be64",
+        "afterSHA256": "88408aaccc50abc8f75b0ced66da83dbecca7f74c4e99a8643da169bd226be64"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-idle-2026-10-14T17-39-56-788Z/body-alpha.png",
+        "bytes": 52603,
+        "beforeSHA256": "18043bc583ba9c4566bb704b796a5116d05fd239eba2b9f4791d67d716e55f6d",
+        "afterSHA256": "18043bc583ba9c4566bb704b796a5116d05fd239eba2b9f4791d67d716e55f6d"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-run-2026-10-14T17-40-08-308Z/metadata.json",
+        "bytes": 653515,
+        "beforeSHA256": "acae7c252fbc9c9d5a67cd00abb25808d53834f1f69967021d2aa974b1ab66ac",
+        "afterSHA256": "acae7c252fbc9c9d5a67cd00abb25808d53834f1f69967021d2aa974b1ab66ac"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-run-2026-10-14T17-40-08-308Z/atlas.png",
+        "bytes": 2334966,
+        "beforeSHA256": "2bb411468e9c6f126382eaac07b70824b26d06f804c52c2bc5cf15439689b6a4",
+        "afterSHA256": "2bb411468e9c6f126382eaac07b70824b26d06f804c52c2bc5cf15439689b6a4"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-run-2026-10-14T17-40-08-308Z/body-alpha.png",
+        "bytes": 412688,
+        "beforeSHA256": "d09a10104f753b5d50bfa0ff3a970a99e3f9f8ec237b7a9a294bfb29598d69b1",
+        "afterSHA256": "d09a10104f753b5d50bfa0ff3a970a99e3f9f8ec237b7a9a294bfb29598d69b1"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-walk-2026-10-14T17-40-02-789Z/metadata.json",
+        "bytes": 653282,
+        "beforeSHA256": "bd83c878914acc44595d15549f0a19ad6c068e32fcda6bedfb6e65207a9ff0e4",
+        "afterSHA256": "bd83c878914acc44595d15549f0a19ad6c068e32fcda6bedfb6e65207a9ff0e4"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-walk-2026-10-14T17-40-02-789Z/atlas.png",
+        "bytes": 2422054,
+        "beforeSHA256": "c3e39359982941ba35b830f4ad8843dcc8715b82d74b266a6d23072fdf9ef680",
+        "afterSHA256": "c3e39359982941ba35b830f4ad8843dcc8715b82d74b266a6d23072fdf9ef680"
+      },
+      {
+        "file": "work/meshy-sprite-baker/exports/survivor-shotgun-walk-2026-10-14T17-40-02-789Z/body-alpha.png",
+        "bytes": 416230,
+        "beforeSHA256": "52bc5cdb41e67a9aecffcc2627bf6cabc35bd498c79b2e07a1840e580b7e241d",
+        "afterSHA256": "52bc5cdb41e67a9aecffcc2627bf6cabc35bd498c79b2e07a1840e580b7e241d"
+      }
+    ]
+  },
+  "writes": {
+    "scope": "Only game+outputs/sprites six hero metadata; original metadata byte backups are immutable.",
+    "backupDirectory": "work/native-contour-backups",
+    "atomic": "All12 metadata files staged before commit; each replaced by same-directory atomic rename; game/output bytes verified equal.",
+    "metadataLimitUTF8Bytes": 2097152,
+    "largestMetadataBytes": 923305
+  },
+  "reproducibility": {
+    "node": "node work/derive-native-contours.mjs",
+    "pythonScriptSHA256": "08c3018df9e978327eebd7bf938ff4f8129bed31dc80666c89e1260505392b62",
+    "nodeScriptSHA256": "88c0c11ac2b98ad55403bc272f0906a577eb829db5b2e11bcfdb06536d4aa5be",
+    "futureBakerSource": "work/meshy-sprite-baker/src/atlas.js#bodyIdentificationContour"
+  },
+  "pixelAnalysisStdout": "{\"assets\": 6, \"frames\": 544, \"pillowVersion\": \"11.3.0\"}",
+  "validationRuns": [
+    {
+      "command": "npm test",
+      "directory": "work/meshy-sprite-baker",
+      "passed": 33,
+      "failed": 0,
+      "scope": "Actual rig/camera/IK/material/export tests plus exact contour and UTF8 metadata-limit regression tests."
+    },
+    {
+      "command": "node --test work/production-review.test.mjs",
+      "passed": 5,
+      "failed": 0,
+      "scope": "Rerun gallery inventory, exact game/output hashes, actual native frame bounds and selected-only loading."
+    }
+  ],
+  "galleryRebuiltAfterEnrichment": true
+}

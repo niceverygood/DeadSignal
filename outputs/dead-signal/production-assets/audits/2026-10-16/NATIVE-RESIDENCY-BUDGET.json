@@ -1,0 +1,2082 @@
+{
+  "format": "dead-signal-native-image-residency-budget-v1",
+  "meaning": "Exact lower-bound decoded RGBA equivalents for actual metadata dimensions and current launch asset selection. This is not measured browser/process/VRAM peak; metadata, decoded/compositor copies, floor/canvas, texture drivers and other UI are extra.",
+  "fixedMath": {
+    "singleMotionAtlas16Directions32Samples256Cell": {
+      "pixels": 33554432,
+      "RGBABytes": 134217728,
+      "MiB": 128
+    },
+    "eightDirections32Samples256CellMiB": 64,
+    "sixteenDirections32Samples128CellMiB": 32
+  },
+  "loaderFacts": {
+    "appCallsLoadAll": false,
+    "launchPreloadsOnlySelectedMissionTwoBosses": true,
+    "launchMasksOnlyHero": true,
+    "heroMasksActuallyDecoded": false,
+    "releaseOnlyAfterSuccessfulNewSceneCommit": true,
+    "failedCancelledLaunchKeepsOldSceneAssets": true,
+    "portraitGameplayMustStaySeparate": true,
+    "HDPortraitResidencyCount": 1
+  },
+  "steadyMax": {
+    "current": {
+      "mission": "mission-06",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-06-mid",
+        "boss-06-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-terminal-bus-depot",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    "finalBosses32": {
+      "mission": "mission-06",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-06-mid",
+        "boss-06-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-terminal-bus-depot",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    "allBosses32": {
+      "mission": "mission-06",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-06-mid",
+        "boss-06-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-terminal-bus-depot",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    }
+  },
+  "transitionMax": {
+    "current": {
+      "from": "shotgun/mission-01",
+      "to": "nailgun/mission-05",
+      "current": {
+        "imageMiB": 824,
+        "maskMiB": 0,
+        "totalMiB": 824
+      },
+      "finalBosses32": {
+        "imageMiB": 1072,
+        "maskMiB": 0,
+        "totalMiB": 1072
+      },
+      "allBosses32": {
+        "imageMiB": 1264,
+        "maskMiB": 0,
+        "totalMiB": 1264
+      }
+    },
+    "finalBosses32": {
+      "from": "shotgun/mission-01",
+      "to": "nailgun/mission-05",
+      "current": {
+        "imageMiB": 824,
+        "maskMiB": 0,
+        "totalMiB": 824
+      },
+      "finalBosses32": {
+        "imageMiB": 1072,
+        "maskMiB": 0,
+        "totalMiB": 1072
+      },
+      "allBosses32": {
+        "imageMiB": 1264,
+        "maskMiB": 0,
+        "totalMiB": 1264
+      }
+    },
+    "allBosses32": {
+      "from": "shotgun/mission-01",
+      "to": "nailgun/mission-05",
+      "current": {
+        "imageMiB": 824,
+        "maskMiB": 0,
+        "totalMiB": 824
+      },
+      "finalBosses32": {
+        "imageMiB": 1072,
+        "maskMiB": 0,
+        "totalMiB": 1072
+      },
+      "allBosses32": {
+        "imageMiB": 1264,
+        "maskMiB": 0,
+        "totalMiB": 1264
+      }
+    }
+  },
+  "regularPortraitImagesMiB": 72,
+  "maximumCurrentSingleHDImageMiB": 8,
+  "allCatalogWithoutMasksMiB": 1516,
+  "maskPolicy": "Every current hero active frame has a baked bodyIdentificationContour. loadBodyAlpha resolves true with no Image allocation; new boss masks are not included in plan.maskIds.",
+  "recommendations": [
+    "Keep existing compact static IDs in bossPortraits and bossDetailPortraits. Bind new motion IDs only under bosses; never alias 512-frame game atlases to the whole codex.",
+    "Existing per-mission gate and commit-time eviction are already conservative about preserving a still-playable old scene on failure. Do not evict old active assets before successful replacement.",
+    "For two animated bosses per mission, 256-cell16direction32sample atlases add256MiB decoded_RGBA per mission. Prefer64MiB8direction or32MiB128-cell actual native bakes if target mobile memory cannot support the measured outcome.",
+    "No extra body-alpha PNG decode is needed for bosses. Preserve original masks on disk for provenance; omit them from preload.",
+    "Do not equate compressed PNG/GLB file size or atlas maximum32MP with32MiB. One32MP_RGBA image is128MiB."
+  ],
+  "plans": [
+    {
+      "mission": "mission-01",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-01-mid",
+        "boss-01-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-demolition-scaffold-bay",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 454,
+        "maskMiB": 0,
+        "totalMiB": 454
+      },
+      "finalBosses32": {
+        "imageMiB": 578,
+        "maskMiB": 0,
+        "totalMiB": 578
+      },
+      "allBosses32": {
+        "imageMiB": 674,
+        "maskMiB": 0,
+        "totalMiB": 674
+      }
+    },
+    {
+      "mission": "mission-02",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-02-mid",
+        "boss-02-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-sewers-pump-station",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 486,
+        "maskMiB": 0,
+        "totalMiB": 486
+      },
+      "finalBosses32": {
+        "imageMiB": 610,
+        "maskMiB": 0,
+        "totalMiB": 610
+      },
+      "allBosses32": {
+        "imageMiB": 706,
+        "maskMiB": 0,
+        "totalMiB": 706
+      }
+    },
+    {
+      "mission": "mission-03",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-03-mid",
+        "boss-03-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-harbor-container",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "finalBosses32": {
+        "imageMiB": 642,
+        "maskMiB": 0,
+        "totalMiB": 642
+      },
+      "allBosses32": {
+        "imageMiB": 738,
+        "maskMiB": 0,
+        "totalMiB": 738
+      }
+    },
+    {
+      "mission": "mission-04",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-04-mid",
+        "boss-04-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-hospital-quarantine-wing",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "finalBosses32": {
+        "imageMiB": 642,
+        "maskMiB": 0,
+        "totalMiB": 642
+      },
+      "allBosses32": {
+        "imageMiB": 738,
+        "maskMiB": 0,
+        "totalMiB": 738
+      }
+    },
+    {
+      "mission": "mission-05",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-05-mid",
+        "boss-05-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-checkpoint-guardhouse",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "finalBosses32": {
+        "imageMiB": 640,
+        "maskMiB": 0,
+        "totalMiB": 640
+      },
+      "allBosses32": {
+        "imageMiB": 736,
+        "maskMiB": 0,
+        "totalMiB": 736
+      }
+    },
+    {
+      "mission": "mission-06",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-06-mid",
+        "boss-06-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-terminal-bus-depot",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-07",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-07-mid",
+        "boss-07-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-power-transformer-bank",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-08",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-08-mid",
+        "boss-08-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-refinery-tank-pump",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-09",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-09-mid",
+        "boss-09-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-armory-bunker",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "finalBosses32": {
+        "imageMiB": 640,
+        "maskMiB": 0,
+        "totalMiB": 640
+      },
+      "allBosses32": {
+        "imageMiB": 736,
+        "maskMiB": 0,
+        "totalMiB": 736
+      }
+    },
+    {
+      "mission": "mission-10",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-10-mid",
+        "boss-10-final-repaired-v2",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-scrapyard-compressor",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-11",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-11-mid",
+        "boss-11-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-greenhouse-isolation",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-12",
+      "weapon": "shotgun",
+      "assetIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run",
+        "boss-12-mid",
+        "boss-12-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-breakwater-control-building",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "maskIds": [
+        "survivor-shotgun-idle",
+        "survivor-shotgun-walk",
+        "survivor-shotgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-01",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-01-mid",
+        "boss-01-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-demolition-scaffold-bay",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 454,
+        "maskMiB": 0,
+        "totalMiB": 454
+      },
+      "finalBosses32": {
+        "imageMiB": 578,
+        "maskMiB": 0,
+        "totalMiB": 578
+      },
+      "allBosses32": {
+        "imageMiB": 674,
+        "maskMiB": 0,
+        "totalMiB": 674
+      }
+    },
+    {
+      "mission": "mission-02",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-02-mid",
+        "boss-02-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-sewers-pump-station",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 486,
+        "maskMiB": 0,
+        "totalMiB": 486
+      },
+      "finalBosses32": {
+        "imageMiB": 610,
+        "maskMiB": 0,
+        "totalMiB": 610
+      },
+      "allBosses32": {
+        "imageMiB": 706,
+        "maskMiB": 0,
+        "totalMiB": 706
+      }
+    },
+    {
+      "mission": "mission-03",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-03-mid",
+        "boss-03-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-harbor-container",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "finalBosses32": {
+        "imageMiB": 642,
+        "maskMiB": 0,
+        "totalMiB": 642
+      },
+      "allBosses32": {
+        "imageMiB": 738,
+        "maskMiB": 0,
+        "totalMiB": 738
+      }
+    },
+    {
+      "mission": "mission-04",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-04-mid",
+        "boss-04-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-hospital-quarantine-wing",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 518,
+        "maskMiB": 0,
+        "totalMiB": 518
+      },
+      "finalBosses32": {
+        "imageMiB": 642,
+        "maskMiB": 0,
+        "totalMiB": 642
+      },
+      "allBosses32": {
+        "imageMiB": 738,
+        "maskMiB": 0,
+        "totalMiB": 738
+      }
+    },
+    {
+      "mission": "mission-05",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-05-mid",
+        "boss-05-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-checkpoint-guardhouse",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "finalBosses32": {
+        "imageMiB": 640,
+        "maskMiB": 0,
+        "totalMiB": 640
+      },
+      "allBosses32": {
+        "imageMiB": 736,
+        "maskMiB": 0,
+        "totalMiB": 736
+      }
+    },
+    {
+      "mission": "mission-06",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-06-mid",
+        "boss-06-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-terminal-bus-depot",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-07",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-07-mid",
+        "boss-07-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-power-transformer-bank",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-08",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-08-mid",
+        "boss-08-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-refinery-tank-pump",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-09",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-09-mid",
+        "boss-09-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-armory-bunker",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 516,
+        "maskMiB": 0,
+        "totalMiB": 516
+      },
+      "finalBosses32": {
+        "imageMiB": 640,
+        "maskMiB": 0,
+        "totalMiB": 640
+      },
+      "allBosses32": {
+        "imageMiB": 736,
+        "maskMiB": 0,
+        "totalMiB": 736
+      }
+    },
+    {
+      "mission": "mission-10",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-10-mid",
+        "boss-10-final-repaired-v2",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-scrapyard-compressor",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-11",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-11-mid",
+        "boss-11-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-greenhouse-isolation",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    },
+    {
+      "mission": "mission-12",
+      "weapon": "nailgun",
+      "assetIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run",
+        "boss-12-mid",
+        "boss-12-final",
+        "enemy-walker",
+        "enemy-runner",
+        "enemy-shield",
+        "enemy-screamer",
+        "enemy-gas",
+        "enemy-elite",
+        "lure-speaker",
+        "env-common-brick",
+        "env-breakwater-control-building",
+        "env-broken-car",
+        "env-red-fuel-barrel",
+        "env-fence-vertical",
+        "env-fence-horizontal",
+        "env-amber-worklamp"
+      ],
+      "playerIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "maskIds": [
+        "survivor-nailgun-idle",
+        "survivor-nailgun-walk",
+        "survivor-nailgun-run"
+      ],
+      "current": {
+        "imageMiB": 520,
+        "maskMiB": 0,
+        "totalMiB": 520
+      },
+      "finalBosses32": {
+        "imageMiB": 644,
+        "maskMiB": 0,
+        "totalMiB": 644
+      },
+      "allBosses32": {
+        "imageMiB": 740,
+        "maskMiB": 0,
+        "totalMiB": 740
+      }
+    }
+  ],
+  "dimensions": {
+    "survivor-shotgun-idle": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": true,
+      "atlasFrames": 16
+    },
+    "survivor-shotgun-walk": {
+      "width": 4096,
+      "height": 8192,
+      "rgbaBytes": 134217728,
+      "masksSkippedByContours": true,
+      "atlasFrames": 512
+    },
+    "survivor-shotgun-run": {
+      "width": 4096,
+      "height": 8192,
+      "rgbaBytes": 134217728,
+      "masksSkippedByContours": true,
+      "atlasFrames": 512
+    },
+    "boss-01-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-07-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-01-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-02-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-02-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "survivor-nailgun-idle": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": true,
+      "atlasFrames": 16
+    },
+    "survivor-nailgun-walk": {
+      "width": 4096,
+      "height": 8192,
+      "rgbaBytes": 134217728,
+      "masksSkippedByContours": true,
+      "atlasFrames": 512
+    },
+    "survivor-nailgun-run": {
+      "width": 4096,
+      "height": 8192,
+      "rgbaBytes": 134217728,
+      "masksSkippedByContours": true,
+      "atlasFrames": 512
+    },
+    "env-demolition-scaffold-bay": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-sewers-pump-station": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-03-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-03-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-04-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-04-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-05-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-06-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "env-harbor-container": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-hospital-quarantine-wing": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-checkpoint-guardhouse": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-terminal-bus-depot": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-power-transformer-bank": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-refinery-tank-pump": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-armory-bunker": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-scrapyard-compressor": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-greenhouse-isolation": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-breakwater-control-building": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-fence-horizontal": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-fence-vertical": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-broken-car": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "env-red-fuel-barrel": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "env-amber-worklamp": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-05-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-06-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-07-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-08-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-08-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-09-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-09-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-10-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-11-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-11-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-12-mid": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "boss-12-final": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "enemy-walker": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "enemy-runner": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "enemy-shield": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "enemy-screamer": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "enemy-gas": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "enemy-elite": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "enemy-collector": {
+      "width": 2048,
+      "height": 4096,
+      "rgbaBytes": 33554432,
+      "masksSkippedByContours": false,
+      "atlasFrames": 128
+    },
+    "lure-speaker": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "throwable-molotov": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "boss-01-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-02-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-03-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-04-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-05-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-06-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-07-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-08-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-09-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-10-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-11-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-12-mid-portrait": {
+      "width": 1024,
+      "height": 512,
+      "rgbaBytes": 2097152,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-10-final-repaired-v2": {
+      "width": 2048,
+      "height": 512,
+      "rgbaBytes": 4194304,
+      "masksSkippedByContours": false,
+      "atlasFrames": 16
+    },
+    "env-common-brick": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-01-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-01-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-02-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-02-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-03-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-03-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-04-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-04-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-05-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-05-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-06-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-06-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-07-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-07-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-08-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-08-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-09-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-09-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-10-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-10-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-11-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-11-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-12-mid-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    },
+    "boss-12-final-detail-hd": {
+      "width": 2048,
+      "height": 1024,
+      "rgbaBytes": 8388608,
+      "masksSkippedByContours": false,
+      "atlasFrames": 8
+    }
+  }
+}

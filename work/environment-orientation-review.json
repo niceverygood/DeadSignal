@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "scope": "Read-only inspection of actual native GPU atlases, not Meshy camera labels",
+  "models": {
+    "env-demolition-scaffold-bay": {
+      "sourceSHA256": "2ff88e6c66c0d1772416527328ad80c95b8ed2519a81cb9867c9b1e511bbeb50",
+      "frontYawDegrees": -90,
+      "rawFrontVector": [
+        0,
+        0,
+        1
+      ],
+      "bakedFrontGameVector": [
+        0,
+        1
+      ],
+      "atlas": "work/meshy-sprite-baker/exports/env-demolition-scaffold-bay-2026-10-15T01-46-49-177Z/atlas.png",
+      "metadata": "work/meshy-sprite-baker/exports/env-demolition-scaffold-bay-2026-10-15T01-46-49-177Z/metadata.json",
+      "evidence": "Actual direction0 native frame shows long mesh gate on game +Y facade; reverse direction4 shows concrete service-door facade. Raw yaw0 is maintained by frontYaw-90 in modelRotation.",
+      "orientationVerified": true,
+      "rootArtApproval": "uniform-footprint candidate accepted; final scene/material QA owned by root",
+      "atlasSHA256": "2276873e5692901934e8e6b4647bd4260570b39a62bc7466a42ee37a8b61347f",
+      "nativeDirections": 8,
+      "nativeFrames": 8,
+      "clippedFrames": 0
+    },
+    "env-sewers-pump-station": {
+      "sourceSHA256": "e853305c0cce1d0598ed0ebc5875eb8c9478205d40c23d51d230e5587ec62e25",
+      "frontYawDegrees": 0,
+      "rawFrontVector": [
+        -1,
+        0,
+        0
+      ],
+      "bakedFrontGameVector": [
+        0,
+        1
+      ],
+      "atlas": "work/meshy-sprite-baker/exports/env-sewers-pump-station-2026-10-15T01-46-51-139Z/atlas.png",
+      "metadata": "work/meshy-sprite-baker/exports/env-sewers-pump-station-2026-10-15T01-46-51-139Z/metadata.json",
+      "evidence": "Actual direction0 native frame shows door on short game +Y end and paired elbow pipes on long game +X side. Raw door is -X, pipes +Z; modelRotation90 maps these to intended +Y/+X. Direction4 shows closed opposite brick/conduit walls.",
+      "orientationVerified": true,
+      "rootArtApproval": "uniform-footprint candidate accepted; final scene/material QA owned by root",
+      "atlasSHA256": "dcabc9b94ff096d570e872b633d78fa7df1fc375ea944b4c65b5121ad3a83651",
+      "nativeDirections": 8,
+      "nativeFrames": 8,
+      "clippedFrames": 0
+    }
+  }
+}

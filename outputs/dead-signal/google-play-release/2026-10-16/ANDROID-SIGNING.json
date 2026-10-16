@@ -1,0 +1,82 @@
+{
+  "status": "new_app_upload_key_and_signed_aab_prepared_not_uploaded",
+  "packageId": "kr.bottlecorp.deadsignal",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "uploadKey": {
+    "algorithm": "RSA",
+    "bits": 3072,
+    "signatureAlgorithm": "SHA256withRSA",
+    "keystoreType": "PKCS12",
+    "encryptedPrivateKey": true,
+    "privateDirectoryMode": "0700",
+    "privateFileMode": "0600",
+    "privateKeystorePath": "/Users/seungsoohan/.codex/credentials/dead-signal-google-play/upload-2026.p12",
+    "alias": "dead-signal-upload-2026",
+    "passwordStorage": "macOS Keychain generic password; no secret files or argv",
+    "keychainService": "kr.bottlecorp.deadsignal.google-play.upload",
+    "keychainAccount": "dead-signal-upload-2026",
+    "keychainVerifiedAfterCreation": true,
+    "synchronizable": false,
+    "keychainHelperPath": "/Users/seungsoohan/.codex/credentials/dead-signal-google-play/keychain-helper",
+    "helperSHA256": "e4a92514bcc176f786c15ff740dba41954a60c6f52dbf4968960b20da11c1ffe"
+  },
+  "publicCertificate": {
+    "path": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/google-play-release/2026-10-16/dead-signal-upload-certificate.pem",
+    "derSHA256": "ea64c115c9078ef6cb6c8f8869bd7bb5d1ea30e460fd4f40e19e194f07206e60",
+    "notBefore": "Oct 16 00:46:32 2026 GMT",
+    "notAfter": "Mar  3 00:46:32 2054 GMT",
+    "subject": [
+      [
+        [
+          "countryName",
+          "KR"
+        ]
+      ],
+      [
+        [
+          "organizationName",
+          "주식회사 바틀"
+        ]
+      ],
+      [
+        [
+          "commonName",
+          "DEAD SIGNAL Upload"
+        ]
+      ]
+    ]
+  },
+  "signedAAB": {
+    "path": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/google-play-release/2026-10-16/DeadSignal-1.0.0-1-google-play-signed.aab",
+    "bytes": 184221466,
+    "sha256": "311c40b6ef401d61fbf68d4972e44869ec8e26e5ed9bf827596c9a25005951bb",
+    "jarSignatureVerified": true,
+    "signerMatchesPublicCertificate": true,
+    "zipCRCVerified": true,
+    "originalEntryCountByteVerified": 808,
+    "addedSignatureEntries": [
+      "META-INF/DEAD-SIG.RSA",
+      "META-INF/DEAD-SIG.SF",
+      "META-INF/MANIFEST.MF"
+    ]
+  },
+  "originalUnsignedAAB": {
+    "path": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/mobile/v1.0.0/Android/DeadSignal-1.0.0-1-unsigned.aab",
+    "sha256": "00526025686609890facf9d7cc28acd4c0f19e0b3a100ebfba5f3ecb7a626f4a",
+    "unchanged": true
+  },
+  "originalDebugAPK": {
+    "path": "/Users/seungsoohan/Documents/Codex/2026-10-14/new-chat-3/outputs/dead-signal/mobile/v1.0.0/Android/DeadSignal-1.0.0-1-debug.apk",
+    "sha256": "3b56cfd1b04f6e38817005ee9e309ab28954a8e19c91b1c53c17bc3aaf2472c1",
+    "unchanged": true
+  },
+  "googleManagedAppSigningKeyCreatedOrRegistered": false,
+  "playConsoleUploaded": false,
+  "playAppSigningTermsAccepted": false,
+  "nativeUITested": false,
+  "physicalDeviceTested": false,
+  "page16KRuntimeTested": false,
+  "signatureWarnings": "Upload certificate is self-signed; no public CA chain or timestamp. Integrity and matching signer were verified; Play accepts the registered upload certificate.",
+  "limits": "This is the upload key, not the Google-managed final APK app-signing key. Keychain storage is not an off-device encrypted backup."
+}

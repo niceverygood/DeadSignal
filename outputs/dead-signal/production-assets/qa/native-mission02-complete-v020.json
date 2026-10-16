@@ -1,0 +1,19 @@
+{
+  "snapshot": "- main \"데드 시그널 게임\":\n  - generic \"데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요.\"\n  - region \"생존자 상태\":\n    - text: SURVIVOR ONLINE\n    - generic: DS—01\n    - generic: 체력\n    - strong: 212 / 270\n    - generic: 전기 못총\n    - strong: 8 / 24\n    - generic: R\n  - region \"임무 정보\":\n    - generic: 작전 경과\n    - strong: 01:34\n    - generic: 02 / 하수처리장\n  - region \"전투 기록\":\n    - button \"현재 오토 모드. 수동 모드로 전환\" [pressed]: 오토 모드\n    - button \"미니맵\" [pressed]: 지도 M\n    - button \"사운드 설정\" [pressed]:\n    - button \"일시정지\":\n    - generic: 처치\n    - strong: \"645\"\n    - generic: 레벨\n    - strong: \"10\"\n  - region \"성장과 소음\":\n    - generic: 소음\n    - generic: 무리가 몰려온다\n    - generic: ≋\n    - generic: 소음이 높을수록 더 많은 좀비가 몰립니다.\n    - generic: 경험치\n    - generic: 다음 개조까지\n  - region \"전투 장비\":\n    - button \"E 소음탄 준비\" [disabled]:\n      - generic: E\n      - generic: 소음탄\n      - generic: 준비\n    - button \"Q 화염병 준비\" [disabled]:\n      - generic: Q\n      - generic: 화염병\n      - generic: 준비\n    - button \"SPACE 회피 준비\" [disabled]:\n      - generic: SPACE\n      - generic: 회피\n      - generic: 준비\n  - paragraph: EXTRACTION COMPLETE\n  - heading \"미션 완료\" [level=2]\n  - paragraph: 하수처리장의 두 보스를 처치했습니다. 다음 미션을 준비하세요.\n  - strong: \"645\"\n  - generic: 처치한 좀비\n  - strong: 01:34\n  - generic: 생존 시간\n  - strong: \"10\"\n  - generic: 도달 레벨\n  - strong: \"702\"\n  - generic: 회수한 부품\n  - generic: 연쇄 번개 1\n  - generic: 휘발성 감염 1\n  - generic: 처치 후 재장전 1\n  - generic: 관통 탄환 2\n  - generic: 회수 자석 1\n  - generic: 탄환 분열 2\n  - generic: 속사 개조 1\n  - generic: 응급 처치 1\n  - generic: 강화 탄두 1\n  - paragraph: 누적 처치 1210 · 최고 처치 645\n  - text: 부품 702개 회수 · 보유 1324개\n  - text: 구매 가능한 안전가옥 보강이 있습니다\n  - button \"메인 메뉴\" [active]\n  - button \"안전가옥 보강\": 안전가옥 보강\n  - button \"다음 미션 준비 ↗\": 다음 미션 준비 ↗\n  - button \"작전 지도\": 작전 지도\n  - status\n  - generic: W A S D\n  - text: 이동\n  - generic: 오토 · 자동 조준·발사\n  - generic: F\n  - text: 모드 전환\n  - generic: Space\n  - text: 회피\n  - generic: E\n  - text: 유인\n  - generic: Q\n  - text: 화염병\n  - generic: R\n  - text: 재장전\n  - generic: Esc\n  - text: 일시정지",
+  "native": {
+    "productionCause": "",
+    "productionCharacter": "survivor-nailgun",
+    "productionDrawStatus": "native",
+    "productionError": "",
+    "productionFailedAsset": "",
+    "productionFrame": "4",
+    "productionIdentification": "baked-contour",
+    "productionLastAsset": "survivor-nailgun-run",
+    "productionLastStatus": "body-alpha-ready",
+    "productionPlayer": "survivor-nailgun-idle",
+    "productionPlayerAssets": "[{\"id\":\"survivor-nailgun-idle\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-nailgun-walk\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"},{\"id\":\"survivor-nailgun-run\",\"status\":\"ready\",\"bodyAlpha\":\"ready\"}]",
+    "productionStatus": "ready",
+    "productionWeapon": "nailgun"
+  },
+  "runtimeApp": "./app.js?v=0.20.0"
+}
