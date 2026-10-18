@@ -1,3 +1,4 @@
+import {FireGround} from '../dist/fire-ground.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -32,7 +33,7 @@ function context(){
 }
 const polygonFills=f=>f.fills.filter(fill=>fill.path.filter(command=>command[0]==='lineTo').length>=2);
 async function readyArt(){const f=imageFixture(),art=new FireArt({ImageCtor:f.ImageCtor});assert.equal(await art.load(),true);return{...f,art};}
-function renderer(art){return Object.assign(Object.create(Renderer.prototype),{fireArt:art,motionEnabled:true,visible:()=>true});}
+function renderer(art){return Object.assign(Object.create(Renderer.prototype),{fireGround:new FireGround(()=>{const c=context().c;c.setTransform=()=>{};return {getContext:()=>c};}),fireArt:art,motionEnabled:true,visible:()=>true});}
 
 test('the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly',()=>{
   assert.equal(createHash('sha256').update(sourcePNG).digest('hex'),FIRE_ATLAS.source.sha256);
@@ -121,18 +122,18 @@ test('the connected field has one centre and eight evenly spaced ground anchors,
   });
   const centre=feet.filter(point=>Math.hypot(point.x-x,point.y-y)<1e-7),ring=feet.filter(point=>Math.hypot(point.x-x,point.y-y)>1e-7);
   assert.equal(centre.length,1);assert.equal(ring.length,8);
-  for(const point of ring)close(Math.hypot(point.x-x,point.y-y),r*.48);
+  for(const point of ring)assert.ok(Math.hypot(point.x-x,point.y-y)<r*.7);assert.ok(new Set(ring.map(point=>(Math.hypot(point.x-x,point.y-y)/r).toFixed(2))).size>=5,'irregular fuel patches have unequal radii');
   const angles=ring.map(point=>Math.atan2(point.y-y,point.x-x)).sort((a,b)=>a-b);
-  for(let index=0;index<8;index++)close((angles[(index+1)%8]-angles[index]+Math.PI*2)%(Math.PI*2),Math.PI/4);
+  assert.ok(angles.at(-1)-angles[0]>Math.PI,'patches cover both sides of the original fire field');
   assert.equal(new Set(trace.images.map(draw=>draw.args.slice(0,2).join(':'))).size,9,'neighbours use dispersed original frames');
   assert.equal(f.images.length,1);
 });
 
 test('actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample',async()=>{
   const f=await readyArt(),view=renderer(f.art),trace=context(),game=new Game({seed:23011});
-  assert.equal(game.throwFire(game.player.x+100,game.player.y),true);const fire=game.fires[0];game.pause();const before=fingerprint(game),state=trace.state();
-  view.drawFire(trace.c,fire,10);assert.equal(trace.images.length,9);assert.equal(polygonFills(trace).length,0);assert.deepEqual(trace.state(),state);
-  close(trace.ellipses[0][2],fire.r*Math.sqrt(1.5));close(trace.ellipses[0][3],fire.r/Math.sqrt(2));
+  assert.equal(game.throwFire(game.player.x+100,game.player.y),true);assert.equal(game.fires.length,0);game.updateMolotovs(1);const fire=game.fires[0];game.pause();const before=fingerprint(game),state=trace.state();
+  view.drawFire(trace.c,fire,10);assert.equal(trace.images.length,11);assert.equal(polygonFills(trace).length,0);assert.deepEqual(trace.state(),state);
+  close(trace.images[0].args[2]*150/320,fire.r*Math.sqrt(1.5));close(trace.images[0].args[3]*86.60254/200,fire.r/Math.sqrt(2));
   const first=trace.images.map(draw=>draw.args);trace.reset();view.drawFire(trace.c,fire,1000);assert.deepEqual(trace.images.map(draw=>draw.args),first,'paused game age ignores the render wall-clock argument');
   view.motionEnabled=false;trace.reset();view.drawFire(trace.c,{...fire,time:fire.time-.5},1001);assert.deepEqual(trace.images.map(draw=>draw.args),first);
   assert.equal(fingerprint(game),before);
@@ -151,21 +152,23 @@ test('actual boss fire warning and damage field geometry stay intact and only it
 test('unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers',async()=>{
   const failed=imageFixture({fail:true}),art=new FireArt({ImageCtor:failed.ImageCtor});await art.load();
   const view=renderer(art),trace=context(),fire={x:1200,y:900,r:95,time:5,duration:5};view.drawFire(trace.c,fire,10);
-  assert.equal(trace.images.length,0);assert.equal(polygonFills(trace).length,54);assert.equal(failed.images.length,1);
+  assert.equal(trace.images.length,2);assert.equal(polygonFills(trace).length,54);assert.equal(failed.images.length,1);
   view.drawFire(trace.c,fire,11);assert.equal(failed.images.length,1,'cosmetic failures do not retry each frame');
   const saved=Object.fromEntries(['ImageCtor','image','status','promise','error'].map(key=>[key,sharedFireArt[key]])),shared=imageFixture({pending:true});
   try{
     Object.assign(sharedFireArt,{ImageCtor:shared.ImageCtor,image:null,status:'idle',promise:null,error:null});
     const a=renderer(null),b=renderer(null);a.drawFire(context().c,fire,10);b.drawFire(context().c,fire,10);assert.equal(shared.images.length,1);
     shared.images[0].finish();assert.equal(await sharedFireArt.load(),true);const one=context(),two=context();a.drawFire(one.c,fire,10);b.drawFire(two.c,fire,10);
-    assert.equal(one.images.length,9);assert.equal(two.images.length,9);assert.equal(shared.images.length,1);
+    assert.equal(one.images.length,11);assert.equal(two.images.length,11);assert.equal(shared.images.length,1);
   }finally{Object.assign(sharedFireArt,saved);}
 });
 
 test('repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock',async()=>{
-  const f=await readyArt(),view=renderer(f.art),game=new Game({seed:23013});game.throwFire(game.player.x,game.player.y);game.pause();const before=fingerprint(game),random=Math.random,now=Date.now;
+  const f=await readyArt(),view=renderer(f.art),game=new Game({seed:23013});game.throwFire(game.player.x,game.player.y);game.updateMolotovs(1);game.pause();const before=fingerprint(game),random=Math.random,now=Date.now;
   try{Math.random=()=>{throw Error('VFX cannot use random');};Date.now=()=>{throw Error('VFX cannot read wall clock');};
-    for(let index=0;index<20;index++){const trace=context(),state=trace.state();view.drawFire(trace.c,game.fires[0],index*100);assert.equal(trace.images.length,9);assert.deepEqual(trace.state(),state);}
+    for(let index=0;index<20;index++){const trace=context(),state=trace.state();view.drawFire(trace.c,game.fires[0],index*100);assert.equal(trace.images.length,11);assert.deepEqual(trace.state(),state);}
   }finally{Math.random=random;Date.now=now;}
   assert.equal(fingerprint(game),before);assert.equal(f.images.length,1);
 });
+
+test('native flame clusters can be restricted to supported surfaces without changing canvas state or substituting fallback polygons',async()=>{const f=await readyArt(),trace=context(),before=trace.state();assert.equal(f.art.drawClusters(trace.c,{x:1200,y:900,r:95,contains:()=>false}),true);assert.equal(trace.images.length,0);assert.deepEqual(trace.state(),before);trace.reset();assert.equal(f.art.drawClusters(trace.c,{x:1200,y:900,r:95,contains:(x,y)=>x<=1200}),true);assert.ok(trace.images.length>0&&trace.images.length<9);assert.deepEqual(trace.state(),before);});

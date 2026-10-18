@@ -1,0 +1,122 @@
+[
+  {
+    "arm": "cpu-a",
+    "exact": false,
+    "frames": 40,
+    "ticks": 282,
+    "events": 75,
+    "states": [
+      "playing",
+      "playing"
+    ],
+    "failures": {
+      "finalSnapshot": {
+        "exact": false,
+        "expectedSha256": "a9777bc6e3ae9d933423030ebb0154282d864c447ee3afc7571b34579c5352b2",
+        "actualSha256": "6387e6ed065ed3d9c6e421322c93302d3a189344c49b81bed28786bc18a9403b",
+        "firstDifference": {
+          "path": "$.enemies[19].angle",
+          "expected": -2.0435081722657835,
+          "actual": -2.043508172265784
+        }
+      }
+    },
+    "initialTransient": {
+      "time": 0,
+      "events": [
+        {
+          "type": "shot",
+          "weapon": "nailgun",
+          "x": 1200,
+          "y": 930
+        },
+        {
+          "type": "shot",
+          "weapon": "nailgun",
+          "x": 1200,
+          "y": 930
+        }
+      ]
+    }
+  },
+  {
+    "arm": "exact-b",
+    "exact": false,
+    "frames": 40,
+    "ticks": 265,
+    "events": 70,
+    "states": [
+      "playing",
+      "playing"
+    ],
+    "failures": {
+      "finalSnapshot": {
+        "exact": false,
+        "expectedSha256": "9885c5b59ebe3e717747cff2462b9968cf1c3e4f69b0ea1fd58a4697ca243b2f",
+        "actualSha256": "14707ac4c466d2dac092dfd1ac2ad00dfed2722cebe1f1bd8694e3fa07a94175",
+        "firstDifference": {
+          "path": "$.enemies[1].angle",
+          "expected": -1.1245267994995565,
+          "actual": -1.1245267994995563
+        }
+      }
+    },
+    "initialTransient": {
+      "time": 0,
+      "events": [
+        {
+          "type": "shot",
+          "weapon": "nailgun",
+          "x": 1200,
+          "y": 930
+        },
+        {
+          "type": "shot",
+          "weapon": "nailgun",
+          "x": 1200,
+          "y": 930
+        }
+      ]
+    }
+  },
+  {
+    "arm": "cpu-repeat",
+    "exact": false,
+    "frames": 40,
+    "ticks": 262,
+    "events": 68,
+    "states": [
+      "playing",
+      "playing"
+    ],
+    "failures": {
+      "finalSnapshot": {
+        "exact": false,
+        "expectedSha256": "6ac9409acb3a1043d15d7048f1baf92f6b19a7e8ddf3b774aa9c961a8a510de5",
+        "actualSha256": "cc4634d72bc5708a401863b2c16e64fcc4c17f49e22805a949e41a2ebd7566ad",
+        "firstDifference": {
+          "path": "$.enemies[0].angle",
+          "expected": -1.8593276273575485,
+          "actual": -1.8593276273575488
+        }
+      }
+    },
+    "initialTransient": {
+      "time": 0,
+      "events": [
+        {
+          "type": "shot",
+          "weapon": "nailgun",
+          "x": 1200,
+          "y": 930
+        },
+        {
+          "type": "shot",
+          "weapon": "nailgun",
+          "x": 1200,
+          "y": 930
+        }
+      ]
+    }
+  }
+]

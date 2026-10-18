@@ -1,0 +1,90 @@
+{
+  "diagnosticOnly": true,
+  "originalSha256": "b7f066e335fcd89c7cf67fc523b1e62b3094ca0a61cd438bf21c822edeb42082",
+  "points": 296,
+  "rounds": 20000,
+  "trials": [
+    {
+      "trial": 1,
+      "arms": [
+        {
+          "name": "original",
+          "wallMs": 182.71830000000006,
+          "cpuMs": 78,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        },
+        {
+          "name": "scalar",
+          "wallMs": 131.46550000000002,
+          "cpuMs": 78,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        },
+        {
+          "name": "original-repeat",
+          "wallMs": 266.765,
+          "cpuMs": 140,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "arms": [
+        {
+          "name": "original",
+          "wallMs": 295.43229999999994,
+          "cpuMs": 110,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        },
+        {
+          "name": "scalar",
+          "wallMs": 333.98440000000005,
+          "cpuMs": 141,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        },
+        {
+          "name": "original-repeat",
+          "wallMs": 238.86580000000004,
+          "cpuMs": 109,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "arms": [
+        {
+          "name": "original",
+          "wallMs": 186.61320000000023,
+          "cpuMs": 141,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        },
+        {
+          "name": "scalar",
+          "wallMs": 164.48039999999992,
+          "cpuMs": 140,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        },
+        {
+          "name": "original-repeat",
+          "wallMs": 214.69970000000012,
+          "cpuMs": 110,
+          "checksum": 6080732688.652063,
+          "calls": 5920000
+        }
+      ]
+    }
+  ],
+  "numericDepthExact": true,
+  "checksumsExact": true,
+  "gameUnchanged": true,
+  "note": "Node numeric depth-call microbenchmark only. Coordinates come from one original 180-enemy Game and its world. No Canvas commands, image decode, native rendering, actual FPS, heap, RAM or VRAM is measured. Original object escape is not forced and V8 may eliminate it already. Timings include runtime/environment variability; syntactic removal does not establish allocation savings."
+}

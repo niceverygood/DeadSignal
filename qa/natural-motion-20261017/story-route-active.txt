@@ -1,0 +1,62 @@
+- main "데드 시그널 게임":
+  - generic "데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요."
+  - region "백신 탐색 원정 지도":
+    - paragraph: LAST SIGNAL / 마지막 신호
+    - heading "백신을 찾아가는 여정" [level=2]
+    - paragraph: 한도윤과 서윤서가 K-17의 이송 기록을 따라갑니다. 기록을 찾고, 길을 열고, 마지막 격리소에서 백신을 회수하세요.
+    - generic: 핵심 원정 0 / 7 완료
+    - generic: 백신의 행방을 추적 중
+    - list "연결된 핵심 경로":
+      - listitem: 거리·마트→
+      - listitem: 옥상→
+      - listitem: 병원→
+      - listitem: 북한 검역 회랑→
+      - listitem: 해상 항만→
+      - listitem: 이스라엘 하이파→
+      - listitem: 성가대 격리소
+    - button "01 거리·마트 끊긴 무전과 병원 이송 기록 진행 중인 작전 · 이어하기" [active]:
+      - generic: "01"
+      - strong: 거리·마트
+      - generic: 끊긴 무전과 병원 이송 기록
+      - generic: 진행 중인 작전 · 이어하기
+    - button "02 옥상 연결교를 건너 병원 채널 확보 도시 원정 완료 후 해금" [disabled]:
+      - generic: "02"
+      - strong: 옥상
+      - generic: 연결교를 건너 병원 채널 확보
+      - generic: 도시 원정 완료 후 해금
+    - button "03 병원 원액의 냉각 기록과 화물 번호 옥상 중계 완료 후 해금" [disabled]:
+      - generic: "03"
+      - strong: 병원
+      - generic: 원액의 냉각 기록과 화물 번호
+      - generic: 옥상 중계 완료 후 해금
+    - button "04 북한 검역 회랑 기록 차량을 호위해 해상 송장 확보 병원 냉각 기록 완료 후 해금" [disabled]:
+      - generic: "04"
+      - strong: 북한 검역 회랑
+      - generic: 기록 차량을 호위해 해상 송장 확보
+      - generic: 병원 냉각 기록 완료 후 해금
+    - button "05 해상 항만 두 중계기를 오가며 항로 개방 북한 검역 회랑 완료 후 해금" [disabled]:
+      - generic: "05"
+      - strong: 해상 항만
+      - generic: 두 중계기를 오가며 항로 개방
+      - generic: 북한 검역 회랑 완료 후 해금
+    - button "06 이스라엘 하이파 K-17 배양 계통 대조 해상 이송 항만 완료 후 해금" [disabled]:
+      - generic: "06"
+      - strong: 이스라엘 하이파
+      - generic: K-17 배양 계통 대조
+      - generic: 해상 이송 항만 완료 후 해금
+    - button "07 성가대 격리소 최종 보관체 처치·백신 회수·탈출 하이파 배양 시설 완료 후 해금" [disabled]:
+      - generic: "07"
+      - strong: 성가대 격리소
+      - generic: 최종 보관체 처치·백신 회수·탈출
+      - generic: 하이파 배양 시설 완료 후 해금
+    - heading "여정 중 선택할 수 있는 우회" [level=3]
+    - paragraph: 필수 경로를 유지하면서 운송에 필요한 준비를 더합니다.
+    - button "+ 마트 냉각 우회 선택 분기 · 빈 냉각 용기와 배터리 확보 도시 원정 완료 후 해금" [disabled]:
+      - generic: +
+      - strong: 마트 냉각 우회
+      - generic: 선택 분기 · 빈 냉각 용기와 배터리 확보
+      - generic: 도시 원정 완료 후 해금
+    - generic: 원정을 고르면 장비와 목표를 확인할 수 있습니다.
+    - button "메인 메뉴": 메인 메뉴
+  - status
+- generic: SURVIVOR / SPECIAL ACTION

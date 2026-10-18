@@ -149,3 +149,9 @@ test('actual loader leaves unused failed masks alone while a failed survivor mas
   assert.equal(result.status,'committed');assert.equal(restores,1);assert.equal(result.value.state,'paused');
   assert.equal(blocked.art.get('idle').bodyAlphaStatus,'ready');assert.deepEqual(game.snapshot(),before);
 });
+
+test('launch decode work is bounded to four concurrent assets while every planned request is retained',async()=>{
+ const manifest=catalog(),mission=getMission('mission-01'),plan=productionLaunchPlan({manifest,weapon:'shotgun',mission,world:launchWorld({missionId:mission.id})});let active=0,peak=0,count=0;
+ const renderer={productionArt:{load:async()=>{active++;peak=Math.max(peak,active);count++;await Promise.resolve();active--;return true;},loadBodyAlpha:async()=>true},preloadProductionPlayer:async()=>true};
+ assert.equal(await preloadLaunchPlan(renderer,plan),true);assert.equal(count,plan.assetIds.length);assert.equal(peak,Math.min(4,plan.assetIds.length));assert.equal(active,0);
+});

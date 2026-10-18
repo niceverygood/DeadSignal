@@ -1,5 +1,15 @@
 .DS_Store
 node_modules/
+# Reproducible local copies made by npm run setup; source models stay in LFS.
+work/dead-signal-game/dist/player-rig/vendor/
+work/dead-signal-game/dist/player-rig/models/
+work/dead-signal-game/dist/player-rig/animation.js
+work/dead-signal-game/dist/player-rig/weapon-pose.js
+work/dead-signal-game/dist/player-rig/weapon-attachment.js
+work/dead-signal-game/dist/player-rig/weapon-config.json
+work/dead-signal-game/dist/player-rig/provenance.json
+work/dead-signal-game/dist/boss-rig/models/
+work/dead-signal-game/dist/boss-rig/registry.json
 .venv/
 __pycache__/
 *.pyc
@@ -21,6 +31,10 @@ coverage/
 *.cer
 *.log
 !.transfer/*.log
+# Local reference captures include unrelated signed-in video account UI.
+qa/image-decode-20261018/wonderburg-reference-20m.png
+qa/image-decode-20261018/wonderburg-reference-effects.png
+qa/image-decode-20261018/wonderburg-reference-motion.png
 local.properties
 key.properties
 keystore.properties

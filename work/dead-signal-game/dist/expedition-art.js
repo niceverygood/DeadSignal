@@ -1,0 +1,20 @@
+import {HAIFA_TRANSFER_EXPEDITION} from './haifa-transfer-expedition.js';
+import {PATIENT_RECORD_EXPEDITION} from './patient-record-expedition.js';
+import {FINALE_EXPEDITION_ID} from './finale-world.js';
+import {ISRAEL_EXPEDITION_ID} from './israel-world.js';
+import {SEA_EXPEDITION_ID} from './sea-world.js';
+import {NORTH_EXPEDITION_ID} from './north-world.js';
+import {HOSPITAL_EXPEDITION_ID} from './hospital-world.js';
+import {ROOF_EXPEDITION_ID} from './rooftop-world.js';
+import {CITY_EXPEDITION,COLD_CHAIN_EXPEDITION,HARBOR_POWER_EXPEDITION} from './expedition.js';
+// Additive runtime-only selectors. Original157 catalog entries/revisions and all
+// approved bake evidence remain unchanged. These rules apply only to this mode.
+export function expeditionManifest(base){const rule=(kind,entry,extra={})=>({theme:'residential',expeditionId:CITY_EXPEDITION.id,kind,variant:'*',entry,...extra});return {...base,environmentRules:[...(base.environmentRules||[]),rule('building','env-common-brick'),rule('car','env-broken-car'),rule('barrel','env-red-fuel-barrel'),rule('fence','env-fence-vertical',{w:8}),rule('fence','env-fence-horizontal',{h:8}),rule('lamp','env-amber-worklamp'),...['building','car','barrel','fence','fence','lamp'].map((kind,i)=>rule(kind,['env-common-brick','env-broken-car','env-red-fuel-barrel','env-fence-vertical','env-fence-horizontal','env-amber-worklamp'][i],{expeditionId:COLD_CHAIN_EXPEDITION.id,...(i===3?{w:8}:i===4?{h:8}:{})})),...rooftopRules(),...hospitalRules(),...hospitalRules().map(r=>({...r,expeditionId:HAIFA_TRANSFER_EXPEDITION.id})),...hospitalRules().map(r=>({...r,expeditionId:PATIENT_RECORD_EXPEDITION.id})),...northRules(),...seaRules(),...seaRules().map(r=>({...r,expeditionId:HARBOR_POWER_EXPEDITION.id})),...hospitalRules().map(r=>({...r,expeditionId:ISRAEL_EXPEDITION_ID})),...hospitalRules().map(r=>({...r,expeditionId:FINALE_EXPEDITION_ID}))]};}
+
+function rooftopRules(){const r=(kind,entry,extra={})=>({theme:'residential',expeditionId:ROOF_EXPEDITION_ID,kind,variant:'*',entry,...extra});return [r('building','env-power-transformer-bank',{variant:'roof-generator'}),r('building','env-power-transformer-bank',{variant:'roof-relay'}),r('building','env-breakwater-control-building',{variant:'roof-stairs'}),r('barrel','env-red-fuel-barrel'),r('fence','env-fence-vertical',{w:8}),r('fence','env-fence-horizontal',{h:8}),r('lamp','lure-speaker',{variant:'relay-speaker'}),r('lamp','env-amber-worklamp')];}
+
+function hospitalRules(){const r=(kind,entry,extra={})=>({theme:'hospital',expeditionId:HOSPITAL_EXPEDITION_ID,kind,variant:'*',entry,...extra});return [r('building','env-hospital-quarantine-wing',{variant:'quarantine'}),r('building','env-common-brick',{variant:'brick'}),r('building','env-power-transformer-bank',{variant:'hospital-power'}),r('car','env-broken-car'),r('barrel','env-red-fuel-barrel'),r('fence','env-fence-vertical',{w:8}),r('fence','env-fence-horizontal',{h:8}),r('lamp','env-amber-worklamp')];}
+
+function northRules(){const r=(kind,entry,extra={})=>({theme:'checkpoint',expeditionId:NORTH_EXPEDITION_ID,kind,variant:'*',entry,...extra});return [r('building','env-checkpoint-guardhouse',{variant:'guardhouse'}),r('building','env-armory-bunker',{variant:'bunker'}),r('building','env-common-brick',{variant:'brick'}),r('building','env-power-transformer-bank',{variant:'power'}),r('car','env-broken-car'),r('barrel','env-red-fuel-barrel'),r('fence','env-fence-vertical',{w:8}),r('fence','env-fence-horizontal',{h:8}),r('lamp','env-amber-worklamp')];}
+
+function seaRules(){const r=(kind,entry,extra={})=>({theme:'harbor',expeditionId:SEA_EXPEDITION_ID,kind,variant:'*',entry,...extra});return [r('building','env-harbor-container',{variant:'container'}),r('building','env-breakwater-control-building',{variant:'control'}),r('building','env-power-transformer-bank',{variant:'power'}),r('car','env-broken-car'),r('barrel','env-red-fuel-barrel'),r('fence','env-fence-vertical',{w:8}),r('fence','env-fence-horizontal',{h:8}),r('lamp','env-amber-worklamp')];}

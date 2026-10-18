@@ -211,7 +211,17 @@ test('three controlled real middle-and-final boss battles improve with the fixed
   for(const missionId of ['mission-01','mission-05','mission-12']){
     const bare=run(missionId,false),equipped=run(missionId,true);
     assert.equal(equipped.won,true);assert.equal(equipped.mid,true);assert.equal(equipped.defeated.length,2);
-    assert.ok(equipped.shots<bare.shots);assert.ok(equipped.time<bare.time);assert.ok(equipped.hp>bare.hp);
-    t.diagnostic(`${missionId} practice arena: bare=${bare.won?'win':'loss'} ${bare.time.toFixed(2)}s/${bare.shots} shots/${bare.hp} HP; equipped=win ${equipped.time.toFixed(2)}s/${equipped.shots} shots/${equipped.hp} HP`);
+    assert.ok(equipped.hp>bare.hp);
+    // Bosses now finish their attacks while taking ordinary fire.
+    // An earlier death is neither a faster win nor fewer shots needed to win.
+    // Compare shot/time efficiency only when both runs clear the real boss pair.
+    if(bare.won){
+      assert.ok(equipped.shots<bare.shots);assert.ok(equipped.time<bare.time);
+    }else{
+      assert.equal(bare.won,false);assert.equal(bare.hp,0);assert.ok(bare.defeated.length<2);
+      assert.ok(equipped.defeated.length>bare.defeated.length);
+    }
+    const interpretation=bare.won?'both won: strict shot/time efficiency':'bare lost: survival and boss clears; death duration/shots are not victory efficiency';
+    t.diagnostic(`${missionId} practice arena: bare=${bare.won?'win':'loss'} ${bare.time.toFixed(2)}s/${bare.shots} shots/${bare.hp} HP; equipped=win ${equipped.time.toFixed(2)}s/${equipped.shots} shots/${equipped.hp} HP; ${interpretation}`);
   }
 });

@@ -1,5 +1,6 @@
 // Read-only mission copy. Alarm elites are optional rewards, so they never
 // replace the district gatekeeper or the final collector as the main goal.
+import {expeditionGuidance} from './expedition.js';
 import {getMission,getBoss} from './campaign.js?v=0.29.0';
 const bounded=value=>Math.max(0,Math.min(1,Number.isFinite(value)?value:0));
 const clock=remaining=>{
@@ -14,6 +15,7 @@ function targetHealth(enemy,name){
 }
 
 export function missionGuidance(game){
+  const expedition=expeditionGuidance(game);if(expedition)return expedition;
   const mission=getMission(game?.missionId);
   if(mission){
     if(game.state==='victory')return {objective:`${mission.title} 확보 완료`,detail:'두 보스를 처치했습니다. 다음 미션을 준비하세요',progress:1,kind:'complete'};

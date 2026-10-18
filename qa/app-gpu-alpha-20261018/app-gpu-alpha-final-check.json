@@ -1,0 +1,103 @@
+{
+  "createdAt": "2026-10-17T23:27:10.948Z",
+  "runtime": "v22.23.3",
+  "freeze": {
+    "baselineEntries": 345,
+    "currentEntries": 345,
+    "changed": [],
+    "missing": [],
+    "added": []
+  },
+  "previousTask": {
+    "baselineEntries": 342,
+    "currentEntries": 345,
+    "changed": [
+      {
+        "path": "work/dead-signal-game/dist/app.js",
+        "before": "7c5108fd901e46cc99e2f77792c6c08481689a5b45410ff027a1929e1d158847",
+        "after": "b9f34f1b90ca807706d2931c37f1396552a376d53e5c4610c3431de44af8c890"
+      },
+      {
+        "path": "work/dead-signal-game/dist/qa-app-loop.js",
+        "before": "6e8c44d81248b9b4ec9e5036ca5cb247d2e2f96d272a924557f629c5762eb377",
+        "after": "8bc304b35d1ad34871fe025af29da8acbbbee3918e00b02bfe8984b769f6da2f"
+      }
+    ],
+    "missing": [],
+    "added": [
+      "work/dead-signal-game/tests/qa-app-gpu-alpha-loop.test.mjs",
+      "work/dead-signal-game/tests/qa-app-gpu-alpha-launch.test.mjs",
+      "work/dead-signal-game/dist/qa-app-gpu-alpha-launch.js"
+    ]
+  },
+  "replay": [
+    {
+      "arm": "cpu-a",
+      "exact": false,
+      "differenceCount": 34,
+      "maxAbsoluteNumericDelta": 4.440892098500626e-16,
+      "fields": [
+        "$.enemies[].angle",
+        "$.enemies[].vx"
+      ]
+    },
+    {
+      "arm": "exact-b",
+      "exact": false,
+      "differenceCount": 31,
+      "maxAbsoluteNumericDelta": 4.440892098500626e-16,
+      "fields": [
+        "$.enemies[].angle",
+        "$.enemies[].vx"
+      ]
+    },
+    {
+      "arm": "cpu-repeat",
+      "exact": false,
+      "differenceCount": 36,
+      "maxAbsoluteNumericDelta": 4.440892098500626e-16,
+      "fields": [
+        "$.enemies[].angle",
+        "$.enemies[].vx"
+      ]
+    }
+  ],
+  "engines": [
+    {
+      "path": "engine.js",
+      "sha256": "4fa744ce8b245b8bcc5219214c881cbb73354bcfeed4357ac83929e714862b43"
+    },
+    {
+      "path": "renderer.js",
+      "sha256": "621492d00a0fe0a50083de3c07237f1e8100939c1ce75b6ac9f1eeab477f80b3"
+    },
+    {
+      "path": "boss-rig/live-boss.js",
+      "sha256": "61df38772e3bdce8122f92a1e05b6c4052f81e3f5c3b4b8a91946d1649657612"
+    },
+    {
+      "path": "native-launch-owner.js",
+      "sha256": "c12dcb303a3185a5c28d05fa0b5dcaf49ea5626f8ad0c5273904a37915403326"
+    },
+    {
+      "path": "boss-rig/native-launch-preparation.js",
+      "sha256": "ac4d8169832892d9690fa47387bdb13f52b6b193cdb354cbb1a7f10ea9519395"
+    }
+  ],
+  "verify": {
+    "exit": 1,
+    "runtime": "v22.23.3",
+    "reason": "Existing immutable manifest .gitignore mismatch; manifest not modified."
+  },
+  "tests": {
+    "pass": 1056,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 185916.7116,
+    "exit": 0,
+    "stressCpuMs": 12296,
+    "stressWallMs": 15977.41,
+    "cpuBudgetMs": 15000
+  }
+}

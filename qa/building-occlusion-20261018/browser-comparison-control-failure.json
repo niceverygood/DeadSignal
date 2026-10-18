@@ -1,0 +1,409 @@
+{
+  "error": "building-occlusion-control-or-original-body-changed",
+  "qa": {
+    "reports": [],
+    "preparations": [
+      {
+        "kind": "hero",
+        "stage": "failed",
+        "diagnostics": {
+          "timeoutMs": 15000,
+          "plan": {
+            "weapon": "shotgun",
+            "character": "survivor-shotgun",
+            "assetIds": [
+              "survivor-shotgun-idle",
+              "survivor-shotgun-walk",
+              "survivor-shotgun-run",
+              "survivor-shotgun-rig-motion",
+              "boss-01-mid-locomotion-hq32",
+              "boss-01-mid-rig-motion",
+              "boss-01-final-locomotion-hq32",
+              "boss-01-final-rig-motion",
+              "enemy-walker-locomotion-hq32",
+              "enemy-walker-rig-motion",
+              "enemy-runner-locomotion-hq32",
+              "enemy-runner-rig-motion",
+              "enemy-gas-locomotion-hq32",
+              "enemy-gas-rig-motion",
+              "enemy-elite-locomotion-hq32",
+              "enemy-elite-rig-motion",
+              "lure-speaker",
+              "env-common-brick",
+              "env-demolition-scaffold-bay",
+              "env-broken-car",
+              "env-red-fuel-barrel",
+              "env-fence-vertical",
+              "env-amber-worklamp"
+            ],
+            "maskIds": [
+              "survivor-shotgun-idle",
+              "survivor-shotgun-walk",
+              "survivor-shotgun-run",
+              "survivor-shotgun-rig-motion"
+            ],
+            "bossKeys": [
+              "boss-01-mid",
+              "boss-01-final"
+            ],
+            "missing": [
+              "environment:rubble:",
+              "environment:hydrant:",
+              "environment:trash:",
+              "environment:sign:"
+            ]
+          },
+          "assets": [
+            {
+              "id": "survivor-shotgun-idle",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 512,
+              "metadataFrames": 16
+            },
+            {
+              "id": "survivor-shotgun-walk",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 3208,
+              "metadataFrames": 512
+            },
+            {
+              "id": "survivor-shotgun-run",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 2640,
+              "metadataFrames": 512
+            },
+            {
+              "id": "survivor-shotgun-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 1884,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-mid-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 2268,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-mid-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 2628,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-final-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 4536,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-final-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 3584,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-walker-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 4096,
+              "imageHeight": 1480,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-walker-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 2084,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-runner-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 2240,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-runner-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 1612,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-gas-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 2892,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-gas-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 2672,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-elite-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1536,
+              "imageHeight": 4632,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-elite-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 2916,
+              "metadataFrames": 512
+            },
+            {
+              "id": "lure-speaker",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 512,
+              "metadataFrames": 16
+            },
+            {
+              "id": "env-common-brick",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 1024,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-demolition-scaffold-bay",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 1024,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-broken-car",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 512,
+              "metadataFrames": 16
+            },
+            {
+              "id": "env-red-fuel-barrel",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1024,
+              "imageHeight": 512,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-fence-vertical",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1024,
+              "imageHeight": 512,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-amber-worklamp",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1024,
+              "imageHeight": 512,
+              "metadataFrames": 8
+            }
+          ],
+          "player": {
+            "exists": true,
+            "ready": true,
+            "error": "",
+            "pending": true
+          },
+          "npc": {
+            "exists": true,
+            "error": "",
+            "loading": true,
+            "models": 1
+          },
+          "boss": {
+            "exists": true,
+            "error": "",
+            "models": 2
+          }
+        }
+      }
+    ],
+    "selection": {
+      "id": "survivor-original-live-rig",
+      "metadataLiveRig": null,
+      "frameLiveRig": null,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      },
+      "imageWidth": 256,
+      "imageHeight": 256,
+      "expectedSize": 256,
+      "player": true,
+      "distanceToPlayer": 0,
+      "selectedByNPCBudget": null,
+      "rigError": ""
+    },
+    "cleanup": {
+      "mainRendererUnchanged": true,
+      "mainRecordsUnchanged": true,
+      "ownedRecordsRemaining": 0,
+      "ownedModelsRemaining": 0,
+      "ownedControlUsed": true,
+      "ownedControlsRestored": true,
+      "retiredContexts": 3,
+      "lateReleasesScheduled": 30,
+      "lateSettlements": 30,
+      "errors": [],
+      "complete": true
+    }
+  }
+}

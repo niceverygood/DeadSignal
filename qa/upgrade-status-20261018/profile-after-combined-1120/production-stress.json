@@ -1,0 +1,43 @@
+{
+  "tool": "exact-production-stress-cpu-profile",
+  "testTitle": "twenty minutes of seeded autopilot keeps entity pools finite and bounded",
+  "invocationSHA": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+  "fixtureSHA": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+  "sourceSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "modelSHA": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+  "callbackSHA": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+  "expectedSHA": {
+    "fixture": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "invocation": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+    "callback": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+    "engine": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "model": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce"
+  },
+  "sourcePaths": {
+    "fixture": "C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\engine.test.mjs",
+    "engine": "C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\dist\\engine.js",
+    "model": "C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\dist\\upgrade-model.js"
+  },
+  "originalTimeoutMs": 20000,
+  "originalCPUBudgetMs": 15000,
+  "originalLoopTicks": 24000,
+  "executed": true,
+  "assertSuccess": false,
+  "status": "failed-original-callback",
+  "cpuMs": 15297,
+  "wallMs": 15414.91,
+  "timingPrecision": "Only the actual original t.diagnostic values, rounded by that test to two decimals; no additional timing observer.",
+  "finalState": null,
+  "diagnostics": [
+    "Stress wall=15414.91ms, CPU=15297.00ms"
+  ],
+  "errors": [
+    {
+      "name": "AssertionError",
+      "message": "Headless twenty minute simulation exceeds its CPU budget: CPU=15297.00ms, wall=15414.91ms",
+      "code": "ERR_ASSERTION",
+      "stack": "AssertionError [ERR_ASSERTION]: Headless twenty minute simulation exceeds its CPU budget: CPU=15297.00ms, wall=15414.91ms\n    at eval (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs?production-stress-only:35:10)\n    at main (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/upgrade-status-20261018/profile-production-stress.mjs:83:3)\n    at async file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/upgrade-status-20261018/profile-production-stress.mjs:95:5"
+    }
+  ],
+  "note": "One source-pinned existing twenty-minute callback only. Its original assertions, 24000 ticks, input, spawning, upgrade selections and 15000ms CPU budget are unchanged. This is not the whole test suite or proof of its pass. No per-tick observers or checkpoint/hash snapshots are added. finalState is null because the exact original callback does not expose its local Game; no observer was added to retrieve it. Node --cpu-prof adds profiler overhead, so this diagnostic does not replace unprofiled validation. No storage or browser is accessed."
+}

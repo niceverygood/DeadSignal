@@ -1,0 +1,9 @@
+import {mkdir,readFile,copyFile,writeFile} from 'node:fs/promises';import {createHash} from 'node:crypto';import {productionManifest} from '../work/dead-signal-game/dist/production-manifest.js';
+const root=new URL('../',import.meta.url),out=new URL('work/dead-signal-game/dist/boss-rig/',root),registry={version:1,bosses:{}};await mkdir(new URL('models/',out),{recursive:true});
+for(const [type,mapping]of Object.entries(productionManifest.enemies)){
+ const metadata=JSON.parse(await readFile(new URL('work/dead-signal-game/dist/assets/production/'+productionManifest.assets[mapping.actions].metadata,root),'utf8'));
+ const walk=JSON.parse(await readFile(new URL('work/dead-signal-game/dist/assets/production/'+productionManifest.assets[mapping.walk].metadata,root),'utf8'));
+ const original=new URL('work/meshy-sprite-baker/models/'+metadata.source.file,root),bytes=await readFile(original),key='enemy-'+type;
+ await copyFile(original,new URL('models/'+key+'.glb',out));await copyFile(new URL('work/meshy-sprite-baker/models/'+walk.source.file,root),new URL('models/'+key+'-walk.glb',out));registry.bosses[key]={file:'models/'+key+'.glb',walkFile:'models/'+key+'-walk.glb',original:'work/meshy-sprite-baker/models/'+metadata.source.file,sha256:createHash('sha256').update(bytes).digest('hex'),source:metadata.source,projection:metadata.projection,walkName:walk.animation.name,walkOriginal:'work/meshy-sprite-baker/models/'+walk.source.file,walkSHA256:createHash('sha256').update(await readFile(new URL('work/meshy-sprite-baker/models/'+walk.source.file,root))).digest('hex'),clips:metadata.animation.clips,sampleDensity:{idle:64,walk:128,windup:96,attack:96,hit:64,death:96}};
+}
+await writeFile(new URL('enemy-registry.json',out),JSON.stringify(registry,null,2)+'\n');console.log('Prepared original enemy rigs',Object.keys(registry.bosses).length);

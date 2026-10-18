@@ -40,7 +40,7 @@ export function firingIntent(game,{mode='manual',aimX,aimY,shoot=false,aimAssist
     const dx=enemy.x-x,dy=enemy.y-y,distance=dx*dx+dy*dy;
     const reach=weapon.speed*weapon.life+24+enemy.r;
     if(distance>reach*reach||distance>=nearest)continue;
-    if(!game.navigation.lineOfSight(player,enemy,SHOT_CLEARANCE))continue;
+    if(!game.navigation.lineOfSight(player,enemy,SHOT_CLEARANCE,{allowVoid:true}))continue;
     if(game.world?.obstacles?.some(rect=>!rect.destroyed&&touchesShotLine(player,enemy,rect)))continue;
     target=enemy;nearest=distance;
   }

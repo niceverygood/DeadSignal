@@ -1,0 +1,3428 @@
+{
+  "diagnosticOnly": true,
+  "actors": "both",
+  "windows": 2,
+  "framesPerWindow": 40,
+  "processOrder": "sequential fresh Node A original → B candidate → A original-repeat for each requested actor count; no concurrent workers",
+  "outputsExact": true,
+  "allValid": true,
+  "comparisons": [
+    {
+      "actors": 60,
+      "outputsExact": true,
+      "allValid": true,
+      "runs": [
+        {
+          "arm": "A",
+          "mode": "original",
+          "nodeVersion": "v22.23.3",
+          "v8Version": "12.4.254.21-node.57",
+          "platform": "win32",
+          "arch": "x64",
+          "nodeFlags": [],
+          "originalModuleSha256": "3b2f3774d703f84952c501f85b001d169e6fbbda024d407478bd989539026cce",
+          "candidateModuleSha256": "83926473a1962e533ca630ed7d7f9266b89bbfd136724993b818a8af49ab7584",
+          "setup": {
+            "dependencyImportWallMs": 65.08990000000003,
+            "moduleImportWallMs": 2.586599999999976
+          },
+          "actors": 60,
+          "windows": 2,
+          "framesPerWindow": 40,
+          "fixture": {
+            "actors": 60,
+            "baseEnemies": 5,
+            "seed": 774,
+            "weapon": "shotgun",
+            "spawnClock": 1.5,
+            "framesPerWindow": 40,
+            "input": "one fixed1/60 Game.tick per frame; zero movement/manual no-shoot/normal AI and spawning"
+          },
+          "initialSnapshotSha256": "daab3da987a58c0d437aa4a4688fbe5318161aff49e79944e87791494f3dde93",
+          "callWallMs": 187.26359999999994,
+          "callCpuMs": 188,
+          "maxRetainedWindowSamples": 40,
+          "retentionScope": "Only one live observer/report sample window at a time; stored results below contain primitive counts/summaries/digests, not report samples, owners or actors. This is a designed window bound, not measured heap or factory allocation proof.",
+          "observationTransparent": true,
+          "allValid": true,
+          "reports": [
+            {
+              "window": 0,
+              "frames": 40,
+              "callWallMs": 88.71999999999997,
+              "callCpuMs": 94,
+              "clockReads": 30298,
+              "reportSha256": "a5009a4c3cdc4072796662f22f2c944fc961a28a8329bda930f4d2ea91a72641",
+              "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 264,
+                  "navigation._sync": 264,
+                  "navigation._grid": 20,
+                  "navigation._field": 20,
+                  "navigation._nearest": 21,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 160,
+                  "control.drawPlayer": 160,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 2400,
+                  "control.nativeEnemyFrame": 2400,
+                  "control.drawNativeEnemy": 2400,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 4320,
+                  "control.player.frame": 160,
+                  "control.player.rasterFrame": 160,
+                  "control.player.render": 320,
+                  "control.player.getImageData": 160
+                },
+                "callCount": 15189,
+                "sequence": 3671228788,
+                "scalarChecksum": 7809873.585845054,
+                "syntheticClock": 1898.625
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 264,
+                  "syntheticCpuMs": 33
+                },
+                "navigation.direction": {
+                  "calls": 264,
+                  "syntheticCpuMs": 73.625
+                },
+                "navigation._grid": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.5
+                },
+                "navigation._nearest": {
+                  "calls": 21,
+                  "syntheticCpuMs": 2.625
+                },
+                "navigation._field": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.625
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 78.625
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 4320,
+                  "syntheticCpuMs": 540
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 300
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 2720,
+                  "syntheticCpuMs": 340
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 1760,
+                  "syntheticCpuMs": 220
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1060
+                },
+                "renderer.drawEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1360
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 840,
+                  "syntheticCpuMs": 105
+                },
+                "player.glSubmit": {
+                  "calls": 320,
+                  "syntheticCpuMs": 40
+                },
+                "player.bodyReadPixels": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "player.rasterFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 80
+                },
+                "player.frame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 100
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 120
+                },
+                "production.drawFrame.player": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawPlayer": {
+                  "calls": 160,
+                  "syntheticCpuMs": 160
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 120,
+                  "syntheticCpuMs": 15
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 60,
+                "random": 4065262979,
+                "visualRandom": 45579
+              }
+            },
+            {
+              "window": 1,
+              "frames": 40,
+              "callWallMs": 98.54359999999997,
+              "callCpuMs": 94,
+              "clockReads": 30298,
+              "reportSha256": "9fb003c256c15e819151e4f593f3e353d5a6ac6f12b75fbd0914d7d76c745432",
+              "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 264,
+                  "navigation._sync": 264,
+                  "navigation._grid": 20,
+                  "navigation._field": 20,
+                  "navigation._nearest": 21,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 160,
+                  "control.drawPlayer": 160,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 2400,
+                  "control.nativeEnemyFrame": 2400,
+                  "control.drawNativeEnemy": 2400,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 4320,
+                  "control.player.frame": 160,
+                  "control.player.rasterFrame": 160,
+                  "control.player.render": 320,
+                  "control.player.getImageData": 160
+                },
+                "callCount": 15189,
+                "sequence": 3671228788,
+                "scalarChecksum": 7809873.585845054,
+                "syntheticClock": 1898.625
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 264,
+                  "syntheticCpuMs": 33
+                },
+                "navigation.direction": {
+                  "calls": 264,
+                  "syntheticCpuMs": 73.625
+                },
+                "navigation._grid": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.5
+                },
+                "navigation._nearest": {
+                  "calls": 21,
+                  "syntheticCpuMs": 2.625
+                },
+                "navigation._field": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.625
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 78.625
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 4320,
+                  "syntheticCpuMs": 540
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 300
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 2720,
+                  "syntheticCpuMs": 340
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 1760,
+                  "syntheticCpuMs": 220
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1060
+                },
+                "renderer.drawEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1360
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 840,
+                  "syntheticCpuMs": 105
+                },
+                "player.glSubmit": {
+                  "calls": 320,
+                  "syntheticCpuMs": 40
+                },
+                "player.bodyReadPixels": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "player.rasterFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 80
+                },
+                "player.frame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 100
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 120
+                },
+                "production.drawFrame.player": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawPlayer": {
+                  "calls": 160,
+                  "syntheticCpuMs": 160
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 120,
+                  "syntheticCpuMs": 15
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 60,
+                "random": 4065262979,
+                "visualRandom": 45579
+              }
+            }
+          ],
+          "unobserved": {
+            "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+            "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+            "publicProof": {
+              "counts": {
+                "game.tick": 40,
+                "game.updateMolotovs": 40,
+                "game.updateBullets": 40,
+                "game.updateEnemies": 40,
+                "game.updatePickups": 40,
+                "game.updateEffects": 40,
+                "game.spawnEnemy": 0,
+                "game.shoot": 0,
+                "navigation.direction": 264,
+                "navigation._sync": 264,
+                "navigation._grid": 20,
+                "navigation._field": 20,
+                "navigation._nearest": 21,
+                "navigation._approachBlocked": 0,
+                "control.render": 40,
+                "control.makeFloor": 40,
+                "control.nativePlayerFrame": 160,
+                "control.drawPlayer": 160,
+                "control.drawObstacle": 880,
+                "control.drawDecor": 480,
+                "control.prepareNativeEnemyBatch": 40,
+                "control.drawMinimap": 40,
+                "control.drawEnemy": 2400,
+                "control.nativeEnemyFrame": 2400,
+                "control.drawNativeEnemy": 2400,
+                "control.drawCampaignBoss": 40,
+                "control.nativeCorpseFrame": 40,
+                "control.drawNativeCorpse": 40,
+                "control.drawCorpse": 40,
+                "control.drawParticle": 40,
+                "control.art.drawFrame": 4320,
+                "control.player.frame": 160,
+                "control.player.rasterFrame": 160,
+                "control.player.render": 320,
+                "control.player.getImageData": 160
+              },
+              "callCount": 15189,
+              "sequence": 3671228788,
+              "scalarChecksum": 7809873.585845054,
+              "syntheticClock": 1898.625
+            },
+            "restored": true
+          },
+          "note": "Sequential fresh Node original/candidate/original workers use the same real Game60/180 fixture and controlled JavaScript Renderer/player/art method workload. A fresh checkpoint restore, controlled owners and observer are used per40-frame window; at most40 report samples remain in that window and only primitive summaries/digests are retained afterward. Only beginFrame, one original Game.tick(1/60, explicit manual no-shoot input), controlled original observation calls and endFrame are timed. Import, fixture creation/restore, input creation, stop/descriptor cleanup, event draining, report/state hashing and comparison are outside those call intervals. A deterministic synthetic clock advances by.125 only when an original observed/workload method executes; observer clock reads do not advance it. Synthetic report cpuMs are proof values, never real time. Actual call-wall and process CPU are separately reported and include real simulation, controlled workload/counter overhead and observer work; process CPU can include other threads. Identical untimed unobserved windows independently check that observation preserves original call counters, events, game/runtime and both RNG streams. The report has no source-factory allocation instrumentation, no continuous heap/GC/retention measurements and no claimed allocation-byte reduction. Controlled native labels/GL/read method names are stand-ins with no Canvas, GPU, images, upload, WebAudio or native pixels. This is not actual production Renderer/app.frame, full HUD/audio/save, browser cadence or FPS evidence. Normal input/HP/AI/speed/spawn/RNG are preserved; no source Game/assets/save or external services are modified. There is no performance threshold."
+        },
+        {
+          "arm": "B",
+          "mode": "candidate",
+          "nodeVersion": "v22.23.3",
+          "v8Version": "12.4.254.21-node.57",
+          "platform": "win32",
+          "arch": "x64",
+          "nodeFlags": [],
+          "originalModuleSha256": "3b2f3774d703f84952c501f85b001d169e6fbbda024d407478bd989539026cce",
+          "candidateModuleSha256": "83926473a1962e533ca630ed7d7f9266b89bbfd136724993b818a8af49ab7584",
+          "setup": {
+            "dependencyImportWallMs": 38.98009999999999,
+            "moduleImportWallMs": 2.4775999999999954
+          },
+          "actors": 60,
+          "windows": 2,
+          "framesPerWindow": 40,
+          "fixture": {
+            "actors": 60,
+            "baseEnemies": 5,
+            "seed": 774,
+            "weapon": "shotgun",
+            "spawnClock": 1.5,
+            "framesPerWindow": 40,
+            "input": "one fixed1/60 Game.tick per frame; zero movement/manual no-shoot/normal AI and spawning"
+          },
+          "initialSnapshotSha256": "daab3da987a58c0d437aa4a4688fbe5318161aff49e79944e87791494f3dde93",
+          "callWallMs": 215.86470000000014,
+          "callCpuMs": 265,
+          "maxRetainedWindowSamples": 40,
+          "retentionScope": "Only one live observer/report sample window at a time; stored results below contain primitive counts/summaries/digests, not report samples, owners or actors. This is a designed window bound, not measured heap or factory allocation proof.",
+          "observationTransparent": true,
+          "allValid": true,
+          "reports": [
+            {
+              "window": 0,
+              "frames": 40,
+              "callWallMs": 130.57940000000002,
+              "callCpuMs": 125,
+              "clockReads": 30298,
+              "reportSha256": "a5009a4c3cdc4072796662f22f2c944fc961a28a8329bda930f4d2ea91a72641",
+              "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 264,
+                  "navigation._sync": 264,
+                  "navigation._grid": 20,
+                  "navigation._field": 20,
+                  "navigation._nearest": 21,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 160,
+                  "control.drawPlayer": 160,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 2400,
+                  "control.nativeEnemyFrame": 2400,
+                  "control.drawNativeEnemy": 2400,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 4320,
+                  "control.player.frame": 160,
+                  "control.player.rasterFrame": 160,
+                  "control.player.render": 320,
+                  "control.player.getImageData": 160
+                },
+                "callCount": 15189,
+                "sequence": 3671228788,
+                "scalarChecksum": 7809873.585845054,
+                "syntheticClock": 1898.625
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 264,
+                  "syntheticCpuMs": 33
+                },
+                "navigation.direction": {
+                  "calls": 264,
+                  "syntheticCpuMs": 73.625
+                },
+                "navigation._grid": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.5
+                },
+                "navigation._nearest": {
+                  "calls": 21,
+                  "syntheticCpuMs": 2.625
+                },
+                "navigation._field": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.625
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 78.625
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 4320,
+                  "syntheticCpuMs": 540
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 300
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 2720,
+                  "syntheticCpuMs": 340
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 1760,
+                  "syntheticCpuMs": 220
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1060
+                },
+                "renderer.drawEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1360
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 840,
+                  "syntheticCpuMs": 105
+                },
+                "player.glSubmit": {
+                  "calls": 320,
+                  "syntheticCpuMs": 40
+                },
+                "player.bodyReadPixels": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "player.rasterFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 80
+                },
+                "player.frame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 100
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 120
+                },
+                "production.drawFrame.player": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawPlayer": {
+                  "calls": 160,
+                  "syntheticCpuMs": 160
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 120,
+                  "syntheticCpuMs": 15
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 60,
+                "random": 4065262979,
+                "visualRandom": 45579
+              }
+            },
+            {
+              "window": 1,
+              "frames": 40,
+              "callWallMs": 85.28530000000012,
+              "callCpuMs": 140,
+              "clockReads": 30298,
+              "reportSha256": "9fb003c256c15e819151e4f593f3e353d5a6ac6f12b75fbd0914d7d76c745432",
+              "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 264,
+                  "navigation._sync": 264,
+                  "navigation._grid": 20,
+                  "navigation._field": 20,
+                  "navigation._nearest": 21,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 160,
+                  "control.drawPlayer": 160,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 2400,
+                  "control.nativeEnemyFrame": 2400,
+                  "control.drawNativeEnemy": 2400,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 4320,
+                  "control.player.frame": 160,
+                  "control.player.rasterFrame": 160,
+                  "control.player.render": 320,
+                  "control.player.getImageData": 160
+                },
+                "callCount": 15189,
+                "sequence": 3671228788,
+                "scalarChecksum": 7809873.585845054,
+                "syntheticClock": 1898.625
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 264,
+                  "syntheticCpuMs": 33
+                },
+                "navigation.direction": {
+                  "calls": 264,
+                  "syntheticCpuMs": 73.625
+                },
+                "navigation._grid": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.5
+                },
+                "navigation._nearest": {
+                  "calls": 21,
+                  "syntheticCpuMs": 2.625
+                },
+                "navigation._field": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.625
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 78.625
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 4320,
+                  "syntheticCpuMs": 540
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 300
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 2720,
+                  "syntheticCpuMs": 340
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 1760,
+                  "syntheticCpuMs": 220
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1060
+                },
+                "renderer.drawEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1360
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 840,
+                  "syntheticCpuMs": 105
+                },
+                "player.glSubmit": {
+                  "calls": 320,
+                  "syntheticCpuMs": 40
+                },
+                "player.bodyReadPixels": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "player.rasterFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 80
+                },
+                "player.frame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 100
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 120
+                },
+                "production.drawFrame.player": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawPlayer": {
+                  "calls": 160,
+                  "syntheticCpuMs": 160
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 120,
+                  "syntheticCpuMs": 15
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 60,
+                "random": 4065262979,
+                "visualRandom": 45579
+              }
+            }
+          ],
+          "unobserved": {
+            "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+            "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+            "publicProof": {
+              "counts": {
+                "game.tick": 40,
+                "game.updateMolotovs": 40,
+                "game.updateBullets": 40,
+                "game.updateEnemies": 40,
+                "game.updatePickups": 40,
+                "game.updateEffects": 40,
+                "game.spawnEnemy": 0,
+                "game.shoot": 0,
+                "navigation.direction": 264,
+                "navigation._sync": 264,
+                "navigation._grid": 20,
+                "navigation._field": 20,
+                "navigation._nearest": 21,
+                "navigation._approachBlocked": 0,
+                "control.render": 40,
+                "control.makeFloor": 40,
+                "control.nativePlayerFrame": 160,
+                "control.drawPlayer": 160,
+                "control.drawObstacle": 880,
+                "control.drawDecor": 480,
+                "control.prepareNativeEnemyBatch": 40,
+                "control.drawMinimap": 40,
+                "control.drawEnemy": 2400,
+                "control.nativeEnemyFrame": 2400,
+                "control.drawNativeEnemy": 2400,
+                "control.drawCampaignBoss": 40,
+                "control.nativeCorpseFrame": 40,
+                "control.drawNativeCorpse": 40,
+                "control.drawCorpse": 40,
+                "control.drawParticle": 40,
+                "control.art.drawFrame": 4320,
+                "control.player.frame": 160,
+                "control.player.rasterFrame": 160,
+                "control.player.render": 320,
+                "control.player.getImageData": 160
+              },
+              "callCount": 15189,
+              "sequence": 3671228788,
+              "scalarChecksum": 7809873.585845054,
+              "syntheticClock": 1898.625
+            },
+            "restored": true
+          },
+          "note": "Sequential fresh Node original/candidate/original workers use the same real Game60/180 fixture and controlled JavaScript Renderer/player/art method workload. A fresh checkpoint restore, controlled owners and observer are used per40-frame window; at most40 report samples remain in that window and only primitive summaries/digests are retained afterward. Only beginFrame, one original Game.tick(1/60, explicit manual no-shoot input), controlled original observation calls and endFrame are timed. Import, fixture creation/restore, input creation, stop/descriptor cleanup, event draining, report/state hashing and comparison are outside those call intervals. A deterministic synthetic clock advances by.125 only when an original observed/workload method executes; observer clock reads do not advance it. Synthetic report cpuMs are proof values, never real time. Actual call-wall and process CPU are separately reported and include real simulation, controlled workload/counter overhead and observer work; process CPU can include other threads. Identical untimed unobserved windows independently check that observation preserves original call counters, events, game/runtime and both RNG streams. The report has no source-factory allocation instrumentation, no continuous heap/GC/retention measurements and no claimed allocation-byte reduction. Controlled native labels/GL/read method names are stand-ins with no Canvas, GPU, images, upload, WebAudio or native pixels. This is not actual production Renderer/app.frame, full HUD/audio/save, browser cadence or FPS evidence. Normal input/HP/AI/speed/spawn/RNG are preserved; no source Game/assets/save or external services are modified. There is no performance threshold."
+        },
+        {
+          "arm": "A-repeat",
+          "mode": "original",
+          "nodeVersion": "v22.23.3",
+          "v8Version": "12.4.254.21-node.57",
+          "platform": "win32",
+          "arch": "x64",
+          "nodeFlags": [],
+          "originalModuleSha256": "3b2f3774d703f84952c501f85b001d169e6fbbda024d407478bd989539026cce",
+          "candidateModuleSha256": "83926473a1962e533ca630ed7d7f9266b89bbfd136724993b818a8af49ab7584",
+          "setup": {
+            "dependencyImportWallMs": 41.194500000000005,
+            "moduleImportWallMs": 2.494400000000013
+          },
+          "actors": 60,
+          "windows": 2,
+          "framesPerWindow": 40,
+          "fixture": {
+            "actors": 60,
+            "baseEnemies": 5,
+            "seed": 774,
+            "weapon": "shotgun",
+            "spawnClock": 1.5,
+            "framesPerWindow": 40,
+            "input": "one fixed1/60 Game.tick per frame; zero movement/manual no-shoot/normal AI and spawning"
+          },
+          "initialSnapshotSha256": "daab3da987a58c0d437aa4a4688fbe5318161aff49e79944e87791494f3dde93",
+          "callWallMs": 218.81789999999987,
+          "callCpuMs": 312,
+          "maxRetainedWindowSamples": 40,
+          "retentionScope": "Only one live observer/report sample window at a time; stored results below contain primitive counts/summaries/digests, not report samples, owners or actors. This is a designed window bound, not measured heap or factory allocation proof.",
+          "observationTransparent": true,
+          "allValid": true,
+          "reports": [
+            {
+              "window": 0,
+              "frames": 40,
+              "callWallMs": 132.75449999999998,
+              "callCpuMs": 124,
+              "clockReads": 30298,
+              "reportSha256": "a5009a4c3cdc4072796662f22f2c944fc961a28a8329bda930f4d2ea91a72641",
+              "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 264,
+                  "navigation._sync": 264,
+                  "navigation._grid": 20,
+                  "navigation._field": 20,
+                  "navigation._nearest": 21,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 160,
+                  "control.drawPlayer": 160,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 2400,
+                  "control.nativeEnemyFrame": 2400,
+                  "control.drawNativeEnemy": 2400,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 4320,
+                  "control.player.frame": 160,
+                  "control.player.rasterFrame": 160,
+                  "control.player.render": 320,
+                  "control.player.getImageData": 160
+                },
+                "callCount": 15189,
+                "sequence": 3671228788,
+                "scalarChecksum": 7809873.585845054,
+                "syntheticClock": 1898.625
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 264,
+                  "syntheticCpuMs": 33
+                },
+                "navigation.direction": {
+                  "calls": 264,
+                  "syntheticCpuMs": 73.625
+                },
+                "navigation._grid": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.5
+                },
+                "navigation._nearest": {
+                  "calls": 21,
+                  "syntheticCpuMs": 2.625
+                },
+                "navigation._field": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.625
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 78.625
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 4320,
+                  "syntheticCpuMs": 540
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 300
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 2720,
+                  "syntheticCpuMs": 340
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 1760,
+                  "syntheticCpuMs": 220
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1060
+                },
+                "renderer.drawEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1360
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 840,
+                  "syntheticCpuMs": 105
+                },
+                "player.glSubmit": {
+                  "calls": 320,
+                  "syntheticCpuMs": 40
+                },
+                "player.bodyReadPixels": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "player.rasterFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 80
+                },
+                "player.frame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 100
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 120
+                },
+                "production.drawFrame.player": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawPlayer": {
+                  "calls": 160,
+                  "syntheticCpuMs": 160
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 120,
+                  "syntheticCpuMs": 15
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 60,
+                "random": 4065262979,
+                "visualRandom": 45579
+              }
+            },
+            {
+              "window": 1,
+              "frames": 40,
+              "callWallMs": 86.06339999999989,
+              "callCpuMs": 188,
+              "clockReads": 30298,
+              "reportSha256": "9fb003c256c15e819151e4f593f3e353d5a6ac6f12b75fbd0914d7d76c745432",
+              "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 264,
+                  "navigation._sync": 264,
+                  "navigation._grid": 20,
+                  "navigation._field": 20,
+                  "navigation._nearest": 21,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 160,
+                  "control.drawPlayer": 160,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 2400,
+                  "control.nativeEnemyFrame": 2400,
+                  "control.drawNativeEnemy": 2400,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 4320,
+                  "control.player.frame": 160,
+                  "control.player.rasterFrame": 160,
+                  "control.player.render": 320,
+                  "control.player.getImageData": 160
+                },
+                "callCount": 15189,
+                "sequence": 3671228788,
+                "scalarChecksum": 7809873.585845054,
+                "syntheticClock": 1898.625
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 264,
+                  "syntheticCpuMs": 33
+                },
+                "navigation.direction": {
+                  "calls": 264,
+                  "syntheticCpuMs": 73.625
+                },
+                "navigation._grid": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.5
+                },
+                "navigation._nearest": {
+                  "calls": 21,
+                  "syntheticCpuMs": 2.625
+                },
+                "navigation._field": {
+                  "calls": 20,
+                  "syntheticCpuMs": 2.625
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 78.625
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 4320,
+                  "syntheticCpuMs": 540
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 300
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 2720,
+                  "syntheticCpuMs": 340
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 1760,
+                  "syntheticCpuMs": 220
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1060
+                },
+                "renderer.drawEnemy": {
+                  "calls": 2400,
+                  "syntheticCpuMs": 1360
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 840,
+                  "syntheticCpuMs": 105
+                },
+                "player.glSubmit": {
+                  "calls": 320,
+                  "syntheticCpuMs": 40
+                },
+                "player.bodyReadPixels": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "player.rasterFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 80
+                },
+                "player.frame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 100
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 160,
+                  "syntheticCpuMs": 120
+                },
+                "production.drawFrame.player": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 160,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawPlayer": {
+                  "calls": 160,
+                  "syntheticCpuMs": 160
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 120,
+                  "syntheticCpuMs": 15
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 60,
+                "random": 4065262979,
+                "visualRandom": 45579
+              }
+            }
+          ],
+          "unobserved": {
+            "stateSha256": "80d060102c404d692f5d6c6e3bcc4c2c8bca6d80c5ace06f23ff9a80d0b56e78",
+            "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+            "publicProof": {
+              "counts": {
+                "game.tick": 40,
+                "game.updateMolotovs": 40,
+                "game.updateBullets": 40,
+                "game.updateEnemies": 40,
+                "game.updatePickups": 40,
+                "game.updateEffects": 40,
+                "game.spawnEnemy": 0,
+                "game.shoot": 0,
+                "navigation.direction": 264,
+                "navigation._sync": 264,
+                "navigation._grid": 20,
+                "navigation._field": 20,
+                "navigation._nearest": 21,
+                "navigation._approachBlocked": 0,
+                "control.render": 40,
+                "control.makeFloor": 40,
+                "control.nativePlayerFrame": 160,
+                "control.drawPlayer": 160,
+                "control.drawObstacle": 880,
+                "control.drawDecor": 480,
+                "control.prepareNativeEnemyBatch": 40,
+                "control.drawMinimap": 40,
+                "control.drawEnemy": 2400,
+                "control.nativeEnemyFrame": 2400,
+                "control.drawNativeEnemy": 2400,
+                "control.drawCampaignBoss": 40,
+                "control.nativeCorpseFrame": 40,
+                "control.drawNativeCorpse": 40,
+                "control.drawCorpse": 40,
+                "control.drawParticle": 40,
+                "control.art.drawFrame": 4320,
+                "control.player.frame": 160,
+                "control.player.rasterFrame": 160,
+                "control.player.render": 320,
+                "control.player.getImageData": 160
+              },
+              "callCount": 15189,
+              "sequence": 3671228788,
+              "scalarChecksum": 7809873.585845054,
+              "syntheticClock": 1898.625
+            },
+            "restored": true
+          },
+          "note": "Sequential fresh Node original/candidate/original workers use the same real Game60/180 fixture and controlled JavaScript Renderer/player/art method workload. A fresh checkpoint restore, controlled owners and observer are used per40-frame window; at most40 report samples remain in that window and only primitive summaries/digests are retained afterward. Only beginFrame, one original Game.tick(1/60, explicit manual no-shoot input), controlled original observation calls and endFrame are timed. Import, fixture creation/restore, input creation, stop/descriptor cleanup, event draining, report/state hashing and comparison are outside those call intervals. A deterministic synthetic clock advances by.125 only when an original observed/workload method executes; observer clock reads do not advance it. Synthetic report cpuMs are proof values, never real time. Actual call-wall and process CPU are separately reported and include real simulation, controlled workload/counter overhead and observer work; process CPU can include other threads. Identical untimed unobserved windows independently check that observation preserves original call counters, events, game/runtime and both RNG streams. The report has no source-factory allocation instrumentation, no continuous heap/GC/retention measurements and no claimed allocation-byte reduction. Controlled native labels/GL/read method names are stand-ins with no Canvas, GPU, images, upload, WebAudio or native pixels. This is not actual production Renderer/app.frame, full HUD/audio/save, browser cadence or FPS evidence. Normal input/HP/AI/speed/spawn/RNG are preserved; no source Game/assets/save or external services are modified. There is no performance threshold."
+        }
+      ]
+    },
+    {
+      "actors": 180,
+      "outputsExact": true,
+      "allValid": true,
+      "runs": [
+        {
+          "arm": "A",
+          "mode": "original",
+          "nodeVersion": "v22.23.3",
+          "v8Version": "12.4.254.21-node.57",
+          "platform": "win32",
+          "arch": "x64",
+          "nodeFlags": [],
+          "originalModuleSha256": "3b2f3774d703f84952c501f85b001d169e6fbbda024d407478bd989539026cce",
+          "candidateModuleSha256": "83926473a1962e533ca630ed7d7f9266b89bbfd136724993b818a8af49ab7584",
+          "setup": {
+            "dependencyImportWallMs": 82.8887,
+            "moduleImportWallMs": 2.826400000000035
+          },
+          "actors": 180,
+          "windows": 2,
+          "framesPerWindow": 40,
+          "fixture": {
+            "actors": 180,
+            "baseEnemies": 5,
+            "seed": 774,
+            "weapon": "nailgun",
+            "spawnClock": 1.5,
+            "framesPerWindow": 40,
+            "input": "one fixed1/60 Game.tick per frame; zero movement/manual no-shoot/normal AI and spawning"
+          },
+          "initialSnapshotSha256": "704548268ac0da2c8cce6dcaf19f2785911d6cedf62ccbdb3ab9434d54a0c246",
+          "callWallMs": 450.9617000000002,
+          "callCpuMs": 312,
+          "maxRetainedWindowSamples": 40,
+          "retentionScope": "Only one live observer/report sample window at a time; stored results below contain primitive counts/summaries/digests, not report samples, owners or actors. This is a designed window bound, not measured heap or factory allocation proof.",
+          "observationTransparent": true,
+          "allValid": true,
+          "reports": [
+            {
+              "window": 0,
+              "frames": 40,
+              "callWallMs": 216.22010000000012,
+              "callCpuMs": 234,
+              "clockReads": 76722,
+              "reportSha256": "904a13902cfe439e4796c260ff753fabf35fd7fce8b5cc36bf379aa7bfca05c5",
+              "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 792,
+                  "navigation._sync": 792,
+                  "navigation._grid": 32,
+                  "navigation._field": 32,
+                  "navigation._nearest": 33,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 440,
+                  "control.drawPlayer": 440,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 7200,
+                  "control.nativeEnemyFrame": 7200,
+                  "control.drawNativeEnemy": 7200,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 10080,
+                  "control.player.frame": 440,
+                  "control.player.rasterFrame": 440,
+                  "control.player.render": 880,
+                  "control.player.getImageData": 440
+                },
+                "callCount": 38401,
+                "sequence": 2253183312,
+                "scalarChecksum": 18731456.652569257,
+                "syntheticClock": 4800.125
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 792,
+                  "syntheticCpuMs": 99
+                },
+                "navigation.direction": {
+                  "calls": 792,
+                  "syntheticCpuMs": 210.125
+                },
+                "navigation._grid": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4
+                },
+                "navigation._nearest": {
+                  "calls": 33,
+                  "syntheticCpuMs": 4.125
+                },
+                "navigation._field": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4.125
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 215.125
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 10080,
+                  "syntheticCpuMs": 1260
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 900
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 8200,
+                  "syntheticCpuMs": 1025
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 5200,
+                  "syntheticCpuMs": 650
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 3225
+                },
+                "renderer.drawEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 4125
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 2600,
+                  "syntheticCpuMs": 325
+                },
+                "player.glSubmit": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "player.bodyReadPixels": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "player.rasterFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 220
+                },
+                "player.frame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 275
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 330
+                },
+                "production.drawFrame.player": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "renderer.drawPlayer": {
+                  "calls": 440,
+                  "syntheticCpuMs": 440
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 400,
+                  "syntheticCpuMs": 50
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 180,
+                "random": 1259426611,
+                "visualRandom": 45579
+              }
+            },
+            {
+              "window": 1,
+              "frames": 40,
+              "callWallMs": 234.74160000000006,
+              "callCpuMs": 78,
+              "clockReads": 76722,
+              "reportSha256": "d0e3ae425399db584ce19b1b5ae97bd6bd483f40b2150d09de25d8ad52836afb",
+              "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 792,
+                  "navigation._sync": 792,
+                  "navigation._grid": 32,
+                  "navigation._field": 32,
+                  "navigation._nearest": 33,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 440,
+                  "control.drawPlayer": 440,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 7200,
+                  "control.nativeEnemyFrame": 7200,
+                  "control.drawNativeEnemy": 7200,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 10080,
+                  "control.player.frame": 440,
+                  "control.player.rasterFrame": 440,
+                  "control.player.render": 880,
+                  "control.player.getImageData": 440
+                },
+                "callCount": 38401,
+                "sequence": 2253183312,
+                "scalarChecksum": 18731456.652569257,
+                "syntheticClock": 4800.125
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 792,
+                  "syntheticCpuMs": 99
+                },
+                "navigation.direction": {
+                  "calls": 792,
+                  "syntheticCpuMs": 210.125
+                },
+                "navigation._grid": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4
+                },
+                "navigation._nearest": {
+                  "calls": 33,
+                  "syntheticCpuMs": 4.125
+                },
+                "navigation._field": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4.125
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 215.125
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 10080,
+                  "syntheticCpuMs": 1260
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 900
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 8200,
+                  "syntheticCpuMs": 1025
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 5200,
+                  "syntheticCpuMs": 650
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 3225
+                },
+                "renderer.drawEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 4125
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 2600,
+                  "syntheticCpuMs": 325
+                },
+                "player.glSubmit": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "player.bodyReadPixels": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "player.rasterFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 220
+                },
+                "player.frame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 275
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 330
+                },
+                "production.drawFrame.player": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "renderer.drawPlayer": {
+                  "calls": 440,
+                  "syntheticCpuMs": 440
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 400,
+                  "syntheticCpuMs": 50
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 180,
+                "random": 1259426611,
+                "visualRandom": 45579
+              }
+            }
+          ],
+          "unobserved": {
+            "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+            "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+            "publicProof": {
+              "counts": {
+                "game.tick": 40,
+                "game.updateMolotovs": 40,
+                "game.updateBullets": 40,
+                "game.updateEnemies": 40,
+                "game.updatePickups": 40,
+                "game.updateEffects": 40,
+                "game.spawnEnemy": 0,
+                "game.shoot": 0,
+                "navigation.direction": 792,
+                "navigation._sync": 792,
+                "navigation._grid": 32,
+                "navigation._field": 32,
+                "navigation._nearest": 33,
+                "navigation._approachBlocked": 0,
+                "control.render": 40,
+                "control.makeFloor": 40,
+                "control.nativePlayerFrame": 440,
+                "control.drawPlayer": 440,
+                "control.drawObstacle": 880,
+                "control.drawDecor": 480,
+                "control.prepareNativeEnemyBatch": 40,
+                "control.drawMinimap": 40,
+                "control.drawEnemy": 7200,
+                "control.nativeEnemyFrame": 7200,
+                "control.drawNativeEnemy": 7200,
+                "control.drawCampaignBoss": 40,
+                "control.nativeCorpseFrame": 40,
+                "control.drawNativeCorpse": 40,
+                "control.drawCorpse": 40,
+                "control.drawParticle": 40,
+                "control.art.drawFrame": 10080,
+                "control.player.frame": 440,
+                "control.player.rasterFrame": 440,
+                "control.player.render": 880,
+                "control.player.getImageData": 440
+              },
+              "callCount": 38401,
+              "sequence": 2253183312,
+              "scalarChecksum": 18731456.652569257,
+              "syntheticClock": 4800.125
+            },
+            "restored": true
+          },
+          "note": "Sequential fresh Node original/candidate/original workers use the same real Game60/180 fixture and controlled JavaScript Renderer/player/art method workload. A fresh checkpoint restore, controlled owners and observer are used per40-frame window; at most40 report samples remain in that window and only primitive summaries/digests are retained afterward. Only beginFrame, one original Game.tick(1/60, explicit manual no-shoot input), controlled original observation calls and endFrame are timed. Import, fixture creation/restore, input creation, stop/descriptor cleanup, event draining, report/state hashing and comparison are outside those call intervals. A deterministic synthetic clock advances by.125 only when an original observed/workload method executes; observer clock reads do not advance it. Synthetic report cpuMs are proof values, never real time. Actual call-wall and process CPU are separately reported and include real simulation, controlled workload/counter overhead and observer work; process CPU can include other threads. Identical untimed unobserved windows independently check that observation preserves original call counters, events, game/runtime and both RNG streams. The report has no source-factory allocation instrumentation, no continuous heap/GC/retention measurements and no claimed allocation-byte reduction. Controlled native labels/GL/read method names are stand-ins with no Canvas, GPU, images, upload, WebAudio or native pixels. This is not actual production Renderer/app.frame, full HUD/audio/save, browser cadence or FPS evidence. Normal input/HP/AI/speed/spawn/RNG are preserved; no source Game/assets/save or external services are modified. There is no performance threshold."
+        },
+        {
+          "arm": "B",
+          "mode": "candidate",
+          "nodeVersion": "v22.23.3",
+          "v8Version": "12.4.254.21-node.57",
+          "platform": "win32",
+          "arch": "x64",
+          "nodeFlags": [],
+          "originalModuleSha256": "3b2f3774d703f84952c501f85b001d169e6fbbda024d407478bd989539026cce",
+          "candidateModuleSha256": "83926473a1962e533ca630ed7d7f9266b89bbfd136724993b818a8af49ab7584",
+          "setup": {
+            "dependencyImportWallMs": 45.193899999999985,
+            "moduleImportWallMs": 2.7269000000000005
+          },
+          "actors": 180,
+          "windows": 2,
+          "framesPerWindow": 40,
+          "fixture": {
+            "actors": 180,
+            "baseEnemies": 5,
+            "seed": 774,
+            "weapon": "nailgun",
+            "spawnClock": 1.5,
+            "framesPerWindow": 40,
+            "input": "one fixed1/60 Game.tick per frame; zero movement/manual no-shoot/normal AI and spawning"
+          },
+          "initialSnapshotSha256": "704548268ac0da2c8cce6dcaf19f2785911d6cedf62ccbdb3ab9434d54a0c246",
+          "callWallMs": 328.51330000000013,
+          "callCpuMs": 470,
+          "maxRetainedWindowSamples": 40,
+          "retentionScope": "Only one live observer/report sample window at a time; stored results below contain primitive counts/summaries/digests, not report samples, owners or actors. This is a designed window bound, not measured heap or factory allocation proof.",
+          "observationTransparent": true,
+          "allValid": true,
+          "reports": [
+            {
+              "window": 0,
+              "frames": 40,
+              "callWallMs": 186.61599999999987,
+              "callCpuMs": 235,
+              "clockReads": 76722,
+              "reportSha256": "904a13902cfe439e4796c260ff753fabf35fd7fce8b5cc36bf379aa7bfca05c5",
+              "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 792,
+                  "navigation._sync": 792,
+                  "navigation._grid": 32,
+                  "navigation._field": 32,
+                  "navigation._nearest": 33,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 440,
+                  "control.drawPlayer": 440,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 7200,
+                  "control.nativeEnemyFrame": 7200,
+                  "control.drawNativeEnemy": 7200,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 10080,
+                  "control.player.frame": 440,
+                  "control.player.rasterFrame": 440,
+                  "control.player.render": 880,
+                  "control.player.getImageData": 440
+                },
+                "callCount": 38401,
+                "sequence": 2253183312,
+                "scalarChecksum": 18731456.652569257,
+                "syntheticClock": 4800.125
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 792,
+                  "syntheticCpuMs": 99
+                },
+                "navigation.direction": {
+                  "calls": 792,
+                  "syntheticCpuMs": 210.125
+                },
+                "navigation._grid": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4
+                },
+                "navigation._nearest": {
+                  "calls": 33,
+                  "syntheticCpuMs": 4.125
+                },
+                "navigation._field": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4.125
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 215.125
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 10080,
+                  "syntheticCpuMs": 1260
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 900
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 8200,
+                  "syntheticCpuMs": 1025
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 5200,
+                  "syntheticCpuMs": 650
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 3225
+                },
+                "renderer.drawEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 4125
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 2600,
+                  "syntheticCpuMs": 325
+                },
+                "player.glSubmit": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "player.bodyReadPixels": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "player.rasterFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 220
+                },
+                "player.frame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 275
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 330
+                },
+                "production.drawFrame.player": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "renderer.drawPlayer": {
+                  "calls": 440,
+                  "syntheticCpuMs": 440
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 400,
+                  "syntheticCpuMs": 50
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 180,
+                "random": 1259426611,
+                "visualRandom": 45579
+              }
+            },
+            {
+              "window": 1,
+              "frames": 40,
+              "callWallMs": 141.89730000000026,
+              "callCpuMs": 235,
+              "clockReads": 76722,
+              "reportSha256": "d0e3ae425399db584ce19b1b5ae97bd6bd483f40b2150d09de25d8ad52836afb",
+              "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 792,
+                  "navigation._sync": 792,
+                  "navigation._grid": 32,
+                  "navigation._field": 32,
+                  "navigation._nearest": 33,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 440,
+                  "control.drawPlayer": 440,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 7200,
+                  "control.nativeEnemyFrame": 7200,
+                  "control.drawNativeEnemy": 7200,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 10080,
+                  "control.player.frame": 440,
+                  "control.player.rasterFrame": 440,
+                  "control.player.render": 880,
+                  "control.player.getImageData": 440
+                },
+                "callCount": 38401,
+                "sequence": 2253183312,
+                "scalarChecksum": 18731456.652569257,
+                "syntheticClock": 4800.125
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 792,
+                  "syntheticCpuMs": 99
+                },
+                "navigation.direction": {
+                  "calls": 792,
+                  "syntheticCpuMs": 210.125
+                },
+                "navigation._grid": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4
+                },
+                "navigation._nearest": {
+                  "calls": 33,
+                  "syntheticCpuMs": 4.125
+                },
+                "navigation._field": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4.125
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 215.125
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 10080,
+                  "syntheticCpuMs": 1260
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 900
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 8200,
+                  "syntheticCpuMs": 1025
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 5200,
+                  "syntheticCpuMs": 650
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 3225
+                },
+                "renderer.drawEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 4125
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 2600,
+                  "syntheticCpuMs": 325
+                },
+                "player.glSubmit": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "player.bodyReadPixels": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "player.rasterFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 220
+                },
+                "player.frame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 275
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 330
+                },
+                "production.drawFrame.player": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "renderer.drawPlayer": {
+                  "calls": 440,
+                  "syntheticCpuMs": 440
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 400,
+                  "syntheticCpuMs": 50
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 180,
+                "random": 1259426611,
+                "visualRandom": 45579
+              }
+            }
+          ],
+          "unobserved": {
+            "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+            "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+            "publicProof": {
+              "counts": {
+                "game.tick": 40,
+                "game.updateMolotovs": 40,
+                "game.updateBullets": 40,
+                "game.updateEnemies": 40,
+                "game.updatePickups": 40,
+                "game.updateEffects": 40,
+                "game.spawnEnemy": 0,
+                "game.shoot": 0,
+                "navigation.direction": 792,
+                "navigation._sync": 792,
+                "navigation._grid": 32,
+                "navigation._field": 32,
+                "navigation._nearest": 33,
+                "navigation._approachBlocked": 0,
+                "control.render": 40,
+                "control.makeFloor": 40,
+                "control.nativePlayerFrame": 440,
+                "control.drawPlayer": 440,
+                "control.drawObstacle": 880,
+                "control.drawDecor": 480,
+                "control.prepareNativeEnemyBatch": 40,
+                "control.drawMinimap": 40,
+                "control.drawEnemy": 7200,
+                "control.nativeEnemyFrame": 7200,
+                "control.drawNativeEnemy": 7200,
+                "control.drawCampaignBoss": 40,
+                "control.nativeCorpseFrame": 40,
+                "control.drawNativeCorpse": 40,
+                "control.drawCorpse": 40,
+                "control.drawParticle": 40,
+                "control.art.drawFrame": 10080,
+                "control.player.frame": 440,
+                "control.player.rasterFrame": 440,
+                "control.player.render": 880,
+                "control.player.getImageData": 440
+              },
+              "callCount": 38401,
+              "sequence": 2253183312,
+              "scalarChecksum": 18731456.652569257,
+              "syntheticClock": 4800.125
+            },
+            "restored": true
+          },
+          "note": "Sequential fresh Node original/candidate/original workers use the same real Game60/180 fixture and controlled JavaScript Renderer/player/art method workload. A fresh checkpoint restore, controlled owners and observer are used per40-frame window; at most40 report samples remain in that window and only primitive summaries/digests are retained afterward. Only beginFrame, one original Game.tick(1/60, explicit manual no-shoot input), controlled original observation calls and endFrame are timed. Import, fixture creation/restore, input creation, stop/descriptor cleanup, event draining, report/state hashing and comparison are outside those call intervals. A deterministic synthetic clock advances by.125 only when an original observed/workload method executes; observer clock reads do not advance it. Synthetic report cpuMs are proof values, never real time. Actual call-wall and process CPU are separately reported and include real simulation, controlled workload/counter overhead and observer work; process CPU can include other threads. Identical untimed unobserved windows independently check that observation preserves original call counters, events, game/runtime and both RNG streams. The report has no source-factory allocation instrumentation, no continuous heap/GC/retention measurements and no claimed allocation-byte reduction. Controlled native labels/GL/read method names are stand-ins with no Canvas, GPU, images, upload, WebAudio or native pixels. This is not actual production Renderer/app.frame, full HUD/audio/save, browser cadence or FPS evidence. Normal input/HP/AI/speed/spawn/RNG are preserved; no source Game/assets/save or external services are modified. There is no performance threshold."
+        },
+        {
+          "arm": "A-repeat",
+          "mode": "original",
+          "nodeVersion": "v22.23.3",
+          "v8Version": "12.4.254.21-node.57",
+          "platform": "win32",
+          "arch": "x64",
+          "nodeFlags": [],
+          "originalModuleSha256": "3b2f3774d703f84952c501f85b001d169e6fbbda024d407478bd989539026cce",
+          "candidateModuleSha256": "83926473a1962e533ca630ed7d7f9266b89bbfd136724993b818a8af49ab7584",
+          "setup": {
+            "dependencyImportWallMs": 47.12710000000001,
+            "moduleImportWallMs": 7.499200000000002
+          },
+          "actors": 180,
+          "windows": 2,
+          "framesPerWindow": 40,
+          "fixture": {
+            "actors": 180,
+            "baseEnemies": 5,
+            "seed": 774,
+            "weapon": "nailgun",
+            "spawnClock": 1.5,
+            "framesPerWindow": 40,
+            "input": "one fixed1/60 Game.tick per frame; zero movement/manual no-shoot/normal AI and spawning"
+          },
+          "initialSnapshotSha256": "704548268ac0da2c8cce6dcaf19f2785911d6cedf62ccbdb3ab9434d54a0c246",
+          "callWallMs": 232.5571000000001,
+          "callCpuMs": 437,
+          "maxRetainedWindowSamples": 40,
+          "retentionScope": "Only one live observer/report sample window at a time; stored results below contain primitive counts/summaries/digests, not report samples, owners or actors. This is a designed window bound, not measured heap or factory allocation proof.",
+          "observationTransparent": true,
+          "allValid": true,
+          "reports": [
+            {
+              "window": 0,
+              "frames": 40,
+              "callWallMs": 132.2976000000001,
+              "callCpuMs": 250,
+              "clockReads": 76722,
+              "reportSha256": "904a13902cfe439e4796c260ff753fabf35fd7fce8b5cc36bf379aa7bfca05c5",
+              "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 792,
+                  "navigation._sync": 792,
+                  "navigation._grid": 32,
+                  "navigation._field": 32,
+                  "navigation._nearest": 33,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 440,
+                  "control.drawPlayer": 440,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 7200,
+                  "control.nativeEnemyFrame": 7200,
+                  "control.drawNativeEnemy": 7200,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 10080,
+                  "control.player.frame": 440,
+                  "control.player.rasterFrame": 440,
+                  "control.player.render": 880,
+                  "control.player.getImageData": 440
+                },
+                "callCount": 38401,
+                "sequence": 2253183312,
+                "scalarChecksum": 18731456.652569257,
+                "syntheticClock": 4800.125
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 792,
+                  "syntheticCpuMs": 99
+                },
+                "navigation.direction": {
+                  "calls": 792,
+                  "syntheticCpuMs": 210.125
+                },
+                "navigation._grid": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4
+                },
+                "navigation._nearest": {
+                  "calls": 33,
+                  "syntheticCpuMs": 4.125
+                },
+                "navigation._field": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4.125
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 215.125
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 10080,
+                  "syntheticCpuMs": 1260
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 900
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 8200,
+                  "syntheticCpuMs": 1025
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 5200,
+                  "syntheticCpuMs": 650
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 3225
+                },
+                "renderer.drawEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 4125
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 2600,
+                  "syntheticCpuMs": 325
+                },
+                "player.glSubmit": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "player.bodyReadPixels": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "player.rasterFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 220
+                },
+                "player.frame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 275
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 330
+                },
+                "production.drawFrame.player": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "renderer.drawPlayer": {
+                  "calls": 440,
+                  "syntheticCpuMs": 440
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 400,
+                  "syntheticCpuMs": 50
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 180,
+                "random": 1259426611,
+                "visualRandom": 45579
+              }
+            },
+            {
+              "window": 1,
+              "frames": 40,
+              "callWallMs": 100.2595,
+              "callCpuMs": 187,
+              "clockReads": 76722,
+              "reportSha256": "d0e3ae425399db584ce19b1b5ae97bd6bd483f40b2150d09de25d8ad52836afb",
+              "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+              "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+              "publicProof": {
+                "counts": {
+                  "game.tick": 40,
+                  "game.updateMolotovs": 40,
+                  "game.updateBullets": 40,
+                  "game.updateEnemies": 40,
+                  "game.updatePickups": 40,
+                  "game.updateEffects": 40,
+                  "game.spawnEnemy": 0,
+                  "game.shoot": 0,
+                  "navigation.direction": 792,
+                  "navigation._sync": 792,
+                  "navigation._grid": 32,
+                  "navigation._field": 32,
+                  "navigation._nearest": 33,
+                  "navigation._approachBlocked": 0,
+                  "control.render": 40,
+                  "control.makeFloor": 40,
+                  "control.nativePlayerFrame": 440,
+                  "control.drawPlayer": 440,
+                  "control.drawObstacle": 880,
+                  "control.drawDecor": 480,
+                  "control.prepareNativeEnemyBatch": 40,
+                  "control.drawMinimap": 40,
+                  "control.drawEnemy": 7200,
+                  "control.nativeEnemyFrame": 7200,
+                  "control.drawNativeEnemy": 7200,
+                  "control.drawCampaignBoss": 40,
+                  "control.nativeCorpseFrame": 40,
+                  "control.drawNativeCorpse": 40,
+                  "control.drawCorpse": 40,
+                  "control.drawParticle": 40,
+                  "control.art.drawFrame": 10080,
+                  "control.player.frame": 440,
+                  "control.player.rasterFrame": 440,
+                  "control.player.render": 880,
+                  "control.player.getImageData": 440
+                },
+                "callCount": 38401,
+                "sequence": 2253183312,
+                "scalarChecksum": 18731456.652569257,
+                "syntheticClock": 4800.125
+              },
+              "stageTotals": {
+                "simulation.updateMolotovs": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateBullets": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "navigation._sync": {
+                  "calls": 792,
+                  "syntheticCpuMs": 99
+                },
+                "navigation.direction": {
+                  "calls": 792,
+                  "syntheticCpuMs": 210.125
+                },
+                "navigation._grid": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4
+                },
+                "navigation._nearest": {
+                  "calls": 33,
+                  "syntheticCpuMs": 4.125
+                },
+                "navigation._field": {
+                  "calls": 32,
+                  "syntheticCpuMs": 4.125
+                },
+                "simulation.updateEnemies": {
+                  "calls": 40,
+                  "syntheticCpuMs": 215.125
+                },
+                "simulation.updatePickups": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "simulation.updateEffects": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.prepareNativeEnemyBatch": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.makeFloor": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame": {
+                  "calls": 10080,
+                  "syntheticCpuMs": 1260
+                },
+                "production.drawFrame.obstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "production.drawFrame.obstacle.baked": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "renderer.drawObstacle": {
+                  "calls": 880,
+                  "syntheticCpuMs": 220
+                },
+                "production.drawFrame.decor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "production.drawFrame.decor.baked": {
+                  "calls": 480,
+                  "syntheticCpuMs": 60
+                },
+                "renderer.drawDecor": {
+                  "calls": 480,
+                  "syntheticCpuMs": 120
+                },
+                "renderer.nativeEnemyFrame": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 900
+                },
+                "production.drawFrame.enemy": {
+                  "calls": 8200,
+                  "syntheticCpuMs": 1025
+                },
+                "production.drawFrame.enemy.baked": {
+                  "calls": 5200,
+                  "syntheticCpuMs": 650
+                },
+                "renderer.drawNativeEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 3225
+                },
+                "renderer.drawEnemy": {
+                  "calls": 7200,
+                  "syntheticCpuMs": 4125
+                },
+                "production.drawFrame.enemy.native": {
+                  "calls": 2600,
+                  "syntheticCpuMs": 325
+                },
+                "player.glSubmit": {
+                  "calls": 880,
+                  "syntheticCpuMs": 110
+                },
+                "player.bodyReadPixels": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "player.rasterFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 220
+                },
+                "player.frame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 275
+                },
+                "renderer.nativePlayerFrame": {
+                  "calls": 440,
+                  "syntheticCpuMs": 330
+                },
+                "production.drawFrame.player": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "production.drawFrame.player.native": {
+                  "calls": 440,
+                  "syntheticCpuMs": 55
+                },
+                "renderer.drawPlayer": {
+                  "calls": 440,
+                  "syntheticCpuMs": 440
+                },
+                "production.drawFrame.enemy.unknown": {
+                  "calls": 400,
+                  "syntheticCpuMs": 50
+                },
+                "production.drawFrame.boss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.boss.native": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawCampaignBoss": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.nativeCorpseFrame": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "production.drawFrame.corpse.baked": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawNativeCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 10
+                },
+                "renderer.drawCorpse": {
+                  "calls": 40,
+                  "syntheticCpuMs": 20
+                },
+                "renderer.drawParticle": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                },
+                "renderer.drawMinimap": {
+                  "calls": 40,
+                  "syntheticCpuMs": 5
+                }
+              },
+              "unmeasured": [],
+              "profileRestored": true,
+              "originalsRestored": true,
+              "final": {
+                "time": 0.6666666666666671,
+                "hp": 100,
+                "enemies": 180,
+                "random": 1259426611,
+                "visualRandom": 45579
+              }
+            }
+          ],
+          "unobserved": {
+            "stateSha256": "112af58feeb5a1355449f000160910f5d8f27c7667a1d8ad5d98966fde2b2358",
+            "eventSha256": "8fccc33005e2f4ae3327562ae96e21f201fd202d2900f7e914a9cb0d29a58016",
+            "publicProof": {
+              "counts": {
+                "game.tick": 40,
+                "game.updateMolotovs": 40,
+                "game.updateBullets": 40,
+                "game.updateEnemies": 40,
+                "game.updatePickups": 40,
+                "game.updateEffects": 40,
+                "game.spawnEnemy": 0,
+                "game.shoot": 0,
+                "navigation.direction": 792,
+                "navigation._sync": 792,
+                "navigation._grid": 32,
+                "navigation._field": 32,
+                "navigation._nearest": 33,
+                "navigation._approachBlocked": 0,
+                "control.render": 40,
+                "control.makeFloor": 40,
+                "control.nativePlayerFrame": 440,
+                "control.drawPlayer": 440,
+                "control.drawObstacle": 880,
+                "control.drawDecor": 480,
+                "control.prepareNativeEnemyBatch": 40,
+                "control.drawMinimap": 40,
+                "control.drawEnemy": 7200,
+                "control.nativeEnemyFrame": 7200,
+                "control.drawNativeEnemy": 7200,
+                "control.drawCampaignBoss": 40,
+                "control.nativeCorpseFrame": 40,
+                "control.drawNativeCorpse": 40,
+                "control.drawCorpse": 40,
+                "control.drawParticle": 40,
+                "control.art.drawFrame": 10080,
+                "control.player.frame": 440,
+                "control.player.rasterFrame": 440,
+                "control.player.render": 880,
+                "control.player.getImageData": 440
+              },
+              "callCount": 38401,
+              "sequence": 2253183312,
+              "scalarChecksum": 18731456.652569257,
+              "syntheticClock": 4800.125
+            },
+            "restored": true
+          },
+          "note": "Sequential fresh Node original/candidate/original workers use the same real Game60/180 fixture and controlled JavaScript Renderer/player/art method workload. A fresh checkpoint restore, controlled owners and observer are used per40-frame window; at most40 report samples remain in that window and only primitive summaries/digests are retained afterward. Only beginFrame, one original Game.tick(1/60, explicit manual no-shoot input), controlled original observation calls and endFrame are timed. Import, fixture creation/restore, input creation, stop/descriptor cleanup, event draining, report/state hashing and comparison are outside those call intervals. A deterministic synthetic clock advances by.125 only when an original observed/workload method executes; observer clock reads do not advance it. Synthetic report cpuMs are proof values, never real time. Actual call-wall and process CPU are separately reported and include real simulation, controlled workload/counter overhead and observer work; process CPU can include other threads. Identical untimed unobserved windows independently check that observation preserves original call counters, events, game/runtime and both RNG streams. The report has no source-factory allocation instrumentation, no continuous heap/GC/retention measurements and no claimed allocation-byte reduction. Controlled native labels/GL/read method names are stand-ins with no Canvas, GPU, images, upload, WebAudio or native pixels. This is not actual production Renderer/app.frame, full HUD/audio/save, browser cadence or FPS evidence. Normal input/HP/AI/speed/spawn/RNG are preserved; no source Game/assets/save or external services are modified. There is no performance threshold."
+        }
+      ]
+    }
+  ],
+  "note": "Sequential fresh Node original/candidate/original workers use the same real Game60/180 fixture and controlled JavaScript Renderer/player/art method workload. A fresh checkpoint restore, controlled owners and observer are used per40-frame window; at most40 report samples remain in that window and only primitive summaries/digests are retained afterward. Only beginFrame, one original Game.tick(1/60, explicit manual no-shoot input), controlled original observation calls and endFrame are timed. Import, fixture creation/restore, input creation, stop/descriptor cleanup, event draining, report/state hashing and comparison are outside those call intervals. A deterministic synthetic clock advances by.125 only when an original observed/workload method executes; observer clock reads do not advance it. Synthetic report cpuMs are proof values, never real time. Actual call-wall and process CPU are separately reported and include real simulation, controlled workload/counter overhead and observer work; process CPU can include other threads. Identical untimed unobserved windows independently check that observation preserves original call counters, events, game/runtime and both RNG streams. The report has no source-factory allocation instrumentation, no continuous heap/GC/retention measurements and no claimed allocation-byte reduction. Controlled native labels/GL/read method names are stand-ins with no Canvas, GPU, images, upload, WebAudio or native pixels. This is not actual production Renderer/app.frame, full HUD/audio/save, browser cadence or FPS evidence. Normal input/HP/AI/speed/spawn/RNG are preserved; no source Game/assets/save or external services are modified. There is no performance threshold."
+}

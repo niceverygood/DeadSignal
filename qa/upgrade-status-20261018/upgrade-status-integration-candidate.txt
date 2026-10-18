@@ -1,0 +1,37 @@
+Candidate only; do not apply during the current boss QA/source freeze.
+
+Future new files:
+  dist/upgrade-status-view.js <- upgrade-status-view-candidate.txt
+  dist/upgrade-status.css     <- upgrade-status-style-candidate.txt
+
+app.js: add one import beside the existing UI imports:
+  import {upgradeStatusHTML} from './upgrade-status-view.js';
+
+app.js: replace only the existing state==='upgrade' HTML branch:
+  else if(state==='upgrade')overlay.innerHTML=upgradeStatusHTML(game,{compact:coarse});
+
+index.html: add after the original moodboard-ui.css link:
+  <link rel="stylesheet" href="./upgrade-status.css?v=0.29.0" />
+
+Keep the original applyMoodboardUI call and its PNG card-art replacement.
+Keep all existing data-action="upgrade"/data-value IDs, delegated click handling,
+Digit1/2/3 selection, first-choice focus, Escape behavior and checkpoint timing.
+No saved/pending choice is selected by the view. Compact pointer devices start
+the owned-skill details closed; choices precede it in document/focus order.
+Desktop current-level number is88px; small-screen number is52px. High level
+numbers have a smaller presentation class, with no game-level truncation.
+
+Shared engine API agreed with its owner:
+  getUpgradeCharacterStats(game) supplies all8 raw actual-state/stat values.
+  getUpgradeDisplay(game,id) supplies rank/nextRank and current/next effect strings.
+  upgrade-model.js also exports the same UPGRADES/WEAPONS definitions.
+UI has no independent growth, projectile or equipment-effect formulas. Only
+number formatting and mitigation fraction-to-percent unit conversion occur.
+
+Before actual apply, root preserves full app.js/index.html bytes and current
+source hashes. Browser QA stays on8851 with genuine in-memory storage and a
+separate owned fixture; never select the user's current pending upgrade.
+Check1044x1088 plus narrow390x844 and short landscape:3 readable choice targets,
+large current level, accurate raw/next effects,12 owned skill names/current ranks,
+no /max on run-upgrade cards, keyboard focus/1/2/3 and native details expansion.
+No image/font generation, payments or original moodboard/mesh/PNG modifications.

@@ -1,0 +1,5739 @@
+{
+  "fixture": {
+    "count": 60,
+    "weapon": "shotgun",
+    "baseEnemies": 5,
+    "seed": 774,
+    "snapshotValid": true,
+    "spawnClock": 1.5,
+    "note": "Explicit density fixture adds normal enemies through spawnEnemy and preserves initial enemies, spawnClock, HP, speed, AI, damage and normal subsequent spawning. Existing Continue/preload/resume UI launches the memory-only checkpoint."
+  },
+  "experiment": "owned-metadata-json",
+  "observeCosts": false,
+  "forceAllFresh": false,
+  "nativeKeys": [
+    "enemy-walker",
+    "enemy-runner",
+    "enemy-gas"
+  ],
+  "passes": [
+    {
+      "reuse": false,
+      "candidateArm": false,
+      "armPreparation": {
+        "mode": "legacy",
+        "heapBeforeLoad": {
+          "usedJSHeapSize": 317504629,
+          "totalJSHeapSize": 371637549,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "heapAfterLoad": {
+          "usedJSHeapSize": 530240476,
+          "totalJSHeapSize": 581334252,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "heapAfterRelease": {
+          "usedJSHeapSize": 310683439,
+          "totalJSHeapSize": 383809267,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "readyIDs": [
+          "boss-01-final-locomotion-hq32",
+          "boss-01-final-rig-motion",
+          "boss-01-mid-locomotion-hq32",
+          "boss-01-mid-rig-motion",
+          "enemy-elite-locomotion-hq32",
+          "enemy-elite-rig-motion",
+          "enemy-gas-locomotion-hq32",
+          "enemy-gas-rig-motion",
+          "enemy-runner-locomotion-hq32",
+          "enemy-runner-rig-motion",
+          "enemy-walker-locomotion-hq32",
+          "enemy-walker-rig-motion",
+          "env-amber-worklamp",
+          "env-broken-car",
+          "env-common-brick",
+          "env-demolition-scaffold-bay",
+          "env-fence-vertical",
+          "env-red-fuel-barrel",
+          "lure-speaker",
+          "survivor-shotgun-idle",
+          "survivor-shotgun-rig-motion",
+          "survivor-shotgun-run",
+          "survivor-shotgun-walk"
+        ],
+        "parser": {
+          "samples": [
+            {
+              "characters": 119591,
+              "cpuCallWallMs": 16,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 325866588,
+                "totalJSHeapSize": 374315640,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 325866588,
+                "totalJSHeapSize": 374315640,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3407471,
+              "cpuCallWallMs": 99,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 337675408,
+                "totalJSHeapSize": 384145948,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 350615168,
+                "totalJSHeapSize": 387820060,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3304762,
+              "cpuCallWallMs": 84.39999997615814,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 350615168,
+                "totalJSHeapSize": 387820060,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 361776266,
+                "totalJSHeapSize": 410949462,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3137945,
+              "cpuCallWallMs": 77.40000003576279,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 361776266,
+                "totalJSHeapSize": 410949462,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 368968987,
+                "totalJSHeapSize": 414968047,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2222905,
+              "cpuCallWallMs": 74.40000003576279,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 376300849,
+                "totalJSHeapSize": 422244697,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 384045461,
+                "totalJSHeapSize": 432632153,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2217944,
+              "cpuCallWallMs": 65.30000001192093,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 384045461,
+                "totalJSHeapSize": 432632153,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 387234629,
+                "totalJSHeapSize": 435999065,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2269579,
+              "cpuCallWallMs": 79.59999996423721,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 387234629,
+                "totalJSHeapSize": 435999065,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 395037645,
+                "totalJSHeapSize": 444289369,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2233033,
+              "cpuCallWallMs": 77.80000001192093,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 395037645,
+                "totalJSHeapSize": 444289369,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 401801477,
+                "totalJSHeapSize": 452817241,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2233279,
+              "cpuCallWallMs": 81.19999998807907,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 454427525,
+                "totalJSHeapSize": 503652493,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 460666169,
+                "totalJSHeapSize": 510345357,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2152533,
+              "cpuCallWallMs": 68.20000004768372,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 460666169,
+                "totalJSHeapSize": 510345357,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 468977586,
+                "totalJSHeapSize": 519108830,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2351352,
+              "cpuCallWallMs": 76,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 468977586,
+                "totalJSHeapSize": 519108830,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 480375178,
+                "totalJSHeapSize": 530893270,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2019011,
+              "cpuCallWallMs": 62.09999996423721,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 480375178,
+                "totalJSHeapSize": 530893270,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 486562973,
+                "totalJSHeapSize": 539388057,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2204913,
+              "cpuCallWallMs": 89.30000001192093,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 488809317,
+                "totalJSHeapSize": 541595197,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 496993145,
+                "totalJSHeapSize": 550356541,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2230534,
+              "cpuCallWallMs": 74.10000002384186,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 496993145,
+                "totalJSHeapSize": 550356541,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 506472531,
+                "totalJSHeapSize": 560324419,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2169189,
+              "cpuCallWallMs": 67.19999998807907,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 506472531,
+                "totalJSHeapSize": 560324419,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 515255360,
+                "totalJSHeapSize": 570169512,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2157406,
+              "cpuCallWallMs": 67.29999995231628,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 515255360,
+                "totalJSHeapSize": 570169512,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 28274,
+              "cpuCallWallMs": 0.5,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15263,
+              "cpuCallWallMs": 0.19999998807907104,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15268,
+              "cpuCallWallMs": 0.30000001192092896,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 27935,
+              "cpuCallWallMs": 0.30000001192092896,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15163,
+              "cpuCallWallMs": 0.19999998807907104,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523304266,
+                "totalJSHeapSize": 579990534,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15153,
+              "cpuCallWallMs": 0.30000001192092896,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 523647740,
+                "totalJSHeapSize": 580284568,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523647740,
+                "totalJSHeapSize": 580284568,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15096,
+              "cpuCallWallMs": 0.30000001192092896,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 523647740,
+                "totalJSHeapSize": 580284568,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 523647740,
+                "totalJSHeapSize": 580284568,
+                "jsHeapSizeLimit": 4395630592
+              }
+            }
+          ],
+          "parseCalls": 23,
+          "parseCallWallMs": 1161.4000000357628
+        },
+        "loadCallWallMs": 1851.300000011921,
+        "priorOwnerRestored": true,
+        "cleanupErrors": [],
+        "rendererPreparationLegacy": false,
+        "note": "Browser QA owns a fresh original ProductionArt per arm and restores the prior loader. The prior loader remains alive during comparison, so these are not product peak-memory measurements. Only the actual synchronous parseMetadata call is timed; fetch/PNG decode/preload/render preparation are separate. performance.memory samples may be unavailable, rounded or process-wide, include garbage and other owners, and are not continuous peak/live heap, total RAM or VRAM. No forced browser GC or texture/clip/frame/source reduction is used. Combat uses the normal pooled physics grid and renderer preparation in every arm."
+      },
+      "preparation": {
+        "keys": [
+          "enemy-walker",
+          "enemy-runner",
+          "enemy-gas"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "d6fd53f8-d6b6-4fd4-81df-1588f9900467",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "3b2379fa-8128-4e92-8fe9-35362ecc93ed",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "57377ea3-8293-48b5-b595-4e8e5d2a371c",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 3,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          },
+          {
+            "key": "enemy-runner",
+            "ready": true
+          },
+          {
+            "key": "enemy-gas",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption."
+      },
+      "preparationMs": 2502.400000035763,
+      "samples": [
+        {
+          "frame": 10,
+          "advanceMs": 3,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 35.60000002384186,
+          "combinedMs": 38.89999997615814,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 340,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 11,
+          "advanceMs": 2,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 37,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 329,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 12,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 34.19999998807907,
+          "combinedMs": 37.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 345,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 13,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 33.30000001192093,
+          "combinedMs": 36.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 328,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 14,
+          "advanceMs": 2.900000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 30.19999998807907,
+          "combinedMs": 33.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 335,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 15,
+          "advanceMs": 2.5,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 34.80000001192093,
+          "combinedMs": 37.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 285,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 16,
+          "advanceMs": 2.199999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 32.799999952316284,
+          "combinedMs": 35.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 17,
+          "advanceMs": 8.5,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 46.5,
+          "combinedMs": 55.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 18,
+          "advanceMs": 2.300000011920929,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 32.69999998807907,
+          "combinedMs": 35.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 303,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 19,
+          "advanceMs": 3.5,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.30000001192093,
+          "combinedMs": 37.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 344,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 20,
+          "advanceMs": 3.599999964237213,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 36,
+          "combinedMs": 40.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 293,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 21,
+          "advanceMs": 4.699999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 46.19999998807907,
+          "combinedMs": 51.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 22,
+          "advanceMs": 2.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 32.69999998807907,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 272,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 23,
+          "advanceMs": 5.199999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 74.60000002384186,
+          "combinedMs": 80.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 265,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 24,
+          "advanceMs": 10.199999988079071,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 80.39999997615814,
+          "combinedMs": 90.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 296,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 25,
+          "advanceMs": 3.799999952316284,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 34.19999998807907,
+          "combinedMs": 38.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 241,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 26,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0,
+          "renderMs": 38,
+          "combinedMs": 40.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 235,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 27,
+          "advanceMs": 3.400000035762787,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 31,
+          "combinedMs": 34.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 231,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 28,
+          "advanceMs": 3.100000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 30.5,
+          "combinedMs": 33.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 211,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 29,
+          "advanceMs": 3.899999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 37.30000001192093,
+          "combinedMs": 41.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 216,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 30,
+          "advanceMs": 11.599999964237213,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 48.90000003576279,
+          "combinedMs": 60.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 172,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 31,
+          "advanceMs": 4.5,
+          "sampleMs": 3.800000011920929,
+          "renderMs": 47.19999998807907,
+          "combinedMs": 55.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 32,
+          "advanceMs": 7.199999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 54.299999952316284,
+          "combinedMs": 61.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 33,
+          "advanceMs": 43.40000003576279,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 164.5,
+          "combinedMs": 208.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 169,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 34,
+          "advanceMs": 4,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 48.30000001192093,
+          "combinedMs": 52.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 184,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 35,
+          "advanceMs": 6.399999976158142,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 40.59999996423721,
+          "combinedMs": 47.799999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 36,
+          "advanceMs": 3.600000023841858,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 38.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 157,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 37,
+          "advanceMs": 3.399999976158142,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 32.39999997615814,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 38,
+          "advanceMs": 2.800000011920929,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 37.30000001192093,
+          "combinedMs": 40.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 159,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 39,
+          "advanceMs": 5.199999988079071,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 98.5,
+          "combinedMs": 104.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 137,
+            "acquisitions": 6,
+            "leasesCreated": 6,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        }
+      ],
+      "allSamples": [
+        {
+          "frame": 0,
+          "advanceMs": 20,
+          "sampleMs": 1.899999976158142,
+          "renderMs": 537.7000000476837,
+          "combinedMs": 559.7000000476837,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 1,
+            "bucketsCreated": 52,
+            "bucketReuses": 309,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 1
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 52
+        },
+        {
+          "frame": 1,
+          "advanceMs": 7.299999952316284,
+          "sampleMs": 0.9000000357627869,
+          "renderMs": 150.0999999642372,
+          "combinedMs": 158.29999995231628,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 2,
+            "bucketReuses": 369,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 2,
+          "advanceMs": 4.5,
+          "sampleMs": 0.5,
+          "renderMs": 32,
+          "combinedMs": 37.09999996423721,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 349,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 3,
+          "advanceMs": 3.100000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 27.19999998807907,
+          "combinedMs": 30.80000001192093,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 353,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 4,
+          "advanceMs": 4.300000011920929,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 18.600000023841858,
+          "combinedMs": 23.200000047683716,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 402,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 5,
+          "advanceMs": 4.5,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 31.400000035762787,
+          "combinedMs": 36.19999998807907,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 355,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 6,
+          "advanceMs": 2.900000035762787,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 23.100000023841858,
+          "combinedMs": 26.400000035762787,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 336,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 7,
+          "advanceMs": 1.899999976158142,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 64.69999998807907,
+          "combinedMs": 66.80000001192093,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 323,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 8,
+          "advanceMs": 2.300000011920929,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 42.39999997615814,
+          "combinedMs": 44.89999997615814,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 307,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 9,
+          "advanceMs": 7.699999988079071,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 34.5,
+          "combinedMs": 42.39999997615814,
+          "nativeSelected": 11,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 354,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 10,
+          "advanceMs": 3,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 35.60000002384186,
+          "combinedMs": 38.89999997615814,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 340,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 11,
+          "advanceMs": 2,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 37,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 329,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 12,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 34.19999998807907,
+          "combinedMs": 37.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 345,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 13,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 33.30000001192093,
+          "combinedMs": 36.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 328,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 14,
+          "advanceMs": 2.900000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 30.19999998807907,
+          "combinedMs": 33.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 335,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 15,
+          "advanceMs": 2.5,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 34.80000001192093,
+          "combinedMs": 37.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 285,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 16,
+          "advanceMs": 2.199999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 32.799999952316284,
+          "combinedMs": 35.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 17,
+          "advanceMs": 8.5,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 46.5,
+          "combinedMs": 55.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 18,
+          "advanceMs": 2.300000011920929,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 32.69999998807907,
+          "combinedMs": 35.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 303,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 19,
+          "advanceMs": 3.5,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.30000001192093,
+          "combinedMs": 37.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 344,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 20,
+          "advanceMs": 3.599999964237213,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 36,
+          "combinedMs": 40.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 293,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 21,
+          "advanceMs": 4.699999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 46.19999998807907,
+          "combinedMs": 51.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 22,
+          "advanceMs": 2.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 32.69999998807907,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 272,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 23,
+          "advanceMs": 5.199999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 74.60000002384186,
+          "combinedMs": 80.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 265,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 24,
+          "advanceMs": 10.199999988079071,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 80.39999997615814,
+          "combinedMs": 90.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 296,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 25,
+          "advanceMs": 3.799999952316284,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 34.19999998807907,
+          "combinedMs": 38.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 241,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 26,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0,
+          "renderMs": 38,
+          "combinedMs": 40.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 235,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 27,
+          "advanceMs": 3.400000035762787,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 31,
+          "combinedMs": 34.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 231,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 28,
+          "advanceMs": 3.100000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 30.5,
+          "combinedMs": 33.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 211,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 29,
+          "advanceMs": 3.899999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 37.30000001192093,
+          "combinedMs": 41.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 216,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 30,
+          "advanceMs": 11.599999964237213,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 48.90000003576279,
+          "combinedMs": 60.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 172,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 31,
+          "advanceMs": 4.5,
+          "sampleMs": 3.800000011920929,
+          "renderMs": 47.19999998807907,
+          "combinedMs": 55.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 32,
+          "advanceMs": 7.199999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 54.299999952316284,
+          "combinedMs": 61.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 33,
+          "advanceMs": 43.40000003576279,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 164.5,
+          "combinedMs": 208.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 169,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 34,
+          "advanceMs": 4,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 48.30000001192093,
+          "combinedMs": 52.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 184,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 35,
+          "advanceMs": 6.399999976158142,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 40.59999996423721,
+          "combinedMs": 47.799999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 36,
+          "advanceMs": 3.600000023841858,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 38.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 157,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 37,
+          "advanceMs": 3.399999976158142,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 32.39999997615814,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 38,
+          "advanceMs": 2.800000011920929,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 37.30000001192093,
+          "combinedMs": 40.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 159,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 39,
+          "advanceMs": 5.199999988079071,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 98.5,
+          "combinedMs": 104.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 137,
+            "acquisitions": 6,
+            "leasesCreated": 6,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        }
+      ],
+      "costs": {
+        "enabled": false,
+        "samples": [],
+        "unmeasured": [],
+        "note": "QA measures synchronous CPU call wall time, including waits and observer overhead. Nested stage observations overlap and must not be summed. This is not GPU execution time, presented FPS, paint or total memory. First-observed owner identities are not game/model construction times. Scoped production.drawFrame stages observe only original calls on the existing ProductionArt instance within the innermost enemy/boss/corpse/player/obstacle/decor renderer category; extra hit-light draws remain separate calls. Category and source subtotals overlap their parent stages, and calls are not unique actors. Native classification uses the existing liveRig metadata flag or original live-player ID; baked requires the original atlas format and a string asset ID; unrecognized selections remain unknown. No Canvas method hooks are added for sprite timing. The observer performs no tick, render, pose, draw, pixel read, upload, event drain or scheduling calls."
+      },
+      "native": {
+        "minimal": true,
+        "calls": 405,
+        "samples": [],
+        "note": "Counts actual original native renderer.render calls only; no native/Canvas timing wrappers or extra draws/reads are installed."
+      },
+      "summary": {
+        "advanceMs": {
+          "median": 3.599999964237213,
+          "p95": 11.599999964237213,
+          "max": 43.40000003576279
+        },
+        "sampleMs": {
+          "median": 0.2999999523162842,
+          "p95": 0.800000011920929,
+          "max": 3.800000011920929
+        },
+        "renderMs": {
+          "median": 36,
+          "p95": 98.5,
+          "max": 164.5
+        },
+        "combinedMs": {
+          "median": 40.19999998807907,
+          "p95": 104.5,
+          "max": 208.10000002384186
+        }
+      },
+      "allSummary": {
+        "advanceMs": {
+          "median": 3.600000023841858,
+          "p95": 20,
+          "max": 43.40000003576279
+        },
+        "sampleMs": {
+          "median": 0.2999999523162842,
+          "p95": 1.899999976158142,
+          "max": 3.800000011920929
+        },
+        "renderMs": {
+          "median": 35.60000002384186,
+          "p95": 164.5,
+          "max": 537.7000000476837
+        },
+        "combinedMs": {
+          "median": 40.19999998807907,
+          "p95": 208.10000002384186,
+          "max": 559.7000000476837
+        }
+      },
+      "allocations": {
+        "mapsCreated": 1,
+        "bucketsCreated": 54,
+        "bucketReuses": 10820,
+        "acquisitions": 286,
+        "leasesCreated": 286,
+        "trackingArraysCreated": 1,
+        "retainedActors": 0,
+        "retainedBuckets": 54
+      },
+      "timedAllocations": {
+        "mapsCreated": 0,
+        "bucketsCreated": 0,
+        "bucketReuses": 7363,
+        "acquisitions": 214,
+        "leasesCreated": 214,
+        "trackingArraysCreated": 0
+      },
+      "hp": 73,
+      "time": 4.766666666666655,
+      "kills": 12,
+      "enemies": 59,
+      "canvas": {
+        "width": 1335,
+        "height": 620,
+        "dpr": 1
+      }
+    },
+    {
+      "reuse": true,
+      "candidateArm": true,
+      "armPreparation": {
+        "mode": "owned",
+        "heapBeforeLoad": {
+          "usedJSHeapSize": 310683439,
+          "totalJSHeapSize": 383809267,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "heapAfterLoad": {
+          "usedJSHeapSize": 438113308,
+          "totalJSHeapSize": 493851744,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "heapAfterRelease": {
+          "usedJSHeapSize": 329433863,
+          "totalJSHeapSize": 404313675,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "readyIDs": [
+          "boss-01-final-locomotion-hq32",
+          "boss-01-final-rig-motion",
+          "boss-01-mid-locomotion-hq32",
+          "boss-01-mid-rig-motion",
+          "enemy-elite-locomotion-hq32",
+          "enemy-elite-rig-motion",
+          "enemy-gas-locomotion-hq32",
+          "enemy-gas-rig-motion",
+          "enemy-runner-locomotion-hq32",
+          "enemy-runner-rig-motion",
+          "enemy-walker-locomotion-hq32",
+          "enemy-walker-rig-motion",
+          "env-amber-worklamp",
+          "env-broken-car",
+          "env-common-brick",
+          "env-demolition-scaffold-bay",
+          "env-fence-vertical",
+          "env-red-fuel-barrel",
+          "lure-speaker",
+          "survivor-shotgun-idle",
+          "survivor-shotgun-rig-motion",
+          "survivor-shotgun-run",
+          "survivor-shotgun-walk"
+        ],
+        "parser": {
+          "samples": [
+            {
+              "characters": 119591,
+              "cpuCallWallMs": 37.09999996423721,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 317519707,
+                "totalJSHeapSize": 383994391,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 317519707,
+                "totalJSHeapSize": 383994391,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3407471,
+              "cpuCallWallMs": 396.89999997615814,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 321624632,
+                "totalJSHeapSize": 387402144,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 325600732,
+                "totalJSHeapSize": 387402144,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3304762,
+              "cpuCallWallMs": 155.9000000357628,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 325600732,
+                "totalJSHeapSize": 387402144,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 347343678,
+                "totalJSHeapSize": 390706906,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3137945,
+              "cpuCallWallMs": 185.10000002384186,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 347343678,
+                "totalJSHeapSize": 390706906,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 350645755,
+                "totalJSHeapSize": 398301299,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2269579,
+              "cpuCallWallMs": 127.5,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 352963800,
+                "totalJSHeapSize": 400574280,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 353050048,
+                "totalJSHeapSize": 410273608,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2222905,
+              "cpuCallWallMs": 97.30000001192093,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 353050048,
+                "totalJSHeapSize": 410273608,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 371778277,
+                "totalJSHeapSize": 412758657,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2233033,
+              "cpuCallWallMs": 125.09999996423721,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 371778277,
+                "totalJSHeapSize": 412758657,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 372618402,
+                "totalJSHeapSize": 422593866,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2217944,
+              "cpuCallWallMs": 78,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 372618402,
+                "totalJSHeapSize": 422593866,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 372619050,
+                "totalJSHeapSize": 433462562,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2233279,
+              "cpuCallWallMs": 68.59999996423721,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 374893604,
+                "totalJSHeapSize": 435698124,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 391573888,
+                "totalJSHeapSize": 435960268,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2351352,
+              "cpuCallWallMs": 84.39999997615814,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 391573888,
+                "totalJSHeapSize": 435960268,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 395256672,
+                "totalJSHeapSize": 445127364,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2019011,
+              "cpuCallWallMs": 72.70000004768372,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 395256672,
+                "totalJSHeapSize": 445127364,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 393503219,
+                "totalJSHeapSize": 457894279,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2152533,
+              "cpuCallWallMs": 77.69999998807907,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 393503219,
+                "totalJSHeapSize": 457894279,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 411371580,
+                "totalJSHeapSize": 460308956,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2169189,
+              "cpuCallWallMs": 73.60000002384186,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 413584856,
+                "totalJSHeapSize": 462480372,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 410441852,
+                "totalJSHeapSize": 466412532,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2157406,
+              "cpuCallWallMs": 73.30000001192093,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 410441852,
+                "totalJSHeapSize": 466412532,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 428593882,
+                "totalJSHeapSize": 468832082,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2230534,
+              "cpuCallWallMs": 86.60000002384186,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 428593882,
+                "totalJSHeapSize": 468832082,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432113636,
+                "totalJSHeapSize": 481548376,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2204913,
+              "cpuCallWallMs": 79.59999996423721,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 432113636,
+                "totalJSHeapSize": 481548376,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432059997,
+                "totalJSHeapSize": 492928329,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 28274,
+              "cpuCallWallMs": 4,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15263,
+              "cpuCallWallMs": 4.400000035762787,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15268,
+              "cpuCallWallMs": 0.6000000238418579,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 27935,
+              "cpuCallWallMs": 0.800000011920929,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432132222,
+                "totalJSHeapSize": 492958662,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15163,
+              "cpuCallWallMs": 0.5,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 432364248,
+                "totalJSHeapSize": 493033848,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432364248,
+                "totalJSHeapSize": 493033848,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15096,
+              "cpuCallWallMs": 0.2999999523162842,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 432364248,
+                "totalJSHeapSize": 493033848,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432364248,
+                "totalJSHeapSize": 493033848,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15153,
+              "cpuCallWallMs": 0.699999988079071,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 432364248,
+                "totalJSHeapSize": 493033848,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 432364248,
+                "totalJSHeapSize": 493033848,
+                "jsHeapSizeLimit": 4395630592
+              }
+            }
+          ],
+          "parseCalls": 23,
+          "parseCallWallMs": 1830.699999988079
+        },
+        "loadCallWallMs": 3783.900000035763,
+        "priorOwnerRestored": true,
+        "cleanupErrors": [],
+        "rendererPreparationLegacy": false,
+        "note": "Browser QA owns a fresh original ProductionArt per arm and restores the prior loader. The prior loader remains alive during comparison, so these are not product peak-memory measurements. Only the actual synchronous parseMetadata call is timed; fetch/PNG decode/preload/render preparation are separate. performance.memory samples may be unavailable, rounded or process-wide, include garbage and other owners, and are not continuous peak/live heap, total RAM or VRAM. No forced browser GC or texture/clip/frame/source reduction is used. Combat uses the normal pooled physics grid and renderer preparation in every arm."
+      },
+      "preparation": {
+        "keys": [
+          "enemy-walker",
+          "enemy-runner",
+          "enemy-gas"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "b03aab1a-e04a-4bfd-8bcc-5e8aa930e617",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "e9b3ba54-d2c2-4141-a2b4-a8f913565621",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "dce2c911-4da6-4f49-9fdc-89c57c1a2fe1",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 3,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          },
+          {
+            "key": "enemy-runner",
+            "ready": true
+          },
+          {
+            "key": "enemy-gas",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption."
+      },
+      "preparationMs": 2569,
+      "samples": [
+        {
+          "frame": 10,
+          "advanceMs": 2.399999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 37.799999952316284,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 340,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 11,
+          "advanceMs": 2.299999952316284,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 35.69999998807907,
+          "combinedMs": 38.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 329,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 12,
+          "advanceMs": 2.199999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 33.10000002384186,
+          "combinedMs": 35.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 345,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 13,
+          "advanceMs": 2.600000023841858,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 29.5,
+          "combinedMs": 32.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 328,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 14,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 31.100000023841858,
+          "combinedMs": 33.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 335,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 15,
+          "advanceMs": 1.899999976158142,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 31.399999976158142,
+          "combinedMs": 33.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 285,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 16,
+          "advanceMs": 2.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.5,
+          "combinedMs": 34,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 17,
+          "advanceMs": 3,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 31.399999976158142,
+          "combinedMs": 34.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 18,
+          "advanceMs": 2.199999988079071,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.10000002384186,
+          "combinedMs": 35.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 303,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 19,
+          "advanceMs": 4.400000035762787,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.10000002384186,
+          "combinedMs": 37.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 344,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 20,
+          "advanceMs": 5.400000035762787,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 43,
+          "combinedMs": 48.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 293,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 21,
+          "advanceMs": 2.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 41.69999998807907,
+          "combinedMs": 44.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 22,
+          "advanceMs": 3.199999988079071,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 34.80000001192093,
+          "combinedMs": 38.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 272,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 23,
+          "advanceMs": 3.600000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 37.5,
+          "combinedMs": 41.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 265,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 24,
+          "advanceMs": 3.800000011920929,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 47.69999998807907,
+          "combinedMs": 51.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 296,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 25,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 28.30000001192093,
+          "combinedMs": 31.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 241,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 26,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0.5,
+          "renderMs": 39,
+          "combinedMs": 42.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 235,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 27,
+          "advanceMs": 4.5,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.200000047683716,
+          "combinedMs": 38.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 231,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 28,
+          "advanceMs": 3,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 38,
+          "combinedMs": 41.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 211,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 29,
+          "advanceMs": 2.400000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 41.90000003576279,
+          "combinedMs": 44.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 216,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 30,
+          "advanceMs": 2.699999988079071,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 32.19999998807907,
+          "combinedMs": 35,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 172,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 31,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 38.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 32,
+          "advanceMs": 2.799999952316284,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 34.5,
+          "combinedMs": 37.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 33,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 32.80000001192093,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 169,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 34,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 30.399999976158142,
+          "combinedMs": 33.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 184,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 35,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.30000001192093,
+          "combinedMs": 34.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 36,
+          "advanceMs": 2.800000011920929,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 40.19999998807907,
+          "combinedMs": 43.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 157,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 37,
+          "advanceMs": 2.900000035762787,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 29.80000001192093,
+          "combinedMs": 32.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 38,
+          "advanceMs": 3.5,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 30,
+          "combinedMs": 33.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 159,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 39,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 63.30000001192093,
+          "combinedMs": 66.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 137,
+            "acquisitions": 6,
+            "leasesCreated": 6,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        }
+      ],
+      "allSamples": [
+        {
+          "frame": 0,
+          "advanceMs": 6,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 548.8000000119209,
+          "combinedMs": 555.6000000238419,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 1,
+            "bucketsCreated": 52,
+            "bucketReuses": 309,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 1
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 52
+        },
+        {
+          "frame": 1,
+          "advanceMs": 10.699999988079071,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 150,
+          "combinedMs": 161.39999997615814,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 2,
+            "bucketReuses": 369,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 2,
+          "advanceMs": 3.699999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 30.899999976158142,
+          "combinedMs": 34.89999997615814,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 349,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 3,
+          "advanceMs": 1.899999976158142,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 22.399999976158142,
+          "combinedMs": 24.599999964237213,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 353,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 4,
+          "advanceMs": 3.800000011920929,
+          "sampleMs": 1.199999988079071,
+          "renderMs": 20.099999964237213,
+          "combinedMs": 25.099999964237213,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 402,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 5,
+          "advanceMs": 5.5,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 52,
+          "combinedMs": 57.80000001192093,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 355,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 6,
+          "advanceMs": 2.400000035762787,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 26.30000001192093,
+          "combinedMs": 28.900000035762787,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 336,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 7,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 57.40000003576279,
+          "combinedMs": 59.60000002384186,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 323,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 8,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 38.40000003576279,
+          "combinedMs": 40.60000002384186,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 307,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 9,
+          "advanceMs": 2.600000023841858,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 33.10000002384186,
+          "combinedMs": 36,
+          "nativeSelected": 11,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 354,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 10,
+          "advanceMs": 2.399999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 37.799999952316284,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 340,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 11,
+          "advanceMs": 2.299999952316284,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 35.69999998807907,
+          "combinedMs": 38.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 329,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 12,
+          "advanceMs": 2.199999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 33.10000002384186,
+          "combinedMs": 35.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 345,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 13,
+          "advanceMs": 2.600000023841858,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 29.5,
+          "combinedMs": 32.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 328,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 14,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 31.100000023841858,
+          "combinedMs": 33.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 335,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 15,
+          "advanceMs": 1.899999976158142,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 31.399999976158142,
+          "combinedMs": 33.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 285,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 16,
+          "advanceMs": 2.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.5,
+          "combinedMs": 34,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 17,
+          "advanceMs": 3,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 31.399999976158142,
+          "combinedMs": 34.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 18,
+          "advanceMs": 2.199999988079071,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.10000002384186,
+          "combinedMs": 35.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 303,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 19,
+          "advanceMs": 4.400000035762787,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.10000002384186,
+          "combinedMs": 37.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 344,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 20,
+          "advanceMs": 5.400000035762787,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 43,
+          "combinedMs": 48.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 293,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 21,
+          "advanceMs": 2.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 41.69999998807907,
+          "combinedMs": 44.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 22,
+          "advanceMs": 3.199999988079071,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 34.80000001192093,
+          "combinedMs": 38.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 272,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 23,
+          "advanceMs": 3.600000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 37.5,
+          "combinedMs": 41.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 265,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 24,
+          "advanceMs": 3.800000011920929,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 47.69999998807907,
+          "combinedMs": 51.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 296,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 25,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 28.30000001192093,
+          "combinedMs": 31.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 241,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 26,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0.5,
+          "renderMs": 39,
+          "combinedMs": 42.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 235,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 27,
+          "advanceMs": 4.5,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.200000047683716,
+          "combinedMs": 38.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 231,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 28,
+          "advanceMs": 3,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 38,
+          "combinedMs": 41.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 211,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 29,
+          "advanceMs": 2.400000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 41.90000003576279,
+          "combinedMs": 44.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 216,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 30,
+          "advanceMs": 2.699999988079071,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 32.19999998807907,
+          "combinedMs": 35,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 172,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 31,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 38.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 32,
+          "advanceMs": 2.799999952316284,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 34.5,
+          "combinedMs": 37.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 33,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 32.80000001192093,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 169,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 34,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 30.399999976158142,
+          "combinedMs": 33.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 184,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 35,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.30000001192093,
+          "combinedMs": 34.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 36,
+          "advanceMs": 2.800000011920929,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 40.19999998807907,
+          "combinedMs": 43.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 157,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 37,
+          "advanceMs": 2.900000035762787,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 29.80000001192093,
+          "combinedMs": 32.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 38,
+          "advanceMs": 3.5,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 30,
+          "combinedMs": 33.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 159,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 39,
+          "advanceMs": 2.899999976158142,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 63.30000001192093,
+          "combinedMs": 66.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 137,
+            "acquisitions": 6,
+            "leasesCreated": 6,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        }
+      ],
+      "costs": {
+        "enabled": false,
+        "samples": [],
+        "unmeasured": [],
+        "note": "QA measures synchronous CPU call wall time, including waits and observer overhead. Nested stage observations overlap and must not be summed. This is not GPU execution time, presented FPS, paint or total memory. First-observed owner identities are not game/model construction times. Scoped production.drawFrame stages observe only original calls on the existing ProductionArt instance within the innermost enemy/boss/corpse/player/obstacle/decor renderer category; extra hit-light draws remain separate calls. Category and source subtotals overlap their parent stages, and calls are not unique actors. Native classification uses the existing liveRig metadata flag or original live-player ID; baked requires the original atlas format and a string asset ID; unrecognized selections remain unknown. No Canvas method hooks are added for sprite timing. The observer performs no tick, render, pose, draw, pixel read, upload, event drain or scheduling calls."
+      },
+      "native": {
+        "minimal": true,
+        "calls": 405,
+        "samples": [],
+        "note": "Counts actual original native renderer.render calls only; no native/Canvas timing wrappers or extra draws/reads are installed."
+      },
+      "summary": {
+        "advanceMs": {
+          "median": 2.899999976158142,
+          "p95": 4.5,
+          "max": 5.400000035762787
+        },
+        "sampleMs": {
+          "median": 0.20000004768371582,
+          "p95": 0.5,
+          "max": 0.699999988079071
+        },
+        "renderMs": {
+          "median": 34.200000047683716,
+          "p95": 47.69999998807907,
+          "max": 63.30000001192093
+        },
+        "combinedMs": {
+          "median": 37.700000047683716,
+          "p95": 51.69999998807907,
+          "max": 66.89999997615814
+        }
+      },
+      "allSummary": {
+        "advanceMs": {
+          "median": 2.899999976158142,
+          "p95": 6,
+          "max": 10.699999988079071
+        },
+        "sampleMs": {
+          "median": 0.30000001192092896,
+          "p95": 0.800000011920929,
+          "max": 1.199999988079071
+        },
+        "renderMs": {
+          "median": 34.200000047683716,
+          "p95": 150,
+          "max": 548.8000000119209
+        },
+        "combinedMs": {
+          "median": 37.700000047683716,
+          "p95": 161.39999997615814,
+          "max": 555.6000000238419
+        }
+      },
+      "allocations": {
+        "mapsCreated": 1,
+        "bucketsCreated": 54,
+        "bucketReuses": 10820,
+        "acquisitions": 286,
+        "leasesCreated": 286,
+        "trackingArraysCreated": 1,
+        "retainedActors": 0,
+        "retainedBuckets": 54
+      },
+      "timedAllocations": {
+        "mapsCreated": 0,
+        "bucketsCreated": 0,
+        "bucketReuses": 7363,
+        "acquisitions": 214,
+        "leasesCreated": 214,
+        "trackingArraysCreated": 0
+      },
+      "hp": 73,
+      "time": 4.766666666666655,
+      "kills": 12,
+      "enemies": 59,
+      "canvas": {
+        "width": 1335,
+        "height": 620,
+        "dpr": 1
+      }
+    },
+    {
+      "reuse": false,
+      "candidateArm": false,
+      "armPreparation": {
+        "mode": "legacy",
+        "heapBeforeLoad": {
+          "usedJSHeapSize": 329433863,
+          "totalJSHeapSize": 404313675,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "heapAfterLoad": {
+          "usedJSHeapSize": 450363394,
+          "totalJSHeapSize": 505816146,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "heapAfterRelease": {
+          "usedJSHeapSize": 693694079,
+          "totalJSHeapSize": 756509939,
+          "jsHeapSizeLimit": 4395630592
+        },
+        "readyIDs": [
+          "boss-01-final-locomotion-hq32",
+          "boss-01-final-rig-motion",
+          "boss-01-mid-locomotion-hq32",
+          "boss-01-mid-rig-motion",
+          "enemy-elite-locomotion-hq32",
+          "enemy-elite-rig-motion",
+          "enemy-gas-locomotion-hq32",
+          "enemy-gas-rig-motion",
+          "enemy-runner-locomotion-hq32",
+          "enemy-runner-rig-motion",
+          "enemy-walker-locomotion-hq32",
+          "enemy-walker-rig-motion",
+          "env-amber-worklamp",
+          "env-broken-car",
+          "env-common-brick",
+          "env-demolition-scaffold-bay",
+          "env-fence-vertical",
+          "env-red-fuel-barrel",
+          "lure-speaker",
+          "survivor-shotgun-idle",
+          "survivor-shotgun-rig-motion",
+          "survivor-shotgun-run",
+          "survivor-shotgun-walk"
+        ],
+        "parser": {
+          "samples": [
+            {
+              "characters": 119591,
+              "cpuCallWallMs": 9.099999964237213,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 304361499,
+                "totalJSHeapSize": 404498799,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 304361499,
+                "totalJSHeapSize": 404498799,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3137945,
+              "cpuCallWallMs": 75,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 304361499,
+                "totalJSHeapSize": 404498799,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 335857882,
+                "totalJSHeapSize": 410778658,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3407471,
+              "cpuCallWallMs": 95.89999997615814,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 335857882,
+                "totalJSHeapSize": 410778658,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 345444947,
+                "totalJSHeapSize": 414714703,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 3304762,
+              "cpuCallWallMs": 89.79999995231628,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 345444947,
+                "totalJSHeapSize": 414714703,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 354519773,
+                "totalJSHeapSize": 418019465,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2222905,
+              "cpuCallWallMs": 65.29999995231628,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 334282288,
+                "totalJSHeapSize": 416833768,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 358947280,
+                "totalJSHeapSize": 419975400,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2269579,
+              "cpuCallWallMs": 69.20000004768372,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 358947280,
+                "totalJSHeapSize": 419975400,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 366121055,
+                "totalJSHeapSize": 422244979,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2217944,
+              "cpuCallWallMs": 66.10000002384186,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 366121055,
+                "totalJSHeapSize": 422244979,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 371997719,
+                "totalJSHeapSize": 424462923,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2233033,
+              "cpuCallWallMs": 66.79999995231628,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 371997719,
+                "totalJSHeapSize": 424462923,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 378112256,
+                "totalJSHeapSize": 429841684,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2152533,
+              "cpuCallWallMs": 71,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 380305600,
+                "totalJSHeapSize": 431996500,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 382960184,
+                "totalJSHeapSize": 436977236,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2019011,
+              "cpuCallWallMs": 61.80000001192093,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 382960184,
+                "totalJSHeapSize": 436977236,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 387071415,
+                "totalJSHeapSize": 444247319,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2233279,
+              "cpuCallWallMs": 94.70000004768372,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 387071415,
+                "totalJSHeapSize": 444247319,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 397749890,
+                "totalJSHeapSize": 455651542,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2351352,
+              "cpuCallWallMs": 86.69999998807907,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 397749890,
+                "totalJSHeapSize": 455651542,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 408649962,
+                "totalJSHeapSize": 466387406,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2169189,
+              "cpuCallWallMs": 76.39999997615814,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 410858250,
+                "totalJSHeapSize": 468558822,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 416676686,
+                "totalJSHeapSize": 475186150,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2230534,
+              "cpuCallWallMs": 66.60000002384186,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 416676686,
+                "totalJSHeapSize": 475186150,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 426404380,
+                "totalJSHeapSize": 485940460,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2157406,
+              "cpuCallWallMs": 63.200000047683716,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 426404380,
+                "totalJSHeapSize": 485940460,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 435007586,
+                "totalJSHeapSize": 494975050,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 2204913,
+              "cpuCallWallMs": 66.69999998807907,
+              "threw": false,
+              "frames": 512,
+              "heapBefore": {
+                "usedJSHeapSize": 435007586,
+                "totalJSHeapSize": 494975050,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15263,
+              "cpuCallWallMs": 0.30000001192092896,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15268,
+              "cpuCallWallMs": 0.19999998807907104,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 28274,
+              "cpuCallWallMs": 0.30000001192092896,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 27935,
+              "cpuCallWallMs": 0.6000000238418579,
+              "threw": false,
+              "frames": 16,
+              "heapBefore": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15163,
+              "cpuCallWallMs": 0.09999996423721313,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15153,
+              "cpuCallWallMs": 0.09999996423721313,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            },
+            {
+              "characters": 15096,
+              "cpuCallWallMs": 0.19999998807907104,
+              "threw": false,
+              "frames": 8,
+              "heapBefore": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              },
+              "heapAfter": {
+                "usedJSHeapSize": 444563847,
+                "totalJSHeapSize": 505417019,
+                "jsHeapSizeLimit": 4395630592
+              }
+            }
+          ],
+          "parseCalls": 23,
+          "parseCallWallMs": 1126.0999999046326
+        },
+        "loadCallWallMs": 1610,
+        "priorOwnerRestored": true,
+        "cleanupErrors": [],
+        "rendererPreparationLegacy": false,
+        "note": "Browser QA owns a fresh original ProductionArt per arm and restores the prior loader. The prior loader remains alive during comparison, so these are not product peak-memory measurements. Only the actual synchronous parseMetadata call is timed; fetch/PNG decode/preload/render preparation are separate. performance.memory samples may be unavailable, rounded or process-wide, include garbage and other owners, and are not continuous peak/live heap, total RAM or VRAM. No forced browser GC or texture/clip/frame/source reduction is used. Combat uses the normal pooled physics grid and renderer preparation in every arm."
+      },
+      "preparation": {
+        "keys": [
+          "enemy-walker",
+          "enemy-runner",
+          "enemy-gas"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "a2b6967a-a4f9-48a6-91c0-4e7b96489efa",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "6b50daaf-d5d0-4c55-96fa-498c116997e3",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "fd17ee3a-3cc6-4d20-9567-e0e5e7f8ca66",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 3,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          },
+          {
+            "key": "enemy-runner",
+            "ready": true
+          },
+          {
+            "key": "enemy-gas",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption."
+      },
+      "preparationMs": 2164.600000023842,
+      "samples": [
+        {
+          "frame": 10,
+          "advanceMs": 1.7999999523162842,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.099999964237213,
+          "combinedMs": 33.299999952316284,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 340,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 11,
+          "advanceMs": 6.600000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 33.30000001192093,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 329,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 12,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 35.5,
+          "combinedMs": 38.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 345,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 13,
+          "advanceMs": 2.699999988079071,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 38.40000003576279,
+          "combinedMs": 41.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 328,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 14,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 37.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 335,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 15,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 36.30000001192093,
+          "combinedMs": 39.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 285,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 16,
+          "advanceMs": 2.900000035762787,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 34,
+          "combinedMs": 37.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 17,
+          "advanceMs": 75.90000003576279,
+          "sampleMs": 1.7999999523162842,
+          "renderMs": 110.20000004768372,
+          "combinedMs": 187.9000000357628,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 18,
+          "advanceMs": 19.400000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 41.69999998807907,
+          "combinedMs": 61.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 303,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 19,
+          "advanceMs": 4.199999988079071,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.60000002384186,
+          "combinedMs": 38.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 344,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 20,
+          "advanceMs": 6.399999976158142,
+          "sampleMs": 5.600000023841858,
+          "renderMs": 49,
+          "combinedMs": 61,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 293,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 21,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 54,
+          "combinedMs": 56.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 22,
+          "advanceMs": 2.400000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.60000002384186,
+          "combinedMs": 37.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 272,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 23,
+          "advanceMs": 3.5,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 44.39999997615814,
+          "combinedMs": 48,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 265,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 24,
+          "advanceMs": 20.399999976158142,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 40.09999996423721,
+          "combinedMs": 60.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 296,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 25,
+          "advanceMs": 4.5,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 61.19999998807907,
+          "combinedMs": 65.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 241,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 26,
+          "advanceMs": 2.300000011920929,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 31.19999998807907,
+          "combinedMs": 33.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 235,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 27,
+          "advanceMs": 3.100000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.19999998807907,
+          "combinedMs": 36.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 231,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 28,
+          "advanceMs": 7.100000023841858,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 53,
+          "combinedMs": 60.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 211,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 29,
+          "advanceMs": 3.399999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 60.5,
+          "combinedMs": 64.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 216,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 30,
+          "advanceMs": 2.5,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 45.19999998807907,
+          "combinedMs": 48,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 172,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 31,
+          "advanceMs": 5.199999988079071,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 40.60000002384186,
+          "combinedMs": 46.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 32,
+          "advanceMs": 2.099999964237213,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.700000047683716,
+          "combinedMs": 36,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 33,
+          "advanceMs": 3,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 33.19999998807907,
+          "combinedMs": 36.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 169,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 34,
+          "advanceMs": 2.800000011920929,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 37.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 184,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 35,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 38.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 36,
+          "advanceMs": 3.799999952316284,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 38.5,
+          "combinedMs": 42.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 157,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 37,
+          "advanceMs": 3.600000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.5,
+          "combinedMs": 37.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 38,
+          "advanceMs": 3.699999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 28.900000035762787,
+          "combinedMs": 32.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 159,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 39,
+          "advanceMs": 2.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 70.89999997615814,
+          "combinedMs": 74,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 137,
+            "acquisitions": 6,
+            "leasesCreated": 6,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        }
+      ],
+      "allSamples": [
+        {
+          "frame": 0,
+          "advanceMs": 5.700000047683716,
+          "sampleMs": 1,
+          "renderMs": 566.7999999523163,
+          "combinedMs": 573.5,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 1,
+            "bucketsCreated": 52,
+            "bucketReuses": 309,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 1
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 52
+        },
+        {
+          "frame": 1,
+          "advanceMs": 5.800000011920929,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 42,
+          "combinedMs": 48.5,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 2,
+            "bucketReuses": 369,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 2,
+          "advanceMs": 4.5,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 28.80000001192093,
+          "combinedMs": 33.80000001192093,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 349,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 3,
+          "advanceMs": 2.400000035762787,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 14.900000035762787,
+          "combinedMs": 17.600000023841858,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 353,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 4,
+          "advanceMs": 3.5,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 15.099999964237213,
+          "combinedMs": 19,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 402,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 5,
+          "advanceMs": 2.300000011920929,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 30.19999998807907,
+          "combinedMs": 32.89999997615814,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 355,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 6,
+          "advanceMs": 2.399999976158142,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 24.19999998807907,
+          "combinedMs": 26.899999976158142,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 336,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 7,
+          "advanceMs": 3.800000011920929,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 57,
+          "combinedMs": 60.89999997615814,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 323,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 8,
+          "advanceMs": 2.199999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 29.899999976158142,
+          "combinedMs": 32.39999997615814,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 307,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 9,
+          "advanceMs": 3,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 38.5,
+          "combinedMs": 42.30000001192093,
+          "nativeSelected": 11,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 354,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 10,
+          "advanceMs": 1.7999999523162842,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.099999964237213,
+          "combinedMs": 33.299999952316284,
+          "nativeSelected": 9,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 340,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 11,
+          "advanceMs": 6.600000023841858,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 33.30000001192093,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 329,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 12,
+          "advanceMs": 2.599999964237213,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 35.5,
+          "combinedMs": 38.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 345,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 13,
+          "advanceMs": 2.699999988079071,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 38.40000003576279,
+          "combinedMs": 41.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 328,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 14,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 37.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 335,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 15,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 36.30000001192093,
+          "combinedMs": 39.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 285,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 16,
+          "advanceMs": 2.900000035762787,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 34,
+          "combinedMs": 37.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 17,
+          "advanceMs": 75.90000003576279,
+          "sampleMs": 1.7999999523162842,
+          "renderMs": 110.20000004768372,
+          "combinedMs": 187.9000000357628,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 18,
+          "advanceMs": 19.400000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 41.69999998807907,
+          "combinedMs": 61.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 303,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 19,
+          "advanceMs": 4.199999988079071,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.60000002384186,
+          "combinedMs": 38.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 344,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 20,
+          "advanceMs": 6.399999976158142,
+          "sampleMs": 5.600000023841858,
+          "renderMs": 49,
+          "combinedMs": 61,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 293,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 21,
+          "advanceMs": 2.100000023841858,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 54,
+          "combinedMs": 56.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 286,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 22,
+          "advanceMs": 2.400000035762787,
+          "sampleMs": 0.09999996423721313,
+          "renderMs": 34.60000002384186,
+          "combinedMs": 37.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 272,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 23,
+          "advanceMs": 3.5,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 44.39999997615814,
+          "combinedMs": 48,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 265,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 24,
+          "advanceMs": 20.399999976158142,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 40.09999996423721,
+          "combinedMs": 60.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 296,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 25,
+          "advanceMs": 4.5,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 61.19999998807907,
+          "combinedMs": 65.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 241,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 26,
+          "advanceMs": 2.300000011920929,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 31.19999998807907,
+          "combinedMs": 33.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 235,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 27,
+          "advanceMs": 3.100000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.19999998807907,
+          "combinedMs": 36.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 231,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 28,
+          "advanceMs": 7.100000023841858,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 53,
+          "combinedMs": 60.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 211,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 29,
+          "advanceMs": 3.399999976158142,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 60.5,
+          "combinedMs": 64.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 216,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 30,
+          "advanceMs": 2.5,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 45.19999998807907,
+          "combinedMs": 48,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 172,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 31,
+          "advanceMs": 5.199999988079071,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 40.60000002384186,
+          "combinedMs": 46.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 32,
+          "advanceMs": 2.099999964237213,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.700000047683716,
+          "combinedMs": 36,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 175,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 33,
+          "advanceMs": 3,
+          "sampleMs": 0.20000004768371582,
+          "renderMs": 33.19999998807907,
+          "combinedMs": 36.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 169,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 34,
+          "advanceMs": 2.800000011920929,
+          "sampleMs": 0.10000002384185791,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 37.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 184,
+            "acquisitions": 8,
+            "leasesCreated": 8,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 35,
+          "advanceMs": 3.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 38.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 36,
+          "advanceMs": 3.799999952316284,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 38.5,
+          "combinedMs": 42.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 157,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 37,
+          "advanceMs": 3.600000023841858,
+          "sampleMs": 0.19999998807907104,
+          "renderMs": 33.5,
+          "combinedMs": 37.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 154,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 38,
+          "advanceMs": 3.699999988079071,
+          "sampleMs": 0.30000001192092896,
+          "renderMs": 28.900000035762787,
+          "combinedMs": 32.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 159,
+            "acquisitions": 7,
+            "leasesCreated": 7,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        },
+        {
+          "frame": 39,
+          "advanceMs": 2.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 70.89999997615814,
+          "combinedMs": 74,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 0,
+            "bucketsCreated": 0,
+            "bucketReuses": 137,
+            "acquisitions": 6,
+            "leasesCreated": 6,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 54
+        }
+      ],
+      "costs": {
+        "enabled": false,
+        "samples": [],
+        "unmeasured": [],
+        "note": "QA measures synchronous CPU call wall time, including waits and observer overhead. Nested stage observations overlap and must not be summed. This is not GPU execution time, presented FPS, paint or total memory. First-observed owner identities are not game/model construction times. Scoped production.drawFrame stages observe only original calls on the existing ProductionArt instance within the innermost enemy/boss/corpse/player/obstacle/decor renderer category; extra hit-light draws remain separate calls. Category and source subtotals overlap their parent stages, and calls are not unique actors. Native classification uses the existing liveRig metadata flag or original live-player ID; baked requires the original atlas format and a string asset ID; unrecognized selections remain unknown. No Canvas method hooks are added for sprite timing. The observer performs no tick, render, pose, draw, pixel read, upload, event drain or scheduling calls."
+      },
+      "native": {
+        "minimal": true,
+        "calls": 405,
+        "samples": [],
+        "note": "Counts actual original native renderer.render calls only; no native/Canvas timing wrappers or extra draws/reads are installed."
+      },
+      "summary": {
+        "advanceMs": {
+          "median": 3.100000023841858,
+          "p95": 20.399999976158142,
+          "max": 75.90000003576279
+        },
+        "sampleMs": {
+          "median": 0.20000004768371582,
+          "p95": 1.7999999523162842,
+          "max": 5.600000023841858
+        },
+        "renderMs": {
+          "median": 36.30000001192093,
+          "p95": 70.89999997615814,
+          "max": 110.20000004768372
+        },
+        "combinedMs": {
+          "median": 40,
+          "p95": 74,
+          "max": 187.9000000357628
+        }
+      },
+      "allSummary": {
+        "advanceMs": {
+          "median": 3.100000023841858,
+          "p95": 20.399999976158142,
+          "max": 75.90000003576279
+        },
+        "sampleMs": {
+          "median": 0.30000001192092896,
+          "p95": 1.7999999523162842,
+          "max": 5.600000023841858
+        },
+        "renderMs": {
+          "median": 35.5,
+          "p95": 110.20000004768372,
+          "max": 566.7999999523163
+        },
+        "combinedMs": {
+          "median": 39.59999996423721,
+          "p95": 187.9000000357628,
+          "max": 573.5
+        }
+      },
+      "allocations": {
+        "mapsCreated": 1,
+        "bucketsCreated": 54,
+        "bucketReuses": 10820,
+        "acquisitions": 286,
+        "leasesCreated": 286,
+        "trackingArraysCreated": 1,
+        "retainedActors": 0,
+        "retainedBuckets": 54
+      },
+      "timedAllocations": {
+        "mapsCreated": 0,
+        "bucketsCreated": 0,
+        "bucketReuses": 7363,
+        "acquisitions": 214,
+        "leasesCreated": 214,
+        "trackingArraysCreated": 0
+      },
+      "hp": 73,
+      "time": 4.766666666666655,
+      "kills": 12,
+      "enemies": 59,
+      "canvas": {
+        "width": 1335,
+        "height": 620,
+        "dpr": 1
+      }
+    }
+  ],
+  "differences": [
+    {
+      "reuse": true,
+      "different": 14,
+      "maxDelta": 1
+    },
+    {
+      "reuse": false,
+      "different": 64,
+      "maxDelta": 1
+    }
+  ],
+  "candidateVsRepeatedLegacy": {
+    "different": 50,
+    "maxDelta": 1
+  },
+  "cleanupErrors": [],
+  "identicalCombatState": true,
+  "identicalEvents": true,
+  "identicalActorMotion": true,
+  "note": "Owned metadata JSON experiment: beforeArm owns the independent original asset loader per arm. All three physics grids and renderer preparation use production defaults. 8851 genuine-memory QA only. Default grid experiment: original inline fresh separation Map/buckets with source counters → pooled → original fresh; forceAllFresh is a separate all-original control. observeCosts=false removes detailed/Canvas timing observers and retains only an actual native renderer.render call counter. allSummary includes all40 frames, including warmup outliers. Same normal60/180 checkpoint, AI/HP/automatic fire/spawning/offered upgrades, fixed .12s catch-up through actual advanceSimulation and pooled interpolation, 40renders/batch8/10warm excluded. Every arm owns a new original256 NPC rig with the same bounded three-model texture/shader preparation, excluded from combat timing, and primes the actual renderer without ticks before measurement. Main player/world caches can still vary. Allocation counters count the helper source objects, not heap/GC/RAM/VRAM bytes or all JavaScript allocations. No presented FPS, GPU execution or full product HUD/audio/save claim. Stage wrappers add overhead and nested call-wall times overlap. Original rig/resolution/materials/clips/positions/private outputs remain in use."
+}

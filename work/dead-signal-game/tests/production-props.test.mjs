@@ -89,11 +89,11 @@ test('PNG failure and Canvas paint failure both leave the legacy caller responsi
   assert.equal(capture(game),before);
 });
 
-test('Q creates an area fire rather than a bottle entity, and neither fires nor gun bullets enter the speaker branch',async()=>{
+test('Q launches a separate bottle then creates area fire; neither enters the speaker branch',async()=>{
   const f=fixture(),game=gameWithLure();await f.art.load('speaker-atlas');await f.art.load('bottle-atlas');
-  assert.equal(game.throwFire(game.player.x+80,game.player.y),true);assert.equal(game.fires.length,1);
+  assert.equal(game.throwFire(game.player.x+80,game.player.y),true);assert.equal(game.fires.length,0);const projectile=game.throwables[0];assert.ok(projectile);game.updateMolotovs(1);assert.equal(game.fires.length,1);
   game.shoot();assert.ok(game.bullets.length>0);const before=capture(game);
-  for(const entity of [...game.fires,...game.bullets]){assert.equal(nativeLureFrame(f.art,entity),null);assert.equal(drawNativeLure(f.context,f.art,entity),false);}
+  for(const entity of [projectile,...game.fires,...game.bullets]){assert.equal(nativeLureFrame(f.art,entity),null);assert.equal(drawNativeLure(f.context,f.art,entity),false);}
   assert.equal(f.calls.length,0);assert.equal(capture(game),before);
 });
 

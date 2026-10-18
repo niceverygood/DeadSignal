@@ -1,3 +1,23 @@
+import {sortWorldDrawables} from './world-depth.js';
+import {NativePropFrames} from './native-prop-frames.js?dense=20261018-2';
+import {CompletedEnemyFrames} from './completed-enemy-frames.js';
+import {playerMuzzleRecoil} from './player-rig/weapon-recoil.js';
+import {ChargeWallFeedback} from './charge-wall-feedback.js';
+import {playerReloadDuration} from './engine.js';
+import {collectHitLights,drawNativeHitLight} from './native-hit-light.js';
+import {selectLiveEnemies,selectLiveCorpses} from './live-enemy-selection.js';
+import {exitPresentation} from './exit-state.js';
+import {FireGround} from './fire-ground.js';
+import {ImpactMarks} from './impact-marks.js';
+import {drawMolotovTrail} from './combat-detail.js';
+import {nativeActionSelection} from './native-action-animation.js';
+import {drawBlastGround} from './blast-ground.js';
+import {drawDamageContact} from './damage-feedback.js';
+import {drawSeaWater,supportedGround,clipGround} from './sea-art.js';
+import {roofSupports} from './rooftop-world.js';
+import {expeditionTransport} from './expedition.js';
+import {drawExpeditionTarget} from './expedition-ui.js';
+import {drawWeaponMuzzle,drawWeaponImpact} from './weapon-impact.js';
 import {project,unproject,ISO_C,ISO_S} from './projection.js?v=0.29.0';
 import {makeMinimapProjection,layoutKey} from './minimap.js?v=0.29.0';
 import {objectiveTargets,edgePosition} from './directions.js?v=0.29.0';
@@ -16,6 +36,8 @@ import {explosionArt} from './explosion-art.js?v=0.29.0';
 import {playerGroundingHeight} from './player-grounding.js?v=0.29.0';
 import {PLAYER_RUN_THRESHOLD} from './player-locomotion.js?v=0.29.0';
 import {ENEMY_MOTION_PROFILES} from './enemy-motion-profiles.js?v=0.29.0';
+import {NativeCatalogIds} from './native-catalog-ids.js';
+import {prepareRendererNativeLaunch,adoptRendererNativeLaunch} from './native-launch-owner.js';
 import {enemyGroundingHeight} from './enemy-locomotion.js?v=0.29.0';
 
 // Existing two-argument callers keep their portrait behavior. New UI callers
@@ -103,7 +125,7 @@ function glow(ctx, x, y, r, color, alpha = 0.25) {
 export class Renderer {
   constructor(canvas,{productionManifest=null,productionArt=null,onProductionChange=null}={}) {
     this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:false});
-    this.fireArt=groundFireArt;void this.fireArt.load();
+    this.fireArt=groundFireArt;void this.fireArt.load();this.fireGround=new FireGround();this.chargeWallFeedback=new ChargeWallFeedback();this.impactMarks=new ImpactMarks();
     this.explosionArt=explosionArt;void this.explosionArt.load();
     this.width=1;this.height=1;this.dpr=1;this.zoom=1;
     this.camera={x:0,y:0};this.cameraProjection={x:0,y:0};this.cameraReady=false;
@@ -123,6 +145,7 @@ export class Renderer {
     this.nativeActorFrames=new WeakMap();this.nativeBuildingBlocks=new WeakMap();this.nativePlayerShots=new WeakMap();
     this.nativeBulletShots=new WeakMap();this.nativeParticleShots=new WeakMap();
     this.nativeCorpseEndClocks=new WeakMap();this.nativePlayerEndClocks=new WeakMap();
+    this.completedEnemyFrames=new CompletedEnemyFrames();
     this.nativeContours=new WeakMap();this.nativeMaskCanvas=null;
     if(productionManifest)this.configureProductionArt(productionManifest);
     for(let i=0;i<72;i++){
@@ -169,17 +192,56 @@ export class Renderer {
     await this.productionArt.loadCharacter(name);
     const ids=[...new Set(Object.values(this.productionArt.manifest.characters[name]))];
     await Promise.all(ids.filter(id=>this.productionArt.isReady(id)&&this.productionArt.manifest.assets[id]?.bodyAlpha).map(id=>this.productionArt.loadBodyAlpha(id)));
+    // Headless tests and unsupported GPUs retain the original baked assets.
+    // Loading is explicit, so a missing local runtime can never hide the hero.
+    if(typeof globalThis.WebGL2RenderingContext==='function'){
+      try{
+        this.livePlayerPromise??=import('./player-rig/live-player.js').then(({LivePlayerRig})=>new LivePlayerRig());
+        this.livePlayer=await this.livePlayerPromise;
+        const ready=await this.livePlayer.load(weapon);
+        this.productionDataset({productionRig:ready?'ready':'baked-fallback',productionRigError:this.livePlayer.error||''});
+      }catch(error){this.productionDataset({productionRig:'baked-fallback',productionRigError:error.message});}
+    }
+    this.preloadProductionEnemies();
     return this.productionArt.isCharacterReady(name);
+  }
+  async preloadProductionEnemies(){
+    if(typeof globalThis.WebGL2RenderingContext!=='function'||this.liveEnemiesLoading)return;this.liveEnemiesLoading=true;
+    try{const pending=this.liveEnemiesPromise??=import('./boss-rig/live-boss.js').then(({LiveBossRig})=>new LiveBossRig({size:256,registryFile:'enemy-registry.json'}));const rig=await pending;
+    if(this.liveEnemiesPromise!==pending)return;this.liveEnemies=rig;
+    this.productionDataset({productionEnemyRig:'on-demand',productionEnemyRigError:''});}
+
+    catch(error){this.productionDataset({productionEnemyRig:'baked-fallback',productionEnemyRigError:error.message});}
+  }
+  async prepareProductionEnemyLaunch(keys,{signal}={}){
+    if(typeof globalThis.WebGL2RenderingContext!=='function'||this.motionEnabled===false)return null;
+    return prepareRendererNativeLaunch(this,keys,{signal});
+  }
+  adoptProductionEnemyLaunch(handle){
+    const adopted=adoptRendererNativeLaunch(this,handle);
+    if(adopted)this.productionDataset({productionEnemyRig:'ready',productionEnemyRigError:''});
+    return adopted;
+  }
+  async preloadRooftop(){try{if(!this.rooftopArt){const {RooftopArt}=await import('./rooftop-art.js');this.rooftopArt=new RooftopArt();}const ready=await this.rooftopArt.load();this.productionDataset({productionRooftop:ready?'original-native-roof':'failed',productionRooftopError:this.rooftopArt.error});return ready;}catch(error){this.productionDataset({productionRooftop:'failed',productionRooftopError:error.message});return false;}}
+  async preloadProductionBosses(keys){
+    if(typeof globalThis.WebGL2RenderingContext!=='function'||!keys?.length)return true;
+    try{
+      this.liveBossPromise??=import('./boss-rig/live-boss.js').then(({LiveBossRig})=>new LiveBossRig());
+      this.liveBoss=await this.liveBossPromise;
+      const results=await Promise.all(keys.map(key=>this.liveBoss.load(key)));
+      this.productionDataset({productionBossRig:results.every(Boolean)?'ready':'baked-fallback',productionBossRigError:this.liveBoss.error||''});
+      return true;
+    }catch(error){this.productionDataset({productionBossRig:'baked-fallback',productionBossRigError:error.message});return true;}
   }
   requestProductionCatalog(section,key){
     const mapping=this.productionArt.manifest[section]?.[key];if(!mapping)return;
-    const ids=typeof mapping==='string'?[mapping]:Object.values(mapping);
+    const ids=this.forceCatalogEnumeration===true?new Set(typeof mapping==='string'?[mapping]:Object.values(mapping)):(this.productionCatalogIds??=new NativeCatalogIds()).get(mapping);
     const loadMask=id=>{
       const record=this.productionArt.get(id);
       if(section==='characters'&&record&&!record.bodyAlpha&&!record.bodyAlphaPromise&&this.productionArt.manifest.assets[id]?.bodyAlpha)
         void this.productionArt.loadBodyAlpha(id).then(loaded=>{if(loaded)this.onProductionChange?.({id,status:'body-alpha-ready'});});
     };
-    for(const id of new Set(ids))if(this.productionArt.manifest.assets?.[id]){
+    for(const id of ids)if(this.productionArt.manifest.assets?.[id]){
       if(this.productionArt.status(id)==='idle')void this.productionArt.load(id).then(ready=>{if(ready)loadMask(id);});
       else if(this.productionArt.isReady(id))loadMask(id);
     }
@@ -214,24 +276,36 @@ export class Renderer {
       productionGaitCycleDistance:num(selected?.locomotion?.cycleDistance)});
     // A body-only pilot cannot replace the shooter with its gun omitted.
     if(selected&&selected.metadata.atlas.includesWeapon!==true){this.productionDataset({productionStatus:'failed',productionError:'combined-weapon-required'});return null;}
+    if(this.livePlayer&&selected){
+      try{
+        const live=this.livePlayer.frame(p,num(game?.time),selected,{deathElapsed,hitFlash:num(game?.flash),reloadDuration:playerReloadDuration(game),throwMotion:(game?.throwables||[]).find(item=>item.elapsed<.55)});
+        if(live){
+          const d=this.livePlayer.diagnostics||{};
+          this.productionDataset({productionRig:'live',productionLowerAngle:num(d.lowerAngle),productionUpperAim:num(d.aimAngle),productionUpperTwist:num(d.upperTwist),productionGaitPhase:num(d.phase),productionGaitReverse:String(!!d.reverse),productionGripError:num(d.gripError),productionAimError:num(d.aimErrorDegrees)});
+          return live;
+        }
+      }catch(error){this.productionDataset({productionRig:'baked-fallback',productionRigError:error.message});}
+    }
     return selected;
   }
   nativeEnvironmentEntry(o,world){
     const rules=this.productionArt.manifest.environmentRules||[];
-    return rules.find(rule=>matchesEnvironmentRule(rule,o,world))?.entry||null;
+    if(this.cacheNativeProps===false)return rules.find(rule=>matchesEnvironmentRule(rule,o,world))?.entry||null;
+    this.nativePropFrames??=new NativePropFrames();return this.nativePropFrames.entry(rules,o,world);
   }
   nativeObstacleFrame(o,game){
     const entry=this.nativeEnvironmentEntry(o,game?.world);if(!entry)return null;
     this.requestProductionCatalog('environment',entry);
-    return this.productionArt.propFrame(entry,o);
+    this.nativePropFrames??=new NativePropFrames();
+    return this.cacheNativeProps===false?this.productionArt.propFrame(entry,o):this.nativePropFrames.frame(this.productionArt,entry,o);
   }
   nativeBuildingBlock(o,native,entry){
     if(entry!=='env-common-brick')return null;
     const cached=this.nativeBuildingBlocks.get(o);
-    if(cached&&cached.image===native.image&&cached.metadata===native.metadata&&cached.x===o.x&&cached.y===o.y&&cached.w===o.w&&cached.h===o.h)return cached.block;
+    if(cached&&cached.image===native.image&&cached.bodyAlpha===native.bodyAlpha&&cached.metadata===native.metadata&&cached.angle===(o.angle||0)&&cached.x===o.x&&cached.y===o.y&&cached.w===o.w&&cached.h===o.h)return cached.block;
     const plan=nativeBuildingCells(o,{...native.placement.footprint.native,subjectHeight:native.metadata.projection.subjectHeight});
     const block=plan?{...plan,sections:plan.cells.map(footprint=>this.productionArt.propFrame(entry,o,{footprint})).sort((a,b)=>(a?.placement.foot.y||0)-(b?.placement.foot.y||0))}:null;
-    this.nativeBuildingBlocks.set(o,{image:native.image,metadata:native.metadata,x:o.x,y:o.y,w:o.w,h:o.h,block});
+    this.nativeBuildingBlocks.set(o,{image:native.image,bodyAlpha:native.bodyAlpha,metadata:native.metadata,angle:o.angle||0,x:o.x,y:o.y,w:o.w,h:o.h,block});
     return block;
   }
   nativeEnemyFrame(e,time,game,boss=null){
@@ -240,9 +314,9 @@ export class Renderer {
     const mapping=this.productionArt.manifest[section]?.[key],baseId=typeof mapping==='string'?mapping:mapping?.walk||mapping?.idle;
     const baseAsset=this.productionArt.manifest.assets[baseId],referenceRadius=num(baseAsset?.referenceRadius,num(boss?.stats?.r,{walker:14,runner:12,shield:19,screamer:15,gas:18,elite:27,collector:49}[e.type]||num(e.r,14)));
     const scale=clamp(num(e.r,referenceRadius)/referenceRadius,.72,1.65),profile=ENEMY_MOTION_PROFILES[boss?key:`enemy-${key}`];
-    const turnRate=boss?.role==='final'?2.1:boss?3.8:({runner:6.5,walker:5,shield:3.2,screamer:4,gas:3.8,elite:4,collector:2.6}[e.type]||5);
+    const turnRate=boss?.role==='final'?3.4:boss?6:({runner:10,walker:8,shield:3.2,screamer:6.5,gas:6,elite:6,collector:4}[e.type]||8);
     const skill=boss?.skill;
-    const options={simulationTime:num(game?.time,time),enemyMotion:{cycleDistance:profile?.cycleDistance||num(baseAsset?.worldHeight,60)*.8,scale,turnRate},...(skill?{actionDurations:{
+    const options={epoch:game?.world,simulationTime:num(game?.time,time),enemyMotion:{cycleDistance:profile?.cycleDistance||num(baseAsset?.worldHeight,60)*.8,scale,turnRate},...(skill?{actionDurations:{
       windup:num(skill.windup,.9),
       charge:num(skill.kind==='shield'?skill.guardDuration??skill.duration:skill.duration,skill.kind==='shield'?3:skill.kind==='leap'?.5:skill.kind==='pull'?1.1:.75),
       recover:num(skill.recovery,['summon','spit'].includes(skill.kind)?.8:1),
@@ -252,6 +326,31 @@ export class Renderer {
     if(!selected)return null;
     const asset=this.productionArt.manifest.assets[selected.id],height=num(asset?.worldHeight,selected.metadata.projection.subjectHeight)*scale;
     const groundFoot=project(e.x,e.y),groundingHeight=enemyGroundingHeight(selected,profile,scale),foot={x:groundFoot.x,y:groundFoot.y+groundingHeight};
+    if(boss&&this.liveBoss){
+      try{
+        const live=this.liveBoss.frame(key,e,num(game?.time,time),selected,{...options,height,profile});
+        if(live){this.productionDataset({productionBossRig:'live',productionBossClip:this.liveBoss.diagnostics.clip,productionBossSamples:this.liveBoss.diagnostics.sampleDensity});return live;}
+      }catch(error){this.productionDataset({productionBossRig:'baked-fallback',productionBossRigError:error.message});}
+    }
+    if(!boss&&this.liveEnemies&&this.motionEnabled!==false){
+      if(!this.liveEnemies.models.has('enemy-'+key))this.liveEnemies.load('enemy-'+key);
+      let eligible=false;
+      if(this.forceLegacyEnemyPreparation===true){
+        const pose=nativeActionSelection({animation:{clips:this.liveEnemies.models.get('enemy-'+key)?.config.clips}},e,{...options,pose:selected.locomotion?.pose||'idle',phase:selected.locomotion?.phase,simulationTime:num(game?.time,time)});
+        const nearby=game?.player&&Math.hypot(e.x-game.player.x,e.y-game.player.y)<150;
+        eligible=(this.enemyLiveFrames||0)<12&&(this.liveEnemySelection?this.liveEnemySelection.has(e):nearby||pose&&['attack','windup','hit'].includes(pose.clip));
+      }else if((this.enemyLiveFrames||0)<12){
+        // The batch selection already owns eligibility. Pose/distance are only
+        // needed for the original fallback when no selection exists.
+        if(this.liveEnemySelection)eligible=this.liveEnemySelection.has(e);
+        else{
+          const pose=nativeActionSelection({animation:{clips:this.liveEnemies.models.get('enemy-'+key)?.config.clips}},e,{...options,pose:selected.locomotion?.pose||'idle',phase:selected.locomotion?.phase,simulationTime:num(game?.time,time)});
+          const nearby=game?.player&&Math.hypot(e.x-game.player.x,e.y-game.player.y)<150;
+          eligible=nearby||pose&&['attack','windup','hit'].includes(pose.clip);
+        }
+      }
+      if(eligible)try{this.enemyLiveFrames=(this.enemyLiveFrames||0)+1;const live=this.liveEnemies.frame('enemy-'+key,e,num(game?.time,time),selected,{...options,height,profile});if(live){this.productionDataset({productionEnemyRig:'live',productionEnemyClip:this.liveEnemies.diagnostics.clip,productionEnemySamples:this.liveEnemies.diagnostics.sampleDensity});return live;}}catch(error){this.productionDataset({productionEnemyRigError:error.message});}
+    }
     return {...selected,placement:{...spritePlacement(selected.metadata,selected.frame,{foot,worldHeight:height}),depth:groundFoot.y,groundFoot,groundingHeight}};
   }
   nativePortrait(canvas,bossKey,{rotationStep=null}={}){
@@ -340,6 +439,7 @@ export class Renderer {
   }
   makeFloor(game) {
     const world = game.world;
+    if(world.rooftop){this.floorWorld=world;this.floor=null;return;}
     const palette=visualMaterials(world);
     const key = `${world.width}:${world.height}:${game.stage}:${game.route}:${world.theme}:${world.missionId||''}:${palette?.asphalt||''}:${palette?.road||''}:${palette?.curb||''}:${world.obstacles?.length}:${world.roads?.length}`;
     if (this.floorWorld === world && this.floorKey === key) return;
@@ -588,28 +688,40 @@ export class Renderer {
   }
 
   render(game,input={},now=0) {
+    this.enemyLiveFrames=0;this.enemyLiveCorpseFrames=0;
     const c=this.ctx;
     c.setTransform(this.dpr,0,0,this.dpr,0,0);c.fillStyle='#111d24';c.fillRect(0,0,this.width,this.height);
-    if(!game?.world)return;
+    if(!game?.world){this.liveEnemies?.releaseIdleExactGPUAlpha?.();return;}
     const p=game.player||{x:game.world.width/2,y:game.world.height/2},time=num(game.time);
+    this.completedEnemyFrames?.observe(game.world,game.corpses);
+    const ending=['dead','victory'].includes(game.state);
+    if(ending){this.nativePlayerEndClocks??=new WeakMap();if(!this.nativePlayerEndClocks.has(p))this.nativePlayerEndClocks.set(p,now);}
+    this.impactMarks.observe(game);this.fireGround.observe(game);this.chargeWallFeedback.observe(game,this.onChargeImpact);this.nativeHitLights=collectHitLights(game.particles,this.nativeHitLights);
     const dt=this.lastNow===null?.016:clamp(now-this.lastNow,0,.07);this.lastNow=now;
     const tx=clamp(p.x,150,game.world.width-150),ty=clamp(p.y,150,game.world.height-150);
     if(!this.cameraReady||Math.hypot(this.camera.x-tx,this.camera.y-ty)>900){this.camera={x:tx,y:ty};this.cameraReady=true;}
-    else{const ease=1-Math.exp(-dt*11);this.camera.x+=(tx-this.camera.x)*ease;this.camera.y+=(ty-this.camera.y)*ease;}
+    else if(game.state==='playing'){const ease=1-Math.exp(-dt*11);this.camera.x+=(tx-this.camera.x)*ease;this.camera.y+=(ty-this.camera.y)*ease;}
     this.cameraProjection=project(this.camera.x,this.camera.y);
+    const corpseReserve=(game.corpses||[]).some(c=>!c.bossKey&&c.type==='collector'&&(c.duration??12)-(c.time??12)<1.2&&this.visible(c.x,c.y,140,150))?1:0;
+    this.liveEnemySelection=this.liveEnemies&&this.motionEnabled!==false?selectLiveEnemies(game,['victory','dead'].includes(game.state)?0:12-corpseReserve,{visible:e=>this.visible(e.x,e.y,140,150)}):null;
+    this.liveCorpseSelection=this.liveEnemies&&this.motionEnabled!==false?selectLiveCorpses(game,12-(this.liveEnemySelection?.size||0),{visible:e=>this.visible(e.x,e.y,140,150)}):null;
+    this.prepareNativeEnemyBatch(game,time,now);
+
     this.makeFloor(game);
     const shake=this.shakeEnabled?Math.min(10,num(game.shake)):0;
     c.save();c.translate(this.width/2+Math.sin(now*77)*shake,this.height/2+this.offsetY+Math.cos(now*93)*shake*.65);
     c.scale(this.zoom,this.zoom);c.translate(-this.cameraProjection.x,-this.cameraProjection.y);
     c.lineCap='round';c.lineJoin='round';
-    c.save();c.transform(ISO_C,ISO_S,-ISO_C,ISO_S,0,0);c.drawImage(this.floor,0,0);c.restore();
-    if(this.atmosphereEnabled)this.drawPuddles(c,game,time);
+    if(game.world.rooftop){this.rooftopArt?.draw(c,game.world,this.productionArt);}else{c.save();c.transform(ISO_C,ISO_S,-ISO_C,ISO_S,0,0);c.drawImage(this.floor,0,0);c.restore();}
+    drawSeaWater(c,game.world,time,this.motionEnabled!==false);
+    if(this.atmosphereEnabled&&!game.world.rooftop)this.drawPuddles(c,game,time);
     for(const d of game.world.decor||[])if(this.atmosphereEnabled&&d.kind==='lamp'&&this.visible(d.x,d.y,160)){
       const q=project(d.x,d.y);
       c.save();c.translate(q.x+12,q.y+8);c.scale(1,.48);glow(c,0,0,156,'#e3a15a',.24);c.restore();
     }
     for(const o of game.world.obstacles||[])if(o.kind==='building'&&this.visible(o.x+o.w/2,o.y+o.h/2,Math.max(o.w,o.h)))this.drawBuildingShadow(c,o);
-    if(game.world.exit)this.drawExit(c,game.world.exit,time,game.stage);
+    if(game.world.exit)this.drawExit(c,game.world.exit,time,game.stage,exitPresentation(game));
+    c.save();if(game.world.rooftop||game.world.water)clipGround(c,game.world);this.fireGround.drawResidues(c,project,(...args)=>this.visible(...args),time);this.impactMarks.drawGround(c,(...args)=>this.visible(...args));c.restore();
     const nativeCorpses=[];
     for(const corpse of game.corpses||[])if(this.visible(corpse.x,corpse.y,150)){
       const native=this.nativeCorpseFrame(corpse,game,now);
@@ -618,11 +730,14 @@ export class Renderer {
     }
     for(const e of game.enemies||[])if(!e.dead)this.drawTelegraph(c,e,time);
     for(const hazard of game.bossHazards||[])this.drawBossHazard(c,hazard,game.world);
-    for(const f of game.fires||[])this.drawFire(c,f,time);
+    drawExpeditionTarget(c,game);
+    for(const f of game.fires||[])this.drawFire(c,f,time,game.world);
     if(game.lure)this.drawLure(c,game.lure,time);
     for(const item of game.pickups||[])if(this.visible(item.x,item.y,30))this.drawPickup(c,item,time);
     // Native bodies join depth sorting; rings/debris keep their particle pass.
     const drawables=[...nativeCorpses],depthExplosionBodies=new Map();
+    for(const particle of this.chargeWallFeedback.items)if(this.visible(particle.x,particle.y,100,particle.z))drawables.push({depth:particle.depth??project(particle.x,particle.y).y,kind:'charge-wall',particle});
+    const transport=expeditionTransport(game);if(transport&&this.visible(transport.x,transport.y,180))drawables.push({depth:project(transport.x+transport.w,transport.y+transport.h).y,kind:'obstacle',o:transport});
     if((this.explosionArt||explosionArt).status==='ready')for(const particle of game.particles||[]){
       if(particle.kind==='shockwave'&&num(particle.life)>0&&Number.isFinite(particle.x)&&Number.isFinite(particle.y)&&this.visible(particle.x,particle.y,num(particle.radius,45)+40))
         drawables.push({depth:project(particle.x,particle.y).y,kind:'explosion',particle});
@@ -632,18 +747,26 @@ export class Renderer {
     for(const e of game.enemies||[])if(!e.dead&&this.visible(e.x,e.y,150))drawables.push({depth:project(e.x,e.y).y,kind:'enemy',e});
     drawables.push({depth:project(p.x,p.y).y,kind:'player',p});
     drawables.sort((a,b)=>a.depth-b.depth);
-    for(const item of drawables){
-      if(item.kind==='explosion')depthExplosionBodies.set(item.particle,this.drawExplosionBody(c,item.particle));
-      else if(item.kind==='obstacle')this.drawObstacle(c,item.o,game);
+    const ordered=sortWorldDrawables(drawables,this.forceLegacyBuildingOcclusion===true?null:this,game);this.depthOrder={constraints:ordered.constraints,cycle:ordered.cycle,...(ordered.rescue?{rescue:ordered.rescue}:{})};
+    for(const item of ordered.items){
+      if(item.kind==='charge-wall')this.chargeWallFeedback.drawItem(c,item.particle,time);
+      else if(item.kind==='explosion')depthExplosionBodies.set(item.particle,this.drawExplosionBody(c,item.particle));
+      else if(item.kind==='obstacle'){this.drawObstacle(c,item.o,game);this.impactMarks.drawSurface(c,item.o);}
       else if(item.kind==='decor')this.drawDecor(c,item.d,time,game);
       else if(item.kind==='enemy')this.drawEnemy(c,item.e,time,game);
       else if(item.kind==='corpse')this.drawNativeCorpse(c,item.corpse,item.native);
       else this.drawPlayer(c,item.p,game,time);
     }
-    for(const b of game.bullets||[])this.drawBullet(c,b,game);
+    const muzzle=this.nativePlayerShots?.get(p),endingVisualAge=ending?Math.max(0,now-(this.nativePlayerEndClocks?.get(p)??now)):0;
+    this.nativeBulletAlpha=ending?clamp(1-endingVisualAge/.12,0,1):1;
+    if(this.nativeBulletAlpha>0){c.save();c.globalAlpha*=this.nativeBulletAlpha;for(const b of game.bullets||[])this.drawBullet(c,b,game);c.restore();}
+    this.nativePlayerMuzzleRecoil=playerMuzzleRecoil(p,endingVisualAge,ending||p.hp<=0);
+    if(!(game.throwables||[]).some(t=>t.elapsed<.55))drawWeaponMuzzle(c,{point:muzzle?.point,angle:p.angle,weapon:p.weapon,recoil:this.nativePlayerMuzzleRecoil});
+    for(const item of game.throwables||[])this.drawMolotov(c,item);
     for(const projectile of game.hostileProjectiles||[])this.drawHostileProjectile(c,projectile);
     for(const l of game.links||[])this.drawLink(c,l,time);
     for(const particle of game.particles||[])this.drawParticle(c,particle,time,game,depthExplosionBodies.has(particle)?depthExplosionBodies.get(particle):null);
+    drawExpeditionTarget(c,game,true);
     if(this.playerIdentificationNeeded(game,drawables))this.drawPlayerIdentification(c,p);
     for(const text of game.texts||[])this.drawText(c,text);
     this.drawCursor(c,game,input);c.restore();
@@ -655,7 +778,9 @@ export class Renderer {
     if(this.shakeEnabled&&num(game.flash)>0){c.fillStyle=`rgba(249,195,112,${clamp(game.flash*.2,0,.25)})`;c.fillRect(0,0,this.width,this.height);}
     c.restore();if(this.atmosphereEnabled)this.drawAtmosphere(c,game,now);
     this.drawHealthWarning(c,game);
+    drawDamageContact(c,game,this.width,this.height);
     this.drawObjectiveDirections(c,game);this.drawMinimap(c,game);
+    this.liveEnemies?.releaseIdleExactGPUAlpha?.(this.liveEnemySelection?.size||0,this.liveCorpseSelection?.size||0);
   }
 
   polygon(c,worldPoints,z,fill,stroke=null,width=1){
@@ -703,8 +828,8 @@ export class Renderer {
     if(native){
       const entry=this.nativeEnvironmentEntry(o,game?.world);
       const building=this.nativeBuildingBlock(o,native,entry);
-      const cells=building?.cells||(o.kind==='fence'?nativeFenceCells(o,native.placement.footprint.native):null);
-      const sections=building?.sections||(cells?cells.map(footprint=>this.productionArt.propFrame(entry,o,{footprint})).sort((a,b)=>(a?.placement.foot.y||0)-(b?.placement.foot.y||0)):[native]);
+      const cells=building?.cells||(o.kind==='fence'&&this.cacheNativeProps===false?nativeFenceCells(o,native.placement.footprint.native):null);
+      const sections=building?.sections||(o.kind==='fence'&&this.cacheNativeProps!==false?this.nativePropFrames.fenceSections(this.productionArt,entry,o,native):cells?cells.map(footprint=>this.productionArt.propFrame(entry,o,{footprint})).sort((a,b)=>(a?.placement.foot.y||0)-(b?.placement.foot.y||0)):[native]);
       c.save();
       const height=building?.worldHeight||native.metadata.projection.subjectHeight*native.placement.footprint.uniformScale;
       if(o.kind==='building'&&!building&&this.occludesPlayer(o,game?.player,height))c.globalAlpha*=.27;
@@ -1266,7 +1391,7 @@ export class Renderer {
     ellipse(c,q.x,q.y,Math.min(num(e.r,14)*.6,24),Math.min(num(e.r,14)*.18,6),'rgba(2,9,13,.35)');
     if(role){c.save();c.globalAlpha=.65;c.strokeStyle=color;c.lineWidth=1.6;if(role==='alarm')c.setLineDash([6,5]);const radius=num(e.r,27)+5;c.beginPath();c.ellipse(q.x,q.y,radius*Math.sqrt(1.5),radius/Math.sqrt(2),0,0,Math.PI*2);c.stroke();c.restore();}
     if(!this.productionArt.drawFrame(c,native))return false;
-    this.drawNativeHitFlash(c,native,e.hitFlash);
+    this.drawNativeHitFlash(c,native,e.hitFlash,this.nativeHitLights?.get(e.id));
     this.nativeActorFrames.set(e,native);const top=native.placement.bounds.body.top-q.y;
     if(e.burn>0){glow(c,q.x,q.y+top*.45,35*scale,'#e68a3f',.22);for(let i=0;i<3;i++){const x=q.x+(i-1)*6*scale,y=q.y-8*scale,wave=Math.sin(time*19+i)*2;path(c,[[x-3,y+3],[x-4,y-3],[x+wave,y-16*scale],[x+4,y]],'#df7733');}}
     if(e.stun>0)for(let i=0;i<3;i++){const a=time*6+i*2.1;ellipse(c,q.x+Math.cos(a)*10,q.y+top-6+Math.sin(a)*3,1.5,1.5,'#e6c776');}
@@ -1275,13 +1400,9 @@ export class Renderer {
     if(role)this.drawEliteRole(c,e,role,color,scale,top-9);
     return true;
   }
-  drawNativeHitFlash(c,native,hitFlash){
-    if(!native||!Number.isFinite(hitFlash)||hitFlash<=0)return false;
-    c.save();
-    // Screen the same real sprite and alpha, so a hit brightens its own detail
-    // without introducing a rectangle, substitute body or decoded pixel mask.
-    c.globalCompositeOperation='screen';c.globalAlpha*=clamp(hitFlash/.12,0,1)*.82;
-    const drawn=this.productionArt.drawFrame(c,native);c.restore();return drawn;
+  drawNativeHitFlash(c,native,hitFlash,impact){
+    if(this.forceLegacyEnemyPreparation!==true&&(!native||!Number.isFinite(hitFlash)||hitFlash<=0))return false;
+    return drawNativeHitLight(c,native,hitFlash,impact,(context,frame)=>this.productionArt.drawFrame(context,frame));
   }
   drawEliteRole(c,e,role,color,scale,relativeHealthY=null){
     const p=project(e.x,e.y),y=p.y+(Number.isFinite(relativeHealthY)?relativeHealthY:-50*scale)-19;
@@ -1307,7 +1428,7 @@ export class Renderer {
     if(native){ellipse(c,q.x+3,q.y+3,(final?39:26)*legacyBounds.scale,(final?12:8)*legacyBounds.scale,'rgba(4,13,17,.5)');ellipse(c,q.x,q.y,(final?25:15)*legacyBounds.scale,(final?6:3.8)*legacyBounds.scale,'rgba(2,9,13,.35)');nativeDrawn=this.productionArt.drawFrame(c,native);}
     let bounds=legacyBounds;
     if(nativeDrawn){
-      this.drawNativeHitFlash(c,native,e.hitFlash);
+      this.drawNativeHitFlash(c,native,e.hitFlash,this.nativeHitLights?.get(e.id));
       this.nativeActorFrames.set(e,native);bounds={...legacyBounds,top:native.placement.bounds.body.top-q.y};
       if(e.burn>0)for(let i=0;i<3;i++){
         const x=q.x+(i-1)*11*legacyBounds.scale,y=q.y-25*legacyBounds.scale-i*5,wave=Math.sin(time*17+i)*2;
@@ -1361,6 +1482,20 @@ export class Renderer {
     glow(c,bx,-67,24,'#efb84e',pulse*.6);
     c.restore();this.healthBar(c,e,78,-100);
   }
+  prepareNativeEnemyBatch(game,time,now){
+    const alive=this.liveEnemySelection,corpses=this.batchNativeCorpses===false?null:this.liveCorpseSelection;
+    const count=(alive?.size||0)+(corpses?.size||0);
+    if(!count||!this.liveEnemies?.beginBatch||game.state!=='playing'){this.liveEnemies?.batchInk?.release();return;}
+    try{
+      this.liveEnemies.beginBatch(count);
+      for(const e of alive||[])this.nativeEnemyFrame(e,time,game);
+      // Cache each fresh death in the same atlas as the living actors. Its
+      // actual draw remains in the original depth-sorted corpse pass.
+      for(const corpse of corpses||[])this.nativeCorpseFrame(corpse,game,now);
+      this.liveEnemies.endBatch();
+    }catch(error){this.liveEnemies.endBatch();this.productionDataset({productionEnemyRigError:error.message});}
+    finally{this.enemyLiveFrames=0;this.enemyLiveCorpseFrames=0;}
+  }
   nativeCorpseFrame(corpse,game,now=0){
     if(!corpse)return null;
     const boss=getBoss(corpse.bossKey),section=boss?'bosses':'enemies',key=boss?corpse.bossKey:corpse.type;
@@ -1375,11 +1510,14 @@ export class Renderer {
       elapsed+=Math.max(0,num(now)-this.nativeCorpseEndClocks.get(corpse));
     }
     if(this.motionEnabled===false)elapsed=30;
-    const options={simulationTime:num(game?.time),pose:'death',animationTime:elapsed};
+    const options={epoch:game?.world,simulationTime:num(game?.time),pose:'death',animationTime:elapsed};
     const selected=boss?this.productionArt.bossFrame(key,corpse,options):this.productionArt.enemyFrame(key,corpse,options);
     if(!selected?.metadata.animation?.clips?.death)return null;
     const asset=this.productionArt.manifest.assets[selected.id];
     const height=num(asset?.worldHeight,selected.metadata.projection.subjectHeight);
+    if(!boss){const completed=this.completedEnemyFrames?.get(corpse,height);if(completed){const foot=project(corpse.x,corpse.y);return {...completed,placement:{...spritePlacement(completed.metadata,completed.frame,{foot,worldHeight:height}),groundFoot:foot,groundingHeight:0}};}}
+    if(boss&&this.liveBoss){try{const live=this.liveBoss.frame(key,corpse,num(game?.time),selected,{...options,height});if(live)return live;}catch(error){this.productionDataset({productionBossRigError:error.message});}}
+    if(!boss&&this.liveEnemies&&elapsed<1.2&&this.motionEnabled!==false&&(this.enemyLiveFrames||0)<12&&(this.liveCorpseSelection?this.liveCorpseSelection.has(corpse):true))try{this.enemyLiveCorpseFrames=(this.enemyLiveCorpseFrames||0)+1;this.enemyLiveFrames=(this.enemyLiveFrames||0)+1;const live=this.liveEnemies.frame('enemy-'+key,corpse,num(game?.time),selected,{...options,height});if(live)return this.completedEnemyFrames?.remember(corpse,live,height)||live;}catch(error){this.productionDataset({productionEnemyRigError:error.message});}
     return {...selected,placement:spritePlacement(selected.metadata,selected.frame,{foot:project(corpse.x,corpse.y),worldHeight:height})};
   }
   drawNativeCorpse(c,corpse,native){
@@ -1436,7 +1574,7 @@ export class Renderer {
         c.globalAlpha=.34;for(let i=0;i<5;i++){const angle=i*2.3,d=r*(.2+i*.09),p=project(x+Math.cos(angle)*d,y+Math.sin(angle)*d,2);ellipse(c,p.x,p.y,3+i%2,1.8,'#d0d89e',null);}
       }else if(active&&h.kind==='fire'){
         c.globalAlpha=.7;
-        if(!(this.fireArt||groundFireArt).drawClusters(c,{x,y,r,age:this.motionEnabled===false?0:Math.max(0,num(h.duration)-num(h.time))}))
+        if(!(this.fireArt||groundFireArt).drawClusters(c,{x,y,r,contains:world?.rooftop||world?.water?(x,y)=>supportedGround(world,x,y):null,age:this.motionEnabled===false?0:Math.max(0,num(h.duration)-num(h.time))}))
           for(let i=0;i<4;i++){const angle=i*2.1,p=project(x+Math.cos(angle)*r*.5,y+Math.sin(angle)*r*.5,2);path(c,[[p.x-5,p.y+1],[p.x-4,p.y-5],[p.x,p.y-17],[p.x+5,p.y]],'#d88348',null);path(c,[[p.x-2,p.y],[p.x,p.y-9],[p.x+2,p.y]],'#f0c26d',null);}
       }else if(h.kind==='storm'&&inner===0){
         c.globalAlpha=active?.88:.65;path(c,[[q.x+3,q.y-12],[q.x-5,q.y-2],[q.x+1,q.y-1],[q.x-3,q.y+9],[q.x+7,q.y-4],[q.x+2,q.y-5]],color,'#38525f',.8);
@@ -1480,14 +1618,25 @@ export class Renderer {
     box(c,p.x-9,p.y-19,18,19,'#d29343','#21343b',2);box(c,p.x-5,p.y-23,10,4,'#385259','#17313b',1);
     ellipse(c,p.x,p.y-10,6,6,'#3b5256','#f0c77d',1.3);ellipse(c,p.x,p.y-10,3,3,'#6d8274','#263d40',1);box(c,p.x+5,p.y-17,2,2,'#f9dea0');
   }
-  drawFire(c,fire,time){
+  drawMolotov(c,item){
+    if(!item.released||!this.visible(item.x,item.y,100))return;
+    const p=project(item.x,item.y,item.height),ground=project(item.x,item.y,item.fallElapsed!==undefined?-item.fallDepth:0),progress=clamp((item.elapsed-item.release)/item.flightDuration,0,1);
+    ellipse(c,ground.x,ground.y,5+progress*3,2,'rgba(2,8,12,.4)');
+    const image=this.livePlayer?.bottleFrame(progress+(item.fallElapsed||0)*2);
+    if(image)c.drawImage(image,0,0,256,256,p.x-128/3,p.y-192/3,256/3,256/3);
+    c.save();c.globalCompositeOperation='lighter';
+    for(let i=4;i>=1;i--){const t=Math.max(0,progress-i*.022),h=34*(1-t)+4*54*t*(1-t),q=project(item.startX+(item.targetX-item.startX)*t,item.startY+(item.targetY-item.startY)*t,h);glow(c,q.x,q.y-4,8-i,'#ff9a35',.18*(1-i/5));}
+    glow(c,p.x,p.y-5,15,'#ff9a35',.45);c.restore();drawMolotovTrail(c,item);
+  }
+  drawFire(c,fire,time,world=null){
     if(!this.visible(fire.x,fire.y,fire.r))return;
-    const p=project(fire.x,fire.y),r=num(fire.r,40);c.save();c.globalAlpha=clamp(num(fire.time,1)/.8,0,1);
-    ellipse(c,p.x,p.y,r*Math.sqrt(1.5),r/Math.sqrt(2),'rgba(86,44,24,.45)');
-    ellipse(c,p.x,p.y,r*.85,r*.45,'rgba(160,66,30,.16)');glow(c,p.x,p.y-12,r*1.6,'#e07b32',.18);
-    if((this.fireArt||groundFireArt).drawClusters(c,{x:fire.x,y:fire.y,r,age:this.motionEnabled===false?0:Math.max(0,num(fire.duration,num(fire.time))-num(fire.time))})){c.restore();return;}
+    const p=project(fire.x,fire.y),r=num(fire.r,40);c.save();const heat=clamp(num(fire.time,1)/.8,0,1);
+    if(world?.rooftop||world?.water){c.save();clipGround(c,world);}
+    this.fireGround.draw(c,{...fire,r},p,Math.max(0,num(fire.duration,num(fire.time))-num(fire.time)),{motion:this.motionEnabled!==false,heat});if(world?.rooftop||world?.water)c.restore();c.globalAlpha*=heat;
+    if((this.fireArt||groundFireArt).drawClusters(c,{x:fire.x,y:fire.y,r,contains:world?.rooftop||world?.water?(x,y)=>supportedGround(world,x,y):null,age:this.motionEnabled===false?0:Math.max(0,num(fire.duration,num(fire.time))-num(fire.time))})){c.restore();return;}
     for(let i=0;i<18;i++){
       const a=i*2.4,dist=Math.sqrt(hash(i+fire.x))*r*.84,q=project(fire.x+Math.cos(a)*dist,fire.y+Math.sin(a)*dist);
+      if((world?.rooftop||world?.water)&&!supportedGround(world,fire.x+Math.cos(a)*dist,fire.y+Math.sin(a)*dist))continue;
       const s=4+hash(i+fire.y)*6,pulse=Math.sin(time*13+i*3)*3,height=s*2.8+pulse,lean=Math.sin(time*8+i*4)*4;
       // Unequal tongues, red bases and a thin yellow core make the flame volumetric.
       path(c,[[q.x-s*1.3,q.y+3],[q.x-s*.9,q.y-4],[q.x-s*.3,q.y-height*.5],[q.x+lean,q.y-height],[q.x+s*.5,q.y-height*.43],[q.x+s*1.1,q.y-2],[q.x+s*.8,q.y+3]],'#b64c26');
@@ -1518,7 +1667,7 @@ export class Renderer {
     if(!this.visible(b.x,b.y,30,art.height))return;
     const q=project(b.x,b.y,art.height),sameStep=['x','y','px','py'].every(key=>b[key]===art.firstStep[key]);
     const old=art.muzzle&&sameStep?art.muzzle:project(num(b.px,b.x),num(b.py,b.y),art.height);
-    line(c,old.x,old.y,q.x,q.y,b.color||'#e5c88b',b.weapon==='nailgun'?1.6:2);ellipse(c,q.x,q.y,2,1.5,'#f7e2af');
+    c.save();c.globalCompositeOperation='lighter';c.globalAlpha=.2;line(c,old.x,old.y,q.x,q.y,b.weapon==='nailgun'?'#63ddff':'#ffb85d',b.weapon==='nailgun'?7:9);c.globalAlpha=.9;line(c,old.x,old.y,q.x,q.y,b.weapon==='nailgun'?'#93edff':'#ffd48c',3);line(c,old.x,old.y,q.x,q.y,'#fff9e6',1);ellipse(c,q.x,q.y,3,2,'#fff3c4');c.restore();
   }
   drawLink(c,l,time){
     const a=project(l.x1,l.y1,23),b=project(l.x2,l.y2,23),dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,points=[[a.x,a.y]];
@@ -1533,6 +1682,10 @@ export class Renderer {
   }
   // null keeps direct callers; booleans are the current depth pass's result.
   drawParticle(c,p,time,game,explosionBody=null){
+    if(p.kind==='weapon-impact'){
+      if(this.visible(p.x,p.y,120,p.z||22))drawWeaponImpact(c,p,game?.world);
+      return;
+    }
     if(!this.visible(p.x,p.y,num(p.radius,45)+40))return;
     const alpha=clamp(num(p.life,1)/Math.max(.001,num(p.maxLife,1)),0,1),age=1-alpha,s=Math.max(.4,num(p.size,3));
     const height=p.kind==='blood'?1:p.kind==='smoke'?12+age*55:p.kind==='ember'?12+age*40:17+age*6;
@@ -1543,15 +1696,16 @@ export class Renderer {
       shot=muzzleSpark?{height:source.muzzle.height,dx:source.muzzle.x-(source.playerX+Math.cos(source.angle)*25),dy:source.muzzle.y-(source.playerY+Math.sin(source.angle)*25)}:{height:null,dx:0,dy:0};
       this.nativeParticleShots.set(p,shot);
     }
-    const q=project(p.x+shot.dx,p.y+shot.dy,shot.height??num(p.z,height)),color=p.color||'#e0ae64';c.save();c.globalAlpha=alpha;
-    if(p.kind==='smoke'){
+    const drop=game?.world?.rooftop&&p.kind!=='smoke'&&!Number.isFinite(p.z)&&!roofSupports(game.world,p.x,p.y,0)?240*Math.max(0,num(p.maxLife,1)-num(p.life,1))**2:0;
+    const q=project(p.x+shot.dx,p.y+shot.dy,(shot.height??num(p.z,height))-drop),color=p.color||'#e0ae64';c.save();c.globalAlpha=alpha;
+    if(p.kind==='splash-ring'){const center=project(p.x,p.y,1),radius=6+age*35;c.strokeStyle='#afdce0';c.lineWidth=1+alpha;c.beginPath();c.ellipse(center.x,center.y,radius*Math.sqrt(1.5),radius/Math.sqrt(2),0,0,Math.PI*2);c.stroke();}else if(p.kind==='smoke'){
       const radius=s*(1.8+age*3.2);c.globalAlpha=alpha*.35;
       ellipse(c,q.x,q.y,radius,radius*.68,color);
       ellipse(c,q.x-radius*.55,q.y+radius*.1,radius*.67,radius*.58,'#514f42');
       ellipse(c,q.x+radius*.35,q.y-radius*.33,radius*.68,radius*.55,'#68624d');
     }else if(p.kind==='shockwave'){
-      const center=project(p.x,p.y,1),r=5+num(p.radius,80)*(1-Math.pow(alpha,1.4));
-      c.strokeStyle=color;c.lineWidth=1+alpha*3;c.beginPath();c.ellipse(center.x,center.y,r*Math.sqrt(1.5),r/Math.sqrt(2),0,0,Math.PI*2);c.stroke();
+      const center=project(p.x,p.y,1);
+      drawBlastGround(c,p,game?.world);
       if(alpha>.35)glow(c,center.x,center.y-15,Math.min(115,num(p.radius,80)),'#f39843',alpha*.35);
       const bodyDrawn=explosionBody===true||(explosionBody===null&&(this.explosionArt||explosionArt).drawBurst(c,p));
       if(!bodyDrawn&&alpha>.35){
@@ -1680,7 +1834,7 @@ export class Renderer {
   }
   drawObjectiveDirections(c,game){
     for(const marker of this.objectiveDirectionMarkers(game)){
-      const color=marker.kind==='gatekeeper'?'#e9c16f':marker.kind==='collector'?'#dc7866':'#e18a71',plaque=marker.plaque;
+      const color=['gatekeeper','expedition'].includes(marker.kind)?'#e9c16f':marker.kind==='collector'?'#dc7866':'#e18a71',plaque=marker.plaque;
       c.save();c.translate(marker.x,marker.y);c.rotate(marker.angle);
       path(c,[[0,0],[-6,-3.5],[-4,0],[-6,3.5]],color,'#18313b',1.1);c.restore();
       const x=marker.x-Math.cos(marker.angle)*12,y=marker.y-Math.sin(marker.angle)*12;
@@ -1700,14 +1854,14 @@ export class Renderer {
       c.fillText(marker.label,textX,plaque.y+plaque.height/2+.5,plaque.width-12);c.restore();
     }
   }
-  drawExit(c,exit,time,stage){
+  drawExit(c,exit,time,stage,presentation=null){
     if(!this.visible(exit.x,exit.y,170))return;
-    const x=exit.x,y=exit.y,active=Boolean(exit.open),color=active?'#b4ddc3':'#b4a16e';
+    const x=exit.x,y=exit.y,active=presentation?.open??Boolean(exit.open),color=active?'#b4ddc3':'#b4a16e';
     this.polygon(c,[[x-70,y-55],[x+70,y-55],[x+70,y+45],[x-70,y+45]],0,'#3b535b','#7e948b',2);
     for(let i=0;i<6;i++)this.polygon(c,[[x-67+i*24,y+43],[x-56+i*24,y+43],[x-44+i*24,y+31],[x-55+i*24,y+31]],1,'#c8b574');
     this.polygon(c,[[x-4,y-38],[x+19,y-12],[x+7,y-12],[x+7,y+13],[x-7,y+13],[x-7,y-12],[x-19,y-12]],1,active?'#a9cfb5':'#748277');
     for(const xx of [x-70,x+70]){this.cube(c,xx-5,y-60,10,10,45,'#607b72','#3b5a60','#26444f');const p=project(xx,y-56,48);ellipse(c,p.x,p.y,4,2,active?'#a4dfb9':'#ddae5d');if(active)glow(c,p.x,p.y,25,'#96dab4',.25);}
-    const p=project(x,y-52,51);c.font='700 9px monospace';c.fillStyle=color;c.textAlign='center';c.fillText(active?(stage===2?'EXTRACTION / OPEN':'NEXT SECTOR / OPEN'):'GATE / LOCKED',p.x,p.y);
+    const p=project(x,y-52,51);c.font='700 9px monospace';c.fillStyle=color;c.textAlign='center';c.fillText(presentation?.label||(active?(stage===2?'EXTRACTION / OPEN':'NEXT SECTOR / OPEN'):'GATE / LOCKED'),p.x,p.y);
   }
   prepareMinimap(game){
     const world=game.world,key=`${layoutKey(world)}:${num(game.stage)}:${this.dpr}`;
@@ -1735,6 +1889,7 @@ export class Renderer {
       path(c,corners.map(p=>[p.x,p.y]),fill,stroke,weight);
     };
     for(const road of world.roads||[])footprint(road.x,road.y,road.w,road.h,'#38535c',null);
+    for(const water of world.water||[])footprint(water.x,water.y,water.w,water.h,'#102e3d','#57808d',.5);
     for(const o of world.obstacles||[]){
       if(o.destroyed)continue;
       const color={building:'#768372',car:'#6c8787',barrel:'#a28d5b',crate:'#83956d',fence:'#647c74'}[o.kind]||'#718675';
@@ -1776,10 +1931,10 @@ export class Renderer {
       ellipse(c,p.x,p.y,3.8,3.8,'rgba(232,179,73,.16)','#edbf68',1);ellipse(c,p.x,p.y,1.2,1.2,'#edc57b');
     }
     if(game.world.exit){
-      const e=game.world.exit,p=m.project(e.x,e.y),color=e.open?'#a3d9b4':'#8e9885';
+      const e=game.world.exit,p=m.project(e.x,e.y),active=exitPresentation(game).open,color=active?'#a3d9b4':'#8e9885';
       box(c,p.x-3.2,p.y-3.2,6.4,6.4,'#203d43',color,1.1);
       line(c,p.x,p.y-1.8,p.x,p.y+1.8,color,1.2);
-      if(e.open)line(c,p.x-1.8,p.y,p.x+1.8,p.y,color,1.1);
+      if(active)line(c,p.x-1.8,p.y,p.x+1.8,p.y,color,1.1);
     }
     const player=game.player,p=m.project(player.x,player.y);
     c.translate(p.x,p.y);c.rotate(m.heading(num(player.angle)));

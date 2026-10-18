@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {Game} from '../dist/engine.js';
+import {createMolotov,advanceMolotov,validMolotov} from '../dist/molotov.js';
+test('molotov winds up, releases, arcs and lands before creating fire',()=>{const g=new Game({seed:774});const x=g.player.x+230,y=g.player.y+30;assert.equal(g.throwFire(x,y),true);assert.equal(g.fires.length,0);assert.equal(g.throwFire(x,y),false);g.updateMolotovs(.2);assert.equal(g.throwables[0].released,false);g.updateMolotovs(.1);assert.equal(g.throwables[0].released,true);assert.ok(g.throwables[0].height>34);assert.equal(g.fires.length,0);for(let i=0;i<20;i++)g.updateMolotovs(.05);assert.equal(g.throwables.length,0);assert.equal(g.fires.length,1);assert.equal(g.fires[0].x,x);assert.ok(g.particles.length>=30);});
+test('in flight checkpoint resumes deterministically and old saves remain valid',()=>{const g=new Game({seed:774});g.throwFire(g.player.x+250,g.player.y);g.updateMolotovs(.3);assert.ok(validMolotov(g.throwables[0]));const r=Game.restore(g.snapshot());assert.ok(r);g.updateMolotovs(.6);r.updateMolotovs(.6);assert.deepEqual(r.fires,g.fires);const old=g.snapshot();delete old.throwables;assert.ok(Game.restore(old));});
+test('projectile rejects corrupt state and remains bounded at maximum range',()=>{const m=createMolotov({x:1200,y:930},1e6,1e6);assert.ok(validMolotov(m));assert.ok(Math.hypot(m.targetX-1200,m.targetY-930)<=310.00001);assert.equal(validMolotov({...m,height:Infinity}),false);assert.equal(advanceMolotov(m,1,{x:1200,y:930}),true);});
+test('district transition clears pending projectiles',()=>{const g=new Game({seed:774});g.throwFire(g.player.x+100,g.player.y);g.advanceStage();assert.equal(g.throwables.length,0);});

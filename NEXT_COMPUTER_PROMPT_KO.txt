@@ -1,0 +1,56 @@
+DeadSignal 개발을 이 컴퓨터의 Codex에서 이어서 진행해 주세요.
+저장소: https://github.com/niceverygood/DeadSignal.git / 분기 main
+이 프롬프트 기준일: 2026-10-18 KST. 실제 Git HEAD와 최신 인계 기록을 먼저 확인하세요.
+
+같은 Codex 계정만으로 다른 컴퓨터의 파일·서버·브라우저 저장·Node PATH·자동화 실행 상태가 동기화된다고 가정하지 마세요. 저장소를 실제로 받고 프로젝트 폴더로 여세요.
+이미 clone했다면 Git 상태/remote/branch와 미커밋 변경을 먼저 확인하고 보존하세요. reset --hard/clean/force push로 덮어쓰지 마세요. 깨끗하고 fast-forward 가능한 경우에만 git pull --ff-only로 갱신하며, 충돌은 기존 작업을 보존해 처리하세요.
+아직 없다면 현재 OS에 맞게 Git/Git LFS/Node.js22 이상/npm을 준비하고 다음을 실행하세요.
+git lfs install
+git clone https://github.com/niceverygood/DeadSignal.git
+cd DeadSignal
+git lfs pull
+git lfs fsck
+git status --short
+node --version
+npm --version
+LFS 포인터 텍스트를 PNG/GLB로 오인하지 마세요. 다운로드/인증/저장 공간 오류가 있으면 원인을 확인하고, 유료 용량·트래픽 구매나 자격증명 Git 저장은 하지 마세요.
+
+수정 전에 루트 AGENTS.md, README.txt, HANDOFF.txt, CONTINUE_PROMPT.txt, 이 파일, WINDOWS_CONTINUATION.txt의 마지막 블록과 아래 최신 QA 인계를 읽으세요.
+qa/building-occlusion-20261018/CONTINUATION_STATUS_KO.txt
+qa/upgrade-status-20261018/CONTINUATION_STATUS_KO.txt
+qa/boss-motion-20261018/CONTINUATION_STATUS_KO.txt
+qa/boss-action-layer-20261018/CONTINUATION_STATUS_KO.txt
+과거 C:/Users 경로·Mac 경로·PID·탭 ID는 역사 자료입니다. 새 컴퓨터의 실제 경로/포트/프로세스를 확인하고 그대로 재사용하지 마세요. qa의 frozen .txt 원본들은 테스트의 SHA oracle이므로 보존하세요. .gitattributes의 * -text와 LFS 규칙을 유지하세요.
+
+저장소 루트에서 아래 순서로 실행하세요.
+npm run verify
+npm run setup
+npm test
+npm start
+verify는 최초 이관의 .transfer/manifest.json 기준입니다. 현재 개발 변경으로 .gitignore 등 mismatch가 알려져 있습니다. 누락된 LFS 원본과 의도된 개발 변경을 구분하고 manifest를 다시 생성해서 실패를 숨기지 마세요. 알려진 mismatch로 뒤의 setup/test/브라우저 검수를 중단하지 마세요.
+setup은4개 잠긴 아트 도구 의존성을 npm ci --ignore-scripts로 복원하고 prepare-player-runtime, prepare-boss-runtime, prepare-enemy-runtime을 실행합니다. 원본 LFS GLB/PNG를 바꾸지 않고 ignored player-rig/vendor·models·도우미/config/provenance와 boss-rig/models·registry를 재구성합니다. 이 사본들은 다른 컴퓨터에서 반드시 setup으로 준비해야 합니다. 과거 등록 스크립트나 유료 Meshy 생성은 실행하지 않습니다. clone 폴더 이름은 DeadSignal 이외에도 지원해야 합니다.
+
+사용자 게임은 기본8806이며 검수는 별도 origin8851을 사용하세요. 기존 서버를 종료하지 말고 비어 있는 포트를 확인하세요. 별도 QA 서버는 npm start -- --port 8851로 실행할 수 있습니다.
+http://localhost:8851/?qa=1&qa-memory=next-computer-validation
+8851의 qa/qa-memory는 genuine 메모리 저장 QA입니다. 사용자의8806 localStorage나 미선택 강화 카드를 대신 진행/삭제/초기화하지 마세요. localStorage 플레이 저장은 Git이나 Codex 계정으로 다른 PC에 자동 이전되지 않습니다. Git 푸시에는 사용자 세이브·브라우저 프로필·키를 넣지 않았습니다.
+실제 브라우저에서 원본 이미지 로딩, 메뉴→출격, 주인공 옆걸음/독립 상체 조준, 일반 적/중간보스/최종보스 이동·공격·피격·필살기 전환, 탄환/화염병/폭발/타격음, 레벨업 표시·선택·재개와 콘솔 오류를 확인하세요. 새 PC에서 실제 검수한 결과를 이전 PC의 기록과 구분해 남기세요.
+
+현재 구현·검수된 주요 사항:
+- 원본 Meshy 모델·UV·텍스처·클립·리그·무드보드·플레이 데이터 보존. native 주인공/일반 적/보스 연속 골격 렌더와 이동·조준/공격/피격 효과, 연결형 임무·백신 여정 소스가 있습니다. 100시간은 목표이며 검증 완료가 아닙니다.
+- 연속 피격의 .09초 stun이 보스 AI/공격을 영구 정지시키던 문제 수정. 실제4전투와24원본 모델 포즈 검수 증거는 boss-motion 인계에 있습니다.
+- 강화의 예전3/5단계 실제 선택 상한 제거. 높은 단계도 선택·공급·저장/복원이 이어지며 큰 레벨 숫자, 현재 능력치와 보유 스킬을 표시합니다. 기존 구간 밸런스와 RNG/저장 계약은 유지했습니다. 실제 LV15 데스크톱/모바일 폭390 검수를 마쳤습니다.
+- 건물의 앞뒤 제약이 순환할 때 캐릭터 머리·상체가 외벽 아래로 가려지던 정렬 오류 수정. 초기화 후 실제 주인공/NPC/보스8면씩24합법배치, 원본 body RGBA/metadata/placement 동일, 정렬 충돌5개 해결/상체3개 복원 확인. 뒤쪽 캐릭터의 가림 제약은 유지합니다. 첫 cold draw에서 일부 건물 텍스처가 달라지는 별도 현상은 원인 미확정으로 증거를 남겼습니다.
+
+최신 검수 상태(이전 Windows 컴퓨터, Node22.23.3):
+- 전체 npm test1120개 중1119PASS/1FAIL, 취소·생략0, 총201436.4449ms. 유일 실패는 기존24k틱 스트레스 CPU15062.00ms>15000ms(벽19591.71ms)입니다. 예산/스트레스 조건/동시2를 바꿔 실패를 숨기지 마세요. 다른 PC에서는 다시 측정하세요.
+- qa/building-occlusion-20261018/npm-test-combined-final.log와 focused-initialized-final.log(19/19PASS), verify-combined.log를 확인하세요. .transfer의524/479개 통과는 최초 Mac 역사 기록입니다.
+- qa/upgrade-status-20261018/profile-after-combined-1120의 production-stress.json/.cpuprofile/analysis.json: 실제 기존 callback/source/model/test SHA 고정,24k틱/assert/CPU예산 그대로, 프로파일 CPU15297ms 실패. profiler overhead가 있어 원래 비계측 검사의 대체가 아닙니다. 샘플 주요 비용은 updateEnemies와 Navigation.direction/_los/_field·move입니다. chain·upgrade log 계산의 비중은 작았습니다.
+
+다음 우선순위:
+1. 밀집 전투의 전체 프레임 비용·메모리와 알려진 CPU 예산 초과를 개선하세요. 길찾기 반복 산술(dx/dy/length 재사용 등)은 아직 후보이며 제품에 적용되지 않았습니다. frozen 전체 원본 Navigation과 LOS/정확 방향·LRU/fields·동적 파괴/lure/7radius/옥상/물/transport·Game 상태/events/양RNG를 대조하고 동일 조건 A/B/A로 판단하세요. AI 갱신 주기·경로·동작 품질·원본 이미지 품질이나 테스트 예산을 낮추지 마세요. headless CPU 결과를 브라우저 FPS/실측 메모리로 표현하지 마세요.
+2. 모든 캐릭터의 자연스러운 이동→공격→피격 연결과 무기별 소리/탄환/화염병/폭발 임팩트를 실제 전투에서 고도화하세요. 새 최종보스 상체 동작 레이어는 boss01의16방향224active+6inactive만 실제 검수됐고 전체12종 batch는 완료하지 못했습니다. bossActionLayerEnabled 기본OFF 유지, 남은 모델을 개별 검수하기 전 전체 적용/완성 주장을 하지 마세요. 기존 GPU exact alpha·이미지 decode 후보도 기본 적용/성능 승리로 오인하지 마세요.
+3. 거리→마트→옥상→북한→이스라엘→최종보스→백신의 독창적인 연결형 실제 임무를 확장하세요. 단순 설계안과 실제 구현/완주를 구분하고,100시간 플레이는 측정 전 완성이라 주장하지 마세요.
+
+한 작업씩 구현→적절한 테스트→실제 브라우저 검수→인계 기록 후 다음 추천 작업으로 진행하세요. 이미 완료된 것을 새로 만들지 마세요. 기존 모델/소스/QA 증거와 미커밋 변경을 보존하세요. 최종보스 정밀 발 IK·모바일 이식/실기기 메모리·성능은 아직 별도 과제입니다. 모바일1.0.0은 웹0.26 기반이며 최신 웹 변경이 반영되지 않았습니다.
+
+금지: 유료 Meshy 생성/결제/충전/키 저장, automation-7 재개, 서명자료 저장·스토어 제출. 원본 에셋은 기존 Meshy 자료를 재사용하세요. 새 컴퓨터에서 기존 자동화가 자동 승계되거나 재개 승인되었다고 가정하지 말고, 이 프롬프트만으로 자동화를 생성/재개하지 마세요. 이전 PC의 진행 중 작업이 있는지도 확인해 중복을 피하세요. 기존 개발 일정은 Asia/Seoul2026-10-19 00:00까지였으므로 현재 시간이 그 이후면 새 장기 작업이나 자동화를 시작하지 말고 기록/상태를 보고하세요. 이후 작업 기간 연장은 사용자의 최신 명시 지시를 따르세요.

@@ -1,0 +1,39 @@
+DEAD SIGNAL — 2026-10-18 06:23 KST heartbeat 후속
+
+현재 사용자 마감: 2026-10-19 00:00 Asia/Seoul. automation4 ACTIVE, 자정 이후 새 개발 금지/기록 및 실제 PAUSED만. automation7/유료 생성/결제/키 저장/push/외부 공개/스토어 제출 금지. 기존 uncommitted 변경/원본 Meshy/모델/UV/4K texture/rig/clip/프레임/게임 진행/저장/사용자8806/옛 사용자탭/기존 서버를 보존한다.
+직전 production 음향 캐시 및973 PASS 인계: qa/audio-envelope-20261018/CONTINUATION_STATUS_KO.txt. 원본 live NPC12/256·boss512/GPU exact/crop/direct/batch 기본OFF 그대로다.
+
+브라우저 상태
+heartbeat 시작21:23UTC의 Cua getState가 약35초 timeout/kernel reset. 이번에도 실제180적 app40callbacks 재검수는 하지 못했다. 마지막 crowd JSON 저장 이후 탭 정리 결과 미확인 사항은 이전 인계 그대로다. 재선택/OS/shell/CDP로 우회하지 않았다. 지원 open_in_codex로8851 genuine-memory product QA를 이 대화 오른쪽에 열도록 요청했지만 status queued(현재대화가비표시)이므로 열기/표시/전투 실행 성공으로 주장하지 않는다. URL /?qa=1&qa-memory=audio-envelope-product-180&qa-loop=1&qa-loop-count=180&qa-loop-cost=1. 다음 연결 복구 시 소유 확인/문서 초기화 뒤 이 실제 검수부터 한다.
+
+현재 기본 밀집 전투 읽기 감사 및 CPU 진단
+변경 전 기본 Game으로 원래20분stress 입력/불변검사 그대로 한 번 CPU-profile 수행. baseline-stress.json/.cpuprofile: CPU12985ms/wall13314.9476ms,5326kills/time1199.9999999994563/양RNG3827338365·762306450, 전체stateSHA b4c7597e4a6db03e0eb1a0b115e814b9d72550896c19c09bdbef68062026278d(앞선동일원본상태와exact). CPU 예산 검사 통과의 대체가 아닌 프로파일 진단이다. sampled wall 가중 inclusive updateEnemies10744.5ms/direction4926.2/_los1579.7/move1538.0/_field912.9/_nearest935.4, GCself568.8ms. 프로파일 시점의 샘플이지 각 함수 실제CPU실행시간·제품FPS·브라우저시간이 아니다.
+Nav 알려진-clear 재검사 생략은 중간 override/getter/live geometry 관찰 순서가 바뀔 수 있어 미구현. enemy임시direction객체2scalar 후보도 현재 비용 분리 근거가 없어 아직 미구현.
+
+첫 원자 후보 완료: 깊이 정렬 scalar projection — 기본 적용 보류
+original renderer/projection 전체 바이트 보존 뒤 primitive-number depth helper와 Renderer.render 8개 depth-only 사용을 구현했다. 후보는 qa text에 보존하고 production 두 파일은 원본 바이트까지 복원했다. private Canvas 상태/호출/품질/해상도/GPU/리그 변경은 없었다.
+original renderer SHA621492d00a0fe0a50083de3c07237f1e8100939c1ce75b6ac9f1eeab477f80b3,projection SHA b7f066e335fcd89c7cf67fc523b1e62b3094ca0a61cd438bf21c822edeb42082.
+candidate renderer SHAba7abd1349c86fbdafb32d2d8d941d78f2a2278aa2611e1ca3b3c3a1e81fa600,projection SHA64a0b970e58c6c082e4256ecfd47b41b3bc672b1740a7cd11f74f7154bb1dee9. before/candidate text 파일과 ground-depth-adoption-decision.txt 참조.
+ground-depth-focused.log: 신규projection6/renderer2 및 기존projection/world-depth 포함17/17PASS1253.8708ms/exit0. 독립 SHA 원본/후보 4개 모듈을 각각 import해 Float64bits/-0/NaN/변환·예외 순서, 실제 전체 Renderer.render의60/180 Game,controlled native corpse/explosion surfaces/transport/정렬동률·실제 cycle/Canvas 모든명령·setter·gradient/입력·양RNG 불변을 엄격 비교했다. Canvas는 controlled trace이며 실제 PNG/GL/FPS 증거가 아니다.
+ground-depth-node-diagnostic.json은 원래180적Game에서296좌표×20000rounds=5.92Mcall/arm,3trial A/B/A. checksum과Game/RNGexact. wall182.7183→131.4655→266.765,295.4323→333.9844→238.8658,186.6132→164.4804→214.6997ms; CPU78→78→140,110→141→109,141→140→110ms. 혼합/악화 결과를 보존하며 실제브라우저비용 미검수와V8원래객체scalar replacement가능성 때문에 기본 적용하지 않았다. 구문상객체제거를 실제heap/메모리/FPS절감으로 부르지 않는다. 재현script는 같은SHA 후보를QA text에서읽도록 변경했으며 기존JSON을 덮어쓰지 않는다.
+
+두 번째 원자 작업 착수 전21:31:12UTC/06:31KST 마감 전 확인: 기존 피격 파편 계산 재사용
+drawImpactFollowThrough의 고정6/10fragment에서 angle/spread/cos/sin을 매효과 다시 계산하던 것을 두private frozen flat numeric table(48개 숫자)로 재사용했다. 동일한 Math.pow(t,.65)도 기존 globalAlpha 설정 직후/loop 직전에 한 번 계산한다. 원본 전체 weapon-impact.js는 weapon-impact-before-fragment-table.txt(6017bytes/SHA a83043664f378b645bdad3c8e19a47077b3824bba629a3a6462bb6b597896dc0), 최종 production SHA3c84025b562192dd603866b0e3cb954908c9c0347d76f516b74ff07dcd51729c.
+distance/length/x/y/꼬리의 곱셈·덧셈 grouping, Canvas 모든명령·particle/world/age/envelope/무기별레이어/RNG·개수·생명주기를 보존한다. 정상 JS Mathintrinsic 전제이며 adversarial Math교체까지 동등 주장하지 않는다. material/muzzle/spray 소스는 그대로다. 원본 에셋을 더 낮은 품질이나 적은 파편으로 대체하지 않았다. table에는 actor/world/canvas 참조가 없고 숫자48개는384bytes numeric payload이나 JS 실제heap/상주memory 측정이 아니다. 초기32개 trig 계산 비용은 모듈 평가로 이동하며 공짜라고 주장하지 않는다.
+
+impact-fragment-focused.log: 신규7 +기존weapon-impact/combat-detail/damage-feedback 포함22/22PASS/2885.0301ms/exit0. 독립 fullmodule 원본oracle로 모든Canvasmethods/setters/gradientstops/Float64bits/Object.is, 무기·방패·lethal·hits·각도·접촉/ring/late/0수명/ground/water/roof/material/muzzle, 실제Game 생성particle/전체상태·events·양RNG 불변을 대조했다. 별도 원래Math로 forwarding하는 QA관찰자에서 실행 중 trig24/40회, pow5/9회 감소 확인. 결과를 반올림/epsilon 처리하지 않았다. 원본 private follow-through에 own finally가 없어 해당 내부 Canvas throw 시 outer finally만 실행하여 stack1이 남는 기존 동작도 동일 throw identity/명령/상태로 보존했다. 이 예외 정리를 새로 개선했다고 주장하지 않는다. 실제 브라우저 pixels/FPS 검수는 별도로 미완료다.
+
+tools/qa-impact-fragment-table.mjs는252개 원본 publicdrawWeaponImpact recipe, normalMath,3개 새 Node프로세스 순차A/B/A를 사용한다. 같은 가벼운 JS scalar geometry/command sink와 사전8slot state를 쓰며 좌표 DCE를 막고 sink 비용을 모두 포함한다. 해시/입력비교는 call timer 밖 별도 pass이고 sourceSHA/iterations상한/조기exclusive output 보호가 있다. impact-fragment-cli-focused.log: 새 계약검사4/4PASS304.7557ms/exit0; timing-only차이 허용/숫자·proof·정리·source 차이 거부/기존파일 덮어쓰기 방지/실패 증거exit 분리 검수, 실벤치 호출 없음.
+실제 40000call/arm impact-fragment-node-aba.json/.log exit0: outputsExact/allValid=true. call wall543.4909→275.3466→557.3104ms/CPU282→219→267ms. call command수3985542/checksum423173559.4061317 모두 exact, 별도252recipe39170명령 IEEE64hash ae1def2c8b9cb3cbb076228d206c01a941a518fb57e95841e93d59fc218d5aaa exact, 입력불변/상태복원/depth0. moduleimport10.1359→8.8867→4.6281ms는parse/eval/tableinit포함이고 tableinit32trig만 따로 분리한 값이 아니다. cold1call9.7821→1.3459→5.3674ms, CPU15→0→0은 짧은 호출의 quantization/환경편차를 포함한다. CPUcallwall과 실제CPUusage를 구분하며 이 Node JS sink 결과를 nativeCanvas/GPU/frame pacing/브라우저FPS/실측heap 성과로 일반화하지 않는다.
+
+최종 전체 회귀 및 정리
+rootNode22.23.3 기존npmtest동시2 최초 실행992/992PASS, 실패·취소·생략0,163397.9916ms/exit0(impact-fragment-full-test.log). 원래20분 전투stress CPU13015ms/wall20181.38ms, 기존CPU15000ms기준PASS. fixture/물리/RNG/게임/timeout/예산/동시성/기존assertion을 바꾸거나 whole결과를 위한 반복 실행을 하지 않았다.
+검사 시작 직전324개 dist/tests/tools의JS/MJS/HTML source SHA 고정 이후 변경0/추가0(impact-fragment-final-check.json). 직전973 인계의 기존319개 중 바뀐 source는 weapon-impact.js 하나뿐이며 Renderer/projection은 before bytes로 완전히 복원됐다. 신규tests4파일/QAtool1개를 추가했다. 원본 및 최종candidate weapon-impact 전체는 before/after-fragment-table.txt로 각각 보존했고 후자SHA3c84025b...는 현재production과exact다.
+이후 rootnpmrunverify는 기존.gitignore/immutable manifest 불일치로exit1(impact-fragment-verify.log), 역사증거/manifest/.gitignore를 고치거나 재생성하지 않았다. 모든이번Node/CPU/테스트/벤치는 종료했고 고정된 소스에 후속 수정 없다. 실제180적app재검수는 브라우저 연결 문제 때문에 아직 남는다. Cua마지막kernelreset 이후 기존우리QA탭종료/새탭생성의성공여부는여전히미확인,open_in_codex8851QA요청도queued일뿐이다.
+기본 적용은 피격follow-through의 동일 숫자/파편/Canvas를 보존하는 table+progress계산 재사용만이다. scalar projection 후보는QAonly/default미적용. 원본Meshy/리그/4K/이미지/모든frames/게임data/사용자8806/옛탭/기존서버 보존. automation4 ACTIVE/오늘자정 마감 전,automation7 중단/유료·결제·키저장·공개·스토어 금지. 전체무렉/정상FPS/모든움직임자연스러움/실측memory/모바일/100시간미완료.
+
+다음 추천의 읽기 감사(미구현)
+Game updateEnemies/updateEffects의 반복Math.exp damping은 정상nativeMath·primitive숫자dt에서는 같은double 재사용 후보이나, nonnumber dt coercion/getter/Math교체/부분상태/조기종료/재진입 계약이 달라질 수 있다. vxgetter→exp→vxsetter→vygetter→exp→vysetter와 effects의앞선recoil/corpse 변경순서를 보존하려면 단순 eagerhoist보다 첫 실제RHS의호출별lazycache가 필요하고 guard 비용/V8기존CSE 때문에 이득미확정. 아직 변경하지 않았다. 독립 전체engine oracle로 실제60/180/210적/입자/동적world/terminal/fullruntime·nav·event·RNG와 coercion·throwtrace를 먼저 대조해야 한다. 우선은 연결복구 후 실제180적검수와 baked sprite 비용 원인분리를 이어간다.
+브라우저연결이계속없으면 같은출력만드는효과계산의작은후속을검토할수있다: drawMaterialImpact metal8/12 고정theta와concrete8 고정theta,drawWeaponImpact 외곽8ray 고정angle도 삼각함수 상수표 후보이며 metal의동일pow(t,.65)반복도검토대상. 아직 미구현이고 각분기의원본 전체SHA/CanvasFloat64bits/입력·RNG/상태/예외/같은조건A/B/A를 다시검수해야한다. 기존fragment-table검사의runtime callcount조건과CLIcandidateSHA는 scope확대시정확한새감소량/새source를반영해야하며 이전evidence는유지한다. 소스계산만줄였다고시각효과새디자인/더많은frame/브라우저FPS를완료처리하지않는다.
+
+[2026-10-18 06:43 heartbeat 후속완료] 최신 qa/frame-observer-20261018/CONTINUATION_STATUS_KO.txt 참조. 미완료였던실제180앱검수복구/콘솔0/이미지검수완료. QA계측pool후보성능혼합이라기본미적용·원본복원/QA증거보존. 최종1005/1005PASS/원래20분CPU13001ms<15000/전체소스고정/verify기존.gitignore차이exit1/사용자·원본·서버보존/오늘자정까지automation4ACTIVE.

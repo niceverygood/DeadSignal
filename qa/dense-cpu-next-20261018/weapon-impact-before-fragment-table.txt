@@ -1,0 +1,58 @@
+import {drawOrganicSpray} from './combat-detail.js';
+import {project} from './projection.js?v=0.29.0';
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+function stroke(c,x1,y1,x2,y2,color,width){c.strokeStyle=color;c.lineWidth=width;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();}
+// Three readable beats: contact flash, directional spray, then fading fragments.
+// Derived solely from particle age; presentation never consumes combat RNG.
+export function weaponImpactEnvelope(p){
+  const age=clamp(1-p.life/Math.max(.001,p.maxLife),0,1),heavy=p.weapon==='shotgun';
+  return {age,contact:Math.pow(clamp(1-age/.38,0,1),2),
+    ring:Math.sin(Math.PI*clamp(age/.8,0,1))*(1-age),
+    radius:(p.shielded?29:heavy?40:25)*(p.lethal?1.3:1)*(1+.05*Math.min(4,p.hits||1)),
+    fragments:heavy?10:6};
+}
+function drawImpactFollowThrough(c,p,a,color,strength=1){
+  const e=weaponImpactEnvelope(p),t=e.age,r=e.radius;
+  c.save();c.rotate(a);
+  // A brief dark rim keeps the contact readable against pale walls and muzzle light.
+  if(e.contact>0){c.globalCompositeOperation='source-over';c.globalAlpha=e.contact*.7*strength;c.fillStyle='#211b19';c.beginPath();c.ellipse(0,0,r*.24,r*.17,0,0,Math.PI*2);c.fill();}
+  c.globalCompositeOperation='lighter';
+  c.globalAlpha=e.ring*.72*strength;c.strokeStyle=color;c.lineWidth=2.8*(1-t)+.5;
+  c.beginPath();c.ellipse(0,0,r*(.25+t*1.15),r*(.16+t*.65),0,-.75,Math.PI*1.7);c.stroke();
+  c.globalAlpha=Math.pow(1-t,1.5)*strength;
+  for(let i=0;i<e.fragments;i++){
+    const angle=(i/(e.fragments-1)-.5)*2.45,spread=.5+(i*7%11)/11;
+    const distance=r*(.12+Math.pow(t,.65)*(1.1+spread)),length=r*(.12+.16*spread)*(1-t);
+    const x=Math.cos(angle)*distance,y=Math.sin(angle)*distance+t*t*r*.45;
+    stroke(c,x-Math.cos(angle)*length,y-Math.sin(angle)*length,x,y,color,i%3===0?2.6:1.3);
+    if(i%3===0){c.fillStyle='#fff7df';c.fillRect(x-1,y-1,2,2);}
+  }
+  c.globalAlpha=e.contact*strength;c.fillStyle='#fff8e8';c.beginPath();c.ellipse(0,0,r*.19,r*.12,0,0,Math.PI*2);c.fill();
+  c.restore();
+}
+// Material response is a deterministic presentation layer, independent of combat state.
+export function drawMaterialImpact(c,p){
+ if(!['metal','concrete'].includes(p.surface)||!(p.life>0))return false;
+ const t=clamp(1-p.life/Math.max(.001,p.maxLife),0,1),q=project(p.x,p.y,p.z||22),d=project(Math.cos(p.angle||0),Math.sin(p.angle||0)),a=Math.atan2(d.y,d.x),metal=p.surface==='metal';
+ c.save();try{c.translate(q.x,q.y);c.rotate(a);c.globalCompositeOperation=metal?'lighter':'source-over';
+ if(metal){
+  c.globalAlpha=Math.pow(1-t,1.35);const count=p.weapon==='shotgun'?12:8;
+  for(let i=0;i<count;i++){const theta=Math.PI+(i/(count-1)-.5)*2.3,travel=(15+(i*13%29))*Math.pow(t,.65),x=Math.cos(theta)*travel,y=Math.sin(theta)*travel+t*t*25;stroke(c,x-Math.cos(theta)*(5+15*(1-t)),y-Math.sin(theta)*(5+15*(1-t)),x,y,i%3===0?'#fff8d8':'#ffb34c',i%3===0?2:1);}
+  c.globalAlpha=Math.pow(clamp(1-t/.4,0,1),2);c.fillStyle='#fff9e2';c.beginPath();c.ellipse(0,0,8,5,0,0,Math.PI*2);c.fill();
+ }else{
+  for(let i=0;i<5;i++){c.globalAlpha=(1-t)*.16;c.fillStyle=i%2?'#c5b494':'#857d73';c.beginPath();c.ellipse(-t*(7+i*5),((i%2)*2-1)*t*(5+i*3),4+t*(10+i*2),3+t*(7+i),0,0,Math.PI*2);c.fill();}
+  c.globalAlpha=Math.pow(1-t,1.2);for(let i=0;i<8;i++){const theta=Math.PI+(i/7-.5)*2.5,r=t*(10+i*4);c.fillStyle=i%2?'#d9c8a6':'#82776a';c.fillRect(Math.cos(theta)*r,Math.sin(theta)*r+t*t*16,2+i%3,2+i%2);}
+  c.globalAlpha=clamp(1-t/.3,0,1);stroke(c,-5,0,6,0,'#fff0c9',2);
+ }return true;}finally{c.restore();}
+}
+export function drawWeaponMuzzle(c,{point,angle,weapon,recoil}){if(!point||!(recoil>0))return false;const t=clamp(recoil/.12,0,1),heavy=weapon==='shotgun',v=project(Math.cos(angle),Math.sin(angle)),a=Math.atan2(v.y,v.x);c.save();try{c.translate(point.x,point.y);c.rotate(a);c.globalCompositeOperation='lighter';c.globalAlpha=t*t;const length=(heavy?43:25)*(.65+.35*t),width=heavy?12:6;
+const g=c.createRadialGradient(0,0,0,0,0,length*.9);g.addColorStop(0,heavy?'rgba(255,206,105,.65)':'rgba(110,231,255,.55)');g.addColorStop(1,'rgba(255,170,50,0)');c.fillStyle=g;c.fillRect(-length,-length,length*2,length*2);
+for(const [scale,color]of [[1,heavy?'#ff973e':'#50cfff'],[.65,'#ffe6ad'],[.32,'#ffffff']]){c.fillStyle=color;c.beginPath();c.moveTo(-3,0);c.lineTo(length*.25,-width*scale);c.lineTo(length*.4,-width*.3*scale);c.lineTo(length*scale,0);c.lineTo(length*.4,width*.3*scale);c.lineTo(length*.25,width*scale);c.closePath();c.fill();}
+for(const side of [-1,1])stroke(c,5,side*2,heavy?21:11,side*(heavy?17:9),'#ffe5a1',1.4);return true;}finally{c.restore();}}
+export function drawWeaponImpact(c,p,world=null){if(p.kind!=='weapon-impact'||!(p.life>0))return false;if(drawMaterialImpact(c,p))return true;drawOrganicSpray(c,p,world);const t=clamp(1-p.life/p.maxLife,0,1),fade=Math.pow(1-t,1.4),q=project(p.x,p.y,p.z||22),shield=p.shielded,heavy=p.weapon==='shotgun',r=(shield?25:heavy?30:19)*(p.lethal?1.3:1)*(1+.08*Math.min(4,p.hits||1));const d=project(Math.cos(p.angle||0),Math.sin(p.angle||0)),a=Math.atan2(d.y,d.x),color=shield?'#bceaff':heavy?'#ffc379':'#77e9ff',energy=shield?1:Math.pow(clamp(1-t/.36,0,1),1.5);if(!energy)return true;c.save();try{c.translate(q.x,q.y);c.globalAlpha=fade*energy;c.globalCompositeOperation='lighter';
+
+const glow=c.createRadialGradient(0,0,0,0,0,r);glow.addColorStop(0,'rgba(255,245,212,.95)');glow.addColorStop(.2,shield?'rgba(120,215,255,.6)':'rgba(255,167,70,.5)');glow.addColorStop(1,'rgba(255,170,60,0)');c.fillStyle=glow;c.fillRect(-r,-r,r*2,r*2);
+drawImpactFollowThrough(c,p,a,color,energy);
+c.rotate(a);for(let i=0;i<8;i++){const angle=i*Math.PI/4+.13,near=3+t*r*.4,far=near+r*(.4+.6*(i%2))*(1-t*.4);stroke(c,Math.cos(angle)*near,Math.sin(angle)*near,Math.cos(angle)*far,Math.sin(angle)*far,color,i%2?1.2:2.5);}
+stroke(c,-r*.7,0,r*(1.2+t),0,'#fff7d9',3*(1-t)+.5);stroke(c,0,-r*.45,0,r*.45,'#ffffff',2*(1-t)+.5);
+if(shield){c.strokeStyle='#bceaff';c.lineWidth=2;c.beginPath();c.arc(0,0,r*(.2+t*.85),-.8,2.6);c.stroke();}return true;}finally{c.restore();}}

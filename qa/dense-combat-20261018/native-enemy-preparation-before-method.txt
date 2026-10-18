@@ -1,0 +1,32 @@
+  nativeEnemyFrame(e,time,game,boss=null){
+    const section=boss?'bosses':'enemies',key=boss?e.bossKey:e.type||'walker';
+    this.requestProductionCatalog(section,key);
+    const mapping=this.productionArt.manifest[section]?.[key],baseId=typeof mapping==='string'?mapping:mapping?.walk||mapping?.idle;
+    const baseAsset=this.productionArt.manifest.assets[baseId],referenceRadius=num(baseAsset?.referenceRadius,num(boss?.stats?.r,{walker:14,runner:12,shield:19,screamer:15,gas:18,elite:27,collector:49}[e.type]||num(e.r,14)));
+    const scale=clamp(num(e.r,referenceRadius)/referenceRadius,.72,1.65),profile=ENEMY_MOTION_PROFILES[boss?key:`enemy-${key}`];
+    const turnRate=boss?.role==='final'?3.4:boss?6:({runner:10,walker:8,shield:3.2,screamer:6.5,gas:6,elite:6,collector:4}[e.type]||8);
+    const skill=boss?.skill;
+    const options={epoch:game?.world,simulationTime:num(game?.time,time),enemyMotion:{cycleDistance:profile?.cycleDistance||num(baseAsset?.worldHeight,60)*.8,scale,turnRate},...(skill?{actionDurations:{
+      windup:num(skill.windup,.9),
+      charge:num(skill.kind==='shield'?skill.guardDuration??skill.duration:skill.duration,skill.kind==='shield'?3:skill.kind==='leap'?.5:skill.kind==='pull'?1.1:.75),
+      recover:num(skill.recovery,['summon','spit'].includes(skill.kind)?.8:1),
+      recoveryIsAttack:!['charge','shield','leap','pull'].includes(skill.kind),
+    }}:e.type==='collector'?{actionDurations:{windup:1.15,charge:.95,recover:1.15,recoveryIsAttack:false}}:{})};
+    const selected=boss?this.productionArt.bossFrame(key,e,options):this.productionArt.enemyFrame(key,e,options);
+    if(!selected)return null;
+    const asset=this.productionArt.manifest.assets[selected.id],height=num(asset?.worldHeight,selected.metadata.projection.subjectHeight)*scale;
+    const groundFoot=project(e.x,e.y),groundingHeight=enemyGroundingHeight(selected,profile,scale),foot={x:groundFoot.x,y:groundFoot.y+groundingHeight};
+    if(boss&&this.liveBoss){
+      try{
+        const live=this.liveBoss.frame(key,e,num(game?.time,time),selected,{...options,height,profile});
+        if(live){this.productionDataset({productionBossRig:'live',productionBossClip:this.liveBoss.diagnostics.clip,productionBossSamples:this.liveBoss.diagnostics.sampleDensity});return live;}
+      }catch(error){this.productionDataset({productionBossRig:'baked-fallback',productionBossRigError:error.message});}
+    }
+    if(!boss&&this.liveEnemies&&this.motionEnabled!==false){
+      if(!this.liveEnemies.models.has('enemy-'+key))this.liveEnemies.load('enemy-'+key);
+      const pose=nativeActionSelection({animation:{clips:this.liveEnemies.models.get('enemy-'+key)?.config.clips}},e,{...options,pose:selected.locomotion?.pose||'idle',phase:selected.locomotion?.phase,simulationTime:num(game?.time,time)});
+      const nearby=game?.player&&Math.hypot(e.x-game.player.x,e.y-game.player.y)<150;
+      if((this.enemyLiveFrames||0)<12&&(this.liveEnemySelection?this.liveEnemySelection.has(e):nearby||pose&&['attack','windup','hit'].includes(pose.clip)))try{this.enemyLiveFrames=(this.enemyLiveFrames||0)+1;const live=this.liveEnemies.frame('enemy-'+key,e,num(game?.time,time),selected,{...options,height,profile});if(live){this.productionDataset({productionEnemyRig:'live',productionEnemyClip:this.liveEnemies.diagnostics.clip,productionEnemySamples:this.liveEnemies.diagnostics.sampleDensity});return live;}}catch(error){this.productionDataset({productionEnemyRigError:error.message});}
+    }
+    return {...selected,placement:{...spritePlacement(selected.metadata,selected.frame,{foot,worldHeight:height}),depth:groundFoot.y,groundFoot,groundingHeight}};
+  }

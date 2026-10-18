@@ -101,8 +101,9 @@ test('boss death purges its warned and active attacks, and lethal projectiles ca
   assert.equal(JSON.stringify({result:game.result,time:game.time,player:game.player,events:game.events,particles:game.particles,texts:game.texts,random:game.random.getState(),visual:game.visualRandom.getState()}),terminal);
 });
 
-test('sustained hit stun cannot push a boss cooldown outside the checkpoint contract',()=>{
-  const{game,boss}=fresh();for(let i=0;i<30;i++){game.damageEnemy(boss,.1,{x:0,y:0});game.tick(.05);assert.ok(game.snapshot());}
-  assert.equal(boss.skillCd,0);assert.equal(boss.attackState,'walk');advance(game,.1);assert.equal(boss.attackState,'windup');
+test('sustained ordinary hits preserve bounded checkpoints while a boss warning and skill keep progressing',()=>{
+  const{game,boss}=fresh();let sawWarning=false;
+  for(let i=0;i<30;i++){game.damageEnemy(boss,.1,{x:0,y:0});game.tick(.05);assert.ok(game.snapshot());assert.equal(boss.stun,0);assert.ok(boss.skillCd>=0&&boss.skillCd<=60);sawWarning||=boss.attackState==='windup';}
+  assert.equal(sawWarning,true);assert.ok(game.events.some(event=>event.type==='bosswarn'));assert.ok(game.events.some(event=>event.type==='bossskill'));assert.notEqual(boss.attackState,'walk');
   assert.ok(game.bossHazards.length<=MAX_BOSS_HAZARDS);assert.ok(game.hostileProjectiles.length<=MAX_HOSTILE_PROJECTILES);
 });

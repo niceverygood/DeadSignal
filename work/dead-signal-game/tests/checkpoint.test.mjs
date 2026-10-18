@@ -81,7 +81,7 @@ test('shots and fire thrown outside the map edge remain valid resumable combat',
   const game=fresh({weapon:'nailgun'});game.player.x=49;game.player.y=1000;
   ticks(game,6,{shoot:true,aimX:-1000,aimY:1000});
   assert.ok(game.bullets.some(b=>b.x<0),'An outward shot should fly beyond the city boundary');
-  assert.equal(game.throwFire(-1000,1000),true);assert.ok(game.fires[0].x<0);
+  assert.equal(game.throwFire(-1000,1000),true);assert.equal(game.fires.length,0);assert.ok(game.throwables[0].targetX<0);game.updateMolotovs(1);assert.ok(game.fires[0].x<0);
   game.pause();const copy=restored(game);
   assert.deepEqual(copy.fires,game.fires);assert.deepEqual(copy.bullets,game.bullets);
   copy.resume();copy.tick(.05);
@@ -213,9 +213,9 @@ test('corrupt, oversized, unsupported, and nonfinite snapshots return null witho
   game.player.hp=NaN;assert.doesNotThrow(()=>assert.equal(game.snapshot(),null));
 });
 
-test('duplicate, capped, or missing upgrade choices cannot create a broken selection screen',()=>{
+test('duplicate, invalid-rank, or missing upgrade choices cannot create a broken selection screen',()=>{
   const game=fresh();game.gainXP(game.player.xpNext);game.tick(0);const baseline=game.snapshot();assert.ok(baseline);
-  for(const change of [raw=>raw.choices=[],raw=>raw.choices=[raw.choices[0],raw.choices[0]],raw=>raw.choices=['not-an-upgrade'],raw=>raw.pendingLevels=0,raw=>{const id=raw.choices[0];raw.upgrades[id]=UPGRADES.find(u=>u.id===id).max;}]){
+  for(const change of [raw=>raw.choices=[],raw=>raw.choices=[raw.choices[0],raw.choices[0]],raw=>raw.choices=['not-an-upgrade'],raw=>raw.pendingLevels=0,raw=>{const id=raw.choices[0];raw.upgrades[id]=Number.MAX_SAFE_INTEGER+1;}]){
     const raw=JSON.parse(JSON.stringify(baseline));change(raw);assert.equal(Game.restore(raw),null);
   }
 });

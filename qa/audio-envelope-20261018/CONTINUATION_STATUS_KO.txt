@@ -1,0 +1,44 @@
+DEAD SIGNAL — 2026-10-18 KST 음향 계산 캐시 후속 인계
+
+최신 사용자 마감은 2026-10-19 00:00 Asia/Seoul(오늘 자정)이다. 이전 11:00 마감보다 우선한다. automation-4는 도구로 ACTIVE/20분 간격/새 마감 prompt로 갱신 확인했다(updated_at 1792270644349). 일정의 마감 후 20분 여유는 기록 및 실제 PAUSED 전환만 위한 것이다. 매 실행 시작과 다음 원자 작업 전에 시각을 확인하고, 자정 이후 새 개발을 시작하지 않는다. automation-7은 재개하지 않는다.
+
+바로 앞 개발/검수 인계는 qa/dense-combat-20261018/CONTINUATION_STATUS_KO.txt 끝부분이다. 기존 uncommitted 변경, Meshy 원본 GLB/UV/4K texture/리그/clip/이미지/프레임/저장/게임 진행을 보존했다. NPC live12/256, boss512와 GPU exact/crop/direct/batch 기본 OFF를 유지한다. 사용자 8806, 옛 사용자 탭, 저장, 기존 서버를 조작하지 않았다. 유료 생성/결제/키 저장/외부 공개/push/스토어 제출은 하지 않았다.
+
+이번 실제 production 변경
+work/dead-signal-game/dist/audio.js의 noise()에서 길이별 Math.pow 감쇠 double만 AudioSystem별 WeakMap 안에 보관한다. first-arrival admission, 24개/Float64 payload 1MiB 상한이며 용량 초과 시 배열 할당/eviction churn 없이 원래 계산으로 돌아간다. 캐시에는 context/buffer/node/listener/actor 참조가 없다. 실제 AudioBuffer와 RNG 샘플은 매 음성 새로 생성하고 필터/게인/지연/패닝/컴프레서/voice cap/throttle/onended 정리 및 play 레시피를 그대로 둔다. 처음 생성할 때 random→pow→multiply 순서를 유지하고 완성된 curve만 등록한다. 원래 native buffer 오류를 먼저 발생시키며, 캐시 할당/등록 실패·재진입은 원래 재생을 막지 않는다. forceFreshNoiseEnvelope=true 원래 경로는 QA용으로 유지한다.
+원본 전체 모듈은 audio-before-envelope.txt, 브라우저용 동일 복사본은 dist/qa-audio-before-envelope.txt이며 SHA256 b5ab39861cb4128e3fd2b97f5eb682b2390eee5dd20f916e85e81540727e405b. 테스트는 이 독립 원본을 oracle로 읽는다. 기존 소리를 합치거나 무기별 레이어를 삭제하지 않았다.
+
+집중 검수
+audio-envelope-focused.log: 23/23 PASS/1350.2408ms/exit0. 43종 play 변형을 44.1/48/96kHz의 miss/reuse/forced 경로로 원본과 대조하여 Float32 PCM bytes, 난수 호출/상태, node graph/automation/필터/패닝/지연/voice cap/throttle/종료 정리가 같다. 저장 상한, 비정상 길이, 실패/중단/다른 owner/context도 포함한다. 이후 native 입력 관찰자 추가 검수 audio-envelope-browser-observer-focused.log: 4/4 PASS/466.711ms. 관찰자는 같은 receiver/args/return/throw를 유지하고 timed noise 호출 중 channel 읽기를 하지 않으며 원래 descriptor를 복원한다.
+
+동일 조건 Node22 A/B/A 진단 (제품 FPS/실제 native AudioBuffer benchmark가 아님)
+tools/qa-audio-envelope.mjs는 원본→캐시→원본 재반복, 동일 seeded RNG/31개 noise 레시피, 먼저 16개 길이 cold 후 steady 300회 호출한다. PCM/RNG/graph/params/정리 hash는 모두 exact, 마지막 fake node/buffer 참조 0, 캐시 상한 만족. import/hash/정리는 call timer 밖이며 fake node 환경이다.
+48kHz audio-envelope-node-48k.json: steady call wall 167.9101→46.9457→161.9358ms, CPU 172→78→187ms. cold wall22.9157→22.9587→19.247ms, cache16개/996480bytes.
+96kHz audio-envelope-node-96k.json: steady wall337.6938→188.9125→314.9902ms, CPU312→189→282ms. cold wall32.6442→43.3951→32.9046ms로 후보 첫 비용 악화도 보존한다. cache9개/1040640bytes, 미수용 길이는 매번 원래 pow 계산한다. 캐시 bytes는 payload이며 제품 heap/RAM/VRAM 절감량이 아니다.
+
+실제 브라우저 native WebAudio 검수 (8851, 진짜 memory Map)
+dist/qa-audio-envelope.html/js는 같은 원본 8 noise 레시피와 원래 gain/compressor/filter/panner를 사용한다. A/B/A 각각 cold/warm context, 원본 바이트 SHA 확인, 동기 호출 동안만 seeded RNG 대체 후 await 전에 원상복구한다. 반환된 실제 AudioBuffer의 입력 PCM과 OfflineAudioContext의 최종 렌더 출력을 별도로 엄격 비교한다.
+audio-envelope-browser-48k-initial.json/initial-page.png는 초기 출력 불일치 증거이며 지우지 않는다. 이후 실제 입력 buffer 관찰자를 추가했다. 48k/96k/44.1k 최종 JSON 모두 inputPCMExact=true, randomExact=true, allVoicesReleased=true이며 입력 buffer 차이는 전부 0이다. 그러나 pcmExact=false: native 필터/컴프레서 후 출력은 원본 재반복끼리도 작은 차이가 관측되었다. epsilon으로 PASS 처리하지 않았고 원인도 단정하지 않는다. 소스 PCM exact와 최종 출력 exact는 별개의 판정이다. 청감 품질/전 무기 전체 믹스의 사람이 들은 검수 완료를 주장하지 않는다.
+48k 최종 cold/warm8call wall: 원본6.6/5.8, 후보7.7/4.4, 재반복5.5/5.5ms. cache579840bytes. 후보 출력 max1.3504e-8/5.5879e-9, 재반복6.519e-9/3.0268e-7.
+96k cold/warm:13.4/28.9→26.1/19.4→104.2/19.1ms, cache852480bytes, 후보 출력 max5.6345e-8/재반복1.0966e-7.
+44.1k(audio-envelope-browser-441k.json) cold/warm31.9/52.5→22.3/35.8→28.4/251.6ms, cache532720bytes, 후보 출력 max7.45058e-9/재반복1.11758e-8. 큰 편차도 보존한다. 브라우저 전체 성능/FPS 향상을 일관 입증한 결과가 아니다. timer는 call wall이며 CPU 실행 시간으로 부르지 않는다.
+48k initial-page.png는 실제 QA 화면 첫 출력 불일치 상태다. 최종48k-page.png는 스크롤 아래 raw JSON 일부 화면으로 시각 증거가 약하다. 이 이미지들을 실제 게임 180적 검수 화면으로 사용하면 안 된다.
+
+실제 연사/폭발/피격 겹침
+기존 qa-player-rig의 해당 버튼에서 실제 running AudioContext 48kHz/12shot+폭발+hurt를 사용했다. audio-crowd-browser.json: 종료 후 active0, cache6개/410880bytes. 샷마다 voiceLimit14 또는22인 원래 정책 그대로이며 관측active 최대15(그때limit22). Game 상태/시간/HP/x/y/적/양 RNG 전후 동일(playing/time0/HP100/5적). 이 독립 QA는 Game을 진행하지 않는다. 타이머/출력이 실제 사람 청취나 밀집 게임 성능 증거는 아니다.
+
+이번 남은 실제 게임 검수와 연결 문제
+기존 메뉴→Continue→원래 GPU 준비→resume→180적 실제 app 40playing callbacks 재검수는 아직 하지 못했다. crowd JSON 저장 뒤 QA 탭 정리/새 product 탭 생성 과정에서 Cua30초 timeout과 kernel reset 발생. getState는 apps[]/browsers[]였고 같은 browser3 생성 재시도도15초 timeout/reset. 마지막 crowd JSON이 실제 파일로 저장된 것은 확인했지만 마지막 탭 닫기/새 탭 생성 결과는 알 수 없다. 사용자 탭에 대한 접근/종료는 하지 않았다. 다른 브라우저 제어/OS/shell/CDP로 우회하지 않았다. 다음 heartbeat에서 연결이 회복되면 우선 현재 지원 API 문서를 읽고 8851 genuine-memory product QA를 이어간다. 기존 loop URL: /?qa=1&qa-memory=audio-envelope-product-180&qa-loop=1&qa-loop-count=180&qa-loop-cost=1. QA 탭 소유를 새로 확인하고 사용자8806/옛 사용자 탭/진행 선택은 그대로 둔다.
+
+검토 후 미적용 후보
+Canvas save/restore 생략은 실제 ctx smoothing low에서 hit0에 가깝고 arbitrary getter가 상태를 바꿀 수 있어 변경하지 않았다. 음향 hit 병합은 기존70ms/type throttle과 clock 경계를 바꿀 수 있어 변경하지 않았다.
+다음 시각 개선 추천은 탄환 피격 접점이다. engine.updateBullets의 t는 e.r+3 원에 탄환 중심이 진입한 위치이며 Meshy alpha 접점은 아니다. 현재 weapon-impact가 적 중심에서 뜬다. 선택 시각용 x/y만 전달하고 from/방패/넉백/피해/이벤트/음향좌표/RNG/particle수명·개수/저장 그대로, 45ms 대상별 병합 첫 접점 유지가 최소 후보이다. native-hit-light는 body alpha로 clamp하지 않으므로 접선/큰 보스/pose별로 몸체 발광이 빗나갈 수 있다. 먼저 원본7종/24보스 방향·포즈를 실제 이미지로 검수해야 하며 아직 구현하지 않았다. 독립 전체 engine oracle로 허용 차이를 새 enemy weapon-impact x/y 두 값만 제한하고, 내부시작/정지/접선/관통/방패/transport/연쇄폭발/terminal을 대조해야 한다. 브라우저 미연결 상태에서 이 시각 변경을 완료 처리하지 않는다.
+기존 최우선 baked sprite draw 비용과 긴 tail/정상 rAF/FPS/모든 캐릭터 자연스러움/실측 memory/모바일/100시간은 여전히 미완료다.
+
+최종 전체 회귀/verify
+최초 root Node22.23.3 npm test(기존 동시2) 973/973 PASS, 실패·취소·생략0, 344610.2138ms/exit0(audio-envelope-full-test.log). 기존 20분 실제 전투 stress CPU13250ms/wall22354.19ms, 원래 CPU15000ms 기준 PASS. fixture/예산/동시성/timeout/기존 assertion을 약화하거나 whole 결과를 위한 반복 실행을 하지 않았다. source freeze319개 production/QA/test/tool JS/MJS/HTML의 최종 SHA 변경0/추가0(audio-envelope-final-check.json). 첫 사후 hash 확인은 base를 잘못 game 하위 폴더로 지정해 missing 목록이 나왔으며 repository-relative root 기준으로 바로잡은 최종 비교가 정확한 결과다. 어떤 파일도 그 이유로 수정하지 않았다.
+이후 root npm run verify는 기존 .gitignore/immutable manifest 불일치로 exit1(audio-envelope-verify.log). 원본 역사 증거/manifest/.gitignore를 이번 작업에서 고치거나 재생성하지 않았다. 전체 검사는 종료했고 이번 소스 고정 이후 추가 소스 변경은 없다.
+이번 계산 캐시는 기본 ON으로 유지하며 다음 실행은 브라우저 복구와 실제180적 product 재검수부터 시작한다. 위 native 출력 불일치/브라우저 편차/마지막 product 검수 미완료를 별도 남긴다. 기존 우리 QA 탭 마지막 정리 결과는 연결 종료 때문에 미확인이다. automation4 ACTIVE/오늘 자정 마감, automation7 중단, 사용자8806·기존 서버·원본 Meshy·플레이 저장 보존.
+
+[2026-10-18 06:41KST 최신후속인계] qa/dense-cpu-next-20261018/CONTINUATION_STATUS_KO.txt 참조. 피격파편기존Canvas·숫자보존 계산재사용기본ON/전체992PASS/CPU13015ms/324source고정. scalar-depth후보는QAonly/default복원. 실제180적appQA는Cua연결timeout으로미완료/다음최우선,open_in_codex요청queued. 마감2026-10-19 00:00KST/automation4ACTIVE,원본·8806·저장·서버보존/금지사항유지.
+

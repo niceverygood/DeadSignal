@@ -1,0 +1,34 @@
+2026-10-18 KST / root 진행 중 / 같은 작업 중복 착수 금지
+
+최신 사용자 요청: 적·주인공의 머리가 건물 하단에 가려지는 정렬 오류.
+world-depth.js의 기존 전체 actor 연쇄와 건물 앞뒤 제약이 순환하면 모든 건물 제약을 버리는 문제가 확인됨. 비순환 결과는 기존 그대로 유지하고, 순환할 때만 원본 atlas 전체 cell·원본 native256/512 cell·그림자/표식 등을 포함한 보수적 수평 범위로 겹치지 않는 actor의 순서를 해제한다. 서로 겹치는 actor와 뒤쪽 actor의 건물 제약은 유지한다. 미인증 범위는 전체 폭, 해결 불가 순환은 기존 완전 순서 유지. 충돌·Game·RNG·원본 이미지/모델/리그/플레이 저장 변경 없음.
+
+제품 수정은 world-depth.js / actor-occlusion-bounds.js / Renderer의 sort 호출·진단 연결만. 이전 전체 소스는 renderer-before.txt / world-depth-before.txt에 보존. 독립 소스 검토 2회에 추가 actionable 결함은 없었음(브라우저 인증을 대신하지 않음).
+
+root Node22.23.3 focused-control-final.log: building-occlusion/world-depth/production-buildings/qa-building-occlusion 19/19 PASS, 1004.963ms, 실패·취소·생략0. 현재 combined whole npm test는 아직 실행 전. verify-combined.log는 기존 .gitignore와 immutable manifest 크기 불일치로 exit1; 원본 manifest를 재작성하지 않음.
+
+8851 genuine memory 전용 own Chrome1494332445 qa-building-occlusion.html?qa=1&qa-memory=building-head-isolated-20261018에서 실제 production Renderer/원본 hero256/NPC256/boss512의 8면×3종 배치 비교 진행 중. 사용자 IAB/8806/기존 pending 선택/저장 미조작. 초기 qa-player-rig caller2432는 닫힌 것이 확인됨. 전용 page는 unrelated 7NPC/GPU scene을 선행 로드하지 않음.
+
+브라우저 초기 hero N 비교는 control A(기존 정렬)/B(수정)/A(기존)에서 원본 body RGBA·metadata·placement EXACT지만 전체 월드 A/A가 57850pixels/max33 다름. PNG 실패 증거는 failed-world-ABA-diff.png, JSON은 browser-world-control-diagnostics.json. 차이는 상단 우측 한 건물과 위쪽 작은 건물 조각의 텍스처 내부이며 캐릭터/바닥은 동일. camera·Canvas 전후 상태는 동일. 별도 Canvas willReadFrequently=true 초기화 후에도 정확히 같은 실패가 재현되어 readback-backend 가설은 기각됨(browser-fixed-readback-control-failure.json). 제품 renderer에는 이 설정을 적용하지 않음. 허용 오차/원본 body gate를 완화하지 않았으며 cold 첫 draw가 동일하다는 주장을 금지.
+
+현재 render_cost_audit agent가 QA-only obstacle native frame/section/fade/drawFrame 반환 trace를 추가 중. 제품 소스 동결. 다음은 실제 trace 1회→원인 경계 확인→필요하면 명시적인 초기 월드 준비를 별도 보고한 뒤 initialized-world A/B/A 검수. 첫 cold 실패 증거는 그대로 보존하고 cold-load/FPS/전체 자연스러움 완성 주장을 하지 않는다. 검수 후 소스 동결과 whole npm test를 root만 실행한다.
+
+연관 최신 작업: 실제 무제한 강화·큰 레벨/상태/스킬 UI는 qa/upgrade-status-20261018, 보스 영구 피격 정지 수정은 qa/boss-motion-20261018, 새 상체 동작은 qa/boss-action-layer-20261018. 새 상체 동작 기본 OFF(보스01 subset만 인증, 12종 batch 미완료). focused 기능 검수78/79의 남은 실패는 원본 stressCPU16859>15000이며 예산/fixture를 고치지 않음. chain axis 후보는 실제 exact A/B에서 CPU 향상 확인 못 해 미적용. 프로파일 도구 준비만 되어 있음.
+
+마감2026-10-19 00:00 KST / automation4 ACTIVE / automation7 재개·유료 생성·결제·키 저장·외부 공개·스토어 제출 금지. 마감 이후 새 작업 금지, 기록 후 automation4 PAUSED. 원본 Meshy 자료·moodboard·사용자 저장·기존 변경·서버 유지.
+
+[2026-10-18 10:47 KST 초기화 후 실제 건물 정렬 비교 완료 / 전체 테스트 진행]
+추가 실제 browser-obstacle-trace-8821.json / browser-draw-context-trace-a746.json에서 A/A2의 모든55개 native draw가 true, 이미지/metadata identity·frame/placement·그리기 직전 Canvas 상태 동일, 모든 obstacle/block/section/fade primitive 차이0이었다. 첫 원본 이미지 출력의 차이 원인은 확정하지 못했다. source 변경으로 고쳤다고 주장하지 않는다.
+검수를 initialized-world로 명시: kind당 N 첫 배치에서 기존 정렬로 초기 준비 render 1회만 수행, Game fingerprint·원본 body/metadata/placement 동일 강제, 그 후 동일 paused clock의 엄격 A/B/A 비교. 준비 횟수 반복/실패 retry/허용오차 확대 없음. 초기 hero 원본→steady 차이57852pixels/max33, NPC/boss 준비 차이0, 셋 모두 bodyRGBA0/proofEqual true. 초기 차이는 위 실패 증거와 함께 별도 유지.
+최종 helper34245bytes SHA12dc2fe535c32388e7a720fa67ae4a80c74ffcb79d539863181c095dde3fa343. QA tests17274bytesSHA5c114d1526ac65d8f42be3dd0ca6e5a68c44362384e096d3dc93b98d1421d4cf. 최종 focused-initialized-final.log 19/19 PASS828.9311ms/실패·취소·생략0.
+실제 browser-initialized-world-comparison.json: hero/NPC/boss 각8면 총24개 정상 완료. 기존 순환→해결5개(hero S/SW,NPC S/SW,boss SW), 상체 ROI 실제 변화3개(heroS106pixels/NPCS154/bossSW714). 모든 원본 target bodyRGBA/metadata/placement EXACT, control A/A maxDelta hero0/NPC0/boss1. 벽 뒤 배치는 기존 제약 유지. 이것은 정지 합법 배치의 실제 원본 렌더/정렬 검수이며 실제 전투·FPS·모든12보스 애니메이션 인증 아님.
+3개 전후 PNG hero-S-original-vs-fixed.png / npc-S-original-vs-fixed.png / boss-SW-original-vs-fixed.png 저장·직접 시각 확인. browser-initialized-comparison-page.png도 실제 browser screenshot으로 저장. console warn/error0. cleanup complete/mainRendererUnchanged/mainRecordsUnchanged/ownedControlsRestored true, records0/models0,contexts3,late30/30,errors[]. ownChrome2445 close 후 fresh inventory에서 absent 확인. 사용자 탭은 미조작.
+380개 JS/MJS/HTML/CSS combined-source-freeze-after-control.json 동결. 직전 after-native와 차이는 QA helper/test2개뿐이며 source-control-stage-delta.log에 의도된 변경으로 기록. source-before-whole-check.log changed/missing/added0, 보존4소스same true, 새 보스상체 flagOFF.
+root Node22.23.3 기존 test-concurrency2/CPU15000 설정 그대로 npm test 한 번 시작(01:47:32Z), root session49257, npm-test-combined-final.log. 아직 완료 전이므로 현재 whole 통과 주장을 하지 않는다. source 추가 편집 금지; 완료 뒤 동일 freeze 재검사/실패 기록과 다음 CPU 프로파일 판단 예정.
+
+[2026-10-18 10:56 KST 이 원자 작업 마감 / 머리 가림 수정 검수 완료]
+root 전체 npm test session49257 종료 exit1:1120개 중1119PASS/1FAIL/취소·생략0/201436.4449ms. 유일 실패는 기존24k틱 스트레스 CPU15062.00>15000ms, wall19591.71ms. 나머지 새 무제한강화/상태UI/보스정지/상체후보/건물정렬과 기존 기능·원본자산 검사는 통과 항목에 포함. 전체 PASS/FPS보장 주장 금지. source-after-whole-check.log 380개 changed/missing/added0, 보존4소스same true/상체defaultOFF. 기존 verify .gitignore mismatch1은 남음.
+그 후 root만 준비된 exact-production-stress 프로파일 한 번 실행(session59653 종료exit1). qa/upgrade-status-20261018/profile-after-combined-1120/production-stress.json + .cpuprofile/.log. 실제 기존 callback/source/model/test SHA preflight 통과, 원래24k틱·동작·assert·CPU15000 유지, observer/Game wrapper/추가snapshot 없음. 프로파일 CPU15297/wall15414.91/예산실패; profiler overhead가 있으므로 비계측 원래 테스트의 대체 아님/finalState는원본callback비공개라null.
+오프라인 analysis.json 35160B SHA0e080e107b936393a5be53cf63e0cd006760a3b453bcdb309397bfdd89e46cbb. 샘플15521ms/8097개: updateEnemies self4333/inclusive12673ms, Navigation.direction5876/_los1650/_field815,move1581,GC565. updateBullets423/chain34/valueFor 노출self1이므로 chain·log 미세최적화를 이번실패해결로 바로 채택할 근거 없음. inclusive중복합산/인라인/표본한계 명시.
+다음 추천: Navigation의 반복 거리계산 dx/dy/length 재사용을 QA-only 후보로 먼저 만들고 frozen전체원본 LOS·방향IEEE64·LRU/fields·동적파괴/lure/7radius/roof/water/Game상태·양RNG oracle와 비계측 동일스트레스 A/B/A 후 채택 판단. 비표준 accessor가 값을 바꾸는 경우의 반복읽기 계약을 보존하거나 fallback 필요. 대안 revision 문자열 재사용은 아직 속도근거 없는 후보. 경로/AI주기/원본품질/CPU예산을 낮춰 통과시키지 말 것. 후보 제품 미구현·미적용.
+현재 root의 CPU/브라우저 작업은 모두 종료, agent source 동결. 이 건물 가림 작업은 위 initialized-world 범위에서 구현·검수·기록 완료. 사용자 실행 중 탭을 reload하지 않았으므로 다음 앱 로드에서 새 소스가 적용됨. 기존 automation4가 다음 원자 작업을 이어가며 마감/금지는 그대로. cold 첫 건물텍스처 차이, CPU예산 초과, 새상체12종/기본OFF, 실기기/FPS/100h는 미완료 과제다.

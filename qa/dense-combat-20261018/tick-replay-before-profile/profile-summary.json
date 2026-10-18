@@ -1,0 +1,649 @@
+{
+  "profileFile": "qa\\dense-combat-20261018\\tick-replay-before-profile\\CPU.20261018.044127.33704.0.001.cpuprofile",
+  "samplingOnly": true,
+  "sampledTotalMs": 4473.708999999991,
+  "sampledInsideTickMs": 3211.4039999999945,
+  "topSelf": [
+    {
+      "function": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 394,
+      "sampledMs": 1845.5759999999993
+    },
+    {
+      "function": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 260,
+      "sampledMs": 569.334
+    },
+    {
+      "function": "tick",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 355,
+      "sampledMs": 309.14799999999997
+    },
+    {
+      "function": "writeBuffer",
+      "url": "",
+      "line": 0,
+      "sampledMs": 258.4149999999999
+    },
+    {
+      "function": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "sampledMs": 154.23299999999998
+    },
+    {
+      "function": "stable",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/tools/qa-app-tick-replay.mjs",
+      "line": 13,
+      "sampledMs": 152.84499999999986
+    },
+    {
+      "function": "hash",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/tools/qa-app-tick-replay.mjs",
+      "line": 14,
+      "sampledMs": 105.26600000000005
+    },
+    {
+      "function": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 240,
+      "sampledMs": 89.996
+    },
+    {
+      "function": "snapshot",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 209,
+      "sampledMs": 76.77200000000002
+    },
+    {
+      "function": "pick",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 67,
+      "sampledMs": 51.304
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 43.706
+    },
+    {
+      "function": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "sampledMs": 41.903
+    },
+    {
+      "function": "runReplayCLI",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/tools/qa-app-tick-replay.mjs",
+      "line": 86,
+      "sampledMs": 38.07700000000001
+    },
+    {
+      "function": "(program)",
+      "url": "",
+      "line": 0,
+      "sampledMs": 37.579
+    },
+    {
+      "function": "_grid",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "sampledMs": 36.88
+    },
+    {
+      "function": "_sync",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "sampledMs": 30.12099999999999
+    },
+    {
+      "function": "restore",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 223,
+      "sampledMs": 29.64
+    },
+    {
+      "function": "json",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/tools/qa-app-tick-replay.mjs",
+      "line": 12,
+      "sampledMs": 27.276
+    },
+    {
+      "function": "blocked",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 259,
+      "sampledMs": 26.302
+    },
+    {
+      "function": "json",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/tools/qa-app-tick-replay.mjs",
+      "line": 12,
+      "sampledMs": 25.215000000000003
+    }
+  ],
+  "insideTickTopSelf": [
+    {
+      "function": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 394,
+      "sampledMs": 1845.5759999999993
+    },
+    {
+      "function": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 260,
+      "sampledMs": 569.334
+    },
+    {
+      "function": "tick",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 355,
+      "sampledMs": 309.14799999999997
+    },
+    {
+      "function": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 240,
+      "sampledMs": 89.996
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 43.706
+    },
+    {
+      "function": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "sampledMs": 41.903
+    },
+    {
+      "function": "_grid",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "sampledMs": 36.88
+    },
+    {
+      "function": "_sync",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "sampledMs": 30.12099999999999
+    },
+    {
+      "function": "blocked",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 259,
+      "sampledMs": 26.302
+    },
+    {
+      "function": "distance",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 54,
+      "sampledMs": 22.679
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 18.943
+    },
+    {
+      "function": "_field",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 190,
+      "sampledMs": 18.073999999999998
+    },
+    {
+      "function": "updateBullets",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 380,
+      "sampledMs": 16.625
+    },
+    {
+      "function": "updateEffects",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 429,
+      "sampledMs": 16.124000000000002
+    },
+    {
+      "function": "crossedReloadStages",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/reload-stages.js",
+      "line": 2,
+      "sampledMs": 10.850999999999999
+    },
+    {
+      "function": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 260,
+      "sampledMs": 9.995000000000001
+    },
+    {
+      "function": "<anonymous>",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 259,
+      "sampledMs": 8.219
+    },
+    {
+      "function": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "sampledMs": 8.046000000000001
+    },
+    {
+      "function": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "sampledMs": 7.585
+    },
+    {
+      "function": "damageEnemy",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 308,
+      "sampledMs": 6.282
+    }
+  ],
+  "selectedInclusive": [
+    {
+      "function": "tick",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 355,
+      "sampledMs": 3209.4889999999946
+    },
+    {
+      "function": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 394,
+      "sampledMs": 2815.8589999999963
+    },
+    {
+      "function": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 240,
+      "sampledMs": 323.5340000000002
+    },
+    {
+      "function": "_grid",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "sampledMs": 78.715
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 46.936
+    },
+    {
+      "function": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "sampledMs": 41.903
+    },
+    {
+      "function": "blocked",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 259,
+      "sampledMs": 35.359
+    },
+    {
+      "function": "updateBullets",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 380,
+      "sampledMs": 30.439
+    },
+    {
+      "function": "_sync",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "sampledMs": 30.12099999999999
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 26.069
+    },
+    {
+      "function": "_field",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 190,
+      "sampledMs": 21.203
+    },
+    {
+      "function": "_grid",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "sampledMs": 10.911
+    },
+    {
+      "function": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "sampledMs": 8.046000000000001
+    },
+    {
+      "function": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "sampledMs": 7.585
+    },
+    {
+      "function": "segmentRectDistanceSquared",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 38,
+      "sampledMs": 7.1259999999999994
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 4.894
+    },
+    {
+      "function": "blocked",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 259,
+      "sampledMs": 3.628
+    },
+    {
+      "function": "segmentRectDistanceSquared",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 38,
+      "sampledMs": 3.2300000000000004
+    },
+    {
+      "function": "tick",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 355,
+      "sampledMs": 1.915
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 1.678
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 1.597
+    },
+    {
+      "function": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "sampledMs": 1.428
+    },
+    {
+      "function": "_sync",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "sampledMs": 1.419
+    },
+    {
+      "function": "circleRect",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 56,
+      "sampledMs": 0.838
+    }
+  ],
+  "strictSnapshotDifferences": {
+    "count": 35,
+    "numericCount": 35,
+    "maxAbsoluteNumericDelta": 4.440892098500626e-16,
+    "differences": [
+      {
+        "path": "$.player.angle",
+        "expected": -1.201558407050525,
+        "actual": -1.2015584070505252,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[19].angle",
+        "expected": -2.0435081722657835,
+        "actual": -2.043508172265784,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[24].angle",
+        "expected": -2.141095390913233,
+        "actual": -2.1410953909132333,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[30].angle",
+        "expected": -2.0989267796205433,
+        "actual": -2.0989267796205437,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[31].angle",
+        "expected": -2.066636805455149,
+        "actual": -2.0666368054551496,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[37].angle",
+        "expected": -1.836561784999411,
+        "actual": -1.8365617849994111,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[38].angle",
+        "expected": -1.833928905273803,
+        "actual": -1.8339289052738033,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[39].angle",
+        "expected": -1.773868078523105,
+        "actual": -1.7738680785231051,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[45].angle",
+        "expected": -1.5819943948770012,
+        "actual": -1.5819943948770014,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[49].angle",
+        "expected": -1.3579723343295342,
+        "actual": -1.3579723343295345,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[50].vx",
+        "expected": -8.940157362501682e-15,
+        "actual": -8.94015736250171e-15,
+        "numeric": true,
+        "absoluteDelta": 2.68212707775144e-29
+      },
+      {
+        "path": "$.enemies[55].angle",
+        "expected": -1.18083569637817,
+        "actual": -1.1808356963781699,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[63].angle",
+        "expected": -0.9156791688099151,
+        "actual": -0.9156791688099152,
+        "numeric": true,
+        "absoluteDelta": 1.1102230246251565e-16
+      },
+      {
+        "path": "$.enemies[64].angle",
+        "expected": -0.23709008913675597,
+        "actual": -0.237090089136756,
+        "numeric": true,
+        "absoluteDelta": 2.7755575615628914e-17
+      },
+      {
+        "path": "$.enemies[65].angle",
+        "expected": -0.8933880702742697,
+        "actual": -0.8933880702742698,
+        "numeric": true,
+        "absoluteDelta": 1.1102230246251565e-16
+      },
+      {
+        "path": "$.enemies[69].angle",
+        "expected": -0.3278957048488415,
+        "actual": -0.32789570484884156,
+        "numeric": true,
+        "absoluteDelta": 5.551115123125783e-17
+      },
+      {
+        "path": "$.enemies[83].angle",
+        "expected": -0.16857070761038517,
+        "actual": -0.16857070761038515,
+        "numeric": true,
+        "absoluteDelta": 2.7755575615628914e-17
+      },
+      {
+        "path": "$.enemies[97].angle",
+        "expected": 0.3847146598380499,
+        "actual": 0.38471465983804987,
+        "numeric": true,
+        "absoluteDelta": 5.551115123125783e-17
+      },
+      {
+        "path": "$.enemies[98].angle",
+        "expected": 0.48587630017218764,
+        "actual": 0.4858763001721877,
+        "numeric": true,
+        "absoluteDelta": 5.551115123125783e-17
+      },
+      {
+        "path": "$.enemies[99].angle",
+        "expected": 0.46951028105471476,
+        "actual": 0.4695102810547148,
+        "numeric": true,
+        "absoluteDelta": 5.551115123125783e-17
+      },
+      {
+        "path": "$.enemies[113].angle",
+        "expected": 1.2124585232715142,
+        "actual": 1.2124585232715144,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[114].angle",
+        "expected": 1.2137045988455448,
+        "actual": 1.213704598845545,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[132].angle",
+        "expected": 1.6747107356336697,
+        "actual": 1.67471073563367,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[133].angle",
+        "expected": 1.5822511995378425,
+        "actual": 1.5822511995378428,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[138].angle",
+        "expected": 1.7854621412014424,
+        "actual": 1.7854621412014426,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[141].angle",
+        "expected": 1.914531254997057,
+        "actual": 1.9145312549970572,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[142].angle",
+        "expected": 2.138625201897151,
+        "actual": 2.1386252018971517,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[143].angle",
+        "expected": 1.9022039655028857,
+        "actual": 1.902203965502886,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[144].angle",
+        "expected": 1.9987106826396883,
+        "actual": 1.9987106826396885,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[150].angle",
+        "expected": 2.328484927526531,
+        "actual": 2.3284849275265307,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[154].angle",
+        "expected": 2.2690050402897683,
+        "actual": 2.269005040289768,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[168].angle",
+        "expected": 2.95466983383842,
+        "actual": 2.9546698338384196,
+        "numeric": true,
+        "absoluteDelta": 4.440892098500626e-16
+      },
+      {
+        "path": "$.enemies[177].angle",
+        "expected": 1.7691338632714464,
+        "actual": 1.7691338632714466,
+        "numeric": true,
+        "absoluteDelta": 2.220446049250313e-16
+      },
+      {
+        "path": "$.enemies[178].angle",
+        "expected": 0.0922982292986844,
+        "actual": 0.09229822929868442,
+        "numeric": true,
+        "absoluteDelta": 1.3877787807814457e-17
+      },
+      {
+        "path": "$.enemies[181].angle",
+        "expected": 0.25328691930213837,
+        "actual": 0.2532869193021384,
+        "numeric": true,
+        "absoluteDelta": 5.551115123125783e-17
+      }
+    ]
+  },
+  "note": "Sampled inclusive frames overlap and must not be summed. Profile includes imports/restore/checks/output; insideTickTopSelf restricts sampled ancestors to actual Game.tick. Sampling estimates CPU stack residency, not exact method durations, GC causality, browser latency or FPS. Every replay still reports strict checkpoint mismatch; no epsilon or state correction is applied."
+}

@@ -1,0 +1,11 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DEAD SIGNAL · 음향 감쇠 검수</title>
+<style>body{margin:32px;background:#10191e;color:#e6d7b2;font:16px/1.6 system-ui;max-width:1050px}button,select{padding:10px;background:#26363c;color:inherit;border:1px solid #a58a58;border-radius:4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;border-top:1px solid #a58a58;padding-top:18px}a{color:#eed1a0}</style>
+<h1>원본 총성·폭발음 · 감쇠 계산 검수</h1><p>별도 메모리 QA입니다. 원본과 개선 경로가 같은 랜덤 샘플과 파형을 만드는지 실제 WebAudio 오프라인 렌더로 비교합니다. 사용자 플레이 저장을 읽거나 쓰지 않습니다.</p>
+<label>샘플 레이트 <select id="sample-rate"><option value="48000">48 kHz</option><option value="44100">44.1 kHz</option><option value="96000">96 kHz</option></select></label>
+<button id="compare">원본·개선·원본 파형 비교</button><p id="status" role="status">검수 준비</p><pre id="audio-envelope-summary"></pre><details><summary>상세 검수 기록</summary><pre id="audio-envelope-report"></pre></details>
+<script type="module">
+import {compareAudioEnvelopes,allowAudioEnvelopeQA} from './qa-audio-envelope.js';
+const button=document.querySelector('#compare'),status=document.querySelector('#status'),query=new URLSearchParams(location.search);
+if(!allowAudioEnvelopeQA(location,query)){button.disabled=true;status.textContent='8851 메모리 QA origin에서만 실행할 수 있습니다.';}
+button.onclick=async()=>{button.disabled=true;try{const report=await compareAudioEnvelopes({sampleRate:Number(document.querySelector('#sample-rate').value),onProgress:p=>{status.textContent=p.arm+' · '+p.phase;}});document.querySelector('#audio-envelope-report').textContent=JSON.stringify(report,null,2);document.querySelector('#audio-envelope-summary').textContent=JSON.stringify({inputPCMExact:report.inputPCMExact,renderedPCMExact:report.pcmExact,randomExact:report.randomExact,allVoicesReleased:report.allVoicesReleased,runs:report.runs.map(r=>({arm:r.arm,phases:r.phases.map(p=>({phase:p.phase,noiseCallWallMs:p.noiseCallWallMs,cacheBytes:p.cacheAfter.bytes,activeAfterEnded:p.activeAfterEnded,renderedDifference:p.difference}))}))},null,2);status.textContent='완료 · 입력 파형 '+report.inputPCMExact+' · 오프라인 출력 '+report.pcmExact+' · 랜덤 '+report.randomExact+' · 음성 해제 '+report.allVoicesReleased;}catch(error){status.textContent=error.message;throw error;}finally{button.disabled=false;}};
+</script></html>

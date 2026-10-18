@@ -1,3 +1,4 @@
+import {roofSupports,roofSegmentSupports} from './rooftop-world.js';
 // Shared flow fields let a crowd follow the player or a lure around street
 // corners. Coordinates stay on the engine's flat world plane.
 const CELL = 56;
@@ -19,7 +20,10 @@ function pointSegmentDistanceSquared(x, y, a, b) {
 }
 function segmentIntersectsRect(a, b, rect) {
   let low = 0, high = 1;
-  for (const [start, delta, min, max] of [[a.x, b.x - a.x, rect.x, rect.x + rect.w], [a.y, b.y - a.y, rect.y, rect.y + rect.h]]) {
+  // Scalar slabs avoid allocating three arrays for every crowd sight test.
+  for (let axis=0;axis<2;axis++) {
+    const start=axis===0?a.x:a.y,delta=axis===0?b.x-a.x:b.y-a.y;
+    const min=axis===0?rect.x:rect.y,max=min+(axis===0?rect.w:rect.h);
     if (Math.abs(delta) < 1e-12) {
       if (start < min || start > max) return false;
     } else {
@@ -67,10 +71,10 @@ export class Navigation {
       count++;
       hash = Math.imul(hash ^ (i + 1), 16777619);
     }
-    const revision = `${this.world.width}:${this.world.height}:${obstacles.length}:${count}:${hash >>> 0}`;
+    const revision = `${this.world.width}:${this.world.height}:${obstacles.length}:${count}:${hash >>> 0}:${this.world.water?.length||0}`;
     if (revision !== this.revision) {
       this.revision = revision;
-      this.active = obstacles.filter(rect => !rect.destroyed);
+      this.active = obstacles.filter(rect => !rect.destroyed);if(this.world.water)this.active.push(...this.world.water);
       this.grids.clear();
     }
   }
@@ -78,6 +82,7 @@ export class Navigation {
   _radius(value) { return Number.isFinite(value) ? Math.max(0, value) : 18; }
 
   _clear(point, radius) {
+    if(this.world.rooftop&&!roofSupports(this.world,point.x,point.y,radius))return false;
     if (point.x < BORDER + radius || point.y < BORDER + radius || point.x > this.world.width - BORDER - radius || point.y > this.world.height - BORDER - radius) return false;
     const r2 = radius * radius;
     for (const rect of this.active) {
@@ -87,8 +92,9 @@ export class Navigation {
     return true;
   }
 
-  _los(from, target, radius) {
-    if (!this._clear(from, radius) || !this._clear(target, radius)) return false;
+  _los(from, target, radius,allowVoid=false,fromClear=false,targetClear=false) {
+    if ((!fromClear&&!this._clear(from, radius)) || (!targetClear&&!this._clear(target, radius))) return false;
+    if(this.world.rooftop&&!allowVoid&&!roofSegmentSupports(this.world,from,target,radius))return false;
     const minX = Math.min(from.x, target.x) - radius, maxX = Math.max(from.x, target.x) + radius;
     const minY = Math.min(from.y, target.y) - radius, maxY = Math.max(from.y, target.y) + radius;
     for (const rect of this.active) {
@@ -98,9 +104,9 @@ export class Navigation {
     return true;
   }
 
-  lineOfSight(from, target, radius = 18) {
+  lineOfSight(from, target, radius = 18,{allowVoid=false}={}) {
     this._sync();
-    return finitePoint(from) && finitePoint(target) && this._los(from, target, this._radius(radius));
+    return finitePoint(from) && finitePoint(target) && this._los(from, target, this._radius(radius),allowVoid);
   }
 
   _grid(radius) {
@@ -123,7 +129,7 @@ export class Navigation {
         const [dx, dy] = NEIGHBORS[n], x = col + dx, y = row + dy;
         if (x < 0 || y < 0 || x >= cols || y >= rows) continue;
         const next = y * cols + x;
-        if (grid.clear[next] && this._los(a, this._point(grid, next), radius)) {
+        if (grid.clear[next] && this._los(a, this._point(grid, next), radius,false,true,true)) {
           grid.edges[i] |= 1 << n;
           grid.edges[next] |= 1 << ((n + 4) % 8);
         }
@@ -158,16 +164,19 @@ export class Navigation {
   }
 
   _nearest(point, grid, component = null, sight = true) {
+    // The caller's point is constant throughout this search; lattice nodes have
+    // exact clearance already proved in this obstacle revision's grid.clear.
+    if(sight&&!this._clear(point,grid.radius))return -1;
     const col = Math.floor(point.x / grid.cell), row = Math.floor(point.y / grid.cell);
     if (sight && col >= 0 && row >= 0 && col < grid.cols && row < grid.rows) {
       const own = row * grid.cols + col;
-      if (grid.clear[own] && (component === null || grid.components[own] === component) && this._los(point, this._point(grid, own), grid.radius)) return own;
+      if (grid.clear[own] && (component === null || grid.components[own] === component) && this._los(point, this._point(grid, own), grid.radius,false,true,true)) return own;
     }
     let best = -1, bestDistance = Infinity;
     const scan = index => {
       if (!grid.clear[index] || (component !== null && grid.components[index] !== component)) return;
       const node = this._point(grid, index), distance = squared(node.x - point.x, node.y - point.y);
-      if (distance >= bestDistance || (sight && !this._los(point, node, grid.radius))) return;
+      if (distance >= bestDistance || (sight && !this._los(point, node, grid.radius,false,true,true))) return;
       best = index; bestDistance = distance;
     };
     // Valid actors and targets need a nearby visible node. A blocked target can
@@ -183,7 +192,7 @@ export class Navigation {
     const key = `${Math.floor(target.x / grid.cell)},${Math.floor(target.y / grid.cell)}:${component}:${blocked ? 1 : 0}`;
     if (grid.fields.has(key)) {
       const field = grid.fields.get(key);
-      if (field.goal < 0 || blocked || this._los(this._point(grid, field.goal), target, grid.radius)) {
+      if (field.goal < 0 || blocked || this._los(this._point(grid, field.goal), target, grid.radius,false,true,true)) {
         grid.fields.delete(key); grid.fields.set(key, field);
         return field.goal < 0 ? null : field;
       }
@@ -223,7 +232,7 @@ export class Navigation {
     for (let i = 0; i < 24; i++) {
       const t = (low + high) / 2;
       const point = { x: from.x + (target.x - from.x) * t, y: from.y + (target.y - from.y) * t };
-      if (this._los(from, point, radius)) low = t; else high = t;
+      if (this._los(from, point, radius,false,true)) low = t; else high = t;
     }
     return Math.hypot(target.x - from.x, target.y - from.y) * low > 3.5 ? toward(from, target) : ZERO();
   }
@@ -233,7 +242,7 @@ export class Navigation {
     if (!finitePoint(from) || !finitePoint(target)) return ZERO();
     radius = this._radius(radius);
     if (!this._clear(from, radius)) return ZERO();
-    if (this._los(from, target, radius)) return toward(from, target);
+    if (this._los(from, target, radius,false,true)) return toward(from, target);
     const grid = this._grid(radius), start = this._nearest(from, grid);
     if (start < 0) return ZERO();
     const field = this._field(grid, target, grid.components[start]);
@@ -244,7 +253,7 @@ export class Navigation {
     // walking in a stair pattern. Every skipped segment still respects radius.
     for (let i = 0; i < 12 && field.next[node] >= 0; i++) {
       const next = field.next[node], candidate = this._point(grid, next);
-      if (!this._los(from, candidate, radius)) break;
+      if (!this._los(from, candidate, radius,false,true,true)) break;
       waypoint = candidate; node = next;
     }
     return toward(from, waypoint);

@@ -1,0 +1,20 @@
+- main "데드 시그널 게임":
+  - generic "데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요."
+  - region "회수한 원정 기록":
+    - paragraph: K-17 / FIELD RECORDS
+    - heading "회수 기록" [level=2]
+    - paragraph: 거리에서 마지막 격리소까지, 확보한 단서를 경로별로 정리합니다.
+    - generic: 회수한 단서 1개
+    - complementary:
+      - strong: 마지막 신호 · 도시 원정
+      - paragraph: 현재 목표 · 마트 입구 의약품 회수
+    - generic "도시 원정진행 중 · 단서 1개":
+      - strong: 도시 원정
+      - text: 진행 중 · 단서 1개
+    - list:
+      - heading "거리 중계기 복구" [level=3]
+      - paragraph: 마트 냉장 보관함의 위치를 수신했다.
+    - generic: 기록을 읽는 동안 작전은 진행되지 않습니다.
+    - button "돌아가기" [active]: 돌아가기
+  - status
+- generic: SURVIVOR / SPECIAL ACTION

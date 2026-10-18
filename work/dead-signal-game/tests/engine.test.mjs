@@ -52,7 +52,7 @@ test('pause and upgrade menus freeze world, player timers, and combat', () => {
   assert.equal(snapshot(), upgrading);
 });
 
-test('upgrade choices are unique, valid, capped, and queued levels are consumed', () => {
+test('upgrade choices are unique, valid, uncapped, and queued levels are consumed', () => {
   const game = isolated();
   game.gainXP(100);
   game.tick(0);
@@ -61,7 +61,7 @@ test('upgrade choices are unique, valid, capped, and queued levels are consumed'
     const ids = game.choices.map(choice => choice.id);
     assert.equal(new Set(ids).size, ids.length);
     assert.ok(ids.length > 0 && ids.length <= 3);
-    for (const choice of game.choices) assert.ok((game.upgrades[choice.id] || 0) < choice.max);
+    for (const choice of game.choices) assert.ok(UPGRADES.some(upgrade => upgrade.id === choice.id));
     const before = JSON.stringify(game.upgrades);
     assert.equal(game.chooseUpgrade('nonexistent'), false);
     assert.equal(JSON.stringify(game.upgrades), before);
@@ -74,6 +74,12 @@ test('upgrade choices are unique, valid, capped, and queued levels are consumed'
   for (const choice of UPGRADES) game.upgrades[choice.id] = choice.max;
   game.pendingLevels = 1;
   game.showUpgrade();
+  assert.equal(game.pendingLevels, 1);
+  assert.equal(game.state, 'upgrade');
+  assert.equal(game.choices.length, 3);
+  const beyond = game.choices[0], previous = game.upgrades[beyond.id];
+  assert.equal(game.chooseUpgrade(beyond.id), true);
+  assert.equal(game.upgrades[beyond.id], previous + 1);
   assert.equal(game.pendingLevels, 0);
   assert.equal(game.state, 'playing');
 });
@@ -235,14 +241,26 @@ test('supply heal and mod charge once, respect funds, and never over-heal', () =
   assert.ok(game.parts >= 0);
 });
 
-test('supply cannot spend parts on a mod after every upgrade is capped', () => {
-  const game = isolated();
-  game.state = 'supply';
+test('supply buys a real resumable mod beyond every original upgrade threshold', () => {
+  const game = isolated({ stageDuration: .01 });
+  game.tick(.02);
+  removeEnemy(game, game.enemies.find(enemy => enemy.gatekeeper));
+  assert.equal(game.state, 'supply');
   game.parts = 100;
   for (const upgrade of UPGRADES) game.upgrades[upgrade.id] = upgrade.max;
-  assert.equal(game.buyMod(), false);
-  assert.equal(game.parts, 100);
+  assert.equal(game.buyMod(), true);
+  assert.equal(game.parts, 70);
+  assert.equal(game.state, 'upgrade');
+  const selected=game.choices[0],previous=game.upgrades[selected.id];
+  assert.equal(game.chooseUpgrade(selected.id),true);
+  assert.equal(game.upgrades[selected.id],previous+1);
+  game.finishSupplyUpgrade();
   assert.equal(game.state, 'supply');
+  const saved=game.snapshot();assert.ok(saved);
+  const copy=Game.restore(saved);assert.ok(copy);
+  assert.equal(copy.state,'supply');assert.equal(copy.parts,70);
+  assert.equal(copy.upgrades[selected.id],previous+1);
+  assert.equal(game.buyMod(),false);assert.equal(game.parts,70);
 });
 
 test('gatekeepers, supply, hospital route, collector, and victory form one complete run', () => {
@@ -494,7 +512,7 @@ test('fire continues emitting live embers, then cleans up after its duration', (
   assert.ok(game.fires.length > 0);
   assert.ok(game.particles.some(particle => particle.kind === 'ember'), 'Fire should still emit after its initial throw particles have expired');
   assert.ok(game.particles.length <= 850);
-  step(game, 5, {}, .05);
+  step(game, 6, {}, .05);
   assert.equal(game.fires.length, 0);
   assert.equal(game.particles.length, 0);
 });

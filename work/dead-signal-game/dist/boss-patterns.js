@@ -222,7 +222,7 @@ export function updateBossHazards(game,dt){
       const canHurt=h.kind!=='pull'||h.time<=.2;
       if(hit&&h.damage>0&&canHurt&&h.tickClock===0&&!(p.invul>0)){
         h.tickClock=h.kind==='spit'?.8:h.kind==='fire'?.65:1;
-        game.hurtPlayer(h.damage);
+        game.hurtPlayer(h.damage,h);
         if(game.state!=='playing')break;
       }
     }

@@ -3,6 +3,16 @@ import assert from 'node:assert/strict';
 import {Game} from '../dist/engine.js';
 import {RenderSchedule} from '../dist/render-schedule.js';
 
+test('visible end motion draws each supplied frame for a bounded interval then returns to idle without gameplay writes',()=>{
+ const game=new Game({seed:4391}),before=JSON.stringify(game.snapshot()),schedule=new RenderSchedule(),options=Object.freeze({key:'dead',endingAnimationMs:1500});
+ for(let i=0;i<90;i++)assert.equal(schedule.shouldRender(i*1000/60,options),true);
+ assert.equal(schedule.shouldRender(1500,options),false);assert.equal(schedule.shouldRender(1584,options),true);assert.equal(schedule.shouldRender(1600,options),false);
+ assert.equal(JSON.stringify(game.snapshot()),before);
+ const revealed=new RenderSchedule();assert.equal(revealed.shouldRender(0,{...options,hidden:true}),false);assert.equal(revealed.shouldRender(3000,options),true);assert.equal(revealed.shouldRender(3016,options),true,'first visible render starts the death window');
+ assert.equal(revealed.shouldRender(3020,{key:'menu'}),true);assert.equal(revealed.shouldRender(3036,{key:'menu'}),false,'leaving the result ends continuous drawing');
+ const reduced=new RenderSchedule();assert.equal(reduced.shouldRender(0,{key:'dead',endingAnimationMs:0}),true);assert.equal(reduced.shouldRender(16,{key:'dead',endingAnimationMs:0}),false);
+});
+
 test('a nonplaying canvas draws initially and at the inclusive hundred-millisecond boundary',()=>{
   const schedule=new RenderSchedule();
   assert.equal(schedule.shouldRender(0),true);

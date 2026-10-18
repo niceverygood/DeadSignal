@@ -1,0 +1,2 @@
+export const RELOAD_STAGES=Object.freeze({shotgun:Object.freeze([{progress:.16,kind:'retrieve'},{progress:.37,kind:'feed'},{progress:.53,kind:'retrieve'},{progress:.74,kind:'feed'}].map(Object.freeze)),nailgun:Object.freeze([{progress:.24,kind:'retrieve'},{progress:.53,kind:'seat'},{progress:.72,kind:'rack'}].map(Object.freeze))});
+export function crossedReloadStages(weapon,before,after,duration){if(!(duration>0)||!(before>after))return [];return (RELOAD_STAGES[weapon]||[]).filter(s=>before>duration*(1-s.progress)&&after<=duration*(1-s.progress));}

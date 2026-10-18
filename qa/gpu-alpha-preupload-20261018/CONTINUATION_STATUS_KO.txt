@@ -1,0 +1,35 @@
+현재 원자 작업: 공통 원본 텍스처·셰이더 준비 뒤 CPU → GPU exact → CPU 비교
+시작 확인 시각: 2026-10-18 07:48 Asia/Seoul. 최신 마감 2026-10-19 00:00 Asia/Seoul.
+
+기본 GPU 알파는 OFF로 유지한다. 제품 Game·리그·에셋·캐릭터 프레임·플레이 저장은 변경하지 않는다. 새 QA helper/UI/회귀 검사만 구현해 모든 전투 arm에서 fresh owned rig를 만들고 기존 prepareNativeEnemyLaunch(max3 original keys/union texture submission/original shader await)를 공통 실행한다. B만 GPU exact reduction shader warmup(draw0)을 추가하고 isReady 재확인 뒤 소유권을 채택한다. 준비·첫 전투·전체110/steady100 callback 비용과 실제 GPU cells/bytes/fallback을 구분한다.
+
+원본7종×8자세 private output/기하/animation 품질 검사는 별도 fresh owned rig의 기존 품질 fixture다. 이것은 전투 arm의 fresh 준비와 동일한56개 준비조건이라고 주장하지 않는다. 전투는 기존 compareBulletBroadphase의 실제 Game/60·180적/고정110 tick+render/normal combat rules를 위임한다. 실제 제품 프레임 루프·presented FPS·GPU시간·실측RAMVRAM 검사가 아니다.
+
+별도 localhost8851 QA UI에서 private branded memory gate를 사용하되 이 독립 페이지는 저장 API를 쓰지 않는다. genuine memory game save/load를 검수한 것이라고 표현하지 않는다. 사용자8806/옛QA/저장/진행선택/기존서버 보존. 유료생성·결제·키저장·automation7재개·외부공개·push·스토어 제출 금지. 자동화4 ACTIVE 유지, 마감 뒤 새 개발 없이 기록하고 실제 PAUSED.
+
+편집 전 qa-player-rig.js 전체bytes를 qa-player-rig-before-preupload.txt로 보존, SHA256 23eb025c9bd113ac53cc6915b81881548fe36367ac656ba489b4b7bc9c0d135b.
+현재 구현·검수 진행 중이며 완료가 아니다. 전작 최종은 gpu-alpha-restore-20261018/CONTINUATION_STATUS_KO.txt(1023/1023PASS/verify 기존 .gitignore mismatch).
+
+최종 인계 (2026-10-18 08시경 Asia/Seoul)
+
+새 QA helper qa-gpu-alpha-preupload.js와 전용 버튼을 구현했다. 기본 제품 GPU 알파는 OFF이고 기존 Game/renderer/LiveBossRig/에셋은 그대로다. CPU→GPU exact min12→CPU의 모든 전투 arm이 fresh owned rig에서 기존 native launch service의 원본 max3키·union texture submission·original shader await를 공통 실행한다. B만 draw0 reduction warmup을 추가하고 isReady 원본 source/owner 검사를 다시 통과해야 adopt한다. 준비 비용, 첫 렌더, 전체110회, steady100회, 실제 native/GPU 사용량을 분리한다. API-ready만으로 통과하거나 GPU미사용을 성공으로 보고하지 않는다.
+
+중복 실행·보호 origin·nonbranded storage는 시작 전 거절한다. 세 Renderer owner의 전체 descriptor를 저장·비교·복원하고 외부가 같은 value의 속성만 바꿔도 덮어쓰지 않는다. 취소·늦은 모델·GPU 준비 실패·복원/자원 정리 실패·호출자 async 이미지 오류를 검수했다. 자체 리그만 정리하고 cleanup 오류도 기록한다. 실패 원래 오류를 cleanup 오류로 덮지 않는다. 원본7종×8자세는 별도 fresh quality fixture이며, walker 최초 준비 후 기존 helper가 각각 모델을 load하는 과정이라 모든56자세가 전투와 같은 공통 준비 조건이라고 주장하지 않는다.
+
+집중 Node22 기존 동시성2 검사58/58PASS/2090.7589ms. 새 테스트는 orchestration8+UI6이며 실제 Game paired tick/state/events/RNG·각 preparation불변·110프로파일·순서·소유권·늦은 정리·예외 계약을 검수한다. mock은 GLSL/이미지/실측 GPU 시간을 증명하지 않는다.
+
+실제 Chrome3 별도8851/qa-player-rig.html?qa=1&qa-memory=gpu-alpha-preupload-20261018 탭1494332332에서 새 공개 버튼으로 검수했다. 이 독립 페이지는 저장 API를 쓰지 않으며 private genuine Map은 실행 gate다. 실제 app save/Continue/persistence 검수라고 하지 않는다. 원본7종×8자세의 private256 RGBA 차이0/max0/기하·animation 동일을 모두 확인했다. 전투60/180 각 CPU/GPU/CPU의 Game snapshot/effects/양RNG/events 동일, 원본 native calls 각785/936으로 arm간 동일했다. 전체canvas는60 B54/A2 41성분,180 B21/A2 19성분의 최대1 차이가 있어 전체canvas byteexact라고 하지 않는다. 원래CPU 반복에도 같은 크기 차이가 있다.
+
+steady100 combined call 중앙값60=24.1→15.5→25.4ms,180=29.6→19.3→28.6ms. GPU가 실제 사용된 B의 동일 frame-index만 대조하면60 46회=26.0→15.4→29.7ms,180 70회=29.6→19.2→30.3ms. B의 실제GPU60은F64부터552셀/46reads/2208bytes,180은F40부터840셀/70reads/3360bytes, cells=reads*12와requested48bytes/read가 일치하고 fallback0, warmupSurvived=true였다. min12 미만은 정상CPU경로다. B에서 GPU를 쓰지 않은180의30회는33.3→20.1→16.5ms로 반복CPU가 더 빨라 공통 로딩·OS/cache 변동까지 모두GPU효과로 귀속하지 않는다.
+
+native+alpha 전체준비60=695.4→681.0(그중alpha99.0)→735.8ms,180=675.4→1012.3(alpha112.6)→592.7ms. 준비+전체110 callback 합계60=3386.9→2650.6→3752.6ms,180=4716.8→3504.8→3773.4ms. 실제pass wall은batch8 rAF 대기를 포함해60≈14.18/13.18/13.23초,180≈13.17/13.85/13.38초다. 고정1/60 tick+render workload이며 catch-up/interpolation/HUD/audio/persistence를 포함하는 제품 loop나 presentedFPS/실측GPU시간이 아니다. 첫frame 비용도60 206.2/160.7/145.1ms와180 233.0/236.8/177.5ms로 남는다.
+
+B의 active alpha rawRGBA estimate3158064bytes + GPU copy canvas 최대1024x768=3145728bytes 추가 자원이 있다. 실제 RAM/VRAM 측정값이 아니다. cleanup은7owned/7retired/7handle disposals, modelsRemaining0/helperRawBytes0/errors[]/ownerDescriptorsRestored=true/complete=true였다. console warn/error0, hero/native/error dataset정상. 13개 원본품질·전투 PNG와 실제 화면2개, raw JSON/console/dataset/matched-frame-groups를 보존했다. 최종 하단 battle-page.png에는60/180비교 화면이 있다. QA탭은 닫았고 fresh목록에서 부재 확인했다. 사용자8806/옛QA/저장/진행선택/기존서버 미조작. 브라우저 비용 검수 동안 Node/tests/CPUbench를 돌리지 않았다.
+
+이후 root Node22.23.3 기본 npm test 기존동시성2 한회 1037/1037PASS/119632.5174ms/exit0, 실패·취소·생략0. 기존20분전투 stress CPU12094ms/wall12503.28ms로 원래CPU15000ms 기준을 통과했다. 검사기준/timeout/동시성/물리검사는 완화하지 않았다. npm run verify는 기존 immutable manifest의 .gitignore mismatch로 exit1, 역사 manifest를 재생성하지 않았다.
+
+해시 검수: 기존339경로 중 변경은 qa-player-rig.js 하나이며 이전149885bytes 전체가 그대로 연속prefix다. 새 helper SHA499bd61742db482172db381272f8c902fc59a40967bc1ac88b373e1484b3c2ac, UI SHA98f9a13e4ae2e9580914663abb03f5f416c93f36a1154ec0931783c8d8f255b2, Game SHA4fa744ce8b245b8bcc5219214c881cbb73354bcfeed4357ac83929e714862b43 그대로. 초기 rg default-ignore 목록334개는 full test 시작 전 고정했다. 경로구분자 비교 오류를 정정하고 이전 manifest의 ignored player-rig/vendor8개를 실행 중 추가 확인해 총342개로 보완했다(이8개도 이전SHA그대로). 초기334에서 변경0, 보완342에서도 최종 변경0. 전체기존소스를대량수정한것이아니며 잘못된 첫 비교출력과 정정 근거는 freeze-audit 및 initial-subset manifest에 구분해 남겼다. 최종 검사/해시 결과는 gpu-alpha-preupload-final-check.json.
+
+이번은 공통 조건의 실제 전투 GPU 후보 검수까지이며 기본 제품 적용은 아직 아니다. 다음 추천은 실제 앱8851 genuineMap qa-loop에서 같은 common native 준비를 유지한 CPU/GPU/CPU 전체loop 비교다. 원래 Continue·launch token·취소·context loss·ready source/owner를 보존하는 QA-only 선택부터 구현하고 입력/자동저장/음향/HUD/보간·dense native셀의 실제사용·첫read/steady/추가자원·해제 상태를 관찰한다. 40 playing callbacks는 서로 같은tick수나완전동일게임진행을 보장하지 않으므로 fixed110 결과와 혼동하지 않는다. 기존 baked draw 지연/최초리그 비용도 별도로 남는다.
+
+자동화4 ACTIVE/마감2026-10-19 00:00 Asia/Seoul. 마감 후 새 개발을 시작하지 않고 완료·미완료를 기록하고 실제 PAUSED. 원본 Meshy 모델·리그·4K·클립·프레임·무드보드·플레이 데이터 보존. 유료 생성·결제·키저장·automation7재개·외부공개·push·스토어제출 없음. 모든 캐릭터 자연스러움/전체 무렉/정상FPS/실측RAMVRAM/실기기/100시간 목표는 미완료.

@@ -1,0 +1,112 @@
+{
+  "expeditions": [
+    {
+      "id": "last-signal-city-01",
+      "title": "마지막 신호 · 도시 원정",
+      "steps": 3,
+      "requires": null,
+      "nextId": "last-signal-roof-02",
+      "optional": false,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-roof-02",
+      "title": "마지막 신호 · 옥상 중계",
+      "steps": 3,
+      "requires": "last-signal-city-01",
+      "nextId": "last-signal-hospital-03",
+      "optional": false,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-hospital-03",
+      "title": "마지막 신호 · 병원 냉각 기록",
+      "steps": 5,
+      "requires": "last-signal-roof-02",
+      "nextId": "last-signal-north-04",
+      "optional": false,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-north-04",
+      "title": "마지막 신호 · 북한 검역 회랑",
+      "steps": 4,
+      "requires": "last-signal-hospital-03",
+      "nextId": "last-signal-sea-05",
+      "optional": false,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-sea-05",
+      "title": "마지막 신호 · 해상 이송 항만",
+      "steps": 5,
+      "requires": "last-signal-north-04",
+      "nextId": "last-signal-israel-06",
+      "optional": false,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-israel-06",
+      "title": "마지막 신호 · 하이파 배양 시설",
+      "steps": 6,
+      "requires": "last-signal-sea-05",
+      "nextId": "last-signal-finale-07",
+      "optional": false,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-finale-07",
+      "title": "마지막 신호 · 성가대 격리소",
+      "steps": 4,
+      "requires": "last-signal-israel-06",
+      "nextId": null,
+      "optional": false,
+      "vaccineEnding": true
+    },
+    {
+      "id": "last-signal-cold-chain-01b",
+      "title": "마지막 신호 · 마트 냉각 우회",
+      "steps": 6,
+      "requires": "last-signal-city-01",
+      "nextId": "last-signal-roof-02",
+      "optional": true,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-harbor-power-04b",
+      "title": "마지막 신호 · 항만 침수 전력",
+      "steps": 8,
+      "requires": "last-signal-north-04",
+      "nextId": "last-signal-sea-05",
+      "optional": true,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-patient-record-03b",
+      "title": "마지막 신호 · 환자 대조 기록",
+      "steps": 9,
+      "requires": "last-signal-hospital-03",
+      "nextId": "last-signal-north-04",
+      "optional": true,
+      "vaccineEnding": false
+    },
+    {
+      "id": "last-signal-haifa-transfer-06b",
+      "title": "마지막 신호 · 하이파 냉각 이송",
+      "steps": 10,
+      "requires": "last-signal-israel-06",
+      "nextId": "last-signal-finale-07",
+      "optional": true,
+      "vaccineEnding": false
+    }
+  ],
+  "plannedScope": {
+    "status": "expansion-planned",
+    "mainHours": 64,
+    "optionalHours": 36,
+    "totalTargetHours": 100,
+    "chaptersTarget": 72,
+    "playableCityMissions": 12,
+    "note": "100시간은 콘텐츠 제작 목표다. 현재 구현되거나 실측된 플레이 시간이 아니다."
+  }
+}

@@ -1,0 +1,900 @@
+{
+  "tool": "offline-v8-cpuprofile-aggregation",
+  "input": "production-stress.cpuprofile",
+  "inputSHA": "230d6c64c368adcadaa5cb71c0a679e3fd081ee558c779b4b346dc00ce66ac18",
+  "originalRunReportSHA": "999266b9fbcb43009e7b9838244a197b3f40bed6306200c8e71f055c0811bf4a",
+  "sourceSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "modelSHA": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+  "fixtureSHA": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+  "callbackSHA": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+  "observed": {
+    "unprofiledWhole": {
+      "passed": 1119,
+      "failed": 1,
+      "cpuMs": 15062,
+      "originalBudgetMs": 15000
+    },
+    "profiledExactCallback": {
+      "status": "failed-original-callback",
+      "cpuMs": 15297,
+      "wallMs": 15414.91,
+      "budgetMs": 15000
+    }
+  },
+  "method": "Assign timeDeltas[i]/1000 to samples[i]. Self is leaf weight. Inclusive walks parent IDs to root; a function+URL+line group is counted only once per sample to avoid recursive double counting. Function entries are merged across call-tree nodes. Percentages use all profile weights. Position ticks are V8 unweighted line metadata, not exact line durations or call counts.",
+  "limitations": [
+    "A sampling profile is an estimate, not exact function CPU timing. The weighted interval includes startup/import/teardown outside the original callback clock.",
+    "Inlined functions/native Math/array operations can be charged to their callers; a small named helper sample total does not prove zero cost.",
+    "Inclusive rows overlap and must not be added together. This single profiled run cannot establish a before/after regression cause.",
+    "The profiler adds overhead. The unprofiled whole-test CPU15062ms remains the original-budget failure; no budget or test was changed.",
+    "Only saved JSON was parsed; no Game/test/browser execution or source modifications were performed by this analysis."
+  ],
+  "totals": {
+    "durationMs": 15521.384,
+    "sampledMs": 15521.234,
+    "nodes": 311,
+    "samples": 8097
+  },
+  "topSelf": [
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 398,
+      "selfMs": 4333.423,
+      "inclusiveMs": 12672.524,
+      "samples": 2276,
+      "selfPercent": 27.92
+    },
+    {
+      "name": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "selfMs": 1649.904,
+      "inclusiveMs": 2274.7,
+      "samples": 886,
+      "selfPercent": 10.63
+    },
+    {
+      "name": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 253,
+      "selfMs": 1580.719,
+      "inclusiveMs": 1711.585,
+      "samples": 838,
+      "selfPercent": 10.18
+    },
+    {
+      "name": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 240,
+      "selfMs": 1117.368,
+      "inclusiveMs": 5876.214,
+      "samples": 596,
+      "selfPercent": 7.2
+    },
+    {
+      "name": "_field",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 190,
+      "selfMs": 815.467,
+      "inclusiveMs": 1067.74,
+      "samples": 435,
+      "selfPercent": 5.25
+    },
+    {
+      "name": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "selfMs": 611.26,
+      "inclusiveMs": 611.26,
+      "samples": 323,
+      "selfPercent": 3.94
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "selfMs": 565.259,
+      "inclusiveMs": 565.259,
+      "samples": 267,
+      "selfPercent": 3.64
+    },
+    {
+      "name": "updatePickups",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 436,
+      "selfMs": 538.654,
+      "inclusiveMs": 784.899,
+      "samples": 262,
+      "selfPercent": 3.47
+    },
+    {
+      "name": "_nearest",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 166,
+      "selfMs": 523.186,
+      "inclusiveMs": 1120.227,
+      "samples": 273,
+      "selfPercent": 3.37
+    },
+    {
+      "name": "tick",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 359,
+      "selfMs": 467.918,
+      "inclusiveMs": 14779.735,
+      "samples": 232,
+      "selfPercent": 3.01
+    },
+    {
+      "name": "distance",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 39,
+      "selfMs": 440.201,
+      "inclusiveMs": 440.201,
+      "samples": 228,
+      "selfPercent": 2.84
+    },
+    {
+      "name": "_sync",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "selfMs": 378.093,
+      "inclusiveMs": 378.093,
+      "samples": 203,
+      "selfPercent": 2.44
+    },
+    {
+      "name": "acquireEnemyGrid",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/enemy-separation-grid.js",
+      "line": 28,
+      "selfMs": 355.949,
+      "inclusiveMs": 364.601,
+      "samples": 180,
+      "selfPercent": 2.29
+    },
+    {
+      "name": "updateBullets",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 384,
+      "selfMs": 331.789,
+      "inclusiveMs": 423.419,
+      "samples": 171,
+      "selfPercent": 2.14
+    },
+    {
+      "name": "segmentRectDistanceSquared",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 38,
+      "selfMs": 248.159,
+      "inclusiveMs": 505.384,
+      "samples": 129,
+      "selfPercent": 1.6
+    },
+    {
+      "name": "release",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/enemy-separation-grid.js",
+      "line": 13,
+      "selfMs": 204.81,
+      "inclusiveMs": 212.983,
+      "samples": 106,
+      "selfPercent": 1.32
+    },
+    {
+      "name": "updateEffects",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 438,
+      "selfMs": 202.844,
+      "inclusiveMs": 209.615,
+      "samples": 103,
+      "selfPercent": 1.31
+    },
+    {
+      "name": "pointSegmentDistanceSquared",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 16,
+      "selfMs": 197.963,
+      "inclusiveMs": 197.963,
+      "samples": 103,
+      "selfPercent": 1.28
+    },
+    {
+      "name": "_grid",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "selfMs": 180.843,
+      "inclusiveMs": 195.633,
+      "samples": 90,
+      "selfPercent": 1.17
+    },
+    {
+      "name": "blocked",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 252,
+      "selfMs": 123.046,
+      "inclusiveMs": 130.866,
+      "samples": 65,
+      "selfPercent": 0.79
+    },
+    {
+      "name": "scan",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 176,
+      "selfMs": 73.038,
+      "inclusiveMs": 291.75,
+      "samples": 38,
+      "selfPercent": 0.47
+    },
+    {
+      "name": "pointRectDistanceSquared",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 13,
+      "selfMs": 69.571,
+      "inclusiveMs": 69.571,
+      "samples": 36,
+      "selfPercent": 0.45
+    },
+    {
+      "name": "toward",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 48,
+      "selfMs": 59.497,
+      "inclusiveMs": 59.497,
+      "samples": 33,
+      "selfPercent": 0.38
+    },
+    {
+      "name": "(anonymous)",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs?production-stress-only",
+      "line": 4,
+      "selfMs": 46.102,
+      "inclusiveMs": 14858.341,
+      "samples": 20,
+      "selfPercent": 0.3
+    },
+    {
+      "name": "spawnEnemy",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 258,
+      "selfMs": 35.087,
+      "inclusiveMs": 38.244,
+      "samples": 18,
+      "selfPercent": 0.23
+    }
+  ],
+  "topInclusive": [
+    {
+      "name": "(root)",
+      "url": "",
+      "line": 0,
+      "selfMs": 0,
+      "inclusiveMs": 15521.234,
+      "samples": 0,
+      "selfPercent": 0
+    },
+    {
+      "name": "main",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/upgrade-status-20261018/profile-production-stress.mjs",
+      "line": 46,
+      "selfMs": 0,
+      "inclusiveMs": 14867.372,
+      "samples": 0,
+      "selfPercent": 0
+    },
+    {
+      "name": "(anonymous)",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs?production-stress-only",
+      "line": 4,
+      "selfMs": 46.102,
+      "inclusiveMs": 14858.341,
+      "samples": 20,
+      "selfPercent": 0.3
+    },
+    {
+      "name": "tick",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 359,
+      "selfMs": 467.918,
+      "inclusiveMs": 14779.735,
+      "samples": 232,
+      "selfPercent": 3.01
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 398,
+      "selfMs": 4333.423,
+      "inclusiveMs": 12672.524,
+      "samples": 2276,
+      "selfPercent": 27.92
+    },
+    {
+      "name": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 240,
+      "selfMs": 1117.368,
+      "inclusiveMs": 5876.214,
+      "samples": 596,
+      "selfPercent": 7.2
+    },
+    {
+      "name": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "selfMs": 1649.904,
+      "inclusiveMs": 2274.7,
+      "samples": 886,
+      "selfPercent": 10.63
+    },
+    {
+      "name": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 253,
+      "selfMs": 1580.719,
+      "inclusiveMs": 1711.585,
+      "samples": 838,
+      "selfPercent": 10.18
+    },
+    {
+      "name": "_nearest",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 166,
+      "selfMs": 523.186,
+      "inclusiveMs": 1120.227,
+      "samples": 273,
+      "selfPercent": 3.37
+    },
+    {
+      "name": "_field",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 190,
+      "selfMs": 815.467,
+      "inclusiveMs": 1067.74,
+      "samples": 435,
+      "selfPercent": 5.25
+    },
+    {
+      "name": "updatePickups",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 436,
+      "selfMs": 538.654,
+      "inclusiveMs": 784.899,
+      "samples": 262,
+      "selfPercent": 3.47
+    },
+    {
+      "name": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "selfMs": 611.26,
+      "inclusiveMs": 611.26,
+      "samples": 323,
+      "selfPercent": 3.94
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "selfMs": 565.259,
+      "inclusiveMs": 565.259,
+      "samples": 267,
+      "selfPercent": 3.64
+    },
+    {
+      "name": "segmentRectDistanceSquared",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 38,
+      "selfMs": 248.159,
+      "inclusiveMs": 505.384,
+      "samples": 129,
+      "selfPercent": 1.6
+    },
+    {
+      "name": "distance",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 39,
+      "selfMs": 440.201,
+      "inclusiveMs": 440.201,
+      "samples": 228,
+      "selfPercent": 2.84
+    },
+    {
+      "name": "updateBullets",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 384,
+      "selfMs": 331.789,
+      "inclusiveMs": 423.419,
+      "samples": 171,
+      "selfPercent": 2.14
+    },
+    {
+      "name": "_sync",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "selfMs": 378.093,
+      "inclusiveMs": 378.093,
+      "samples": 203,
+      "selfPercent": 2.44
+    },
+    {
+      "name": "acquireEnemyGrid",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/enemy-separation-grid.js",
+      "line": 28,
+      "selfMs": 355.949,
+      "inclusiveMs": 364.601,
+      "samples": 180,
+      "selfPercent": 2.29
+    },
+    {
+      "name": "scan",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 176,
+      "selfMs": 73.038,
+      "inclusiveMs": 291.75,
+      "samples": 38,
+      "selfPercent": 0.47
+    },
+    {
+      "name": "release",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/enemy-separation-grid.js",
+      "line": 13,
+      "selfMs": 204.81,
+      "inclusiveMs": 212.983,
+      "samples": 106,
+      "selfPercent": 1.32
+    },
+    {
+      "name": "updateEffects",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "line": 438,
+      "selfMs": 202.844,
+      "inclusiveMs": 209.615,
+      "samples": 103,
+      "selfPercent": 1.31
+    },
+    {
+      "name": "pointSegmentDistanceSquared",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 16,
+      "selfMs": 197.963,
+      "inclusiveMs": 197.963,
+      "samples": 103,
+      "selfPercent": 1.28
+    }
+  ],
+  "upgradeModel": [
+    {
+      "name": "getUpgradeValue",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 42,
+      "selfMs": 7.046,
+      "inclusiveMs": 16.684,
+      "samples": 3,
+      "selfPercent": 0.05
+    },
+    {
+      "name": "rankOK",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 26,
+      "selfMs": 4.955,
+      "inclusiveMs": 4.955,
+      "samples": 2,
+      "selfPercent": 0.03
+    },
+    {
+      "name": "getFireInterval",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 51,
+      "selfMs": 1.854,
+      "inclusiveMs": 7.603,
+      "samples": 2,
+      "selfPercent": 0.01
+    },
+    {
+      "name": "factor",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 44,
+      "selfMs": 5.44,
+      "inclusiveMs": 5.44,
+      "samples": 3,
+      "selfPercent": 0.04
+    },
+    {
+      "name": "getReloadDuration",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 52,
+      "selfMs": 0,
+      "inclusiveMs": 4.581,
+      "samples": 0,
+      "selfPercent": 0
+    },
+    {
+      "name": "getUpgradeRank",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 28,
+      "selfMs": 3.618,
+      "inclusiveMs": 3.618,
+      "samples": 2,
+      "selfPercent": 0.02
+    },
+    {
+      "name": "getPelletCount",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 50,
+      "selfMs": 0,
+      "inclusiveMs": 2.186,
+      "samples": 0,
+      "selfPercent": 0
+    },
+    {
+      "name": "valueFor",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/upgrade-model.js",
+      "line": 30,
+      "selfMs": 1.065,
+      "inclusiveMs": 1.065,
+      "samples": 1,
+      "selfPercent": 0.01
+    }
+  ],
+  "selectedCallerSelf": [
+    {
+      "name": "updateEnemies",
+      "caller": "tick",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 359,
+      "selfMs": 4324.129,
+      "samples": 2274
+    },
+    {
+      "name": "move",
+      "caller": "updateEnemies",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 398,
+      "selfMs": 1573.296,
+      "samples": 832
+    },
+    {
+      "name": "_los",
+      "caller": "direction",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 240,
+      "selfMs": 1274.676,
+      "samples": 676
+    },
+    {
+      "name": "direction",
+      "caller": "updateEnemies",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 398,
+      "selfMs": 1117.368,
+      "samples": 596
+    },
+    {
+      "name": "_field",
+      "caller": "direction",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 240,
+      "selfMs": 812.209,
+      "samples": 433
+    },
+    {
+      "name": "_nearest",
+      "caller": "direction",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 240,
+      "selfMs": 450.092,
+      "samples": 235
+    },
+    {
+      "name": "distance",
+      "caller": "updatePickups",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 436,
+      "selfMs": 244.673,
+      "samples": 125
+    },
+    {
+      "name": "_clear",
+      "caller": "direction",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 240,
+      "selfMs": 216.334,
+      "samples": 113
+    },
+    {
+      "name": "distance",
+      "caller": "updateEnemies",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 398,
+      "selfMs": 185.619,
+      "samples": 95
+    },
+    {
+      "name": "_clear",
+      "caller": "_nearest",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 166,
+      "selfMs": 169.114,
+      "samples": 90
+    },
+    {
+      "name": "_los",
+      "caller": "scan",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 176,
+      "selfMs": 133.72,
+      "samples": 74
+    },
+    {
+      "name": "_los",
+      "caller": "_nearest",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 166,
+      "selfMs": 120.616,
+      "samples": 64
+    },
+    {
+      "name": "_clear",
+      "caller": "_los",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 95,
+      "selfMs": 119.412,
+      "samples": 68
+    },
+    {
+      "name": "_clear",
+      "caller": "_field",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 190,
+      "selfMs": 95.585,
+      "samples": 46
+    },
+    {
+      "name": "_los",
+      "caller": "_field",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 190,
+      "selfMs": 92.24,
+      "samples": 56
+    },
+    {
+      "name": "_nearest",
+      "caller": "_field",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 190,
+      "selfMs": 54.288,
+      "samples": 29
+    },
+    {
+      "name": "_nearest",
+      "caller": "tick",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 359,
+      "selfMs": 18.806,
+      "samples": 9
+    },
+    {
+      "name": "_los",
+      "caller": "tick",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 359,
+      "selfMs": 11.229,
+      "samples": 7
+    },
+    {
+      "name": "_los",
+      "caller": "_grid",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 112,
+      "selfMs": 11.115,
+      "samples": 6
+    },
+    {
+      "name": "updateEnemies",
+      "caller": "(anonymous)",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs?production-stress-only",
+      "callerLine": 4,
+      "selfMs": 9.294,
+      "samples": 2
+    },
+    {
+      "name": "_clear",
+      "caller": "tick",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 359,
+      "selfMs": 9.068,
+      "samples": 5
+    },
+    {
+      "name": "distance",
+      "caller": "chain",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 327,
+      "selfMs": 8.794,
+      "samples": 7
+    },
+    {
+      "name": "move",
+      "caller": "tick",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 359,
+      "selfMs": 7.423,
+      "samples": 6
+    },
+    {
+      "name": "_los",
+      "caller": "_approachBlocked",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "callerLine": 227,
+      "selfMs": 6.308,
+      "samples": 3
+    },
+    {
+      "name": "_field",
+      "caller": "tick",
+      "callerURL": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "callerLine": 359,
+      "selfMs": 3.258,
+      "samples": 2
+    }
+  ],
+  "selectedPositionTicks": [
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 418,
+      "ticks": 530
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 417,
+      "ticks": 430
+    },
+    {
+      "name": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 101,
+      "ticks": 420
+    },
+    {
+      "name": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 252,
+      "ticks": 335
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 423,
+      "ticks": 279
+    },
+    {
+      "name": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 256,
+      "ticks": 231
+    },
+    {
+      "name": "_clear",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 89,
+      "ticks": 209
+    },
+    {
+      "name": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 41,
+      "ticks": 175
+    },
+    {
+      "name": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 244,
+      "ticks": 173
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 421,
+      "ticks": 156
+    },
+    {
+      "name": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 100,
+      "ticks": 148
+    },
+    {
+      "name": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 256,
+      "ticks": 132
+    },
+    {
+      "name": "_nearest",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 169,
+      "ticks": 126
+    },
+    {
+      "name": "move",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 253,
+      "ticks": 126
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 422,
+      "ticks": 124
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 414,
+      "ticks": 109
+    },
+    {
+      "name": "_los",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 96,
+      "ticks": 103
+    },
+    {
+      "name": "direction",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 241,
+      "ticks": 82
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 407,
+      "ticks": 80
+    },
+    {
+      "name": "_field",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 196,
+      "ticks": 76
+    },
+    {
+      "name": "_field",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 191,
+      "ticks": 74
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 416,
+      "ticks": 70
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 405,
+      "ticks": 67
+    },
+    {
+      "name": "updateEnemies",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/engine.js",
+      "positionLine": 156,
+      "ticks": 62
+    },
+    {
+      "name": "_field",
+      "url": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "positionLine": 193,
+      "ticks": 62
+    }
+  ],
+  "conclusion": "Navigation/updateEnemies dominate this profile. The earlier log1p/chain proposal lacks enough named-profile contribution to be the first CPU-budget fix. Investigate a small exact Navigation repeated-work reduction, with independent original navigation/Game state/RNG/path oracle and an unprofiled original-budget run before adopting.",
+  "candidateForReview": {
+    "function": "Navigation.direction -> _nearest",
+    "idea": "Reuse the from clearance already successfully established by direction for the immediately following _nearest start check, following the existing _los fromClear convention. Keep default _nearest calls unchanged.",
+    "proofConditions": "Normal original methods do not mutate world/actor geometry between the established clear and _nearest. External overrides/getter-driven geometry mutation must retain the original path via identity/ownership guards or make this candidate unsupported. Radius and grid revision must match. No changed cadence, LOS/slab algorithm, waypoint order or motion coordinates.",
+    "status": "Read-only proposal, not implemented or measured; sibling audits may identify a safer smaller internal candidate."
+  }
+}

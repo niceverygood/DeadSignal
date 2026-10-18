@@ -1,0 +1,12 @@
+Ground-depth scalar candidate: default adoption deferred.
+
+The two production files were restored byte exact to the before evidence. All earlier uncommitted work is preserved. The scalar implementation remains only in renderer-candidate-ground-depth.txt and projection-candidate-ground-depth.txt for independent oracle tests and future QA.
+
+Root's bounded Node A/B/A diagnostic used 5.92 million numeric depth calls per arm. Checksums/game state were exact, but CPU milliseconds were 78/78/140, 110/141/109, and 141/140/110 across the three trials; wall milliseconds were 182.7/131.5/266.8, 295.4/334.0/238.9, and 186.6/164.5/214.7. See ground-depth-node-diagnostic.json. These mixed/worse arms do not establish a consistent performance benefit. This is a pure Node diagnostic, not actual browser rendering or whole-game FPS.
+
+V8 may already eliminate the discarded original projection object. A source-level object expression removed is not proof of an actual allocation saved. Browser control remains unavailable at this decision, so actual application cost and visual QA of this candidate are unverified. No actual allocation, whole-render improvement, or FPS improvement is claimed. New independent candidate tests had not been run at the time this decision was recorded.
+
+Before/production-restored renderer SHA256: 621492d00a0fe0a50083de3c07237f1e8100939c1ce75b6ac9f1eeab477f80b3
+Before/production-restored projection SHA256: b7f066e335fcd89c7cf67fc523b1e62b3094ca0a61cd438bf21c822edeb42082
+Candidate renderer SHA256: ba7abd1349c86fbdafb32d2d8d941d78f2a2278aa2611e1ca3b3c3a1e81fa600
+Candidate projection SHA256: 64a0b970e58c6c082e4256ecfd47b41b3bc672b1740a7cd11f74f7154bb1dee9

@@ -2,7 +2,7 @@ import {project} from './projection.js?v=0.29.0';
 
 const finite=Number.isFinite,positive=value=>finite(value)&&value>0;
 const freeze=value=>{if(value&&typeof value==='object'&&!Object.isFrozen(value)){for(const child of Object.values(value))freeze(child);Object.freeze(value);}return value;};
-const FIRE_CLUSTER_OFFSETS=freeze([[0,0],...Array.from({length:8},(_,index)=>[Math.cos(index*Math.PI/4),Math.sin(index*Math.PI/4)])]);
+const FIRE_CLUSTER_OFFSETS=freeze([[0,0],[.28,-.53],[.64,-.19],[.41,.32],[.12,.65],[-.45,.43],[-.60,.08],[-.39,-.43],[.04,-.29]]);
 
 export function validateFireAtlas(raw){
   const invalid=()=>{throw new Error('invalid-fire-atlas');};
@@ -385,11 +385,11 @@ export class FireArt{
     });
     return this.promise;
   }
-  drawClusters(context,{x,y,r,age=0,alpha=1,clusterWidth=44}={}){
+  drawClusters(context,{x,y,r,age=0,alpha=1,clusterWidth=44,contains=null}={}){
     if(!context||typeof context.drawImage!=='function'||!finite(x)||!finite(y)||!positive(r)||!positive(clusterWidth)||!positive(alpha))return false;
     if(this.status!=='ready'){void this.load();return false;}
     const width=Math.min(44,clusterWidth,r*.48);
-    const clusters=FIRE_CLUSTER_OFFSETS.map(([dx,dy],index)=>({index,foot:project(x+dx*r*.48,y+dy*r*.48)})).sort((a,b)=>a.foot.y-b.foot.y||a.index-b.index);
+    const clusters=FIRE_CLUSTER_OFFSETS.map(([dx,dy],index)=>({index,x:x+dx*r,y:y+dy*r,foot:project(x+dx*r,y+dy*r)})).filter(p=>typeof contains!=='function'||contains(p.x,p.y)).sort((a,b)=>a.foot.y-b.foot.y||a.index-b.index);
     let saved=false,drawn=0;
     try{
       context.save();saved=true;context.globalAlpha*=Math.min(1,alpha);context.imageSmoothingEnabled=true;context.imageSmoothingQuality='high';

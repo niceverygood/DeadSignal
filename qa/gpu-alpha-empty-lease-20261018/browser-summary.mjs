@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+const dir='qa/gpu-alpha-empty-lease-20261018',read=p=>JSON.parse(fs.readFileSync(p,'utf8').replace(/^\uFEFF/,''));
+const app=read(`${dir}/empty-lease-app-exact-browser.json`),prior=read('qa/app-gpu-alpha-20261018/app-gpu-exact-b-browser.json'),replay=read(`${dir}/empty-lease-app-exact-replay.json`).runs[0],quality=read(`${dir}/empty-lease-browser.json`);
+const diffs=[];
+function compare(a,b,path='$'){
+ if(Object.is(a,b))return;
+ if(a&&b&&typeof a==='object'&&typeof b==='object'){
+  for(const key of new Set([...Object.keys(a),...Object.keys(b)]))compare(a[key],b[key],Array.isArray(a)?`${path}[${key}]`:`${path}.${key}`);
+ }else diffs.push({path,expected:a,actual:b,...(typeof a==='number'&&typeof b==='number'?{absoluteDelta:Math.abs(a-b)}:{})});
+}
+compare(app.finalSnapshot,replay.finalSnapshot);
+const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+const output={createdAt:new Date().toISOString(),quality:{empty:quality.empty,firstRead:quality.firstRead,comparisons:quality.comparisons,privateCorpse:quality.privateCorpse,cleanup:quality.cleanup},app:{playingFrames:app.playingFrames,memoryOnly:app.memoryOnly,autostart:app.autostart,storageWrites:app.storageWrites,audioCalls:app.audioCalls,unmeasured:app.unmeasured,initialGPU:app.initialContext.gpuAlphaLaunch,finalGPU:app.finalContext.gpuAlphaLaunch,summary:app.summary,finalContext:app.finalContext,nativeKeys:Object.keys(app.native),firstNativeSamples:app.native.samples.slice(0,10),samePriorExactRun:{initialSnapshot:same(app.initialSnapshot,prior.initialSnapshot),finalSnapshot:same(app.finalSnapshot,prior.finalSnapshot),eventStream:same(app.eventStream,prior.eventStream),tickSchedule:same(app.tickSchedule,prior.tickSchedule)},note:'Single fresh actual app run; changed UI preparation/resume timing and system variation prevent attributing a speed change to this patch. Initial valid lease and final warmReady show resources remained prepared in this run. Prior initial preparation loss cause remains unconfirmed. Raw RAF around one second is not normal presented FPS. Full page screenshot was captured after the completed playing report, when a later upgrade screen had appeared; no choice was made.'},replay:{exact:replay.exact,checks:replay.checks,differenceCount:diffs.length,maxAbsoluteNumericDelta:Math.max(0,...diffs.map(d=>d.absoluteDelta??0)),differences:diffs},console:{quality:read(`${dir}/empty-lease-console.json`),app:read(`${dir}/empty-lease-app-exact-console.json`)}};
+fs.writeFileSync(`${dir}/empty-lease-browser-summary.json`,JSON.stringify(output,null,2)+'\n');
+console.log(JSON.stringify({quality:output.quality.firstRead,cleanup:output.quality.cleanup,app:{summary:output.app.summary,samePriorExactRun:output.app.samePriorExactRun,nativeKeys:output.app.nativeKeys,firstNativeSamples:output.app.firstNativeSamples.slice(0,2)},replay:{exact:output.replay.exact,differenceCount:output.replay.differenceCount,maxAbsoluteNumericDelta:output.replay.maxAbsoluteNumericDelta,fields:[...new Set(diffs.map(d=>d.path.replace(/\[\d+\]/g,'[]')))]}},null,2));

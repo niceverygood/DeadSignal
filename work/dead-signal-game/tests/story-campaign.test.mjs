@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {CITY_STORY,EXPEDITION_ACTS,CAMPAIGN_SCOPE,storyDossier,storyForMission} from '../dist/story-campaign.js';
+import {MISSIONS} from '../dist/campaign.js';
+test('every playable mission has a connected original story without changing its stable save ID',()=>{assert.deepEqual(CITY_STORY.map(s=>s.missionId),MISSIONS.map(m=>m.id));for(const chapter of CITY_STORY)for(const field of ['briefing','objective','lead'])assert.ok(chapter[field].trim().length>0);assert.equal(storyForMission('unknown'),null);});
+test('future route and100h goal remain explicitly planned, with original vaccine recovery finale',()=>{assert.equal(EXPEDITION_ACTS.reduce((n,a)=>n+a.mainHours+a.optionalHours,0),100);assert.equal(CAMPAIGN_SCOPE.status,'expansion-planned');assert.ok(EXPEDITION_ACTS[1].route.some(s=>s.includes('북한')));assert.ok(EXPEDITION_ACTS[2].route.some(s=>s.includes('이스라엘')));assert.match(EXPEDITION_ACTS.at(-1).revelation,/최종 보스.*백신|최종 보스.*원액/);});
+test('mission clues are shown only after clearing and dossier escapes all authored strings',()=>{const hidden=storyDossier('mission-01');assert.ok(!hidden.includes(CITY_STORY[0].lead));assert.ok(storyDossier('mission-01',{cleared:true}).includes(CITY_STORY[0].lead));let calls=0;storyDossier('mission-01',{cleared:true,escape:s=>{calls++;return s;}});assert.equal(calls,4);assert.equal(storyDossier('none'),'');});
+

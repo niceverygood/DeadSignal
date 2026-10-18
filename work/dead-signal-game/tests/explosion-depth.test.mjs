@@ -1,3 +1,6 @@
+import {ChargeWallFeedback} from '../dist/charge-wall-feedback.js';
+import {FireGround} from '../dist/fire-ground.js';
+import {ImpactMarks} from '../dist/impact-marks.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {Renderer} from '../dist/renderer.js';
@@ -31,7 +34,7 @@ function fixture(art,{width=1280,height=720,dpr=1,zoom=1,throwImage=false}={}){
   raw.createRadialGradient=()=>({addColorStop(){}});raw.fillRect=(...args)=>glows.push({args,alpha:raw.globalAlpha});
   raw.drawImage=(image,...args)=>{if(image===art.image){attempts.push(image);if(throwImage)throw Error('atlas unavailable');order.push('native');images.push({image,args,matrix:[...matrix],alpha:raw.globalAlpha});}};
   const ctx=new Proxy(raw,{get:(object,key)=>key in object?object[key]:(()=>{})});
-  const view=Object.assign(Object.create(Renderer.prototype),{ctx,width,height,dpr,zoom,offsetY:28,lastNow:null,cameraReady:true,camera:{x:1200,y:900},cameraProjection:{x:0,y:0},floor:{},explosionArt:art,shakeEnabled:false,atmosphereEnabled:false,minimapEnabled:false,nativeParticleShots:new WeakMap(),nativePlayerShots:new WeakMap()});
+  const view=Object.assign(Object.create(Renderer.prototype),{chargeWallFeedback:new ChargeWallFeedback(),fireGround:new FireGround(),impactMarks:new ImpactMarks(),ctx,width,height,dpr,zoom,offsetY:28,lastNow:null,cameraReady:true,camera:{x:1200,y:900},cameraProjection:{x:0,y:0},floor:{},explosionArt:art,shakeEnabled:false,atmosphereEnabled:false,minimapEnabled:false,nativeParticleShots:new WeakMap(),nativePlayerShots:new WeakMap()});
   view.visible=()=>true;view.makeFloor=()=>{};
   for(const method of ['drawBuildingShadow','drawExit','drawCorpse','drawTelegraph','drawBossHazard','drawFire','drawLure','drawPickup','drawDecor','drawBullet','drawHostileProjectile','drawLink','drawPlayerIdentification','drawText','drawCursor','drawHealthWarning','drawObjectiveDirections','drawMinimap'])view[method]=()=>{};
   view.playerIdentificationNeeded=()=>false;
@@ -78,3 +81,5 @@ test('repeated paused/upgrade renders depth-sort every live burst once without c
   }
   assert.equal(images.length,1);
 });
+
+test('boss wall dust joins world depth before foreground roof and after background geometry',async()=>{const {art}=await readyArt(),{game}=scene(),f=fixture(art),before=capture(game);const p={x:1200,y:900,z:22,born:game.time,maxLife:.45};f.view.chargeWallFeedback={items:[p],observe(){},drawItem(){f.order.push('wall-impact');}};f.view.render(game,{},.16);assert.equal(f.order.filter(x=>x==='wall-impact').length,1);assert.ok(f.order.indexOf('back-roof')<f.order.indexOf('wall-impact'));assert.ok(f.order.indexOf('wall-impact')<f.order.indexOf('front-roof'));assert.equal(capture(game),before);assert.equal(f.stackSize(),0);});

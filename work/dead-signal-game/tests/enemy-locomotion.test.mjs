@@ -43,3 +43,5 @@ test('measured sole correction is limited and never flattens running flight or a
   near(enemyGroundingHeight(selected,{...profile,grounding:'measured-constant-baseline-preserve-flight',groundingBaseline:.2}),.2);
   assert.equal(enemyGroundingHeight({...selected,metadata:{...selected.metadata,animation:{clips:{walk:{}}}}},profile),0);
 });
+
+test('native start/stop weight is time based and keeps distance cadence frozen when blocked',()=>{const results=[];for(const hz of [20,30,60,120]){const c=new EnemyLocomotionClock(),e={id:9,x:0,y:0,angle:0,speed:40};c.select(e,0);let s;for(let i=1;i<=hz;i++){e.x=40*i/hz;s=c.select(e,i/hz);}near(s.moveWeight,1-Math.exp(-1/.075));const phase=s.phase;for(let i=1;i<=hz;i++)s=c.select(e,1+i/hz);near(s.moveWeight,(1-Math.exp(-1/.075))*Math.exp(-1/.12));near(s.phase,phase);assert.equal(s.pose,'idle');assert.equal(c.select(e,2),s);assert.equal(Object.hasOwn(e,'moveWeight'),false);results.push(s.moveWeight);}for(const x of results)near(x,results[0]);});

@@ -1,0 +1,70 @@
+- main "데드 시그널 게임":
+  - generic "데드 시그널 전장. WASD로 이동하고 자동으로 좀비를 공격합니다. F로 사격 모드를 전환하세요."
+  - region "생존자 상태":
+    - text: SURVIVOR ONLINE
+    - generic: DS—01
+    - generic: 체력
+    - strong: 100 / 100
+    - generic: 산탄총
+    - strong: 재장전
+    - generic: R
+  - region "임무 정보":
+    - generic: 작전 경과
+    - strong: 00:10
+    - generic: 원정 / 도시 원정
+  - region "전투 기록":
+    - button "현재 오토 모드. 수동 모드로 전환" [pressed]: 오토 모드
+    - button "미니맵" [pressed]: 지도 M
+    - button "사운드 설정" [pressed]:
+    - button "일시정지":
+    - generic: 처치
+    - strong: "22"
+    - generic: 레벨
+    - strong: "1"
+  - region "현재 목표":
+    - generic "구역 진행":
+      - generic: 1 거리
+      - generic: 2 마트 입구
+      - generic: 3 계단 접근
+    - strong: 거리 중계기 복구
+    - generic: 목표까지 175m · 금색 표식으로 이동
+  - region "성장과 소음":
+    - generic: 소음
+    - generic: 무리가 몰려온다
+    - generic: ≋
+    - generic: 소음이 높을수록 더 많은 좀비가 몰립니다.
+    - generic: 경험치
+    - generic: 다음 개조까지
+  - region "전투 장비":
+    - button "E 소음탄 준비":
+      - generic: E
+      - generic: 소음탄
+      - generic: 준비
+    - button "Q 화염병 준비":
+      - generic: Q
+      - generic: 화염병
+      - generic: 준비
+    - button "SPACE 회피 준비":
+      - generic: SPACE
+      - generic: 회피
+      - generic: 준비
+  - status: E로 좀비를 모으고 Q로 화염병을 던지세요.
+  - generic: W A S D
+  - text: 이동
+  - generic: 오토 · 자동 조준·발사
+  - generic: F
+  - text: 모드 전환
+  - generic: Space
+  - text: 회피
+  - generic: E
+  - text: 유인
+  - generic: Q
+  - text: 화염병
+  - generic: R
+  - text: 재장전
+  - generic: Esc
+  - text: 일시정지
+- generic: SURVIVOR / SPECIAL ACTION
+- button "무전 배터리 연결 금색 표식에 접근하세요" [disabled]:
+  - strong: 무전 배터리 연결
+  - generic: 금색 표식에 접근하세요

@@ -1,0 +1,761 @@
+{
+  "version": 1,
+  "bosses": {
+    "enemy-walker": {
+      "file": "models/enemy-walker.glb",
+      "walkFile": "models/enemy-walker-walk.glb",
+      "original": "work/meshy-sprite-baker/models/enemy-walker-rig-motion.glb",
+      "sha256": "f1570e6a8c6927e530e79e2a22fcb1a5d14d764f2ef7690ea6af21de6cfe34ff",
+      "source": {
+        "file": "enemy-walker-rig-motion.glb",
+        "url": "/models/enemy-walker-rig-motion.glb",
+        "originalBounds": {
+          "min": [
+            -0.39638008964624244,
+            -7.56061114284479e-10,
+            -0.21882648509320513
+          ],
+          "max": [
+            0.39638002417310647,
+            1.8000000879883502,
+            0.21882649682219868
+          ]
+        },
+        "scale": 23.333332182942872,
+        "originPivot": {
+          "x": -3.273656798419289e-8,
+          "y": -7.56061114284479e-10,
+          "z": 5.8644967770860035e-9
+        },
+        "normalizationMode": "height",
+        "rig": {
+          "skins": 1,
+          "bones": 24,
+          "restForward": [
+            -2.631682466240467e-7,
+            -9.824373742207674e-7,
+            0.9999999999994829
+          ]
+        },
+        "format": "glb",
+        "stats": {
+          "meshes": 1,
+          "triangles": 18603,
+          "skinnedMeshes": 1,
+          "materials": 1
+        }
+      },
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.9161665139824304,
+        "footPivot": {
+          "x": 128,
+          "y": 185.9486522549302
+        },
+        "subjectHeight": 42,
+        "frontYawRadians": 0
+      },
+      "walkName": "DS_GroundedWalk",
+      "walkOriginal": "work/meshy-sprite-baker/models/enemy-walker-grounded-locomotion-v1.glb",
+      "walkSHA256": "10137adca452ecccc6598695b20c0579f0c742622fea6b1bd162955684da16e9",
+      "clips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "sampleDensity": {
+        "idle": 64,
+        "walk": 128,
+        "windup": 96,
+        "attack": 96,
+        "hit": 64,
+        "death": 96
+      }
+    },
+    "enemy-runner": {
+      "file": "models/enemy-runner.glb",
+      "walkFile": "models/enemy-runner-walk.glb",
+      "original": "work/meshy-sprite-baker/models/enemy-runner-rig-motion.glb",
+      "sha256": "35d27a6ed179158535a47d21ae302834950b5165c7b913cbd5efc9e1659df384",
+      "source": {
+        "file": "enemy-runner-rig-motion.glb",
+        "url": "/models/enemy-runner-rig-motion.glb",
+        "originalBounds": {
+          "min": [
+            -0.628099559713598,
+            1.4884418990863784e-7,
+            -0.8133179640419532
+          ],
+          "max": [
+            0.6280996450851549,
+            1.7999998457562476,
+            0.813317964293285
+          ]
+        },
+        "scale": 21.111114665846834,
+        "originPivot": {
+          "x": 4.2685778467443924e-8,
+          "y": 1.4884418990863784e-7,
+          "z": 1.256658666015653e-10
+        },
+        "normalizationMode": "height",
+        "rig": {
+          "skins": 1,
+          "bones": 24,
+          "restForward": [
+            -9.449384075687497e-8,
+            -1.6154047663208962e-8,
+            0.9999999999999954
+          ]
+        },
+        "format": "glb",
+        "stats": {
+          "meshes": 1,
+          "triangles": 18610,
+          "skinnedMeshes": 1,
+          "materials": 1
+        }
+      },
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.508006519883532,
+        "footPivot": {
+          "x": 128,
+          "y": 168.70879492408363
+        },
+        "subjectHeight": 38,
+        "frontYawRadians": 0
+      },
+      "walkName": "DS_GroundedRun",
+      "walkOriginal": "work/meshy-sprite-baker/models/enemy-runner-grounded-locomotion-v1.glb",
+      "walkSHA256": "746c3e0473a927387e9c5e1a792de5b4a90986a842ad666f379bdf5a1a12c854",
+      "clips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "sampleDensity": {
+        "idle": 64,
+        "walk": 128,
+        "windup": 96,
+        "attack": 96,
+        "hit": 64,
+        "death": 96
+      }
+    },
+    "enemy-shield": {
+      "file": "models/enemy-shield.glb",
+      "walkFile": "models/enemy-shield-walk.glb",
+      "original": "work/meshy-sprite-baker/models/enemy-shield-rig-motion.glb",
+      "sha256": "1c1ccaa1530a8fc17951439ee335537558ddd0754450da0590e0c346d700bdd0",
+      "source": {
+        "file": "enemy-shield-rig-motion.glb",
+        "url": "/models/enemy-shield-rig-motion.glb",
+        "originalBounds": {
+          "min": [
+            -0.5694784419992489,
+            4.781725424222211e-10,
+            -0.5257783168449011
+          ],
+          "max": [
+            0.5694783280847617,
+            1.7999999265151534,
+            0.5257784112452141
+          ]
+        },
+        "scale": 25.555556605647848,
+        "originPivot": {
+          "x": -5.695724358822929e-8,
+          "y": 4.781725424222211e-10,
+          "z": 4.7200156505500246e-8
+        },
+        "normalizationMode": "height",
+        "rig": {
+          "skins": 1,
+          "bones": 24,
+          "restForward": [
+            8.161614697257094e-8,
+            -6.976480443291501e-7,
+            0.9999999999997532
+          ]
+        },
+        "format": "glb",
+        "stats": {
+          "meshes": 1,
+          "triangles": 18430,
+          "skinnedMeshes": 1,
+          "materials": 1
+        }
+      },
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.0384038050823965,
+        "footPivot": {
+          "x": 128,
+          "y": 161.87755783070696
+        },
+        "subjectHeight": 46,
+        "frontYawRadians": 0
+      },
+      "walkName": "DS_GroundedWalk",
+      "walkOriginal": "work/meshy-sprite-baker/models/enemy-shield-grounded-locomotion-v1.glb",
+      "walkSHA256": "e1f93aa724b386248fa766fe5dcd389ebf01233b89e31146c7ab90724eb513eb",
+      "clips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "sampleDensity": {
+        "idle": 64,
+        "walk": 128,
+        "windup": 96,
+        "attack": 96,
+        "hit": 64,
+        "death": 96
+      }
+    },
+    "enemy-screamer": {
+      "file": "models/enemy-screamer.glb",
+      "walkFile": "models/enemy-screamer-walk.glb",
+      "original": "work/meshy-sprite-baker/models/enemy-screamer-rig-motion.glb",
+      "sha256": "578de74ca88da2d6ea88215766f3831bbb99c4ed9bd43bcf4e0c8cc02ea2a871",
+      "source": {
+        "file": "enemy-screamer-rig-motion.glb",
+        "url": "/models/enemy-screamer-rig-motion.glb",
+        "originalBounds": {
+          "min": [
+            -0.4944318754721882,
+            -9.862700376871826e-8,
+            -0.2505603447016106
+          ],
+          "max": [
+            0.4944318710367476,
+            1.800000050917603,
+            0.2505603009054723
+          ]
+        },
+        "scale": 29.999997507590095,
+        "originPivot": {
+          "x": -2.2177202851914046e-9,
+          "y": -9.862700376871826e-8,
+          "z": -2.1898069135772857e-8
+        },
+        "normalizationMode": "height",
+        "rig": {
+          "skins": 1,
+          "bones": 24,
+          "restForward": [
+            -0.012132671065190177,
+            -0.1237978936227565,
+            0.9922332789356505
+          ]
+        },
+        "format": "glb",
+        "stats": {
+          "meshes": 1,
+          "triangles": 18723,
+          "skinnedMeshes": 1,
+          "materials": 1
+        }
+      },
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.2786302039838704,
+        "footPivot": {
+          "x": 128,
+          "y": 180.56824099609557
+        },
+        "subjectHeight": 54,
+        "frontYawRadians": 0
+      },
+      "walkName": "DS_GroundedWalk",
+      "walkOriginal": "work/meshy-sprite-baker/models/enemy-screamer-grounded-locomotion-v1.glb",
+      "walkSHA256": "0b3ce229248ad79e7430b9550ed09ded56e1f1ae4bc0da46c99cd6779c7de17d",
+      "clips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "sampleDensity": {
+        "idle": 64,
+        "walk": 128,
+        "windup": 96,
+        "attack": 96,
+        "hit": 64,
+        "death": 96
+      }
+    },
+    "enemy-gas": {
+      "file": "models/enemy-gas.glb",
+      "walkFile": "models/enemy-gas-walk.glb",
+      "original": "work/meshy-sprite-baker/models/enemy-gas-rig-motion.glb",
+      "sha256": "4e787a9ce06b0896435ac6920b7d197bf4904017fb01c983d021adc16e2fa7c1",
+      "source": {
+        "file": "enemy-gas-rig-motion.glb",
+        "url": "/models/enemy-gas-rig-motion.glb",
+        "originalBounds": {
+          "min": [
+            -0.40540904285797996,
+            -1.4086368841667921e-7,
+            -0.5221374036033868
+          ],
+          "max": [
+            0.4054090313047869,
+            1.7999998861343929,
+            0.52213739997262
+          ]
+        },
+        "scale": 25.555555172249466,
+        "originPivot": {
+          "x": -5.776596534445844e-9,
+          "y": -1.4086368841667921e-7,
+          "z": -1.815383399161874e-9
+        },
+        "normalizationMode": "height",
+        "rig": {
+          "skins": 1,
+          "bones": 24,
+          "restForward": [
+            -1.8833850536421144e-7,
+            -7.981101405544533e-8,
+            0.999999999999979
+          ]
+        },
+        "format": "glb",
+        "stats": {
+          "meshes": 1,
+          "triangles": 18477,
+          "skinnedMeshes": 1,
+          "materials": 1
+        }
+      },
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 2.477087232486729,
+        "footPivot": {
+          "x": 128,
+          "y": 182.9064458336591
+        },
+        "subjectHeight": 46,
+        "frontYawRadians": 0
+      },
+      "walkName": "DS_GroundedWalk",
+      "walkOriginal": "work/meshy-sprite-baker/models/enemy-gas-grounded-locomotion-v1.glb",
+      "walkSHA256": "6f6ff0def9c6015e4f20e32b56525159c1dcbca87cdc0adfc1fa3cb9a114940b",
+      "clips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "sampleDensity": {
+        "idle": 64,
+        "walk": 128,
+        "windup": 96,
+        "attack": 96,
+        "hit": 64,
+        "death": 96
+      }
+    },
+    "enemy-elite": {
+      "file": "models/enemy-elite.glb",
+      "walkFile": "models/enemy-elite-walk.glb",
+      "original": "work/meshy-sprite-baker/models/enemy-elite-rig-motion.glb",
+      "sha256": "980c6b99485b2756e7457957f80540618d6c67572fe1d470c516ac7ae4c44f60",
+      "source": {
+        "file": "enemy-elite-rig-motion.glb",
+        "url": "/models/enemy-elite-rig-motion.glb",
+        "originalBounds": {
+          "min": [
+            -0.6253488566828936,
+            2.104732715813291e-9,
+            -0.5683095293745115
+          ],
+          "max": [
+            0.6253487293249047,
+            1.7999998708030842,
+            0.5683095006402215
+          ]
+        },
+        "scale": 27.77777980403793,
+        "originPivot": {
+          "x": -6.367899446635406e-8,
+          "y": 2.104732715813291e-9,
+          "z": -1.436714502922598e-8
+        },
+        "normalizationMode": "height",
+        "rig": {
+          "skins": 1,
+          "bones": 24,
+          "restForward": [
+            -5.9358365359668416e-8,
+            -5.589518135168987e-7,
+            0.999999999999842
+          ]
+        },
+        "format": "glb",
+        "stats": {
+          "meshes": 1,
+          "triangles": 18560,
+          "skinnedMeshes": 1,
+          "materials": 1
+        }
+      },
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.9664860911911084,
+        "footPivot": {
+          "x": 128,
+          "y": 165.00719483674487
+        },
+        "subjectHeight": 50,
+        "frontYawRadians": 0
+      },
+      "walkName": "DS_GroundedWalk",
+      "walkOriginal": "work/meshy-sprite-baker/models/enemy-elite-grounded-locomotion-v1.glb",
+      "walkSHA256": "9dd253f0fa0ebeeea4516c9ce1c658f7252b973e965c10fe8cd45cb7c1ae5bec",
+      "clips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "sampleDensity": {
+        "idle": 64,
+        "walk": 128,
+        "windup": 96,
+        "attack": 96,
+        "hit": 64,
+        "death": 96
+      }
+    },
+    "enemy-collector": {
+      "file": "models/enemy-collector.glb",
+      "walkFile": "models/enemy-collector-walk.glb",
+      "original": "work/meshy-sprite-baker/models/enemy-collector-rig-motion.glb",
+      "sha256": "3dbd761e9455a162b44dd15d60dbf6d6044874e39593285e44422ab9e604b657",
+      "source": {
+        "file": "enemy-collector-rig-motion.glb",
+        "url": "/models/enemy-collector-rig-motion.glb",
+        "originalBounds": {
+          "min": [
+            -0.9917641108533555,
+            -1.164777740318115e-8,
+            -0.4510504493320545
+          ],
+          "max": [
+            0.9917641057508285,
+            1.7999998936716386,
+            0.45105045937427124
+          ]
+        },
+        "scale": 45.555557951792686,
+        "originPivot": {
+          "x": -2.5512634782565158e-9,
+          "y": -1.164777740318115e-8,
+          "z": 5.021108362424087e-9
+        },
+        "normalizationMode": "height",
+        "rig": {
+          "skins": 1,
+          "bones": 24,
+          "restForward": [
+            1.2850844538295935e-7,
+            -0.000001608137967247381,
+            0.9999999999986987
+          ]
+        },
+        "format": "glb",
+        "stats": {
+          "meshes": 1,
+          "triangles": 18494,
+          "skinnedMeshes": 1,
+          "materials": 1
+        }
+      },
+      "projection": {
+        "gameAxes": "x,y on ground; z height",
+        "threeAxes": "X=game.x,Y=game.z,Z=game.y",
+        "azimuthDegrees": 45,
+        "elevationDegrees": 35.26438968275467,
+        "cameraScale": 1.224744871391589,
+        "pixelsPerWorld": 1.203079496602459,
+        "footPivot": {
+          "x": 128,
+          "y": 171.31164360058708
+        },
+        "subjectHeight": 82,
+        "frontYawRadians": 0
+      },
+      "walkName": "DS_GroundedWalk",
+      "walkOriginal": "work/meshy-sprite-baker/models/enemy-collector-grounded-locomotion-v1.glb",
+      "walkSHA256": "7351835c802d81d640ead09ec8da6ce6497620359b12c9ab7789f9424dc636a3",
+      "clips": {
+        "idle": {
+          "start": 0,
+          "count": 4,
+          "duration": 1.8,
+          "loop": true
+        },
+        "walk": {
+          "start": 4,
+          "count": 8,
+          "duration": 1.2,
+          "loop": true
+        },
+        "windup": {
+          "start": 12,
+          "count": 6,
+          "duration": 0.8,
+          "loop": false
+        },
+        "attack": {
+          "start": 18,
+          "count": 6,
+          "duration": 0.55,
+          "loop": false
+        },
+        "hit": {
+          "start": 24,
+          "count": 2,
+          "duration": 0.22,
+          "loop": false
+        },
+        "death": {
+          "start": 26,
+          "count": 6,
+          "duration": 1.15,
+          "loop": false
+        }
+      },
+      "sampleDensity": {
+        "idle": 64,
+        "walk": 128,
+        "windup": 96,
+        "attack": 96,
+        "hit": 64,
+        "death": 96
+      }
+    }
+  }
+}

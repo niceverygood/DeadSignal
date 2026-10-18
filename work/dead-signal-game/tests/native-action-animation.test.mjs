@@ -1,3 +1,6 @@
+import {ChargeWallFeedback} from '../dist/charge-wall-feedback.js';
+import {FireGround} from '../dist/fire-ground.js';
+import {ImpactMarks} from '../dist/impact-marks.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Game } from '../dist/engine.js';
@@ -166,7 +169,7 @@ test('boss corpse identity persists through new checkpoints and old identity-fre
 });
 
 test('native corpse animation follows simulation through pause and completes once after terminal victory without mutating it', async () => {
-  const art = await artFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {
+  const art = await artFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {chargeWallFeedback:new ChargeWallFeedback(),fireGround:new FireGround(),impactMarks:new ImpactMarks(),
     productionArt: art, motionEnabled: true, nativeCorpseEndClocks: new WeakMap(), requestProductionCatalog() {},
   });
   const { game, actor } = fresh('final'); game.damageEnemy(actor, actor.hp);
@@ -187,7 +190,7 @@ test('native corpse animation follows simulation through pause and completes onc
 
 test('native dying bodies share the live actor depth sort and do not use the generic ground prepass', () => {
   const order = [], c = new Proxy({}, { get: (target, key) => key in target ? target[key] : () => ({ addColorStop() {} }) });
-  const renderer = Object.assign(Object.create(Renderer.prototype), {
+  const renderer = Object.assign(Object.create(Renderer.prototype), {chargeWallFeedback:new ChargeWallFeedback(),fireGround:new FireGround(),impactMarks:new ImpactMarks(),
     ctx: c, dpr: 1, width: 800, height: 600, offsetY: 0, zoom: 1, cameraReady: true, camera: { x: 1000, y: 1000 }, lastNow: 0,
     floor: {}, atmosphereEnabled: false, shakeEnabled: false, fireArt: { status: 'idle' }, explosionArt: { status: 'idle' },
     makeFloor() {}, visible() { return true; }, nativeCorpseFrame() { return { native: true }; },
@@ -305,7 +308,7 @@ test('real ordinary NPC contact strikes and scream releases use existing saved c
 });
 
 test('ordinary NPC death reuses its exact registered enemy identity and the same saved corpse lifetime', async () => {
-  const art = await artFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {
+  const art = await artFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {chargeWallFeedback:new ChargeWallFeedback(),fireGround:new FireGround(),impactMarks:new ImpactMarks(),
     productionArt: art, motionEnabled: true, nativeCorpseEndClocks: new WeakMap(), requestProductionCatalog() {},
   });
   const game = new Game({ seed: 22 }); game.enemies = []; game.player.invul = 9999;
@@ -340,7 +343,7 @@ async function heroArtFixture(withActions = true) {
 }
 
 test('optional hero action reel handles real shooting, hurt and death while preserving packed locomotion aliases and the actual player clock', async () => {
-  const art = await heroArtFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {
+  const art = await heroArtFixture(), renderer = Object.assign(Object.create(Renderer.prototype), {chargeWallFeedback:new ChargeWallFeedback(),fireGround:new FireGround(),impactMarks:new ImpactMarks(),
     productionArt: art, nativePlayerEndClocks: new WeakMap(), lastNow: 10, motionEnabled: true,
   });
   const game = new Game({ seed: 20 }), player = game.player;
@@ -367,7 +370,7 @@ test('optional hero action reel handles real shooting, hurt and death while pres
 test('a missing hero action reel and real reload cooldown retain original equipped hero art instead of substituting an unarmed model', async () => {
   for (const withActions of [false, true]) {
     const art = await heroArtFixture(withActions), game = new Game({ seed: 21 });
-    const renderer = Object.assign(Object.create(Renderer.prototype), { productionArt: art, lastNow: 0, motionEnabled: true });
+    const renderer = Object.assign(Object.create(Renderer.prototype), {chargeWallFeedback:new ChargeWallFeedback(),fireGround:new FireGround(),impactMarks:new ImpactMarks(), productionArt: art, lastNow: 0, motionEnabled: true });
     game.player.reloadTime = 1; game.player.recoil = 0;
     const selected = renderer.nativePlayerFrame(game.player, game);
     assert.equal(selected.id, 'hero-idle'); assert.equal(selected.metadata.atlas.includesWeapon, true);

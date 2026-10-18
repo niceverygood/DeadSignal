@@ -1,0 +1,324 @@
+{
+  "originalSourceSha256": "b5ab39861cb4128e3fd2b97f5eb682b2390eee5dd20f916e85e81540727e405b",
+  "runs": [
+    {
+      "arm": "legacy",
+      "phases": [
+        {
+          "phase": "cold",
+          "sampleRate": 48000,
+          "recipes": 8,
+          "noiseCallWallMs": 8.899999976158142,
+          "timings": [
+            3.099999964237213,
+            2.400000035762787,
+            0.3999999761581421,
+            0.8999999761581421,
+            0.40000003576278687,
+            0.30000001192092896,
+            0.2999999523162842,
+            1.100000023841858
+          ],
+          "random": {
+            "calls": 72480,
+            "state": 753639546
+          },
+          "voicesCreated": 8,
+          "activeAfterEnded": 0,
+          "cacheBefore": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "cacheAfter": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "pcmHashes": [
+            "21367e3d1bab6005b528fba1fa8996a44eef3336127528d1ef6ba04f87770b4b",
+            "1dd1c04a8c4e3130aa0687b78839e229ecd84e4cd968d418cd26fe9fbeefb118"
+          ],
+          "difference": [
+            {
+              "different": 0,
+              "maxDelta": 0,
+              "lengthMismatch": false
+            },
+            {
+              "different": 0,
+              "maxDelta": 0,
+              "lengthMismatch": false
+            }
+          ]
+        },
+        {
+          "phase": "warm",
+          "sampleRate": 48000,
+          "recipes": 8,
+          "noiseCallWallMs": 5.600000023841858,
+          "timings": [
+            0.5,
+            1.100000023841858,
+            0.30000001192092896,
+            1.199999988079071,
+            0.5999999642372131,
+            0.7000000476837158,
+            0.19999998807907104,
+            1
+          ],
+          "random": {
+            "calls": 72480,
+            "state": 753639546
+          },
+          "voicesCreated": 8,
+          "activeAfterEnded": 0,
+          "cacheBefore": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "cacheAfter": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "pcmHashes": [
+            "1ab87712d3fc753f574da98faa2f8f3bc0d7843b6e528a3f0c61af7fe9819b24",
+            "218b74c018cce8b84910c29c9ca913948870ea4e791b0b3676afeb84c5a96fd9"
+          ],
+          "difference": [
+            {
+              "different": 0,
+              "maxDelta": 0,
+              "lengthMismatch": false
+            },
+            {
+              "different": 0,
+              "maxDelta": 0,
+              "lengthMismatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "cached",
+      "phases": [
+        {
+          "phase": "cold",
+          "sampleRate": 48000,
+          "recipes": 8,
+          "noiseCallWallMs": 8.599999964237213,
+          "timings": [
+            0.699999988079071,
+            1.699999988079071,
+            0.3999999761581421,
+            1.5,
+            0.5,
+            0.40000003576278687,
+            0.699999988079071,
+            2.699999988079071
+          ],
+          "random": {
+            "calls": 72480,
+            "state": 753639546
+          },
+          "voicesCreated": 8,
+          "activeAfterEnded": 0,
+          "cacheBefore": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "cacheAfter": {
+            "entries": 8,
+            "bytes": 579840,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "pcmHashes": [
+            "589812bdb95789ce101bfe0462285b804b0d4db9b50152a5132e47fcb54ebb09",
+            "4016f9125cba4338770fed6e8a93f6834cb4b7af2a22c9032610eb5792199685"
+          ],
+          "difference": [
+            {
+              "different": 3703,
+              "maxDelta": 5.955496362730628e-8,
+              "lengthMismatch": false
+            },
+            {
+              "different": 3606,
+              "maxDelta": 1.0634303748702223e-7,
+              "lengthMismatch": false
+            }
+          ]
+        },
+        {
+          "phase": "warm",
+          "sampleRate": 48000,
+          "recipes": 8,
+          "noiseCallWallMs": 5.899999976158142,
+          "timings": [
+            0.3999999761581421,
+            3.199999988079071,
+            0.40000003576278687,
+            0.8999999761581421,
+            0.19999998807907104,
+            0.30000001192092896,
+            0.10000002384185791,
+            0.3999999761581421
+          ],
+          "random": {
+            "calls": 72480,
+            "state": 753639546
+          },
+          "voicesCreated": 8,
+          "activeAfterEnded": 0,
+          "cacheBefore": {
+            "entries": 8,
+            "bytes": 579840,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "cacheAfter": {
+            "entries": 8,
+            "bytes": 579840,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "pcmHashes": [
+            "2b33ca7902c7a085cc1b116cd125b6bf78219b8afbfd48c16d0aa97e018b88a7",
+            "77347d7745a5b60c2b270171bbdf833a977e8f099471d1c5a1db4b3e6bd9cfd8"
+          ],
+          "difference": [
+            {
+              "different": 3409,
+              "maxDelta": 1.6996636986732483e-7,
+              "lengthMismatch": false
+            },
+            {
+              "different": 3341,
+              "maxDelta": 3.026798367500305e-7,
+              "lengthMismatch": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "legacy-repeat",
+      "phases": [
+        {
+          "phase": "cold",
+          "sampleRate": 48000,
+          "recipes": 8,
+          "noiseCallWallMs": 10.800000011920929,
+          "timings": [
+            0.30000001192092896,
+            0.699999988079071,
+            0.20000004768371582,
+            5.799999952316284,
+            1,
+            0.40000003576278687,
+            1,
+            1.399999976158142
+          ],
+          "random": {
+            "calls": 72480,
+            "state": 753639546
+          },
+          "voicesCreated": 8,
+          "activeAfterEnded": 0,
+          "cacheBefore": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "cacheAfter": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "pcmHashes": [
+            "b84529b476861bced1e2f5856b61441ad20eae932477cde479e8f1918abb3a3c",
+            "1cdf809ebff3547586174ff230eec33ff0e8f3a03a0c444da49608931291e0ee"
+          ],
+          "difference": [
+            {
+              "different": 4993,
+              "maxDelta": 1.695007085800171e-7,
+              "lengthMismatch": false
+            },
+            {
+              "different": 5020,
+              "maxDelta": 3.022141754627228e-7,
+              "lengthMismatch": false
+            }
+          ]
+        },
+        {
+          "phase": "warm",
+          "sampleRate": 48000,
+          "recipes": 8,
+          "noiseCallWallMs": 4.900000035762787,
+          "timings": [
+            0.7000000476837158,
+            0.5999999642372131,
+            0.30000001192092896,
+            1.300000011920929,
+            0.5,
+            0.5,
+            0.19999998807907104,
+            0.800000011920929
+          ],
+          "random": {
+            "calls": 72480,
+            "state": 753639546
+          },
+          "voicesCreated": 8,
+          "activeAfterEnded": 0,
+          "cacheBefore": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "cacheAfter": {
+            "entries": 0,
+            "bytes": 0,
+            "maxEntries": 24,
+            "maxBytes": 1048576
+          },
+          "pcmHashes": [
+            "4e6d242ef45db0b6538e9ae9acfadfc56475dbab96e0bb9b9603a34b2b7788c0",
+            "abaaea840dbdff144e482f46adabfb43426805bc1805228b423208b5b80f92cd"
+          ],
+          "difference": [
+            {
+              "different": 1153,
+              "maxDelta": 1.6996636986732483e-7,
+              "lengthMismatch": false
+            },
+            {
+              "different": 1172,
+              "maxDelta": 3.022141754627228e-7,
+              "lengthMismatch": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pcmExact": false,
+  "randomExact": true,
+  "allVoicesReleased": true,
+  "note": "8851 genuine-memory QA only. Native OfflineAudioContext renders eight original noise-layer parameter sets with the same random sequence, filter, gain, panning and compressor. Cold and warm phases use fresh AudioBuffers and fresh contexts on the same AudioSystem owner. Only synchronous noise calls are timed; graph setup, offline rendering, hashing, PCM comparison and cache snapshots are outside those intervals. These are noise-layer tests, not the full weapon mix, listening, device latency, normal FPS, process RAM or VRAM. No Game tick, persistent save, paid generation or reused random waveform is used."
+}

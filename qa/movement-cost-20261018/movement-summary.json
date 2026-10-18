@@ -1,0 +1,765 @@
+{
+  "counts": {
+    "reason": "playing-limit",
+    "frames": 40,
+    "callbacks": 40,
+    "memoryOnly": true,
+    "storage": 1,
+    "audio": 71,
+    "missing": [],
+    "movementMissing": [],
+    "initial": {
+      "state": "playing",
+      "screen": null,
+      "time": 0.49999999999999994,
+      "hp": 100,
+      "kills": 0,
+      "enemies": 180,
+      "random": 1827321084,
+      "visualRandom": 3527718511,
+      "accumulator": 0.013300000000001165,
+      "lastFrame": 18805.8,
+      "saveClock": 0.5133000000000011,
+      "hudClock": 0,
+      "hidden": false,
+      "focused": true,
+      "visibility": "visible",
+      "audioState": "running",
+      "canvas": {
+        "width": 1735,
+        "height": 1171,
+        "dpr": 1
+      },
+      "captureStats": {
+        "created": 221,
+        "reused": 17644,
+        "captures": 494
+      },
+      "reuseCapture": true,
+      "nativeSelected": 2,
+      "playerLive": true,
+      "gpuEnabled": false,
+      "nativeLaunch": {
+        "keys": [
+          "enemy-walker"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "bb444a34-e82a-46a9-bdb6-c4da900578ac",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 1,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption.",
+        "adopted": true
+      },
+      "enemyGrid": {
+        "mapsCreated": 1,
+        "bucketsCreated": 95,
+        "bucketReuses": 2574,
+        "acquisitions": 30,
+        "leasesCreated": 30,
+        "trackingArraysCreated": 1,
+        "retainedActors": 0,
+        "retainedBuckets": 95
+      },
+      "rigError": ""
+    },
+    "final": {
+      "state": "playing",
+      "screen": null,
+      "time": 4.933333333333321,
+      "hp": 64,
+      "kills": 3,
+      "enemies": 188,
+      "random": 868203129,
+      "visualRandom": 747941840,
+      "accumulator": 0.0038666666666664837,
+      "lastFrame": 48795.7,
+      "saveClock": 1.9200000000000008,
+      "hudClock": 0,
+      "hidden": false,
+      "focused": true,
+      "visibility": "visible",
+      "audioState": "running",
+      "canvas": {
+        "width": 1735,
+        "height": 1171,
+        "dpr": 1
+      },
+      "captureStats": {
+        "created": 477,
+        "reused": 68820,
+        "captures": 760
+      },
+      "reuseCapture": true,
+      "nativeSelected": 12,
+      "playerLive": true,
+      "gpuEnabled": false,
+      "nativeLaunch": {
+        "keys": [
+          "enemy-walker"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "bb444a34-e82a-46a9-bdb6-c4da900578ac",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 1,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption.",
+        "adopted": true
+      },
+      "enemyGrid": {
+        "mapsCreated": 1,
+        "bucketsCreated": 95,
+        "bucketReuses": 15956,
+        "acquisitions": 296,
+        "leasesCreated": 296,
+        "trackingArraysCreated": 1,
+        "retainedActors": 0,
+        "retainedBuckets": 95
+      },
+      "rigError": ""
+    },
+    "summary": {
+      "frameCpuMs": {
+        "median": 67.09999996423721,
+        "p95": 241.5,
+        "max": 424.60000002384186
+      },
+      "rawDeltaMs": {
+        "median": 1000.7000000000044,
+        "p95": 1034.199999999997,
+        "max": 1034.199999999997
+      },
+      "clampedDeltaMs": {
+        "median": 120,
+        "p95": 120,
+        "max": 120
+      },
+      "discardedWallMs": {
+        "median": 880.7000000000044,
+        "p95": 914.1999999999971,
+        "max": 914.1999999999971
+      },
+      "tickCount": {
+        "median": 7,
+        "p95": 8,
+        "max": 8
+      }
+    },
+    "movement": {
+      "move.player": {
+        "calls": 266,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 7,
+          "p95": 8,
+          "max": 8
+        },
+        "wallMs": null
+      },
+      "blocked.player": {
+        "calls": 266,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 7,
+          "p95": 8,
+          "max": 8
+        },
+        "wallMs": null
+      },
+      "move.nonplayer": {
+        "calls": 49838,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 1310,
+          "p95": 1540,
+          "max": 1598
+        },
+        "wallMs": null
+      },
+      "blocked.nonplayer": {
+        "calls": 49838,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 1310,
+          "p95": 1540,
+          "max": 1598
+        },
+        "wallMs": null
+      },
+      "blocked.outside": {
+        "calls": 17,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 0,
+          "p95": 2,
+          "max": 3
+        },
+        "wallMs": null
+      }
+    },
+    "top": [
+      {
+        "frame": 39,
+        "total": 424.60000002384186,
+        "ticks": 7,
+        "updateEnemies": null,
+        "navigation": null,
+        "move": {
+          "calls": 1240,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blocked": {
+          "calls": 1240,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blockedOutside": null,
+        "render": 102.40000003576279,
+        "baked": null
+      },
+      {
+        "frame": 37,
+        "total": 241.5,
+        "ticks": 7,
+        "updateEnemies": null,
+        "navigation": null,
+        "move": {
+          "calls": 1249,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blocked": {
+          "calls": 1249,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blockedOutside": {
+          "calls": 2,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "render": 68.89999997615814,
+        "baked": null
+      },
+      {
+        "frame": 31,
+        "total": 187.5999999642372,
+        "ticks": 7,
+        "updateEnemies": null,
+        "navigation": null,
+        "move": {
+          "calls": 1258,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blocked": {
+          "calls": 1258,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blockedOutside": null,
+        "render": 157.5,
+        "baked": null
+      },
+      {
+        "frame": 30,
+        "total": 155.5999999642372,
+        "ticks": 7,
+        "updateEnemies": null,
+        "navigation": null,
+        "move": {
+          "calls": 1267,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blocked": {
+          "calls": 1267,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blockedOutside": {
+          "calls": 1,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "render": 129,
+        "baked": null
+      },
+      {
+        "frame": 9,
+        "total": 137.69999998807907,
+        "ticks": 7,
+        "updateEnemies": null,
+        "navigation": null,
+        "move": {
+          "calls": 1309,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blocked": {
+          "calls": 1309,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blockedOutside": null,
+        "render": 70.60000002384186,
+        "baked": null
+      },
+      {
+        "frame": 36,
+        "total": 114.10000002384186,
+        "ticks": 7,
+        "updateEnemies": null,
+        "navigation": null,
+        "move": {
+          "calls": 1254,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blocked": {
+          "calls": 1254,
+          "thrownCalls": 0,
+          "wallMs": null
+        },
+        "blockedOutside": null,
+        "render": 82.5,
+        "baked": null
+      }
+    ]
+  },
+  "wall": {
+    "reason": "playing-limit",
+    "frames": 40,
+    "callbacks": 40,
+    "memoryOnly": true,
+    "storage": 1,
+    "audio": 77,
+    "missing": [],
+    "movementMissing": [],
+    "initial": {
+      "state": "playing",
+      "screen": null,
+      "time": 0.5666666666666668,
+      "hp": 100,
+      "kills": 0,
+      "enemies": 180,
+      "random": 1827321084,
+      "visualRandom": 3527718511,
+      "accumulator": 0.013533333333330531,
+      "lastFrame": 70447.4,
+      "saveClock": 0.580199999999997,
+      "hudClock": 0,
+      "hidden": false,
+      "focused": true,
+      "visibility": "visible",
+      "audioState": "running",
+      "canvas": {
+        "width": 1735,
+        "height": 1171,
+        "dpr": 1
+      },
+      "captureStats": {
+        "created": 224,
+        "reused": 26450,
+        "captures": 1022
+      },
+      "reuseCapture": true,
+      "nativeSelected": 1,
+      "playerLive": true,
+      "gpuEnabled": false,
+      "nativeLaunch": {
+        "keys": [
+          "enemy-walker"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "77b4d0ad-7046-4668-805d-bd6e863aabce",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 1,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption.",
+        "adopted": true
+      },
+      "enemyGrid": {
+        "mapsCreated": 1,
+        "bucketsCreated": 95,
+        "bucketReuses": 2924,
+        "acquisitions": 34,
+        "leasesCreated": 34,
+        "trackingArraysCreated": 1,
+        "retainedActors": 0,
+        "retainedBuckets": 95
+      },
+      "rigError": ""
+    },
+    "final": {
+      "state": "playing",
+      "screen": null,
+      "time": 5.2166666666666535,
+      "hp": 64,
+      "kills": 3,
+      "enemies": 190,
+      "random": 3203722218,
+      "visualRandom": 868247934,
+      "accumulator": 0.01053333333333139,
+      "lastFrame": 100387.2,
+      "saveClock": 2.160000000000001,
+      "hudClock": 0,
+      "hidden": false,
+      "focused": true,
+      "visibility": "visible",
+      "audioState": "running",
+      "canvas": {
+        "width": 1735,
+        "height": 1171,
+        "dpr": 1
+      },
+      "captureStats": {
+        "created": 499,
+        "reused": 80279,
+        "captures": 1301
+      },
+      "reuseCapture": true,
+      "nativeSelected": 12,
+      "playerLive": true,
+      "gpuEnabled": false,
+      "nativeLaunch": {
+        "keys": [
+          "enemy-walker"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "77b4d0ad-7046-4668-805d-bd6e863aabce",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 1,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption.",
+        "adopted": true
+      },
+      "enemyGrid": {
+        "mapsCreated": 1,
+        "bucketsCreated": 95,
+        "bucketReuses": 16453,
+        "acquisitions": 313,
+        "leasesCreated": 313,
+        "trackingArraysCreated": 1,
+        "retainedActors": 0,
+        "retainedBuckets": 95
+      },
+      "rigError": ""
+    },
+    "summary": {
+      "frameCpuMs": {
+        "median": 80.80000001192093,
+        "p95": 156,
+        "max": 357.30000001192093
+      },
+      "rawDeltaMs": {
+        "median": 1000.7000000000116,
+        "p95": 1034.1000000000058,
+        "max": 1034.199999999997
+      },
+      "clampedDeltaMs": {
+        "median": 120,
+        "p95": 120,
+        "max": 120
+      },
+      "discardedWallMs": {
+        "median": 880.7000000000116,
+        "p95": 914.1000000000058,
+        "max": 914.1999999999971
+      },
+      "tickCount": {
+        "median": 7,
+        "p95": 8,
+        "max": 8
+      }
+    },
+    "movement": {
+      "move.player": {
+        "calls": 279,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 7,
+          "p95": 8,
+          "max": 8
+        },
+        "wallMs": {
+          "sum": 2.4000001549720764,
+          "median": 0,
+          "p95": 0.20000004768371582,
+          "max": 1.600000023841858
+        }
+      },
+      "blocked.player": {
+        "calls": 279,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 7,
+          "p95": 8,
+          "max": 8
+        },
+        "wallMs": {
+          "sum": 0.19999998807907104,
+          "median": 0,
+          "p95": 0.09999996423721313,
+          "max": 0.10000002384185791
+        }
+      },
+      "move.nonplayer": {
+        "calls": 52130,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 1320,
+          "p95": 1542,
+          "max": 1603
+        },
+        "wallMs": {
+          "sum": 141.59999978542328,
+          "median": 2.9999998211860657,
+          "p95": 10.900000274181366,
+          "max": 11.399999916553497
+        }
+      },
+      "blocked.nonplayer": {
+        "calls": 52130,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 1320,
+          "p95": 1542,
+          "max": 1603
+        },
+        "wallMs": {
+          "sum": 53.299999594688416,
+          "median": 1.100000023841858,
+          "p95": 2.9999998807907104,
+          "max": 6.000000238418579
+        }
+      },
+      "blocked.outside": {
+        "calls": 19,
+        "thrown": 0,
+        "callsPerCallback": {
+          "median": 0,
+          "p95": 2,
+          "max": 3
+        },
+        "wallMs": {
+          "sum": 0,
+          "median": 0,
+          "p95": 0,
+          "max": 0
+        }
+      }
+    },
+    "top": [
+      {
+        "frame": 17,
+        "total": 357.30000001192093,
+        "ticks": 7,
+        "updateEnemies": 58.799999952316284,
+        "navigation": 0.3999999761581421,
+        "move": {
+          "calls": 1412,
+          "thrownCalls": 0,
+          "wallMs": 3.8000000715255737
+        },
+        "blocked": {
+          "calls": 1412,
+          "thrownCalls": 0,
+          "wallMs": 0.8999999165534973
+        },
+        "blockedOutside": {
+          "calls": 2,
+          "thrownCalls": 0,
+          "wallMs": 0
+        },
+        "render": 127,
+        "baked": 4.699999988079071
+      },
+      {
+        "frame": 28,
+        "total": 156,
+        "ticks": 7,
+        "updateEnemies": 17.200000047683716,
+        "navigation": 0.30000001192092896,
+        "move": {
+          "calls": 1266,
+          "thrownCalls": 0,
+          "wallMs": 3.100000023841858
+        },
+        "blocked": {
+          "calls": 1266,
+          "thrownCalls": 0,
+          "wallMs": 1.2999999523162842
+        },
+        "blockedOutside": null,
+        "render": 129.5,
+        "baked": 88.90000009536743
+      },
+      {
+        "frame": 12,
+        "total": 154,
+        "ticks": 7,
+        "updateEnemies": 47.200000047683716,
+        "navigation": 0.6999999284744263,
+        "move": {
+          "calls": 1363,
+          "thrownCalls": 0,
+          "wallMs": 10.900000274181366
+        },
+        "blocked": {
+          "calls": 1363,
+          "thrownCalls": 0,
+          "wallMs": 6.000000238418579
+        },
+        "blockedOutside": {
+          "calls": 1,
+          "thrownCalls": 0,
+          "wallMs": 0
+        },
+        "render": 80.90000003576279,
+        "baked": 1.3000000715255737
+      },
+      {
+        "frame": 29,
+        "total": 152.69999998807907,
+        "ticks": 7,
+        "updateEnemies": 27.700000047683716,
+        "navigation": 0.8000000715255737,
+        "move": {
+          "calls": 1253,
+          "thrownCalls": 0,
+          "wallMs": 5.300000071525574
+        },
+        "blocked": {
+          "calls": 1253,
+          "thrownCalls": 0,
+          "wallMs": 2.699999988079071
+        },
+        "blockedOutside": null,
+        "render": 113.19999998807907,
+        "baked": 2.1000000834465027
+      },
+      {
+        "frame": 18,
+        "total": 151.20000004768372,
+        "ticks": 7,
+        "updateEnemies": 64.5,
+        "navigation": 1.800000011920929,
+        "move": {
+          "calls": 1423,
+          "thrownCalls": 0,
+          "wallMs": 7.399999678134918
+        },
+        "blocked": {
+          "calls": 1423,
+          "thrownCalls": 0,
+          "wallMs": 1.2999997735023499
+        },
+        "blockedOutside": null,
+        "render": 64.40000003576279,
+        "baked": 1.699999988079071
+      },
+      {
+        "frame": 16,
+        "total": 149.4000000357628,
+        "ticks": 8,
+        "updateEnemies": 30.30000013113022,
+        "navigation": 0.5000000596046448,
+        "move": {
+          "calls": 1603,
+          "thrownCalls": 0,
+          "wallMs": 11.399999916553497
+        },
+        "blocked": {
+          "calls": 1603,
+          "thrownCalls": 0,
+          "wallMs": 2.9999998807907104
+        },
+        "blockedOutside": null,
+        "render": 107.80000001192093,
+        "baked": 3.199999988079071
+      }
+    ]
+  }
+}

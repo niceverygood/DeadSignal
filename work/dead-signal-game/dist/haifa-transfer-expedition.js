@@ -1,0 +1,15 @@
+import {createIsraelWorld} from './israel-world.js';
+export const HAIFA_TRANSFER_EXPEDITION=Object.freeze({id:'last-signal-haifa-transfer-06b',title:'마지막 신호 · 하이파 냉각 이송',theme:'hospital',requires:'last-signal-israel-06',optional:true,routeDetail:'선택 분기 · 두 구간 냉각 차량 호위·실제 차단 차량 파괴',subtitle:'배양 기록을 냉각 차량에 싣고 정차장의 전원을 지켜 최종 격리소로 보낸다.',opening:'윤서, 대조표는 격리소에 도착했어. 하지만 내부 검사 기록까지 확인하려면 추가 대조 검체를 직접 보내야 한대. 남은 냉각 차량은 한 대뿐이고, 정차장 전원도 꺼져 있어. 네 서명이 적힌 상자를 버리지 않을게. 같은 차량으로 끝까지 옮기자.',instructions:'배양 송장 → 1차 차량 호위 → 검체 대조 → 정차장 전력 방어 → 통로 정예 → 차단 차량 파괴 → 냉각 정비 → 2차 차량 호위 → 인계 봉인 → 격리소 출항',debrief:'배양 검체와 원본 기록을 같은 차량으로 이송했습니다. 정차장 전력과 차단 차량을 뚫는 동안 냉각 봉인은 유지됐습니다. 윤서는 상자에 새 이름을 적습니다. 치료 성공이 아니라, 돌아올 사람들의 이름입니다. 백신 원액은 아직 최종 보관체 안에 있습니다.'});
+export const HAIFA_TRANSFER_STEPS=Object.freeze([
+{id:'haifa-list',short:'배양 송장',title:'배양 원본 이송 송장 회수',action:'냉각 이송 송장 확인',x:1100,y:1220,radius:58,duration:3,clue:'추가 대조 검체가 도착하면 격리소의 내부 검사 기록도 확인할 수 있어요. 냉각 차량을 첫 정차장까지 호위해요.'},
+{id:'haifa-first',short:'1차 호위',title:'냉각 차량을 분석 정차장까지 호위',action:'분석 정차장 호위',kind:'escort',x:1270,y:1320,radius:150,clearance:72,duration:30,path:[{x:1270,y:1320},{x:1270,y:1120},{x:1270,y:920},{x:1350,y:840}],clue:'정차장에 도착했어요. 차량은 여기서 기다려요. 북쪽 단말에서 검체 번호를 확인해요.'},
+{id:'haifa-match',short:'검체 대조',title:'정차장의 원본 검체 번호 대조',action:'검체 인계 단말 연결',x:1350,y:740,radius:58,duration:3,clue:'검체는 같아요. 냉각 온도를 복구하는 동안 차량 서쪽의 전력 장치를 지켜요.'},
+{id:'haifa-power',short:'전력 방어',title:'정차장 냉각 전력 방어',action:'냉각 전력 충전',kind:'defend',x:1250,y:840,radius:150,duration:40,clue:'전력은 충분해요. 연구 통로의 정예를 제거하고 다음 견인로를 확인해요.'},
+{id:'haifa-clear',short:'통로 정예',title:'2차 견인로 정예 감염자 처치',action:'견인로 정예 제거',kind:'clear',guard:true,guardAt:{x:1515,y:1160},x:1360,y:1150,radius:180,duration:1,clue:'견인로를 확보했지만 파손 차량이 길을 막았어요. F 또는 사격 모드 버튼으로 수동 전환해 차단 차량을 파괴해요. 폭발할 때는 물러나요.'},
+{id:'haifa-breach',short:'차단 차량',title:'실제 견인로 차단 차량 파괴',action:'차단 차량 파괴',kind:'breach',blockers:[{x:1610,y:1010}],x:1540,y:1150,radius:180,duration:1,clue:'차단 차량이 파괴됐어요. 서쪽 정비 단말에서 냉각 봉인을 다시 확인하면 같은 차량으로 계속 갈 수 있어요.'},
+{id:'haifa-service',short:'냉각 정비',title:'두 번째 호위 전 냉각 봉인 정비',action:'냉각 봉인 재확인',x:1360,y:1220,radius:58,duration:3,clue:'냉각 봉인이 유지됐어요. 정차장의 차량으로 돌아가요. 차량은 방금 기다리던 자리에서 출발해요.'},
+{id:'haifa-second',short:'2차 호위',title:'같은 냉각 차량을 최종 인계소까지 호위',action:'최종 인계소 호위',kind:'escort',entryAngle:-Math.PI/4,x:1350,y:840,radius:150,clearance:72,duration:38,path:[{x:1350,y:840},{x:1350,y:1200},{x:1515,y:1200},{x:1515,y:1150},{x:1900,y:1150}],clue:'차량이 최종 인계소에 도착했어요. 북쪽 인계 단말에서 검체 상자를 봉인해요.'},
+{id:'haifa-seal',short:'인계 봉인',title:'최종 격리소 이송 검체 봉인',action:'원본 검체 인계 봉인',x:1900,y:1040,radius:58,duration:4,clue:'원본 검체와 대조표를 함께 봉인했다. 완성 백신은 아직 없다. 이제 최종 보관체의 해독 계통을 회수해야 한다.'},
+{id:'haifa-exit',short:'격리소 출항',title:'검체를 보낸 최종 격리소 항로 확보',action:'최종 격리소 출항 승인',x:2190,y:1040,radius:58,duration:3,clue:'같은 냉각 차량으로 두 구간 이송을 마쳤다. 성가대 격리소에서 마지막 백신 원액을 찾아야 한다.'}
+].map(Object.freeze));
+export function createHaifaTransferWorld(options){const world=createIsraelWorld(options);world.expeditionId=HAIFA_TRANSFER_EXPEDITION.id;return world;}

@@ -1,0 +1,30 @@
+진행 중: 실제 앱 전체 루프의 QA-only CPU/GPU 출격 준비 연결
+시작 확인: 2026-10-18 08:04:30 Asia/Seoul. 마감 2026-10-19 00:00 Asia/Seoul.
+
+직전 공통 original texture/shader 준비 fixed110 GPU 비교는 qa/gpu-alpha-preupload-20261018/CONTINUATION_STATUS_KO.txt에 완료 기록했다(1037/1037PASS, verify 기존 .gitignore mismatch, 원본56자세exact·같은GPU사용 frame-index의 비용개선, 기본OFF). 이번은 그 다음 실제 앱 루프 검수 단계다.
+
+새 helper는 localhost8851 qa+qa-memory+qa-loop=1/genuine memory Map/valid density fixture/qa-loop-gpu-alpha=cpu|exact 에서만 원래 prepareProductionEnemyLaunch 인스턴스 메서드를 감싼다. 모든 arm은 기존 원본 union texture/shader 준비를 그대로 거친다. exact 후보만 원본 준비 뒤 미채택 frame0에서 GPU reduction warmup을 실행하고 source/isReady/owner/GL 상태를 재확인한다. 기존 launch gate·sync Game commit/adopt·Continue·제품 기본GPU OFF는 유지한다. local abort signal은 원래 signal과 연결해 stop/timeout/late work를 분리하되 채택된 제품 리그는 정리하지 않는다.
+
+앱과 qa-app-loop의 추가 관찰은 명시 opt-in에서만 켜며 optional qa-loop-autostart=1은 첫 playing callback 직전에 자동1회 시작한다. tick/input/rAF/render/저장/음향을 직접 실행하지 않고 원래 루프를 관찰한다. Continue 후 paused 화면에서 이미 native draw/GPUread가 진행될 수 있으므로 첫 playing 기록이 cold first draw라고 주장하지 않는다. 초기 rig frame/cells/reads를 보고한다. 서로 다른40callback은 서로 다른 실제 tick schedule·진행·HP·RNG가 될 수 있어 고정110과 구분하고 각 trace replay 검수로 설명한다. 약1초 rAF 환경을 정상FPS라고 하지 않는다.
+
+편집 전 app.js SHA7c5108fd901e46cc99e2f77792c6c08481689a5b45410ff027a1929e1d158847, qa-app-loop.js SHA6e8c44d81248b9b4ec9e5036ca5cb247d2e2f96d272a924557f629c5762eb377의 전체bytes를 before*.txt에 보존했다. helper/test/UI 통합 owner를 구분했으며 실행은 root만 한다. 아직 검수 완료가 아니다.
+
+사용자8806/옛QA/진행선택/저장/기존서버/원본Meshy GLB·리그·4K·클립·프레임·무드보드를 보존한다. 유료생성/결제/키저장/automation7재개/외부공개/push/스토어제출 금지. 자동화4 ACTIVE, 마감 뒤 새 개발 없이 기록·실제PAUSED. 모든 자연스러움/전체무렉/정상FPS/실측RAMVRAM/실기기/100시간 목표 미완료.
+
+[최종 완료 / 2026-10-18 08:28 KST / 위 진행초안 대체]
+제품GPU기본OFF/원래Game·Renderer·LiveBossRig·원본Meshy·저장 유지. 새helper는 원래this/keys/extraargs·options data 유지, local AbortSignal을 원래signal과 연결해 timeout/stop/supersede/늦은 후보를 정리한다. 채택된제품rig/old/initial/current rig는 flags변조·dispose 전에 거부한다. 원래throw identity/fallback 유지. 메서드전체descriptor와 외부same-value속성변경 보존. 초기undefined owner→인증된 old-pending rig 정상대입만 허용. exact만1024×768/12cells/draw0/15초timeout·lease warmup후isReady/source/3owner전체descriptor를 재검사한다. 정상 launchgate·동기 Gamecommit/adopt 불변.
+autostart=1은 playing/no screen/not hidden에 더해 pending resume events가 원래앱에서 처리된 다음callback 직전1회 시작한다. manualstart도자동1회를소비. tick/input/rAF/render/drain/save/audio추가실행없음. firstplaying이colddraw/read를보장하지않아 초기frame/reads/lease상태를별도보고한다. pagehide원래pause/checkpoint뒤stop. 옵션없으면후크/추가model/storage IO없음.
+새테스트19개(backend12/integration7). 집중integration7PASS349.758ms/관련backend·nativeprep·warmup·loop·movement·replay51PASS1359.797ms. 중복관련검사를독립58새테스트로합산하지않는다.
+
+실제Chrome3 freshowned QA3탭 serial CPU A→exact B→CPU반복,8851 genuine brandedMap memoryOnly/autostarttrue. normalfixture180/원래5개유지/HP·속도·AI·spawnClock·spawning·autoaim/fire그대로. Continue→준비→paused→resume만조작/업그레이드선택미진행. 각40playingcallbacks/save1/audio75·70·68/consolewarnerror0/unmeasured[]/원래texture1·shader1·key1준비/readyadopted/frame0/stateRestored·ownerDescriptorstrue.
+initialHP100/time0/finalHP73/stateplaying. finaltime4.7/4.416666666666656/4.3666666666666565,tick282/265/262,kills3/2/2,enemies188/188/187. 서로다른callback시간표의진행량이달라고정Game AB동일oracle로쓰지않는다. 완료canvasproof를보존·열어원본도시/주인공muzzleflash·피격/밀집좀비표시확인. fullpage PNG는보고완료뒤자연스러운level2upgradeoverlay가나타난후촬영했으며reportfinalContextplaying과촬영시점을구별한다.
+전체callbackCPU med72/55.1/69ms,p95170.1/228.9/160,max218.1/253/189.1. renderer med52.5/40.5/51.9,p95123.6/142.2/133.1,max135.8/229.7/155. rawRAF med1000.8/1000.8/1000.7ms/.12clamp/약7~8ticks이므로정상presentedFPS/GPU실행시간/향상률증거아님. B중앙값은낮지만p95/max악화·cache/OS변동도있어defaultGPUOFF유지.
+준비total868.4/890.5/702.5ms,B native776.4+alpha113.4. B실제384cells=32reads×12/마지막read48bytes(누적1536은32×48계산),fallback0/mismatch0/nativeGL391+reduction64=rendererframe455. CPU native391/357·GPU0. B초기관찰helperalive이나material없음/warmReadyfalse/leasefalse/rawAlpha0/nativeframe0/read0으로준비자원이보존되지않았다. 최종lazyrecreate후rawAlpha3158064+GPUcopy1024×768=3145728bytes/CPUraw256². rawestimate는실측RAMVRAM아님. lease15초만료나actualemptybatch해제가능성이있으나lifecycle실행증거없어원인확정금지/coldfirst해결주장금지.
+비용검수중Node/tests/bench CPUjob없음. 완료3탭닫고fresh목록부재확인/큰report·dataURL참조해제. 사용자8806/옛QA/기존서버·실저장미조작.
+
+각실제trace를기존tools/qa-app-tick-replay.mjs로재생해세run모두strict exit1. initialsnapshot/context·finalcontext·양RNG·모든framecontext/drains/events exact,finalSnapshot만false. CPU A34/B31/반복36개 enemy.angle 및enemy[50].vx차이,max4.440892098500626e-16. 원인미확정/허용오차·각도정규화·trace편집·event제외없음. replay-checks/numeric-differences/각원래JSON·로그보존/완전exact재생주장금지.
+최종rootNode22.23.3 npmtest기존동시2 한회1056/1056PASS/실패·취소·생략0/duration185916.7116ms/exit0. 기존20분stressCPU12296ms<원래15000ms,wall15977.41ms는예산판정이아님. sourcefreeze345(ignoredvendor8포함-uu)시작후변경0/추가0/누락0. 직전342기존변경app.js·qa-app-loop.js만+새helper/테스트2경로. Game4fa744ce…/Renderer621492d0…/LiveBossRig61df3877…/nativeownerc12dcb30…/nativeprepac4d8169…동일. aftersource3개보존/app-gpu-alpha-final-check.json참조. 모든Node/test/bench종료/검사뒤소스변경없음.
+verify첫실행npm절대경로만지정해PATH Node24.19.0으로실행된로그도보존. 이어PATH Node22.23.3으로정확히실행했고둘다기존.gitignore immutablemanifest mismatch exit1. manifest/.gitignore/역사증거rewrite없음. 최종verify-node22.log참조.
+
+다음추천: LiveBossRig.endBatch의actualemptybatch가유효warmlease를무조건해제하는경로를최소수정·전체원본oracle로검수. nullbatch/errorcleanup은기존fullrelease유지. releaseIdleExactGPUAlpha로단순대체하면default부작용호출이달라지므로피한다. defaultOFF shortcircuit/actualemptybatch/exactcompatible/!lost/!XR/helper.owner===renderer/validlease일때만releaseExactGPUAlpha생략. read소비·만료·무lease·owner변경·contextloss·재준비실패·privatecorpse보존/다음12cells재사용검수후실제8851earlyresource loss와긴tail재관찰. 아직미구현/B준비실패확정원인아님. shader-onlyprogramretention/defaultGPUON은별도후속판단.
+automation4ACTIVE/최신마감2026-10-19 00:00KST후새개발없이기록·실제PAUSED. automation7·유료·키저장·공개·push·스토어없음/전체자연스러움·무렉·정상FPS·실측memory·실기기·100h미완료.

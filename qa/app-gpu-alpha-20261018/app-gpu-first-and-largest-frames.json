@@ -1,0 +1,1099 @@
+[
+  {
+    "arm": "cpu-a",
+    "exact": false,
+    "differenceCount": 34,
+    "maxAbsoluteNumericDelta": 4.440892098500626e-16,
+    "firstNative": [
+      {
+        "callback": 0,
+        "stages": {},
+        "resourcesBefore": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        },
+        "frameCpuMs": 218,
+        "resourcesAfter": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        }
+      },
+      {
+        "callback": 1,
+        "stages": {
+          "native.beginBatch": {
+            "cpuMs": 0.30000001192092896,
+            "calls": 1
+          },
+          "native.glSubmit": {
+            "cpuMs": 24.899999976158142,
+            "calls": 1
+          },
+          "cpuSurface.clear": {
+            "cpuMs": 0.10000002384185791,
+            "calls": 1
+          },
+          "cpuSurface.copy": {
+            "cpuMs": 0.19999998807907104,
+            "calls": 1
+          },
+          "cpuSurface.readPixels": {
+            "cpuMs": 6.300000011920929,
+            "calls": 1
+          },
+          "cpuSurface.surface": {
+            "cpuMs": 6.600000023841858,
+            "calls": 1
+          },
+          "private.inkClear": {
+            "cpuMs": 0.10000002384185791,
+            "calls": 1
+          },
+          "private.inkCopy": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "private.inkTint": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "private.outputClear": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "private.outputCopy": {
+            "cpuMs": 0.09999996423721313,
+            "calls": 9
+          },
+          "private.finishFrame": {
+            "cpuMs": 8.299999952316284,
+            "calls": 1
+          }
+        },
+        "resourcesBefore": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        },
+        "frameCpuMs": 102.19999998807907,
+        "resourcesAfter": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        }
+      }
+    ],
+    "largest": [
+      {
+        "frame": 0,
+        "cost": 218.10000002384186,
+        "stages": {
+          "input": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.capture": {
+            "cpuMs": 1.4000000357627869,
+            "calls": 4
+          },
+          "simulation.tick": {
+            "cpuMs": 42.39999997615814,
+            "calls": 4
+          },
+          "simulation.advance": {
+            "cpuMs": 45.30000001192093,
+            "calls": 1
+          },
+          "events.drain": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "audio.play": {
+            "cpuMs": 50.30000001192093,
+            "calls": 1
+          },
+          "events.process": {
+            "cpuMs": 50.30000001192093,
+            "calls": 1
+          },
+          "direction.layout": {
+            "cpuMs": 3.900000035762787,
+            "calls": 1
+          },
+          "renderSchedule": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.sample": {
+            "cpuMs": 2.099999964237213,
+            "calls": 1
+          },
+          "renderer.render": {
+            "cpuMs": 114.5,
+            "calls": 1
+          },
+          "HUD.update": {
+            "cpuMs": 0.19999998807907104,
+            "calls": 1
+          }
+        },
+        "gpuBefore": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 867.5,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 868.3999999761581,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 0,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        },
+        "gpuAfter": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 867.5,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 868.3999999761581,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 0,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        }
+      },
+      {
+        "frame": 33,
+        "cost": 170.10000002384186,
+        "stages": {
+          "input": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.capture": {
+            "cpuMs": 2.199999988079071,
+            "calls": 7
+          },
+          "simulation.tick": {
+            "cpuMs": 26.19999998807907,
+            "calls": 7
+          },
+          "simulation.advance": {
+            "cpuMs": 30.19999998807907,
+            "calls": 1
+          },
+          "events.drain": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "audio.play": {
+            "cpuMs": 2.600000023841858,
+            "calls": 3
+          },
+          "events.process": {
+            "cpuMs": 2.700000047683716,
+            "calls": 1
+          },
+          "renderSchedule": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.sample": {
+            "cpuMs": 1,
+            "calls": 1
+          },
+          "renderer.render": {
+            "cpuMs": 135.80000001192093,
+            "calls": 1
+          },
+          "HUD.update": {
+            "cpuMs": 0.30000001192092896,
+            "calls": 1
+          }
+        },
+        "gpuBefore": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 867.5,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 868.3999999761581,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 307,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 1024,
+          "cpuRawHeight": 768,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        },
+        "gpuAfter": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 867.5,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 868.3999999761581,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 319,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 1024,
+          "cpuRawHeight": 768,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        }
+      }
+    ]
+  },
+  {
+    "arm": "exact-b",
+    "exact": false,
+    "differenceCount": 31,
+    "maxAbsoluteNumericDelta": 4.440892098500626e-16,
+    "firstNative": [
+      {
+        "callback": 0,
+        "stages": {},
+        "resourcesBefore": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": true,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        },
+        "frameCpuMs": 228.80000001192093,
+        "resourcesAfter": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": true,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        }
+      },
+      {
+        "callback": 1,
+        "stages": {},
+        "resourcesBefore": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": true,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        },
+        "frameCpuMs": 73.30000001192093,
+        "resourcesAfter": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": true,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        }
+      }
+    ],
+    "largest": [
+      {
+        "frame": 8,
+        "cost": 253,
+        "stages": {
+          "input": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.capture": {
+            "cpuMs": 1.8999999165534973,
+            "calls": 7
+          },
+          "simulation.tick": {
+            "cpuMs": 18.19999998807907,
+            "calls": 7
+          },
+          "simulation.advance": {
+            "cpuMs": 21.400000035762787,
+            "calls": 1
+          },
+          "events.drain": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "audio.play": {
+            "cpuMs": 0.5999999642372131,
+            "calls": 2
+          },
+          "events.process": {
+            "cpuMs": 0.5999999642372131,
+            "calls": 1
+          },
+          "renderSchedule": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.sample": {
+            "cpuMs": 0.9000000357627869,
+            "calls": 1
+          },
+          "renderer.render": {
+            "cpuMs": 229.69999998807907,
+            "calls": 1
+          },
+          "HUD.update": {
+            "cpuMs": 0.30000001192092896,
+            "calls": 1
+          }
+        },
+        "gpuBefore": {
+          "mode": "exact",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 776.3999999761581,
+          "alphaWarmupMs": 113.40000003576279,
+          "totalPreparationMs": 890.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 15000,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": true,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 7,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": true,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        },
+        "gpuAfter": {
+          "mode": "exact",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 776.3999999761581,
+          "alphaWarmupMs": 113.40000003576279,
+          "totalPreparationMs": 890.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 15000,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": true,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 21,
+          "activeGPUCells": 12,
+          "activeGPUReads": 1,
+          "activeGPUReadBytes": 48,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 3158064,
+          "gpuCopyWidth": 1024,
+          "gpuCopyHeight": 768,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": true,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        }
+      },
+      {
+        "frame": 0,
+        "cost": 228.89999997615814,
+        "stages": {
+          "input": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.capture": {
+            "cpuMs": 0.5,
+            "calls": 1
+          },
+          "simulation.tick": {
+            "cpuMs": 52.10000002384186,
+            "calls": 1
+          },
+          "simulation.advance": {
+            "cpuMs": 53.40000003576279,
+            "calls": 1
+          },
+          "events.drain": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "audio.play": {
+            "cpuMs": 12.100000023841858,
+            "calls": 1
+          },
+          "events.process": {
+            "cpuMs": 12.699999988079071,
+            "calls": 1
+          },
+          "direction.layout": {
+            "cpuMs": 2.399999976158142,
+            "calls": 1
+          },
+          "renderSchedule": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.sample": {
+            "cpuMs": 10.5,
+            "calls": 1
+          },
+          "renderer.render": {
+            "cpuMs": 142.19999998807907,
+            "calls": 1
+          }
+        },
+        "gpuBefore": {
+          "mode": "exact",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 776.3999999761581,
+          "alphaWarmupMs": 113.40000003576279,
+          "totalPreparationMs": 890.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 15000,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": true,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 0,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": true,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        },
+        "gpuAfter": {
+          "mode": "exact",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 776.3999999761581,
+          "alphaWarmupMs": 113.40000003576279,
+          "totalPreparationMs": 890.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 15000,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": true,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 0,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": true,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        }
+      }
+    ]
+  },
+  {
+    "arm": "cpu-repeat",
+    "exact": false,
+    "differenceCount": 36,
+    "maxAbsoluteNumericDelta": 4.440892098500626e-16,
+    "firstNative": [
+      {
+        "callback": 0,
+        "stages": {},
+        "resourcesBefore": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        },
+        "frameCpuMs": 188.89999997615814,
+        "resourcesAfter": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        }
+      },
+      {
+        "callback": 1,
+        "stages": {},
+        "resourcesBefore": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        },
+        "frameCpuMs": 40.5,
+        "resourcesAfter": {
+          "size": 256,
+          "cells": null,
+          "atlasWidth": 256,
+          "atlasHeight": 256,
+          "exactGPUAlphaBounds": false,
+          "minGPUAlphaCells": 12,
+          "helperRawBytes": 0,
+          "gpuColourWidth": 0,
+          "gpuColourHeight": 0
+        }
+      }
+    ],
+    "largest": [
+      {
+        "frame": 0,
+        "cost": 189.10000002384186,
+        "stages": {
+          "input": {
+            "cpuMs": 0.10000002384185791,
+            "calls": 1
+          },
+          "interpolation.capture": {
+            "cpuMs": 0.19999998807907104,
+            "calls": 1
+          },
+          "simulation.tick": {
+            "cpuMs": 26.30000001192093,
+            "calls": 1
+          },
+          "simulation.advance": {
+            "cpuMs": 27.099999964237213,
+            "calls": 1
+          },
+          "events.drain": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "audio.play": {
+            "cpuMs": 2.800000011920929,
+            "calls": 1
+          },
+          "events.process": {
+            "cpuMs": 3,
+            "calls": 1
+          },
+          "direction.layout": {
+            "cpuMs": 0.699999988079071,
+            "calls": 1
+          },
+          "renderSchedule": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.sample": {
+            "cpuMs": 1.699999988079071,
+            "calls": 1
+          },
+          "renderer.render": {
+            "cpuMs": 155,
+            "calls": 1
+          }
+        },
+        "gpuBefore": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 702,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 702.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 0,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        },
+        "gpuAfter": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 702,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 702.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 0,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 256,
+          "cpuRawHeight": 256,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        }
+      },
+      {
+        "frame": 35,
+        "cost": 160,
+        "stages": {
+          "input": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.capture": {
+            "cpuMs": 1.699999988079071,
+            "calls": 8
+          },
+          "simulation.tick": {
+            "cpuMs": 22.69999986886978,
+            "calls": 8
+          },
+          "simulation.advance": {
+            "cpuMs": 25.299999952316284,
+            "calls": 1
+          },
+          "events.drain": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "audio.play": {
+            "cpuMs": 0.9000000357627869,
+            "calls": 3
+          },
+          "events.process": {
+            "cpuMs": 0.9000000357627869,
+            "calls": 1
+          },
+          "renderSchedule": {
+            "cpuMs": 0,
+            "calls": 1
+          },
+          "interpolation.sample": {
+            "cpuMs": 0.3999999761581421,
+            "calls": 1
+          },
+          "renderer.render": {
+            "cpuMs": 133.10000002384186,
+            "calls": 1
+          },
+          "HUD.update": {
+            "cpuMs": 0.19999998807907104,
+            "calls": 1
+          }
+        },
+        "gpuBefore": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 702,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 702.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 297,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 1024,
+          "cpuRawHeight": 768,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        },
+        "gpuAfter": {
+          "mode": "cpu",
+          "status": "ready",
+          "available": true,
+          "ready": true,
+          "adopted": true,
+          "error": "",
+          "token": 1,
+          "nativePreparationMs": 702,
+          "alphaWarmupMs": 0,
+          "totalPreparationMs": 702.5,
+          "commonOriginalTextureAndShaderPreparation": true,
+          "textureSubmitted": true,
+          "textureCount": 1,
+          "shaderReadyCount": 1,
+          "keyCount": 1,
+          "nativeDrawsBefore": 0,
+          "nativeDrawsAfter": 0,
+          "stateRestored": true,
+          "ownerDescriptorsCurrent": true,
+          "alphaIdleLeaseMs": 0,
+          "alphaReadsBefore": 0,
+          "alphaReadsAfter": 0,
+          "stopped": false,
+          "activeGPUEnabled": false,
+          "activeMinGPUAlphaCells": 12,
+          "nativeRendererFrame": 309,
+          "activeGPUCells": 0,
+          "activeGPUReads": 0,
+          "activeGPUReadBytes": 0,
+          "activeGPUFallbacks": 0,
+          "activeGPUMismatches": 0,
+          "rawAlphaBytes": 0,
+          "gpuCopyWidth": 0,
+          "gpuCopyHeight": 0,
+          "cpuRawWidth": 1024,
+          "cpuRawHeight": 768,
+          "rigError": "",
+          "rigLost": false,
+          "alphaError": "",
+          "warmHelperAlive": false,
+          "warmMaterialAlive": false,
+          "warmReady": false,
+          "warmLeaseActive": false,
+          "warmLeaseRemainingMs": 0
+        }
+      }
+    ]
+  }
+]

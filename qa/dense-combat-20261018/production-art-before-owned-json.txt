@@ -1,0 +1,647 @@
+import {validAnimationClips,nativeActionSelection,namedAnimationSample} from './native-action-animation.js?v=0.29.0';
+import {validEnvironmentRule} from './production-rules.js?v=0.29.0';
+import {measuredPlayerGait} from './player-locomotion.js?v=0.29.0';
+import {EnemyLocomotionClock} from './enemy-locomotion.js?v=0.29.0';
+const TAU = Math.PI * 2;
+const CAMERA_ELEVATION = Math.asin(1 / Math.sqrt(3)) * 180 / Math.PI;
+const DEFAULT_BASE_URL = new URL('./assets/production/', import.meta.url);
+const finite = Number.isFinite;
+const positive = value => finite(value) && value > 0;
+const integer = value => Number.isInteger(value) && value > 0;
+const near = (a, b) => finite(a) && Math.abs(a - b) < 1e-5;
+const wrap = value => ((value % TAU) + TAU) % TAU;
+const errorType = error => ['Error','TypeError','SyntaxError','RangeError','AbortError','DOMException','SecurityError','NetworkError','InvalidStateError'].includes(error?.name) ? error.name : 'Error';
+
+const validAssetRevision = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
+function validateAssetRevisions(manifest) {
+  for (const config of Object.values(manifest?.assets || {}))
+    if (config && Object.hasOwn(config, 'revision') && !validAssetRevision(config.revision)) throw new Error('invalid-asset-revision');
+}
+
+function freezeTree(value) {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    for (const child of Object.values(value)) freezeTree(child);
+    Object.freeze(value);
+  }
+  return value;
+}
+
+function survivorAsset(pose) {
+  return { metadata: `survivor-${pose}/metadata.json`, atlas: `survivor-${pose}/atlas.png` };
+}
+
+// Only files baked from the actual GLB belong here. No synthetic substitute is
+// generated when a production file is absent; the caller controls its fallback.
+export const productionAssets = freezeTree({
+  version: 1,
+  assets: {
+    'survivor-idle': survivorAsset('idle'),
+    'survivor-walk': survivorAsset('walk'),
+    'survivor-run': survivorAsset('run'),
+  },
+  characters: { survivor: { idle: 'survivor-idle', walk: 'survivor-walk', run: 'survivor-run' } },
+  bosses: {}, enemies: {}, environment: {},
+});
+
+/** Register only assets whose real files exist. This utility performs no I/O. */
+export function extendProductionAssets(base = productionAssets, additions = {}) {
+  validateAssetRevisions(base); validateAssetRevisions(additions);
+  const merged = { version: 1 };
+  for (const section of ['assets', 'characters', 'bosses', 'enemies', 'environment']) {
+    merged[section] = { ...(base[section] || {}) };
+    for (const [key, value] of Object.entries(additions[section] || {})) {
+      if (!/^[a-zA-Z0-9_-]+$/.test(key) || ['__proto__', 'constructor', 'prototype'].includes(key)) throw new Error('invalid-asset-key');
+      if (value === null) delete merged[section][key];
+      else merged[section][key] = value;
+    }
+  }
+  for (const section of ['bossPortraits', 'bossDetailPortraits']) {
+    if (!Object.hasOwn(base, section) && !Object.hasOwn(additions, section)) continue;
+    const error = section === 'bossPortraits' ? 'invalid-boss-portraits' : 'invalid-boss-detail-portraits';
+    const catalog = value => value && typeof value === 'object' && !Array.isArray(value)
+      && [Object.prototype, null].includes(Object.getPrototypeOf(value));
+    const original = Object.hasOwn(base, section) ? base[section] : {};
+    const updates = Object.hasOwn(additions, section) ? additions[section] : {};
+    if (!catalog(original) || !catalog(updates)) throw new Error(error);
+    const portraits = { ...original };
+    for (const [key, value] of Object.entries(updates)) {
+      if (!/^[a-zA-Z0-9_-]+$/.test(key) || ['__proto__', 'constructor', 'prototype'].includes(key)) throw new Error(error);
+      if (value === null) delete portraits[key]; else portraits[key] = value;
+    }
+    for (const [key, id] of Object.entries(portraits)) {
+      if (!/^[a-zA-Z0-9_-]+$/.test(key) || ['__proto__', 'constructor', 'prototype'].includes(key)
+        || typeof id !== 'string' || !Object.hasOwn(merged.assets, id)) throw new Error(error);
+    }
+    merged[section] = portraits;
+  }
+  const rules = additions.environmentRules ?? base.environmentRules ?? [];
+  if (!Array.isArray(rules) || rules.some(rule => !validEnvironmentRule(rule))) throw new Error('invalid-environment-rules');
+  merged.environmentRules = rules;
+  return freezeTree(JSON.parse(JSON.stringify(merged)));
+}
+
+/** Angles are game-world angles, not angles measured on the projected screen. */
+export function directionIndex(angle, directions = 16) {
+  if (!finite(angle) || !integer(directions)) return 0;
+  return Math.round(wrap(angle) / TAU * directions) % directions;
+}
+
+/** The simulation's distance-driven walkPhase freezes naturally while paused. */
+export function animationSample(metadata, { phase, timeSeconds = 0, stationary = false, clip } = {}) {
+  const named = namedAnimationSample(metadata, { phase, timeSeconds, stationary, clip });
+  if (named !== null) return named;
+  const samples = metadata?.atlas?.samples || 1;
+  const animation = metadata?.animation;
+  if (stationary || samples === 1 || !animation || !positive(animation.duration)) return 0;
+  if (finite(phase) && animation.loop !== false) return Math.min(samples - 1, Math.floor(wrap(phase) / TAU * samples));
+  const time = finite(timeSeconds) ? Math.max(0, timeSeconds) : 0;
+  if (animation.loop === false) return Math.round(Math.min(1, time / animation.duration) * (samples - 1));
+  return Math.min(samples - 1, Math.floor((time % animation.duration) / animation.duration * samples));
+}
+
+function validBounds(bounds, frameSize, nullable = false, frameHeight = frameSize) {
+  if (nullable && bounds === null) return true;
+  return bounds && finite(bounds.x) && finite(bounds.y) && positive(bounds.width) && positive(bounds.height)
+    && bounds.x >= 0 && bounds.y >= 0 && bounds.x + bounds.width <= frameSize && bounds.y + bounds.height <= frameHeight;
+}
+
+function validIdentificationContour(contour, frameSize, frameHeight = frameSize) {
+  const plain = value => value && typeof value === 'object' && !Array.isArray(value)
+    && [Object.prototype, null].includes(Object.getPrototypeOf(value));
+  const point = value => plain(value) && Object.keys(value).length === 2
+    && finite(value.x) && finite(value.y) && value.x >= 0 && value.x <= frameSize && value.y >= 0 && value.y <= frameHeight;
+  if (!plain(contour) || Object.keys(contour).length !== 3
+    || !Array.isArray(contour.left) || !Array.isArray(contour.right) || !Array.isArray(contour.top)
+    || contour.left.length < 2 || contour.left.length > frameHeight
+    || contour.right.length !== contour.left.length || contour.top.length !== 2) return false;
+  for (let index = 0; index < contour.left.length; index++) {
+    const left = contour.left[index], right = contour.right[index];
+    if (!point(left) || !point(right) || left.y !== right.y || left.x >= right.x
+      || index > 0 && left.y <= contour.left[index - 1].y) return false;
+  }
+  return contour.top.every((value, index) => point(value)
+    && value.x === (index ? contour.right[0].x : contour.left[0].x) && value.y === contour.left[0].y);
+}
+
+const validPoint = point => point && finite(point.x) && finite(point.y) && finite(point.z);
+function validWeaponPose(pose) {
+  if (!pose || typeof pose.supported !== 'boolean') return false;
+  if (!pose.supported) return true;
+  if (!finite(pose.desiredGripHeight)) return false;
+  for (const hand of [pose.right, pose.left]) {
+    if (!hand || !validPoint(hand.position) || !validPoint(hand.requested)
+      || !finite(hand.error) || hand.error < 0 || typeof hand.clamped !== 'boolean') return false;
+  }
+  return !pose.weaponAnchor || validPoint(pose.weaponAnchor)
+    && (!pose.weaponAnchor.forward || validPoint(pose.weaponAnchor.forward))
+    && (!pose.weaponAnchor.support || validPoint(pose.weaponAnchor.support));
+}
+
+/** Reject incompatible projections or incomplete frame tables before drawing. */
+export function validateAtlasMetadata(value) {
+  const fail = () => { throw new Error('invalid-atlas-metadata'); };
+  if (!value || value.format !== 'meshy-iso-sprite-atlas' || value.version !== 1) fail();
+  const { atlas, projection, frames, animation } = value;
+  const packed = atlas?.packing === 'trimmed-v1';
+  if (atlas && Object.hasOwn(atlas, 'packing') && !packed) fail();
+  if (!atlas || !projection || !Array.isArray(frames) || atlas.transparent !== true
+    || atlas.order !== 'direction-major, sample-minor' || ![1, 8, 16].includes(atlas.directions)
+    || !integer(atlas.samples) || atlas.samples > 32 || !integer(atlas.frameSize)
+    || atlas.frameSize > 512 || !integer(atlas.width) || !integer(atlas.height)
+    || atlas.width > 8192 || atlas.height > 8192 || atlas.width * atlas.height > 32 * 1024 * 1024
+    || frames.length !== atlas.directions * atlas.samples) fail();
+  if (!packed && (!integer(atlas.columns) || !integer(atlas.rows)
+    || atlas.width !== atlas.columns * atlas.frameSize || atlas.height !== atlas.rows * atlas.frameSize
+    || atlas.rows !== Math.ceil(atlas.directions * atlas.samples / atlas.columns))) fail();
+  if (atlas.directions === 1 && (atlas.samples !== 1 || animation !== null)) fail();
+  if (!positive(projection.pixelsPerWorld) || !positive(projection.subjectHeight)
+    || !near(projection.azimuthDegrees, 45) || !near(projection.elevationDegrees, CAMERA_ELEVATION)
+    || !near(projection.cameraScale, Math.sqrt(3 / 2))
+    || !finite(projection.footPivot?.x) || !finite(projection.footPivot?.y)) fail();
+  if (projection.frontYawRadians !== undefined && !finite(projection.frontYawRadians)) fail();
+  if (animation !== null && (!animation || !positive(animation.duration)
+    || typeof animation.loop !== 'boolean' || animation.samples !== atlas.samples)) fail();
+  if (animation && Object.hasOwn(animation, 'clips') && !validAnimationClips(animation.clips, atlas.samples)) fail();
+  for (let index = 0; index < frames.length; index++) {
+    const frame = frames[index], rect = frame?.rect;
+    if (!frame || frame.index !== index || frame.direction !== Math.floor(index / atlas.samples)
+      || frame.sample !== index % atlas.samples || !near(frame.angle, frame.direction * TAU / atlas.directions)
+      || !rect || frame.clipped !== false) fail();
+    if (packed) {
+      if (!Number.isInteger(rect.x) || !Number.isInteger(rect.y) || rect.x < 0 || rect.y < 0
+        || !integer(rect.width) || !integer(rect.height) || rect.width > atlas.frameSize || rect.height > atlas.frameSize
+        || rect.x + rect.width > atlas.width || rect.y + rect.height > atlas.height
+        || !finite(frame.footPivot?.x) || !finite(frame.footPivot?.y)) fail();
+      // Frame pivots may legitimately lie outside a losslessly cropped image.
+      // Only the visible rectangles must be disjoint and inside the atlas.
+      for (let previous = 0; previous < index; previous++) {
+        const other = frames[previous].rect;
+        if (rect.x < other.x + other.width && rect.x + rect.width > other.x
+          && rect.y < other.y + other.height && rect.y + rect.height > other.y) fail();
+      }
+    } else if (rect.x !== index % atlas.columns * atlas.frameSize
+      || rect.y !== Math.floor(index / atlas.columns) * atlas.frameSize
+      || rect.width !== atlas.frameSize || rect.height !== atlas.frameSize
+      || !near(frame.footPivot?.x, projection.footPivot.x) || !near(frame.footPivot?.y, projection.footPivot.y)) fail();
+    if (!validBounds(frame.alphaBounds, rect.width, false, rect.height)
+      || !validBounds(frame.outlineBounds, rect.width, false, rect.height)
+      || !validBounds(frame.coreBounds, rect.width, true, rect.height)) fail();
+    if (Object.hasOwn(frame, 'bodyIdentificationContour') && !validIdentificationContour(frame.bodyIdentificationContour, rect.width, rect.height)) fail();
+    if (frame.weaponAnchor !== undefined && frame.weaponAnchor !== null
+      && (!validPoint(frame.weaponAnchor) || !validPoint(frame.weaponAnchor.support))) fail();
+    if (frame.weaponAnchor?.forward !== undefined
+      && (!validPoint(frame.weaponAnchor.forward) || Math.hypot(frame.weaponAnchor.forward.x, frame.weaponAnchor.forward.y, frame.weaponAnchor.forward.z) < 1e-8)) fail();
+    if (frame.weaponPose !== undefined && frame.weaponPose !== null && !validWeaponPose(frame.weaponPose)) fail();
+    if (frame.weaponMuzzle !== undefined && frame.weaponMuzzle !== null && !validPoint(frame.weaponMuzzle)) fail();
+    if (atlas.includesWeapon === true && !validPoint(frame.weaponMuzzle)) fail();
+    if (frame.combinedAlphaBounds !== undefined && !validBounds(frame.combinedAlphaBounds, rect.width, false, rect.height)) fail();
+    if (frame.groundBounds !== undefined && frame.groundBounds !== null
+      && (!finite(frame.groundBounds.minX) || !finite(frame.groundBounds.minY)
+        || !finite(frame.groundBounds.maxX) || !finite(frame.groundBounds.maxY)
+        || frame.groundBounds.maxX <= frame.groundBounds.minX || frame.groundBounds.maxY <= frame.groundBounds.minY)) fail();
+  }
+  return freezeTree(JSON.parse(JSON.stringify(value)));
+}
+
+export function selectAtlasFrame(metadata, { angle = 0, phase, timeSeconds = 0, stationary = false, clip } = {}) {
+  const direction = directionIndex(angle, metadata.atlas.directions);
+  const sample = animationSample(metadata, { phase, timeSeconds, stationary, clip });
+  return metadata.frames[direction * metadata.atlas.samples + sample];
+}
+
+function placedBounds(bounds, origin, scale) {
+  return bounds ? {
+    left: origin.x + bounds.x * scale, top: origin.y + bounds.y * scale,
+    right: origin.x + (bounds.x + bounds.width) * scale,
+    bottom: origin.y + (bounds.y + bounds.height) * scale,
+  } : null;
+}
+
+/** The caller's Canvas context already contains camera and zoom transforms. */
+export function spritePlacement(metadata, frame, { foot, worldHeight = metadata.projection.subjectHeight } = {}) {
+  if (!foot || !finite(foot.x) || !finite(foot.y) || !positive(worldHeight)) return null;
+  const scale = worldHeight / metadata.projection.subjectHeight / metadata.projection.pixelsPerWorld;
+  const origin = { x: foot.x - frame.footPivot.x * scale, y: foot.y - frame.footPivot.y * scale };
+  return {
+    x: origin.x, y: origin.y, width: frame.rect.width * scale, height: frame.rect.height * scale,
+    scale, foot: { ...foot }, depth: foot.y,
+    // Body and torso bounds exclude the ink outline. These are visibility
+    // measurements only; gameplay collision continues to use engine radii.
+    bounds: {
+      body: placedBounds(frame.alphaBounds, origin, scale),
+      core: placedBounds(frame.coreBounds, origin, scale),
+      outline: placedBounds(frame.outlineBounds, origin, scale),
+    },
+  };
+}
+
+/** Final baker anchors already use GAME axes and include normalization/yaw.
+ * weaponPose hand positions instead use subject-local THREE axes. Never use
+ * those local IK diagnostics as the final attachment point or rotate twice. */
+export function spriteAttachmentPlacement(metadata, frame, { foot, worldHeight = metadata.projection.subjectHeight } = {}) {
+  const anchor = frame?.weaponAnchor;
+  if (!validPoint(anchor) || !validPoint(anchor.support) || !foot || !finite(foot.x) || !finite(foot.y) || !positive(worldHeight)) return null;
+  const ratio = worldHeight / metadata.projection.subjectHeight;
+  const offset = point => ({ x: point.x * ratio, y: point.y * ratio, height: point.z * ratio });
+  const projectOffset = point => ({ x: foot.x + (point.x - point.y) * Math.sqrt(3) / 2 * ratio, y: foot.y + ((point.x + point.y) * .5 - point.z) * ratio });
+  const recordedForward = anchor.forward;
+  const forwardAngle = finite(metadata.projection.frontYawRadians) ? frame.angle - metadata.projection.frontYawRadians : null;
+  const forwardSource = validPoint(recordedForward) ? recordedForward : forwardAngle === null ? null : { x: Math.cos(forwardAngle), y: Math.sin(forwardAngle), z: 0 };
+  const length = forwardSource ? Math.hypot(forwardSource.x, forwardSource.y, forwardSource.z) : 0;
+  const forward = length > 1e-8 ? { x: forwardSource.x / length, y: forwardSource.y / length, height: forwardSource.z / length } : null;
+  const forwardScreen = forward ? { x: (forward.x - forward.y) * Math.sqrt(3) / 2, y: (forward.x + forward.y) * .5 - forward.height } : null;
+  return {
+    grip: projectOffset(anchor), support: projectOffset(anchor.support),
+    gameOffset: offset(anchor), supportGameOffset: offset(anchor.support),
+    bakedAngle: frame.angle, angle: forward ? Math.atan2(forward.y, forward.x) : null,
+    forward, forwardScreen, screenAngle: forwardScreen ? Math.atan2(forwardScreen.y, forwardScreen.x) : null,
+    // The weapon asset must separately specify its actual grip. No gun-center
+    // assumption or hidden scale of source.originalBounds is applied here.
+    source: 'frame.weaponAnchor; normalized, yaw-rotated game axes',
+  };
+}
+
+/** Actual combined-model muzzle; the final baker value is already yawed. */
+export function spriteMuzzlePlacement(metadata, frame, { foot, worldHeight = metadata.projection.subjectHeight } = {}) {
+  const muzzle = frame?.weaponMuzzle || frame?.weaponAttachment?.game?.muzzle;
+  if (!validPoint(muzzle) || !foot || !finite(foot.x) || !finite(foot.y) || !positive(worldHeight)) return null;
+  const ratio = worldHeight / metadata.projection.subjectHeight;
+  const offset = { x: muzzle.x * ratio, y: muzzle.y * ratio, height: muzzle.z * ratio };
+  return { offset, height: offset.height, point: { x: foot.x + (offset.x - offset.y) * Math.sqrt(3) / 2, y: foot.y + (offset.x + offset.y) * .5 - offset.height } };
+}
+
+/** Upper-body silhouette measured from the real, pre-weapon alpha mask.
+ * Row edges are left open at the torso cutoff; no fill, legs or gun is added. */
+export function bodyIdentificationContour(rgba, width, height, body, core, threshold = 8) {
+  if (!rgba || rgba.length !== width * height * 4 || !body || !integer(width) || !integer(height)) return null;
+  const left = [], right = [];
+  const top = Math.max(0, Math.floor(body.y));
+  const bottom = Math.min(height, Math.floor(core ? core.y + core.height : body.y + body.height * .72));
+  const x0 = Math.max(0, Math.floor(body.x)), x1 = Math.min(width, Math.ceil(body.x + body.width));
+  if (!(x0 < x1) || !(top < bottom)) return null;
+  for (let y = top; y < bottom; y++) {
+    const row = y * width * 4;
+    let min = x0; while (min < x1 && !(rgba[row + min * 4 + 3] >= threshold)) min++;
+    if (min === x1) continue;
+    let max = x1 - 1; while (max > min && !(rgba[row + max * 4 + 3] >= threshold)) max--;
+    left.push({ x: min, y: y + .5 }); right.push({ x: max + 1, y: y + .5 });
+  }
+  return left.length > 1 ? { left, right, top: [left[0], right[0]] } : null;
+}
+
+export function nativeGroundFootprint(metadata, frame) {
+  if (frame.groundBounds) return {
+    width: frame.groundBounds.maxX - frame.groundBounds.minX, height: frame.groundBounds.maxY - frame.groundBounds.minY,
+    centerX: (frame.groundBounds.minX + frame.groundBounds.maxX) / 2,
+    centerY: (frame.groundBounds.minY + frame.groundBounds.maxY) / 2, basis: 'frame.groundBounds',
+  };
+  const source = metadata.source, bounds = source?.originalBounds;
+  if (!bounds || !Array.isArray(bounds.min) || !Array.isArray(bounds.max)
+    || bounds.min.length !== 3 || bounds.max.length !== 3
+    || ![...bounds.min, ...bounds.max].every(finite) || !positive(source.scale)) return null;
+  const x = (bounds.max[0] - bounds.min[0]) * source.scale;
+  const z = (bounds.max[2] - bounds.min[2]) * source.scale;
+  if (!positive(x) || !positive(z)) return null;
+  // A missing yaw cannot be inferred from the old metadata. New prop bakes
+  // must record it or provide directly measured, rotated groundBounds.
+  const frontYaw = metadata.projection.frontYawRadians;
+  if (!finite(frontYaw)) return null;
+  const rotation = Math.PI / 2 - frame.angle + frontYaw;
+  const pivot = source.originPivot;
+  if (pivot && !validPoint(pivot)) return null;
+  const dx = pivot ? ((bounds.max[0] + bounds.min[0]) / 2 - pivot.x) * source.scale : 0;
+  const dz = pivot ? ((bounds.max[2] + bounds.min[2]) / 2 - pivot.z) * source.scale : 0;
+  return {
+    width: x * Math.abs(Math.cos(rotation)) + z * Math.abs(Math.sin(rotation)),
+    height: x * Math.abs(Math.sin(rotation)) + z * Math.abs(Math.cos(rotation)),
+    centerX: dx * Math.cos(rotation) + dz * Math.sin(rotation),
+    centerY: -dx * Math.sin(rotation) + dz * Math.cos(rotation),
+    basis: 'source.originalBounds and normalization scale',
+  };
+}
+
+/** Uniform contain fit keeps the real prop undistorted inside the world cell.
+ * A different aspect ratio leaves empty margins; the caller still owns the
+ * original gameplay collision polygon, shadows and occlusion hints. */
+export function propPlacement(metadata, frame, { footprint, foot } = {}) {
+  // World obstacles carry w/h on the ground and height on the vertical axis.
+  // Explicit width/height rectangles remain supported when w/h are absent.
+  const targetWidth = footprint?.w ?? footprint?.width, targetHeight = footprint?.h ?? footprint?.height;
+  const native = nativeGroundFootprint(metadata, frame);
+  if (!native || !positive(targetWidth) || !positive(targetHeight)) return null;
+  const projectedFoot = foot || (finite(footprint.x) && finite(footprint.y)
+    ? { x: (footprint.x + targetWidth / 2 - footprint.y - targetHeight / 2) * Math.sqrt(3) / 2, y: (footprint.x + footprint.y + (targetWidth + targetHeight) / 2) * .5 } : null);
+  const uniformScale = Math.min(targetWidth / native.width, targetHeight / native.height);
+  const sourceFoot = projectedFoot && {
+    x: projectedFoot.x - (native.centerX - native.centerY) * Math.sqrt(3) / 2 * uniformScale,
+    y: projectedFoot.y - (native.centerX + native.centerY) * .5 * uniformScale,
+  };
+  const placement = spritePlacement(metadata, frame, { foot: sourceFoot, worldHeight: metadata.projection.subjectHeight * uniformScale });
+  if (!placement) return null;
+  placement.footprint = {
+    rule: 'contain-uniform', basis: native.basis, uniformScale,
+    native: { width: native.width, height: native.height, centerX: native.centerX, centerY: native.centerY },
+    fitted: { width: native.width * uniformScale, height: native.height * uniformScale },
+    target: { ...footprint, width: targetWidth, height: targetHeight },
+    targetFoot: { ...projectedFoot },
+  };
+  return placement;
+}
+
+/** Exact pre-outline pixel rectangles and their projected-world bounds. */
+export function frameVisibility(selected) {
+  if (!selected) return null;
+  return {
+    frameRect: { ...selected.frame.rect },
+    pixels: { body: { ...selected.frame.alphaBounds }, core: selected.frame.coreBounds ? { ...selected.frame.coreBounds } : null, outline: { ...selected.frame.outlineBounds } },
+    bounds: { body: { ...selected.placement.bounds.body }, core: selected.placement.bounds.core ? { ...selected.placement.bounds.core } : null, outline: { ...selected.placement.bounds.outline } },
+    // This image is the original body-alpha export, when explicitly loaded.
+    // Bounds alone measure visibility; they are not an alpha hit-test mask.
+    bodyAlpha: selected.bodyAlpha || null, alphaThreshold: selected.metadata.atlas.alphaThreshold ?? 8,
+    depth: selected.placement.depth,
+  };
+}
+
+/** Rendering state lives outside actors and is never written into a save. */
+export class ProductionPoseClock {
+  constructor() { this.actors = new WeakMap(); }
+  select(actor, simulationTime = 0, { runThreshold = 0, gait } = {}) {
+    if (!actor || typeof actor !== 'object' || !finite(actor.x) || !finite(actor.y) || !finite(simulationTime)) {
+      return { pose: 'idle', phase: 0 };
+    }
+    const previous = this.actors.get(actor);
+    if (previous && simulationTime === previous.time) return previous.selection;
+    const advanced = previous && simulationTime > previous.time;
+    const dx = advanced ? actor.x - previous.x : 0, dy = advanced ? actor.y - previous.y : 0;
+    const distance = Math.hypot(dx, dy);
+    const moved = distance > .001;
+    const speed = advanced ? distance / (simulationTime - previous.time) : 0;
+    const threshold = finite(runThreshold) && runThreshold >= 0 ? runThreshold : 0;
+    const pose = !moved ? 'idle' : actor.dashTime > 0 ? 'dash' : speed >= threshold ? 'run' : 'walk';
+    // The engine phase is shared by enemies and advances very quickly during a
+    // dash. Native player clips instead keep their measured cycle duration.
+    // This clock is visual state only: collision, travel, RNG and saves stay put.
+    let phase = finite(actor.walkPhase) ? actor.walkPhase : 0;
+    const measured = gait && positive(gait.walkCycleDistance) && positive(gait.runCycleDistance);
+    let cycleDistance = 0, reverse = false;
+    if (measured) {
+      cycleDistance = pose === 'walk' ? gait.walkCycleDistance : gait.runCycleDistance;
+      const prior = advanced && finite(previous.gaitPhase) ? previous.gaitPhase : 0;
+      // Backpedalling must push the planted foot forwards relative to the body.
+      // Turning the whole armed sprite towards travel would misdirect its gun.
+      reverse = moved && finite(actor.angle) && (dx * Math.cos(actor.angle) + dy * Math.sin(actor.angle)) / distance < -.35;
+      phase = moved ? wrap(prior + (reverse ? -1 : 1) * distance * TAU / cycleDistance) : prior;
+    } else if (gait && positive(gait.referenceSpeed)) {
+      const duration = pose === 'walk' ? gait.walkDuration : gait.runDuration;
+      const prior = advanced && finite(previous.gaitPhase) ? previous.gaitPhase : 0;
+      const rate = Math.min(1.25, Math.max(.65, speed / gait.referenceSpeed));
+      phase = moved && positive(duration) ? wrap(prior + (simulationTime - previous.time) * TAU * rate / duration) : prior;
+    }
+    const selection = Object.freeze({ pose, phase, ...(measured ? { speed, cycleDistance, reverse } : {}) });
+    this.actors.set(actor, { x: actor.x, y: actor.y, time: simulationTime, selection, gaitPhase: gait ? phase : undefined });
+    return selection;
+  }
+  reset(actor) { if (actor && typeof actor === 'object') this.actors.delete(actor); }
+}
+
+function assetURL(path, baseURL, extension, revision) {
+  if (revision !== undefined && !validAssetRevision(revision)) throw new Error('invalid-asset-revision');
+  if (typeof path !== 'string' || !path || /[\\\u0000-\u001f?#]/.test(path)) throw new Error('invalid-asset-path');
+  const url = new URL(path, baseURL);
+  let decodedPath;
+  try {
+    const decoded = decodeURIComponent(url.pathname);
+    if (/[\\\u0000-\u001f]/.test(decoded)) throw new Error('invalid-asset-path');
+    decodedPath = new URL(decoded, url.origin).pathname;
+  } catch { throw new Error('invalid-asset-path'); }
+  if (!['http:', 'https:'].includes(url.protocol) || url.origin !== baseURL.origin || url.username || url.password
+    || !url.pathname.startsWith(baseURL.pathname) || !decodedPath.startsWith(baseURL.pathname)
+    || !url.pathname.toLowerCase().endsWith(extension)
+    || url.search || url.hash) throw new Error('invalid-asset-path');
+  // The catalog supplies one stable content revision for the entire bundle.
+  // Never alter cache policy or append wall-clock/random cache-busting values.
+  if (revision !== undefined) url.searchParams.set('rev', revision);
+  return url.href;
+}
+
+function loadPNG(ImageCtor, url, expected, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    let image, timer, settled = false;
+    const finish = error => {
+      if (settled) return;
+      settled = true; clearTimeout(timer);
+      if (image) { image.onload = null; image.onerror = null; }
+      if (error) reject(new Error(error)); else resolve(image);
+    };
+    try {
+      image = new ImageCtor(); image.crossOrigin = 'anonymous'; image.decoding = 'async';
+      image.onload = () => finish(image.naturalWidth === expected.width && image.naturalHeight === expected.height ? null : 'atlas-dimensions-mismatch');
+      image.onerror = () => finish('atlas-image-failed');
+      timer = setTimeout(() => finish('atlas-image-timeout'), timeoutMs);
+      image.src = url;
+    } catch { finish('atlas-image-failed'); }
+  });
+}
+
+export class ProductionArt {
+  constructor({ manifest = productionAssets, baseURL = DEFAULT_BASE_URL, fetchImpl = undefined, ImageCtor = globalThis.Image, timeoutMs = 15000, onChange = null } = {}) {
+    validateAssetRevisions(manifest);
+    this.manifest = freezeTree(JSON.parse(JSON.stringify(manifest)));
+    this.baseURL = new URL(baseURL);
+    if (!this.baseURL.pathname.endsWith('/')) this.baseURL.pathname += '/';
+    // Window.fetch requires a Window receiver in WebKit. A saved method must
+    // not receive this ProductionArt instance when invoked during loading.
+    this.fetchImpl = fetchImpl === undefined ? (typeof globalThis.fetch === 'function' ? globalThis.fetch.bind(globalThis) : null) : fetchImpl;
+    this.ImageCtor = ImageCtor;
+    this.timeoutMs = positive(timeoutMs) ? timeoutMs : 15000;
+    this.onChange = typeof onChange === 'function' ? onChange : null;
+    this.records = new Map(); this.poseClock = new ProductionPoseClock();
+  }
+  status(id) { return this.records.get(id)?.status || 'idle'; }
+  isReady(id) { return this.status(id) === 'ready'; }
+  isCharacterReady(name) {
+    const poses = this.manifest.characters?.[name];
+    return !!poses && this.isReady(poses.idle) && (this.isReady(poses.run) || this.isReady(poses.walk));
+  }
+  get(id) { const record = this.records.get(id); return record?.status === 'ready' ? record : null; }
+  hasIdentificationContours(id) {
+    const metadata = this.get(id)?.metadata;
+    // A ready record contains only the immutable, atomically validated table.
+    return !!metadata && metadata.frames.every(frame => Object.hasOwn(frame, 'bodyIdentificationContour'));
+  }
+  /** Release only after a caller commits its next active scene. Validation is
+   * atomic, and deleting first makes every in-flight completion stale. */
+  releaseUnusedAssets(keepIDs) {
+    if (!Array.isArray(keepIDs) && !(keepIDs instanceof Set)) throw new Error('invalid-asset-keep-ids');
+    const keep = new Set(keepIDs);
+    for (const id of keep) if (typeof id !== 'string' || !Object.hasOwn(this.manifest.assets || {}, id)) throw new Error('invalid-asset-keep-ids');
+    const released = [];
+    for (const [id, record] of this.records) if (!keep.has(id)) {
+      this.records.delete(id);
+      record.controller?.abort();
+      record.status = 'released';
+      record.metadata = null; record.image = null; record.bodyAlpha = null;
+      record.controller = null;
+      released.push(id);
+    }
+    return released;
+  }
+  extendManifest(additions) {
+    const next = extendProductionAssets(this.manifest, additions);
+    for (const [id, record] of this.records) {
+      if (JSON.stringify(this.manifest.assets?.[id]) !== JSON.stringify(next.assets?.[id])) {
+        record.controller?.abort(); this.records.delete(id);
+      }
+    }
+    this.manifest = next;
+    // Registration and updates never start network requests on their own.
+    return this.manifest;
+  }
+  notify(id, record) {
+    if (this.onChange) try { this.onChange(Object.freeze({ id, status: record.status, error: record.error || null })); } catch { /* An optional UI callback cannot break loading. */ }
+  }
+  load(id, { retry = false } = {}) {
+    const existing = this.records.get(id);
+    if (existing && (!retry || existing.status !== 'failed')) return existing.promise;
+    const config = this.manifest.assets?.[id];
+    const record = { status: 'loading', metadata: null, image: null, bodyAlpha: null, error: null, promise: null };
+    this.records.set(id, record);
+    record.promise = (async () => {
+      await Promise.resolve();
+      if (this.records.get(id) !== record) return false;
+      let timer;
+      try {
+        if (!config || typeof this.fetchImpl !== 'function' || typeof this.ImageCtor !== 'function') throw new Error('asset-loader-unavailable');
+        const metadataURL = assetURL(config.metadata, this.baseURL, '.json', config.revision);
+        const atlasURL = assetURL(config.atlas, this.baseURL, '.png', config.revision);
+        const controller = new AbortController();
+        record.controller = controller;
+        const timeout = new Promise((_, reject) => { timer = setTimeout(() => { controller.abort(); reject(new Error('atlas-metadata-timeout')); }, this.timeoutMs); });
+        const response = await Promise.race([this.fetchImpl(metadataURL, { mode: 'same-origin', credentials: 'same-origin', signal: controller.signal }), timeout]);
+        if (!response?.ok) throw new Error('atlas-metadata-failed');
+        const content = await Promise.race([response.text(), timeout]);
+        if (content.length > 8 * 1024 * 1024) throw new Error('atlas-metadata-too-large');
+        const metadata = validateAtlasMetadata(JSON.parse(content));
+        clearTimeout(timer);
+        const image = await loadPNG(this.ImageCtor, atlasURL, metadata.atlas, this.timeoutMs);
+        if (this.records.get(id) !== record) return false;
+        record.metadata = metadata; record.image = image; record.status = 'ready';
+        this.notify(id, record); return true;
+      } catch (error) {
+        if (this.records.get(id) !== record) return false;
+        record.status = 'failed'; record.error = error instanceof SyntaxError ? 'invalid-atlas-json' : error?.message || 'asset-load-failed';record.errorType=errorType(error);
+        record.metadata = null; record.image = null; this.notify(id, record); return false;
+      } finally { clearTimeout(timer); }
+    })();
+    this.notify(id, record);
+    return record.promise;
+  }
+  loadAll() { return Promise.all(Object.keys(this.manifest.assets || {}).map(id => this.load(id))); }
+  loadCharacter(name) {
+    return Promise.all([...new Set(Object.values(this.manifest.characters?.[name] || {}))].map(id => this.load(id)));
+  }
+  loadBodyAlpha(id, { retry = false } = {}) {
+    const record = this.get(id), path = this.manifest.assets?.[id]?.bodyAlpha;
+    if (!record) return Promise.resolve(false);
+    if (record.bodyAlphaPromise && (!retry || record.bodyAlphaStatus !== 'failed')) return record.bodyAlphaPromise;
+    if (this.hasIdentificationContours(id)) {
+      record.bodyAlpha = null; record.bodyAlphaStatus = 'ready';
+      record.bodyAlphaError = null; record.bodyAlphaErrorType = null;
+      record.bodyAlphaPromise = Promise.resolve(true);
+      this.notify(id, { status: 'body-alpha-ready' });
+      return record.bodyAlphaPromise;
+    }
+    if (!path) return Promise.resolve(false);
+    record.bodyAlphaStatus = 'loading'; record.bodyAlphaError = null;
+    record.bodyAlphaPromise = (async () => {
+      await Promise.resolve();
+      try {
+        const url = assetURL(path, this.baseURL, '.png', this.manifest.assets[id]?.revision);
+        const image = await loadPNG(this.ImageCtor, url, record.metadata.atlas, this.timeoutMs);
+        if (this.get(id) !== record) return false;
+        record.bodyAlpha = image; record.bodyAlphaStatus = 'ready';
+        this.notify(id, { status: 'body-alpha-ready' }); return true;
+      } catch (error) {
+        if (this.get(id) !== record) return false;
+        record.bodyAlphaStatus = 'failed'; record.bodyAlphaError = error?.message || 'atlas-image-failed';
+        record.bodyAlphaErrorType=errorType(error);
+        this.notify(id, { status: 'body-alpha-failed', error: record.bodyAlphaError }); return false;
+      }
+    })();
+    this.notify(id, { status: 'body-alpha-loading' });
+    return record.bodyAlphaPromise;
+  }
+  loadBoss(bossKey) {
+    const config = this.manifest.bosses?.[bossKey];
+    const ids = typeof config === 'string' ? [config] : Object.values(config || {});
+    return Promise.all([...new Set(ids)].map(id => this.load(id)));
+  }
+  frame(id, options = {}) {
+    const record = this.get(id);
+    if (!record) return null;
+    const frame = selectAtlasFrame(record.metadata, options);
+    const placement = spritePlacement(record.metadata, frame, options);
+    return placement ? { id, image: record.image, bodyAlpha: record.bodyAlpha, metadata: record.metadata, frame, placement } : null;
+  }
+  actorFrame(poses, actor, { simulationTime = 0, pose, phase, foot, worldHeight, runThreshold = 0, animationTime = 0, groundedGait = false, actionDurations, visualAction, enemyMotion } = {}) {
+    if (!poses || !actor || !finite(actor.x) || !finite(actor.y)) return null;
+    const gait = groundedGait && typeof poses === 'object' ? measuredPlayerGait(
+      this.get(poses.walk)?.metadata.animation?.duration,
+      this.get(poses.run)?.metadata.animation?.duration,
+    ) : undefined;
+    const selection = enemyMotion ? (this.enemyPoseClock??=new EnemyLocomotionClock()).select(actor,simulationTime,enemyMotion)
+      : this.poseClock.select(actor, simulationTime, { runThreshold, gait });
+    const chosenPose = pose || selection.pose;
+    const fallbacks = chosenPose === 'idle' ? ['idle', 'static', 'walk', 'run'] : [chosenPose, 'run', 'walk', 'idle', 'static'];
+    const selectedPhase = finite(phase) ? phase : selection.phase;
+    const actionActor = visualAction && typeof visualAction === 'object' ? { ...actor, ...visualAction } : actor;
+    const actionOptions = { pose: chosenPose, phase: selectedPhase, simulationTime, animationTime, actionDurations };
+    const actionKey = typeof poses === 'object' ? poses.actions : null;
+    const actionSelection = this.isReady(actionKey) ? nativeActionSelection(this.get(actionKey).metadata, actionActor, actionOptions) : null;
+    // A full-body firing reel has stationary feet. In particular, the nailgun's
+    // .105s firing interval used to restart its .12s reel continuously. Keep the
+    // armed 32-sample gait while moving; muzzle effects/recoil remain real.
+    const movingPlayer = groundedGait && !pose && selection.pose !== 'idle';
+    const slidingHit=enemyMotion&&!pose&&selection.pose==='walk'&&!selection.knocked&&actionSelection?.clip==='hit';
+    const idleEnemy=enemyMotion&&!pose&&selection.pose==='idle'&&actionSelection?.clip==='idle';
+    const useActionReel = actionSelection && (['windup', 'attack', 'hit', 'death'].includes(actionSelection.clip)||idleEnemy)
+      && !(movingPlayer && ['attack', 'hit'].includes(actionSelection.clip)) && !slidingHit;
+    const key = useActionReel ? actionKey : typeof poses === 'string' ? (this.isReady(poses) ? poses : null) : fallbacks.map(candidate => poses[candidate]).find(candidate => this.isReady(candidate));
+    if (!key) return null;
+    const projectedFoot = foot || { x: (actor.x - actor.y) * Math.sqrt(3) / 2, y: (actor.x + actor.y) * .5 };
+    const nativeAction = useActionReel ? actionSelection : nativeActionSelection(this.get(key).metadata, actionActor, actionOptions);
+    const selected = this.frame(key, { foot: projectedFoot, worldHeight, angle: enemyMotion?selection.angle:actor.angle,
+      ...(nativeAction || { phase: selectedPhase, timeSeconds: animationTime, stationary: chosenPose === 'idle' }) });
+    return selected && (groundedGait||enemyMotion) ? { ...selected, locomotion: selection } : selected;
+  }
+  characterFrame(name, actor, options = {}) { return this.actorFrame(this.manifest.characters?.[name], actor, options); }
+  bossFrame(bossKey, actor, options = {}) { return this.actorFrame(this.manifest.bosses?.[bossKey], actor, options); }
+  enemyFrame(type, actor, options = {}) { return this.actorFrame(this.manifest.enemies?.[type], actor, options); }
+  propFrame(name, prop, { angle = prop?.angle || 0, footprint = prop, foot } = {}) {
+    const id = this.manifest.environment?.[name], record = this.get(id);
+    if (!record) return null;
+    const frame = selectAtlasFrame(record.metadata, { angle, stationary: true });
+    const placement = propPlacement(record.metadata, frame, { footprint, foot });
+    return placement ? { id, image: record.image, bodyAlpha: record.bodyAlpha, metadata: record.metadata, frame, placement } : null;
+  }
+  attachment(selected) {
+    if (!selected) return null;
+    return spriteAttachmentPlacement(selected.metadata, selected.frame, { foot: selected.placement.foot, worldHeight: selected.metadata.projection.subjectHeight * selected.placement.scale * selected.metadata.projection.pixelsPerWorld });
+  }
+  drawFrame(context, selected, { alpha = 1 } = {}) {
+    if (!selected || !context || typeof context.drawImage !== 'function' || !finite(alpha) || alpha <= 0) return false;
+    const { frame: { rect }, placement } = selected;
+    let saved = false;
+    try {
+      context.save(); saved = true; context.globalAlpha *= Math.min(1, alpha);
+      context.imageSmoothingEnabled = true; context.imageSmoothingQuality = 'high';
+      context.drawImage(selected.image, rect.x, rect.y, rect.width, rect.height, placement.x, placement.y, placement.width, placement.height);
+      return true;
+    } catch { return false; }
+    finally { if (saved) context.restore(); }
+  }
+  draw(context, id, options = {}) { return this.drawFrame(context, this.frame(id, options), options); }
+  drawCharacter(context, name, actor, options = {}) { return this.drawFrame(context, this.characterFrame(name, actor, options), options); }
+  drawBoss(context, bossKey, actor, options = {}) { return this.drawFrame(context, this.bossFrame(bossKey, actor, options), options); }
+  drawProp(context, name, prop, options = {}) { return this.drawFrame(context, this.propFrame(name, prop, options), options); }
+}

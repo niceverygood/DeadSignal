@@ -1,3 +1,4 @@
+import {expeditionTarget} from './expedition.js';
 import {getBoss} from './campaign.js?v=0.29.0';
 const finitePoint=point=>point&&Number.isFinite(point.x)&&Number.isFinite(point.y);
 const alive=enemy=>enemy&&!enemy.dead&&Number.isFinite(enemy.hp)&&enemy.hp>0&&finitePoint(enemy)&&Number.isInteger(enemy.id)&&enemy.id>0;
@@ -8,6 +9,7 @@ const finite=(value,fallback)=>Number.isFinite(value)?value:fallback;
 export function objectiveTargets(game){
   if(game?.state!=='playing')return[];
   const enemies=Array.isArray(game.enemies)?game.enemies:[],targets=[];
+  const field=expeditionTarget(game);if(field)targets.push({enemy:field,kind:'expedition',label:field.title});
   const campaignBoss=game.missionId?enemies.find(enemy=>alive(enemy)&&getBoss(enemy.bossKey)):null;
   const mandatory=campaignBoss||(game.stage===2
     ?enemies.find(enemy=>alive(enemy)&&enemy.type==='collector')

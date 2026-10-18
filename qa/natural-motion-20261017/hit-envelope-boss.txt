@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "state": "windup",
+      "hitFlash": 0.11166666666666666,
+      "stun": 0.08166666666666667,
+      "damage": 15,
+      "key": "boss-01-mid",
+      "clip": "windup",
+      "sample": 35,
+      "sampleDensity": 64,
+      "continuousSampling": true,
+      "hitLayerWeight": 0.09807909429856743,
+      "hitTorsoOnly": true,
+      "boundsKind": "alpha",
+      "source": "work/meshy-sprite-baker/models/boss-01-mid-grounded-locomotion-v1.glb",
+      "angle": 0,
+      "clipped": false,
+      "identicalSnapshot": true
+    },
+    {
+      "state": "charge",
+      "hitFlash": 0.11166666666666666,
+      "stun": 0.08166666666666667,
+      "damage": 15,
+      "key": "boss-01-mid",
+      "clip": "attack",
+      "sample": 24,
+      "sampleDensity": 64,
+      "continuousSampling": true,
+      "hitLayerWeight": 0.17163841502249302,
+      "hitTorsoOnly": true,
+      "boundsKind": "alpha",
+      "source": "work/meshy-sprite-baker/models/boss-01-mid-grounded-locomotion-v1.glb",
+      "angle": 0,
+      "clipped": false,
+      "identicalSnapshot": true
+    }
+  ],
+  "note": "explicit attack-state fixture and fresh visual pose history; actual engine bullet collision and damage, no save access"
+}

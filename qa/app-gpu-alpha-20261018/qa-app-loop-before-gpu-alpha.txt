@@ -1,0 +1,94 @@
+import {Game} from './engine.js?v=0.29.0';
+import {saveProfile} from './storage.js?v=0.29.0';
+import {isQAMemoryStorage} from './qa-storage.js';
+import {createNativeFrameProfile} from './qa-native-frame-profile.js';
+import {createFrameCostProfile} from './qa-frame-cost-profile.js';
+import {createMovementProfile} from './qa-movement-profile.js';
+
+export function allowAppLoopQA(location,query,storage){
+ return location?.protocol==='http:'&&['localhost','127.0.0.1','[::1]'].includes(location.hostname)&&location.port==='8851'&&query?.has('qa')&&query.has('qa-memory')&&query.get('qa-loop')==='1'&&isQAMemoryStorage(storage);
+}
+export function appLoopMovementMode(query){
+ const mode=query?.get('qa-loop-movement');return mode==='counts'||mode==='wall'?mode:null;
+}
+export function seedAppLoopQA(profile,storage,{location,query}={}){
+ if(!allowAppLoopQA(location,query,storage))return null;
+ const count=Number(query.get('qa-loop-count')??180);if(![60,180].includes(count))return null;
+ const weapon=count===60?'shotgun':'nailgun',game=new Game({seed:774,missionId:'mission-01',weapon,training:profile.training,equipment:profile.equipment}),baseEnemies=game.enemies.length;
+ for(let i=baseEnemies;i<count;i++){
+  let at=null;for(let n=0;n<32&&!at;n++){const a=(i/count+n/32)*Math.PI*2,r=210+(i%5)*32,x=game.player.x+Math.cos(a)*r,y=game.player.y+Math.sin(a)*r;if(!game.blocked(x,y,16))at={x,y};}
+  if(!at||!game.spawnEnemy('walker',210,at))throw Error('qa-loop-normal-spawn-failed-'+i);
+ }
+ const snapshot=game.snapshot();if(!snapshot||snapshot.enemies.length!==count)throw Error('qa-loop-valid-checkpoint-required');
+ profile.activeRun={version:1,id:`qa-loop-${count}-${weapon}`,savedAt:Date.now(),game:snapshot,selection:{route:'hospital'}};
+ if(!saveProfile(profile,storage))throw Error('qa-loop-memory-checkpoint-failed');
+ return {count,weapon,baseEnemies,seed:game.seed,snapshotValid:true,spawnClock:game.spawnClock,note:'Explicit density fixture adds normal enemies through spawnEnemy and preserves initial enemies, spawnClock, HP, speed, AI, damage and normal subsequent spawning. Existing Continue/preload/resume UI launches the memory-only checkpoint.'};
+}
+const clone=value=>{try{return JSON.parse(JSON.stringify(value));}catch{return null;}};
+const percentile=(values,p)=>values.sort((a,b)=>a-b)[Math.min(values.length-1,Math.floor(values.length*p))]??0;
+function summarize(samples,key){const values=samples.map(s=>key(s)).filter(Number.isFinite);return {median:percentile([...values],.5),p95:percentile([...values],.95),max:Math.max(0,...values)};}
+function context(read){
+ const c=read(),g=c.game;
+ return {state:g?.state,screen:c.screen??null,time:g?.time,hp:g?.player?.hp,kills:g?.kills,enemies:g?.enemies?.length,random:g?.random?.getState(),visualRandom:g?.visualRandom?.getState(),accumulator:c.accumulator,lastFrame:c.lastFrame,saveClock:c.saveClock,hudClock:c.hudClock,hidden:c.hidden===true,focused:c.focused,visibility:c.visibility,audioState:c.audioState,canvas:c.canvas,captureStats:c.captureStats,reuseCapture:c.reuseCapture,nativeSelected:c.nativeSelected,playerLive:c.playerLive,gpuEnabled:c.gpuEnabled,nativeLaunch:c.nativeLaunch??null,enemyGrid:c.enemyGrid??null,rigError:c.rigError};
+}
+
+// Observes the existing app loop. It neither schedules callbacks nor supplies
+// ticks, inputs, event drains, rendering, persistence or audio of its own.
+export class AppLoopProbe {
+ constructor({read,bindings=[],methods=[],now=()=>performance.now(),limit=40,maxCallbacks=120,onStop=()=>{}}){
+  this.read=read;this.bindings=bindings;this.methods=methods;this.now=now;this.limit=Math.max(1,Math.min(80,Math.floor(limit)||40));this.maxCallbacks=Math.max(this.limit,Math.min(160,Math.floor(maxCallbacks)||120));this.onStop=onStop;this.active=false;this.undo=[];this.gameUndo=[];this.samples=[];this.tickSchedule=[];this.eventStream=[];this.unmeasured=[];
+ }
+ clock(){try{const n=this.now();return Number.isFinite(n)?n:0;}catch{return 0;}}
+ wrapper(original,name,kind){
+  const probe=this;return function(...args){
+   const sample=probe.current;if(!sample)return original.apply(this,args);
+   const start=probe.clock();let result,threw=true;
+   if(kind==='tick'){sample.tickCount++;probe.tickSchedule.push({frame:sample.frame,dt:args[0],command:clone(args[1]??{})});}
+   if(kind==='audio')sample.audioCalls++;if(kind==='storage')sample.storageWrites++;
+   try{result=original.apply(this,args);threw=false;if(kind==='schedule')sample.shouldRender=result;return result;}
+   finally{const entry=sample.stages[name]??={cpuMs:0,calls:0};entry.calls++;entry.cpuMs+=Math.max(0,probe.clock()-start);if(threw)sample.thrownStage=name;if(kind==='events'&&!threw&&Array.isArray(result)){sample.eventCount+=result.length;const events=clone(result);if(events)probe.eventStream.push(...events);}}
+  };
+ }
+ method({object,key,name,kind},undo){
+  try{if(!object||typeof object[key]!=='function')throw Error('method-unavailable');const descriptor=Object.getOwnPropertyDescriptor(object,key),original=object[key],wrapped=this.wrapper(original,name,kind);Object.defineProperty(object,key,descriptor&&'value'in descriptor?{...descriptor,value:wrapped}:{configurable:true,writable:true,enumerable:descriptor?.enumerable??false,value:wrapped});undo.push(()=>{if(Object.getOwnPropertyDescriptor(object,key)?.value===wrapped){if(descriptor)Object.defineProperty(object,key,descriptor);else delete object[key];}});}
+  catch{this.unmeasured.push(name);}
+ }
+ syncGame(game){if(this.game===game)return;for(const restore of this.gameUndo.reverse())try{restore();}catch{this.unmeasured.push('game-restore-failed');}this.gameUndo=[];this.game=game;this.method({object:game,key:'tick',name:'simulation.tick',kind:'tick'},this.gameUndo);this.method({object:game,key:'drainEvents',name:'events.drain',kind:'events'},this.gameUndo);}
+ start(){
+  if(this.active)return false;const c=this.read();if(c.game?.state!=='playing'||c.screen)return false;
+  this.samples=[];this.tickSchedule=[];this.eventStream=[];this.unmeasured=[];this.playingFrames=0;this.report=null;this.initialSnapshot=c.game.snapshot();this.initialContext=context(this.read);this.startedCpu=this.clock();this.active=true;
+  for(const binding of this.bindings)try{const original=binding.get();if(typeof original!=='function')throw Error('binding-unavailable');const wrapped=this.wrapper(original,binding.name,binding.kind);binding.set(wrapped);this.undo.push(()=>{if(binding.get()===wrapped)binding.set(original);});}catch{this.unmeasured.push(binding.name);}
+  for(const method of this.methods)this.method(method,this.undo);this.syncGame(c.game);return true;
+ }
+ wrapFrame(original){const probe=this;return function(...args){
+  if(!probe.active)return original.apply(this,args);
+  const before=context(probe.read),rawDeltaMs=before.lastFrame?args[0]-before.lastFrame:0;
+  probe.syncGame(probe.read().game);const sample=probe.current={frame:probe.samples.length,rafTimestamp:args[0],rawDeltaMs,clampedDeltaMs:Math.min(120,rawDeltaMs),discardedWallMs:Math.max(0,rawDeltaMs-120),before,stages:{},tickCount:0,eventCount:0,audioCalls:0,storageWrites:0};const start=probe.clock();let error;
+  try{return original.apply(this,args);}catch(e){error=e;throw e;}
+  finally{
+   sample.frameCpuMs=Math.max(0,probe.clock()-start);sample.after=context(probe.read);sample.error=error?.message??null;probe.current=null;probe.samples.push(sample);if(before.state==='playing'&&!before.screen&&!before.hidden)probe.playingFrames++;
+   if(error||probe.playingFrames>=probe.limit||probe.samples.length>=probe.maxCallbacks)probe.stop(error?'frame-error':probe.playingFrames>=probe.limit?'playing-limit':'callback-limit');
+  }
+ };}
+ stop(reason='manual'){
+  if(!this.active)return this.report??null;this.active=false;this.current=null;
+  for(const restore of [...this.gameUndo.reverse(),...this.undo.reverse()])try{restore();}catch{this.unmeasured.push('restore-failed');}this.gameUndo=[];this.undo=[];this.game=null;
+  const labels=[...new Set(this.samples.flatMap(s=>Object.keys(s.stages)))],final=this.read();
+  this.report={reason,playingFrames:this.playingFrames,callbacks:this.samples.length,initialContext:this.initialContext,finalContext:context(this.read),initialSnapshot:this.initialSnapshot,finalSnapshot:final.game.snapshot(),tickSchedule:this.tickSchedule,eventStream:this.eventStream,samples:this.samples,summary:Object.fromEntries(['frameCpuMs','rawDeltaMs','clampedDeltaMs','discardedWallMs','tickCount'].map(key=>[key,summarize(this.samples,s=>s[key])])),stages:Object.fromEntries(labels.map(label=>[label,summarize(this.samples,s=>s.stages[label]?.cpuMs||0)])),storageWrites:this.samples.reduce((n,s)=>n+s.storageWrites,0),audioCalls:this.samples.reduce((n,s)=>n+s.audioCalls,0),unmeasured:this.unmeasured,note:'Actual app.frame observation with original rAF scheduling, clamped catch-up, interpolation, events/audio, memory checkpoint, UI/HUD and renderer. Inclusive CPU call wall times overlap; do not sum nested stages. The observer makes no tick/render/event drain/storage/audio calls itself. A slow or unfocused callback environment is not normal presented FPS or actual GPU execution/audio output/paint/RAM. Different real callback schedules cannot use cross-pass HP/RNG equality as an oracle. No user persistent storage is accessed.'};
+  try{this.onStop(this.report);}catch(error){this.report.observerError=error?.message??String(error);}return this.report;
+ }
+}
+
+export function installAppLoopQA({document,location,query,storage,read,bindings,methods,renderer,fixture}){
+ if(!allowAppLoopQA(location,query,storage))return null;
+ const panel=document.createElement('aside');panel.id='qa-app-loop';panel.style.cssText='position:fixed;z-index:10000;bottom:4px;left:4px;background:#10191e;color:#e7d49e;padding:6px;max-width:460px;font:12px monospace';
+ panel.innerHTML='<button type="button" id="qa-loop-start">전체 루프 40회 기록 시작</button> <button type="button" id="qa-loop-stop">기록 종료</button> <span id="qa-loop-status" role="status">메모리 QA 준비</span><details><summary>전체 루프 QA 기록</summary><pre id="qa-loop-report" style="max-height:240px;overflow:auto;white-space:pre-wrap"></pre><img id="qa-loop-proof" alt="실제 앱 밀집 전투 검수" style="max-width:440px"></details>';
+ document.body.append(panel);const status=panel.querySelector('#qa-loop-status'),output=panel.querySelector('#qa-loop-report'),proof=panel.querySelector('#qa-loop-proof');let native=null,cost=null,movement=null;
+ const probe=new AppLoopProbe({read,bindings,methods,onStop:report=>{
+  report.native=native?.stop()??null;native=null;report.cost=cost?.stop()??null;cost=null;if(movement){report.movement=movement.stop();movement=null;}report.fixture=fixture;report.memoryOnly=isQAMemoryStorage(storage);output.textContent=JSON.stringify(report,null,2);proof.src=renderer.canvas.toDataURL();status.textContent=`기록 완료 · ${report.playingFrames}전투 callback · 저장${report.storageWrites}회`;
+ }});
+ const wrappedFrame=original=>probe.wrapFrame(function(...args){const meta={callback:probe.samples.length};native?.beginFrame(meta);cost?.beginFrame(meta);movement?.beginFrame(meta);try{return original.apply(this,args);}finally{movement?.endFrame();cost?.endFrame();native?.endFrame();}});
+ panel.querySelector('#qa-loop-start').addEventListener('click',()=>{if(!probe.start()){status.textContent='실제 이어하기 후 전투 중에 시작하세요.';return;}native=createNativeFrameProfile(renderer.liveEnemies);if(query.get('qa-loop-cost')==='1')cost=createFrameCostProfile({renderer,read});const mode=appLoopMovementMode(query);if(mode)movement=createMovementProfile({read,mode});status.textContent='기록 중 · 40전투 callback 또는 최대120callback';});
+ panel.querySelector('#qa-loop-stop').addEventListener('click',()=>probe.stop());
+ return {probe,wrapFrame:wrappedFrame};
+}

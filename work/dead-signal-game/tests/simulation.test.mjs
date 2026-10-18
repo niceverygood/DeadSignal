@@ -126,8 +126,8 @@ test('dash, lure, fire and reload impulses reach only the first consumed step',(
   advanceSimulation(game,raw,backlog(6));assert.equal(calls.length,6);
   for(const key of ['dash','lure','molotov','reload'])assert.deepEqual(calls.map(call=>call.input[key]),[true,false,false,false,false,false]);
   for(const call of calls){assert.equal(call.dt,FIXED_STEP);assert.equal(call.input.moveX,1);assert.equal(call.input.targetX,raw.targetX);assert.equal(call.input.targetY,raw.targetY);}
-  for(const type of ['lure','fire','reload'])assert.equal(game.events.filter(event=>event.type===type).length,1);
-  assert.ok(game.player.dashTime>0);assert.ok(game.player.x>1000);assert.equal(game.fires.length,1);assert.ok(game.lure);
+  for(const type of ['lure','fire-throw','reload'])assert.equal(game.events.filter(event=>event.type===type).length,1);
+  assert.ok(game.player.dashTime>0);assert.ok(game.player.x>1000);assert.equal(game.fires.length,0);assert.equal(game.throwables.length,1);assert.ok(game.lure);
   assert.equal(raw.dash,true);assert.equal(raw.lure,true);assert.equal(raw.molotov,true);assert.equal(raw.reload,true);
 });
 

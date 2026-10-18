@@ -1,0 +1,62 @@
+{
+  "node": "v22.23.3",
+  "mode": "rect",
+  "passes": [
+    {
+      "force": true,
+      "ticks": 24000,
+      "seconds": 1199.9999999994563,
+      "wallMs": 12305.5931,
+      "cpuMs": 12485,
+      "bulletMs": 458.99229999987233,
+      "stats": {
+        "rectCandidates": 1727762,
+        "rectRejected": 0,
+        "rectTests": 1727762,
+        "circleCandidates": 9899280,
+        "circleRejected": 0,
+        "circleTests": 9899280
+      },
+      "enemies": 125,
+      "kills": 5326
+    },
+    {
+      "force": false,
+      "ticks": 24000,
+      "seconds": 1199.9999999994563,
+      "wallMs": 12715.214799999998,
+      "cpuMs": 12187,
+      "bulletMs": 367.8608999998942,
+      "stats": {
+        "rectCandidates": 1727762,
+        "rectRejected": 1707224,
+        "rectTests": 20538,
+        "circleCandidates": 9899280,
+        "circleRejected": 0,
+        "circleTests": 9899280
+      },
+      "enemies": 125,
+      "kills": 5326
+    },
+    {
+      "force": true,
+      "ticks": 24000,
+      "seconds": 1199.9999999994563,
+      "wallMs": 12741.770399999998,
+      "cpuMs": 11860,
+      "bulletMs": 473.5062999999427,
+      "stats": {
+        "rectCandidates": 1727762,
+        "rectRejected": 0,
+        "rectTests": 1727762,
+        "circleCandidates": 9899280,
+        "circleRejected": 0,
+        "circleTests": 9899280
+      },
+      "enemies": 125,
+      "kills": 5326
+    }
+  ],
+  "identicalCombatState": true,
+  "note": "Headless full20-minute real spawning/AI/bullets/upgrade/RNG workload with explicit invulnerability stress fixture. Legacy baseline includes original rectangle arrays; rect mode filters only obstacles. Original CPU test threshold is not altered. Process CPU and call wall time are not browser FPS/GPU time or measured memory."
+}

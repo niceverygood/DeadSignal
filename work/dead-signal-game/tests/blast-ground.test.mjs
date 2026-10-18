@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {blastGroundEnvelope,drawBlastGround} from '../dist/blast-ground.js';import {Game} from '../dist/engine.js';import {SEA_EXPEDITION,ROOF_EXPEDITION} from '../dist/expedition.js';
+test('pressure expands continuously while contact fades and middle dust rises',()=>{
+ const p={life:.32,maxLife:.32,radius:150};const a=blastGroundEnvelope(p),b=blastGroundEnvelope({...p,life:.16}),c=blastGroundEnvelope({...p,life:0});assert.equal(a.pressure,1);assert.equal(a.dust,0);assert.ok(b.radius>a.radius&&c.radius>b.radius);assert.ok(b.dust>.2);assert.equal(c.pressure,0);
+});
+test('ground blast clips sea and roof and never changes real game snapshots or RNG',()=>{
+ for(const expedition of [SEA_EXPEDITION,ROOF_EXPEDITION]){const g=new Game({seed:774,expeditionId:expedition.id}),p={kind:'shockwave',x:g.player.x,y:g.player.y,life:.16,maxLife:.32,radius:150};let depth=0,clips=0,strokes=0;const raw={save(){depth++;},restore(){depth--;},clip(){clips++;},stroke(){strokes++;}};const c=new Proxy(raw,{get:(o,k)=>k in o?o[k]:()=>{},set:(o,k,v)=>(o[k]=v,true)});const before=JSON.stringify(g.snapshot()),particle=JSON.stringify(p),rng=g.random.getState();assert.equal(drawBlastGround(c,p,g.world),true);assert.equal(clips,1);assert.equal(strokes,2);assert.equal(depth,0);assert.equal(g.random.getState(),rng);assert.equal(JSON.stringify(p),particle);assert.equal(JSON.stringify(g.snapshot()),before);assert.equal(drawBlastGround(c,{...p,life:0},g.world),false);}
+});

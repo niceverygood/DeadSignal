@@ -1,0 +1,23 @@
+
+// BEGIN BUILDING OCCLUSION UI
+export function installBuildingOcclusionQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-building-occlusion.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory'))return null;
+ const button=document.createElement('button');button.id='building-occlusion-qa';button.textContent='건물 앞·뒤·모서리 캐릭터 가림 비교';document.querySelector('nav').append(button);let storage=null;
+ const show=report=>{const details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='건물 깊이 정렬 · 합법 위치와 원본 body 검수';pre.id='building-occlusion-report';pre.textContent=JSON.stringify(report,null,2);details.append(summary,pre);document.body.append(details);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='별도 원본 월드 · 건물 가림 A/B 준비';
+  try{
+   const {compareBuildingOcclusion}=await loadQA();storage??=createStorage(query,()=>{throw Error('building-occlusion-persistent-storage-forbidden');});
+   const result=await compareBuildingOcclusion(current.renderer,current.canvas,{location,query,storage,signal:controller.signal,
+    onProgress:info=>{status.textContent='건물 가림 비교 · '+(info.kind??'')+' '+(info.face??'')+' · '+(info.phase??'');},
+    onImage:info=>{if(controller.signal.aborted)return;const image=document.createElement('img');image.alt=info.alt;image.src=info.src;image.dataset.buildingOcclusionProof='true';image.style.maxWidth='100%';document.body.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent='건물 가림 비교 완료 · 벽 외부 합법 위치 · 원본 캐릭터 픽셀 보존';return result;
+  }catch(error){if(controller.signal.aborted)return;show({error:error?.message??String(error),qa:error?.buildingOcclusionQA??null});status.textContent='건물 가림 비교 중단 · '+(error?.message??String(error));throw error;}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END BUILDING OCCLUSION UI
+installBuildingOcclusionQA({document,location,status,read:()=>({ready,playing,renderer,canvas})});

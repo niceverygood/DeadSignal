@@ -1,8 +1,9 @@
+import {normalizeExpeditionProgress,planExpeditionCompletion} from './expedition.js';
 import {normalizeTraining,planTrainingPurchase} from './training.js?v=0.29.0';
 import {normalizeCampaign,planMissionCompletion} from './campaign-progress.js?v=0.29.0';
 import {normalizeEquipment,planTestChips,planEquipmentPurchase,planEquipmentSelection} from './equipment.js?v=0.29.0';
 export const PROFILE_KEY='dead-signal.profile.v1';
-const defaults=()=>({runs:0,wins:0,totalKills:0,bestKills:0,bestTime:0,parts:0,unlocked:['shotgun'],options:{sound:true,volume:.35,shake:true,autoAim:false,atmosphere:true,fireMode:'auto',minimap:true},training:normalizeTraining(null),campaign:normalizeCampaign(null),equipment:normalizeEquipment(null),activeRun:null,completedRuns:[],version:1});
+const defaults=()=>({runs:0,wins:0,totalKills:0,bestKills:0,bestTime:0,parts:0,unlocked:['shotgun'],options:{sound:true,volume:.35,shake:true,autoAim:false,atmosphere:true,fireMode:'auto',minimap:true},training:normalizeTraining(null),campaign:normalizeCampaign(null),equipment:normalizeEquipment(null),expeditions:normalizeExpeditionProgress(null),activeRun:null,completedRuns:[],version:1});
 export function activeRunEnvelope(raw){
   if(!raw||raw.version!==1||typeof raw.id!=='string'||!raw.id.length||raw.id.length>100||!Number.isFinite(raw.savedAt)||raw.savedAt<0||!raw.game||typeof raw.game!=='object'||Array.isArray(raw.game))return null;
   return {version:1,id:raw.id,savedAt:raw.savedAt,game:raw.game,selection:{route:raw.selection?.route==='police'?'police':'hospital'}};
@@ -16,7 +17,7 @@ export function loadProfile(storage){
     base.activeRun=activeRunEnvelope(raw.activeRun);if(base.activeRun&&base.completedRuns.includes(base.activeRun.id))base.activeRun=null;
     base.training=normalizeTraining(raw.training);
     base.campaign=normalizeCampaign(raw.campaign);
-    base.equipment=normalizeEquipment(raw.equipment);
+    base.equipment=normalizeEquipment(raw.equipment);base.expeditions=normalizeExpeditionProgress(raw.expeditions);
     return base;
   }catch{return base;}
 }
@@ -29,7 +30,8 @@ export function equipItem(profile,slot,id,storage){return commitEquipment(profil
 export function recordRun(profile,result,runId=null){
   if(runId&&profile.completedRuns?.includes(runId)){if(profile.activeRun?.id===runId)profile.activeRun=null;return [];}
   profile.runs++;profile.totalKills+=result.kills;profile.bestKills=Math.max(profile.bestKills,result.kills);profile.parts+=result.parts;
-  if(result.won){profile.wins++;profile.bestTime=profile.bestTime?Math.min(profile.bestTime,Math.round(result.time)):Math.round(result.time);}
+  if(result.won&&!result.expeditionId){profile.wins++;profile.bestTime=profile.bestTime?Math.min(profile.bestTime,Math.round(result.time)):Math.round(result.time);}
+  const expedition=planExpeditionCompletion(profile.expeditions,result);if(expedition)profile.expeditions=expedition;
   const campaign=planMissionCompletion(profile.campaign,result);if(campaign)profile.campaign=campaign;
   const unlocked=[];if((profile.totalKills>=100||profile.wins>0)&&!profile.unlocked.includes('nailgun')){profile.unlocked.push('nailgun');unlocked.push('nailgun');}
   if(runId){profile.completedRuns=[...(profile.completedRuns||[]),runId].slice(-64);if(profile.activeRun?.id===runId)profile.activeRun=null;}return unlocked;

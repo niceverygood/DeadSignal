@@ -1,5 +1,10 @@
 DEAD SIGNAL — 독립 개발용 저장소
 
+2026-10-18 최신 개발 인계: NEXT_COMPUTER_PROMPT_KO.txt를 새 Codex 대화에 전달하세요.
+현재 웹 개발본은 native 주인공/적/보스 실행 사본이 필요하므로 Git LFS 다운로드 후 npm run setup을 반드시 실행하세요. setup은 원본을 보존하며 vendor와 모델 복사본을 재구성합니다.
+최신 전체 검수는1120개 중1119통과/CPU예산1건실패입니다. 기존 .transfer 검수는 역사 기록이며, 의도된 개발 변경 때문에 npm run verify의 역사 manifest 검사도 현재 실패합니다. 세부 미완료·후속 우선순위는 최신 프롬프트와 WINDOWS_CONTINUATION.txt 끝부분을 읽으세요.
+아래 버전·검수 수치는 최초 이관 기준 설명을 포함합니다.
+
 웹 v0.29.0 / 모바일 소스 v1.0.0(웹 v0.26.0 기반)
 저장소: https://github.com/niceverygood/DeadSignal
 기본 분기: main

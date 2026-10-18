@@ -1,0 +1,100 @@
+import {effectivePlayerSpeed} from './player-movement.js?v=0.29.0';
+
+// max is retained as the original balance threshold for existing callers.
+// It is not an offer, progression or checkpoint rank cap. Ranks continue after
+// this threshold, with disclosed diminishing gains and bounded object counts.
+export const WEAPONS = {
+  shotgun: { name: '산탄총', icon: '✦', damage: 15, pellets: 6, spread: .22, speed: 790, life: .55, delay: .48, ammo: 6, reload: 1.35, color: '#ffd795' },
+  nailgun: { name: '전기 못총', icon: 'ϟ', damage: 15, pellets: 1, spread: .035, speed: 1000, life: .85, delay: .105, ammo: 24, reload: 1.1, color: '#75d9ed' }
+};
+export const UPGRADES = [
+  { id: 'pierce', name: '관통 탄환', icon: '➤', desc: '탄환이 좀비 한 마리를 더 관통합니다.', max: 3 },
+  { id: 'reload', name: '처치 후 재장전', icon: '↻', desc: '처치할 때마다 탄약을 되돌려 받을 확률이 높아집니다.', max: 3 },
+  { id: 'knockback', name: '묵직한 충격', icon: '⇥', desc: '탄환으로 좀비를 밀어내고 충돌을 흩트립니다.', max: 3 },
+  { id: 'shock', name: '연쇄 번개', icon: 'ϟ', desc: '적중 시 주변 좀비에게 번개가 이어집니다.', max: 3 },
+  { id: 'volatile', name: '휘발성 감염', icon: '✹', desc: '처치한 좀비가 폭발해 주변에 피해를 줍니다.', max: 3 },
+  { id: 'pellets', name: '탄환 분열', icon: '⋔', desc: '추가 탄환 2발. 못총은 두 발을 동시에 쏩니다.', max: 2 },
+  { id: 'damage', name: '강화 탄두', icon: '◆', desc: '모든 탄환 피해량이 25% 증가합니다.', max: 4 },
+  { id: 'haste', name: '속사 개조', icon: '»', desc: '사격과 재장전 속도가 15% 빨라집니다.', max: 3 },
+  { id: 'magnet', name: '회수 자석', icon: '◎', desc: '더 먼 경험치와 부품을 자동으로 회수합니다.', max: 3 },
+  { id: 'health', name: '응급 처치', icon: '+', desc: '최대 체력 +20, 체력 30을 즉시 회복합니다.', max: 3 },
+  { id: 'speed', name: '가벼운 발걸음', icon: '↗', desc: '이동 속도 +12%. 회피를 더 자주 사용합니다.', max: 3 },
+  { id: 'fire', name: '지속 연소', icon: '♨', desc: '화염병의 범위와 지속 시간이 증가합니다.', max: 3 }
+];
+
+const byID=Object.fromEntries(UPGRADES.map(upgrade=>[upgrade.id,upgrade]));
+const rankOK=value=>Number.isSafeInteger(value)&&value>=0;
+export const validUpgradeRank=value=>Number.isSafeInteger(value)&&value>=1;
+export function getUpgradeRank(upgrades,id){const value=upgrades?.[id]??0;return rankOK(value)?value:0;}
+export function getUpgradeTail(upgrades,id){const definition=byID[id],rank=getUpgradeRank(upgrades,id);return definition&&rank>definition.max?Math.log1p(rank-definition.max):0;}
+function valueFor(id,rank){
+ const base=byID[id]?.max;if(base===undefined||!rankOK(rank))return 0;if(rank<=base)return rank;
+ const log=Math.log1p(rank-base),soft=log/(8+log);
+ if(id==='haste'||id==='speed')return base+6*soft;
+ if(id==='reload')return base+(.15/.28)*soft;
+ if(id==='shock')return base+(.4/.12)*soft;
+ if(id==='volatile')return base+(.4/.18)*soft;
+ if(id==='knockback')return base+(315/80)*soft;
+ if(id==='pierce')return Math.min(7,base+Math.floor(Math.log2(rank-base+1)));
+ if(id==='pellets')return Math.min(5,base+Math.floor(Math.log2(rank-base+1)));
+ return base+log;
+}
+export function getUpgradeValue(upgrades,id){return valueFor(id,getUpgradeRank(upgrades,id));}
+const weapon=game=>WEAPONS[game?.player?.weapon]||WEAPONS.shotgun;
+const factor=(game,name)=>game?.equipmentStats?.[name]??1;
+export function getBulletDamage(game,upgrades=game.upgrades){
+ const damage=weapon(game).damage*(1+.25*getUpgradeValue(upgrades,'damage'))*factor(game,'damage');
+ const extra=.04*getUpgradeTail(upgrades,'pierce')+.05*getUpgradeTail(upgrades,'pellets');
+ return extra?damage*(1+extra):damage;
+}
+export function getPelletCount(game,upgrades=game.upgrades){return weapon(game).pellets+getUpgradeValue(upgrades,'pellets')*(game.player.weapon==='shotgun'?2:1);}
+export function getFireInterval(game,upgrades=game.upgrades){return weapon(game).delay/(1+.15*getUpgradeValue(upgrades,'haste'))/factor(game,'fireRate');}
+export function getReloadDuration(game,upgrades=game.upgrades){return weapon(game).reload/(1+.15*getUpgradeValue(upgrades,'haste'))/factor(game,'fireRate');}
+export function getShockTargets(upgrades){const rank=getUpgradeRank(upgrades,'shock');return rank===0?0:rank<=3?rank+1:Math.min(8,4+Math.floor(Math.log2(rank-3+1)));}
+export function getShockDamageMultiplier(upgrades){const extra=getUpgradeTail(upgrades,'shock');return extra ? .7*(1+.06*extra) : .7;}
+export function getVolatileDamage(upgrades){const extra=getUpgradeTail(upgrades,'volatile');return extra?40*(1+.12*extra):40;}
+export function getHealthGrowth(previous,next){return 20*(valueFor('health',next)-valueFor('health',previous));}
+export function getHealthRecovery(previous,next){return 30*(valueFor('health',next)-valueFor('health',previous));}
+export function getStoredMoveSpeed(rank,movement=1){return 214*(1+.12*valueFor('speed',rank))*movement;}
+export function getDashCooldown(upgrades){return 2.2/(1+.12*getUpgradeValue(upgrades,'speed'));}
+export function getMagnetRange(game,upgrades=game.upgrades){return 80+getUpgradeValue(upgrades,'magnet')*60+(game.equipmentStats?.pickupRadius??0);}
+
+// UI reads this exact model; it does not independently reproduce combat math.
+export function getUpgradeCharacterStats(game){
+ return {hp:game.player.hp,maxHp:game.player.maxHp,bulletDamage:getBulletDamage(game),pellets:getPelletCount(game),fireInterval:getFireInterval(game),reloadDuration:getReloadDuration(game),moveSpeed:effectivePlayerSpeed(game.player),mitigation:game.equipmentStats?.mitigation??0};
+}
+const fmt=value=>value!==0&&Math.abs(value)<.0001?value.toExponential(3):String(Math.round(value*10000)/10000);
+function effectLines(game,id,rank,upgrades){
+ const power=getUpgradeValue(upgrades,id),damage=getBulletDamage(game,upgrades);
+ if(id==='pierce')return [`추가 관통 ${power}회 · 각발 피해 ${fmt(damage)}`];
+ if(id==='reload')return [`처치 후 탄약 +1 확률 ${fmt(power*.28*100)}%`];
+ if(id==='knockback')return [`밀어내기 강도 ${fmt(45+power*80)}`];
+ if(id==='shock')return [`발동 ${fmt(rank?(.17+power*.12)*100:0)}% · 최대 ${getShockTargets(upgrades)}회 연쇄`,`연쇄당 피해 ${fmt(damage*getShockDamageMultiplier(upgrades))}`];
+ if(id==='volatile')return [`처치 폭발 ${fmt(power*.18*100)}% · 피해 ${fmt(getVolatileDamage(upgrades))} · 반경 100`];
+ if(id==='pellets')return [`동시 ${getPelletCount(game,upgrades)}발 · 각발 피해 ${fmt(damage)}`];
+ if(id==='damage')return [`각발 피해 ${fmt(damage)}`];
+ if(id==='haste')return [`발사 간격 ${fmt(getFireInterval(game,upgrades))}초 · 재장전 ${fmt(getReloadDuration(game,upgrades))}초`];
+ if(id==='magnet')return [`자동 회수 반경 ${fmt(getMagnetRange(game,upgrades))}`];
+ if(id==='health'){
+  const current=getUpgradeRank(game.upgrades,id),maximum=game.player.maxHp+getHealthGrowth(current,rank),previous=Math.max(0,rank-1);
+  return [`최대 체력 ${fmt(maximum)} · 선택 시 회복 ${fmt(getHealthRecovery(previous,rank))}`];
+ }
+ if(id==='speed'){
+  const stored=rank===getUpgradeRank(game.upgrades,id)?game.player.speed:getStoredMoveSpeed(rank,factor(game,'movement'));
+  return [`이동 ${fmt(effectivePlayerSpeed({speed:stored}))}/초 · 회피 대기 ${fmt(getDashCooldown(upgrades))}초`];
+ }
+ if(id==='fire')return [`화염 반경 ${fmt(95+power*18)} · 지속 ${fmt(5+power*1.2)}초`,`연소 틱 피해 ${fmt(7+power*2)}`];
+ return [];
+}
+export function getUpgradeDisplay(game,id){
+ const definition=byID[id];if(!definition)return null;
+ const rank=getUpgradeRank(game.upgrades,id),nextRank=rank<Number.MAX_SAFE_INTEGER?rank+1:null;
+ const next=nextRank===null?null:{...game.upgrades,[id]:nextRank};
+ let summary='단계 제한 없음 · 초기 단계 이후 증가 폭이 완만해집니다.';
+ if(id==='pierce')summary+=' 관통은 최대 7회이며 이후에도 탄환 피해가 증가합니다.';
+ if(id==='pellets')summary+=' 동시 발사는 산탄총 16발·못총 6발 이내이며 이후에도 각발 피해가 증가합니다.';
+ if(id==='shock')summary+=' 연쇄는 최대 8회이며 이후에도 발동 확률과 피해가 증가합니다.';
+ const currentEffects=effectLines(game,id,rank,game.upgrades),nextEffects=next===null?[]:effectLines(game,id,nextRank,next);
+ if(id==='haste'&&next!==null)nextEffects.push(`이번 단계: 발사 간격 ${fmt(getFireInterval(game,next)-getFireInterval(game))}초 · 재장전 ${fmt(getReloadDuration(game,next)-getReloadDuration(game))}초`);
+ return {id,name:definition.name,icon:definition.icon,rank,nextRank,currentEffects,nextEffects,summary};
+}

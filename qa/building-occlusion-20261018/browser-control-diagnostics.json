@@ -1,0 +1,696 @@
+{
+  "error": "building-occlusion-control-or-original-body-changed",
+  "qa": {
+    "reports": [],
+    "preparations": [
+      {
+        "kind": "hero",
+        "stage": "failed",
+        "diagnostics": {
+          "timeoutMs": 15000,
+          "plan": {
+            "weapon": "shotgun",
+            "character": "survivor-shotgun",
+            "assetIds": [
+              "survivor-shotgun-idle",
+              "survivor-shotgun-walk",
+              "survivor-shotgun-run",
+              "survivor-shotgun-rig-motion",
+              "boss-01-mid-locomotion-hq32",
+              "boss-01-mid-rig-motion",
+              "boss-01-final-locomotion-hq32",
+              "boss-01-final-rig-motion",
+              "enemy-walker-locomotion-hq32",
+              "enemy-walker-rig-motion",
+              "enemy-runner-locomotion-hq32",
+              "enemy-runner-rig-motion",
+              "enemy-gas-locomotion-hq32",
+              "enemy-gas-rig-motion",
+              "enemy-elite-locomotion-hq32",
+              "enemy-elite-rig-motion",
+              "lure-speaker",
+              "env-common-brick",
+              "env-demolition-scaffold-bay",
+              "env-broken-car",
+              "env-red-fuel-barrel",
+              "env-fence-vertical",
+              "env-amber-worklamp"
+            ],
+            "maskIds": [
+              "survivor-shotgun-idle",
+              "survivor-shotgun-walk",
+              "survivor-shotgun-run",
+              "survivor-shotgun-rig-motion"
+            ],
+            "bossKeys": [
+              "boss-01-mid",
+              "boss-01-final"
+            ],
+            "missing": [
+              "environment:rubble:",
+              "environment:hydrant:",
+              "environment:trash:",
+              "environment:sign:"
+            ]
+          },
+          "assets": [
+            {
+              "id": "survivor-shotgun-idle",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 512,
+              "metadataFrames": 16
+            },
+            {
+              "id": "survivor-shotgun-walk",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 3208,
+              "metadataFrames": 512
+            },
+            {
+              "id": "survivor-shotgun-run",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 2640,
+              "metadataFrames": 512
+            },
+            {
+              "id": "survivor-shotgun-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": "ready",
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 1884,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-mid-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 2268,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-mid-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 2628,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-final-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 4536,
+              "metadataFrames": 512
+            },
+            {
+              "id": "boss-01-final-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 3584,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-walker-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 4096,
+              "imageHeight": 1480,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-walker-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2560,
+              "imageHeight": 2084,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-runner-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 2240,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-runner-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 3072,
+              "imageHeight": 1612,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-gas-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 2892,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-gas-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 2672,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-elite-locomotion-hq32",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1536,
+              "imageHeight": 4632,
+              "metadataFrames": 512
+            },
+            {
+              "id": "enemy-elite-rig-motion",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 2916,
+              "metadataFrames": 512
+            },
+            {
+              "id": "lure-speaker",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 512,
+              "metadataFrames": 16
+            },
+            {
+              "id": "env-common-brick",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 1024,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-demolition-scaffold-bay",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 1024,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-broken-car",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 2048,
+              "imageHeight": 512,
+              "metadataFrames": 16
+            },
+            {
+              "id": "env-red-fuel-barrel",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1024,
+              "imageHeight": 512,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-fence-vertical",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1024,
+              "imageHeight": 512,
+              "metadataFrames": 8
+            },
+            {
+              "id": "env-amber-worklamp",
+              "registered": true,
+              "status": "ready",
+              "error": null,
+              "errorType": null,
+              "bodyAlphaStatus": null,
+              "bodyAlphaError": null,
+              "hasLoadPromise": true,
+              "imageWidth": 1024,
+              "imageHeight": 512,
+              "metadataFrames": 8
+            }
+          ],
+          "player": {
+            "exists": true,
+            "ready": true,
+            "error": "",
+            "pending": true
+          },
+          "npc": {
+            "exists": true,
+            "error": "",
+            "loading": true,
+            "models": 1
+          },
+          "boss": {
+            "exists": true,
+            "error": "",
+            "models": 2
+          }
+        }
+      }
+    ],
+    "selection": {
+      "id": "survivor-original-live-rig",
+      "metadataLiveRig": null,
+      "frameLiveRig": null,
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      },
+      "imageWidth": 256,
+      "imageHeight": 256,
+      "expectedSize": 256,
+      "player": true,
+      "distanceToPlayer": 0,
+      "selectedByNPCBudget": null,
+      "rigError": ""
+    },
+    "comparison": {
+      "kind": "hero",
+      "face": "N",
+      "controlDiff": {
+        "components": 142266,
+        "pixels": 57850,
+        "maxDelta": 33
+      },
+      "bodyDiff": {
+        "components": 0,
+        "pixels": 0,
+        "maxDelta": 0
+      },
+      "bodyRepeat": {
+        "components": 0,
+        "pixels": 0,
+        "maxDelta": 0
+      },
+      "proofEquality": {
+        "candidate": true,
+        "repeat": true
+      },
+      "changedProofFields": {
+        "candidate": [],
+        "repeat": []
+      },
+      "sourceBounds": {
+        "a": {
+          "id": "survivor-original-live-rig",
+          "hash": "39f6d1b6",
+          "width": 256,
+          "height": 256,
+          "sourceAtlas": {
+            "width": 256,
+            "height": 256
+          },
+          "frame": {
+            "index": 2,
+            "sample": 0,
+            "time": 0,
+            "angle": 0.7853981633974483,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            },
+            "footPivot": {
+              "x": 128,
+              "y": 192
+            },
+            "alphaBounds": {
+              "x": 98,
+              "y": 64,
+              "width": 53,
+              "height": 141
+            },
+            "outlineBounds": {
+              "x": 95,
+              "y": 61,
+              "width": 59,
+              "height": 147
+            },
+            "coreBounds": {
+              "x": 98,
+              "y": 64,
+              "width": 53,
+              "height": 101.52
+            }
+          },
+          "placement": {
+            "x": 892.2077567186349,
+            "y": 996.25,
+            "width": 85.33333333333333,
+            "height": 85.33333333333333,
+            "foot": {
+              "x": 934.8744233853015,
+              "y": 1060.25
+            },
+            "body": {
+              "left": 924.8744233853015,
+              "top": 1017.5833333333334,
+              "right": 942.5410900519682,
+              "bottom": 1064.5833333333333
+            }
+          }
+        },
+        "b": {
+          "id": "survivor-original-live-rig",
+          "hash": "39f6d1b6",
+          "width": 256,
+          "height": 256,
+          "sourceAtlas": {
+            "width": 256,
+            "height": 256
+          },
+          "frame": {
+            "index": 2,
+            "sample": 0,
+            "time": 0,
+            "angle": 0.7853981633974483,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            },
+            "footPivot": {
+              "x": 128,
+              "y": 192
+            },
+            "alphaBounds": {
+              "x": 98,
+              "y": 64,
+              "width": 53,
+              "height": 141
+            },
+            "outlineBounds": {
+              "x": 95,
+              "y": 61,
+              "width": 59,
+              "height": 147
+            },
+            "coreBounds": {
+              "x": 98,
+              "y": 64,
+              "width": 53,
+              "height": 101.52
+            }
+          },
+          "placement": {
+            "x": 892.2077567186349,
+            "y": 996.25,
+            "width": 85.33333333333333,
+            "height": 85.33333333333333,
+            "foot": {
+              "x": 934.8744233853015,
+              "y": 1060.25
+            },
+            "body": {
+              "left": 924.8744233853015,
+              "top": 1017.5833333333334,
+              "right": 942.5410900519682,
+              "bottom": 1064.5833333333333
+            }
+          }
+        },
+        "repeat": {
+          "id": "survivor-original-live-rig",
+          "hash": "39f6d1b6",
+          "width": 256,
+          "height": 256,
+          "sourceAtlas": {
+            "width": 256,
+            "height": 256
+          },
+          "frame": {
+            "index": 2,
+            "sample": 0,
+            "time": 0,
+            "angle": 0.7853981633974483,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            },
+            "footPivot": {
+              "x": 128,
+              "y": 192
+            },
+            "alphaBounds": {
+              "x": 98,
+              "y": 64,
+              "width": 53,
+              "height": 141
+            },
+            "outlineBounds": {
+              "x": 95,
+              "y": 61,
+              "width": 59,
+              "height": 147
+            },
+            "coreBounds": {
+              "x": 98,
+              "y": 64,
+              "width": 53,
+              "height": 101.52
+            }
+          },
+          "placement": {
+            "x": 892.2077567186349,
+            "y": 996.25,
+            "width": 85.33333333333333,
+            "height": 85.33333333333333,
+            "foot": {
+              "x": 934.8744233853015,
+              "y": 1060.25
+            },
+            "body": {
+              "left": 924.8744233853015,
+              "top": 1017.5833333333334,
+              "right": 942.5410900519682,
+              "bottom": 1064.5833333333333
+            }
+          }
+        }
+      },
+      "resources": {
+        "a": {
+          "textureStatus": "ready",
+          "asphaltReady": true,
+          "fireArtStatus": "ready",
+          "explosionArtStatus": "ready",
+          "livePlayerAction": "locomotion"
+        },
+        "b": {
+          "textureStatus": "ready",
+          "asphaltReady": true,
+          "fireArtStatus": "ready",
+          "explosionArtStatus": "ready",
+          "livePlayerAction": "locomotion"
+        },
+        "repeat": {
+          "textureStatus": "ready",
+          "asphaltReady": true,
+          "fireArtStatus": "ready",
+          "explosionArtStatus": "ready",
+          "livePlayerAction": "locomotion"
+        }
+      },
+      "orders": {
+        "a": {
+          "constraints": 2,
+          "cycle": false
+        },
+        "b": {
+          "constraints": 2,
+          "cycle": false
+        },
+        "repeat": {
+          "constraints": 2,
+          "cycle": false
+        }
+      },
+      "proofs": {
+        "a": {
+          "hash": "39f6d1b6",
+          "id": "survivor-original-live-rig",
+          "width": 256,
+          "height": 256,
+          "sourceAtlas": {
+            "width": 256,
+            "height": 256
+          },
+          "liveRig": false,
+          "frame": "{\"index\":2,\"direction\":2,\"sample\":0,\"angle\":0.7853981633974483,\"time\":0,\"groundBounds\":{\"minX\":-7.880079592814245,\"minY\":-7.4338858031405195,\"maxX\":11.45605638437398,\"maxY\":13.247884789674522},\"rootCompensation\":[0,0,0],\"weaponPose\":{\"supported\":true,\"method\":\"two-bone IK from actual arm joint lengths; no scale or translation\",\"desiredGripHeight\":31.454828895038677,\"right\":{\"position\":{\"x\":-1.2625628925337837,\"y\":31.454829420746155,\"z\":0.6347107624491344},\"requested\":{\"x\":-1.2625634028555819,\"y\":31.454828895038677,\"z\":0.6347107394162474},\"clamped\":false,\"error\":7.330260592245389e-7},\"left\":{\"position\":{\"x\":-1.2625632084930825,\"y\":31.454829123101927,\"z\":9.88327433981393},\"requested\":{\"x\":-1.2625634028555837,\"y\":31.454828895038677,\"z\":9.883275225992488},\"clamped\":false,\"error\":9.35468900991944e-7},\"coupledSupport\":{\"offset\":{\"x\":-1.7763568394002505e-15,\"y\":0,\"z\":9.24856448657624},\"reachable\":true},\"weaponAnchor\":{\"x\":-1.2625628925337837,\"y\":31.454829420746155,\"z\":0.6347107624491344,\"forward\":{\"x\":0,\"y\":0,\"z\":1},\"support\":{\"x\":-1.2625632084930825,\"y\":31.454829123101927,\"z\":9.88327433981393}},\"fingerRig\":false,\"weaponGeometryAdded\":true},\"weaponAnchor\":{\"x\":-0.4439584987652738,\"y\":1.3415750672050075,\"z\":31.454829420746155,\"forward\":{\"x\":0.7071067811865476,\"y\":0.7071067811865475,\"z\":0},\"support\":{\"x\":6.095763299607326,\"y\":7.881297312411533,\"z\":31.454829123101927}},\"weaponAttachment\":{\"supported\":true,\"alignMode\":\"aim\",\"uniformScale\":11.5607056082203,\"requestedScale\":11.5607056082203,\"scaleClamped\":false,\"nativeGripDistance\":0.8,\"targetGripDistance\":9.248563577364806,\"nativeLength\":1.9029980301856995,\"scaledNativeLength\":22,\"gripError\":4.440892098500626e-16,\"supportError\":0.0000010075156631067525,\"aimErrorDegrees\":0,\"game\":{\"grip\":{\"x\":-0.4439584987652734,\"y\":1.3415750672050075,\"z\":31.454829420746155},\"support\":{\"x\":6.095764165933865,\"y\":7.881297731904148,\"z\":31.454829420746155},\"muzzle\":{\"x\":11.082302697766957,\"y\":12.867836263737242,\"z\":33.316103023669626},\"forward\":{\"x\":0.7071067811865475,\"y\":0.7071067811865476,\"z\":0}},\"gameOffset\":{\"x\":11.082302697766957,\"y\":12.867836263737242,\"height\":33.316103023669626},\"gameHeight\":33.316103023669626,\"bodyAlphaIncludesWeapon\":false,\"landmarkConfidence\":\"character-render-checked; actual-game-review-pending\"},\"weaponMuzzle\":{\"x\":12.577407340802756,\"y\":14.422745849006464,\"z\":32.72629456219904},\"screenForward\":{\"x\":9.614813431917819e-17,\"y\":0.7071067811865475},\"rect\":{\"x\":0,\"y\":0,\"width\":256,\"height\":256},\"footPivot\":{\"x\":128,\"y\":192},\"alphaBounds\":{\"x\":98,\"y\":64,\"width\":53,\"height\":141},\"combinedAlphaBounds\":{\"x\":99,\"y\":66,\"width\":52,\"height\":142},\"outlineBounds\":{\"x\":95,\"y\":61,\"width\":59,\"height\":147},\"coreBounds\":{\"x\":98,\"y\":64,\"width\":53,\"height\":101.52},\"projectedBodyBounds\":{\"left\":-9.606774355082923,\"top\":-42.538621098160895,\"right\":7.619165867824387,\"bottom\":4.50144643362445},\"projectedCoreBounds\":{\"left\":-7.287897786614631,\"top\":-34.256919067916996,\"right\":5.300289299356095,\"bottom\":-8.418008733556032},\"clipped\":false,\"bodyIdentificationContour\":{\"left\":[{\"x\":126,\"y\":64.5},{\"x\":118,\"y\":65.5},{\"x\":116,\"y\":66.5},{\"x\":116,\"y\":67.5},{\"x\":115,\"y\":68.5},{\"x\":115,\"y\":69.5},{\"x\":113,\"y\":70.5},{\"x\":112,\"y\":71.5},{\"x\":111,\"y\":72.5},{\"x\":111,\"y\":73.5},{\"x\":109,\"y\":74.5},{\"x\":107,\"y\":75.5},{\"x\":106,\"y\":76.5},{\"x\":106,\"y\":77.5},{\"x\":105,\"y\":78.5},{\"x\":105,\"y\":79.5},{\"x\":105,\"y\":80.5},{\"x\":106,\"y\":81.5},{\"x\":106,\"y\":82.5},{\"x\":106,\"y\":83.5},{\"x\":106,\"y\":84.5},{\"x\":106,\"y\":85.5},{\"x\":106,\"y\":86.5},{\"x\":107,\"y\":87.5},{\"x\":107,\"y\":88.5},{\"x\":107,\"y\":89.5},{\"x\":106,\"y\":90.5},{\"x\":105,\"y\":91.5},{\"x\":105,\"y\":92.5},{\"x\":104,\"y\":93.5},{\"x\":103,\"y\":94.5},{\"x\":103,\"y\":95.5},{\"x\":102,\"y\":96.5},{\"x\":102,\"y\":97.5},{\"x\":101,\"y\":98.5},{\"x\":101,\"y\":99.5},{\"x\":100,\"y\":100.5},{\"x\":100,\"y\":101.5},{\"x\":99,\"y\":102.5},{\"x\":99,\"y\":103.5},{\"x\":99,\"y\":104.5},{\"x\":99,\"y\":105.5},{\"x\":99,\"y\":106.5},{\"x\":99,\"y\":107.5},{\"x\":98,\"y\":108.5},{\"x\":98,\"y\":109.5},{\"x\":99,\"y\":110.5},{\"x\":99,\"y\":111.5},{\"x\":100,\"y\":112.5},{\"x\":102,\"y\":113.5},{\"x\":104,\"y\":114.5},{\"x\":108,\"y\":115.5},{\"x\":109,\"y\":116.5},{\"x\":109,\"y\":117.5},{\"x\":109,\"y\":118.5},{\"x\":109,\"y\":119.5},{\"x\":109,\"y\":120.5},{\"x\":109,\"y\":121.5},{\"x\":109,\"y\":122.5},{\"x\":109,\"y\":123.5},{\"x\":108,\"y\":124.5},{\"x\":108,\"y\":125.5},{\"x\":108,\"y\":126.5},{\"x\":108,\"y\":127.5},{\"x\":108,\"y\":128.5},{\"x\":109,\"y\":129.5},{\"x\":110,\"y\":130.5},{\"x\":110,\"y\":131.5},{\"x\":111,\"y\":132.5},{\"x\":111,\"y\":133.5},{\"x\":112,\"y\":134.5},{\"x\":112,\"y\":135.5},{\"x\":111,\"y\":136.5},{\"x\":111,\"y\":137.5},{\"x\":111,\"y\":138.5},{\"x\":111,\"y\":139.5},{\"x\":110,\"y\":140.5},{\"x\":110,\"y\":141.5},{\"x\":110,\"y\":142.5},{\"x\":110,\"y\":143.5},{\"x\":110,\"y\":144.5},{\"x\":110,\"y\":145.5},{\"x\":111,\"y\":146.5},{\"x\":111,\"y\":147.5},{\"x\":112,\"y\":148.5},{\"x\":112,\"y\":149.5},{\"x\":112,\"y\":150.5},{\"x\":112,\"y\":151.5},{\"x\":112,\"y\":152.5},{\"x\":113,\"y\":153.5},{\"x\":113,\"y\":154.5},{\"x\":114,\"y\":155.5},{\"x\":114,\"y\":156.5},{\"x\":115,\"y\":157.5},{\"x\":115,\"y\":158.5},{\"x\":115,\"y\":159.5},{\"x\":115,\"y\":160.5},{\"x\":115,\"y\":161.5},{\"x\":115,\"y\":162.5},{\"x\":115,\"y\":163.5},{\"x\":115,\"y\":164.5}],\"right\":[{\"x\":134,\"y\":64.5},{\"x\":138,\"y\":65.5},{\"x\":141,\"y\":66.5},{\"x\":143,\"y\":67.5},{\"x\":144,\"y\":68.5},{\"x\":145,\"y\":69.5},{\"x\":145,\"y\":70.5},{\"x\":146,\"y\":71.5},{\"x\":146,\"y\":72.5},{\"x\":147,\"y\":73.5},{\"x\":147,\"y\":74.5},{\"x\":148,\"y\":75.5},{\"x\":148,\"y\":76.5},{\"x\":148,\"y\":77.5},{\"x\":149,\"y\":78.5},{\"x\":150,\"y\":79.5},{\"x\":150,\"y\":80.5},{\"x\":149,\"y\":81.5},{\"x\":149,\"y\":82.5},{\"x\":149,\"y\":83.5},{\"x\":149,\"y\":84.5},{\"x\":149,\"y\":85.5},{\"x\":150,\"y\":86.5},{\"x\":150,\"y\":87.5},{\"x\":150,\"y\":88.5},{\"x\":151,\"y\":89.5},{\"x\":151,\"y\":90.5},{\"x\":151,\"y\":91.5},{\"x\":150,\"y\":92.5},{\"x\":150,\"y\":93.5},{\"x\":150,\"y\":94.5},{\"x\":150,\"y\":95.5},{\"x\":150,\"y\":96.5},{\"x\":150,\"y\":97.5},{\"x\":150,\"y\":98.5},{\"x\":150,\"y\":99.5},{\"x\":150,\"y\":100.5},{\"x\":150,\"y\":101.5},{\"x\":149,\"y\":102.5},{\"x\":149,\"y\":103.5},{\"x\":149,\"y\":104.5},{\"x\":148,\"y\":105.5},{\"x\":148,\"y\":106.5},{\"x\":147,\"y\":107.5},{\"x\":147,\"y\":108.5},{\"x\":147,\"y\":109.5},{\"x\":146,\"y\":110.5},{\"x\":146,\"y\":111.5},{\"x\":146,\"y\":112.5},{\"x\":145,\"y\":113.5},{\"x\":145,\"y\":114.5},{\"x\":145,\"y\":115.5},{\"x\":145,\"y\":116.5},{\"x\":145,\"y\":117.5},{\"x\":145,\"y\":118.5},{\"x\":145,\"y\":119.5},{\"x\":146,\"y\":120.5},{\"x\":147,\"y\":121.5},{\"x\":147,\"y\":122.5},{\"x\":147,\"y\":123.5},{\"x\":147,\"y\":124.5},{\"x\":147,\"y\":125.5},{\"x\":147,\"y\":126.5},{\"x\":146,\"y\":127.5},{\"x\":146,\"y\":128.5},{\"x\":146,\"y\":129.5},{\"x\":146,\"y\":130.5},{\"x\":145,\"y\":131.5},{\"x\":145,\"y\":132.5},{\"x\":145,\"y\":133.5},{\"x\":146,\"y\":134.5},{\"x\":146,\"y\":135.5},{\"x\":146,\"y\":136.5},{\"x\":146,\"y\":137.5},{\"x\":148,\"y\":138.5},{\"x\":149,\"y\":139.5},{\"x\":149,\"y\":140.5},{\"x\":149,\"y\":141.5},{\"x\":150,\"y\":142.5},{\"x\":150,\"y\":143.5},{\"x\":150,\"y\":144.5},{\"x\":150,\"y\":145.5},{\"x\":150,\"y\":146.5},{\"x\":149,\"y\":147.5},{\"x\":148,\"y\":148.5},{\"x\":147,\"y\":149.5},{\"x\":147,\"y\":150.5},{\"x\":147,\"y\":151.5},{\"x\":147,\"y\":152.5},{\"x\":147,\"y\":153.5},{\"x\":147,\"y\":154.5},{\"x\":145,\"y\":155.5},{\"x\":145,\"y\":156.5},{\"x\":146,\"y\":157.5},{\"x\":145,\"y\":158.5},{\"x\":145,\"y\":159.5},{\"x\":144,\"y\":160.5},{\"x\":145,\"y\":161.5},{\"x\":145,\"y\":162.5},{\"x\":145,\"y\":163.5},{\"x\":145,\"y\":164.5}],\"top\":[{\"x\":126,\"y\":64.5},{\"x\":134,\"y\":64.5}]}}",
+          "placement": "{\"x\":892.2077567186349,\"y\":996.25,\"width\":85.33333333333333,\"height\":85.33333333333333,\"scale\":0.3333333333333333,\"foot\":{\"x\":934.8744233853015,\"y\":1060.25},\"depth\":1060.25,\"bounds\":{\"body\":{\"left\":924.8744233853015,\"top\":1017.5833333333334,\"right\":942.5410900519682,\"bottom\":1064.5833333333333},\"core\":{\"left\":924.8744233853015,\"top\":1017.5833333333334,\"right\":942.5410900519682,\"bottom\":1051.4233333333334},\"outline\":{\"left\":923.8744233853015,\"top\":1016.5833333333334,\"right\":943.5410900519682,\"bottom\":1065.5833333333333}}}"
+        },
+        "b": {
+          "hash": "39f6d1b6",
+          "id": "survivor-original-live-rig",
+          "width": 256,
+          "height": 256,
+          "sourceAtlas": {
+            "width": 256,
+            "height": 256
+          },
+          "liveRig": false,
+          "frame": "{\"index\":2,\"direction\":2,\"sample\":0,\"angle\":0.7853981633974483,\"time\":0,\"groundBounds\":{\"minX\":-7.880079592814245,\"minY\":-7.4338858031405195,\"maxX\":11.45605638437398,\"maxY\":13.247884789674522},\"rootCompensation\":[0,0,0],\"weaponPose\":{\"supported\":true,\"method\":\"two-bone IK from actual arm joint lengths; no scale or translation\",\"desiredGripHeight\":31.454828895038677,\"right\":{\"position\":{\"x\":-1.2625628925337837,\"y\":31.454829420746155,\"z\":0.6347107624491344},\"requested\":{\"x\":-1.2625634028555819,\"y\":31.454828895038677,\"z\":0.6347107394162474},\"clamped\":false,\"error\":7.330260592245389e-7},\"left\":{\"position\":{\"x\":-1.2625632084930825,\"y\":31.454829123101927,\"z\":9.88327433981393},\"requested\":{\"x\":-1.2625634028555837,\"y\":31.454828895038677,\"z\":9.883275225992488},\"clamped\":false,\"error\":9.35468900991944e-7},\"coupledSupport\":{\"offset\":{\"x\":-1.7763568394002505e-15,\"y\":0,\"z\":9.24856448657624},\"reachable\":true},\"weaponAnchor\":{\"x\":-1.2625628925337837,\"y\":31.454829420746155,\"z\":0.6347107624491344,\"forward\":{\"x\":0,\"y\":0,\"z\":1},\"support\":{\"x\":-1.2625632084930825,\"y\":31.454829123101927,\"z\":9.88327433981393}},\"fingerRig\":false,\"weaponGeometryAdded\":true},\"weaponAnchor\":{\"x\":-0.4439584987652738,\"y\":1.3415750672050075,\"z\":31.454829420746155,\"forward\":{\"x\":0.7071067811865476,\"y\":0.7071067811865475,\"z\":0},\"support\":{\"x\":6.095763299607326,\"y\":7.881297312411533,\"z\":31.454829123101927}},\"weaponAttachment\":{\"supported\":true,\"alignMode\":\"aim\",\"uniformScale\":11.5607056082203,\"requestedScale\":11.5607056082203,\"scaleClamped\":false,\"nativeGripDistance\":0.8,\"targetGripDistance\":9.248563577364806,\"nativeLength\":1.9029980301856995,\"scaledNativeLength\":22,\"gripError\":4.440892098500626e-16,\"supportError\":0.0000010075156631067525,\"aimErrorDegrees\":0,\"game\":{\"grip\":{\"x\":-0.4439584987652734,\"y\":1.3415750672050075,\"z\":31.454829420746155},\"support\":{\"x\":6.095764165933865,\"y\":7.881297731904148,\"z\":31.454829420746155},\"muzzle\":{\"x\":11.082302697766957,\"y\":12.867836263737242,\"z\":33.316103023669626},\"forward\":{\"x\":0.7071067811865475,\"y\":0.7071067811865476,\"z\":0}},\"gameOffset\":{\"x\":11.082302697766957,\"y\":12.867836263737242,\"height\":33.316103023669626},\"gameHeight\":33.316103023669626,\"bodyAlphaIncludesWeapon\":false,\"landmarkConfidence\":\"character-render-checked; actual-game-review-pending\"},\"weaponMuzzle\":{\"x\":12.577407340802756,\"y\":14.422745849006464,\"z\":32.72629456219904},\"screenForward\":{\"x\":9.614813431917819e-17,\"y\":0.7071067811865475},\"rect\":{\"x\":0,\"y\":0,\"width\":256,\"height\":256},\"footPivot\":{\"x\":128,\"y\":192},\"alphaBounds\":{\"x\":98,\"y\":64,\"width\":53,\"height\":141},\"combinedAlphaBounds\":{\"x\":99,\"y\":66,\"width\":52,\"height\":142},\"outlineBounds\":{\"x\":95,\"y\":61,\"width\":59,\"height\":147},\"coreBounds\":{\"x\":98,\"y\":64,\"width\":53,\"height\":101.52},\"projectedBodyBounds\":{\"left\":-9.606774355082923,\"top\":-42.538621098160895,\"right\":7.619165867824387,\"bottom\":4.50144643362445},\"projectedCoreBounds\":{\"left\":-7.287897786614631,\"top\":-34.256919067916996,\"right\":5.300289299356095,\"bottom\":-8.418008733556032},\"clipped\":false,\"bodyIdentificationContour\":{\"left\":[{\"x\":126,\"y\":64.5},{\"x\":118,\"y\":65.5},{\"x\":116,\"y\":66.5},{\"x\":116,\"y\":67.5},{\"x\":115,\"y\":68.5},{\"x\":115,\"y\":69.5},{\"x\":113,\"y\":70.5},{\"x\":112,\"y\":71.5},{\"x\":111,\"y\":72.5},{\"x\":111,\"y\":73.5},{\"x\":109,\"y\":74.5},{\"x\":107,\"y\":75.5},{\"x\":106,\"y\":76.5},{\"x\":106,\"y\":77.5},{\"x\":105,\"y\":78.5},{\"x\":105,\"y\":79.5},{\"x\":105,\"y\":80.5},{\"x\":106,\"y\":81.5},{\"x\":106,\"y\":82.5},{\"x\":106,\"y\":83.5},{\"x\":106,\"y\":84.5},{\"x\":106,\"y\":85.5},{\"x\":106,\"y\":86.5},{\"x\":107,\"y\":87.5},{\"x\":107,\"y\":88.5},{\"x\":107,\"y\":89.5},{\"x\":106,\"y\":90.5},{\"x\":105,\"y\":91.5},{\"x\":105,\"y\":92.5},{\"x\":104,\"y\":93.5},{\"x\":103,\"y\":94.5},{\"x\":103,\"y\":95.5},{\"x\":102,\"y\":96.5},{\"x\":102,\"y\":97.5},{\"x\":101,\"y\":98.5},{\"x\":101,\"y\":99.5},{\"x\":100,\"y\":100.5},{\"x\":100,\"y\":101.5},{\"x\":99,\"y\":102.5},{\"x\":99,\"y\":103.5},{\"x\":99,\"y\":104.5},{\"x\":99,\"y\":105.5},{\"x\":99,\"y\":106.5},{\"x\":99,\"y\":107.5},{\"x\":98,\"y\":108.5},{\"x\":98,\"y\":109.5},{\"x\":99,\"y\":110.5},{\"x\":99,\"y\":111.5},{\"x\":100,\"y\":112.5},{\"x\":102,\"y\":113.5},{\"x\":104,\"y\":114.5},{\"x\":108,\"y\":115.5},{\"x\":109,\"y\":116.5},{\"x\":109,\"y\":117.5},{\"x\":109,\"y\":118.5},{\"x\":109,\"y\":119.5},{\"x\":109,\"y\":120.5},{\"x\":109,\"y\":121.5},{\"x\":109,\"y\":122.5},{\"x\":109,\"y\":123.5},{\"x\":108,\"y\":124.5},{\"x\":108,\"y\":125.5},{\"x\":108,\"y\":126.5},{\"x\":108,\"y\":127.5},{\"x\":108,\"y\":128.5},{\"x\":109,\"y\":129.5},{\"x\":110,\"y\":130.5},{\"x\":110,\"y\":131.5},{\"x\":111,\"y\":132.5},{\"x\":111,\"y\":133.5},{\"x\":112,\"y\":134.5},{\"x\":112,\"y\":135.5},{\"x\":111,\"y\":136.5},{\"x\":111,\"y\":137.5},{\"x\":111,\"y\":138.5},{\"x\":111,\"y\":139.5},{\"x\":110,\"y\":140.5},{\"x\":110,\"y\":141.5},{\"x\":110,\"y\":142.5},{\"x\":110,\"y\":143.5},{\"x\":110,\"y\":144.5},{\"x\":110,\"y\":145.5},{\"x\":111,\"y\":146.5},{\"x\":111,\"y\":147.5},{\"x\":112,\"y\":148.5},{\"x\":112,\"y\":149.5},{\"x\":112,\"y\":150.5},{\"x\":112,\"y\":151.5},{\"x\":112,\"y\":152.5},{\"x\":113,\"y\":153.5},{\"x\":113,\"y\":154.5},{\"x\":114,\"y\":155.5},{\"x\":114,\"y\":156.5},{\"x\":115,\"y\":157.5},{\"x\":115,\"y\":158.5},{\"x\":115,\"y\":159.5},{\"x\":115,\"y\":160.5},{\"x\":115,\"y\":161.5},{\"x\":115,\"y\":162.5},{\"x\":115,\"y\":163.5},{\"x\":115,\"y\":164.5}],\"right\":[{\"x\":134,\"y\":64.5},{\"x\":138,\"y\":65.5},{\"x\":141,\"y\":66.5},{\"x\":143,\"y\":67.5},{\"x\":144,\"y\":68.5},{\"x\":145,\"y\":69.5},{\"x\":145,\"y\":70.5},{\"x\":146,\"y\":71.5},{\"x\":146,\"y\":72.5},{\"x\":147,\"y\":73.5},{\"x\":147,\"y\":74.5},{\"x\":148,\"y\":75.5},{\"x\":148,\"y\":76.5},{\"x\":148,\"y\":77.5},{\"x\":149,\"y\":78.5},{\"x\":150,\"y\":79.5},{\"x\":150,\"y\":80.5},{\"x\":149,\"y\":81.5},{\"x\":149,\"y\":82.5},{\"x\":149,\"y\":83.5},{\"x\":149,\"y\":84.5},{\"x\":149,\"y\":85.5},{\"x\":150,\"y\":86.5},{\"x\":150,\"y\":87.5},{\"x\":150,\"y\":88.5},{\"x\":151,\"y\":89.5},{\"x\":151,\"y\":90.5},{\"x\":151,\"y\":91.5},{\"x\":150,\"y\":92.5},{\"x\":150,\"y\":93.5},{\"x\":150,\"y\":94.5},{\"x\":150,\"y\":95.5},{\"x\":150,\"y\":96.5},{\"x\":150,\"y\":97.5},{\"x\":150,\"y\":98.5},{\"x\":150,\"y\":99.5},{\"x\":150,\"y\":100.5},{\"x\":150,\"y\":101.5},{\"x\":149,\"y\":102.5},{\"x\":149,\"y\":103.5},{\"x\":149,\"y\":104.5},{\"x\":148,\"y\":105.5},{\"x\":148,\"y\":106.5},{\"x\":147,\"y\":107.5},{\"x\":147,\"y\":108.5},{\"x\":147,\"y\":109.5},{\"x\":146,\"y\":110.5},{\"x\":146,\"y\":111.5},{\"x\":146,\"y\":112.5},{\"x\":145,\"y\":113.5},{\"x\":145,\"y\":114.5},{\"x\":145,\"y\":115.5},{\"x\":145,\"y\":116.5},{\"x\":145,\"y\":117.5},{\"x\":145,\"y\":118.5},{\"x\":145,\"y\":119.5},{\"x\":146,\"y\":120.5},{\"x\":147,\"y\":121.5},{\"x\":147,\"y\":122.5},{\"x\":147,\"y\":123.5},{\"x\":147,\"y\":124.5},{\"x\":147,\"y\":125.5},{\"x\":147,\"y\":126.5},{\"x\":146,\"y\":127.5},{\"x\":146,\"y\":128.5},{\"x\":146,\"y\":129.5},{\"x\":146,\"y\":130.5},{\"x\":145,\"y\":131.5},{\"x\":145,\"y\":132.5},{\"x\":145,\"y\":133.5},{\"x\":146,\"y\":134.5},{\"x\":146,\"y\":135.5},{\"x\":146,\"y\":136.5},{\"x\":146,\"y\":137.5},{\"x\":148,\"y\":138.5},{\"x\":149,\"y\":139.5},{\"x\":149,\"y\":140.5},{\"x\":149,\"y\":141.5},{\"x\":150,\"y\":142.5},{\"x\":150,\"y\":143.5},{\"x\":150,\"y\":144.5},{\"x\":150,\"y\":145.5},{\"x\":150,\"y\":146.5},{\"x\":149,\"y\":147.5},{\"x\":148,\"y\":148.5},{\"x\":147,\"y\":149.5},{\"x\":147,\"y\":150.5},{\"x\":147,\"y\":151.5},{\"x\":147,\"y\":152.5},{\"x\":147,\"y\":153.5},{\"x\":147,\"y\":154.5},{\"x\":145,\"y\":155.5},{\"x\":145,\"y\":156.5},{\"x\":146,\"y\":157.5},{\"x\":145,\"y\":158.5},{\"x\":145,\"y\":159.5},{\"x\":144,\"y\":160.5},{\"x\":145,\"y\":161.5},{\"x\":145,\"y\":162.5},{\"x\":145,\"y\":163.5},{\"x\":145,\"y\":164.5}],\"top\":[{\"x\":126,\"y\":64.5},{\"x\":134,\"y\":64.5}]}}",
+          "placement": "{\"x\":892.2077567186349,\"y\":996.25,\"width\":85.33333333333333,\"height\":85.33333333333333,\"scale\":0.3333333333333333,\"foot\":{\"x\":934.8744233853015,\"y\":1060.25},\"depth\":1060.25,\"bounds\":{\"body\":{\"left\":924.8744233853015,\"top\":1017.5833333333334,\"right\":942.5410900519682,\"bottom\":1064.5833333333333},\"core\":{\"left\":924.8744233853015,\"top\":1017.5833333333334,\"right\":942.5410900519682,\"bottom\":1051.4233333333334},\"outline\":{\"left\":923.8744233853015,\"top\":1016.5833333333334,\"right\":943.5410900519682,\"bottom\":1065.5833333333333}}}"
+        },
+        "repeat": {
+          "hash": "39f6d1b6",
+          "id": "survivor-original-live-rig",
+          "width": 256,
+          "height": 256,
+          "sourceAtlas": {
+            "width": 256,
+            "height": 256
+          },
+          "liveRig": false,
+          "frame": "{\"index\":2,\"direction\":2,\"sample\":0,\"angle\":0.7853981633974483,\"time\":0,\"groundBounds\":{\"minX\":-7.880079592814245,\"minY\":-7.4338858031405195,\"maxX\":11.45605638437398,\"maxY\":13.247884789674522},\"rootCompensation\":[0,0,0],\"weaponPose\":{\"supported\":true,\"method\":\"two-bone IK from actual arm joint lengths; no scale or translation\",\"desiredGripHeight\":31.454828895038677,\"right\":{\"position\":{\"x\":-1.2625628925337837,\"y\":31.454829420746155,\"z\":0.6347107624491344},\"requested\":{\"x\":-1.2625634028555819,\"y\":31.454828895038677,\"z\":0.6347107394162474},\"clamped\":false,\"error\":7.330260592245389e-7},\"left\":{\"position\":{\"x\":-1.2625632084930825,\"y\":31.454829123101927,\"z\":9.88327433981393},\"requested\":{\"x\":-1.2625634028555837,\"y\":31.454828895038677,\"z\":9.883275225992488},\"clamped\":false,\"error\":9.35468900991944e-7},\"coupledSupport\":{\"offset\":{\"x\":-1.7763568394002505e-15,\"y\":0,\"z\":9.24856448657624},\"reachable\":true},\"weaponAnchor\":{\"x\":-1.2625628925337837,\"y\":31.454829420746155,\"z\":0.6347107624491344,\"forward\":{\"x\":0,\"y\":0,\"z\":1},\"support\":{\"x\":-1.2625632084930825,\"y\":31.454829123101927,\"z\":9.88327433981393}},\"fingerRig\":false,\"weaponGeometryAdded\":true},\"weaponAnchor\":{\"x\":-0.4439584987652738,\"y\":1.3415750672050075,\"z\":31.454829420746155,\"forward\":{\"x\":0.7071067811865476,\"y\":0.7071067811865475,\"z\":0},\"support\":{\"x\":6.095763299607326,\"y\":7.881297312411533,\"z\":31.454829123101927}},\"weaponAttachment\":{\"supported\":true,\"alignMode\":\"aim\",\"uniformScale\":11.5607056082203,\"requestedScale\":11.5607056082203,\"scaleClamped\":false,\"nativeGripDistance\":0.8,\"targetGripDistance\":9.248563577364806,\"nativeLength\":1.9029980301856995,\"scaledNativeLength\":22,\"gripError\":4.440892098500626e-16,\"supportError\":0.0000010075156631067525,\"aimErrorDegrees\":0,\"game\":{\"grip\":{\"x\":-0.4439584987652734,\"y\":1.3415750672050075,\"z\":31.454829420746155},\"support\":{\"x\":6.095764165933865,\"y\":7.881297731904148,\"z\":31.454829420746155},\"muzzle\":{\"x\":11.082302697766957,\"y\":12.867836263737242,\"z\":33.316103023669626},\"forward\":{\"x\":0.7071067811865475,\"y\":0.7071067811865476,\"z\":0}},\"gameOffset\":{\"x\":11.082302697766957,\"y\":12.867836263737242,\"height\":33.316103023669626},\"gameHeight\":33.316103023669626,\"bodyAlphaIncludesWeapon\":false,\"landmarkConfidence\":\"character-render-checked; actual-game-review-pending\"},\"weaponMuzzle\":{\"x\":12.577407340802756,\"y\":14.422745849006464,\"z\":32.72629456219904},\"screenForward\":{\"x\":9.614813431917819e-17,\"y\":0.7071067811865475},\"rect\":{\"x\":0,\"y\":0,\"width\":256,\"height\":256},\"footPivot\":{\"x\":128,\"y\":192},\"alphaBounds\":{\"x\":98,\"y\":64,\"width\":53,\"height\":141},\"combinedAlphaBounds\":{\"x\":99,\"y\":66,\"width\":52,\"height\":142},\"outlineBounds\":{\"x\":95,\"y\":61,\"width\":59,\"height\":147},\"coreBounds\":{\"x\":98,\"y\":64,\"width\":53,\"height\":101.52},\"projectedBodyBounds\":{\"left\":-9.606774355082923,\"top\":-42.538621098160895,\"right\":7.619165867824387,\"bottom\":4.50144643362445},\"projectedCoreBounds\":{\"left\":-7.287897786614631,\"top\":-34.256919067916996,\"right\":5.300289299356095,\"bottom\":-8.418008733556032},\"clipped\":false,\"bodyIdentificationContour\":{\"left\":[{\"x\":126,\"y\":64.5},{\"x\":118,\"y\":65.5},{\"x\":116,\"y\":66.5},{\"x\":116,\"y\":67.5},{\"x\":115,\"y\":68.5},{\"x\":115,\"y\":69.5},{\"x\":113,\"y\":70.5},{\"x\":112,\"y\":71.5},{\"x\":111,\"y\":72.5},{\"x\":111,\"y\":73.5},{\"x\":109,\"y\":74.5},{\"x\":107,\"y\":75.5},{\"x\":106,\"y\":76.5},{\"x\":106,\"y\":77.5},{\"x\":105,\"y\":78.5},{\"x\":105,\"y\":79.5},{\"x\":105,\"y\":80.5},{\"x\":106,\"y\":81.5},{\"x\":106,\"y\":82.5},{\"x\":106,\"y\":83.5},{\"x\":106,\"y\":84.5},{\"x\":106,\"y\":85.5},{\"x\":106,\"y\":86.5},{\"x\":107,\"y\":87.5},{\"x\":107,\"y\":88.5},{\"x\":107,\"y\":89.5},{\"x\":106,\"y\":90.5},{\"x\":105,\"y\":91.5},{\"x\":105,\"y\":92.5},{\"x\":104,\"y\":93.5},{\"x\":103,\"y\":94.5},{\"x\":103,\"y\":95.5},{\"x\":102,\"y\":96.5},{\"x\":102,\"y\":97.5},{\"x\":101,\"y\":98.5},{\"x\":101,\"y\":99.5},{\"x\":100,\"y\":100.5},{\"x\":100,\"y\":101.5},{\"x\":99,\"y\":102.5},{\"x\":99,\"y\":103.5},{\"x\":99,\"y\":104.5},{\"x\":99,\"y\":105.5},{\"x\":99,\"y\":106.5},{\"x\":99,\"y\":107.5},{\"x\":98,\"y\":108.5},{\"x\":98,\"y\":109.5},{\"x\":99,\"y\":110.5},{\"x\":99,\"y\":111.5},{\"x\":100,\"y\":112.5},{\"x\":102,\"y\":113.5},{\"x\":104,\"y\":114.5},{\"x\":108,\"y\":115.5},{\"x\":109,\"y\":116.5},{\"x\":109,\"y\":117.5},{\"x\":109,\"y\":118.5},{\"x\":109,\"y\":119.5},{\"x\":109,\"y\":120.5},{\"x\":109,\"y\":121.5},{\"x\":109,\"y\":122.5},{\"x\":109,\"y\":123.5},{\"x\":108,\"y\":124.5},{\"x\":108,\"y\":125.5},{\"x\":108,\"y\":126.5},{\"x\":108,\"y\":127.5},{\"x\":108,\"y\":128.5},{\"x\":109,\"y\":129.5},{\"x\":110,\"y\":130.5},{\"x\":110,\"y\":131.5},{\"x\":111,\"y\":132.5},{\"x\":111,\"y\":133.5},{\"x\":112,\"y\":134.5},{\"x\":112,\"y\":135.5},{\"x\":111,\"y\":136.5},{\"x\":111,\"y\":137.5},{\"x\":111,\"y\":138.5},{\"x\":111,\"y\":139.5},{\"x\":110,\"y\":140.5},{\"x\":110,\"y\":141.5},{\"x\":110,\"y\":142.5},{\"x\":110,\"y\":143.5},{\"x\":110,\"y\":144.5},{\"x\":110,\"y\":145.5},{\"x\":111,\"y\":146.5},{\"x\":111,\"y\":147.5},{\"x\":112,\"y\":148.5},{\"x\":112,\"y\":149.5},{\"x\":112,\"y\":150.5},{\"x\":112,\"y\":151.5},{\"x\":112,\"y\":152.5},{\"x\":113,\"y\":153.5},{\"x\":113,\"y\":154.5},{\"x\":114,\"y\":155.5},{\"x\":114,\"y\":156.5},{\"x\":115,\"y\":157.5},{\"x\":115,\"y\":158.5},{\"x\":115,\"y\":159.5},{\"x\":115,\"y\":160.5},{\"x\":115,\"y\":161.5},{\"x\":115,\"y\":162.5},{\"x\":115,\"y\":163.5},{\"x\":115,\"y\":164.5}],\"right\":[{\"x\":134,\"y\":64.5},{\"x\":138,\"y\":65.5},{\"x\":141,\"y\":66.5},{\"x\":143,\"y\":67.5},{\"x\":144,\"y\":68.5},{\"x\":145,\"y\":69.5},{\"x\":145,\"y\":70.5},{\"x\":146,\"y\":71.5},{\"x\":146,\"y\":72.5},{\"x\":147,\"y\":73.5},{\"x\":147,\"y\":74.5},{\"x\":148,\"y\":75.5},{\"x\":148,\"y\":76.5},{\"x\":148,\"y\":77.5},{\"x\":149,\"y\":78.5},{\"x\":150,\"y\":79.5},{\"x\":150,\"y\":80.5},{\"x\":149,\"y\":81.5},{\"x\":149,\"y\":82.5},{\"x\":149,\"y\":83.5},{\"x\":149,\"y\":84.5},{\"x\":149,\"y\":85.5},{\"x\":150,\"y\":86.5},{\"x\":150,\"y\":87.5},{\"x\":150,\"y\":88.5},{\"x\":151,\"y\":89.5},{\"x\":151,\"y\":90.5},{\"x\":151,\"y\":91.5},{\"x\":150,\"y\":92.5},{\"x\":150,\"y\":93.5},{\"x\":150,\"y\":94.5},{\"x\":150,\"y\":95.5},{\"x\":150,\"y\":96.5},{\"x\":150,\"y\":97.5},{\"x\":150,\"y\":98.5},{\"x\":150,\"y\":99.5},{\"x\":150,\"y\":100.5},{\"x\":150,\"y\":101.5},{\"x\":149,\"y\":102.5},{\"x\":149,\"y\":103.5},{\"x\":149,\"y\":104.5},{\"x\":148,\"y\":105.5},{\"x\":148,\"y\":106.5},{\"x\":147,\"y\":107.5},{\"x\":147,\"y\":108.5},{\"x\":147,\"y\":109.5},{\"x\":146,\"y\":110.5},{\"x\":146,\"y\":111.5},{\"x\":146,\"y\":112.5},{\"x\":145,\"y\":113.5},{\"x\":145,\"y\":114.5},{\"x\":145,\"y\":115.5},{\"x\":145,\"y\":116.5},{\"x\":145,\"y\":117.5},{\"x\":145,\"y\":118.5},{\"x\":145,\"y\":119.5},{\"x\":146,\"y\":120.5},{\"x\":147,\"y\":121.5},{\"x\":147,\"y\":122.5},{\"x\":147,\"y\":123.5},{\"x\":147,\"y\":124.5},{\"x\":147,\"y\":125.5},{\"x\":147,\"y\":126.5},{\"x\":146,\"y\":127.5},{\"x\":146,\"y\":128.5},{\"x\":146,\"y\":129.5},{\"x\":146,\"y\":130.5},{\"x\":145,\"y\":131.5},{\"x\":145,\"y\":132.5},{\"x\":145,\"y\":133.5},{\"x\":146,\"y\":134.5},{\"x\":146,\"y\":135.5},{\"x\":146,\"y\":136.5},{\"x\":146,\"y\":137.5},{\"x\":148,\"y\":138.5},{\"x\":149,\"y\":139.5},{\"x\":149,\"y\":140.5},{\"x\":149,\"y\":141.5},{\"x\":150,\"y\":142.5},{\"x\":150,\"y\":143.5},{\"x\":150,\"y\":144.5},{\"x\":150,\"y\":145.5},{\"x\":150,\"y\":146.5},{\"x\":149,\"y\":147.5},{\"x\":148,\"y\":148.5},{\"x\":147,\"y\":149.5},{\"x\":147,\"y\":150.5},{\"x\":147,\"y\":151.5},{\"x\":147,\"y\":152.5},{\"x\":147,\"y\":153.5},{\"x\":147,\"y\":154.5},{\"x\":145,\"y\":155.5},{\"x\":145,\"y\":156.5},{\"x\":146,\"y\":157.5},{\"x\":145,\"y\":158.5},{\"x\":145,\"y\":159.5},{\"x\":144,\"y\":160.5},{\"x\":145,\"y\":161.5},{\"x\":145,\"y\":162.5},{\"x\":145,\"y\":163.5},{\"x\":145,\"y\":164.5}],\"top\":[{\"x\":126,\"y\":64.5},{\"x\":134,\"y\":64.5}]}}",
+          "placement": "{\"x\":892.2077567186349,\"y\":996.25,\"width\":85.33333333333333,\"height\":85.33333333333333,\"scale\":0.3333333333333333,\"foot\":{\"x\":934.8744233853015,\"y\":1060.25},\"depth\":1060.25,\"bounds\":{\"body\":{\"left\":924.8744233853015,\"top\":1017.5833333333334,\"right\":942.5410900519682,\"bottom\":1064.5833333333333},\"core\":{\"left\":924.8744233853015,\"top\":1017.5833333333334,\"right\":942.5410900519682,\"bottom\":1051.4233333333334},\"outline\":{\"left\":923.8744233853015,\"top\":1016.5833333333334,\"right\":943.5410900519682,\"bottom\":1065.5833333333333}}}"
+        }
+      }
+    },
+    "cleanup": {
+      "mainRendererUnchanged": true,
+      "mainRecordsUnchanged": true,
+      "ownedRecordsRemaining": 0,
+      "ownedModelsRemaining": 0,
+      "ownedControlUsed": true,
+      "ownedControlsRestored": true,
+      "retiredContexts": 3,
+      "lateReleasesScheduled": 30,
+      "lateSettlements": 30,
+      "errors": [],
+      "complete": true
+    }
+  }
+}

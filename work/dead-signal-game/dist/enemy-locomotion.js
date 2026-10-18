@@ -20,18 +20,27 @@ export class EnemyLocomotionClock {
     const knocked=actor.stun>0||Math.hypot(actor.vx||0,actor.vy||0)>10;
     const target=moving&&!actionFacing&&!knocked?Math.atan2(dy,dx):aimed;
     let angle=advanced?previous.selection.angle:aimed;
+    const pivoting=!!(advanced&&!moving&&!knocked&&!lockedFacing&&Math.abs(shortestTurn(angle,target))>.08);
     if(lockedFacing||!advanced)angle=aimed;
-    else if(moving){const limit=Math.max(.1,turnRate)*dt;angle+=Math.max(-limit,Math.min(limit,shortestTurn(angle,target)));}
+    else if(moving||pivoting){const limit=Math.max(.1,turnRate)*dt;angle+=Math.max(-limit,Math.min(limit,shortestTurn(angle,target)));}
     angle=wrap(angle);
     const stride=Math.max(1,cycleDistance*Math.max(.1,scale));
     // Stagger the herd without random draws. A restored actor gets the same
     // initial cycle; ordinary paused redraws return the same immutable object.
     const offset=((Math.imul((actor.id||actor.seed||0)|0,1103515245)>>>0)%1024)/1024*TAU;
     const prior=advanced?previous.selection.phase:offset;
-    const reverse=moving&&(dx*Math.cos(angle)+dy*Math.sin(angle))/distance<-.35;
+    const alignment=moving?(dx*Math.cos(angle)+dy*Math.sin(angle))/distance:1;
+    const reverse=moving&&(alignment<-.45?true:alignment>-.15?false:!!previous?.selection.reverse);
     // A knockback slides the body, rather than making stunned legs sprint.
-    const phase=moving&&!knocked&&!actionFacing?wrap(prior+(reverse?-1:1)*distance*TAU/stride):prior;
-    const selection=Object.freeze({pose:moving?'walk':'idle',phase,angle,speed:dt?distance/dt:0,
+    // A body still turning into a corner is not running forwards at the full
+    // sideways translation speed. Retain distance-driven cadence once aligned.
+    const longitudinal=distance*Math.min(1,Math.abs(alignment)+.15);
+    // Stationary turns use small authored steps instead of frozen feet spinning.
+    const pivotArc=pivoting?shortestTurn(previous.selection.angle,angle)*Math.max(2,(actor.r||14)*.7):0;
+    const phase=pivoting?wrap(prior+pivotArc*TAU/stride):moving&&!knocked&&!actionFacing?wrap(prior+(reverse?-1:1)*longitudinal*TAU/stride):prior;
+    const speed=dt?distance/dt:0,targetWeight=knocked||actionFacing?0:pivoting?.45:Math.min(1,speed/Math.max(1,(actor.speed||40)*.7));
+    const priorWeight=advanced?previous.selection.moveWeight:0,moveWeight=advanced?priorWeight+(targetWeight-priorWeight)*(1-Math.exp(-dt/(targetWeight>priorWeight?.075:.12))):0;
+    const selection=Object.freeze({pose:moving||pivoting?'walk':'idle',phase,angle,speed,moveWeight,pivoting,
       cycleDistance:stride,reverse,turning:Math.abs(shortestTurn(angle,target))>.04,knocked,actionFacing});
     this.actors.set(actor,{x:actor.x,y:actor.y,time,selection});return selection;
   }

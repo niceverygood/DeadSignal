@@ -11,4 +11,7 @@ for(const project of projects){
   if(result.error)throw result.error;
   if(result.status!==0)process.exit(result.status||1);
 }
+await import('./prepare-player-runtime.mjs');
+await import('./prepare-boss-runtime.mjs');
+await import('./prepare-enemy-runtime.mjs');
 console.log('Dependencies ready. Game: npm start. Art gallery: npm run review. No paid generation or old registration script was run.');

@@ -137,8 +137,7 @@ function validWeaponPose(pose) {
     && (!pose.weaponAnchor.support || validPoint(pose.weaponAnchor.support));
 }
 
-/** Reject incompatible projections or incomplete frame tables before drawing. */
-export function validateAtlasMetadata(value) {
+function assertAtlasMetadata(value) {
   const fail = () => { throw new Error('invalid-atlas-metadata'); };
   if (!value || value.format !== 'meshy-iso-sprite-atlas' || value.version !== 1) fail();
   const { atlas, projection, frames, animation } = value;
@@ -200,7 +199,88 @@ export function validateAtlasMetadata(value) {
         || !finite(frame.groundBounds.maxX) || !finite(frame.groundBounds.maxY)
         || frame.groundBounds.maxX <= frame.groundBounds.minX || frame.groundBounds.maxY <= frame.groundBounds.minY)) fail();
   }
+}
+
+/** Reject incompatible projections or incomplete frame tables before drawing.
+ * Public callers retain an independent JSON clone; their objects are not frozen. */
+export function validateAtlasMetadata(value) {
+  assertAtlasMetadata(value);
   return freezeTree(JSON.parse(JSON.stringify(value)));
+}
+
+// JSON.parse owns every node on this path. An inherited toJSON hook can still
+// affect the legacy clone, including through a getter, so inspect descriptors
+// without reading the hook and keep that path entirely unchanged when present.
+function inheritedJSONTransform() {
+  for (let prototype = Object.prototype; prototype; prototype = Object.getPrototypeOf(prototype))
+    if (Object.getOwnPropertyDescriptor(prototype, 'toJSON')) return true;
+  for (let prototype = Array.prototype; prototype; prototype = Object.getPrototypeOf(prototype))
+    if (Object.getOwnPropertyDescriptor(prototype, 'toJSON')) return true;
+  return false;
+}
+
+// Keep these field names aligned with assertAtlasMetadata and its bounds,
+// contour, weapon-pose and animation-clip validators. An inherited accessor can
+// expose or mutate the parsed receiver during validation; inherited structured
+// data can supply a foreign object with its own hooks. Any descriptor at these
+// names therefore requires the independent legacy clone, even if a getter
+// removes its descriptor while validation runs. Descriptor reads invoke no
+// getter. This does not promise transparency for replaced global intrinsics.
+const INHERITED_METADATA_FIELDS = [
+  'format', 'version', 'atlas', 'projection', 'frames', 'animation',
+  'packing', 'transparent', 'order', 'directions', 'samples', 'frameSize',
+  'width', 'height', 'columns', 'rows', 'pixelsPerWorld', 'subjectHeight',
+  'azimuthDegrees', 'elevationDegrees', 'cameraScale', 'footPivot',
+  'frontYawRadians', 'duration', 'loop', 'clips', 'start', 'count',
+  'index', 'direction', 'sample', 'angle', 'rect', 'clipped',
+  'x', 'y', 'z', 'alphaBounds', 'outlineBounds', 'coreBounds',
+  'bodyIdentificationContour', 'left', 'right', 'top',
+  'weaponAnchor', 'support', 'forward', 'weaponPose', 'weaponMuzzle',
+  'includesWeapon', 'combinedAlphaBounds', 'groundBounds',
+  'minX', 'minY', 'maxX', 'maxY', 'supported', 'desiredGripHeight',
+  'position', 'requested', 'error', 'clamped',
+];
+
+function inheritedMetadataField(prototype) {
+  for (; prototype; prototype = Object.getPrototypeOf(prototype))
+    for (const field of INHERITED_METADATA_FIELDS)
+      if (Object.getOwnPropertyDescriptor(prototype, field)) return true;
+  return false;
+}
+
+const OWNED_JSON_MAX_DEPTH = 128;
+function shallowOwnedJSON(value, depth = 0) {
+  if (!value || typeof value !== 'object') return true;
+  if (depth >= OWNED_JSON_MAX_DEPTH) return false;
+  for (const key in value) if (Object.hasOwn(value, key)
+    && !shallowOwnedJSON(value[key], depth + 1)) return false;
+  return true;
+}
+
+function normalizeAndFreezeOwnedJSON(value) {
+  for (const key in value) if (Object.hasOwn(value, key)) {
+    const child = value[key];
+    // The legacy stringify/parse round trip changes signed zero and turns
+    // nonfinite numeric tokens (for example 1e400) into null, even in unknown
+    // fields. Required finite fields have already failed validation above.
+    if (typeof child === 'number') {
+      if (child === 0) value[key] = 0;
+      else if (!finite(child)) value[key] = null;
+    } else if (child && typeof child === 'object') normalizeAndFreezeOwnedJSON(child);
+  }
+  return Object.freeze(value);
+}
+
+/** Parse a fresh JSON tree without making a second complete metadata clone.
+ * Unknown fields and their own keys remain intact. Deep inputs take the legacy
+ * path before any numeric edits, retaining its serialization/error behavior. */
+export function parseAtlasMetadata(content) {
+  const value = JSON.parse(content);
+  const legacyFields = inheritedMetadataField(Object.prototype) || inheritedMetadataField(Array.prototype);
+  assertAtlasMetadata(value);
+  if (legacyFields || inheritedJSONTransform() || !shallowOwnedJSON(value))
+    return freezeTree(JSON.parse(JSON.stringify(value)));
+  return normalizeAndFreezeOwnedJSON(value);
 }
 
 export function selectAtlasFrame(metadata, { angle = 0, phase, timeSeconds = 0, stationary = false, clip } = {}) {
@@ -278,10 +358,13 @@ export function bodyIdentificationContour(rgba, width, height, body, core, thres
   const top = Math.max(0, Math.floor(body.y));
   const bottom = Math.min(height, Math.floor(core ? core.y + core.height : body.y + body.height * .72));
   const x0 = Math.max(0, Math.floor(body.x)), x1 = Math.min(width, Math.ceil(body.x + body.width));
+  if (!(x0 < x1) || !(top < bottom)) return null;
   for (let y = top; y < bottom; y++) {
-    let min = -1, max = -1;
-    for (let x = x0; x < x1; x++) if (rgba[(y * width + x) * 4 + 3] >= threshold) { if (min < 0) min = x; max = x; }
-    if (min >= 0) { left.push({ x: min, y: y + .5 }); right.push({ x: max + 1, y: y + .5 }); }
+    const row = y * width * 4;
+    let min = x0; while (min < x1 && !(rgba[row + min * 4 + 3] >= threshold)) min++;
+    if (min === x1) continue;
+    let max = x1 - 1; while (max > min && !(rgba[row + max * 4 + 3] >= threshold)) max--;
+    left.push({ x: min, y: y + .5 }); right.push({ x: max + 1, y: y + .5 });
   }
   return left.length > 1 ? { left, right, top: [left[0], right[0]] } : null;
 }
@@ -441,7 +524,7 @@ function loadPNG(ImageCtor, url, expected, timeoutMs) {
 }
 
 export class ProductionArt {
-  constructor({ manifest = productionAssets, baseURL = DEFAULT_BASE_URL, fetchImpl = undefined, ImageCtor = globalThis.Image, timeoutMs = 15000, onChange = null } = {}) {
+  constructor({ manifest = productionAssets, baseURL = DEFAULT_BASE_URL, fetchImpl = undefined, ImageCtor = globalThis.Image, timeoutMs = 15000, onChange = null, forceLegacyMetadataParse = false } = {}) {
     validateAssetRevisions(manifest);
     this.manifest = freezeTree(JSON.parse(JSON.stringify(manifest)));
     this.baseURL = new URL(baseURL);
@@ -453,6 +536,7 @@ export class ProductionArt {
     this.timeoutMs = positive(timeoutMs) ? timeoutMs : 15000;
     this.onChange = typeof onChange === 'function' ? onChange : null;
     this.records = new Map(); this.poseClock = new ProductionPoseClock();
+    this.forceLegacyMetadataParse = forceLegacyMetadataParse === true;
   }
   status(id) { return this.records.get(id)?.status || 'idle'; }
   isReady(id) { return this.status(id) === 'ready'; }
@@ -497,6 +581,10 @@ export class ProductionArt {
   notify(id, record) {
     if (this.onChange) try { this.onChange(Object.freeze({ id, status: record.status, error: record.error || null })); } catch { /* An optional UI callback cannot break loading. */ }
   }
+  parseMetadata(content) {
+    return this.forceLegacyMetadataParse === true
+      ? validateAtlasMetadata(JSON.parse(content)) : parseAtlasMetadata(content);
+  }
   load(id, { retry = false } = {}) {
     const existing = this.records.get(id);
     if (existing && (!retry || existing.status !== 'failed')) return existing.promise;
@@ -518,7 +606,7 @@ export class ProductionArt {
         if (!response?.ok) throw new Error('atlas-metadata-failed');
         const content = await Promise.race([response.text(), timeout]);
         if (content.length > 8 * 1024 * 1024) throw new Error('atlas-metadata-too-large');
-        const metadata = validateAtlasMetadata(JSON.parse(content));
+        const metadata = this.parseMetadata(content);
         clearTimeout(timer);
         const image = await loadPNG(this.ImageCtor, atlasURL, metadata.atlas, this.timeoutMs);
         if (this.records.get(id) !== record) return false;
@@ -599,8 +687,9 @@ export class ProductionArt {
     // .105s firing interval used to restart its .12s reel continuously. Keep the
     // armed 32-sample gait while moving; muzzle effects/recoil remain real.
     const movingPlayer = groundedGait && !pose && selection.pose !== 'idle';
-    const slidingHit=enemyMotion&&!pose&&selection.pose==='walk'&&actionSelection?.clip==='hit';
-    const useActionReel = actionSelection && ['windup', 'attack', 'hit', 'death'].includes(actionSelection.clip)
+    const slidingHit=enemyMotion&&!pose&&selection.pose==='walk'&&!selection.knocked&&actionSelection?.clip==='hit';
+    const idleEnemy=enemyMotion&&!pose&&selection.pose==='idle'&&actionSelection?.clip==='idle';
+    const useActionReel = actionSelection && (['windup', 'attack', 'hit', 'death'].includes(actionSelection.clip)||idleEnemy)
       && !(movingPlayer && ['attack', 'hit'].includes(actionSelection.clip)) && !slidingHit;
     const key = useActionReel ? actionKey : typeof poses === 'string' ? (this.isReady(poses) ? poses : null) : fallbacks.map(candidate => poses[candidate]).find(candidate => this.isReady(candidate));
     if (!key) return null;

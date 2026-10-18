@@ -98,7 +98,7 @@ export function updateCampaignBoss(game,e,dt){
   if(e.attackState==='charge'){
     const x=e.x,y=e.y,speed=value(boss.skill.speed,520,50,900);game.move(e,Math.cos(e.angle)*speed*dt,Math.sin(e.angle)*speed*dt);
     const damage=Number.isFinite(boss.skill.damage)?Math.ceil(boss.skill.damage*(game.campaignScale?.damage??1)):e.damage;
-    if(collisionCircle(x,y,e.x,e.y,game.player.x,game.player.y,e.r+game.player.r)!==null)game.hurtPlayer(damage);
+    if(collisionCircle(x,y,e.x,e.y,game.player.x,game.player.y,e.r+game.player.r)!==null)game.hurtPlayer(damage,{x,y});
     if(game.state!=='playing')return true;
     e.attackTime-=dt;if(e.attackTime<=0){if(e.skillRepeats>0){e.skillRepeats--;warn(game,e,boss);}else{e.attackState='recover';e.attackTime=value(boss.skill.recovery,1,.1,5);}}return true;
   }
@@ -117,7 +117,7 @@ export function updateBossEffects(game,dt){
     for(const obstacle of game.world.obstacles){if(obstacle.destroyed)continue;const t=collisionRect(shot.x,shot.y,x,y,obstacle,shot.r);if(t!==null)wall=Math.min(wall,t);}
     const player=game.player,hit=collisionCircle(shot.x,shot.y,x,y,player.x,player.y,player.r+shot.r);
     shot.life-=step;
-    if(hit!==null&&hit<wall){shot.x+=(x-shot.x)*hit;shot.y+=(y-shot.y)*hit;shot.life=0;game.hurtPlayer(shot.damage);}
+    if(hit!==null&&hit<wall){shot.x+=(x-shot.x)*hit;shot.y+=(y-shot.y)*hit;shot.life=0;game.hurtPlayer(shot.damage,{x:shot.px,y:shot.py});}
     else if(wall!==Infinity){shot.x+=(x-shot.x)*wall;shot.y+=(y-shot.y)*wall;shot.life=0;}
     else{shot.x=x;shot.y=y;if(x<35+shot.r||y<35+shot.r||x>game.world.width-35-shot.r||y>game.world.height-35-shot.r)shot.life=0;}
     if(game.state==='playing'&&shot.life<=0&&shot.kind==='spit'){

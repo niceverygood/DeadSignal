@@ -1,0 +1,93 @@
+// Candidate text only. Intended future path: tests/boss-action-layer.test.mjs.
+// Unit invariants do not certify natural motion; actual original512 RGBA and
+// weighted-hand displacement/contact sheets are a separate QA requirement.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import * as THREE from '../dist/player-rig/vendor/three.module.js';
+import {GLTFLoader} from '../dist/player-rig/vendor/GLTFLoader.js';
+import {AnimationSampler} from '../dist/player-rig/animation.js';
+import {BOSS_CATALOG,getBoss} from '../dist/campaign.js';
+import {createBossActionLayer} from '../dist/boss-rig/boss-action-layer.js';
+
+const DEG=Math.PI/180,finals=BOSS_CATALOG.filter(boss=>boss.role==='final');
+const near=(a,b,e=1e-11)=>assert.ok(Math.abs(a-b)<e,`${a} != ${b}`);
+const state=bone=>({name:bone.name,position:bone.position.toArray(),quaternion:bone.quaternion.toArray(),scale:bone.scale.toArray()});
+function fixture(pairs=2){
+ const root=new THREE.Bone();root.name='DS_Root';
+ const bones=[root];
+ const add=(name,parent,x,y,z)=>{const bone=new THREE.Bone();bone.name=name;bone.position.set(x,y,z);parent.add(bone);bones.push(bone);return bone;};
+ const thorax=add('DS_Thorax',root,0,.64,0);add('DS_Head',thorax,0,.36,0);
+ for(let pair=0;pair<pairs;pair++)for(const side of [-1,1]){const arm=add(`DS_Arm_${pair}_${side}`,thorax,side*.38,.18-pair*.21,0);add(`DS_Forearm_${pair}_${side}`,arm,side*.266,-.1485,0);}
+ for(const side of [-1,1]){const leg=add(`DS_Leg_0_${side}`,root,side*.247,.36,0);add(`DS_Foot_0_${side}`,leg,side*.19,-.29,0);}
+ const restTransforms=bones.map(object=>({object,position:object.position.clone(),quaternion:object.quaternion.clone(),scale:object.scale.clone()}));
+ const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute([-.8,.7,0,.8,.7,0,0,0,0],3));geometry.setAttribute('uv',new THREE.Float32BufferAttribute([0,1,1,1,.5,0],2));geometry.setAttribute('skinIndex',new THREE.Uint16BufferAttribute([3,0,0,0,5,0,0,0,0,0,0,0],4));geometry.setAttribute('skinWeight',new THREE.Float32BufferAttribute([1,0,0,0,1,0,0,0,1,0,0,0],4));
+ const material=new THREE.MeshBasicMaterial({map:new THREE.Texture()}),mesh=new THREE.SkinnedMesh(geometry,material);mesh.add(root);mesh.bind(new THREE.Skeleton(bones));
+ const clips=[Object.freeze({name:'DS_windup',duration:.8,tracks:Object.freeze([])}),Object.freeze({name:'DS_attack',duration:.55,tracks:Object.freeze([])})];
+ const sampler={root:mesh,skins:[mesh],restTransforms,clips};
+ const reset=()=>{for(const entry of restTransforms){entry.object.position.copy(entry.position);entry.object.quaternion.copy(entry.quaternion);entry.object.scale.copy(entry.scale);}};
+ const authored=(x=0)=>{reset();for(const bone of bones)if(/^DS_(Arm|Forearm)_/.test(bone.name))bone.quaternion.setFromAxisAngle(new THREE.Vector3(1,0,0),x);};
+ return {sampler,bones,root,mesh,geometry,material,reset,authored};
+}
+function feetAndRoot(bones){return bones.filter(bone=>/^(DS_Root|DS_Head|DS_Leg_|DS_Foot_)/.test(bone.name)).map(state);}
+function sourceState(f){return {rest:f.sampler.restTransforms.map(entry=>({position:entry.position.toArray(),quaternion:entry.quaternion.toArray(),scale:entry.scale.toArray()})),attributes:Object.fromEntries(Object.entries(f.geometry.attributes).map(([key,value])=>[key,Array.from(value.array)])),clips:f.sampler.clips,geometry:f.mesh.geometry,material:f.mesh.material,map:f.material.map,skeleton:f.mesh.skeleton};}
+
+ test('only the twelve original DS final rigs are supported; unsupported/inactive calls perform exactly zero bone changes',()=>{
+ assert.equal(finals.length,12);
+ for(const boss of finals){const f=fixture(['boss-07-final','boss-11-final','boss-12-final'].includes(boss.id)?3:2),layer=createBossActionLayer(f.sampler,boss.id);assert.equal(layer.supported,true,boss.id);assert.equal(layer,createBossActionLayer(f.sampler,boss.id));assert.equal(layer.diagnostics.kind,boss.skill.kind);
+  for(const name of ['idle','walk','hit','death','unknown']){f.authored(.14);const before=f.bones.map(state),d=layer.apply({name,progress:.5},{hitFlash:.12});assert.equal(d,layer.diagnostics);assert.equal(d.active,false);assert.equal(d.appliedBones,0);assert.deepEqual(f.bones.map(state),before,boss.id+' '+name);}
+  for(const progress of [NaN,Infinity,-Infinity]){const before=f.bones.map(state);assert.equal(layer.apply({name:'windup',progress}).active,false);assert.deepEqual(f.bones.map(state),before);}
+ }
+ let reads=0;const forbidden=new Proxy({}, {get(){reads++;throw Error('unsupported sampler read');}});
+ for(const key of ['unknown',...BOSS_CATALOG.filter(boss=>boss.role==='mid').map(boss=>boss.id)]){const layer=createBossActionLayer(forbidden,key);assert.equal(layer.supported,false);assert.equal(layer.apply({name:'attack',progress:.5}).active,false);}assert.equal(reads,0);
+ const missing=fixture();missing.sampler.restTransforms=missing.sampler.restTransforms.filter(entry=>entry.object.name!=='DS_Forearm_0_1');const before=missing.bones.map(state);assert.equal(createBossActionLayer(missing.sampler,'boss-01-final').supported,false);assert.deepEqual(missing.bones.map(state),before);
+});
+
+test('windup visibly raises the paired original X-lever arms and holds20/10 degrees at its end without moving feet/root/head',()=>{
+ const f=fixture(),layer=createBossActionLayer(f.sampler,'boss-01-final'),fixed=feetAndRoot(f.bones);
+ f.reset();const neutral=f.bones.map(state);assert.equal(layer.apply({name:'windup',progress:0}).shoulderRaise,0);assert.deepEqual(f.bones.map(state),neutral);
+ f.reset();const d={...layer.apply({name:'windup',progress:1})};near(d.shoulderRaise,20*DEG);near(d.forearmRaise,10*DEG);near(d.torsoPitch,-3*DEG);assert.equal(d.appliedBones,9);assert.deepEqual(feetAndRoot(f.bones),fixed);
+ const right=f.bones.find(bone=>bone.name==='DS_Arm_0_1'),left=f.bones.find(bone=>bone.name==='DS_Arm_0_-1');near(right.quaternion.z,Math.sin(10*DEG));near(left.quaternion.z,-Math.sin(10*DEG));
+ f.mesh.updateMatrixWorld(true);const beforeY=.64+.18-.1485,tip=f.bones.find(bone=>bone.name==='DS_Forearm_0_1').getWorldPosition(new THREE.Vector3());assert.ok(tip.y>beforeY+.05,'actual original-direction lever raises the distal joint, rather than only twisting around its X axis');
+ f.reset();const nearEnd={...layer.apply({name:'windup',progress:1-1e-6})};near(nearEnd.shoulderRaise,d.shoulderRaise,1e-9);near(nearEnd.torsoPitch,-3*DEG,1e-9);
+});
+
+test('all skill families have bounded smooth layer endpoints and carry the same held raise into attack, with original base-clip transitions left to LiveBoss',()=>{
+ for(const boss of finals){const f=fixture(),layer=createBossActionLayer(f.sampler,boss.id);f.reset();const windup={...layer.apply({name:'windup',progress:1})};f.reset();const attack={...layer.apply({name:'attack',progress:0})};near(attack.shoulderRaise,windup.shoulderRaise);near(attack.forearmRaise,windup.forearmRaise);near(attack.torsoPitch,windup.torsoPitch);
+  for(const name of ['windup','attack'])for(let i=0;i<=100;i++){const p=i/100;f.authored(name==='windup'?-.1425*p*p*(3-2*p):.2185*Math.sin(Math.PI*p));const fixed=feetAndRoot(f.bones),d=layer.apply({name,progress:p});assert.equal(d.active,true);assert.ok(Math.abs(d.shoulderRaise)<=20*DEG+1e-12);assert.ok(Math.abs(d.forearmRaise)<=10*DEG+1e-12);assert.ok(Math.abs(d.torsoPitch)<=3*DEG+1e-12);assert.ok(d.maxCombinedAngle<=40*DEG+1e-12);assert.deepEqual(feetAndRoot(f.bones),fixed);
+   for(const entry of f.sampler.restTransforms){near(entry.object.quaternion.length(),1);assert.ok(entry.object.quaternion.toArray().every(Number.isFinite));assert.deepEqual(entry.object.position.toArray(),entry.position.toArray());assert.deepEqual(entry.object.scale.toArray(),entry.scale.toArray());}
+  }
+  f.reset();const end=layer.apply({name:'attack',progress:1});near(end.shoulderRaise,0);near(end.forearmRaise,0);near(end.torsoPitch,0);for(const entry of f.sampler.restTransforms)near(entry.object.quaternion.angleTo(entry.quaternion),0);
+ }
+});
+
+test('travelling/guarding families brace once, hammer families downstroke, and release/reach envelopes remain distinct and return to neutral',()=>{
+ const fixtures=new Map();const value=(key,p)=>{let f=fixtures.get(key);if(!f){f=fixture();f.layer=createBossActionLayer(f.sampler,key);fixtures.set(key,f);}f.reset();return {...f.layer.apply({name:'attack',progress:p})};};
+ for(const key of ['boss-01-final','boss-05-final']){near(value(key,.25).shoulderRaise,20*DEG);let previous=Infinity;for(let i=0;i<=100;i++){const next=value(key,i/100).shoulderRaise;assert.ok(next>=-1e-12&&next<=previous+1e-12);previous=next;}}
+ near(value('boss-02-final',.28).shoulderRaise,-8*DEG);near(value('boss-06-final',.28).shoulderRaise,-8*DEG);near(value('boss-04-final',.4).shoulderRaise,-5*DEG);
+ assert.ok(value('boss-03-final',.4).shoulderRaise>0);assert.ok(value('boss-10-final',.4).shoulderRaise>0);assert.notEqual(value('boss-03-final',.4).torsoPitch,value('boss-01-final',.4).torsoPitch);
+});
+
+test('the fresh-sample X articulation is amplified only1.5x and capped40 degrees; repeated fresh replays retain exact source identity/data with no drift',()=>{
+ const f=fixture(),layer=createBossActionLayer(f.sampler,'boss-01-final'),source=sourceState(f),arm=f.bones.find(bone=>bone.name==='DS_Arm_0_1');
+ f.authored(.2);layer.apply({name:'windup',progress:0});near(arm.quaternion.angleTo(new THREE.Quaternion()),.3);
+ f.authored(.8);const capped=layer.apply({name:'windup',progress:1});assert.ok(capped.cappedBones>0);near(arm.quaternion.angleTo(new THREE.Quaternion()),40*DEG);
+ f.authored(-.11);layer.apply({name:'windup',progress:.73});const expected=f.bones.map(state),diagnostic=layer.diagnostics;
+ for(let i=0;i<20;i++){f.authored(-.11);assert.equal(layer.apply({name:'windup',progress:.73}),diagnostic);assert.deepEqual(f.bones.map(state),expected);assert.deepEqual(sourceState(f),source);}
+ for(const value of Object.values(diagnostic))assert.ok(value===null||['string','number','boolean'].includes(typeof value));
+});
+
+test('the actual SHA-pinned original hammer GLB keeps mesh/UV/skin/clip/rest data and exact planted bone transforms while its sampled upper-body quaternion changes',async()=>{
+ const registry=JSON.parse(await readFile(new URL('../dist/boss-rig/registry.json',import.meta.url))),config=registry.bosses['boss-01-final'];
+ const bytes=await readFile(new URL('../dist/boss-rig/'+config.file,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),config.sha256);
+ const loader=new GLTFLoader();loader.register(()=>({name:'numeric-texture-placeholder',loadTexture:()=>Promise.resolve(new THREE.Texture())}));const gltf=await loader.parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');
+ const root=gltf.scene,subject=new THREE.Group(),motion=new THREE.Group();subject.add(motion);motion.add(root);const sampler=new AnimationSampler({root,subject,motion,clips:gltf.animations,subjectHeight:96}),layer=createBossActionLayer(sampler,'boss-01-final');assert.equal(layer.supported,true);
+ const bones=sampler.restTransforms.filter(entry=>entry.object.isBone).map(entry=>entry.object),rest=sampler.restTransforms.map(entry=>({position:entry.position.toArray(),quaternion:entry.quaternion.toArray(),scale:entry.scale.toArray()}));
+ const assets=sampler.skins.map(mesh=>({mesh,geometry:mesh.geometry,skeleton:mesh.skeleton,material:mesh.material,map:mesh.material.map,attributes:Object.fromEntries(Object.entries(mesh.geometry.attributes).map(([key,attribute])=>[key,{attribute,array:attribute.array,values:Array.from(attribute.array)}]))}));
+ const tracks=gltf.animations.map(clip=>({clip,tracks:clip.tracks.map(track=>({track,times:track.times,values:track.values,timeBytes:Array.from(track.times),valueBytes:Array.from(track.values)}))}));
+ const index=gltf.animations.findIndex(clip=>clip.name==='DS_windup');sampler.sample(index,gltf.animations[index].duration*.8,{removeRootMotion:true,once:true});const before=bones.map(state),fixed=feetAndRoot(bones);layer.apply({name:'windup',progress:.8});sampler.updateSkinPose();assert.deepEqual(feetAndRoot(bones),fixed);assert.ok(bones.some((bone,i)=>JSON.stringify(state(bone))!==JSON.stringify(before[i])));
+ assert.deepEqual(sampler.restTransforms.map(entry=>({position:entry.position.toArray(),quaternion:entry.quaternion.toArray(),scale:entry.scale.toArray()})),rest);
+ for(const asset of assets){assert.equal(asset.mesh.geometry,asset.geometry);assert.equal(asset.mesh.skeleton,asset.skeleton);assert.equal(asset.mesh.material,asset.material);assert.equal(asset.mesh.material.map,asset.map);for(const [key,saved]of Object.entries(asset.attributes)){assert.equal(asset.geometry.attributes[key],saved.attribute);assert.equal(saved.attribute.array,saved.array);assert.deepEqual(Array.from(saved.array),saved.values);}}
+ for(const saved of tracks){assert.equal(gltf.animations.includes(saved.clip),true);for(const entry of saved.tracks){assert.equal(entry.track.times,entry.times);assert.equal(entry.track.values,entry.values);assert.deepEqual(Array.from(entry.times),entry.timeBytes);assert.deepEqual(Array.from(entry.values),entry.valueBytes);}}
+});

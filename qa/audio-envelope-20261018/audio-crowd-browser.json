@@ -1,0 +1,114 @@
+{
+  "shots": 12,
+  "contextState": "running",
+  "sampleRate": 48000,
+  "activeAfterEnded": 0,
+  "cacheBefore": {
+    "entries": 0,
+    "bytes": 0,
+    "maxEntries": 24,
+    "maxBytes": 1048576
+  },
+  "cacheAfter": {
+    "entries": 6,
+    "bytes": 410880,
+    "maxEntries": 24,
+    "maxBytes": 1048576
+  },
+  "voices": [
+    {
+      "shot": 1,
+      "active": 4,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 2,
+      "active": 7,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 3,
+      "active": 9,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 4,
+      "active": 11,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 5,
+      "active": 11,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 6,
+      "active": 9,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 7,
+      "active": 9,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 8,
+      "active": 15,
+      "voiceLimit": 22,
+      "contextState": "running"
+    },
+    {
+      "shot": 9,
+      "active": 14,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 10,
+      "active": 14,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 11,
+      "active": 12,
+      "voiceLimit": 14,
+      "contextState": "running"
+    },
+    {
+      "shot": 12,
+      "active": 11,
+      "voiceLimit": 14,
+      "contextState": "running"
+    }
+  ],
+  "unchangedGame": true,
+  "before": {
+    "state": "playing",
+    "time": 0,
+    "hp": 100,
+    "x": 1200,
+    "y": 930,
+    "enemies": 5,
+    "random": 3888591988,
+    "visualRandom": 45579
+  },
+  "after": {
+    "state": "playing",
+    "time": 0,
+    "hp": 100,
+    "x": 1200,
+    "y": 930,
+    "enemies": 5,
+    "random": 3888591988,
+    "visualRandom": 45579
+  },
+  "note": "Actual AudioContext uses original shotgun, explosion and hurt calls. Timers and audible output are not a benchmark or proof of human listening. Only numeric decay envelopes are cached; fresh random AudioBuffers and original voice graphs remain in use. No persistent player storage is used."
+}

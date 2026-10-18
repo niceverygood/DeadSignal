@@ -1,0 +1,9 @@
+2026-10-18 10:56 KST / 강화 단계 제한 제거·레벨/상태/스킬 UI 인계
+
+사용자 요청: 1/3단계 대신 현재 단계만 표시, 실제 강화 상한 제거, LV15 크게 강조, 현재 능력치와 스킬을 시각화.
+engine59149B/SHA72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce, upgrade-model8810B/SHA9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce. UPGRADES.max는 기존 밸런스 구간이며 선택/공급/복원은1000→1001까지 실제계속. 예전max이하는 원래 연산/효과/이벤트/양RNG 유지. 높은 단계는 부드러운 성장과 안전한 동시탄수/관통/연쇄 동시부하 제한을 UI 효과에 공개, 이후 성장 계속. MAX_SAFE_INTEGER 경계는 오버플로 없이 owned표시/유효다음선택 없음을 처리. 저장version/필드 유지, 높은XP는 O(1)배치.
+무제한8회귀검사 및 상태view/seeder8검사와 기존 공급·저장·실제효과 검수 통과. 이전 combinedfocused75/78의 옛공급cap기대·새chain fixture 실패는 의미 있는 실제 공급복원/연쇄결과로 수정, 이후focused78/79 유일CPU16859>15000. 예산/스트레스fixture/동시2 변경 없음.
+실제8851memory LV15 normalgainXP/tick0 14회와 첫13정상선택으로 구성, 원본preloader/기존이어하기를 거쳐큰LV15/능력치6종/보유8스킬/3선택 표시 확인. 마지막선택을 대신 누르지 않음. 1044×1088 DOM폭980/가로overflow0. 390×844 panel폭358/client808/scroll1120, 카드316/높이172이상, 실제scrollTop312로8owned표시. desktop/mobilePNG3개 저장·직접확인, console0,viewportreset/own2419닫힘. 사용자8806/기존pending/저장미조작. 원본moodboard/art보존.
+최종combined root Node22.23.3 npmtest1120개 중1119PASS/1FAIL/201436.4449ms. 유일실패24k stressCPU15062>15000/wall19591.71. 최신전체로그와380sourcefreeze후변경0은 qa/building-occlusion-20261018. 전체PASS/무렉/FPS완성주장금지. verify는기존.gitignore manifest크기불일치1 미해결.
+성능판단: chain-axis-stress A/B는 상태·월드·RNG·이벤트·대상 exact/369341 hypot제거이나 계측CPU21437→22859/벽71862→158189로 향상확인못해 미적용. 프로파일은 profile-after-combined-1120/production-stress.json/.cpuprofile/analysis.json. 원본callback24k·CPU15000 그대로 observer0, CPU15297실패(프로파일오버헤드). 주요비용updateEnemies/Navigation이며 chain/valueFor미세최적화는우선근거약함. 다음추천은 길찾기 반복산술 QA-only 독립원본 대조+비계측A/B/A, 미구현·미적용. 상세최신인계는건물가림CONTINUATION_STATUS_KO 끝부분.
+마감2026-10-19 00:00KST/automation4ACTIVE. 이후새작업금지·기록후PAUSED. automation7/유료Meshy/결제/키저장/외부공개/스토어제출금지. 원본Meshy·리그·플레이저장·기존변경보존. 새보스상체레이어기본OFF/12종검수미완료, cold첫건물텍스처차이 원인미확정, 실기기·전체FPS·100h미완료.

@@ -1,0 +1,1 @@
+import {runColdChainQA} from '../work/dead-signal-game/dist/qa-cold-chain.js';for(const isolated of [true,false])for(const seed of isolated?[774]:[774,775,776]){const {report}=await runColdChainQA({seed,isolated});console.log(JSON.stringify(report));}

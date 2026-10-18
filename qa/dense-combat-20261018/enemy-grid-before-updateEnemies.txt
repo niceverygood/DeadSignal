@@ -1,0 +1,27 @@
+  updateEnemies(dt){
+    const p=this.player,grid=new Map(),cell=55;
+    // Production worlds are2400x1800; use strings for out-of-range custom maps.
+    const compact=this.world.width<55*32768&&this.world.height<55*32768;
+    for(const e of this.enemies){if(e.dead)continue;const cx=Math.floor(e.x/cell),cy=Math.floor(e.y/cell),key=compact?cx*65536+cy:cx+','+cy;let bucket=grid.get(key);if(!bucket)grid.set(key,bucket=[]);bucket.push(e);}
+    for(const e of this.enemies){if(this.state!=='playing')break;if(e.dead)continue;e.attackCd=Math.max(0,e.attackCd-dt);e.stun=Math.max(0,e.stun-dt);e.skillCd-=dt;
+      for(const f of this.fires){if(Math.hypot(e.x-f.x,e.y-f.y)<f.r+e.r)e.burn=Math.max(e.burn,1.4);}
+      if(e.burn>0){e.burn-=dt;e.burnTick-=dt;if(e.burnTick<=0){e.burnTick=.3;this.damageEnemy(e,7+2*(this.upgrades.fire||0));}}
+      if(e.dead)continue;
+      let target=p;if(this.lure&&distance(e,this.lure)<this.lure.radius&&e.type!=='collector')target=this.lure;
+      if(e.bossKey){if(updateCampaignBoss(this,e,dt))continue;}
+      else if(e.type==='collector'){this.updateBoss(e,dt);if(e.attackState==='windup'||e.attackState==='recover')continue;if(e.attackState==='charge'){this.move(e,Math.cos(e.angle)*540*dt,Math.sin(e.angle)*540*dt);for(const o of this.world.obstacles){if(o.destroyed||o.kind==='building'||!circleRect(e.x,e.y,e.r+8,o))continue;o.destroyed=true;this.burst(o.x,o.y,15,'#9a8670',180,.5);}if(distance(e,p)<e.r+p.r)this.hurtPlayer(e.damage,e);continue;}}
+      const dx=target.x-e.x,dy=target.y-e.y,len=Math.hypot(dx,dy)||1;e.angle=Math.atan2(dy,dx);
+      let sx=0,sy=0;const cx=Math.floor(e.x/cell),cy=Math.floor(e.y/cell);
+      for(let gx=cx-1;gx<=cx+1;gx++)for(let gy=cy-1;gy<=cy+1;gy++){
+        const neighbors=grid.get(compact?gx*65536+gy:gx+','+gy);if(!neighbors?.length)continue;
+        for(const other of neighbors){if(other===e||other.dead)continue;const ox=e.x-other.x,oy=e.y-other.y,d2=ox*ox+oy*oy,min=e.r+other.r-3;if(d2<min*min&&d2>.01){const d=Math.sqrt(d2);sx+=ox/d*(min-d)*3;sy+=oy/d*(min-d)*3;}}
+      }
+      if(e.vx||e.vy)this.move(e,e.vx*dt,e.vy*dt);
+      if(e.stun<=0&&len>e.r+(target===p?p.r:12)-3){e.navTime=(e.navTime||0)-dt;
+        if(e.navTime<=0||e.navTarget!==target||Math.hypot(target.x-(e.navTargetX??target.x),target.y-(e.navTargetY??target.y))>40){const d=this.navigation.direction(e,target,e.r);e.navX=d.x;e.navY=d.y;e.navTarget=target;e.navTargetX=target.x;e.navTargetY=target.y;e.navTime=.14+(e.id%5)*.009;}
+        const direction={x:e.navX||0,y:e.navY||0};if(direction.x||direction.y)e.angle=Math.atan2(direction.y,direction.x);this.move(e,(direction.x*e.speed+sx)*dt,(direction.y*e.speed+sy)*dt);}
+      e.vx*=Math.exp(-dt*9);e.vy*=Math.exp(-dt*9);
+      if(distance(e,p)<e.r+p.r+2&&e.attackCd<=0){e.attackCd=.9;this.hurtPlayer(e.damage,e);}
+      if(e.type==='screamer'&&e.skillCd<=0){e.skillCd=9;this.addNoise(7);for(let i=0;i<3;i++)this.spawnEnemy('walker',500);this.float(e.x,e.y-25,'비명!','#ee7971');this.emit('scream');}
+    }this.enemies=this.enemies.filter(e=>!e.dead);
+  }

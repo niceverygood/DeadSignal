@@ -1,0 +1,4472 @@
+{
+  "fixture": {
+    "count": 180,
+    "weapon": "nailgun",
+    "baseEnemies": 5,
+    "seed": 774,
+    "snapshotValid": true,
+    "spawnClock": 1.5,
+    "note": "Explicit density fixture adds normal enemies through spawnEnemy and preserves initial enemies, spawnClock, HP, speed, AI, damage and normal subsequent spawning. Existing Continue/preload/resume UI launches the memory-only checkpoint."
+  },
+  "observeCosts": false,
+  "forceAllFresh": true,
+  "nativeKeys": [
+    "enemy-walker",
+    "enemy-runner",
+    "enemy-gas"
+  ],
+  "passes": [
+    {
+      "reuse": false,
+      "candidateArm": false,
+      "preparation": {
+        "keys": [
+          "enemy-walker",
+          "enemy-runner",
+          "enemy-gas"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "2eed766d-bb0d-4430-a444-b26bf13e7318",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "d028a6e7-9728-4753-a20a-8c42ae890a2b",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "bdfce028-a2b8-4486-9c75-32bb8331605b",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 3,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          },
+          {
+            "key": "enemy-runner",
+            "ready": true
+          },
+          {
+            "key": "enemy-gas",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption."
+      },
+      "preparationMs": 1779.5,
+      "samples": [
+        {
+          "frame": 10,
+          "advanceMs": 6.900000035762787,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 31,
+          "combinedMs": 38.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 504,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 11,
+          "advanceMs": 7.800000011920929,
+          "sampleMs": 0.5,
+          "renderMs": 31.600000023841858,
+          "combinedMs": 39.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 493,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 12,
+          "advanceMs": 8.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 33.09999996423721,
+          "combinedMs": 42.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 501,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 13,
+          "advanceMs": 9.100000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 30.599999964237213,
+          "combinedMs": 40.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 489,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 14,
+          "advanceMs": 10.699999988079071,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 29.69999998807907,
+          "combinedMs": 41.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 526,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 15,
+          "advanceMs": 7.799999952316284,
+          "sampleMs": 0.5,
+          "renderMs": 28.80000001192093,
+          "combinedMs": 37.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 446,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 16,
+          "advanceMs": 8,
+          "sampleMs": 0.5,
+          "renderMs": 31.19999998807907,
+          "combinedMs": 39.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 416,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 17,
+          "advanceMs": 10.199999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 34.700000047683716,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 393,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 18,
+          "advanceMs": 8.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 30.80000001192093,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 386,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 19,
+          "advanceMs": 9.899999976158142,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 28.69999998807907,
+          "combinedMs": 39.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 436,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 20,
+          "advanceMs": 9,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 32.09999996423721,
+          "combinedMs": 41.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 364,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 21,
+          "advanceMs": 9.100000023841858,
+          "sampleMs": 1,
+          "renderMs": 36.5,
+          "combinedMs": 46.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 340,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 22,
+          "advanceMs": 14.5,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 32.80000001192093,
+          "combinedMs": 48,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 327,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 23,
+          "advanceMs": 14.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 29.600000023841858,
+          "combinedMs": 44.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 313,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 24,
+          "advanceMs": 14.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 30.100000023841858,
+          "combinedMs": 45,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 350,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 25,
+          "advanceMs": 10.800000011920929,
+          "sampleMs": 1.0999999642372131,
+          "renderMs": 31.69999998807907,
+          "combinedMs": 43.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 293,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 26,
+          "advanceMs": 11.699999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 31.80000001192093,
+          "combinedMs": 43.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 286,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 27,
+          "advanceMs": 14.699999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 32.39999997615814,
+          "combinedMs": 47.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 276,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 28,
+          "advanceMs": 11.699999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 30.80000001192093,
+          "combinedMs": 42.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 264,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 29,
+          "advanceMs": 14.400000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 31.600000023841858,
+          "combinedMs": 46.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 270,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 30,
+          "advanceMs": 12.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 31.099999964237213,
+          "combinedMs": 44.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 222,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 31,
+          "advanceMs": 16.80000001192093,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 31.100000023841858,
+          "combinedMs": 48.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 207,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 32,
+          "advanceMs": 43.69999998807907,
+          "sampleMs": 1.899999976158142,
+          "renderMs": 53.10000002384186,
+          "combinedMs": 98.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 205,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 33,
+          "advanceMs": 21.599999964237213,
+          "sampleMs": 0.7000000476837158,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 57.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 182,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 34,
+          "advanceMs": 19,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 33.80000001192093,
+          "combinedMs": 53.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 210,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 35,
+          "advanceMs": 15,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 35.59999996423721,
+          "combinedMs": 51.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 188,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 36,
+          "advanceMs": 14.699999988079071,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 35.40000003576279,
+          "combinedMs": 50.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 192,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 37,
+          "advanceMs": 18.100000023841858,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 53.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 198,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 38,
+          "advanceMs": 14.800000011920929,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 34.19999998807907,
+          "combinedMs": 49.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 200,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 39,
+          "advanceMs": 17.5,
+          "sampleMs": 0.5,
+          "renderMs": 30.19999998807907,
+          "combinedMs": 48.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 232,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        }
+      ],
+      "allSamples": [
+        {
+          "frame": 0,
+          "advanceMs": 20.600000023841858,
+          "sampleMs": 3.299999952316284,
+          "renderMs": 19.400000035762787,
+          "combinedMs": 43.30000001192093,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 655,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 1,
+          "advanceMs": 13.5,
+          "sampleMs": 1.5,
+          "renderMs": 130.9000000357628,
+          "combinedMs": 145.9000000357628,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 633,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 2,
+          "advanceMs": 9.200000047683716,
+          "sampleMs": 0.7999999523162842,
+          "renderMs": 22.30000001192093,
+          "combinedMs": 32.30000001192093,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 612,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 3,
+          "advanceMs": 7.300000011920929,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 19.19999998807907,
+          "combinedMs": 27.19999998807907,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 597,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 4,
+          "advanceMs": 13.200000047683716,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 18.5,
+          "combinedMs": 32.30000001192093,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 694,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 5,
+          "advanceMs": 7.700000047683716,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 26.400000035762787,
+          "combinedMs": 34.700000047683716,
+          "nativeSelected": 2,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 603,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 6,
+          "advanceMs": 10.599999964237213,
+          "sampleMs": 0.9000000357627869,
+          "renderMs": 23.80000001192093,
+          "combinedMs": 35.30000001192093,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 590,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 7,
+          "advanceMs": 9.400000035762787,
+          "sampleMs": 1,
+          "renderMs": 58.69999998807907,
+          "combinedMs": 69.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 568,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 8,
+          "advanceMs": 6.899999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 30.30000001192093,
+          "combinedMs": 37.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 559,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 9,
+          "advanceMs": 8,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 32.40000003576279,
+          "combinedMs": 41.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 599,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 10,
+          "advanceMs": 6.900000035762787,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 31,
+          "combinedMs": 38.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 504,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 11,
+          "advanceMs": 7.800000011920929,
+          "sampleMs": 0.5,
+          "renderMs": 31.600000023841858,
+          "combinedMs": 39.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 493,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 12,
+          "advanceMs": 8.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 33.09999996423721,
+          "combinedMs": 42.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 501,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 13,
+          "advanceMs": 9.100000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 30.599999964237213,
+          "combinedMs": 40.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 489,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 14,
+          "advanceMs": 10.699999988079071,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 29.69999998807907,
+          "combinedMs": 41.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 526,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 15,
+          "advanceMs": 7.799999952316284,
+          "sampleMs": 0.5,
+          "renderMs": 28.80000001192093,
+          "combinedMs": 37.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 446,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 16,
+          "advanceMs": 8,
+          "sampleMs": 0.5,
+          "renderMs": 31.19999998807907,
+          "combinedMs": 39.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 416,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 17,
+          "advanceMs": 10.199999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 34.700000047683716,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 393,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 18,
+          "advanceMs": 8.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 30.80000001192093,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 386,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 19,
+          "advanceMs": 9.899999976158142,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 28.69999998807907,
+          "combinedMs": 39.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 436,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 20,
+          "advanceMs": 9,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 32.09999996423721,
+          "combinedMs": 41.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 364,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 21,
+          "advanceMs": 9.100000023841858,
+          "sampleMs": 1,
+          "renderMs": 36.5,
+          "combinedMs": 46.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 340,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 22,
+          "advanceMs": 14.5,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 32.80000001192093,
+          "combinedMs": 48,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 327,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 23,
+          "advanceMs": 14.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 29.600000023841858,
+          "combinedMs": 44.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 313,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 24,
+          "advanceMs": 14.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 30.100000023841858,
+          "combinedMs": 45,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 350,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 25,
+          "advanceMs": 10.800000011920929,
+          "sampleMs": 1.0999999642372131,
+          "renderMs": 31.69999998807907,
+          "combinedMs": 43.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 293,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 26,
+          "advanceMs": 11.699999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 31.80000001192093,
+          "combinedMs": 43.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 286,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 27,
+          "advanceMs": 14.699999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 32.39999997615814,
+          "combinedMs": 47.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 276,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 28,
+          "advanceMs": 11.699999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 30.80000001192093,
+          "combinedMs": 42.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 264,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 29,
+          "advanceMs": 14.400000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 31.600000023841858,
+          "combinedMs": 46.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 270,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 30,
+          "advanceMs": 12.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 31.099999964237213,
+          "combinedMs": 44.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 222,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 31,
+          "advanceMs": 16.80000001192093,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 31.100000023841858,
+          "combinedMs": 48.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 207,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 32,
+          "advanceMs": 43.69999998807907,
+          "sampleMs": 1.899999976158142,
+          "renderMs": 53.10000002384186,
+          "combinedMs": 98.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 205,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 33,
+          "advanceMs": 21.599999964237213,
+          "sampleMs": 0.7000000476837158,
+          "renderMs": 35.19999998807907,
+          "combinedMs": 57.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 182,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 34,
+          "advanceMs": 19,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 33.80000001192093,
+          "combinedMs": 53.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 210,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 35,
+          "advanceMs": 15,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 35.59999996423721,
+          "combinedMs": 51.299999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 188,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 36,
+          "advanceMs": 14.699999988079071,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 35.40000003576279,
+          "combinedMs": 50.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 192,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 37,
+          "advanceMs": 18.100000023841858,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 34.89999997615814,
+          "combinedMs": 53.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 198,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 38,
+          "advanceMs": 14.800000011920929,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 34.19999998807907,
+          "combinedMs": 49.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 200,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 39,
+          "advanceMs": 17.5,
+          "sampleMs": 0.5,
+          "renderMs": 30.19999998807907,
+          "combinedMs": 48.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 232,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        }
+      ],
+      "costs": {
+        "enabled": false,
+        "samples": [],
+        "unmeasured": [],
+        "note": "QA measures synchronous CPU call wall time, including waits and observer overhead. Nested stage observations overlap and must not be summed. This is not GPU execution time, presented FPS, paint or total memory. First-observed owner identities are not game/model construction times. The observer performs no tick, render, pose, draw, pixel read, upload, event drain or scheduling calls."
+      },
+      "native": {
+        "minimal": true,
+        "calls": 403,
+        "samples": [],
+        "note": "Counts actual original native renderer.render calls only; no native/Canvas timing wrappers or extra draws/reads are installed."
+      },
+      "summary": {
+        "advanceMs": {
+          "median": 12.699999988079071,
+          "p95": 21.599999964237213,
+          "max": 43.69999998807907
+        },
+        "sampleMs": {
+          "median": 0.5,
+          "p95": 1.0999999642372131,
+          "max": 1.899999976158142
+        },
+        "renderMs": {
+          "median": 31.69999998807907,
+          "p95": 36.5,
+          "max": 53.10000002384186
+        },
+        "combinedMs": {
+          "median": 45,
+          "p95": 57.5,
+          "max": 98.69999998807907
+        }
+      },
+      "allSummary": {
+        "advanceMs": {
+          "median": 11.699999988079071,
+          "p95": 21.599999964237213,
+          "max": 43.69999998807907
+        },
+        "sampleMs": {
+          "median": 0.6000000238418579,
+          "p95": 1.899999976158142,
+          "max": 3.299999952316284
+        },
+        "renderMs": {
+          "median": 31.600000023841858,
+          "p95": 58.69999998807907,
+          "max": 130.9000000357628
+        },
+        "combinedMs": {
+          "median": 43.89999997615814,
+          "p95": 98.69999998807907,
+          "max": 145.9000000357628
+        }
+      },
+      "allocations": {
+        "mapsCreated": 288,
+        "bucketsCreated": 15819,
+        "bucketReuses": 0,
+        "acquisitions": 288,
+        "leasesCreated": 0,
+        "trackingArraysCreated": 0,
+        "retainedActors": 0,
+        "retainedBuckets": 0
+      },
+      "timedAllocations": {
+        "mapsCreated": 216,
+        "bucketsCreated": 9709,
+        "bucketReuses": 0,
+        "acquisitions": 216,
+        "leasesCreated": 0,
+        "trackingArraysCreated": 0
+      },
+      "hp": 73,
+      "time": 4.799999999999988,
+      "kills": 3,
+      "enemies": 188,
+      "canvas": {
+        "width": 1335,
+        "height": 620,
+        "dpr": 1
+      }
+    },
+    {
+      "reuse": false,
+      "candidateArm": true,
+      "preparation": {
+        "keys": [
+          "enemy-walker",
+          "enemy-runner",
+          "enemy-gas"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "451ebc52-cf54-45fe-b9b7-bb86f22176f0",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "89872b16-71b8-4fa2-be1c-283f07d38e65",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "f763cb67-b834-4940-b5c2-07dd19056d0a",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 3,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          },
+          {
+            "key": "enemy-runner",
+            "ready": true
+          },
+          {
+            "key": "enemy-gas",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption."
+      },
+      "preparationMs": 1754.699999988079,
+      "samples": [
+        {
+          "frame": 10,
+          "advanceMs": 7.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 28.899999976158142,
+          "combinedMs": 37.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 504,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 11,
+          "advanceMs": 7.200000047683716,
+          "sampleMs": 0.5,
+          "renderMs": 27,
+          "combinedMs": 34.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 493,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 12,
+          "advanceMs": 8.099999964237213,
+          "sampleMs": 2.800000011920929,
+          "renderMs": 30.400000035762787,
+          "combinedMs": 41.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 501,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 13,
+          "advanceMs": 7.5,
+          "sampleMs": 0.5,
+          "renderMs": 27.899999976158142,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 489,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 14,
+          "advanceMs": 8.300000011920929,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 30,
+          "combinedMs": 38.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 526,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 15,
+          "advanceMs": 8.100000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 30.200000047683716,
+          "combinedMs": 38.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 446,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 16,
+          "advanceMs": 8.800000011920929,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 29.899999976158142,
+          "combinedMs": 39.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 416,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 17,
+          "advanceMs": 15.300000011920929,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 42,
+          "combinedMs": 57.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 393,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 18,
+          "advanceMs": 10.800000011920929,
+          "sampleMs": 17.5,
+          "renderMs": 43.60000002384186,
+          "combinedMs": 71.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 386,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 19,
+          "advanceMs": 13.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 56.30000001192093,
+          "combinedMs": 70.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 436,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 20,
+          "advanceMs": 16.099999964237213,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 128.5,
+          "combinedMs": 145.29999995231628,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 364,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 21,
+          "advanceMs": 77.39999997615814,
+          "sampleMs": 3.100000023841858,
+          "renderMs": 57.299999952316284,
+          "combinedMs": 137.79999995231628,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 340,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 22,
+          "advanceMs": 24.599999964237213,
+          "sampleMs": 1.4000000357627869,
+          "renderMs": 32.19999998807907,
+          "combinedMs": 58.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 327,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 23,
+          "advanceMs": 12.5,
+          "sampleMs": 0.5,
+          "renderMs": 34.799999952316284,
+          "combinedMs": 47.799999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 313,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 24,
+          "advanceMs": 18.099999964237213,
+          "sampleMs": 0.7000000476837158,
+          "renderMs": 33.09999996423721,
+          "combinedMs": 51.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 350,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 25,
+          "advanceMs": 11.900000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 32.19999998807907,
+          "combinedMs": 44.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 293,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 26,
+          "advanceMs": 11.199999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 28.400000035762787,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 286,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 27,
+          "advanceMs": 12.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 29.899999976158142,
+          "combinedMs": 42.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 276,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 28,
+          "advanceMs": 11.900000035762787,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 27.900000035762787,
+          "combinedMs": 40.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 264,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 29,
+          "advanceMs": 14.600000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 32,
+          "combinedMs": 47,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 270,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 30,
+          "advanceMs": 13.199999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 28.100000023841858,
+          "combinedMs": 41.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 222,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 31,
+          "advanceMs": 15,
+          "sampleMs": 0.5,
+          "renderMs": 28.30000001192093,
+          "combinedMs": 43.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 207,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 32,
+          "advanceMs": 19.19999998807907,
+          "sampleMs": 0.9000000357627869,
+          "renderMs": 32.299999952316284,
+          "combinedMs": 52.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 205,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 33,
+          "advanceMs": 16.5,
+          "sampleMs": 0.5,
+          "renderMs": 31.19999998807907,
+          "combinedMs": 48.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 182,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 34,
+          "advanceMs": 17.80000001192093,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 30.600000023841858,
+          "combinedMs": 49,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 210,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 35,
+          "advanceMs": 15.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 29.5,
+          "combinedMs": 45.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 188,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 36,
+          "advanceMs": 14.900000035762787,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 28.899999976158142,
+          "combinedMs": 44.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 192,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 37,
+          "advanceMs": 15,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 29.69999998807907,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 198,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 38,
+          "advanceMs": 15.300000011920929,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 28.69999998807907,
+          "combinedMs": 44.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 200,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 39,
+          "advanceMs": 17.399999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 32.89999997615814,
+          "combinedMs": 50.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 232,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        }
+      ],
+      "allSamples": [
+        {
+          "frame": 0,
+          "advanceMs": 11.199999988079071,
+          "sampleMs": 2.600000023841858,
+          "renderMs": 22.399999976158142,
+          "combinedMs": 36.299999952316284,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 655,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 1,
+          "advanceMs": 16.100000023841858,
+          "sampleMs": 1.899999976158142,
+          "renderMs": 47,
+          "combinedMs": 65,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 633,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 2,
+          "advanceMs": 7.699999988079071,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 16.69999998807907,
+          "combinedMs": 25.099999964237213,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 612,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 3,
+          "advanceMs": 8.699999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 19.600000023841858,
+          "combinedMs": 28.69999998807907,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 597,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 4,
+          "advanceMs": 9,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 15.799999952316284,
+          "combinedMs": 25.399999976158142,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 694,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 5,
+          "advanceMs": 7.900000035762787,
+          "sampleMs": 0.5,
+          "renderMs": 24.599999964237213,
+          "combinedMs": 33,
+          "nativeSelected": 2,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 603,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 6,
+          "advanceMs": 8.099999964237213,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 18.5,
+          "combinedMs": 27.299999952316284,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 590,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 7,
+          "advanceMs": 8.399999976158142,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 49.69999998807907,
+          "combinedMs": 58.799999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 568,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 8,
+          "advanceMs": 8.300000011920929,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 30,
+          "combinedMs": 39,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 559,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 9,
+          "advanceMs": 9.199999988079071,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 28,
+          "combinedMs": 37.799999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 599,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 10,
+          "advanceMs": 7.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 28.899999976158142,
+          "combinedMs": 37.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 504,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 11,
+          "advanceMs": 7.200000047683716,
+          "sampleMs": 0.5,
+          "renderMs": 27,
+          "combinedMs": 34.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 493,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 12,
+          "advanceMs": 8.099999964237213,
+          "sampleMs": 2.800000011920929,
+          "renderMs": 30.400000035762787,
+          "combinedMs": 41.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 501,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 13,
+          "advanceMs": 7.5,
+          "sampleMs": 0.5,
+          "renderMs": 27.899999976158142,
+          "combinedMs": 35.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 489,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 14,
+          "advanceMs": 8.300000011920929,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 30,
+          "combinedMs": 38.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 526,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 15,
+          "advanceMs": 8.100000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 30.200000047683716,
+          "combinedMs": 38.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 446,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 16,
+          "advanceMs": 8.800000011920929,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 29.899999976158142,
+          "combinedMs": 39.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 416,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 17,
+          "advanceMs": 15.300000011920929,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 42,
+          "combinedMs": 57.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 393,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 18,
+          "advanceMs": 10.800000011920929,
+          "sampleMs": 17.5,
+          "renderMs": 43.60000002384186,
+          "combinedMs": 71.90000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 386,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 19,
+          "advanceMs": 13.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 56.30000001192093,
+          "combinedMs": 70.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 436,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 20,
+          "advanceMs": 16.099999964237213,
+          "sampleMs": 0.699999988079071,
+          "renderMs": 128.5,
+          "combinedMs": 145.29999995231628,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 364,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 21,
+          "advanceMs": 77.39999997615814,
+          "sampleMs": 3.100000023841858,
+          "renderMs": 57.299999952316284,
+          "combinedMs": 137.79999995231628,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 340,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 22,
+          "advanceMs": 24.599999964237213,
+          "sampleMs": 1.4000000357627869,
+          "renderMs": 32.19999998807907,
+          "combinedMs": 58.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 327,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 23,
+          "advanceMs": 12.5,
+          "sampleMs": 0.5,
+          "renderMs": 34.799999952316284,
+          "combinedMs": 47.799999952316284,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 313,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 24,
+          "advanceMs": 18.099999964237213,
+          "sampleMs": 0.7000000476837158,
+          "renderMs": 33.09999996423721,
+          "combinedMs": 51.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 350,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 25,
+          "advanceMs": 11.900000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 32.19999998807907,
+          "combinedMs": 44.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 293,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 26,
+          "advanceMs": 11.199999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 28.400000035762787,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 286,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 27,
+          "advanceMs": 12.099999964237213,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 29.899999976158142,
+          "combinedMs": 42.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 276,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 28,
+          "advanceMs": 11.900000035762787,
+          "sampleMs": 0.2999999523162842,
+          "renderMs": 27.900000035762787,
+          "combinedMs": 40.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 264,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 29,
+          "advanceMs": 14.600000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 32,
+          "combinedMs": 47,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 270,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 30,
+          "advanceMs": 13.199999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 28.100000023841858,
+          "combinedMs": 41.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 222,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 31,
+          "advanceMs": 15,
+          "sampleMs": 0.5,
+          "renderMs": 28.30000001192093,
+          "combinedMs": 43.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 207,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 32,
+          "advanceMs": 19.19999998807907,
+          "sampleMs": 0.9000000357627869,
+          "renderMs": 32.299999952316284,
+          "combinedMs": 52.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 205,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 33,
+          "advanceMs": 16.5,
+          "sampleMs": 0.5,
+          "renderMs": 31.19999998807907,
+          "combinedMs": 48.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 182,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 34,
+          "advanceMs": 17.80000001192093,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 30.600000023841858,
+          "combinedMs": 49,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 210,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 35,
+          "advanceMs": 15.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 29.5,
+          "combinedMs": 45.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 188,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 36,
+          "advanceMs": 14.900000035762787,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 28.899999976158142,
+          "combinedMs": 44.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 192,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 37,
+          "advanceMs": 15,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 29.69999998807907,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 198,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 38,
+          "advanceMs": 15.300000011920929,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 28.69999998807907,
+          "combinedMs": 44.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 200,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 39,
+          "advanceMs": 17.399999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 32.89999997615814,
+          "combinedMs": 50.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 232,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        }
+      ],
+      "costs": {
+        "enabled": false,
+        "samples": [],
+        "unmeasured": [],
+        "note": "QA measures synchronous CPU call wall time, including waits and observer overhead. Nested stage observations overlap and must not be summed. This is not GPU execution time, presented FPS, paint or total memory. First-observed owner identities are not game/model construction times. The observer performs no tick, render, pose, draw, pixel read, upload, event drain or scheduling calls."
+      },
+      "native": {
+        "minimal": true,
+        "calls": 403,
+        "samples": [],
+        "note": "Counts actual original native renderer.render calls only; no native/Canvas timing wrappers or extra draws/reads are installed."
+      },
+      "summary": {
+        "advanceMs": {
+          "median": 14.600000023841858,
+          "p95": 24.599999964237213,
+          "max": 77.39999997615814
+        },
+        "sampleMs": {
+          "median": 0.5,
+          "p95": 3.100000023841858,
+          "max": 17.5
+        },
+        "renderMs": {
+          "median": 30.400000035762787,
+          "p95": 57.299999952316284,
+          "max": 128.5
+        },
+        "combinedMs": {
+          "median": 45.30000001192093,
+          "p95": 137.79999995231628,
+          "max": 145.29999995231628
+        }
+      },
+      "allSummary": {
+        "advanceMs": {
+          "median": 12.099999964237213,
+          "p95": 24.599999964237213,
+          "max": 77.39999997615814
+        },
+        "sampleMs": {
+          "median": 0.5999999642372131,
+          "p95": 3.100000023841858,
+          "max": 17.5
+        },
+        "renderMs": {
+          "median": 30,
+          "p95": 57.299999952316284,
+          "max": 128.5
+        },
+        "combinedMs": {
+          "median": 44.5,
+          "p95": 137.79999995231628,
+          "max": 145.29999995231628
+        }
+      },
+      "allocations": {
+        "mapsCreated": 288,
+        "bucketsCreated": 15819,
+        "bucketReuses": 0,
+        "acquisitions": 288,
+        "leasesCreated": 0,
+        "trackingArraysCreated": 0,
+        "retainedActors": 0,
+        "retainedBuckets": 0
+      },
+      "timedAllocations": {
+        "mapsCreated": 216,
+        "bucketsCreated": 9709,
+        "bucketReuses": 0,
+        "acquisitions": 216,
+        "leasesCreated": 0,
+        "trackingArraysCreated": 0
+      },
+      "hp": 73,
+      "time": 4.799999999999988,
+      "kills": 3,
+      "enemies": 188,
+      "canvas": {
+        "width": 1335,
+        "height": 620,
+        "dpr": 1
+      }
+    },
+    {
+      "reuse": false,
+      "candidateArm": false,
+      "preparation": {
+        "keys": [
+          "enemy-walker",
+          "enemy-runner",
+          "enemy-gas"
+        ],
+        "textureUpload": {
+          "submitted": true,
+          "enabled": true,
+          "textures": [
+            {
+              "uuid": "848786db-30a4-42fe-b3a2-5865a2bf6a7f",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "9658e684-7002-4026-9ec3-4616790b50a8",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            },
+            {
+              "uuid": "8932612c-f9d4-4c75-bbc1-3808e3fa0605",
+              "width": 4096,
+              "height": 4096,
+              "version": 1,
+              "sourceVersion": 1
+            }
+          ],
+          "texturesBefore": 0,
+          "texturesAfter": 3,
+          "error": "",
+          "stateNormalized": true
+        },
+        "shaders": [
+          {
+            "key": "enemy-walker",
+            "ready": true
+          },
+          {
+            "key": "enemy-runner",
+            "ready": true
+          },
+          {
+            "key": "enemy-gas",
+            "ready": true
+          }
+        ],
+        "prepared": true,
+        "error": "",
+        "note": "Original native texture submission and shader API readiness before launch; not GPU completion, measured FPS or first-draw validation. A maximum of three original enemy models is owned until adoption."
+      },
+      "preparationMs": 1768.1000000238419,
+      "samples": [
+        {
+          "frame": 10,
+          "advanceMs": 6.899999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 27.400000035762787,
+          "combinedMs": 34.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 504,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 11,
+          "advanceMs": 7.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 28.900000035762787,
+          "combinedMs": 37.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 493,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 12,
+          "advanceMs": 7.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 28,
+          "combinedMs": 36.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 501,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 13,
+          "advanceMs": 9.199999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 27.600000023841858,
+          "combinedMs": 37.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 489,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 14,
+          "advanceMs": 9.400000035762787,
+          "sampleMs": 0.5,
+          "renderMs": 27.19999998807907,
+          "combinedMs": 37.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 526,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 15,
+          "advanceMs": 7.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 27.5,
+          "combinedMs": 35.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 446,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 16,
+          "advanceMs": 7.899999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 27,
+          "combinedMs": 35.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 416,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 17,
+          "advanceMs": 8,
+          "sampleMs": 0.5,
+          "renderMs": 31.69999998807907,
+          "combinedMs": 40.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 393,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 18,
+          "advanceMs": 8.299999952316284,
+          "sampleMs": 0.5,
+          "renderMs": 27.30000001192093,
+          "combinedMs": 36.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 386,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 19,
+          "advanceMs": 9.899999976158142,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 27.69999998807907,
+          "combinedMs": 38.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 436,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 20,
+          "advanceMs": 8.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 29.899999976158142,
+          "combinedMs": 39,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 364,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 21,
+          "advanceMs": 10.199999988079071,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 28.19999998807907,
+          "combinedMs": 39.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 340,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 22,
+          "advanceMs": 13.300000011920929,
+          "sampleMs": 0.5,
+          "renderMs": 28.099999964237213,
+          "combinedMs": 41.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 327,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 23,
+          "advanceMs": 9.699999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 30.69999998807907,
+          "combinedMs": 40.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 313,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 24,
+          "advanceMs": 12.600000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 27.100000023841858,
+          "combinedMs": 40.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 350,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 25,
+          "advanceMs": 12.399999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 27.19999998807907,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 293,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 26,
+          "advanceMs": 11.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 28.799999952316284,
+          "combinedMs": 40.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 286,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 27,
+          "advanceMs": 12.799999952316284,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 29,
+          "combinedMs": 42.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 276,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 28,
+          "advanceMs": 11.600000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 25.69999998807907,
+          "combinedMs": 37.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 264,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 29,
+          "advanceMs": 15.400000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 28.900000035762787,
+          "combinedMs": 44.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 270,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 30,
+          "advanceMs": 14.5,
+          "sampleMs": 0.5,
+          "renderMs": 29.099999964237213,
+          "combinedMs": 44.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 222,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 31,
+          "advanceMs": 16.400000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 28.5,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 207,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 32,
+          "advanceMs": 18.400000035762787,
+          "sampleMs": 1.0999999642372131,
+          "renderMs": 29.900000035762787,
+          "combinedMs": 49.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 205,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 33,
+          "advanceMs": 16.30000001192093,
+          "sampleMs": 0.5,
+          "renderMs": 30.69999998807907,
+          "combinedMs": 47.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 182,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 34,
+          "advanceMs": 18.69999998807907,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.5,
+          "combinedMs": 50.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 210,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 35,
+          "advanceMs": 14.800000011920929,
+          "sampleMs": 0.7999999523162842,
+          "renderMs": 28.100000023841858,
+          "combinedMs": 43.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 188,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 36,
+          "advanceMs": 15.299999952316284,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 31.69999998807907,
+          "combinedMs": 47.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 192,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 37,
+          "advanceMs": 15.900000035762787,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 30.600000023841858,
+          "combinedMs": 47.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 198,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 38,
+          "advanceMs": 17.19999998807907,
+          "sampleMs": 0.5,
+          "renderMs": 27.600000023841858,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 200,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 39,
+          "advanceMs": 17.099999964237213,
+          "sampleMs": 0.5,
+          "renderMs": 29.30000001192093,
+          "combinedMs": 46.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 232,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        }
+      ],
+      "allSamples": [
+        {
+          "frame": 0,
+          "advanceMs": 8.900000035762787,
+          "sampleMs": 2.099999964237213,
+          "renderMs": 35.80000001192093,
+          "combinedMs": 46.80000001192093,
+          "nativeSelected": 0,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 655,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 1,
+          "advanceMs": 11,
+          "sampleMs": 1.300000011920929,
+          "renderMs": 35.09999996423721,
+          "combinedMs": 47.39999997615814,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 633,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 2,
+          "advanceMs": 9.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 16.5,
+          "combinedMs": 26.399999976158142,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 612,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 3,
+          "advanceMs": 8.199999988079071,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 15.900000035762787,
+          "combinedMs": 24.5,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 597,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 4,
+          "advanceMs": 8.700000047683716,
+          "sampleMs": 0.5,
+          "renderMs": 15.099999964237213,
+          "combinedMs": 24.30000001192093,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 694,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 5,
+          "advanceMs": 8,
+          "sampleMs": 0.5,
+          "renderMs": 21.399999976158142,
+          "combinedMs": 29.899999976158142,
+          "nativeSelected": 2,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 603,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 6,
+          "advanceMs": 8.599999964237213,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 18.30000001192093,
+          "combinedMs": 27.69999998807907,
+          "nativeSelected": 1,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 590,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 7,
+          "advanceMs": 8.5,
+          "sampleMs": 0.5,
+          "renderMs": 47.5,
+          "combinedMs": 56.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 568,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 8,
+          "advanceMs": 7.100000023841858,
+          "sampleMs": 1,
+          "renderMs": 28.600000023841858,
+          "combinedMs": 36.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 559,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 9,
+          "advanceMs": 8.599999964237213,
+          "sampleMs": 0.5,
+          "renderMs": 29.700000047683716,
+          "combinedMs": 38.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 599,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 10,
+          "advanceMs": 6.899999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 27.400000035762787,
+          "combinedMs": 34.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 504,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 11,
+          "advanceMs": 7.699999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 28.900000035762787,
+          "combinedMs": 37.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 493,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 12,
+          "advanceMs": 7.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 28,
+          "combinedMs": 36.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 501,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 13,
+          "advanceMs": 9.199999988079071,
+          "sampleMs": 0.5,
+          "renderMs": 27.600000023841858,
+          "combinedMs": 37.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 489,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 14,
+          "advanceMs": 9.400000035762787,
+          "sampleMs": 0.5,
+          "renderMs": 27.19999998807907,
+          "combinedMs": 37.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 526,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 15,
+          "advanceMs": 7.399999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 27.5,
+          "combinedMs": 35.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 446,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 16,
+          "advanceMs": 7.899999976158142,
+          "sampleMs": 0.5,
+          "renderMs": 27,
+          "combinedMs": 35.39999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 416,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 17,
+          "advanceMs": 8,
+          "sampleMs": 0.5,
+          "renderMs": 31.69999998807907,
+          "combinedMs": 40.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 393,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 18,
+          "advanceMs": 8.299999952316284,
+          "sampleMs": 0.5,
+          "renderMs": 27.30000001192093,
+          "combinedMs": 36.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 386,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 19,
+          "advanceMs": 9.899999976158142,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 27.69999998807907,
+          "combinedMs": 38.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 436,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 20,
+          "advanceMs": 8.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 29.899999976158142,
+          "combinedMs": 39,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 364,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 21,
+          "advanceMs": 10.199999988079071,
+          "sampleMs": 0.800000011920929,
+          "renderMs": 28.19999998807907,
+          "combinedMs": 39.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 340,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 22,
+          "advanceMs": 13.300000011920929,
+          "sampleMs": 0.5,
+          "renderMs": 28.099999964237213,
+          "combinedMs": 41.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 327,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 23,
+          "advanceMs": 9.699999988079071,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 30.69999998807907,
+          "combinedMs": 40.80000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 313,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 24,
+          "advanceMs": 12.600000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 27.100000023841858,
+          "combinedMs": 40.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 350,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 25,
+          "advanceMs": 12.399999976158142,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 27.19999998807907,
+          "combinedMs": 40,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 293,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 26,
+          "advanceMs": 11.600000023841858,
+          "sampleMs": 0.5,
+          "renderMs": 28.799999952316284,
+          "combinedMs": 40.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 286,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 27,
+          "advanceMs": 12.799999952316284,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 29,
+          "combinedMs": 42.19999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 276,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 28,
+          "advanceMs": 11.600000023841858,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 25.69999998807907,
+          "combinedMs": 37.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 264,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 29,
+          "advanceMs": 15.400000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 28.900000035762787,
+          "combinedMs": 44.700000047683716,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 270,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 30,
+          "advanceMs": 14.5,
+          "sampleMs": 0.5,
+          "renderMs": 29.099999964237213,
+          "combinedMs": 44.09999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 222,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 31,
+          "advanceMs": 16.400000035762787,
+          "sampleMs": 0.3999999761581421,
+          "renderMs": 28.5,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 207,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 32,
+          "advanceMs": 18.400000035762787,
+          "sampleMs": 1.0999999642372131,
+          "renderMs": 29.900000035762787,
+          "combinedMs": 49.40000003576279,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 205,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 33,
+          "advanceMs": 16.30000001192093,
+          "sampleMs": 0.5,
+          "renderMs": 30.69999998807907,
+          "combinedMs": 47.5,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 182,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 34,
+          "advanceMs": 18.69999998807907,
+          "sampleMs": 0.40000003576278687,
+          "renderMs": 31.5,
+          "combinedMs": 50.60000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 210,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 35,
+          "advanceMs": 14.800000011920929,
+          "sampleMs": 0.7999999523162842,
+          "renderMs": 28.100000023841858,
+          "combinedMs": 43.69999998807907,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 188,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 36,
+          "advanceMs": 15.299999952316284,
+          "sampleMs": 0.6000000238418579,
+          "renderMs": 31.69999998807907,
+          "combinedMs": 47.59999996423721,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 192,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 37,
+          "advanceMs": 15.900000035762787,
+          "sampleMs": 0.5999999642372131,
+          "renderMs": 30.600000023841858,
+          "combinedMs": 47.10000002384186,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 198,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 38,
+          "advanceMs": 17.19999998807907,
+          "sampleMs": 0.5,
+          "renderMs": 27.600000023841858,
+          "combinedMs": 45.30000001192093,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 7,
+            "bucketsCreated": 200,
+            "bucketReuses": 0,
+            "acquisitions": 7,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        },
+        {
+          "frame": 39,
+          "advanceMs": 17.099999964237213,
+          "sampleMs": 0.5,
+          "renderMs": 29.30000001192093,
+          "combinedMs": 46.89999997615814,
+          "nativeSelected": 12,
+          "rigError": "",
+          "allocations": {
+            "mapsCreated": 8,
+            "bucketsCreated": 232,
+            "bucketReuses": 0,
+            "acquisitions": 8,
+            "leasesCreated": 0,
+            "trackingArraysCreated": 0
+          },
+          "retainedActors": 0,
+          "retainedBuckets": 0
+        }
+      ],
+      "costs": {
+        "enabled": false,
+        "samples": [],
+        "unmeasured": [],
+        "note": "QA measures synchronous CPU call wall time, including waits and observer overhead. Nested stage observations overlap and must not be summed. This is not GPU execution time, presented FPS, paint or total memory. First-observed owner identities are not game/model construction times. The observer performs no tick, render, pose, draw, pixel read, upload, event drain or scheduling calls."
+      },
+      "native": {
+        "minimal": true,
+        "calls": 403,
+        "samples": [],
+        "note": "Counts actual original native renderer.render calls only; no native/Canvas timing wrappers or extra draws/reads are installed."
+      },
+      "summary": {
+        "advanceMs": {
+          "median": 12.399999976158142,
+          "p95": 18.400000035762787,
+          "max": 18.69999998807907
+        },
+        "sampleMs": {
+          "median": 0.5,
+          "p95": 0.800000011920929,
+          "max": 1.0999999642372131
+        },
+        "renderMs": {
+          "median": 28.5,
+          "p95": 31.69999998807907,
+          "max": 31.69999998807907
+        },
+        "combinedMs": {
+          "median": 40.80000001192093,
+          "p95": 49.40000003576279,
+          "max": 50.60000002384186
+        }
+      },
+      "allSummary": {
+        "advanceMs": {
+          "median": 9.899999976158142,
+          "p95": 18.400000035762787,
+          "max": 18.69999998807907
+        },
+        "sampleMs": {
+          "median": 0.5,
+          "p95": 1.300000011920929,
+          "max": 2.099999964237213
+        },
+        "renderMs": {
+          "median": 28.5,
+          "p95": 35.80000001192093,
+          "max": 47.5
+        },
+        "combinedMs": {
+          "median": 40.10000002384186,
+          "p95": 50.60000002384186,
+          "max": 56.5
+        }
+      },
+      "allocations": {
+        "mapsCreated": 288,
+        "bucketsCreated": 15819,
+        "bucketReuses": 0,
+        "acquisitions": 288,
+        "leasesCreated": 0,
+        "trackingArraysCreated": 0,
+        "retainedActors": 0,
+        "retainedBuckets": 0
+      },
+      "timedAllocations": {
+        "mapsCreated": 216,
+        "bucketsCreated": 9709,
+        "bucketReuses": 0,
+        "acquisitions": 216,
+        "leasesCreated": 0,
+        "trackingArraysCreated": 0
+      },
+      "hp": 73,
+      "time": 4.799999999999988,
+      "kills": 3,
+      "enemies": 188,
+      "canvas": {
+        "width": 1335,
+        "height": 620,
+        "dpr": 1
+      }
+    }
+  ],
+  "differences": [
+    {
+      "reuse": false,
+      "different": 11,
+      "maxDelta": 1
+    },
+    {
+      "reuse": false,
+      "different": 19,
+      "maxDelta": 1
+    }
+  ],
+  "candidateVsRepeatedLegacy": {
+    "different": 8,
+    "maxDelta": 1
+  },
+  "cleanupErrors": [],
+  "identicalCombatState": true,
+  "identicalEvents": true,
+  "identicalActorMotion": true,
+  "note": "8851 genuine-memory QA only. Original inline fresh separation Map/buckets with source counters → pooled → original fresh; forceAllFresh is a separate all-original control. observeCosts=false removes detailed/Canvas timing observers and retains only an actual native renderer.render call counter. allSummary includes all40 frames, including warmup outliers. Same normal60/180 checkpoint, AI/HP/automatic fire/spawning/offered upgrades, fixed .12s catch-up through actual advanceSimulation and pooled interpolation, 40renders/batch8/10warm excluded. Every arm owns a new original256 NPC rig with the same bounded three-model texture/shader preparation, excluded from combat timing, and primes the actual renderer without ticks before measurement. Main player/world caches can still vary. Allocation counters count the helper source objects, not heap/GC/RAM/VRAM bytes or all JavaScript allocations. No presented FPS, GPU execution or full product HUD/audio/save claim. Stage wrappers add overhead and nested call-wall times overlap. Original rig/resolution/materials/clips/positions/private outputs remain in use."
+}

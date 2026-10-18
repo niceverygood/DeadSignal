@@ -10,11 +10,12 @@ function currentCommand(game,command,firingEnabled){
   return {...command,...firingIntent(game,{mode:'auto',aimX:command.aimX,aimY:command.aimY})};
 }
 
-export function advanceSimulation(game,frameCommand,accumulator,{firingEnabled=true}={}){
+export function advanceSimulation(game,frameCommand,accumulator,{firingEnabled=true,interpolator=null}={}){
   let first=true;
   while(accumulator>=FIXED_STEP){
     const command=currentCommand(game,frameCommand,firingEnabled);
     const pulseOnly=command.fireMode==='manual'&&command.fireOnce&&command.heldShoot===false;
+    interpolator?.capture(game);
     game.tick(FIXED_STEP,{...command,shoot:command.shoot&&(!pulseOnly||first),dash:first&&command.dash,lure:first&&command.lure,molotov:first&&command.molotov,reload:first&&command.reload});
     accumulator-=FIXED_STEP;
     first=false;
