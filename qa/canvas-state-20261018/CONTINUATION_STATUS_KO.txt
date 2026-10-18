@@ -1,0 +1,33 @@
+DeadSignal Canvas 상태 후보 — 원본 품질 증명 완료, 제품 최적화 미설치
+마감 2026-10-19 00:00KST(2026-10-18 15:00Z). 시작 실제시계03:10:20Z, 최종검사 뒤03:23:22Z 확인. 자동화4 ACTIVE/마감뒤 새착수금지·정리PAUSED, 자동화7·유료·결제·키저장·공개·스토어금지. 사용자8806/IAB/pending/저장·서버·원본 Meshy 보존. 새push0/로컬작업.
+
+의도와 범위
+이전 실제180전투 drawFrame 분리계측에서 restore의 긴 대기(첫117.8ms/steady88.9ms)가 관측되었다. 그래픽 지연·host대기일 수 있어 순수 Canvas stack 비용이라고 확정하지 않는다. 이번은 이를 줄일 QA-only 후보의 원본 의미·실제픽셀 증명만 수행했다. 실제전체전투비용·메모리 개선이나 게임기본채택은 아직 아니다.
+
+구현·동결
+dist/qa-canvas-state.js 신규10353bytes SHAc23329a0a4b7748b5fc9fc3ca78c65479b19dc7d7316a3ba4a9a0bf407d46cdd. 실제native constructors/prototype메서드와3native accessor·image/canvasbrand getter를 캡처한다. 임의uncertified draw입력은 WeakMap.has만 한뒤 원래함수에 같은this/args로 전달하며 Proxy/getter를 추가 관찰하지 않는다. certify는 QA가 이미 통제하는 internal plain selected에만 명시 호출하는 전제다(범용Proxy판별기 아님).
+원본 ProductionArt.prototype.drawFrame exact reference, 같은native context/API/ownhooks0, 인증한selected/frame/rect/placement descriptor·value·prototype와이미지brand가같고2args 또는third undefined일때만manual이다. options·변경·custom·미인증은wholeoriginalfallback. native3state(globalAlpha/smoothingEnabled/quality) 저장→원래순서와9args draw→catchfalse→3state독립복원, 오류뒤재시도0. stop은original/context/API/WeakMap 해제,진행중호출은localnativealias로정상복원뒤완료,후속draw/certifyfalse. primitiveboundedcounter6개.
+dist/qa-canvas-state-pixels.js 신규17611bytes SHA9808b15a2ce814e8c7f59d84c164f3b64f3b15b2b6a7b33507523f9311f02797. 8851/http/qa+qa-memory/qa-canvas-state=1/genuineMapstorage 먼저gate. 이미ready한nativeNPC+원본bakedwalker/runner 최대2셀만사용, sourceimage/rect 보존/placement만ownscratch에배치한다. 새pose/modelrender/preload/decode/fetch/maincanvasdraw/Game/storage조작0.
+qa-player-rig.js는 기존전체167556byte/SHAa398cf…prefix exact를 보존하고 명시flag때만 새버튼/별도결과UI를append. 버튼실행전ready/idle, lateimport후owner/pagehide확인, genuine memory-only생성,report에서PNG분리/최대2proof/후보오류표시·listener/buttoncleanup. 원본ProductionArt/renderer/app/qa-app-loop/engine/원본baker/모델/반동canonical·generated 불변.
+
+집중 검사
+focused-first.log: 신규17/17PASS271.9532ms/취소·생략0. 후보독립9(원본메서드36상태/arity쌍·9args/signed0/clip/transform/composite/filter/shadow/outerstack/Proxy옵션protocol/recipe·API변경fallback/native draw오류/no retry/3restorer fault/stop), UI5, pixel gates3.
+후보test20330bytes SHAebe57c3bed399849f95fb98f00346c8f1b3d7aac6fdae87d691f6e2f834bdbe4. fakeCanvas 상태시험은 실제RGBA/성능증거로 주장하지 않는다. 초기rootUI3/5실패는테스트의byteoffset을문자offset으로쓴것과read()가실제와달리동일mutable객체를반환한fixture 문제였다. byteBuffer 기준과실제read()의freshsnapshot을맞춰5PASS,원본코드/한계수정0/초기ui-focused.log도보존.
+
+실제 브라우저 검수
+own Chrome1494332508 / http://localhost:8851/qa-player-rig.html?qa=1&qa-memory=canvas-state-20261018&qa-canvas-state=1. 기존정지버튼으로1초정상QA전투뒤초기픽셀버튼1회: baked5조건PASS/17scratch정리이나nativecache없음으로availablefalse/completefalse. browser-initial-missing-native.json에그대로보존(성공으로숨기지않음).
+기존 '실제 탄환 명중 부위 빛 비교' 버튼으로원래QAinitializer실행: HP500정지walker를두무기 실제탄환으로명중, liveenemy모델 load와nativecache준비가확인된후픽셀버튼1회. 이것은분리된fixture준비이고픽셀utility안에모델/pose/render를추가하지않았다. 유리한품질결과를찾아재시도한것아님.
+browser-pixels.json:12/12complete, native5+baked5상태(alpha0/.5/1,smoothingoff/on,low/high,nonidentitytransform+clip+multiply+blur.5+shadow3/offset3,2)+optionsalpha.65fallback1+소유0×0Canvas실제draw예외1. 각조건draw/clip-path/caller-stack의AB·AA=72비교가pixels/components/maxDelta모두0. 전체actual11manualcalls, options만manual0/fallback1. emptyCanvas는원본/후보/A반복 모두false+falseReturns1이며상태·외부stack보존. callerstate/descriptor/복원전부same,41scratchcreated/41released/errors0/mainowners·records·mapping·nativecache same/cleanupcomplete/diagnosticsbeforeafterexact/consolewarnerror0.
+browser-pixels-0.png/1.png native/baked대표2개직접시각확인:원본몸·자세·그림동일/명백한교체·잘림없음. 작은baked이미지의긴header label은겹치나body와RGBA검수에는영향없음. browser-page.png도저장. 전용tab2508 close+freshlistabsent확인,사용자탭미조작.
+증명은준비된2셀/12scratch상태범위다. 전체월드/모든12리그/임의customCanvas/실제프레임·GPU·peakRAM개선/기본채택증거로확대하지않는다.
+
+최종 전체 검사
+Node22.23.3 npm test 기본concurrency2 한회1163/1163PASS127160.2897ms/exit0/취소·생략0(session64594 종료). 기존20분stressCPU14047<15000/wall14844.07ms/engine·budget·fixture 변경0. 직전CPU13219와의차이는candidate성능비교아니다(후보는제품미설치).
+371file source-freeze.json→source-after-browser.json→source-after-whole.json SHA/bytes 변경0. 이전364중expected변경은qa-player-rig.js append1개뿐,167556prefix exact/원본보호22module·model records exact. 원본ProductionArt SHA017c… 및engine/renderer/반동source·runtime 보존. verify현재도 .gitignore 역사manifest mismatch/exit1,immutable목록은편집하지않았다. 현재rootNode/CPU/browserjob0/agent실행종료. decision.json=QA-only retain,제품최적화설치0/실제비용비교0.
+
+다음 원자 작업 추천(읽기 설계만, 미구현)
+우선원본180적checkpoint에서fresh owned Renderer/Art/rigs로40×.12고정catch-up+advanceSimulation+ActorInterpolation+실제렌더의A/B/A를구성한다. 원래HP/spawnClock/AI/normalspawning/commands·두RNG·events·snapshot·입력/소스/정렬·픽셀동치를검사한다. 기존qa-paced는1tick/render·spawnClock1e9이고gridhelper는HUD/audio/save없고prime으로firstdraw를소비하므로그대로'전체app.frame'이라표기하지않는다. 첫/steady·p95/max·모든certify/guard/allocation 비용과최종deferredtail을포함해서판단한다. 비용향상이없으면미채택.
+인증지점중요: ProductionArt.frame/actorFrame만hook하면 renderer.nativeEnemyFrame의최종 `{...selected,placement:...}` 새객체가인증에서빠진다. 원래최종nativeEnemyFrame반환이knownbaked일때만명시certify하고 baked-NPC 실제manual사용량을별도로양수확인. 임의drawargs인증금지, nativePlayer/corpse·synthetic hitlight·alphaoptions/custompath는원래fallback. Canvas8stage observer는ownhooks여서후보를fallback시키므로OFF/wholeframecost만동일계측. constructor/firstnative/texture準備 증거/범위명확화.
+helper의매draw descriptor스캔/Object.entries·배열/토큰/3get+6set 및certification·WeakMap 비용/GC를측정에포함한다. drawFrame microtime만줄어도factory/다음draw에이동한비용을무시하면안된다. 기존coldwholeScene A/A buildingtexture差 max33 미해결도그대로보존/prime·허용오차로숨기지않는다.
+전체원래app.frame 비교가필요하면별도명시QA controlled-clock mode에서 physicalrAF1callback당원래frame1번+공통virtualtimestamp,실제rAF별도기록(default옵션없음원래args·스케줄동일)이최소방안. 첫pendingevent는원래callback이처리하며관측initialsnapshot/commands/tickSchedule/accumulator/events/RNG exact를충족하지못하면비교invalid. 추가tick/drain/rAF/사용자입력조작0. 이는virtual시간비교이며liveFPS가아니고walltime profile.savedAt/AudioContext시간은byte동치대상이아니다.
+새착수전실제시계/최신인계/중복상태확인. 마감뒤새개발금지및정리/자동화4PAUSED. 현재유료Meshy/키저장/자동화7/외부공개·스토어금지유지.

@@ -1,0 +1,15 @@
+✔ all31 NPCs retain HQ32 moving feet, authored idle/stagger, exact warnings and immutable paused actors (9657.3517ms)
+✔ enemy stride is actual distance and body scale, with stable individual phase and no actor writes (3.6823ms)
+✔ walking turns take the shortest bounded arc while warnings and charges use the exact danger angle (0.3674ms)
+✔ blocked movement, paused draws and knockback never spin the legs; restore has deterministic phase (0.3141ms)
+✔ measured sole correction is limited and never flattens running flight or adjusts actions (0.2774ms)
+✔ moving non-knockback damage retains walk with native hit phase; actual stun gets full stagger (4.6384ms)
+✔ damage overlay never replaces saved warning or active charge pose and ends when flash expires (1.0375ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10075.8437

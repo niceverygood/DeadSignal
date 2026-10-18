@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeadSignal · 보스 동작 연결 검수</title>
+<style>
+body{margin:28px;background:#101d23;color:#ece5d3;font:16px/1.6 system-ui,sans-serif;max-width:1100px}h1{font-size:26px}nav{display:flex;flex-wrap:wrap;gap:12px}button,select{padding:10px 16px;background:#263840;color:inherit;border:1px solid #dba14e}button{cursor:pointer}button:disabled,select:disabled{opacity:.5}details{padding:12px;margin:20px 0;border:1px solid #43555d}pre{font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}[id$="-status"]{color:#efbd75}canvas{max-width:100%;height:auto;image-rendering:auto}#boss-action-timeline-proof{margin-top:22px}
+</style>
+<h1>준설기사 · 공격과 피격 동작 연결</h1>
+<p>원본 메시로 예고 정점·공격 시작·피격·사망을 연속 비교합니다. 왼쪽은 기존 동작, 오른쪽은 팔 동작 후보입니다.</p>
+<p>재생 화면은 검수용 저장 프레임이며 실제 전투 성능 측정이 아닙니다.</p>
+<nav></nav><p id="status" role="status">별도 메모리 QA 조건 확인 중</p>
+<script type="module">
+const query=new URLSearchParams(location.search),allowed=location.protocol==='http:'&&['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)&&location.port==='8851'&&query.has('qa')&&query.has('qa-memory')&&query.get('qa-boss-owned-cleanup')==='1'&&query.get('qa-boss-action-timeline')==='1';
+if(allowed){try{const m=await import('./qa-boss-action-timeline-ui.js');const installed=m.installBossActionTimelineQA({document,location,query,eventTarget:globalThis});document.getElementById('status').textContent=installed?'별도 메모리 검수 준비 완료':'별도 메모리 검수 준비 실패';}catch(error){document.getElementById('status').textContent='검수 도구 로드 실패: '+(error?.message??String(error));}}
+else document.getElementById('status').textContent='8851 별도 메모리 QA와 명시적 동작 연결 옵션이 필요합니다.';
+</script></html>

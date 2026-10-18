@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: finished original enemy frame owns a private copy when the live atlas is overwritten, without corpse writes
+ok 1 - finished original enemy frame owns a private copy when the live atlas is overwritten, without corpse writes
+  ---
+  duration_ms: 11.202
+  type: 'test'
+  ...
+# Subtest: finished-image cache stays at twelve256px bodies and releases missing, expired or restored-world corpses
+ok 2 - finished-image cache stays at twelve256px bodies and releases missing, expired or restored-world corpses
+  ---
+  duration_ms: 1.1519
+  type: 'test'
+  ...
+# Subtest: unfinished transitions, baked frames, bosses and oversized surfaces are not frozen, and pose/size changes invalidate
+ok 3 - unfinished transitions, baked frames, bosses and oversized surfaces are not frozen, and pose/size changes invalidate
+  ---
+  duration_ms: 1.9455
+  type: 'test'
+  ...
+# Subtest: finished original boss death reuses its own pose across advancing gameplay and other actors, with complete cache invalidation
+ok 4 - finished original boss death reuses its own pose across advancing gameplay and other actors, with complete cache invalidation
+  ---
+  duration_ms: 256.574
+  type: 'test'
+  ...
+# Subtest: a late live-to-death transition still completes instead of caching its inherited standing first pose
+ok 5 - a late live-to-death transition still completes instead of caching its inherited standing first pose
+  ---
+  duration_ms: 81.5692
+  type: 'test'
+  ...
+# Subtest: unfinished death and living clips retain advancing-frame sampling
+ok 6 - unfinished death and living clips retain advancing-frame sampling
+  ---
+  duration_ms: 115.8038
+  type: 'test'
+  ...
+# Subtest: proven native bounds copy every original cell without requesting CPU pixels
+ok 7 - proven native bounds copy every original cell without requesting CPU pixels
+  ---
+  duration_ms: 3.3001
+  type: 'test'
+  ...
+# Subtest: one unsupported pose retains exact legacy alpha bounds for the entire native batch
+ok 8 - one unsupported pose retains exact legacy alpha bounds for the entire native batch
+  ---
+  duration_ms: 0.354
+  type: 'test'
+  ...
+# Subtest: explicit QA verification adds a real alpha read without replacing the GPU copied artwork
+ok 9 - explicit QA verification adds a real alpha read without replacing the GPU copied artwork
+  ---
+  duration_ms: 1.052
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1404.579

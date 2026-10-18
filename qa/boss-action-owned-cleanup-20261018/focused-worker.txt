@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: exact opt-in and genuine memory gate precede main owner, DOM and dependency reads
+ok 1 - exact opt-in and genuine memory gate precede main owner, DOM and dependency reads
+  ---
+  duration_ms: 3.5813
+  type: 'test'
+  ...
+# Subtest: abort before an unsettled original model arrives waits for its late retirement exactly once and preserves every main owner
+ok 2 - abort before an unsettled original model arrives waits for its late retirement exactly once and preserves every main owner
+  ---
+  duration_ms: 9.3233
+  type: 'test'
+  ...
+# Subtest: load false leaves no retained pending entry and retains the original failure instead of claiming a visual run
+ok 3 - load false leaves no retained pending entry and retains the original failure instead of claiming a visual run
+  ---
+  duration_ms: 1.7674
+  type: 'test'
+  ...
+# Subtest: a geometry retirement that discovers another original pending Promise keeps the drain active until the new model retires
+ok 4 - a geometry retirement that discovers another original pending Promise keeps the drain active until the new model retires
+  ---
+  duration_ms: 2.3148
+  type: 'test'
+  ...
+# Subtest: one cleanup deadline freezes incomplete evidence while a later original model still retires without rewriting the report or primary error
+ok 5 - one cleanup deadline freezes incomplete evidence while a later original model still retires without rewriting the report or primary error
+  ---
+  duration_ms: 2.7474
+  type: 'test'
+  ...
+# Subtest: disposal and registration failures are honest, preserve the primary failure and independently attempt all remaining resource cleanup
+ok 6 - disposal and registration failures are honest, preserve the primary failure and independently attempt all remaining resource cleanup
+  ---
+  duration_ms: 10.4868
+  type: 'test'
+  ...
+# Subtest: a constructor returning the caller protected rig cannot release its original model, frame pool or surface
+ok 7 - a constructor returning the caller protected rig cannot release its original model, frame pool or surface
+  ---
+  duration_ms: 0.8811
+  type: 'test'
+  ...
+# Subtest: borrowed main canvases, frame-pool surfaces, slot ownership and atlas record maps stay protected independently
+ok 8 - borrowed main canvases, frame-pool surfaces, slot ownership and atlas record maps stay protected independently
+  ---
+  duration_ms: 4.1013
+  type: 'test'
+  ...
+# Subtest: the historical phase, geometry, pixel, hand-travel and native rendering oracle changes only at the declared lifecycle sites
+ok 9 - the historical phase, geometry, pixel, hand-travel and native rendering oracle changes only at the declared lifecycle sites
+  ---
+  duration_ms: 15.8072
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 359.2495

@@ -1,0 +1,12 @@
+
+> dead-signal-development-workspace@0.29.0 verify
+> node tools/verify.mjs
+
+file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/tools/verify.mjs:14
+  if(!info.isFile()||info.size!==row.bytes)throw new Error('Missing or changed file: '+row.path);
+                                                 ^
+
+Error: Missing or changed file: .gitignore
+    at file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/tools/verify.mjs:14:50
+
+Node.js v22.23.3

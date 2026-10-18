@@ -1,0 +1,18 @@
+✔ fresh death poses share the living atlas and retain the total twelve-pose budget (3.1546ms)
+✔ atlas failures release batch state and reset budgets for the original fallback draw (0.3954ms)
+✔ finished original boss death reuses its own pose across advancing gameplay and other actors, with complete cache invalidation (197.8994ms)
+✔ a late live-to-death transition still completes instead of caching its inherited standing first pose (84.22ms)
+✔ unfinished death and living clips retain advancing-frame sampling (121.2941ms)
+✔ thousands of changing crowd actors use a fixed12 image surfaces and stale ownership cannot leak a different character (2.6616ms)
+✔ unpooled hero/boss/death images remain valid and reserving a smaller batch never reallocates surfaces (0.4966ms)
+✔ fresh corpse inherits exact last rendered transforms and heading without actor/save writes (3.055ms)
+✔ pose handoff rejects stale, distant, restored-world and late corpses and bounds cached histories (0.9486ms)
+✔ actual original enemy and boss walking pose survive the first death bridge sample instead of resetting legs (352.9503ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 829.2993

@@ -1094,3 +1094,366 @@ root 원본callbackCPU프로파일 session59653도종료exit1/CPU15297/wall15414
 원격main과 로컬base c3f6a19는 fetch후0/0이었다. 원본LFS2377경로와 모델424개 LFS 유지 확인, git lfs fsck OK. runtime/vendor/model복사본은setup재생성. 개인계정 UI가포함된참고영상3PNG는로컬보존/gitignore제외,제품·원본QA/fixture는포함. 기존QA의frozen24txt원본이테스트에필수이므로qa폴더를통째로제외하지않는다. 최신whole/focused/verify/sourcecheck/CPUprofile로그는명시적으로Git에포함한다.
 이식성 보완: prepare-player-runtime provenance의 /DeadSignal/ 고정폴더명 분리를 실제root-relative URL/OS path 계산으로 교체. Node22구문검사/실제원본runtime복원/Windows다른폴더·공백2경로/명시POSIX변환1경로PASS. POSIX변환검사는실제Mac실행인증이아니다. Game/렌더/테스트 소스는이푸시준비로수정하지않았고최신whole1119/1120·CPU1FAIL/verify역사mismatch는그대로다.
 Git push의 실제완료/최종commit은git log/remote main으로확인할것. 같은Codex계정만으로파일·서버·localStorage·자동화·NodePATH가승계되지않는다. 새PC에서LFS pull/fsck→verify→setup→test→브라우저 검수. 사용자8806세이브/기존pending/원본보존,이전PC자동화와중복작업피하기. 기존마감/금지는최신인계와사용자지시를따른다.
+
+[2026-10-18 11:08 KST heartbeat 작업 시작 / root 진행 중 / 중복 착수 금지]
+직전사용자Gitpush완료/remote main=local6878d5e181aa188b23bd850a80ab6c3b60c805fd/당시Gitclean/LFS238개210MB업로드확인. 새인계NEXT_COMPUTER_PROMPT_KO.txt 포함. 이번heartbeat는외부공개금지라새push하지않는다.
+현재 qa/navigation-scalar-20261018/CONTINUATION_STATUS_KO.txt. 실제현재02:08:30Z/마감15:00Z전. 길찾기tuple swap 임시배열·숫자반경제곱 반복만줄이는QA-only후보/정상Arrayiterator전제·객체radius fallback. 원본전체모듈/독립Nav+Game60/180/210 oracle/비계측기존24k callback A/B/A 준비중. 제품·테스트미수정/root만실행/agent는코드준비·읽기만. 현재CPU/GPUQA job 없음,원본/사용자8806/IAB/pending/서버보존. 실제비용향상확인전미채택/FPS승리주장금지. 상세최신인계참조,마감/금지유지.
+
+[2026-10-18 11:16 KST 완료 / root 실행 종료 / QA 후보 미채택]
+독립Navigation oracle 6/6 PASS(7641.5285ms), 실제Game 6조건(2seed×60/180/210적) 2166회 strict 상태/이벤트/두RNG 비교 PASS. Node22.23.3 원래24,000틱 callback A/B/A: 원본A1 CPU13672ms/wall13490ms, 후보B CPU13938ms/wall13636.89ms, 원본A2 CPU13625ms/wall13220.35ms. 각원래15000ms CPUassert는PASS. 후보는두원본보다느리고더빠른원본대비2.30%증가하여사전기준(두원본보다낮고>=3%감소) 실패. 재측정으로유리한결과찾지않고 QA-only로보존/미채택한다. 상세decision.json. 이것은전체1120PASS나FPS/전체프레임/메모리개선증거가아니다. 직전whole1119/1120/CPU15062실패유효.
+제품Navigation SHA549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9 유지. tools/dist/tests Gitdiff0 확인. 제품변경이없어새브라우저/전체검사중복실행하지않았다. 이작업의root CPU/agent실행모두종료. 사용자탭/8806/8851서버/저장/원본에셋보존. 새push/유료요청/자동화변경없음.
+다음권장: 측정된Navigation._field의이웃순회할당/호출비용을독립QA 후보로검토하되 AI경로·방향·캐시·동작품질은그대로보존하고전투상태/RNG와같은기존callback조건으로판단. 실제브라우저전체프레임/메모리도미완료로유지한다.
+작업기록: qa/navigation-scalar-20261018/CONTINUATION_STATUS_KO.txt
+
+
+[2026-10-18 11:17 KST heartbeat 다음 작업 / root 진행 중 / 중복 착수 금지]
+실제시계02:16:50Z로마감전확인. 새QA-only Navigation BFS 이웃콜백제거후보를 qa/navigation-bfs-20261018 에서검토한다. scalar후보는미채택이며그수정을혼합하지않는다. 원래방향/경로/격자/필드/캐시/동작품질/이미지/AI주기/테스트한계유지. root만순차측정실행,각agent는독립구현/동치검사/검토. 사전기준같은원래callback CPU15000통과+양원본A보다낮고더빠른A대비>=3%감소; 실패면미채택. 실제Game 동치및원래기능검사후에만제품적용고려. 이것은전체브라우저프레임/메모리개선을대체하지않는다. 제품/저장/원본보존,외부push/유료요청/자동화변경없음.
+
+[2026-10-18 11:25 KST 최신 완료 / root CPU·브라우저 작업 종료]
+이번heartbeat QA-only Navigationscalar와BFS후보 모두미채택. scalar동치6oracle+2166GamePASS이나A13672/B13938/A13625CPU로느림. BFS6oracle+2166Game(전조건실제BFS생성)PASS, A15297FAIL/B14499PASS/A14641PASS, 더빠른A대비0.97%<사전3%기준으로미채택. 원본실패·변동보존/재측정으로성공찾기없음. 최신인계 qa/navigation-bfs-20261018/CONTINUATION_STATUS_KO.txt 와각decision.json.
+실제원본8851memory180전투40callbacks: frame중앙61.6/p95184.1ms, renderer중앙44.1/p95121.8ms, RAF~1000.8ms라정상FPS증거가아님. 원본이미지/실제auto사격/HP·스폰/메모리checkpoint·사운드·오류검수/PNG저장/console0. ownChrome2476close+absent, 사용자8806/IAB/pending미조작. 후보는제품미설치라후보브라우저비교0.
+제품Nav/engine/model/test4SHA동일/tools·dist·tests Gitdiff0. 새제품변경없어전체npmtest/verify중복없음; 최신whole1119/1120/CPU15062FAIL/역사manifest mismatch 유지. 다음은 실제renderer원본그리기비용에서bounded pixel-preserving reuse QA후보를우선검토. GPUalpha/decode/보스추가상체기본OFF, 원본·저장보존. 새Gitpush/유료/자동화변경없음. 마감2026-10-19 00:00KST/마감뒤정리PAUSED/automation7금지유지.
+
+[2026-10-18 11:27 KST 실제 렌더 비용 읽기 검토 / 추가 구현·실행 없음]
+원본40callback의중첩stage는합산하지않는다. renderer.render 중앙44.1/p95121.8/max125ms. 관측38프레임 NPC native CPU atlas read 중앙약16/p9530.7/max32.6ms, player bodyRead 중앙7.9/p9512.2/max21.6ms. baked적 ProductionArt.drawFrame은40프레임중앙1.5ms이나p9564.8/max87ms로긴지연. F33 callback189.3/render125ms에서baked176calls64.8ms/nativeCPUread27.2ms/playerread9.7ms; F0 render121.8ms중baked180calls87ms/native0. 첫decode만이원인이라고단정할수없다. 이값은wait·계측오버헤드를포함하는동기호출wall측정으로GPU실행·FPS·peakRAM이아니다.
+다음원자작업은캐시를바로제품에넣기전에 QA-owned Canvas에서기존 ProductionArt.drawFrame의save/상태설정/drawImage/restore 구간만분리하고asset+rect별 outlier를상한이있는primitive기록으로추적하는것을권장. 추가draw/pixelread/bitmap할당없이 원래this·args·return·throw·descriptor복원을보존하고전체pixels/body/physics/RNG/depth 동치/첫프레임·steady분리/같은180조건40callbacks/계측overhead를검증. 이것은미구현추천이며cache/statefastpath성공증거가아니다. 기존GPUalpha/decode기본OFF 판단그대로. 모든rootCPU·브라우저job과agent검토종료,새작업착수는다음heartbeat의실제시간/최신인계확인후에만한다.
+
+[2026-10-18 11:28 KST heartbeat 시작 / root 진행 중 / 중복 착수 금지]
+실제시계02:28:21Z/마감15:00Z전. 이전QA모든job종료/기존scalar·BFS후보미채택보존확인. 이번단일작업: 실제원본ProductionArt.drawFrame의save/alpha·smoothing상태/drawImage/restore를8851진짜메모리qa-loop-sprite-calls=1 opt-in일때만분리관찰하는QA helper를구현·검수한다. 기존framepipeline/원본drawthis·args·return·throw·descriptor복원/추가draw·read·bitmap0·원본pixels·Game/RNG보존/프레임80·outlier32상한. 원본ProductionArt/Renderer/Game·Meshy원본·플레이데이터미변경. root qa-app-loop통합/실행만, agent는helper·독립검사·보고서분석/읽기검토분담. 실제같은180/40callbacks off/on자료확보후원인판단; 계측비용을성능향상이나FPS로해석하지않음. 자료 qa/sprite-call-cost-20261018. 유료/키저장/automation7/공개·push/스토어금지/사용자8806·IAB·pending·서버보존.
+
+[실제브라우저 완료 / root 전체 검사 진행 중]
+최종focused57/57PASS(1922.1962ms). 실제fresh8851memory180 nailgun seed774 offChrome2486/on2490 각기존이어하기·preload·resume40playingcallbacks/40callbacks 완료. off보고서spriteCalls필드없음, on samples40/outliers32/unmeasured[]/8stage각9986originalcalls 관측. 두콘솔warn/error0, 각메모리checkpoint1회. off/on 보고서는{url,report}로저장, 실제rAF스케줄off총286tick/on276tick·클램프/지연차이가있어crosspassGame/RNG일치·FPS/속도승리주장금지. 오프frame중앙135.2/p952690.2/max4486.1ms·renderer82.5/p95453.1/max732.5; on frame73.7/p95188.1/max260.9·renderer53.1/p95162.3/max187.5. rAF중앙각1000.8ms. 환경변동/계측overhead가있으며이차이는제품속도개선증거아님.
+on분리8stage callback중앙/p95/max: drawFrame6.4/93.8/124.3ms, drawImage1.3/2.5/2.5ms, restore1.8/90.0/119.1ms. firstF0walker-baked restore117.8ms/drawFrame117.9ms, warmF34gas-baked restore88.9ms/drawFrame88.9ms. 긴지연이restore에서관측되었지만이는지연된그래픽작업/대기/계측을포함할수있고순수state-stack계산원인이라고확정하지않는다. 중첩stage합산금지. analysis.json offlineCLI valid-off-on-diagnostic/exit0/40coverage검수통과.
+측정종료뒤on own픽셀버튼1회: native enemy-walker-rig-motion + baked enemy-walker-locomotion-hq32 둘다returntrue/8stage각1회/fullDescriptor복원, A/B및A/A 모든RGBA component/pixel/max차이0, complete=true. mainowners/records/mapping/nativecacheunchanged=true, scratch8created/8released/errors[],cleanupcomplete. browser-pixels.json/PNG2개직접시각확인. 이검사는선택된256native·croppedbaked셀이고wholeScene/모든보스RGBA인증은아님. 두전용탭close+freshlistabsent확인. 사용자pending/8806/IAB접근0.
+
+보호소스/358freeze기준이후편집0. 현재root만Node22.23.3 whole npmtest 기존concurrency2/CPU15000그대로 실행중(session73591/log qa/sprite-call-cost-20261018/npm-test-final.log). 다른CPU/GPUQA job없음/agent모두동결. verify현재도 .gitignore 역사manifest mismatch1/exit1, immutable manifest수정0. 전체검사완료전PASS주장금지. 완료후sourcefreeze재확인·전체결과/미완료기록필수.
+다음원자작업추천은QA에서원래pixel/state/transform/clip/alpha/예외를보존하는save/restore 반복제거방식의대체 drawFrame 후보1개를먼저검증하는것. 아직미구현·제품미적용·성능승리없음. restore대기비용이setter/nextdraw로이동할수있어microcall만보고승리주장금지; 전체180전투A/B·원본RGBA·정리·메모리상한검수필수. GPUalpha/decode/보스추가상체기본OFF 판단유지. 마감15:00Z이후새작업금지/정리PAUSED·유료/키저장/automation7/공개·push/스토어금지유지.
+
+[2026-10-18 11:54 KST QA 계측 원자작업 검수 종료 / 다음 발견 문제 복구 진행]
+whole npmtest session73591 종료exit1:1139/1141PASS/2FAIL/407727.9536ms/취소·생략0. FAIL1 기존20분stressCPU16875>15000/wall48667.19. FAIL2 기존 player-weapon-recoil actual8headingtest 'actual rig supports visible retreat'; 신규QA21검사는모두PASS. source-after-whole.json358개changed/missing/added0, protected5SHA같음. 전체통과주장금지. verify는.gitignore 역사mismatch/immutable manifest보존.
+FAIL2읽기진단: ignored generated dist/player-rig/weapon-pose.js가retraction을받거나반환하지않아 actualIK검사 ready.retraction undefined→peakNaN. 라이브플레이도팔후퇴옵션이무시된다. tools/prepare-player-runtime이immutablebaker(src/weapon-pose.js, 후퇴처리없음)를매setup마다runtime에덮어쓰는경로확인. 현재runtime는baker import치환SHAac1b3ed2a0f446b7cfd1d84c65501a537b62aea0e3efd0c1e7acababe39a225d와동일, mtime02:01:56Z(푸시준비시해당tool실제실행확인). 이전자연스러운반동구현의실제browserJSONphysicalRecoil값은qa/natural-motion-20261017에보존되어있다. runtimeonly고치면재손실하므로tracked게임전용소스+생성경로를함께복구해야한다. 역사baker/GLB/원본에셋은편집하지않는다. 358freeze가ignoredgeneratedrig를포함하지않는점도명시한다.
+이번QAhelper는optin진단으로유지(실제pixel2caseexact/57focused/allnew21wholePASS). 제품퍼포먼스개선은아직없음. 긴지연restore호출관측/Manualstate다음후보추천은보존하되, 발견된실제주인공반동/재생성문제복구를우선한다. 다음원자작업실제시계02:54:55Z로마감전확인. root CPU·브라우저job모두종료·원본보존; 새복구는root만검수하고agent분담. 사용자8806/IAB/기존pending·서버/paid/키저장/automation7/공개·push/스토어금지유지.
+
+[2026-10-18 12:07 KST 실제 반동 복구 검수 / root 전체 검사 진행]
+최신 qa/player-runtime-recoil-20261018/CONTINUATION_STATUS_KO.txt. tracked player-rig-src/weapon-pose.js와 명시 loader+prepare/provenance를 추가해 setup이 원본baker로 반동을 다시 덮어쓰던 실제 버그 복구. 원본baker/모델/LivePlayer/engine/renderer/기존recoiltest불변. 실제 npm run setup exit0, 보스·적 runtime55SHA exact/보호22records exact, focused15/15PASS1522.1793ms. fresh8851 ownChrome2500 기존2weapon실제발사버튼 검수:6시점×2/후퇴peak1.06668·.33940/129ms0복귀/grip·support최대2.27e-6/aim0/snapshot12same/muzzlevalid/자동reload반동지속/console0/PNG2직접확인. 정지·적격리fixture이며밀집성능·이동접지완료증거아님. 우리탭close+absent/사용자8806·IAB·pending·서버보존.
+root만Node22.23.3 whole npmtest 기존concurrency2/CPU15000 그대로 session6010실행중/log해당QA폴더. 364source/runtime동결/완료전PASS주장금지. 이전358freeze에ignoredrig가없다는직전설명은잘못이었음: 실제당시poseSHAac1b3ed2(이미덮어쓴상태)가포함되어있었고 이번에는의도된pose만변경확인. immutable이전보고서는변경하지않고정정기록. 최초새test fixture실패는clone bind inverse freshness를실제GLTFLoader준비순서로고쳐threshold유지후통과/실패log보존. 다음renderer state후보는미구현추천. 새push/유료/키저장/automation7/공개·스토어금지/오늘자정마감유지.
+
+[2026-10-18 12:08 KST 최신 완료 / root·agent 실행 종료]
+최신 qa/player-runtime-recoil-20261018/CONTINUATION_STATUS_KO.txt/decision.json. 실제반동+setup덮어쓰기복구retain/localonly. 최종Node22.23.3 whole npmtest 기본동시2 한회1146/1146PASS114802.444ms/exit0/취소·생략0. 원래20분stressCPU13219<15000/wall13112.34/engine·budget·fixture변경0/성능승리주장아님. 364source/runtime검사중SHA변경0/원본보호22exact/보스·적runtime55exact. verify기존.gitignore역사mismatch1/immutable목록보존. 기존1139/1141실패로그및새fixture실패로그보존.
+실제2weapon6시점QA양손·조준·후퇴·총구·자동reload확인/콘솔0/PNG2시각확인/ownChrome2500closeabsent. 사용자8806/IAB/pending/저장·서버·원본보존. remote main6878d5이후로컬개선이며새push0;새PC전달시canonical/tools/tests와qa原본fixture함께필수/ignoredgeneratedpose는setup생성. 현재CPU/브라우저/agent작업0. 다음renderer native3state후보는읽기감사만/아직구현0/strictnativeeligibility·원본fallback·8stageobserver분리·실제RGBA/state와전체fixedworkA/B/A필수. 자동화4ACTIVE/오늘자정마감뒤PAUSED/유료·키저장·automation7·외부공개·스토어금지유지.
+
+[2026-10-18 12:10 KST heartbeat 원자 작업 시작 / root 진행 중 / 중복 착수 금지]
+실제시계03:10:20Z 마감전/직전반동복구1146PASS·setup지속·364sourcefreeze완료/다른CPU·브라우저job0확인. 이번 qa/canvas-state-20261018: 원본 ProductionArt.drawFrame을보존한QA-only Canvas3state 후보의의미·실제RGBA/state부터검수. 제품/liveapp최적화설치없음; nativeAPI/통제된internal원본selection명시인증·2args만eligible·임의입력/옵션/변경/ownhook은원본fallback·오류뒤재시도0·컨텍스트3state복원. 별도8851메모리qa-player-rig명시flag/버튼에서이미ready원본native+baked만순차scratch A/B/A/alpha·clip·transform·state·callerstack·실패·정리검수. root만실행;3agent solehelper/독립test/pixelutility 분담. 원래QAJS전체167556bytesSHAa398cf…before보존/appendUI만. 실제전체전투비용비교는품질증명후단계/아직성능승리없음. 원본Meshy·플레이/사용자8806/IAB/pending/서버보존/유료·키저장·automation7·공개·스토어금지/자정마감유지.
+
+[2026-10-18 12:23 KST 최신 완료 / Canvas 후보 QA-only / root 실행 종료]
+최신 qa/canvas-state-20261018/CONTINUATION_STATUS_KO.txt/decision.json. 원본ProductionArt·renderer·app·engine·반동source/runtime·원본Meshy 불변/QA-only3statecandidate+pixelutility+명시flag UI추가. existingqaJS167556bytesprefixexact. 신규17focusedPASS271.9532ms. 실제fresh8851ownChrome2508의원본native+baked2셀12조건/72RGBA AB·AA 비교 모두차이0/candidate11calls/optionsfallback1/실제emptyCanvas예외false·state/clip/path/outerstack·descriptor보존/41scratchrelease/owner·records·mapping·nativecache·diagnostics same/console0. 초기native캐시없음미완료(baked5PASS)는보존→별도기존실제탄환initializer로readywalker준비뒤검수/utility내load·pose·mainrender0. PNG2시각확인/탭closeabsent/사용자8806/IAB/pending미조작.
+최종Node22.23.3 whole기본동시2 한회1163/1163PASS127160.2897ms/exit0/취소·생략0/stressCPU14047<원래15000·wall14844.07/기준·fixture불변. 371source browser→whole SHA변경0/보호22exact/직전364중qaJSappend1만변경. verify기존.gitignore 역사mismatch1/immutable목록보존. 현재rootCPU/브라우저/agent작업0/새push0. 후보는제품설치0이며이번결과는2셀품질증거·실제전체전투비용이나메모리개선아님.
+다음은원래180checkpoint/40×.12 fixedcatch-up+보간+actualRenderer freshowned A/B/A의전체비용·Game/RNG/events/source/pixels 비교를우선. 최종Renderer.nativeEnemyFrame baked반환에서만명시certify(Artfactory만hook하면finalclone미인증)/bakedNPC실제사용량필수/임의draw인증금지/unsupported·native·hitlight·옵션원래fallback. 8CanvasstageobserverOFF/guard·certify할당·다음draw/deferredtail비용포함/같은normalHP·spawn·AI유지. 기존qa-paced는1tick/spawnClock1e9이므로전체app아님. 전체app동일work는별도명시controlledclock필요/동치불일치면invalid/liveFPS주장금지. 미구현추천/새착수전시계확인. 자동화4ACTIVE/2026-10-19 00:00KST마감뒤정리PAUSED/자동화7·유료·키저장·공개·스토어금지유지.
+
+[2026-10-18 12:30 KST heartbeat 비용 비교 시작 / root 진행 중 / 중복 착수 금지]
+실제시계03:30:21Z 마감전/직전Canvas品質12조건+1163PASS완료/실행중CPU·브라우저0/agent모두완료확인. 이번 qa/canvas-state-combat-20261018: 같은원본180checkpoint에서freshowned Renderer/Art/player/NPC A1/B/A2·40×.12 catch-up/보간/실제렌더전체비용 비교. 원래HP/AI/spawnClock/normalspawn/auto commands유지, literalcheckpoint/events/두RNG/work exact+finalwholeRGBA AB·AA검수/first/all40/steady30/최종drain 및certify·guard비용포함. HUD/audio/save없는別도固定work fixture로전체app/FPS표기금지. 제품최적화미설치/8Canvasstage·겹친framecostobserverOFF.
+root UIappend/실행/판정, frameagentfinalbakedNPCfactory설치wrapper, interpolationagent독립tests, renderagentfreshowned harness분담. 原qaJS170464bytes fullbefore/371sourcebaseline보존. boundedsourceborrow+detach/ownedrigmaterial/context/canvas정리/lateabort필수, mainowner/기존save·8806/IAB/pending미조작. 사전채택기준strict동치·품질·cleanup/실제bakedNPCpositiveused+더빠른A대비callbacksum+tail>=3%감소+fullp95/max악화없음; 실패면미채택·기록보존. restore대기이동/guard·GC overhead를성능승리로숨기지않음. 마감2026-10-19 00:00KST/유료·키저장·자동화7·공개·스토어금지유지.
+
+[2026-10-18 12:56 KST 최신 완료 / Canvas 후보 미채택 / root 실행 종료]
+최신상세 qa/canvas-state-combat-20261018/CONTINUATION_STATUS_KO.txt/decision.json. QA-only최종bakedNPC인증installer+180원본checkpoint40×.12 catch-up/보간/실제렌더 freshowned A1/B/A2 구현·검수. normalHP/AI/스폰·auto사격유지/각288ticks·finalHP73/188적/3처치/80frame literal상태·effects·motion·commands·events·양RNG exact. Bmanual6937/false0/native각403·최대12. on-demand모델완료시점은다르므로완전동일GPUwork/FPS증거아님.
+run1 callback합+readback A4126.4/B2698/A2177.6ms, 후보더빠른A보다23.90%느림/callback40·drain41 p95/max악화/사전3%조건실패. wholeRGBA AB53components/max8·AA24/max1·BA269/max8로strict품질실패. 허용오차/prime0/후보제품미설치. mainowner/records/nativecache/image dimensions원본동일·owned3/3·late12/12·errors[]·cleanupcomplete·console0.
+첫PNG3개는toolsrc200kchar절단으로각149990B불완전해실패증거로보존. 별도capture-repair만실행해100k분할읽기로rawreport539700chars+완전PNG3개각약1.397MB/IEND확인/실제밀집전투PNG직접확인. 이재실행으로첫비용판정교체0;repair도strictpixels차이max1/80frameexact/cleanupcomplete/console0. ownedChrome2514·2520close/freshlistabsent. 사용자8806/IAB/audio-envelope/pending/저장·서버미조작.
+최종Node22.23.3 focused32/32PASS14082.9033ms, whole기본동시2 한회1178/1178PASS128902.539ms/exit0/실패·취소·생략0. stressCPU13375<원래15000/wall13673.94/fixture·예산불변. 379source-before/afterwhole SHA변경0/보호22records exact/QAJS170464prefixexact/직전371중QAUIappend1만변경. browser뒤newanalyse만시간1ULP전달차이에대응/physics·RGBA gate완화0. verify기존.gitignore역사manifest mismatch1/immutable불변. 모든rootCPU·브라우저·agentjob종료/새Gitpush0/기존canonical반동setup복구보존.
+다음추천: 원본첫render floor/cache·player native·NPC native·baked NPC·나머지의outer메서드QA비용귀속+타입별ready시점부터확인. F0NPCnative0/첫A1→A2큰변동이라save/restore·decode·playerGL 중원인미확정. 추가prime·Canvas8hooks·AI/이미지품질축소없이원본A/A검수. 아직미구현/새착수전실제시계·최신인계확인. 전체앱FPS·peakRAM·실기기·모든동작·100h미완료. automation4ACTIVE/2026-10-19 00:00KST마감뒤새작업금지·정리PAUSED/automation7·유료·키저장·결제·공개·스토어금지유지.
+
+[2026-10-18 12:57 KST heartbeat 첫 렌더 비용귀속 시작 / root 진행 중]
+실제시계03:57:51Z/직전1178PASS·379source동결·후보미채택·모든job종료 확인. 최신진행 qa/render-attribution-20261018/CONTINUATION_STATUS_KO.txt. 새QA-only outerprofile+기존ownedharness exactdefault보존 opt-in originalA1/A2통합/별도8851메모리UI를 구현·검수한다. 40×.12 정상HP/AI/spawn·원본메시·리그·이미지유지/추가prime·Canvashooks0/inclusive·self·bucket구분/40frame·outliers32상한/타입별ready시점 기록. 첫지연원인판단용이며제품성능승리/FPS/peakRAM주장아님. root만CPU·브라우저실행/3agent구현·독립검사분담/原QAJS173665prefix·기존harness37171full·baseline379보존. 사용자8806/IAB/pending/저장·서버·原에셋保全/새push·유료·키저장·automation7·공개·스토어금지/오늘자정마감유지. 같은작업중복착수금지.
+
+[2026-10-18 13:15 KST 최신 완료 / 원본 첫 렌더 진단 QA-only / 전체1193/1194]
+최신상세 qa/render-attribution-20261018/CONTINUATION_STATUS_KO.txt/decision.json/analysis.json. 새outerprofiler40frame/32outlier·원본A1/A2 opt-in·QAUIappend 구현검수. 이전A/B/A full37171byteoracle exact/기본profiler0/제품Game·Renderer·Art·Meshy原본불변. 初focused31PASS15341ms; A1完了뒤A2전체launch15초timeout+late13/12 cleanupfalse/raw576446chars/console0실패보존. profile 전체launch만60초로분리(default/개별Art15s/게임·화질·CPU예산그대로), 실제외부wrapper복원test강화뒤최종focused31PASS18131.1038ms.
+실제재검수2532 原A1/A2 각각180正常HP·AI·spawn/40×.12/288ticks·40frame literalstate/effects/motion/commands/events/양RNGexact/finalHP73·188적·3처치. 준비11547.8/13724ms, firstcallback1619.4/641.8ms중playerFrame self1218.8/496.2 vsfloor13.8/17.1,bakedNPC119.1/2.8. 첫NPCnative0/playerGL0→2. 주관측지연은nativePlayerFrame내부이나shader/upload/readback/pose하나로원인단정금지. steadyplayer중앙11.3/10.6ms;전투tail도크며계측overhead포함/FPS·성능승리증거아님. on-demandgas완료최대모델1대2/전체GPUwork동일주장금지.
+strictwholeAA2RGBAcomponents/max1 FAIL보존/허용오차·prime0/제품최적화미설치. source389 browserretry→whole변경0/原본22exact/QAUI173665prefixexact. 두profiler40samples각/unmeasured0/descriptor17각복원/owned2/2/late8/8/errors[]/mainowner·art·record·nativecache·image dimensions同一/cleanupcomplete/console0. chunk100k로raw1150472chars·완전PNG2개약1.397MB/IEND확인/실제원본密集화면직접확인. 우리2528·2532close/freshlistabsent/사용자8806/IAB/audio-envelope/pending/저장·서버미조작.
+최종Node22.23.3 whole기본동시2 한회1193/1194PASS145393.4489ms/exit1/취소·생략0/신규16전부PASS. 唯一FAIL 기존20분stressCPU15141>原15000/wall21452.96; engine/fixture/예산수정0/green찾는재실행0/전체PASS주장금지. verify既存.gitignore 역사manifest mismatch1/immutable보존. 현재모든rootCPU·GPU·우리QA탭·agentjob종료/새push0/기존반동setup복구보존.
+다음추천 QA-owned player만 frame/rasterFrame/原GL render2회(본문·무기포함)/private bodyContext.getImageData1회를중첩분리관찰(추가compile/query/draw/read/prime0/256²·source/state/예외·descriptor·late정리보존), first1218/496ms를좁힌후제품준비·readback수정판단. 아직미구현/새착수전실제시계·최신인계확인, 기존CPU예산FAIL도미완료추적. 모든캐릭터자연스러움·전체앱FPS·peakRAM·실기기·100h未完. automation4ACTIVE/2026-10-19 00:00KST마감뒤정리PAUSED/automation7·유료·키저장·결제·공개·스토어금지유지.
+
+[2026-10-18 13:17 KST heartbeat 주인공 내부 원본 비용 분리 시작 / root 진행 중]
+실제04:17:23Z/직전whole1193/1194·CPU15141FAIL보존/389freeze·job종료확인. 최신진행 qa/player-attribution-20261018/CONTINUATION_STATUS_KO.txt. QA-owned player frame/raster/原GL2/본문read1만narrow관찰하는opt-in을기존QA profiler에추가/원래default전체profiler·A/B/A·原A/A는fullbeforeoracle保全/追加draw·read·compile·prime0/256²·40frame·32상한. 原QAJS176911prefix/profiler14926/harness41072/fixture24058全before確保. root만CPU·브라우저/3agent구현·독립검수. 제품·原Meshy·리그·save/user8806/IAB/pending·server保全/새push·유료·키저장·automation7·공개·스토어금지/오늘자정마감뒤정리PAUSED. 같은작업중복금지/아직완료아님.
+
+[2026-10-18 13:27 KST 검수 종료 / root 실행 종료]
+주인공 original narrow A/A 분리관찰 완료. focused36/36 PASS50635.9931ms, whole1210/1210 PASS144588.6526ms·취소/생략0·원래stressCPU13344<15000/wall13140.65ms. verify.gitignore 역사manifest mismatch exit1 유지/manifest편집0. source398 browser/whole전후exact/보호22exact/oldQA176911prefix exact.
+원본정상180 seed774/nailgun/40×.12/각288tick·4.8초·40상태/effects/motion/commands/events/양RNG exact. 첫callback637.6/353.4ms, playerframe402.6/308.6 중 self포즈4.2/.9·rasterother1.5/.7, bodyGL147/107.5·armedGL60.8/54.2·bodyread189.1/145.3ms. steadybodyread중앙4.6/4.7ms/p956.5/7.3; GPUwait포함 wall이고순수복사원인·GPUtime·FPS로단정하지않음. 양arm GL80/read40×256²·요청RGBA10485760bytes(peakRAM아님).
+strictwholeAA39components/max2 FAIL qa-canvas-combat-whole-canvas-pixels-differ 원본실패그대로보존/임계완화·prime·유리한재측정없음/제품최적화미채택. cleanup2/2·late8/8·wrappersstop7each·errors[]/mainowners·sources·cache불변·complete. rawDOM797928chars 완전캡처/PNG2각1.397MB IEND확인/실제이미지확인/console0. ownChrome2536close+freshabsent/사용자8806·IAB/audio-envelope·pending·서버·원본·세이브미조작.
+다음권장: QA-only fresh run주인공+현재무기 원본textureunion initTexture·실제두root compileAsync 준비. 첫비용을로딩으로옮기는효과와총절감분리/준비+first·준비+40callbacks+drain/steadybodyread/원본frame0·parent·pose·geometry·UV·maps·material·rendererstate·Game양RNG exact/추가draw/read/prime0/cleanup필수. 아직미구현추천. 유료·키저장·automation7·공개·새push·스토어금지/마감15:00Z뒤새작업금지·정리PAUSED유지.
+
+[2026-10-18 13:28 KST 다음 원자작업 / root 진행 중 / 중복 시작 금지]
+실제시계04:27:55Z 마감15:00Z전. 직전player narrow계측완료/whole1210PASS·CPU13344/strictAA39max2FAIL/398sourceexact/우리탭·CPU종료. 이번QA-only freshplayer현재run+currentweapon 원본textureunion·shader준비 후보를 실제원본A1/후보B/원본A2로구현·검수한다. 양A도같은canonicalstate정규화, B만원본initTexture+실제두root compileAsync. 추가pose/draw/read/prime0/parent·source·physics·RNG보존. 준비+첫frame·준비+40+drain포함/strictRGBA·cleanup조건모두충족전제품미적용. first지연이로딩으로이동한것을총성능승리로부르지않음. root만CPU·브라우저/agent도구·harness·독립tests분담. 원본/사용자8806/IAB/pending/저장/서버보존·유료/키저장/automation7/공개·새push·스토어금지유지.
+
+[2026-10-18 13:43 KST 실제 브라우저 종료 / root 전체 검사 진행]
+신규QA-only player texture/shader준비 구현. actual8851 genuine memory ownChrome2542 정상180/nailgun/seed774/원본정규화A1·준비B·원본정규화A2 각40×.12/288tick/4.8초·80 literal Game/effects/events/motion/commands/양RNG exact. 양A도같은canonicalstate normalization이므로역사untouchedcold원본이라고부르지않음. 제품Game/Renderer/LivePlayer/원본Meshy·리그·세이브불변.
+각실제run.subject+currentweapon.root 원본4096²texture2개identityunion/B만원본initTexture2회·실제rootscompileAsync2회. 준비전후GLframe0/원본33nodes·2geometry·2material·2texture·223arrays/pose·skin·UV·maps·images·clock·hierarchy·publicrendererstate sourceUnchanged/renderStateUnchanged/preserved true. snapshot sourceBytes3391246는전체peakRAM아님. handle은첫draw전에isReady exact검사·감시dispose하며그비용도준비시간에가산/이후기존originalrender만·추가pose/draw/read/prime0.
+첫callback A1563.8/B144.9/A2632.6ms로B첫대기감소관찰. 하지만player준비wall208.5/1458.9/612.7ms(+finalization별도)라player준비+첫callback은B약1.6초로원본약0.8~1.3초보다김. overallprep7728.7/6429.9/13342.7ms·prep+40callbacks+drain11002.5/8780.6/16092.5ms이며큰로딩변동이있어총20.19%raw차이를독립prep최적화·FPS승리로해석하지않음. all40callbackp95 A1236.4/B144.9/A2130.5ms·B가A2보다악화, steady30p95 155.8/137.9/75.5·max212.7/196.1/85.1. tailsNoWorse=false.
+strict전체RGBA A/B73componentsmax11·A/A76max11·B/A255max1 FAIL qa-canvas-combat-whole-canvas-pixels-differ. source품질·꼬리기준실패로accepted/adopted false/QA-only 미채택·기본플레이미적용. 유리한재실행·prime·임계완화없음. 정상native maxModels1/maxPending2/maxPendingWithoutModel1 모든arm관찰·원래on-demand종로드유지.
+cleanupRenderer/Art/host3/3·late12/12·모든models/records0·mainowners/record/cache/sourceimage불변·errors[]·complete true/consolewarnerror0. DOM548285chars와PNG3각약1.397MB signature/IEND완전검증·실제B시각검수·페이지JPEG저장. 캡처중nth locatorCDP시간초과는이미저장한report/A1과읽은조각을보존하고DOMquery조각읽기로완료했으며전투재실행/측정교체0. ownChrome2542close+freshabsent/사용자8806·IAB/audio-envelope·pending·서버미조작.
+source-after-browser407 exact/보호22·oldQA180258prefixexact. verify기존.gitignore 역사manifest mismatch exit1 유지. root만whole npmtest session20013/기존concurrency2·CPU15000그대로 실행중. 완료후sourceafterwhole/실제결과·결정기록필수. agent모두동결·다른CPU/GPUQAjob없음. 다음권장: 지속bodyRead중앙4.6~4.7ms(직전원본진단)을줄이는기존directAlphaReadback 주인공경로1개를같은실제180전투/원본alpha·전체품질/첫·steady·drain·준비포함/정리조건에서검수. 아직새후보구현·적용없음/기본OFF. 보스추가상체나머지11종/전체프레임·실기기메모리·100시간캠페인검증미완료. 유료·결제·키저장·automation7·공개·새push·스토어금지/마감15:00Z뒤새작업금지·정리PAUSED유지.
+
+[2026-10-18 13:47 KST 최신 완료 / root·agent 실행 종료 / 후보 미채택]
+whole npmtest session20013종료exit1:1223/1224PASS·유일FAIL 기존20분seededautopilot CPU16250>원래15000/wall33111.98ms·총233300.5253ms·취소/생략0. 신규14검사전부PASS. 초기fixture6FAIL→fixture만수정후6/6PASS343.898ms/기존28PASS불변/실패·repair로그보존. 성공할때까지재측정하지않음. 직전별도narrow진단whole1210PASS/CPU13344였음은유효하지만이번결과를대체하지않는다. 최신전체PASS·무렉·FPS향상주장금지.
+source-after-whole407 exactly finalfreeze/보호22exact/oldQA180258prefixexact/테스트중편집0. verify기존.gitignore 역사manifest mismatch exit1/immutablemanifest그대로. 새제품최적화없음·playerprep후보QA-only보존/accepted·adopted false/원본제품path기본상태유지. 상세 qa/player-launch-preparation-20261018/decision.json·analysis.json·CONTINUATION_STATUS_KO.txt.
+playerprep+최초callback+증명해제wall A1805.2/B1611.1/A21253.6ms. 첫callback144.9ms 개선관찰만으로제품채택하지않으며큰전체load변동/후속tail악화/strictpixels원본AA76max11·AB73max11·BA255max1 실패를보존. 추가draw/read/pose/prime0/원본textureunion2·shaderrealroot2 준비 API만B. 실제전투80literalproof exact/cleanup3/3late12/12/errors[]/console0/원본세이브·에셋·rig·source보존/완전PNG3·DOM548285chars·JPEG/우리2542탭closefreshabsent.
+우리CPU/GPUQA job모두종료·agents동결/서버·사용자8806·IAB/audio-envelope·pending·저장미조작. 다음원자작업은현재시간·최신인계를확인후밀집전투CPU예산과지속주인공bodyRead 병목을우선개선. 기존directAlphaReadback 경로는아직기본OFF·실제동일180조건/원본alpha·윤곽·bounds·포즈·Game/RNG·전체품질과실제비용·정리증명필요. 이미지첫coldAA/보스상체나머지11종/실기기메모리·100시간실플레이검증미완료유지. 새authorizedpush가있을때새QA helper/tests뿐아니라테스트가import하는raw beforefixture3개와이전QA frozen TXT도반드시포함(qa폴더전체제외금지); 이번새push없음. 유료·결제·키저장·automation7·공개·스토어금지/마감2026-10-19 00:00KST 이후새작업금지·정리후automation4PAUSED유지.
+
+[2026-10-18 13:52 KST heartbeat 다음 개선 착수 / root 진행 중 / 중복 시작 금지]
+시작실제04:47:52Z·다음구현전현재시계재확인/마감15:00Z전. 직전playerprep후보미채택/whole1223/1224·CPU16250FAIL·407sourceexact·모든job종료 확인. 이번QA-only 후보는enemy update의같은cell 9bucket 조회재사용. 원본tick-start membership/순서·중복bucket·실시간otherdead/x/y/r·IEEE누적·AI/행동/양RNG·원본이미지보존. 후보새fullengine만qa영역/제품원본미수정; 원본engine/grid/fixturebefore모두보존. 호출별독립localmemo/9slots고정/셀수256cap/생산compact boundedcxcy만cache·비compact/범위밖원래fallback/finallyrefs해제. 원래순서9lookup결과refs를저장하되매방문기존length검사를반복. 평탄화/dedupe/actorcopy 금지. normal unmodified Map/Array intrinsics전제는명시하며Proxy/getteractor읽기를임의최적화하지않음.
+사전채택기준: 전체oldengine sourceoracle·단계별실제Game/이벤트·양RNG exact와전용reentry/spawn/death/custom/forceFresh/throw검사; root만비계측원본24000tick A1/B/A2 동일callback/CPU15000·timeout20000그대로. B가원래CPU예산통과·양A보다낮고더빠른A대비3%이상감소해야제품적용고려; 아니면QA-only미채택. 총frame/FPS·peakRAM승리와구분. 후보CPU성공후에만필요한제품적용·브라우저8851memory/original画像·전체test진행. 사용자8806/IAB/audio-envelope/pending/저장·서버·Meshy原本保全. 유료·결제·키저장·automation7·공개·push·스토어금지/마감뒤정리PAUSED유지.
+
+[2026-10-18 14:05 KST 인접bucket memo 후보 검수 종료 / 제품 미채택]
+독립oracle repaired8/8PASS·실제Game6조건2166/2166exact. 최초oracle2case통과뒤screamer가gas/car연쇄로죽어양팔동일하게scream양성fixture실패한원본JSON/log/sourcefreeze보존. screamer위치만1800,1300으로수정후8case통과;HP/피해/AI/후보/기준불변.
+root만Node22.23.3 freshprocess 기존24000tickcallback 비계측A1/B/A2: CPU15313/19126/17421ms,wall25903.32/42151.94/28663.63ms. 세팔모두기존15000CPUassertFAIL, 후보가빠른A보다24.900%느려사전기준(기존예산통과·양A보다낮고>=3%감소)실패. 한차례bracket의모든실패보존/성공찾기재실행없음/QA-only미채택. timeout20000등록metadata는확인하나직접동기callback CLI에는node:test watchdog없음을명시.
+source-after-game와source-after-stress415개finalfreezeexact/기존407불변/보호원본22exact. 제품engine72487b35…/Nav549e0127…/grid938bed70…그대로. 새제품변경없어전체검사·브라우저중복없음;최신whole1223/1224·CPU16250FAIL·verify역사manifest mismatch유효. FPS·peakRAM·무렉완성주장없음. CPUjob모두종료/사용자8806·IAB/audio-envelope·pending·저장·서버미조작/새push·유료·키저장·automation7·스토어금지유지.
+상세qa/enemy-neighborhood-cache-20261018/decision.json. 다음원자작업은현재시간확인후move/Navigation/실제crowd수학반복의독립읽기감사근거로한개선만선택. 마감2026-10-19 00:00KST(15:00Z)이후새작업금지·정리후automation4PAUSED.
+
+[2026-10-18 14:06 KST 다음 원자작업 시작 / root 진행 중]
+실제clock05:05:53Z/마감15:00Z전. 직전9bucketmemo제품미채택/CPU A15313 B19126 A217421 모두15000FAIL;source415exact/모든실행종료. 이번QA-only 후보는 blocked의 마지막 obstacle.some callback만snapshotlength+HasProperty indexedloop로 바꾼다. normalcaptured Array.some와Arrayreceiver일때만 fastpath/메서드receivergetter단1회/lengthToNumber-ToLength단1회/holes·상속index·append/delete·getter순서·shortcircuit·throwidentity보존. customsome/nonArray는capturedReflect.apply+원래arrowfallback. water·transport·roof·bounds·circleRect IEEE·Game/AI/스폰/양RNG·원본이미지·기타engine는그대로.
+source wholebefore59149B72487…/grid938bed…/Nav549e…/stress6b92… exact보존. originalfullsource역치환·blocked전용동치·실제Game6조건2166비교후root만freshprocess原본24000tick callback A1/B/A2순차측정. 기존CPU15000·timeout20000metadata유지/CLIwatchdog없음명시/관측기·snapshotsin timing0. 사전기준B예산통과·양A보다낮음·빠른A대비>=3%개선;실패시QA-only미채택/성공찾기재측정없음. 전체frame/FPS·peakRAM별도.
+Agents는각후보+CLI/독립oracle+Game/읽기감사로분담하고root만CPU·브라우저검수. 제품편집前/8851QA필요여부는동치·CPU채택판단후. 사용자8806/IAB/audio-envelope/pending/저장·원본·서버보존. 유료·결제·키저장·automation7·공개·push·스토어금지/마감이후새작업금지·정리automation4PAUSED.
+
+[2026-10-18 14:13 KST blocked callback 제거 후보 검수 종료 / 제품 미채택]
+최초실행독립oracle9/9PASS·실제Game6조건2166/2166exact. 실행전review에서customsome getter가Proxy를revoke해도원래함수호출이성공할수있어methodidentityfirst guard로고쳤으며, 미사용expected분기제거·controlledTypeError동일markerassert추가후423sourcefreeze. 이수정은측정뒤성공찾기변경이아님/초기실행9case그대로통과.
+root만Node22.23.3 freshprocess 기존24000tickcallback 비계측A1/B/A2: CPU13782/13688/13562ms,wall14786.77/13789.04/13480.08ms. 세팔기존15000CPUassertPASS이나B는빠른A2보다0.929%느리고사전기준(예산통과·양A보다낮고빠른A대비>=3%감소)실패. QA-only미채택/한차례bracket보존/재측정으로성공찾기없음. timeout20000등록metadata확인·직접callback CLIwatchdog없음명시.
+source-after-oracle/game/stress423개initialfreezeexact/기존415불변/보호22exact. 제품engine72487b35…/Nav549e0127…/grid938bed70…그대로. 제품변경없어새whole/browser중복없음;최신whole1223/1224·CPU16250FAIL·verify역사manifest mismatch유효. 이번원래callback3PASS를wholePASS/FPS·무렉·peakRAM감소로주장하지않음. CPUjob모두종료·각agent동결/사용자8806·IAB/audio-envelope/pending/저장·서버·Meshy原本保全. 새push·유료·결제·키저장·automation7·스토어금지유지.
+상세qa/blocked-obstacle-loop-20261018/decision.json. 다음권장현재시간확인후주인공bodyreadback pipeline우선. 기존direct는player+NPC동시켠옛단방향비교에서alpha60reads/3932160pixels·NPC67reads차이0이나전체p95144.5→233.5악화·freshA/B/A없음이라기본OFF유지. NPC exactGPU도실제app p95/최대지연악화하여기본OFF. 새player-only실제native원본품질/준비포함40frames/정리검수없이켜지말것. 기존strictwholeCanvasAA max2/max11 원인미확정그대로. 보스상체02final(slam)1종4방향×7phase 56active+6inactive검수는별도추천/나머지11미완료기본OFF. 마감2026-10-19 00:00KST(15:00Z)이후새작업금지·정리automation4PAUSED.
+
+[2026-10-18 14:15 KST 다음 원자작업 시작 / root 진행 중]
+시계05:14:22Z 마감15:00Z전. 직전blocked후보미채택·실제9oracle/2166GamePASS·CPU A13782/B13688/A213562(세팔15000PASS이나빠른A보다느림)·423sourceexact/보호22원본exact/모든실행종료. 새QA-only 후보는주인공원본bodyGL을그대로두고silhouette용전체RGBA getImageData를GPU행경계1×256 RGBA1024B read로대체. 원본native색상·bodyCanvasdrawImage·포즈·모델·카메라·PIVOT·상체/하체·발/muzzle·metadata·총/피격/화염병원본function은그대로호출. helper원본bodybuffer복사+1GPUrowpass/단1024byte읽기·target/viewport/scissor/etc원래상태복원/실패시원래RGBAfallback.
+원본raster함수scope에서만body.getImageData1회shim;private재사용262144B computationalmask에각row>=8최초·최후alpha8만기록해원래nativeAlphaBounds/bodyContour 결과를정확히보존. mask는그림에쓰지않음/RGB원본대체금지. 별도verify true동일frame原本RGBA→all256row·bounds/core/contour exact검수;costpassverifyfalse/freshplayer A1/B/A2/no프라임/기존NPC·direct·GPU옵션OFF/새shader첫비용포함/준비+40callback+finaldrain/p95max양A악화없음+3%sumgate·동일Game80+cleanup/실제used>0·fallback0필수. 기존strictwholeCanvasAA/AB오차gate그대로·과거max2/max11원인미확정해결주장금지. 새기본활성화없음.
+Root원래423+4beforecopies보존/harness·별도QAUI통합,agents GPUhelper/원본raster scopedinstaller/독립focusedtests분담. root만실제Node/브라우저순차검수. 새로운palette/art/mesh/UV/skin/원본clip생성·변경0/Meshy원본보존. 이번mask/복사/buffer는상한메모리추정일뿐실측peakRAM·GPU완료/FPS주장0. 모든시험중sourcefreeze유지. 기존전체1223/1224·CPU16250FAIL·verify역사manifestmismatch그대로. 사용자8806·IAB/audio-envelope/pending/저장·서버미조작. 유료·결제·키저장·automation7·공개·push·스토어금지/마감후새작업금지·정리automation4PAUSED.
+
+[2026-10-18 14:38 KST 실제 행 경계 QA 종료 / root 전체 검사 진행 중]
+집중33/33PASS(신규21+기존12,103955.6854ms), source437 after-focused/browser exactly initialfreeze/보호22原本exact/이전UI183586Bprefixexact. 새helper5659df…/installer583214…는QA-only lazyimport/제품native.LivePlayer sourcecf5c…16124B 그대로다. 원래raster를한번호출하고같은scope의bodygetImageData만행endpoint computationalmask로교체; 원본색/모델/포즈/bodyCanvas/총/물리/저장그대로. GPUcopy1+행render1+1024Bsync read와262144Bmask.fill/scan은모두측정비용에포함. GPUwait/77%bodycost제거주장금지.
+실제quality ownChrome2548: 3arm×40frames/원래180적·HP/AI·auto사격/스폰/effects, Game80literal·양RNG exact. B used40/read40/fallback0/verify40/10240행·bounds/core/contour차이0, actual총40960rowbytes. 이것은모든alpha byte를같게만들었다는말이아니며mask는그림에쓰지않는다. strictwhole pixels AB2max1/AA546max8/BA546max8FAIL유지/completefalse/qualitytiming은추가원본CPUread포함이라성능근거0. cleanup3/3late12/12/errors[]/mainowners·records·cache·sourceimages보존/console0. 원자료557388chars+완전PNG3·페이지JPEG보존/실제B직접시각확인.
+별도cost ownChrome2551: verifyfalse/B원래CPUbodyread추가0·used40/read40/fallback0·40960bytes, Game80exact/cleanup3/3late12/12/errors[]/console0. A1/B/A2 first978.1/589.8/1287.4ms, all40p95361.9/284.7/590.4ms,sum3918.5/3544.2/6693ms. prep8502.7/7106.2/9150.9(대부분load8418.1/7042.2/9097.5)·prep+40+drain12432.1/10659.1/15853.1ms라raw14.261%감소·all40/41tails양A보다악화없음/first낮음이나load변동이큰한bracket이다. steady30 B median68.4>A154.1,sum2527.2>A12227.6(+13.45%),max284.7>A1251.9이므로지속성능승리주장금지. strictpixelsAB38max1/AA25max1/BA39max1FAIL, accepted/adoptedfalse/제품기본OFF유지. 원자료557246chars+완전PNG3·페이지JPEG보존, 두전용tab닫힌freshlist확인(첫costclose직후잠시listed되었으나후속freshlistabsent), 사용자8806/IAB/audio-envelope/pending·저장·서버미조작.
+Offline기존PNG6장만표준RGBA8decode/무resize·색변환·재렌더0로원래componentcounts/max모두정확재현. qualityAA/BA support교집합545/합547/동일signeddelta545, cost13/51/13. 같은counts만으로같은좌표/원인단정없음; 픽셀ROI좌표·8-connected영역·원본PNGsha256는pixel-roi-analysis.json. 가장큰qualityAA영역bbox500,308,15,16/max8이나특정actor·driver원인미확정. 이분석으로gate를바꾸거나원자료대체안함.
+root만Node22.23.3 전체npmtest 기존concurrency2/CPU15000 그대로 실행중 session21526/log qa/player-alpha-rows-20261018/npm-test-final.log. verify현재도역사.gitignore size/manifest mismatch exit1/immutablemanifest미수정. 현재전체결과미완료이며PASS주장금지. 브라우저GPU QA모두종료·agents쓰기동결/다른CPU/GPU QA job없음. 완료후source-after-whole437 exact와최종결과/decision/인계기록필수. 이전whole1223/1224·CPU16250FAIL은새결과가나올때까지유효.
+다음원자추천(아직미구현): 원래bodyCanvas.drawImage는그대로찍고, 그후변경되지않는bodyCanvas의getImageData/bounds계산을원래armedGL/Canvas색상합성뒤로미뤄GPU명령대기위치를검토. 현재bounds/core는색상합성후metadata까지쓰이지않는원래source흐름이라새shader/추가GLdraw없이실험가능성. direct/verify모드는bodyGL을읽어야하므로원래경로보존·error/자원/원본색·Game·상태정확성/실제first·steady·전체frame전후필수. 재배치가GPUwait제거·성능향상을보장하지않으며채택근거아님. 새작업은현재시간과인계를확인후진행. 마감2026-10-19 00:00KST(15:00Z)이후새작업금지·정리automation4PAUSED/유료·결제·키저장·automation7·외부공개·push·스토어금지유지.
+[2026-10-18 14:42 KST 행 경계 QA 원자작업 검수 종료 / root·agent·CPU·GPU job 종료]
+전체npmtest session21526 exit0:1245/1245PASS·신규21전부PASS·224262.7783ms·취소/생략0. 기존20분stress CPU14969<15000/wall17379.74ms통과이나여유31ms라안정적무렉/FPS완료주장금지. 과거whole1223/1224·CPU16250실패자료는이전실행으로보존하며이번결과로역사로그수정0. source-after-whole437 exactly initialfreeze/보호原本22exact/이전UI183586prefixexact/원래LivePlayercf5c…그대로. verify는기존.gitignore역사manifestmismatch exit1/immutablemanifest그대로. 집중33/33PASS103955.6854ms도유효.
+새GPU행경계helper/installer/QA-onlymode·테스트21개구현·검수·기록완료, 제품기본미적용/adoptedfalse. 같은frame10240row·bounds/core/contour0diff·originalcolor/source그대로·quality+cost각Game80literal/RNGexact·cleanup각3/3late12/12·console0은유효하지만wholeCanvasstrictFAIL두번과coststeady30 B13.45%느림이남는다. 준비+40+drain raw14.261%감소는큰load변동포함·first/all40만의관찰이며지속성능/FPS승리로말하지않는다. 실패threshold완화/재측정으로성공찾기/색원본·PNG·증거대체0. 세부 decision.json/cost-analysis.json/quality-analysis.json/pixel-roi-analysis.json, 완전PNG6/DOM2/JPEG2.
+우리Chrome2548/2551닫힘freshlist확인·모든job종료·agents동결. 사용자8806·IAB/audio-envelope/pending/저장·서버·Meshy무드보드/모델/UV/rig/clip보존. 새Gitpush·paid·payment·key저장·automation7·스토어제출0. 이번새자료는현재로컬개발본에보존. 향후명시승인push시새QA5rawTXT·before-copies/previous-source-freeze JSON와기존beforefixtures도함께포함(qa전체ignore금지).
+다음추천은위14:38블록의원래RGBA read 순서만미루는별도후보; 아직미구현/성공근거없음. 다음heartbeat가현재시각/최신인계를읽고한작업씩이어가기. automation4기존ACTIVE/마감2026-10-19 00:00KST(15:00Z)이후새작업금지·정리PAUSED. 모든금지유지.
+
+[캡처 범위 보충]
+비용 검사 후 cost-page.jpg를 직접 열어 확인했다. JPEG는 QA 페이지의 원래 주 화면/진단 패널 일부를 담으며 선택한 B 결과 Canvas 전체를 보여주지 않는다. 결과 이미지의 직접 시각 검수와 최종 제시는 quality-b.png/cost-b.png 등 DOM에서 끝까지 추출하고 PNG signature/IEND 및 raw 픽셀차이를 검증한 960×640 원본 Canvas PNG를 기준으로 한다. JPEG 원자료는 변경·크롭·대체하지 않았다. 이 보충은 측정/성능/품질 게이트를 바꾸지 않는다.
+
+DeadSignal 인계 · 2026-10-18 15:41 KST
+
+QA-only 주인공 원본 bodyCanvas 읽기 순서 후보를 구현·검수했습니다. 기본 게임에는 적용하지 않았습니다. 원본 live-player.js16124B/cf5c572…, 원본 모델·리그·클립·UV·텍스처·무드보드·저장·8806·IAB 미선택 개조를 보존했습니다.
+
+구현: 동일 player-rig 폴더의 staticcopy qa-live-player-deferred.js16124B/2c45565…는473자 read/bounds/core 블록만 armed GL+colour composition 뒤·metadata getter 앞으로 이동했습니다. 전체 역복원 원본byteexact. opt-in installer는 기본OFF, nativeCanvas4methods+2ink accessors/brand와 원본Three render FNV5f756eb1·fresh frame0·소유권을 검사합니다. direct/verify flags는 원본 함수 통째fallback. privatePIVOT 참조는 별도이지만 숫자값 같음. 성공한 original-owned nativeCanvas 경로만 범위이며 보편적 예외 부작용 순서/변조된 globals/scene callbacks까지 호환 주장하지 않습니다.
+
+집중 검사29/29PASS(새20+이전9), 기존5 QA mode 및 rowverify 총6분기 full-before reports/clocks/trace 동치. 전체 npm test 1264/1265PASS, FAIL1, cancelled0, skipped0, 530262.5284ms. 기존20분 seeded stress CPU15188ms / wall29573.86ms, 원래15000ms 예산 그대로. 성공 결과를 찾는 재실행0. npm run verify exit1, 첫 역사.gitignore 불일치에서 종료; immutable manifest 변경0, 나머지 manifest 모두통과 주장0.
+
+실제Chrome8851 genuine-memory 품질 QA: fresh original/Bverify/original 각40callbacks, 정상180적 fixture가4.8초·188적·HP73·kills3. B같은포즈 original/candidate/original40회에서 전체 bodyRGBA·colourRGBA·metadata/윤곽 AB/AA/BA 차이0, fallback0, 실제주인공GL80/240/80. Game/effects/motion/events/commands/twoRNG80프레임 exact. 정리3/3·late12/12·models/records0·mainowners/images/cache unchanged·콘솔warn/error0. 다만 전체Canvas AB903max67 / AA1322575max69 / BA1322461max60 strictFAIL. 원본PNG3장을 CRC/8-bit decode하여 각 집계를독립재현; AArepeat582443픽셀(94.7987%) RGB값차이. 원인미확정, 같은포즈PASS가전체gate를대신하지않음. quality-only 추가그리기·read의시간을 성능값으로쓰지않음.
+
+비용 전용 QA는 전투0회·버튼미클릭입니다. 새탭1494332567 첫navigation지연+원본shotgun4에셋 signal-aborted 오류화면/콘솔을보존했습니다. 자체탭 reload1회 뒤 CDP status/screenshot/rebind가반복시간초과·CUA kernel reset. 같은Chrome3 inventory는연결과자체탭을확인; 원본서버PID24016/8851 QA HTML200·1664B응답·서버변경0. 초기로딩원인/전체AA원인 미확정. quality탭1494332562 닫힘+후속inventory부재확인, cost탭닫기시도는성공확인못함. 다른user탭·8806·IAB는조작0. 강제browser/server종료0. 비용run/성능개선완료/무렉/peakRAM·VRAM/FPS 주장0.
+
+457source before/afterwhole exact, 원본22records exact, 기존UI187056B prefix exact. initial/finalsourcefreeze 둘다보존(검사시작전 review JSON key extraSix→totalSix 문구수정뿐). 모든새raw-beforeTXT/JSON과source/test를 향후 명시적으로 허용된 Git 이관에 포함해야 합니다. 새gitcommit/push/공개/유료Meshy/키저장/결제/automation7/스토어 작업0.
+
+다음: 먼저현재시간확인. 마감2026-10-19 00:00 KST 이후 새개발0, 완료·미완료기록후automation4 PAUSED. 그전에는 같은Chrome연결의실제복구상태와자체cost탭을확인·정리하고 원본초기로딩과전체Canvas AA원인을 분리. 비용전용 A/B/A는아직미실행이므로품질시간재활용금지. start.json 사전3%total/first/steady30 median·p95·max·sum/40·41tails/strictpixels/Game/cleanup 기준을유지. 성공픽셀찾기재렌더·gate완화금지. 기존GPU/direct/row/preparation/boss팔후보기본OFF 유지.
+
+증거: decision.json, focused-initial.log, npm-test-final.log, verify-final.log, source-freeze-final.json/source-after-whole.json, browser-quality-dom.txt(559174자)/browser-quality.json, quality-analysis.json, quality-a1/b/a2.png, quality-png-analysis.json, quality-console.json, cost-initial-load-failure.json, cost-navigation-page.jpg, cost-not-executed.json. quality-page.jpg는QA main뷰/status이며선택B proof가아님. 실제960x640 원본PNG가전투proof입니다.
+
+
+DeadSignal 원본 화면 반복 조사 · 2026-10-18 06:50:56 UTC
+
+직전 주인공읽기순서 QA의인계(decision.json/CONTINUATION_STATUS_KO.txt)를읽고새원자읽기조사를완료했습니다. 제품·기존QA source 변경0, 새성능run0, 새테스트재실행0. 마지막baseline은전체1264/1265PASS/기존CPU15188>15000 FAIL1, verify첫역사.gitignore FAIL1입니다. 457source/원본22records/기존UI187056B prefix는직전freeze와동일합니다(source-after-readonly.json).
+
+독립원인조사: renderer.makeFloor의원본asphalt32%·19000개seededsubpixelgrain·ISOdrawImage와전체vignette/fog/health/alarm합성은광역RGB가능경로입니다. 고정입력인데fresh각arm별Game/Renderer/Canvas는다른인스턴스라는점도분리했습니다. 정상경로의구체Canvas state누수나시간/무작위entropy 원인은찾지못했습니다. source-audit.json(13852B/c26d69…)과artifact-audit.json(13596B/be65d65…) 보존. AB347pixels국소차이와AA582443pixels(94.7987%)광역작은RGB차이는다른양상입니다. 582096pixels는A1=B이나A2만다름; nativeModels1/2/1와readback시간차이는교란변수이며backend원인증명이아닙니다. privateplayer40RGBA/meta0은전체NPC/바닥품질PASS가아닙니다.
+
+브라우저: 같은Chrome3 metadata연결을복구하여이전자체cost탭1494332567을닫고목록부재확인. 비용전투는여전히0회입니다. 별도새memorysmoke탭1494332598은원본QA 공개status준비완료/콘솔warn·error0을확인했고simulation·후보·비용실행0. 그러나Page.captureScreenshot이시간초과되어새화면시각인증완료를주장하지않습니다. 그탭도닫았으며마지막새목록에서1494332562/2567/2598모두부재확인. 최초close직후목록에smoke가잠시남았다가후속목록에서사라짐. 사용자8806/IAB/다른탭·저장조작0, browser/server강제종료0. 이전실패기록은덮어쓰지않았습니다.
+
+다음작업추천: 현재시간확인후마감전이면추가렌더/틱없이원본전용진단을opt-in으로구현. 마지막primaryR0와기존strictAA를유지한채즉시R1,기존floor읽기F,같은mainR2로순서를분리하고Canvasattributes/state·camera/floor/asphalt key·native modelkeys/선택fallbacksourceID를기록. R0/R1/R2불안정이면중단;추가read는quality전용·성능값재활용금지. floorF자체flush/materialize가능하므로pre-blit품질소급인증금지. 같은Renderer재렌더는privateclock/state를다시바꿀수있어첫진단에서는하지않습니다. tolerance완화·성공픽셀찾기재렌더·과거실패대체금지. defaultGPU/direct/row/preparation/deferred/boss팔후보OFF유지. 캡처제어가안정되기전새성능loop를강행하지않습니다.
+
+마감2026-10-19 00:00 KST 이후새개발0·기록후automation4 PAUSED. 현재automation4변경0,유료Meshy·키저장·결제·automation7·새Git공개/푸시·스토어0. 모든원본에셋/리그/클립/UV/texture/moodboard/플레이데이터보존. 100시간완성·무렉·모든동작완성주장0.
+
+
+
+[2026-10-18 16:01 KST 원본 읽기 진단 작업 진행 중 / root 실행 / 중복 시작 금지]
+실제 시작07:01:25Z, 마감15:00Z 전. 최신 AGENTS/HANDOFF/CONTINUE/Windows·원본 화면 반복 인계를 읽었습니다. 현재 과제는 추가 렌더·틱 없이 원본 전용 R0→R1→기존 바닥 F→같은 main R2 진단이며, 기존 primary R0와 strict AA를 유지합니다. 전투180적40콜백×원본2팔, 추가 읽기는 품질 전용이고 성능값으로 사용하지 않습니다. 사전 실패/원본 모델·리그·무드보드·플레이 저장/8806/IAB 보존. 유료·결제·키·automation7·공개·push·스토어 금지. source freeze 후 root만 집중 검사·8851memory 브라우저·전체 검사, agents는 구현·독립 검토만 합니다. 이 작업이 진행 중이면 다른 heartbeat는 중복 시작하지 않습니다.
+
+
+[원본 읽기 진단 중간 인계 / root 전체 검사 session19807 진행 중 / 중복 실행 금지]
+새 QA-only helper·원본A/A branch·append UI 구현. initial focused9PASS/새helper fixture 문법1fileFAIL(총10), raw log·initial473freeze·13917B/7c0b… 복사보존; 누락닫는중괄호1byte만수정 역복원byteexact, helper6/6PASS1747.0947ms. 기존combat4+UI5는재실행않음. 이후473source exactly finalfreeze/원본22exact/UI190616prefixexact. 최초8legacy모드 actualGame·report·clock·pixel·정리 full-before 동치PASS 유지.
+Chrome3 tabs.new1회65s timeout/kernelreset/returned ID와생성결과unknown; 새inventory Chrome없고IAB2/MCP1만있음. 불명blank/user탭을닫지않았음. 별도IAB2 own tab2 genuine-memory 원본QA 생성/ready·초기캡처성공 뒤 button1click. 원본2arm×40callback·40literalGame/effects/events/commands/motion/twoRNG exact/HP73 kills3 적188 time4.8·R0/R1/F/R2 모두정상, main6비교0·strictprimaryAA0. postprobePNG2 각각960x640/1402617B/SHAae189d44… 동일; primaryR0 PNG인증아님·FNVfloor f7a50238 hash만동일이라full-floorAA인증아님. 다른browser이므로과거Chrome AA원인/성능승리증거아님. 콘솔warn/error0.
+전체report completefalse/cleanupfailed: renderer/Art/hosts2/2, models·records0, mainowners/images/cachesunchanged/오류[]이나lateScheduled8/lateSettled7. pending모델1개가보고시점settled미확인일뿐leak/후속완료단정금지. arm.latePending0는waiting entry.pending만세므로rig.followed와별개. 실제helperraw388072자/PNG2/초기·결과·proof screenshot보존. ownIABtab2 close+freshlistabsent; 기존userIABtab1·8806·저장미조작. 성능costloop0/candidateadoption0/defaultexperimentsOFF 유지.
+root만 전체npmtest session19807 기존concurrency2/CPU15000 그대로실행중(log qa/original-readback-probe-20261018/npm-test-final.log), verify역사.gitignore 첫불일치exit1/manifest수정0. 완료후source-after-whole473 exact와최종decision/인계필수. 모든agent쓰기동결; render_cost_audit는이번실패pending의읽기감사JSON만허용/CPU·GPU·Game실행0. browser QA모두종료·강제browser/server종료·새push·유료·결제·키저장·automation7·스토어0. 마감15:00Z후새개발0·정리automation4PAUSED.
+
+
+DeadSignal 원본 읽기 진단 완료 인계 · 2026-10-18 07:43:09 UTC
+
+이번 원자 작업은 QA-only 진단 구현·검수·실패 보존까지 완료했습니다. 원본 게임 코드·Meshy 모델·리그·클립·UV·텍스처·무드보드·플레이 저장은 보존했습니다. 제품 최적화 채택과 성능 향상 완료를 뜻하지 않습니다.
+
+구현: qa-canvas-readback-probe.js는 이미 그린 원본 main의 R0를 유지하고 즉시 R1을 읽습니다. 차이가 있으면 바닥이나 R2를 관찰하지 않습니다. 안정적일 때만 기존 floor F를 읽고 같은 main R2를 읽습니다. 추가 렌더·틱·포즈 선택·await·이미지 재생성은 없습니다. 새 원본A/A opt-in branch와 append UI만 추가했으며 기존 UI190616바이트 접두부를 보존했습니다. 473 source after-whole은 final freeze와 exact, 보호 원본22개도 exact입니다.
+
+집중 검사: 최초9PASS/새 helper fixture 파일 문법1FAIL(총10), 352276.3045ms. 최초 로그·473 initial freeze·문법 오류 source13917B/7c0b…를 보존했습니다. 누락 닫는 중괄호1바이트만 추가했고 역복원byteexact입니다. 해당 helper6개만 재검사하여6/6PASS 1747.0947ms. 제품/helper/기준/assertion 변경0. 이를 단일 최초15/15 실행으로 표현하지 않습니다. 기존8 QA 모드의 전체 raw-before report/clock/Game/픽셀/정리 동치도 통과했습니다.
+
+전체 npm test: 1279/1280PASS, FAIL1, cancelled0, skipped0, 566747.8346ms. 새15개 모두 PASS. 기존20분 stress CPU16704ms / wall29478.65ms, 예산15000ms 유지. 실패명: twenty minutes of seeded autopilot keeps entity pools finite and bounded. 성공 찾기 재측정0. npm run verify exit1, 첫 역사 .gitignore 불일치에서 종료했고 immutable manifest는 바꾸지 않았습니다. 이후 모든 manifest 항목을 통과했다고 주장하지 않습니다.
+
+실제 브라우저: Chrome3 tabs.new1회65초 timeout 후 kernel reset, 반환 tab ID/생성 결과 unknown·기록파일 미생성. fresh inventory는 IAB2/MCP1만 표시해 Chrome 연결 부재를 확인했습니다. 불명 blank/user탭은 닫지 않았습니다. 별도 IAB2 own tab2의 고유 genuine-memory QA를 열고 public ready·초기 screenshot·visible을 확인한 뒤 진단 button1회 클릭했습니다. 기존 사용자 IAB tab1/8806/pending 개조/저장 조작0입니다.
+
+원본2arm×40callback: 같은 Game/effects/events/commands/motion/twoRNG40프레임 exact, HP73/kills3/적188/time4.8/RNG3331604612/visualRNG2139495574. 각 arm R0/R1/R2의3비교와 primary wholeCanvas AA가 전부0 component/max입니다. floor FNV32 f7a50238은 양팔 동일하나 collision 가능한 요약일 뿐 full-floor AA 인증이 아닙니다. 이 IAB 결과는 과거 Chrome AA 원인 규명이나 비용 비교 증거가 아닙니다. postprobe PNG2는 각각960×640/1402617B/SHA ae189d443a9422f8785c539fe4fe609c5b86feff4962edf6e5b8ff6879ae2eca로 byte exact입니다. PNG export는 probe 뒤이며 primaryR0 bytes 인증과 구분합니다.
+
+전체 browser report는 cleanup 실패로 complete=false입니다. renderer/Art/host2개를 즉시 retire/release/remove, models/records0, 원래 main owners/images/caches 불변·오류[]이나 lateScheduled8/lateSettled7입니다. arm.latePending0는 waiting entry.pending만 포함하여 rig.followed와 다릅니다. pending 맵에 fulfilled walker/boss promises와 모델이 관측되지 않은 gas 키가 함께 남을 수 있고 최종 followed drain을 기다리지 않는 source 경로를 확인했습니다. 미확인 follower의 정체·보고 이후 실제 완료·누수 여부는 미확정입니다. 실패를 성공으로 고쳐 쓰지 않습니다. own IAB tab2 close 반환 및 fresh list 부재는 확인했습니다.
+
+원자료388072자·원본 PNG2·초기/결과/proof screenshots·console warn/error0·브라우저 recovery/cleanup 기록을 보존했습니다. 펼친 details에서 locator.count가3초 timeout했지만 native getAttribute로 이미 생성된 PNG2를 끝까지 보존했습니다. 추가 전투/PNG 재렌더/성공 찾기 반복0, 강제 browser/server 종료0. 비용 전용 run0, 후보 기본 적용0, GPU/direct/row/preparation/deferred/boss 팔 후보 OFF 유지. peakRAM/VRAM/FPS/무렉·모든 동작·100시간 완성 주장0입니다.
+
+다음 추천: 먼저 실제 시간을 확인합니다. 마감 전이면 지연 모델의 arm/kind/key별 정리 완료 token을 분리해 추적하고, 마지막 retire 후 제한 시간 내 이벤트 기반 owned-late drain을 기다린 뒤 소유권/자원을 다시 검사하는 opt-in 개선을 구현합니다. 이미 fulfilled/rejected/pending과 뒤늦게 추가된 follower, timeout을 검수하고 sleep·카운터 면제·새 렌더/틱/로드 없이 실패를 보존합니다. cleanup 대기는 모든 callback/비용 측정 밖으로 분리하며 기존 모드는 그대로 유지합니다. 이어 동일 조건의 밀집 전투 CPU/GPU 병목 개선으로 돌아갑니다.
+
+마감2026-10-19 00:00 KST(15:00Z) 이후 새 개발0·완료와 미완료 기록 후 automation4 PAUSED. 이번 automation4 변경0. 유료 Meshy/결제/키 저장/automation7/새 Git commit·push·외부 공개/스토어 제출0입니다. 향후 명시적으로 허용된 이관에는 새 QA source/tests와 raw-before TXT/JSON 및 기존 fixture를 함께 포함해야 합니다.
+
+
+DEAD SIGNAL — 늦은 원본 모델 정리 대기 검수 완료 (2026-10-18T08:02:16Z)
+
+이번 변경은 QA 도구의 소유 자원 정리 경로다. 게임 원본 동작·이미지·캐릭터·무기·저장은 변경하지 않았다. exact8851+진짜 메모리 QA+qa-original-readback=1+qa-owned-cleanup=1와 명시적 옵션에서만 동작한다. 전투 후 단일 최대15초 마감시간으로 늦은 작업의 퇴역 완료를 기다리며, 새로 발견된 후속 작업도 포함한다. 시간 초과·등록/퇴역/최종 스냅샷 오류는 실패로 보존하고 최종 원시 보고서는 이후 늦은 완료로 수정되지 않는다.
+
+새 검사18/18 PASS. 전체 npm test1298개 중1297PASS/기존 CPU 예산1FAIL:20분 headless CPU16859ms(기준15000), wall44604.39ms; 전체421949.1554ms. 재시도0. 기존8QA모드의 전체 이전 harness와 보고서/clock/Game/호출/픽셀/정리 동치도 PASS. npm run verify는 역사 .gitignore 크기 불일치에서 첫 실패; manifest 재생성0, 전체 원본 verify 통과 주장0.
+
+실제 IAB별도 새 탭/메모리 QA, 원본180적 seed774 못총, A1/A2 각40콜백. 두 실행 최종188적/HP73/3킬/게임시간4.8초, 모든 상태·명령·이벤트·이동·두 RNG40쌍 일치. 각arm R0/R1/F/R2 읽기 진단 안정, 엄격 wholeCanvasAA 성분차이0/max0. PNG2장은 진단 후 별도 export이며 primaryR0 PNG 동등 인증이 아니다.
+
+late 작업8건 scheduled/settled/completed8, active0, 퇴역실패/overflow/시간초과/정리오류0. 최종 정리 대기 582.8000000119209ms; 단일15000ms deadline/timer1개가 해제됐다. 최종 모든 보유rig 모델·pending·기록·무기0, 보유Canvas 해제와 main원본owner/record/cache/source 보존 통과. 콘솔경고/오류0. own QA탭만 닫고 부재확인; 사용자8806/IAB미선택 개조·저장 조작0. 이전8/7정리실패 원시파일과 감사9341B 해시는 그대로다.
+
+483개 검수 파일이 focused/whole/browser 전후 동일. 이전473 중 QA harness와 appended UI2개만 변경; 기존 UI193925B prefix byte exact, 보호원본22개 exact. Meshy 새생성/유료요청/키저장/Gitpush/공개/스토어제출/automation7재개0.
+
+한계: 이번은 정리 완료 판정과 검수 도구 개선이며 FPS·실제 peak RAM/VRAM·모든 캐릭터 자연스러움 완성·100시간 완성 주장이 아니다. 기록된 Promise와 정리 중 발견된 후속 작업, 알려진 보유rig/Canvas 범위만 인증한다. 이미 비운 corpse/fire 복사본은 기존 shrink 성공에 의존한다. 실패한 player Promise.all의 보이지 않는 병렬작업은 여전히 미확인 실패다. Chrome 역사 AA실패는 그대로이고 IAB성공으로 덮지 않는다. 최적화 후보들은 OFF 유지.
+
+다음 권장 작업: 고정된 실제 밀집 전투에서 전체 callback·CPU·메모리 할당 병목을 측정하고 원본 픽셀/동작을 유지하는 개선부터 구현·동일조건 검수. 이번 추가read 진단을 성능비교로 사용하지 않는다. 매 시작/다음 작업 전에 시계확인. 개발 마감2026-10-19 00:00 KST(2026-10-18 15:00Z) 뒤에는 정리만 기록하고 automation4 PAUSED.
+
+
+DEAD SIGNAL — 엔진 방향 임시객체 후보 검수 (2026-10-18T08:19:58Z)
+
+측정부터 진행했다. 원본20분 seed774 headless 스트레스 CPUprofile1회는CPU16484ms/wall18385.6222ms이며 updateEnemies self29.36%, 그 내부 navigation/move가 주요 구간이다. 표본에는 inlining/native비용이 포함되며 객체한개의 비용이나 최적화 성과로 해석하지 않는다.
+
+원본engine59149B/SHA72487b…를 qa/engine-collision-profile-20261018/engine-before.txt에 보존했다. dist/qa-engine-direction-candidate.js(59149B/SHA62d0bd…)는 그 wholemodule에서 방향객체1개만 scalar locals로 바꾼 독립QA후보다. 정확 단1치환·역치환 byteexact. 원본 productionengine/기존483검수파일/보호원본22개 모두 그대로이며 자동import/default적용0이다.
+
+새 집중 검사5/5PASS: getter X→Y/||0/두 speed읽기/atan2·angle setter·move인수평가/형변환/원래throw identity 및 재진입·grid정리 일치. 실제 두 Game의 seed774/19253×60/180/210적×360ticks=2160ticks와 초기6상태, 총2166쌍의 snapshot/상태/명령·이벤트/nav/모든효과/두RNG exact. 모든경우 정상HP로360tick playing, 무적·AI/적밀도약화0.
+
+사전기준 비용비교는 profile없이 단1회 A1/B/A2, 원래24k .05tick·무적stressautopilot·첫upgrade·매100tickassert와12개2000tick구간을 동일하게 유지했다. CPU15704/13531/14734ms, wall21000.7971/17326.4079/17893.7017ms. 후보는 빠른원본보다CPU8.1648%/wall3.1704% 적지만 최대구간wall2548.5341ms가 엄격원본1938.1549ms보다 커 tail기준FAIL.12구간nearest-rankp95=max. 최종상태/RNG해시6871ee…모두같다. 후보CPU/벽시간예산은 통과했지만 전체gate불합격으로 제품OFF 유지, 성공찾기비용재실행0. 긴구간의 외부스케줄/JIT/GC비중과 원인은 미확정이며 후보가프레임렉을유발했다고단정하지 않는다.
+
+전체 npm test 1303/1303PASS/FAIL0, 372880.8984ms. # Stress wall=19720.77ms, CPU=14829.00ms; 원본engine이같아 이번통과를 후보성과로표현하지 않으며 이전16859ms 등CPU실패도 보존한다. npm run verify는 기존 .gitignore크기 불일치에서 첫실패, immutable manifest 수정0·전체SHA통과주장0.496검수파일이 quality/cost/whole/browser 전후exact.
+
+실제 별도IAB8851 genuine-memory 원본baseline만1회 실행했다. 원본180적seed774못총 A1/A2각40callback, 최종188적·HP73·3킬/time4.8/두RNG·상태40쌍exact, R0/R1/F/R2안정·엄격wholeAA0/max0. 늦은모델8/8완료/active0, 최종소유자원정리·main원본보존통과, console0. PNG2장은진단후별도export이지primaryR0인증PNG아님. 후보browser비용/픽셀검수0으로 원본baseline을후보승인증거로사용하지 않는다. own탭만닫고부재확인; 사용자8806/IAB미선택개조/저장조작0.
+
+프레임수/원본Meshy모델·리그·클립·이미지·무드보드·플레이데이터변경0, 유료생성/키저장/새commitpush/외부공개/스토어/automation7재개0. FPS·peakRAM/VRAM·실제할당감소·모든동작완성·100시간완성주장0.
+
+다음권장: 이번CPU후보는OFF로보존하고 실제normal180 전체callback의렌더병목으로진행. 별도cost-only 주인공deferred-read 비교에 검증된bounded ownedcleanup을옵션으로결합하면 기존Chrome AA실패를덮지않으면서 IAB원본AA기준에서 실제GPU읽기대기절감여부를확인할수있다. 새기준/출처를실행전에선언하고이번headless tail실패를재해석하지않는다. 매새작업전현재시각확인; 마감2026-10-19 00:00KST(15:00Z) 뒤 새개발0·완료/미완료기록후automation4 PAUSED.
+
+
+DEAD SIGNAL — 주인공 읽기 순서 비용·정리 검수 (2026-10-18T08:49:06Z)
+
+구현은 QA cost전용이다. exact8851/진짜메모리/qa-player-deferred-read=1/qa-owned-cleanup=1와 두명시옵션에서만 기존original/deferred/original40callback 비교에 bounded소유자원정리를결합했다. verify=1·readbackprobe·다른실험혼합은차단한다. 추가R1/F/R2·같은포즈재렌더·새profile/prime/Game tick은없다. 기존UI197374B전체접두부를보존하고별도button/details만append했다. 원본engine/player/에셋/동작/저장/default변경0이다.
+
+최초focused10개중9PASS/1FAIL(8364.7783ms): preload도중취소돼 installer를전혀호출하지않은경우도원래stop증거를요구하던보수적오판을발견했다. 초기harness/test/full504freeze/log는별도보존했다. 새cost경로에만 installAttempted=false를등록시초기화하고 실제install호출직전에true로바꿔, 엄격false인경우만복원대상이없다고판정했다. 호출후throw/부분후크/stop실패는여전히원래cleanupComplete증명필수다. 원래코드역복원byteexact·기존test전부접두부exact/assertion변경0, 부분후크후throw검사1개추가. 영향받는combat6개재검수6/6PASS(8469.6139ms), 이전UI5PASS. 단일최초11/11로표현하지않는다.
+
+전체 npm test1314/1314PASS, fail/cancelled/skipped0,403687.7591ms. 기존20분stress CPU14422ms/wall16808.19ms통과. 원본engine동일이므로최적화성과로해석하지않으며이전CPU실패보존. 기존8QA모드full-before report/clock/Game/픽셀/정리동치도통과했다. npm run verify는역사.gitignore크기첫불일치에서실패, manifest재생성0/전체원본통과주장0. final504파일은수정후focused/whole/browser전후exact, 이전496중QAharness/UI2개만변경, 보호원본22exact.
+
+실제IAB별도메모리cost1회·재시도0: 정상HP/AI seed774 mission01 못총180초기적, A1/B/A2각40×.12callback,각playerGL0→80(원본2회/프레임)·같은포즈verify0. 후보40회사용/no fallback/owner/unexpected0. 최종모든실행HP73/3킬/188적/time4.8/RNG3331604612/visualRNG2139495574, literalGame·이펙트·이벤트·명령·이동·두RNG80쌍exact. 원래최종R0의엄격wholeAA/AB/BA 성분0/max0. 늦은모델12/12완료/active0·모든최종소유자원/메서드복원·main원본보존통과, cleanup대기1010.9000000357628ms는모든비용합밖별도다. consolewarn/error0. ownQA탭만닫고목록부재확인, 사용자8806/IABpending개조/저장조작0.
+
+비용판정: 준비+40callback+finalreadback합 A1=12618.900000035763ms / B=15468.400000154972ms / A2=15915.99999988079ms. 후보는빠른A대비22.5812%더느리다. all40callback합4457.600000023842/4594.200000226498/3591.9999998807907ms, 후보27.9009%더느림; steady30합2652.300000011921/3008.4000000953674/2180.4999998807907ms, 후보37.9684%더느림. 첫callback880.1000000238419/694.3000000119209/721.3000000119209ms만유리하지만 steady30·40/41tail도불합격이다. accepted/adopted=false·제품OFF유지, 유리한재실행0. 하드웨어보편결론/FPS·GPU시간·peakRAM/VRAM·실제할당감소주장0.
+
+raw보고서/PNGA1-B-A2/screenshot/console/탭정리·실패보존. details펼친후status읽기가CDP3초timeout했으나이미raw저장완료, nativegetAttribute로PNG3장과후보전투screenshot을끝까지보존했다. 재렌더/추가전투0. PNG별도export는원래R0동등인증PNG가아니며rawR0기준이품질판정이다. 이전Chrome wholeAA1322575/max69실패원본은그대로고이번IAB0으로덮지않는다.
+
+Meshy원본모델·리그·클립·무드보드·무기/폭발이미지·플레이데이터보존; 유료Meshy/결제/키저장/새commitpush/외부공개/스토어/automation7재개0. 100시간·모든캐릭터자연스러움·무렉완성주장0.
+
+다음권장: 현재시각을먼저확인하고deferred후보는OFF유지. 동일원본렌더에서반복되는player bounds/core스캔등다른좁은비용을source검토후선정한다. 정확성/예외범위와cost기준을사전선언하고원본프레임수·화질·AI를줄이지않는다. 보스나머지11종팔동작검증/실기기/FPS·메모리검증/100시간스토리는미완료다. 마감2026-10-19 00:00KST(2026-10-18 15:00Z)후새개발0·완료/미완료기록후automation4 PAUSED.
+
+
+DEAD SIGNAL — 주인공 CPU 윤곽 캐시 후보 검수 (2026-10-18T09:35:56Z)
+
+새 fixed256 순수 helper는 기존 alphaBounds와 상체 윤곽의 중복 행 경계 탐색을1KiB Uint16 캐시로 합친다. 원래 public 함수·LivePlayerRig·렌더·동작·이미지·모델·저장은 바꾸지 않았다. attached/nonshared/nonresizable 실제 Uint8ClampedArray RGBA와 별도 Uint16Array512만 허용하고 invalid/alias는 쓰기 전 TypeError다. 반환 bounds/core/points는 매번 새로 만들며 core*.72·열린 cutoff·top alias를 원래대로 보존한다.
+
+집중 검사 별도2회: component8/8PASS854.8464ms, route5/5PASS1149.8168ms. 원본 SHA-pinned 전체 모듈 oracle, 모든256높이 Float64/cutoff, threshold/edge/holes/seed/이전출력불변/전체cache덮어쓰기와 buffer오류·brand/gate/중복/취소/partialraw보존을 확인했다. 두 결과를 단일 최초13개 실행으로 표현하지 않는다. 전체 npm test1327 중1326PASS/1FAIL, cancelled/skipped0,551505.3488ms. 기존20분 stress CPU15344ms(예산15000),wall21586.62ms 실패를 그대로 보존한다. 원래engine은 동일하므로 후보가 성능을 악화시켰다고 단정하지 않는다. 재시도·예산변경0. npm run verify는 역사 .gitignore 크기 첫 불일치에서 실패; manifest 재생성·전체 원본 인증 주장0.
+
+독립8851 standalone+고유 genuine-memory QA에서 원본 shotgun/nailgun 각각6자세, 총12개를 public player.frame으로 샘플했다. 원래 GL2×12=24와 추가 body quality read12를 기록했다. selected/original/fused geometry를 모든 값/float/alias·입력 바이트로 직접 비교해12개 exact, 원본 RGBA3MiB를 base64 JSON으로 보존했다. 한 검증 복사256KiB와 row scratch1KiB는 peakRAM 인증이 아니다. offline Node도 보존된12개의 원본 함수/후보/브라우저 geometry를 전부 재확인했다. PNG2는 원래 무기 포함6자세 contact sheet이며 body geometry 인증과 별도다. helper를 live raster에 대입한 wholeCanvasAB나 전체 전투 검수는 이번 범위에 없다.
+
+사전 고정 micro A1/B/A2: 각120warmup(타이머 밖)+2400회(12입력 각200연속, 모두 같은 출력 소비). 합222/235.80000007152557/237.10000002384186ms로 후보는 빠른A보다6.2162% 느리다.10% 절감 기준FAIL·제품 미통합/OFF·재측정0. 네이티브 읽기·GL·비교·해시·PNG·UI·정리는 비용 밖이며 전체프레임/FPS·processCPU/GPU 성과로 해석하지 않는다. FNV는 진단뿐이고 동치는 전체 바이트/recursive Object.is로 판정했다.
+
+own 늦은promise8/8완료/active0, 단일15초 drain 실제0.19999998807907104ms, model/weapon/record0·5surface0·GPU퇴역·refs정리 통과. 원본 로더의 보유하지 않는 transient graph/브라우저 캐시는 보편 메모리 증명 밖이다. console warn/error0, own IAB tab6 close 후 fresh목록 부재 확인, 사용자tab1/8806/저장 접근0. summary의 native AX button과 Playwright generic 차이로 role lookup1회 실패했으나 새 DOM 확인 후 text로만 펼쳤다. 이미 raw/PNG 보존 완료였고 새 전투/재렌더0이다.
+
+517 지정 source/검수 파일이 native/whole 전후 exact, 기존504·보호 원본22 exact다. 이후 completion/journal/다음 읽기감사 자료는 별도 결과 기록이다. 원본 모델·리그·클립·UV·텍스처·무드보드·플레이 데이터는 변경하지 않았다. 유료Meshy/키저장/결제/automation7/새commitpush/외부공개/스토어0. 모든 동작·무렉·100시간 완성 주장0.
+
+다음 권장: 시계부터 확인하고 마감 전이면 보스 동작으로 진행한다. boss01의224active+6inactive 품질 subset은 제품 채택 승인이나12종 완료가 아니다. 나머지11종은 새 bounded owned cleanup 경로에서 먼저02slam/06leap 및 공격0/예고1/.72·공격후75ms blend·피격/사망 경계를 확인한 뒤 나머지를 개별 검수한다. 기존 보행24종/역사 실패는 반복·덮어쓰기하지 않는다. 현 boss QA latecleanup은 no-await·mutable이므로 새 opt-in 경로에만 기존 tracker를 재사용해야 한다. 원본 final12 registry의walkFile은null이라 이 범위에 추가 walk graph는 없다(일반모델로 확대 금지). 자세한 읽기감사: qa/player-cpu-alpha-geometry-20261018/next-boss-read-audit.json.
+
+마감2026-10-19 00:00 KST(2026-10-18 15:00Z) 이후 새 작업0, 완료/미완료 기록 후 automation4 PAUSED. 이번 자동화 변경0.
+
+
+
+DEAD SIGNAL — 보스 팔 동작 소유 자원 검수 (2026-10-18T10:06:52Z)
+
+별도 standalone8851/genuine-memory/qa-boss-owned-cleanup=1에서만 동작하는 새 QA worker/UI를 구현했다. 기존517 source/검수 파일은 전부 그대로다. 이전 qa-boss-action-layer.js의 PHASES/helpers와 품질 본문8458자는 lifecycle6 literal을 역치환하면 exact다. 모델·포즈·수학·40도 상한·손10%진단·클리핑 기준·defaultfalse를 변경하지 않았다. 새worker43858B/SHA12d1477a…e7431, UI5972B/SHAe22a75ad…187268d다.
+
+알려진 로드Promise를 await/취소경쟁 전에 등록하고 각원본load15초 timeout과 종료시 별도 단일15초 cleanup drain을 적용했다. 늦게 발견된 작업과 retire완료를 기다린 뒤 models/records/pending/raw/helpers/framePool/private native colour surfaces/adapter/sheet와 보호caller descriptor를 다시 검사한다. 동일 geometry/material/texture/image/skeleton은1회만 퇴역 시도하고 소유하지 않은 main/pool/Art aliases는 보호한다. 실패/timeout/등록·퇴역 오류는 고정 primitive deep-frozen report에 남기며 이후 late처리가 증거를 바꾸지 않는다. Standalone caller는 원본manifest만 가진 frozen stub이고 Game/실제renderer/플레이 저장·tick은 사용하지 않았다.
+
+집중검사 별도2회: UI5/5PASS168.0032ms, worker9/9PASS359.2495ms. gate/brand/중복/취소/partialraw, abort-late/false load/pending follower/단일deadline/frozenartifact/primary오류identity/dispose·등록실패/보호owner와원래품질루프 exact를 확인했다. 두 번을 단일 최초14개 실행으로 표현하지 않는다. 전체 npm test1341 중1340PASS/기존CPU1FAIL, cancelled/skipped0,418533.4444ms. 20분stress CPU15562ms(예산15000)/wall21365.10ms; 재시도·기준변경0. 원래engine이 동일해 이번QA가 성능 악화 원인이라고 단정하지 않는다. verify는 역사 .gitignore 크기 첫 불일치 exit1, manifest재생성·전체원본인증 주장0이다.
+
+실제 IAB own tab7에서 boss02 준설기사(slam)와 boss06 택배집하장장(leap)를 각각1회 실행했다. 각4방향×7단계×원본/후보=56active, fresh idle/walk/death6inactive, walkpriming별도다. 두종 총112active+12inactive이며 source geometry/index/UV/skin전체byte·material/map/sourceidentity·root/feet exact, 비활성RGBA0, 잘림0을 통과했다. 각ownpromise4/4완료/active0, 최종surface/model/record/pending0·mainowner보존·refs정리통과, consolewarn/error0. 원자료/원본PNG2/화면2를 저장했다. own탭close후fresh목록부재확인, 사용자tab1/8806/선택/저장 접근0, 추가native재시도0이다. 547지정기록이 native/whole전후exact이며 이전517·직전완료18증거·보호원본22를 보존했다.
+
+시각검토(root+독립render reviewer): 두PNG에서 뚜렷한 limb분리/뒤집힘/셀잘림은 보이지 않았다. boss02는 전체실루엣이 비슷해 준비→타격→복귀의 구분이 작고, boss06은상단팔모으기/올리기와내리기 차이가 더 읽히지만 주공격팔과정점은아직작다. 수치PASS를 자연스러움/극적동작완성으로 표현하거나 제품에 켜지 않았다. 실제연속영상·실제전투/타격접촉·다른최종보스·중간보스는 미검수다. 자세한 시각한계는 visual-review.json에 기록했다.
+
+다음권장: 시계부터확인하고 별도 temporal관찰을 먼저 한다. 기존7단계는 즉시slam의windup .72 lift정점을누락하고, 첫attack .02에서75ms전환을시작한뒤다음 .22가200ms후라전환내부도누락했다. 동일actor+epoch·단조실제시간으로 boss02 windup .70/.72/.74/.99/1→실제recover 0/12.5/25/50/75/100ms, 짧은hit .12→.108→.06→0 및alive→같은seedcorpse연결을별도관찰한다. boss06은실제windup→charge→recover와 .58/착지1을후속검수한다. deathbridge중A/B픽셀0을요구해서는안된다. 원래40도·feet·source·clipping기준을유지하고 희박한PNG만보고각도부터키우지 않는다. 그뒤 나머지종과실전연결을 확인해 채택판단한다. 이QA는FPS/processCPU/peakRAM·VRAM증거가아니다.
+
+원본Meshy모델·리그·클립·무드보드·플레이데이터변경0, 유료생성/결제/키저장/automation7/새commitpush/외부공개/스토어0. 100시간/모든캐릭터자연스러움/무렉완성주장0. 마감2026-10-19 00:00KST(15:00Z)뒤새개발0·정리기록후automation4 PAUSED, 이번자동화변경0.
+
+
+
+DEAD SIGNAL — 보스02 연속 동작 연결 관찰 (2026-10-18T10:35:13Z)
+
+새 standalone8851/genuine-memory/qa-boss-owned-cleanup=1/qa-boss-action-timeline=1와 명시적 own timelineObservation:true에서만 boss02를 관찰한다. 이전547 중 owned QA worker1개만 선언된4개 hook으로 확장했고 전체 역치환 exact다. 기본 PHASES/helpers/품질루프와 옵션 없는 report/query/abort 경로는 유지한다. original boss action layer/live rig/renderer/engine/defaultfalse/원본 에셋은 그대로이며 제품 적용0이다. 새planner/observer/UI는 boss02 실제 windup1.2→recover1.6를 nativeActionSelection/recoveryIsAttack:true로 샘플한다.
+
+집중22/22PASS908.3408ms, 최초실패0. 시간표/실제clip·피격층매핑/공통epoch와A/B별stable actor·같은seed사망bridge/소스콜백후재검사/예외·취소·flag외부교체/dual gate/역복원/중복·PNGdecode·수명/저장frame재생을 검사했다. 전체 npm test1354 중1353PASS/기존CPU1FAIL, cancelled/skipped0, duration 384417.8468ms.20분stress CPU15484ms(예산15000)/wall18912.99ms 실패 보존·재시도/기준변경0. 후보QA는 engine을 바꾸지 않았으며 CPU/FPS 개선으로 해석하지 않는다. verify는 역사 .gitignore 크기 첫 불일치 exit1, manifest재생성·전체원본인증0이다.
+
+실제 own IAB8 native 최초1회: 이전classic56active+6freshinactive와 walkpriming 별도, temporal188 A/B쌍=376 관찰호출/실제GL제출376. main177+hit5+death6이고 .70/.72/.74/.99/1 정점·경계와recover0/12.5/25/50/75/100ms를 포함한다. main은60Hz 실제시간이고 branch별actor는고정, A/B다른id·공통epoch를 유지한다. 첫사망은 live seed history weight1, .025양수→.1zero를 원래경로로 확인했다. hitFlash입력배열뿐 아니라 실제 hitLayerWeight/torsoOnly도 확인했다. source geometry/index/UV/skin전체byte·material/map/sourceidentity·root/feet exact·40도·클리핑을 통과했다. FNV/PNG는그비교의진단뿐이다.
+
+원본512 contact1024×1536와188쌍 atlas4096×6144 PNG/raw1497192B를 보존했다. atlas는프리뷰에서만 A/B각256축소,96MiB RGBA추정상한(실제peak메모리/FPS증명아님)이다. main/hit/death를 실제버튼으로수동재생하고 정점frame53/전환25ms frame80를확인했다. worker최종정리완료와별개인UI decoded atlas는취소버튼후src없음/canvas0×0, own8 close/fresh목록부재확인. consolewarn/error0, 사용자tab1/8806/선택/저장/Game tick접근0이다.
+
+시각판정(root+독립review): .72 정점에서도 손이 주로몸아래에있고팔펴짐·기울임차이정도여서준비/접촉/75ms실루엣이비슷하다. 약31–32px hand proxy이동이기존10%진단을넘어도내려찍기로읽히는품질합격은아니다. 뚜렷한limb찢김/뒤집힘/잘림은보이지않지만 자연스러움/극적공격완성·기본ON을권하지않는다. 원본생성코드상pair0는상단쌍이며해부학적앞팔보장은없다. restidentity·Z가XY들기/X가앞뒤swing, Gaussian높이skin/top4weights라큰접기는철판/몸통늘어짐위험을눈으로봐야한다.
+
+다음권장: 신뢰시계확인후마감전이면 boss02 상단pair0만shoulder30/forearm32도접기,하단쌍작은counterbalance의단일후보를기존40도bone별cap/원본접촉끝값/타이밍으로먼저검수한다. 기존188timeline과4방향classic을재사용하고 .72 정점만다각도로보완한다. 가속하강/75ms정지타이밍은접힘품질을본뒤별도후보로분리한다. 구체audit와visual-review.json을참고하고현후보ON/다른11종일괄ON은보류한다. 실제전투/FPS·peakRAM/VRAM/중간보스·나머지보스·100시간스토리는미완료다.
+
+581지정 source/검수기록이focused/native/whole전후exact, 이전547중선언된worker외exact·보호원본22exact다. Meshy원본·리그·클립·UV·텍스처·무드보드·플레이데이터변경0. 유료생성/결제/키저장/automation7/새commitpush/외부공개/스토어0. 마감2026-10-19 00:00KST(15:00Z)이후새개발0·완료/미완료기록후automation4 PAUSED, 이번자동화변경0.
+
+
+DEAD SIGNAL — 밀집 전투 숫자 감쇠 캐시 단일 후보 (2026-10-18T10:48:52Z)
+
+실제engine59149B/SHA72487b35…5260ce를그대로두고별도생성copy만비교했다. updateEnemies 호출local numericDt/지연enemyDamping과기존2개vx/vy pair만바꾼후보이며3site전체역치환exact, 원본모듈/모델/AI/이펙트/화질/저장변경0이다. 숫자dt의첫도달vx RHS에서만계산해재사용하고 nonnumber는원래coercion/exp를반복한다. 정상변경없는Mathintrinsics전제이고 외부Math.exp교체나그호출횟수동등은주장하지않는다.
+
+최초집중7/7PASS5608.2715ms: sourcepin/inverse, IEEE64 signedzero/subnormal/Infinity/NaNpayload·두감쇠site, getter/setter/coercion/throw/partialwrite/earlycontinue/재진입local/grid정리와2seed×60/180/210 실제Game360pairedtick·366state비교·두RNG/events/actoridentity를확인했다. 원본581/제품engine이바이트exact여서직전whole1354(1353PASS/기존CPU1FAIL,384417.8468ms)와verify역사.gitignore첫불일치baseline을재사용했다. 새whole1361실행·전체PASS주장0이며제품변경없는QA후보에동일장기stress/native를유리하게반복하지않았다.
+
+원본180명V8프로파일1회:670samples/전체1.312568s, updateEnemies sampledself341748us, move102038us, direction42842us, GC139443us. startup/fixture/2warmup/8측정episode/proof를모두포함한표본이므로실측함수CPU나Math.exp=0비용/GC원인으로해석하지않는다. 프로파일을끈별도최초A1/B/A2는60/180/210명각2warmup+8fresh×200scheduled60Hz, seed774 mission01 못총 정상HP/AI/spawn 유지. 각arm/count1600active/0terminal이고총14400측정tick, B/A2의48개전체직렬화Game/RNG/events/commands/navigation이A1과같다. JSON의-0정규화는별도명시했고dampingIEEE는unit으로검수했다. setup/snapshot/hash/비교는비용밖, 명령생성·실제tick·원래eventdrain/기록은비용안이다.
+
+CPU합ms A1/B/A2:60명298/205/124,180명472/454/423,210명578/514/640. 빠른A대비B는60명65.3226%/180명7.3286%느리고210명11.0727%빠르나, 원본CPU drift가140.3226/11.5839/10.7266%로전부사전10%를초과했다.60명wall/tail·180명CPU/p95도실패해정해둔180/210둘다5%CPU절감·회귀한도·안정성기준미통과, inconclusive/OFF·제품미채택·유리한재실행0이다. speedup/FPS/전체프레임/GPU/peakRAM성과로표현하지않는다.
+
+617기록이focused/측정전후exact, 이전581·보호원본22·제품engine원문을보존했다. 별도브라우저실행0이며사용자tab1/8806/플레이저장접근0이다. rawprofile/전체비용JSON/최초로그/판정/소스freeze를보존했다. 다음은시계확인뒤보스02상단쌍접힘후보를기존188timeline/다각도에검수하는작업을권한다. 이후CPU는updateEnemies/이동의실제비용을근거로더좁게검토하며private버킷index순회도V8가기존iterator를소거할수있어실측전이득을단정하지않는다. 밀집전투CPU예산/실제프레임성능·자연스러움·100시간스토리는여전히미완료다.
+
+Meshy원본에셋/리그/클립/무드보드/플레이데이터변경0. 유료생성/결제/키저장/automation7/새commitpush/외부공개/스토어0. 마감2026-10-19 00:00KST(15:00Z)이후새개발0·완료/미완료기록후automation4 PAUSED, 이번자동화변경0.
+
+
+DEAD SIGNAL — 보스02 상단 팔 접힘 후보 (2026-10-18T11:17:02Z)
+
+원본 Meshy geometry/UV/skin/texture/clip을 보존한 boss02-fold-v1을 추가했다. 별도 factory/cache와 private constructor 옵션에서만 사용하며 제품 기본값은 OFF다. 상단 pair0 shoulder30/forearm32도·하단8/4도와 원래40도 한도, 접촉 끝값·기존 timing/torso/feet/root를 유지했다. 기존 factory/기본 constructor는 전체 역복원 oracle로 확인했다. 다른 보스 일괄 적용0.
+
+최초 집중44결과42PASS/2FAIL2851.066ms를 보존했다. 새 peaks fixture에 닫는2문자가 빠져6case가 미실행됐고, 기존 source guard가 선언한 dormant runtime 추가를 잡았다. fixture2문자와 전체 원본 역복원 guard만 수정했으며 runtime/시각기준은 바꾸지 않았다. 영향15case 재검수15/15PASS672.8078ms다. 최초49/49PASS로 합치지 않는다. 전체 npm test1374/1374PASS, fail/cancelled/skipped0,326877.3856ms. 기존 stressCPU14671ms/wall16785.44ms 통과지만 engine 동일이므로 최적화 성과가 아니다. 이전 CPU 실패는 그대로 보존했다. verify는 역사 .gitignore 크기 첫 불일치 exit1, manifest 수정0이다.
+
+별도 genuine-memory8851 own IAB9 native 최초1회: classic56active+6inactive와 walkprime, 기존188 A/B timeline쌍376실제GL, 추가4방향 .72peak8실제GL. 원본 source identity/bytes·feet/root·40도·nonclip·hit층·same-seed deathbridge·callback후 source 재검사를 통과했다. raw1521304B/atlas4096×6144/기존contact1024×1536/추가peak1024×2048를 보존했다. main/hit/death 수동재생·peak/25ms를 확인했고, 취소 후 atlas src없음/canvas0×0/peakSheet0·own tab9닫기/fresh부재·console0을 확인했다. worker bounded소유정리4/4완료/active0·원본main owner보존이다. 실제 Game 전투/FPS/peak RAM검수와 구분한다.
+
+시각판정(root+독립2review): OFF 원본A보다 상단 팔꿈치 접힘은 분명하지만 손이 낮고 준비→접촉→복귀 실루엣 대비는 약하다. legacy ON B대비 proxy 추가이동 약6–7px는 실제 손 해부학 증명이 아니다. 뚜렷한 찢김/뒤집힘/잘림은 안 보이나 자연스러운 slam 품질 합격이나 제품 기본ON은 보류한다. 원본 단일메시/높이가중치 때문에 각도 확대 전 실제 말단 영향 진단이 필요하다. 다음은 시계 확인 뒤 정상 Game에서 실제 경고→공격→회복과 효과 동기화를 제한된 QA trial로 검수할 수 있다. 이 trial도 자동 시각 승인으로 쓰지 않는다.
+
+664 지정기록이 repair/native/whole전후 exact, 이전617 중6선언변경 외 exact·보호원본22 exact다. 최초 소스647와 오류로그/13초기소스도 보존했다. 사용자8806/tab1/저장·유료Meshy·키저장·결제·automation7·새commitpush·공개·스토어 접근0. 원본모델/리그/클립/무드보드/플레이데이터 보존. 다른보스/중간보스·실전성능·모든자연스러움·100시간스토리는 미완료다. 마감2026-10-19 00:00KST(15:00Z)이후 새개발0·완료/미완료 기록후 automation4 PAUSED.
+
+
+DEAD SIGNAL — 보스02 정상 Game 실전 연결 검수 (2026-10-18T11:59:50Z)
+
+기존 제품/원본664기록을 그대로두고 전용page/worker/test를 추가했다. genuine-memory8851의새ownRenderer·원래Game mission02 seed774 못총/정상HP·AI·기존적·spawnClock·stageDuration과 실제60Hz advanceSimulation/ActorInterpolation/원본fullRenderer를 사용한다. QA final-entry flags와 원래월드에서검증한520거리 초기위치만설정, skillCd7/경고1.2/회복1.6·피해·무적·이동속도·적명단은바꾸지않았다. 실행전계획60→300realcap/전체준비15→60초/통로270→520변경은각초안보존후선언했고최초실행재시도가아니다. cleanup은별도15초상한이다.
+
+최초집중6/6PASS1182.5019ms 뒤최초IAB10원본검수는준비중Illegal invocation/전투0으로실패했다. 실패raw/화면/console/탭정리/초기3소스/699freeze를모두보존했다. Window타이머를deps메서드로호출해receiver가틀린원인이며default set/clearTimer2literal만globalThis에bind했다. 전체module역복원exact, 기존6case15757B prefixexact+receiver1case추가후집중7/7PASS787.6131ms다. 처음부터native성공/단일최초7개로덮지않는다. 첫실패의asphalt정리미확정은cleanupfalse그대로다.
+
+수정후원본A own11/후보B own12각1회정상전투를완료했다. 각각720ticks/12.000000000000176게임초, 실제native348/386GL, windup29/33·attack40/45, 경고1/skill1/회복표시/원본512drawidentity·geometry/UV/skin/material/source보존을통과했다. 양쪽actualskill발생은tick492/time8.216666666666654, 원본Game snapshot/RNG는매렌더전후동일검사다. 두최종HP5.499999999999975·boss1089·ammo24·두RNG값은같았지만다른RAF일정의전체state/픽셀동치나속도비교를주장하지않는다. 사격0/실제hurt10회이며음향·실제피격팔반응시험과구분한다. 원래world warning/impact/finalPNG각3과raw를보존했다.
+
+첫skill native는A이전windup.96056→attack.00167/B.97647→.01360에서실제75ms transition elapsed0을확인했다. 준비자세가접촉근처였으므로큰시각지연을확정하지않는다. 원본clip authoredX가경계에서어깨약15/전완11도뛸가능성은읽기수식추정이며미계측이다. 임의보간삭제는보류하고후속pose-step검수필요. OFF원본대비fold팔접힘은제한개선이나강한자연slam/제품ON/다른보스승인은이번범위밖이다. 실제화면에서피해텍스트9.450000000000001가보여다음은전투값을보존한표시축약을권한다.
+
+양쪽known late46/46완료/active0, 소유모델·pending·records·surfaces·alpha/inkbytes·poolslots0, flag/메서드복원·refs해제완료, console0. UI입력과RAF는정리전에차단, sharedfire/explosion singleton이미지는원래대로보존. 부분player병렬로드/미완료asphalt같은실패한계는성공으로숨기지않는다. own10/11/12닫고fresh목록부재확인; usertab1/8806/저장조작0.
+
+전체npm test1381개중1380PASS/1FAIL, cancelled/skipped0/0, 820698.0748ms. stress CPU16141.00ms/wall29144.30ms, 원래engine동일이므로최적화성과/원인주장0·유리한재실행/기준변경0. verify는역사.gitignore첫불일치exit1·manifest변경0. 최종713기록native/whole전후exact, 초기699중timer/test2선언변경외exact·기존664제품과원본보존. 새유료Meshy/키/결제/automation7/새commitpush/공개/스토어0. 모든자연스러움/무렉/실제peak RAM/VRAM/100시간스토리미완료. 매다음작업전신뢰시계확인, 마감2026-10-19 00:00KST(15:00Z)이후새개발0·정리기록후automation4 PAUSED.

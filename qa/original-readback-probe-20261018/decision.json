@@ -1,0 +1,123 @@
+{
+  "status": "QA-diagnostic-implemented-native-IAB-readbacks-stable-late-cleanup-unproven",
+  "startedUTC": "2026-10-18T07:01:25Z",
+  "completedUTC": "2026-10-18 07:43:09 UTC",
+  "productSourceChanged": false,
+  "candidateAdopted": false,
+  "focused": {
+    "initial": {
+      "tests": 10,
+      "pass": 9,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 352276.3045,
+      "exit": 1,
+      "actualPassingCases": 9,
+      "unparsedHelperCases": 6,
+      "reason": "Missing closing brace in new test fixture rig object; file-level syntax failure"
+    },
+    "repair": {
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 1747.0947,
+      "exit": 0,
+      "changedFiles": [
+        "work/dead-signal-game/tests/qa-original-readback-probe.test.mjs"
+      ],
+      "fixtureClosingBraceOnly": true,
+      "sourceInverseByteExact": true,
+      "productAndHelperSourceChanged": false,
+      "thresholdOrAssertionChanges": false
+    },
+    "preserved": {
+      "initialSourceFreeze": "source-freeze.json",
+      "initialSourceCopy": "probe-test-initial.txt",
+      "initialSourceSHA256": "7c0b4c9dc5a46781527667b07c450d17899c35c9741f1bcf0da77af2f4f2db4b",
+      "finalSourceFreeze": "source-freeze-final.json",
+      "finalSourceSHA256": "0d7948fd11f73997dbacbee065bd647f103d7b17912352ca77f33336aa0e6807"
+    },
+    "note": "Nine initial combat/UI cases passed. Only the six previously unparsed helper cases were rerun after the fixture syntax repair. Do not describe this as a single15/15 initial run."
+  },
+  "whole": {
+    "tests": 1280,
+    "pass": 1279,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 566747.8346,
+    "originalStress": {
+      "CPUms": 16704,
+      "wallMs": 29478.65,
+      "budgetMs": 15000
+    },
+    "failures": [
+      "twenty minutes of seeded autopilot keeps entity pools finite and bounded"
+    ],
+    "newCasesPassed": 15,
+    "exit": 1,
+    "successfulBenchmarkRetry": false
+  },
+  "verify": {
+    "exit": 1,
+    "firstHistoricalMismatch": ".gitignore",
+    "manifestChanged": false
+  },
+  "source": {
+    "count": 473,
+    "exactAgainstFinalFreeze": true,
+    "original22Exact": true,
+    "oldUIPrefixBytes": 190616,
+    "oldUIPrefixExact": true,
+    "initialToFinal": "Only one missing closing brace in the new helper test fixture; inverse bytes exact; initial source and failure retained"
+  },
+  "browser": {
+    "browser": "Codex IAB2",
+    "reportComplete": false,
+    "error": "qa-canvas-combat-cleanup-failed",
+    "originalArms": 2,
+    "callbacksPerArm": 40,
+    "mainContinuousReadDifferences": 0,
+    "primaryOriginalAADifferences": 0,
+    "literalComparedFrames": 40,
+    "literalMismatchCount": 0,
+    "lateScheduled": 8,
+    "lateSettled": 7,
+    "lateCompletionOrLeakProven": false,
+    "consoleWarningsErrors": 0,
+    "ownIABTabClosedAndFreshAbsent": true,
+    "unknownChromeTabCreationOutcome": true,
+    "historicalChromeAACauseProven": false,
+    "optimizationCostRuns": 0,
+    "performanceEvidence": false,
+    "postprobePNGBytesEqual": true,
+    "PNGCertifiedPrimaryR0": false
+  },
+  "next": "Clock-gated next atomic task: opt-in bounded event-driven owned-late cleanup completion tokens with per-arm/kind/key labels; cover fulfilled/rejected/pending/newly-followed promises and timeout without fixed sleep. Await outside callback/cost spans, then resnapshot owned resources and original owner guards. Preserve strict raw pixels/literal Game and current failed report. Original headless CPU budget remains15000; then resume dense-combat optimization with matched conditions. Do not relax thresholds or claim memory/FPS victory.",
+  "deadline": "2026-10-19T00:00:00+09:00",
+  "automation4Changed": false,
+  "forbiddenActionsPerformed": false,
+  "artifacts": [
+    "focused-initial.log",
+    "focused-helper-repaired.log",
+    "focused-result.json",
+    "probe-test-initial.txt",
+    "source-freeze.json",
+    "source-freeze-final.json",
+    "source-after-browser.json",
+    "source-after-whole.json",
+    "npm-test-final.log",
+    "verify-final.log",
+    "iab-original-readback-raw.json",
+    "browser-analysis.json",
+    "iab-postprobe-a1.png",
+    "iab-postprobe-a2.png",
+    "iab-proof-page.png",
+    "iab-tab-cleanup.json",
+    "browser-recovery.json",
+    "late-cleanup-audit.json"
+  ]
+}

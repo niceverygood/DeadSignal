@@ -1,0 +1,533 @@
+{
+  "scope": "two final-boss native action subsets with bounded owned cleanup",
+  "passed": true,
+  "bosses": [
+    {
+      "key": "boss-02-final",
+      "passed": true,
+      "errors": [],
+      "selectedBossKeys": [
+        "boss-02-final"
+      ],
+      "activeSamples": 56,
+      "inactiveSamples": 6,
+      "quality": [
+        {
+          "key": "boss-02-final",
+          "allProtectedExact": true,
+          "inactiveExact": true,
+          "unclipped": true,
+          "initialHandTravelTargetPassed": true,
+          "handTravel": [
+            {
+              "angle": 0.35,
+              "changedPhases": 7,
+              "candidatePixels": 32.460604429271825,
+              "targetPixels": 28.700000000000003,
+              "diagnosticPassed": true
+            },
+            {
+              "angle": 1.9207963267948966,
+              "changedPhases": 7,
+              "candidatePixels": 33.03247477544491,
+              "targetPixels": 29.1,
+              "diagnosticPassed": true
+            },
+            {
+              "angle": 3.491592653589793,
+              "changedPhases": 7,
+              "candidatePixels": 32.70653410046053,
+              "targetPixels": 26.1,
+              "diagnosticPassed": true
+            },
+            {
+              "angle": 5.062388980384689,
+              "changedPhases": 7,
+              "candidatePixels": 32.61173546259399,
+              "targetPixels": 29.200000000000003,
+              "diagnosticPassed": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "errors": [],
+        "complete": true,
+        "closing": true,
+        "modelsRemaining": 0,
+        "recordsRemaining": 0,
+        "pendingRemaining": 0,
+        "rawAlphaBytes": 0,
+        "alphaReadbackBytes": 0,
+        "batchInkBytes": 0,
+        "lateScheduled": 4,
+        "lateSettled": 4,
+        "ownedDrain": {
+          "complete": true,
+          "success": true,
+          "status": "complete",
+          "timedOut": false,
+          "overflow": false,
+          "capacity": 256,
+          "scheduled": 4,
+          "settled": 4,
+          "callbackEntered": 4,
+          "completed": 4,
+          "active": 0,
+          "fulfilled": 4,
+          "rejected": 0,
+          "retireFailed": 0,
+          "duplicates": 0,
+          "overflowed": 0,
+          "invalid": 0,
+          "observerFailures": 0,
+          "totalErrors": 0,
+          "lateRegistrations": 0,
+          "entries": [
+            {
+              "id": 1,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "registry",
+                "key": "registry"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 2,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-02-final-locomotion-hq32"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 3,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-02-final-rig-motion"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 4,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "model",
+                "key": "boss-02-final"
+              },
+              "status": "completed",
+              "fulfilled": true
+            }
+          ],
+          "pending": [],
+          "errors": [],
+          "wait": {
+            "started": true,
+            "finished": true,
+            "timeoutMs": 15000,
+            "startedAt": 11973.5,
+            "deadlineAt": 26973.5,
+            "elapsedMs": 0.09999996423721313,
+            "timerActive": false,
+            "timersScheduled": 0,
+            "timersCleared": 0,
+            "timersFired": 0,
+            "timerCleanupComplete": true
+          },
+          "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+        },
+        "trackerFinal": {
+          "complete": true,
+          "success": true,
+          "status": "complete",
+          "timedOut": false,
+          "overflow": false,
+          "capacity": 256,
+          "scheduled": 4,
+          "settled": 4,
+          "callbackEntered": 4,
+          "completed": 4,
+          "active": 0,
+          "fulfilled": 4,
+          "rejected": 0,
+          "retireFailed": 0,
+          "duplicates": 0,
+          "overflowed": 0,
+          "invalid": 0,
+          "observerFailures": 0,
+          "totalErrors": 0,
+          "lateRegistrations": 0,
+          "entries": [
+            {
+              "id": 1,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "registry",
+                "key": "registry"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 2,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-02-final-locomotion-hq32"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 3,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-02-final-rig-motion"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 4,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "model",
+                "key": "boss-02-final"
+              },
+              "status": "completed",
+              "fulfilled": true
+            }
+          ],
+          "pending": [],
+          "errors": [],
+          "wait": {
+            "started": true,
+            "finished": true,
+            "timeoutMs": 15000,
+            "startedAt": 11973.5,
+            "deadlineAt": 26973.5,
+            "elapsedMs": 0.30000001192092896,
+            "timerActive": false,
+            "timersScheduled": 0,
+            "timersCleared": 0,
+            "timersFired": 0,
+            "timerCleanupComplete": true
+          },
+          "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+        },
+        "mainOwnersUnchanged": true,
+        "surfacesRemaining": 0,
+        "surfacesReleased": true,
+        "framePoolSlotsRemaining": 0,
+        "channelClosed": true,
+        "resourceRefsCleared": true,
+        "partialArtConstructorUnproven": false,
+        "partialRigConstructorUnproven": false,
+        "unownedArtRejected": false,
+        "unownedRigRejected": false,
+        "loadWait": {
+          "scheduled": 3,
+          "cleared": 3,
+          "fired": 0,
+          "active": 0
+        },
+        "retired": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "images": 1,
+          "skeletons": 1,
+          "helpers": 2,
+          "renderers": 1,
+          "contexts": 1
+        },
+        "partialChannelConstructorUnproven": false
+      },
+      "evidence": [
+        {
+          "file": "iab-boss-02-final-report.json",
+          "bytes": 262390,
+          "sha256": "9ec2e0038f19cb60d8802b0891a8143268f9311a8088989cfdb3f9659407f8dd"
+        },
+        {
+          "file": "iab-boss-02-final.png",
+          "bytes": 288601,
+          "sha256": "e13dd24633c9277f61c1eba45db60b3869c4863a3b1e1602eadca02452a01d31"
+        }
+      ]
+    },
+    {
+      "key": "boss-06-final",
+      "passed": true,
+      "errors": [],
+      "selectedBossKeys": [
+        "boss-06-final"
+      ],
+      "activeSamples": 56,
+      "inactiveSamples": 6,
+      "quality": [
+        {
+          "key": "boss-06-final",
+          "allProtectedExact": true,
+          "inactiveExact": true,
+          "unclipped": true,
+          "initialHandTravelTargetPassed": true,
+          "handTravel": [
+            {
+              "angle": 0.35,
+              "changedPhases": 7,
+              "candidatePixels": 79.62904802182189,
+              "targetPixels": 24.6,
+              "diagnosticPassed": true
+            },
+            {
+              "angle": 1.9207963267948966,
+              "changedPhases": 7,
+              "candidatePixels": 79.91369264358903,
+              "targetPixels": 23.700000000000003,
+              "diagnosticPassed": true
+            },
+            {
+              "angle": 3.491592653589793,
+              "changedPhases": 7,
+              "candidatePixels": 75.17724464180827,
+              "targetPixels": 27.700000000000003,
+              "diagnosticPassed": true
+            },
+            {
+              "angle": 5.062388980384689,
+              "changedPhases": 7,
+              "candidatePixels": 73.93157063817067,
+              "targetPixels": 27.3,
+              "diagnosticPassed": true
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "errors": [],
+        "complete": true,
+        "closing": true,
+        "modelsRemaining": 0,
+        "recordsRemaining": 0,
+        "pendingRemaining": 0,
+        "rawAlphaBytes": 0,
+        "alphaReadbackBytes": 0,
+        "batchInkBytes": 0,
+        "lateScheduled": 4,
+        "lateSettled": 4,
+        "ownedDrain": {
+          "complete": true,
+          "success": true,
+          "status": "complete",
+          "timedOut": false,
+          "overflow": false,
+          "capacity": 256,
+          "scheduled": 4,
+          "settled": 4,
+          "callbackEntered": 4,
+          "completed": 4,
+          "active": 0,
+          "fulfilled": 4,
+          "rejected": 0,
+          "retireFailed": 0,
+          "duplicates": 0,
+          "overflowed": 0,
+          "invalid": 0,
+          "observerFailures": 0,
+          "totalErrors": 0,
+          "lateRegistrations": 0,
+          "entries": [
+            {
+              "id": 1,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "registry",
+                "key": "registry"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 2,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-06-final-locomotion-hq32"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 3,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-06-final-rig-motion"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 4,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "model",
+                "key": "boss-06-final"
+              },
+              "status": "completed",
+              "fulfilled": true
+            }
+          ],
+          "pending": [],
+          "errors": [],
+          "wait": {
+            "started": true,
+            "finished": true,
+            "timeoutMs": 15000,
+            "startedAt": 89729.39999997616,
+            "deadlineAt": 104729.39999997616,
+            "elapsedMs": 0,
+            "timerActive": false,
+            "timersScheduled": 0,
+            "timersCleared": 0,
+            "timersFired": 0,
+            "timerCleanupComplete": true
+          },
+          "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+        },
+        "trackerFinal": {
+          "complete": true,
+          "success": true,
+          "status": "complete",
+          "timedOut": false,
+          "overflow": false,
+          "capacity": 256,
+          "scheduled": 4,
+          "settled": 4,
+          "callbackEntered": 4,
+          "completed": 4,
+          "active": 0,
+          "fulfilled": 4,
+          "rejected": 0,
+          "retireFailed": 0,
+          "duplicates": 0,
+          "overflowed": 0,
+          "invalid": 0,
+          "observerFailures": 0,
+          "totalErrors": 0,
+          "lateRegistrations": 0,
+          "entries": [
+            {
+              "id": 1,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "registry",
+                "key": "registry"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 2,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-06-final-locomotion-hq32"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 3,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "atlas",
+                "key": "boss-06-final-rig-motion"
+              },
+              "status": "completed",
+              "fulfilled": true
+            },
+            {
+              "id": 4,
+              "label": {
+                "arm": "boss-actions",
+                "kind": "model",
+                "key": "boss-06-final"
+              },
+              "status": "completed",
+              "fulfilled": true
+            }
+          ],
+          "pending": [],
+          "errors": [],
+          "wait": {
+            "started": true,
+            "finished": true,
+            "timeoutMs": 15000,
+            "startedAt": 89729.39999997616,
+            "deadlineAt": 104729.39999997616,
+            "elapsedMs": 0.19999998807907104,
+            "timerActive": false,
+            "timersScheduled": 0,
+            "timersCleared": 0,
+            "timersFired": 0,
+            "timerCleanupComplete": true
+          },
+          "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+        },
+        "mainOwnersUnchanged": true,
+        "surfacesRemaining": 0,
+        "surfacesReleased": true,
+        "framePoolSlotsRemaining": 0,
+        "channelClosed": true,
+        "resourceRefsCleared": true,
+        "partialArtConstructorUnproven": false,
+        "partialRigConstructorUnproven": false,
+        "unownedArtRejected": false,
+        "unownedRigRejected": false,
+        "loadWait": {
+          "scheduled": 3,
+          "cleared": 3,
+          "fired": 0,
+          "active": 0
+        },
+        "retired": {
+          "geometries": 1,
+          "materials": 1,
+          "textures": 1,
+          "images": 1,
+          "skeletons": 1,
+          "helpers": 2,
+          "renderers": 1,
+          "contexts": 1
+        },
+        "partialChannelConstructorUnproven": false
+      },
+      "evidence": [
+        {
+          "file": "iab-boss-06-final-report.json",
+          "bytes": 262354,
+          "sha256": "daf76dbdb217d37625716373c4bbe7d00e01798a5036b76ebcbf75b17f0dd03c"
+        },
+        {
+          "file": "iab-boss-06-final.png",
+          "bytes": 221344,
+          "sha256": "00b22e1ea14063a8d0e304e50c9c807b1af61718e9b8d4ea374bbdc6b2b7a094"
+        }
+      ]
+    }
+  ],
+  "fullCatalogue": false,
+  "productAdopted": false,
+  "performanceEvidence": false,
+  "exactBoundaryOrTransitionCoverage": false,
+  "note": "56active+6freshinactive per boss plus walk priming. Geometry/index/UV/skin buffers and source identities are checked in the native worker; report FNV fields only summarize literal comparisons. Hand10% travel remains diagnostic. Does not certify remaining final bosses, middle bosses, actual fights, windup1/attack0/.72 or75ms blend/hit/death transitions, naturalness, FPS or peak memory. No favorable native retries."
+}

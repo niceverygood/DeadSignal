@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: combat UI is append-only after the exact prior player QA source and stays out of the product loop
+ok 1 - combat UI is append-only after the exact prior player QA source and stays out of the product loop
+  ---
+  duration_ms: 4.8373
+  type: 'test'
+  ...
+# Subtest: off-origin, absent memory and nonexact opt-in reject before DOM, owner, imports or storage
+ok 2 - off-origin, absent memory and nonexact opt-in reject before DOM, owner, imports or storage
+  ---
+  duration_ms: 0.6159
+  type: 'test'
+  ...
+# Subtest: only an explicit ready idle click runs the comparison, preserves its report and bounds proof images
+ok 3 - only an explicit ready idle click runs the comparison, preserves its report and bounds proof images
+  ---
+  duration_ms: 1.8309
+  type: 'test'
+  ...
+# Subtest: abort or owner replacement during import does not create storage or run a late comparison
+ok 4 - abort or owner replacement during import does not create storage or run a late comparison
+  ---
+  duration_ms: 1.6894
+  type: 'test'
+  ...
+# Subtest: in-flight abort suppresses late reports and images, while genuine quality/error reports remain visible
+ok 5 - in-flight abort suppresses late reports and images, while genuine quality/error reports remain visible
+  ---
+  duration_ms: 1.2633
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 191.1399

@@ -1,0 +1,28 @@
+✖ twenty minutes of seeded autopilot keeps entity pools finite and bounded (24308.1532ms)
+ℹ Stress wall=24304.07ms, CPU=25593.00ms
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24458.0409
+
+✖ failing tests:
+
+test at work\dead-signal-game\tests\engine.test.mjs:547:1
+✖ twenty minutes of seeded autopilot keeps entity pools finite and bounded (24308.1532ms)
+  AssertionError [ERR_ASSERTION]: Headless twenty minute simulation exceeds its CPU budget: CPU=25593.00ms, wall=24304.07ms
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs:578:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

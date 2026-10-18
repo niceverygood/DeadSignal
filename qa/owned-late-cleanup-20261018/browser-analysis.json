@@ -1,0 +1,1046 @@
+{
+  "complete": true,
+  "error": null,
+  "injected": false,
+  "qualityOnly": true,
+  "boundedOwnedCleanup": true,
+  "fixture": {
+    "count": 180,
+    "weapon": "nailgun",
+    "baseEnemies": 5,
+    "seed": 774,
+    "snapshotValid": true,
+    "spawnClock": 1.5,
+    "note": "Explicit density fixture adds normal enemies through spawnEnemy and preserves initial enemies, spawnClock, HP, speed, AI, damage and normal subsequent spawning. Existing Continue/preload/resume UI launches the memory-only checkpoint."
+  },
+  "passes": [
+    {
+      "arm": "A1",
+      "mode": "original",
+      "samples": 40,
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      },
+      "originalReadbackGameUnchanged": true,
+      "originalReadback": {
+        "complete": true,
+        "stable": true,
+        "injected": false,
+        "reason": "stable-original-readbacks",
+        "readFloor": true,
+        "readSequence": [
+          "R1",
+          "F",
+          "R2"
+        ],
+        "geometry": {
+          "mainWidth": 960,
+          "mainHeight": 640,
+          "floorWidth": 2400,
+          "floorHeight": 1800
+        },
+        "primary": {
+          "expectedBytes": 2457600,
+          "providedBytes": 2457600
+        },
+        "comparisons": {
+          "R0R1": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R0R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R1R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          }
+        },
+        "hashes": {
+          "R0": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "R1": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "F": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 17280000,
+            "value": "f7a50238"
+          },
+          "R2": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          }
+        },
+        "main": {
+          "width": 960,
+          "height": 640,
+          "contextCanvasIdentity": true,
+          "readbackColorSpace": "srgb",
+          "readbackPixelFormat": "rgba-unorm8"
+        },
+        "floor": {
+          "requested": true,
+          "attempted": true,
+          "read": true,
+          "width": 2400,
+          "height": 1800,
+          "existingCacheEvidence": true
+        },
+        "diagnostics": {
+          "mainContext": {
+            "canvasIdentity": true,
+            "getImageDataNative": true,
+            "getContextAttributes": {
+              "supported": true,
+              "available": true,
+              "values": {
+                "alpha": false,
+                "colorSpace": "srgb",
+                "colorType": "unorm8",
+                "desynchronized": false,
+                "willReadFrequently": false
+              },
+              "native": true
+            },
+            "state": {
+              "fillStyle": "#111d24",
+              "fillStyleKind": "string",
+              "globalAlpha": 1,
+              "globalCompositeOperation": "source-over",
+              "imageSmoothingEnabled": true,
+              "imageSmoothingQuality": "low",
+              "filter": "none",
+              "shadowColor": "rgba(0, 0, 0, 0)",
+              "shadowBlur": 0,
+              "shadowOffsetX": 0,
+              "shadowOffsetY": 0
+            },
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 0,
+              "f": 0
+            },
+            "clipPath": "not exposed; not inspected",
+            "contextPrototypeMatches": true,
+            "canvasPrototypeMatches": true
+          },
+          "floorContext": {
+            "canvasIdentity": true,
+            "getImageDataNative": true,
+            "getContextAttributes": {
+              "supported": true,
+              "available": true,
+              "values": {
+                "alpha": true,
+                "colorSpace": "srgb",
+                "colorType": "unorm8",
+                "desynchronized": false,
+                "willReadFrequently": false
+              },
+              "native": true
+            },
+            "state": {
+              "fillStyle": "#354140",
+              "fillStyleKind": "string",
+              "globalAlpha": 1,
+              "globalCompositeOperation": "source-over",
+              "imageSmoothingEnabled": true,
+              "imageSmoothingQuality": "low",
+              "filter": "none",
+              "shadowColor": "rgba(0, 0, 0, 0)",
+              "shadowBlur": 0,
+              "shadowOffsetX": 0,
+              "shadowOffsetY": 0
+            },
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 0,
+              "f": 0
+            },
+            "clipPath": "not exposed; not inspected",
+            "contextPrototypeMatches": true,
+            "canvasPrototypeMatches": true
+          },
+          "renderer": {
+            "width": 960,
+            "height": 640,
+            "dpr": 1,
+            "zoom": 0.88,
+            "offsetY": 28,
+            "lastNow": 4.8,
+            "camera": {
+              "x": 1200,
+              "y": 930
+            },
+            "cameraProjection": {
+              "x": 233.8268590217984,
+              "y": 1065
+            },
+            "cameraReady": true,
+            "asphaltStatus": "ready",
+            "asphaltPresent": true,
+            "floor": {
+              "observed": true,
+              "present": true,
+              "worldIdentityPresent": true,
+              "key": "2400:1800:0:hospital:demolition:mission-01:#21313b:#2b3c47:#55616a:22:4",
+              "width": 2400,
+              "height": 1800,
+              "sameAsReadSurface": true,
+              "world": {
+                "seed": 774,
+                "width": 2400,
+                "height": 1800,
+                "theme": "demolition",
+                "city": null,
+                "missionId": "mission-01",
+                "missionIndex": 0,
+                "rooftop": null,
+                "paletteAsphalt": "#4c473e"
+              }
+            }
+          },
+          "native": {
+            "player": {
+              "present": true,
+              "ready": true,
+              "lost": false,
+              "error": null,
+              "modelCount": 2,
+              "modelKeys": [
+                "walk",
+                "run"
+              ],
+              "pendingCount": null,
+              "pendingKeys": [],
+              "renderFrame": 80
+            },
+            "enemies": {
+              "present": true,
+              "ready": null,
+              "lost": false,
+              "error": "",
+              "modelCount": 1,
+              "modelKeys": [
+                "enemy-walker"
+              ],
+              "pendingCount": 2,
+              "pendingKeys": [
+                "enemy-walker",
+                "enemy-gas"
+              ],
+              "renderFrame": 403
+            },
+            "boss": {
+              "present": true,
+              "ready": null,
+              "lost": false,
+              "error": "",
+              "modelCount": 2,
+              "modelKeys": [
+                "boss-01-mid",
+                "boss-01-final"
+              ],
+              "pendingCount": 2,
+              "pendingKeys": [
+                "boss-01-mid",
+                "boss-01-final"
+              ],
+              "renderFrame": 0
+            },
+            "enemySelection": {
+              "available": true,
+              "count": 12,
+              "observed": 12,
+              "truncated": false,
+              "entries": [
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                }
+              ]
+            },
+            "corpseSelection": {
+              "available": true,
+              "count": 0,
+              "observed": 0,
+              "truncated": false,
+              "entries": []
+            },
+            "playerLastSelection": {
+              "id": "survivor-original-live-rig",
+              "source": "native"
+            },
+            "fallbackVisible": {
+              "ids": [],
+              "complete": false,
+              "scope": "Cached selected entries for current liveEnemySelection/liveCorpseSelection only. Renderer exposes no enumerable selection ID list for all other baked/fallback-visible actors."
+            },
+            "lastPublicDrawStatus": {
+              "productionPlayer": "survivor-original-live-rig",
+              "productionDrawStatus": "native",
+              "productionRig": "live",
+              "productionEnemyRig": "live",
+              "productionBossRig": "ready"
+            }
+          }
+        },
+        "errors": [],
+        "cleanup": {
+          "rawArraysRetained": false,
+          "newSurfaces": 0,
+          "newContextsCreatedByHelper": 0,
+          "existingFloorContextRequests": 1,
+          "productionMutations": 0,
+          "mainOwnerUnchanged": true,
+          "mainGeometryUnchanged": true,
+          "mainReadMethodUnchanged": true,
+          "floorOwnerUnchanged": true,
+          "floorGeometryUnchanged": true,
+          "floorWorldUnchanged": true,
+          "floorKeyUnchanged": true,
+          "floorReadMethodUnchanged": true
+        },
+        "note": "QA-owned original Renderer read diagnostic only. R0 is the caller's previously captured main RGBA array. R1 is read before hashes, metadata or Canvas state inspection; a differing R1 stops before any floor observation or R2. If requested, F reads the original source-created, already cached floor using getContext(\"2d\") without options, then R2 reads the same main context. No tick, render, await, export, drawing, state setter, wrapper, new surface or asset is added. A floor read can itself materialize backing storage. Native function/brand observations and context attributes do not identify a GPU/backend or prove its behavior. State is inspected after the read sequence; no pre-read state snapshot or invisible clip/path equivalence is claimed. Hashes are bounded noncryptographic byte fingerprints, not source authenticity. This is neither a timing/performance acceptance nor presented FPS evidence. Any later PNG export is separate from R0 and cannot certify the exact R0 bytes."
+      }
+    },
+    {
+      "arm": "A2",
+      "mode": "original",
+      "samples": 40,
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      },
+      "originalReadbackGameUnchanged": true,
+      "originalReadback": {
+        "complete": true,
+        "stable": true,
+        "injected": false,
+        "reason": "stable-original-readbacks",
+        "readFloor": true,
+        "readSequence": [
+          "R1",
+          "F",
+          "R2"
+        ],
+        "geometry": {
+          "mainWidth": 960,
+          "mainHeight": 640,
+          "floorWidth": 2400,
+          "floorHeight": 1800
+        },
+        "primary": {
+          "expectedBytes": 2457600,
+          "providedBytes": 2457600
+        },
+        "comparisons": {
+          "R0R1": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R0R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R1R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          }
+        },
+        "hashes": {
+          "R0": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "R1": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "F": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 17280000,
+            "value": "f7a50238"
+          },
+          "R2": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          }
+        },
+        "main": {
+          "width": 960,
+          "height": 640,
+          "contextCanvasIdentity": true,
+          "readbackColorSpace": "srgb",
+          "readbackPixelFormat": "rgba-unorm8"
+        },
+        "floor": {
+          "requested": true,
+          "attempted": true,
+          "read": true,
+          "width": 2400,
+          "height": 1800,
+          "existingCacheEvidence": true
+        },
+        "diagnostics": {
+          "mainContext": {
+            "canvasIdentity": true,
+            "getImageDataNative": true,
+            "getContextAttributes": {
+              "supported": true,
+              "available": true,
+              "values": {
+                "alpha": false,
+                "colorSpace": "srgb",
+                "colorType": "unorm8",
+                "desynchronized": false,
+                "willReadFrequently": false
+              },
+              "native": true
+            },
+            "state": {
+              "fillStyle": "#111d24",
+              "fillStyleKind": "string",
+              "globalAlpha": 1,
+              "globalCompositeOperation": "source-over",
+              "imageSmoothingEnabled": true,
+              "imageSmoothingQuality": "low",
+              "filter": "none",
+              "shadowColor": "rgba(0, 0, 0, 0)",
+              "shadowBlur": 0,
+              "shadowOffsetX": 0,
+              "shadowOffsetY": 0
+            },
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 0,
+              "f": 0
+            },
+            "clipPath": "not exposed; not inspected",
+            "contextPrototypeMatches": true,
+            "canvasPrototypeMatches": true
+          },
+          "floorContext": {
+            "canvasIdentity": true,
+            "getImageDataNative": true,
+            "getContextAttributes": {
+              "supported": true,
+              "available": true,
+              "values": {
+                "alpha": true,
+                "colorSpace": "srgb",
+                "colorType": "unorm8",
+                "desynchronized": false,
+                "willReadFrequently": false
+              },
+              "native": true
+            },
+            "state": {
+              "fillStyle": "#354140",
+              "fillStyleKind": "string",
+              "globalAlpha": 1,
+              "globalCompositeOperation": "source-over",
+              "imageSmoothingEnabled": true,
+              "imageSmoothingQuality": "low",
+              "filter": "none",
+              "shadowColor": "rgba(0, 0, 0, 0)",
+              "shadowBlur": 0,
+              "shadowOffsetX": 0,
+              "shadowOffsetY": 0
+            },
+            "transform": {
+              "a": 1,
+              "b": 0,
+              "c": 0,
+              "d": 1,
+              "e": 0,
+              "f": 0
+            },
+            "clipPath": "not exposed; not inspected",
+            "contextPrototypeMatches": true,
+            "canvasPrototypeMatches": true
+          },
+          "renderer": {
+            "width": 960,
+            "height": 640,
+            "dpr": 1,
+            "zoom": 0.88,
+            "offsetY": 28,
+            "lastNow": 4.8,
+            "camera": {
+              "x": 1200,
+              "y": 930
+            },
+            "cameraProjection": {
+              "x": 233.8268590217984,
+              "y": 1065
+            },
+            "cameraReady": true,
+            "asphaltStatus": "ready",
+            "asphaltPresent": true,
+            "floor": {
+              "observed": true,
+              "present": true,
+              "worldIdentityPresent": true,
+              "key": "2400:1800:0:hospital:demolition:mission-01:#21313b:#2b3c47:#55616a:22:4",
+              "width": 2400,
+              "height": 1800,
+              "sameAsReadSurface": true,
+              "world": {
+                "seed": 774,
+                "width": 2400,
+                "height": 1800,
+                "theme": "demolition",
+                "city": null,
+                "missionId": "mission-01",
+                "missionIndex": 0,
+                "rooftop": null,
+                "paletteAsphalt": "#4c473e"
+              }
+            }
+          },
+          "native": {
+            "player": {
+              "present": true,
+              "ready": true,
+              "lost": false,
+              "error": null,
+              "modelCount": 2,
+              "modelKeys": [
+                "run",
+                "walk"
+              ],
+              "pendingCount": null,
+              "pendingKeys": [],
+              "renderFrame": 80
+            },
+            "enemies": {
+              "present": true,
+              "ready": null,
+              "lost": false,
+              "error": "",
+              "modelCount": 1,
+              "modelKeys": [
+                "enemy-walker"
+              ],
+              "pendingCount": 2,
+              "pendingKeys": [
+                "enemy-walker",
+                "enemy-gas"
+              ],
+              "renderFrame": 403
+            },
+            "boss": {
+              "present": true,
+              "ready": null,
+              "lost": false,
+              "error": "",
+              "modelCount": 2,
+              "modelKeys": [
+                "boss-01-final",
+                "boss-01-mid"
+              ],
+              "pendingCount": 2,
+              "pendingKeys": [
+                "boss-01-mid",
+                "boss-01-final"
+              ],
+              "renderFrame": 0
+            },
+            "enemySelection": {
+              "available": true,
+              "count": 12,
+              "observed": 12,
+              "truncated": false,
+              "entries": [
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                },
+                {
+                  "type": null,
+                  "bossKey": null,
+                  "cached": true,
+                  "id": "enemy-walker-rig-motion",
+                  "source": "native"
+                }
+              ]
+            },
+            "corpseSelection": {
+              "available": true,
+              "count": 0,
+              "observed": 0,
+              "truncated": false,
+              "entries": []
+            },
+            "playerLastSelection": {
+              "id": "survivor-original-live-rig",
+              "source": "native"
+            },
+            "fallbackVisible": {
+              "ids": [],
+              "complete": false,
+              "scope": "Cached selected entries for current liveEnemySelection/liveCorpseSelection only. Renderer exposes no enumerable selection ID list for all other baked/fallback-visible actors."
+            },
+            "lastPublicDrawStatus": {
+              "productionPlayer": "survivor-original-live-rig",
+              "productionDrawStatus": "native",
+              "productionRig": "live",
+              "productionEnemyRig": "live",
+              "productionBossRig": "ready"
+            }
+          }
+        },
+        "errors": [],
+        "cleanup": {
+          "rawArraysRetained": false,
+          "newSurfaces": 0,
+          "newContextsCreatedByHelper": 0,
+          "existingFloorContextRequests": 1,
+          "productionMutations": 0,
+          "mainOwnerUnchanged": true,
+          "mainGeometryUnchanged": true,
+          "mainReadMethodUnchanged": true,
+          "floorOwnerUnchanged": true,
+          "floorGeometryUnchanged": true,
+          "floorWorldUnchanged": true,
+          "floorKeyUnchanged": true,
+          "floorReadMethodUnchanged": true
+        },
+        "note": "QA-owned original Renderer read diagnostic only. R0 is the caller's previously captured main RGBA array. R1 is read before hashes, metadata or Canvas state inspection; a differing R1 stops before any floor observation or R2. If requested, F reads the original source-created, already cached floor using getContext(\"2d\") without options, then R2 reads the same main context. No tick, render, await, export, drawing, state setter, wrapper, new surface or asset is added. A floor read can itself materialize backing storage. Native function/brand observations and context attributes do not identify a GPU/backend or prove its behavior. State is inspected after the read sequence; no pre-read state snapshot or invisible clip/path equivalence is claimed. Hashes are bounded noncryptographic byte fingerprints, not source authenticity. This is neither a timing/performance acceptance nor presented FPS evidence. Any later PNG export is separate from R0 and cannot certify the exact R0 bytes."
+      }
+    }
+  ],
+  "equivalence": {
+    "framesCompared": 40,
+    "state": true,
+    "events": true,
+    "commands": true,
+    "motion": true,
+    "random": true,
+    "visualRandom": true,
+    "mismatches": []
+  },
+  "pixels": {
+    "originalRepeat": {
+      "differentComponents": 0,
+      "maxDelta": 0,
+      "dimensionsEqual": true
+    }
+  },
+  "performance": {
+    "accepted": false,
+    "adopted": false,
+    "qualityOnly": true,
+    "note": "Original-only readback investigation. Extra reads can change later context/driver state. No candidate, performance comparison, FPS or peak-memory claim."
+  },
+  "cleanup": {
+    "ownedRenderers": 2,
+    "retiredRenderers": 2,
+    "ownedArts": 2,
+    "releasedArts": 2,
+    "hostsCreated": 2,
+    "hostsRemoved": 2,
+    "lateScheduled": 8,
+    "lateSettled": 8,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "finalAfterDrain": true,
+        "npcPendingRemaining": 0,
+        "bossPendingRemaining": 0,
+        "playerWeaponsRemaining": 0,
+        "playerWeaponLoadsRemaining": 0,
+        "allOwnedRigModelsRemaining": 0,
+        "allOwnedRigPendingRemaining": 0,
+        "nativeCanvasesReleased": true
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "finalAfterDrain": true,
+        "npcPendingRemaining": 0,
+        "bossPendingRemaining": 0,
+        "playerWeaponsRemaining": 0,
+        "playerWeaponLoadsRemaining": 0,
+        "allOwnedRigModelsRemaining": 0,
+        "allOwnedRigPendingRemaining": 0,
+        "nativeCanvasesReleased": true
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": true,
+    "drain": {
+      "complete": true,
+      "success": true,
+      "status": "complete",
+      "timedOut": false,
+      "overflow": false,
+      "capacity": 256,
+      "scheduled": 8,
+      "settled": 8,
+      "callbackEntered": 8,
+      "completed": 8,
+      "active": 0,
+      "fulfilled": 8,
+      "rejected": 0,
+      "retireFailed": 0,
+      "duplicates": 0,
+      "overflowed": 0,
+      "invalid": 0,
+      "observerFailures": 0,
+      "totalErrors": 0,
+      "lateRegistrations": 0,
+      "entries": [
+        {
+          "id": 1,
+          "label": {
+            "arm": "A1",
+            "kind": "candidate",
+            "key": "enemy-walker"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 2,
+          "label": {
+            "arm": "A1",
+            "kind": "candidate",
+            "key": "enemy-gas"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 3,
+          "label": {
+            "arm": "A1",
+            "kind": "boss",
+            "key": "boss-01-mid"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 4,
+          "label": {
+            "arm": "A1",
+            "kind": "boss",
+            "key": "boss-01-final"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 5,
+          "label": {
+            "arm": "A2",
+            "kind": "candidate",
+            "key": "enemy-walker"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 6,
+          "label": {
+            "arm": "A2",
+            "kind": "candidate",
+            "key": "enemy-gas"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 7,
+          "label": {
+            "arm": "A2",
+            "kind": "boss",
+            "key": "boss-01-mid"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 8,
+          "label": {
+            "arm": "A2",
+            "kind": "boss",
+            "key": "boss-01-final"
+          },
+          "status": "completed",
+          "fulfilled": true
+        }
+      ],
+      "pending": [],
+      "errors": [],
+      "wait": {
+        "started": true,
+        "finished": true,
+        "timeoutMs": 15000,
+        "startedAt": 48517.5,
+        "deadlineAt": 63517.5,
+        "elapsedMs": 582.8000000119209,
+        "timerActive": false,
+        "timersScheduled": 1,
+        "timersCleared": 1,
+        "timersFired": 0,
+        "timerCleanupComplete": true
+      },
+      "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+    }
+  },
+  "raw": {
+    "bytes": 367788,
+    "sha256": "14361149ec16b53fd3ce6a2d9b577da1100478ff3e983278e0deaefb82ef5c70"
+  }
+}

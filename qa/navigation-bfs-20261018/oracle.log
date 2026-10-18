@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: full original is pinned, BFS inverse is byte exact, and parked scalar changes are absent
+ok 1 - full original is pinned, BFS inverse is byte exact, and parked scalar changes are absent
+  ---
+  duration_ms: 7.0112
+  type: 'test'
+  ...
+# Subtest: component/field BFS preserves all typed writes, order, one method-getter read, custom this/arguments, throws and retained fresh callbacks
+ok 2 - component/field BFS preserves all typed writes, order, one method-getter read, custom this/arguments, throws and retained fresh callbacks
+  ---
+  duration_ms: 34.3747
+  type: 'test'
+  ...
+# Subtest: a prototype method replacement during an edges read affects the next original node; noncallable fallback preserves TypeError class/read count
+ok 3 - a prototype method replacement during an edges read affects the next original node; noncallable fallback preserves TypeError class/read count
+  ---
+  duration_ms: 6.2322
+  type: 'test'
+  ...
+# Subtest: seven real radii retain complete components/distances/next/field and grid LRU state across mutable worlds, failed fields and invalidation
+ok 4 - seven real radii retain complete components/distances/next/field and grid LRU state across mutable worlds, failed fields and invalidation
+  ---
+  duration_ms: 1386.7725
+  type: 'test'
+  ...
+# Subtest: controlled repeated corner/blocked-target path queries preserve every direction and position bit without Game or cadence changes
+ok 5 - controlled repeated corner/blocked-target path queries preserve every direction and position bit without Game or cadence changes
+  ---
+  duration_ms: 25.9737
+  type: 'test'
+  ...
+# Subtest: original rooftop and water worlds retain every radius route, rejected void segment and BFS cache output
+ok 6 - original rooftop and water worlds retain every radius route, rejected void segment and BFS cache output
+  ---
+  duration_ms: 200.0514
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2076.0977

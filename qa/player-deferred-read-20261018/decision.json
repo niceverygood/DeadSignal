@@ -1,0 +1,230 @@
+{
+  "status": "QA-only-not-adopted-native-same-pose-quality-passed-whole-scene-failed-cost-unexecuted",
+  "adopted": false,
+  "defaultProductChanged": false,
+  "task": "defer original player body Canvas read after armed GL/composition",
+  "focused": {
+    "exit": 0,
+    "tests": 29,
+    "pass": 29,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 73134.649,
+    "newCases": 20,
+    "previousRowCombatAndUICases": 9,
+    "oldModesComparedToWholePinnedBefore": 6,
+    "sourceCount": 457,
+    "sourceExactAfterFocused": true,
+    "protectedOriginalRecords": 22,
+    "protectedOriginalExact": true,
+    "priorUIPrefixBytes": 187056,
+    "priorUIPrefixExact": true,
+    "preExecutionReviewCorrection": "Only extraSixGLDraws key changed to totalSixGLDraws before tests. Initial and final source freeze retained separately.",
+    "scope": "Focused independent source/raster/protocol/ownership tests and old QA mode regression. Trusted Canvas fixtures are not actual GPU proof. Actual browser and whole suite pending."
+  },
+  "whole": {
+    "tests": 1265,
+    "pass": 1264,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 530262.5284,
+    "failures": [
+      "not ok 288 - twenty minutes of seeded autopilot keeps entity pools finite and bounded"
+    ],
+    "originalStress": {
+      "wallMs": 29573.86,
+      "cpuMs": 15188,
+      "cpuBudgetMs": 15000,
+      "sourceAndBudgetUnchanged": true
+    }
+  },
+  "verify": {
+    "exit": 1,
+    "firstReportedHistoricalMismatch": ".gitignore",
+    "immutableManifestChanged": false,
+    "note": "The verifier stops at its first mismatch; no claim that all later historical manifest entries were verified."
+  },
+  "quality": {
+    "sameContextOriginalCandidateOriginalFrames": 40,
+    "actualPlayerGLFrames": [
+      80,
+      240,
+      80
+    ],
+    "fullBodyRGBAColourMetadataDifferences": {
+      "calls": 40,
+      "passed": true,
+      "colourDifferences": 0,
+      "bodyDifferences": 0,
+      "metadataDifferences": 0,
+      "originalRepeatColourDifferences": 0,
+      "originalRepeatBodyDifferences": 0,
+      "originalRepeatMetadataDifferences": 0,
+      "maxColourDelta": 0,
+      "maxBodyDelta": 0,
+      "lastComparison": {
+        "colourAB": 0,
+        "colourAA": 0,
+        "colourBA": 0,
+        "bodyAB": 0,
+        "bodyAA": 0,
+        "bodyBA": 0,
+        "metadataAB": 0,
+        "metadataAA": 0,
+        "metadataBA": 0
+      }
+    },
+    "wholeCanvas": {
+      "candidateVsFirst": {
+        "differentComponents": 903,
+        "maxDelta": 67,
+        "dimensionsEqual": true
+      },
+      "originalRepeat": {
+        "differentComponents": 1322575,
+        "maxDelta": 69,
+        "dimensionsEqual": true
+      },
+      "candidateVsRepeat": {
+        "differentComponents": 1322461,
+        "maxDelta": 60,
+        "dimensionsEqual": true
+      }
+    },
+    "strictWholeCanvasPassed": false,
+    "literalGame": {
+      "framesCompared": 80,
+      "state": true,
+      "events": true,
+      "commands": true,
+      "motion": true,
+      "random": true,
+      "visualRandom": true,
+      "mismatches": []
+    },
+    "cleanup": {
+      "ownedRenderers": 3,
+      "retiredRenderers": 3,
+      "ownedArts": 3,
+      "releasedArts": 3,
+      "hostsCreated": 3,
+      "hostsRemoved": 3,
+      "lateScheduled": 12,
+      "lateSettled": 12,
+      "uncancelableAsphaltPending": 0,
+      "unprovenPlayerParallelLoads": 0,
+      "errors": [],
+      "arms": [
+        {
+          "arm": "A1",
+          "borrowedDetached": true,
+          "ownedRecordsRemaining": 0,
+          "npcModelsRemaining": 0,
+          "bossModelsRemaining": 0,
+          "playerModelsRemaining": 0,
+          "canvasReleased": true,
+          "installerRestored": true,
+          "latePending": 0,
+          "playerDeferredReadRestored": true
+        },
+        {
+          "arm": "B",
+          "borrowedDetached": true,
+          "ownedRecordsRemaining": 0,
+          "npcModelsRemaining": 0,
+          "bossModelsRemaining": 0,
+          "playerModelsRemaining": 0,
+          "canvasReleased": true,
+          "installerRestored": true,
+          "latePending": 0,
+          "playerDeferredReadRestored": true
+        },
+        {
+          "arm": "A2",
+          "borrowedDetached": true,
+          "ownedRecordsRemaining": 0,
+          "npcModelsRemaining": 0,
+          "bossModelsRemaining": 0,
+          "playerModelsRemaining": 0,
+          "canvasReleased": true,
+          "installerRestored": true,
+          "latePending": 0,
+          "playerDeferredReadRestored": true
+        }
+      ],
+      "mainOwnersUnchanged": true,
+      "mainArtUnchanged": true,
+      "mainRecordsUnchanged": true,
+      "mainNativeCachesUnchanged": true,
+      "mainSourceImagesUnchanged": true,
+      "complete": true
+    },
+    "consoleWarningsErrors": 0,
+    "note": "Quality-only extra draws/reads. Its wall timings are not performance evidence. Full source PNGs independently reproduce all reported wholeCanvas differences; no resize/correction/tolerance/new render used."
+  },
+  "cost": {
+    "status": "not-executed-browser-initial-load-and-control-failed",
+    "performanceAccepted": false,
+    "adopted": false,
+    "costButtonClicked": false,
+    "costCombatRuns": 0,
+    "candidateCostUsage": 0,
+    "costURL": "http://localhost:8851/qa-player-rig.html?qa=1&qa-memory=player-deferred-read-cost-20261018&qa-player-deferred-read=1",
+    "ownCostTab": "1494332567",
+    "ownQualityTab": "1494332562",
+    "qualityCloseReturned": true,
+    "qualityAbsentInLaterInventory": true,
+    "costCloseAttempted": true,
+    "costCloseConfirmed": false,
+    "initialNavigation": "Timed out after60s; actual screenshot showed original-asset-load-failed for survivor-shotgun-idle/walk/run/rig-motion: signal is aborted without reason.",
+    "recovery": "One reload of this own QA tab returned; subsequent status/screenshot and existing-tab rebind/close operations timed out and reset the CUA kernel.",
+    "laterInventory": "Same Chrome3 remained available and listed the own cost tab; no unrelated user tab was claimed, reloaded, closed or operated.",
+    "rootCause": "unresolved; source asset file/HTTP/Chrome/GPU/CUA cause not certified",
+    "serverReadOnlyCheck": {
+      "port": 8851,
+      "originalPID": 24016,
+      "serverUnchanged": true,
+      "qaHTMLStatus": 200,
+      "qaHTMLBytes": 1664,
+      "PowerShellRequestMs": 2657.497,
+      "requestNote": "Includes client/request setup; not a server-stage benchmark or proof that every model/atlas loaded."
+    },
+    "benchmarkRetry": false,
+    "originalQualityExtraDrawTimingsReusedAsCost": false,
+    "wholeSuiteStartedUTC": "2026-10-18T06:12:39Z",
+    "wholeSuiteEnvironmentLimit": "No measured GPU combat remained active, but cost-tab cleanup could not be confirmed before the suite. This is retained rather than described as an idle-system/stable-performance certificate.",
+    "user8806IABAndSavesTouched": false,
+    "forcedBrowserOrServerTermination": false,
+    "browserAutomaticEphemeralCleanupExpectedButNotClaimed": true,
+    "next": "After whole suite and current atomic handoff, clock-gated recovery of the existing same Chrome connection and inspection/closure of this own QA tab. Cost-only run remains unperformed. Preserve quality raw evidence and all failures; do not rerender to search for a passing pixel result."
+  },
+  "source": {
+    "count": 457,
+    "exactBeforeAfter": true,
+    "previous437Changed": [
+      "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "work/dead-signal-game/dist/qa-player-rig.js"
+    ],
+    "protectedOriginalRecords": 22,
+    "allProtectedExact": true,
+    "originalPlayerRuntimeExact": true,
+    "priorUIPrefixBytes": 187056,
+    "priorUIPrefixExact": true
+  },
+  "browser": {
+    "qualityTab": "1494332562",
+    "qualityClosedAndLaterInventoryAbsent": true,
+    "costTab": "1494332567",
+    "costButtonNeverClicked": true,
+    "costCloseAttemptedButUnconfirmed": true,
+    "controllerKernelsReset": true,
+    "user8806IABAndPendingChoicesUntouched": true
+  },
+  "deadline": "2026-10-19T00:00:00+09:00",
+  "automation4StatusChangedHere": false,
+  "automation7Resumed": false,
+  "forbiddenActionsPerformed": false,
+  "next": "Clock-gated browser connection/initial asset loading recovery and inspection/closure of the own failed cost tab, then isolate original wholeCanvas AA differences. Cost-only comparison remains unperformed; do not use quality timings or rerender in search of a passing pixel result. No new product optimization is adopted."
+}

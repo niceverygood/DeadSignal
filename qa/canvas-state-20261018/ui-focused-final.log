@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: new QA UI is append-only after the exact original 167556-byte player-rig script
+ok 1 - new QA UI is append-only after the exact original 167556-byte player-rig script
+  ---
+  duration_ms: 2.3494
+  type: 'test'
+  ...
+# Subtest: origin, memory and exact flag gate reject before DOM, owner, storage or helper inspection
+ok 2 - origin, memory and exact flag gate reject before DOM, owner, storage or helper inspection
+  ---
+  duration_ms: 0.4793
+  type: 'test'
+  ...
+# Subtest: only an explicit ready, idle click imports the utility and creates genuine isolated storage once
+ok 3 - only an explicit ready, idle click imports the utility and creates genuine isolated storage once
+  ---
+  duration_ms: 1.6412
+  type: 'test'
+  ...
+# Subtest: late imports after pagehide or owner replacement never run the candidate or access persistence
+ok 4 - late imports after pagehide or owner replacement never run the candidate or access persistence
+  ---
+  duration_ms: 0.5925
+  type: 'test'
+  ...
+# Subtest: quality failure is displayed as failure and a thrown helper is contained with button/listener cleanup
+ok 5 - quality failure is displayed as failure and a thrown helper is contained with button/listener cleanup
+  ---
+  duration_ms: 0.6946
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 116.1019

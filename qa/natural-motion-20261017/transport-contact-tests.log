@@ -1,0 +1,31 @@
+✔ automatic firing works without a pointer and selects the nearest living clear target (4.1945ms)
+✔ each weapon includes its muzzle offset and target body at the exact range boundary (10.8509ms)
+✔ buildings, cars, barrels and fences block automatic aim until destroyed (0.9876ms)
+✔ a closer blocked zombie does not prevent selecting a farther visible zombie (5.1991ms)
+✔ automatic aim respects inclusive 3px wall edges and the bullet collider square corner (1.8709ms)
+✔ desktop manual mode keeps pointer aim and fires only while its button is pressed (2.4743ms)
+✔ touch manual aim assistance changes aim but never supplies an unpressed fire button (2.6452ms)
+✔ automatic fire delegates ammo, damage and continued firing after reload to the engine (2.608ms)
+✔ switching from automatic to manual mode stops unpressed shots after the cooldown (1.5542ms)
+✔ paused, choice, menu and result states suppress both modes without advancing the run (2.0985ms)
+✔ selecting a firing intent is read-only for actors, checkpoints, RNG and effect queues (11.4766ms)
+✔ sixty seconds of representative automatic combat keeps normal entity bounds (756.2566ms)
+ℹ Automatic combat 60s: CPU=1015.00ms, wall=754.77ms, shots=268, kills=106, enemies=171
+✔ northern fresh launch has exact native checkpoint/bunker/vehicle coverage and valid save theme (38.4536ms)
+✔ escort uses constant-distance polyline travel and every payload footprint stays clear (16.5839ms)
+✔ escort advances only beside a clear vehicle, holds without reversing when blocked or away, and freezes paused (9.6839ms)
+✔ vehicle render interpolation is smooth and cannot alter progress, RNG or checkpoints (3.5934ms)
+✔ actual expedition completion keeps payload at arrival and awards the earned Israel cargo clue only after exit (7.5594ms)
+✔ walking, dashing and knockback cannot tunnel through the physical convoy body (3.8485ms)
+✔ moving convoy stops before touching the player and resumes after the front is cleared (1.605ms)
+✔ local navigation routes a body around a parked convoy without rebuilding static grids or entering it (22.921ms)
+✔ convoy blocks real bullets and auto aim with native metal feedback, without damage or explosions (4.9867ms)
+✔ pre-collision overlapping convoy saves recover nearby without losing progress, RNG, health or IDs (10.5063ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1022.9696

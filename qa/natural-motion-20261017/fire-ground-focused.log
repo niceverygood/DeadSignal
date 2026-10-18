@@ -1,0 +1,66 @@
+✔ the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly (5.2614ms)
+✔ metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input (4.889ms)
+✔ one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior (20.5954ms)
+✔ time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock (0.5162ms)
+✔ exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache (3.6158ms)
+✔ larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded (0.8988ms)
+✔ the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry (0.8408ms)
+✖ actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample (6.2473ms)
+✔ actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites (9.9453ms)
+✖ unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers (0.8221ms)
+✖ repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock (1.545ms)
+✔ native flame clusters can be restricted to supported surfaces without changing canvas state or substituting fallback polygons (0.4198ms)
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (2.9088ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (121.7119ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (1.865ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.5995ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (0.3238ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (1.0328ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (151.0523ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (37.0275ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (48.635ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (31.2162ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (3.2612ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (8.6349ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (0.6276ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (44.1983ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (3.0204ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (7.6086ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (0.9755ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (303.2433ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (26.8829ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (137.5465ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 29
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1119.2118
+
+✖ failing tests:
+
+test at tests\fire-art.test.mjs:131:1
+✖ actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample (6.2473ms)
+  TypeError: Cannot read properties of undefined (reading 'draw')
+      at Renderer.drawFire (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/renderer.js:1580:21)
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/fire-art.test.mjs:134:8)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests\fire-art.test.mjs:151:1
+✖ unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers (0.8221ms)
+  TypeError: Cannot read properties of undefined (reading 'draw')
+      at Renderer.drawFire (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/renderer.js:1580:21)
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/fire-art.test.mjs:153:92)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests\fire-art.test.mjs:165:1
+✖ repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock (1.545ms)
+  TypeError: Cannot read properties of undefined (reading 'draw')
+      at Renderer.drawFire (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/renderer.js:1580:21)
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/fire-art.test.mjs:168:86)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

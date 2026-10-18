@@ -1,0 +1,26 @@
+✔ the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly (7.6936ms)
+✔ metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input (5.2068ms)
+✔ one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior (12.9594ms)
+✔ time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock (0.4625ms)
+✔ exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache (3.7049ms)
+✔ larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded (0.8539ms)
+✔ the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry (0.7162ms)
+✔ actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample (7.8505ms)
+✔ actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites (7.5394ms)
+✔ unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers (4.1855ms)
+✔ repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock (2.5474ms)
+✔ native flame clusters can be restricted to supported surfaces without changing canvas state or substituting fallback polygons (0.5757ms)
+✔ scorch footprint is irregular and bounded by the actual fire radius; repeat renders reuse bounded cached surfaces (15.4722ms)
+✔ ground glow is driven by simulation age, static in reduced motion, and preserves caller alpha (1.1492ms)
+✔ molotov winds up, releases, arcs and lands before creating fire (3.3997ms)
+✔ in flight checkpoint resumes deterministically and old saves remain valid (7.4542ms)
+✔ projectile rejects corrupt state and remains bounded at maximum range (0.2553ms)
+✔ district transition clears pending projectiles (1.3872ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 254.1639

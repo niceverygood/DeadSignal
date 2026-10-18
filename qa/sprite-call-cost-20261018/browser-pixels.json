@@ -1,0 +1,428 @@
+{
+  "available": true,
+  "complete": true,
+  "reason": "selected-original-rgba-exact",
+  "cases": [
+    {
+      "kind": "native",
+      "available": true,
+      "complete": true,
+      "id": "enemy-walker-rig-motion",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      },
+      "sourceAtlas": {
+        "width": 256,
+        "height": 256
+      },
+      "scratchSize": {
+        "width": 288,
+        "height": 288
+      },
+      "rawRGBAestimatePerArm": 331776,
+      "returns": [
+        true,
+        true,
+        true
+      ],
+      "differenceAB": {
+        "components": 0,
+        "pixels": 0,
+        "maxDelta": 0
+      },
+      "differenceAA": {
+        "components": 0,
+        "pixels": 0,
+        "maxDelta": 0
+      },
+      "descriptorsRestored": true,
+      "observerComplete": true,
+      "observer": {
+        "enabled": true,
+        "samples": [
+          {
+            "proof": "native",
+            "frameIndex": 0,
+            "stages": {
+              "save": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "globalAlpha.get": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "globalAlpha.set": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "imageSmoothingEnabled.set": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "imageSmoothingQuality.set": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "drawImage": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0.19999998807907104
+              },
+              "restore": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "drawFrame": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0.40000003576278687
+              }
+            }
+          }
+        ],
+        "outliers": [
+          {
+            "frameIndex": 0,
+            "stage": "drawFrame",
+            "wallMs": 0.40000003576278687,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "drawImage",
+            "wallMs": 0.19999998807907104,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "save",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "globalAlpha.get",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "globalAlpha.set",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "imageSmoothingEnabled.set",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "imageSmoothingQuality.set",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "restore",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-rig-motion",
+            "source": "native",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 256,
+              "height": 256
+            }
+          }
+        ],
+        "unmeasured": [],
+        "note": "QA observes synchronous CPU call wall time of existing ProductionArt.drawFrame and Canvas calls on the supplied renderer context only. drawFrame, Canvas methods and accessors are inclusive observations; nested calls overlap and must not be added as exclusive costs. Observer hooks, clocks and primitive snapshots add overhead. Hooks detach at every endFrame and reinstall at the next beginFrame, adding per-frame property installation overhead and avoiding retired inner-observer wrappers when owners change. No extra draw, render, pixel read, bitmap, upload or asset operation is performed. Reports retain at most 80 frames and 32 primitive outliers; these bounds are not a peak-memory measurement. Source labels describe the selected sprite, not unique actors or renderer categories. No GPU execution time, FPS, performance improvement or cold-decode conclusion is implied. With an independent observer wrapping the same art, begin that observer first, end this observer first, and stop this observer first."
+      }
+    },
+    {
+      "kind": "baked",
+      "available": true,
+      "complete": true,
+      "id": "enemy-walker-locomotion-hq32",
+      "rect": {
+        "x": 2148,
+        "y": 761,
+        "width": 58,
+        "height": 146
+      },
+      "sourceAtlas": {
+        "width": 4096,
+        "height": 1480
+      },
+      "scratchSize": {
+        "width": 90,
+        "height": 178
+      },
+      "rawRGBAestimatePerArm": 64080,
+      "returns": [
+        true,
+        true,
+        true
+      ],
+      "differenceAB": {
+        "components": 0,
+        "pixels": 0,
+        "maxDelta": 0
+      },
+      "differenceAA": {
+        "components": 0,
+        "pixels": 0,
+        "maxDelta": 0
+      },
+      "descriptorsRestored": true,
+      "observerComplete": true,
+      "observer": {
+        "enabled": true,
+        "samples": [
+          {
+            "proof": "baked",
+            "frameIndex": 0,
+            "stages": {
+              "save": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "globalAlpha.get": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "globalAlpha.set": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "imageSmoothingEnabled.set": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "imageSmoothingQuality.set": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "drawImage": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "restore": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0
+              },
+              "drawFrame": {
+                "calls": 1,
+                "thrownCalls": 0,
+                "wallMs": 0.19999998807907104
+              }
+            }
+          }
+        ],
+        "outliers": [
+          {
+            "frameIndex": 0,
+            "stage": "drawFrame",
+            "wallMs": 0.19999998807907104,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "save",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "globalAlpha.get",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "globalAlpha.set",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "imageSmoothingEnabled.set",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "imageSmoothingQuality.set",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "drawImage",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          },
+          {
+            "frameIndex": 0,
+            "stage": "restore",
+            "wallMs": 0,
+            "threw": false,
+            "assetId": "enemy-walker-locomotion-hq32",
+            "source": "baked",
+            "rect": {
+              "x": 2148,
+              "y": 761,
+              "width": 58,
+              "height": 146
+            }
+          }
+        ],
+        "unmeasured": [],
+        "note": "QA observes synchronous CPU call wall time of existing ProductionArt.drawFrame and Canvas calls on the supplied renderer context only. drawFrame, Canvas methods and accessors are inclusive observations; nested calls overlap and must not be added as exclusive costs. Observer hooks, clocks and primitive snapshots add overhead. Hooks detach at every endFrame and reinstall at the next beginFrame, adding per-frame property installation overhead and avoiding retired inner-observer wrappers when owners change. No extra draw, render, pixel read, bitmap, upload or asset operation is performed. Reports retain at most 80 frames and 32 primitive outliers; these bounds are not a peak-memory measurement. Source labels describe the selected sprite, not unique actors or renderer categories. No GPU execution time, FPS, performance improvement or cold-decode conclusion is implied. With an independent observer wrapping the same art, begin that observer first, end this observer first, and stop this observer first."
+      }
+    }
+  ],
+  "cleanup": {
+    "scratchCreated": 8,
+    "scratchReleased": 8,
+    "errors": [],
+    "mainOwnersUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainMappingUnchanged": true,
+    "nativeCacheUnchanged": true,
+    "complete": true
+  },
+  "note": "Separate synchronous, post-measurement QA pixel probe. At most one already-cached native NPC cell and one already-ready original baked walker/runner cell are drawn on scratch canvases with the same original image, source rectangle and rect-sized placement. No live pose, model rendering, preload, decode, fetch, main-canvas draw, Game change or asset disposal occurs. A/B/A compares these selected inputs only, not the whole scene, all 12 live rigs or bosses. The observer remains unchanged and does not itself add draws; this explicit utility performs three original draws per selected input. Exact RGBA equality is required, with no tolerance or retry. Scratch dimensions and raw-RGBA estimates are geometry bounds, not peak memory or GPU allocation measurements. No FPS, GPU-time, decode or performance claim follows."
+}

@@ -1,0 +1,19 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const qa=new URL('./',import.meta.url),keys=['boss-02-final','boss-06-final'],out=[];
+const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+for(const key of keys){
+ const file='iab-'+key+'-report.json';let bytes;try{bytes=await readFile(new URL(file,qa));}catch(error){out.push({key,passed:false,errors:['native capture not available: '+error.code]});continue;}const raw=JSON.parse(bytes),report=raw.reports?raw:raw.report;
+ const errors=[];try{
+  assert.ok(report);assert.equal(raw.complete,true);assert.equal(report.complete,true);assert.notEqual(report.injected,true);assert.deepEqual(report.selectedBossKeys,[key]);assert.equal(report.fullCatalogue,false);assert.equal(report.activeSamples,56);assert.equal(report.inactiveSamples,6);
+  assert.equal(report.cleanup.complete,true);assert.equal(report.cleanup.mainOwnersUnchanged,true);assert.deepEqual(report.cleanup.errors,[]);assert.equal(report.reports.length,1);
+  const boss=report.reports[0];assert.equal(boss.key,key);assert.equal(boss.angles.length,4);assert.equal(boss.inactive.length,3);assert.equal(boss.allProtectedExact,true);assert.equal(boss.inactiveExact,true);assert.equal(boss.unclipped,true);assert.equal(boss.source.unchanged,true);assert.ok(boss.source.bytesCompared>0);
+  for(const angle of boss.angles){assert.equal(angle.original.length,7);assert.equal(angle.candidate.length,7);assert.equal(angle.feetAndHipsExact,true);assert.equal(angle.introducedClipping,false);assert.ok(angle.changedPhases>0);for(const sample of [...angle.original,...angle.candidate]){assert.equal(sample.liveRig,true);assert.equal(sample.private512,true);assert.ok(sample.nativeGLSubmissions>0);assert.equal(sample.clipped,false);}}
+  for(const inactive of boss.inactive){assert.equal(inactive.differentComponents,0);assert.equal(inactive.maxDelta,0);assert.equal(inactive.bonesExact,true);assert.equal(inactive.feetAndHipsExact,true);}
+ }catch(error){errors.push(error.message);}
+ let png;try{png=await readFile(new URL('iab-'+key+'.png',qa));}catch(error){errors.push('native contact PNG not available: '+error.code);}
+ out.push({key,passed:errors.length===0,errors,selectedBossKeys:report?.selectedBossKeys??null,activeSamples:report?.activeSamples??null,inactiveSamples:report?.inactiveSamples??null,quality:report?.reports?.map(b=>({key:b.key,allProtectedExact:b.allProtectedExact,inactiveExact:b.inactiveExact,unclipped:b.unclipped,initialHandTravelTargetPassed:b.initialHandTravelTargetPassed,handTravel:b.angles?.map(a=>({angle:a.angle,changedPhases:a.changedPhases,candidatePixels:a.handTravel.candidate.maxTravelPixels,targetPixels:a.handTravel.candidate.targetPixels,diagnosticPassed:a.handTravel.initialQATargetPassed}))}))??[],cleanup:report?.cleanup??null,evidence:[{file,bytes:bytes.length,sha256:sha(bytes)},...(png?[{file:'iab-'+key+'.png',bytes:png.length,sha256:sha(png)}]:[])]});
+}
+const result={scope:'two final-boss native action subsets with bounded owned cleanup',passed:out.every(r=>r.passed),bosses:out,fullCatalogue:false,productAdopted:false,performanceEvidence:false,exactBoundaryOrTransitionCoverage:false,note:'56active+6freshinactive per boss plus walk priming. Geometry/index/UV/skin buffers and source identities are checked in the native worker; report FNV fields only summarize literal comparisons. Hand10% travel remains diagnostic. Does not certify remaining final bosses, middle bosses, actual fights, windup1/attack0/.72 or75ms blend/hit/death transitions, naturalness, FPS or peak memory. No favorable native retries.'};
+await writeFile(new URL('native-analysis.json',qa),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({passed:result.passed,bosses:out.map(r=>({key:r.key,passed:r.passed,errors:r.errors})),productAdopted:false}));if(!result.passed)process.exitCode=1;

@@ -1,0 +1,26 @@
+✔ new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical (38.4119ms)
+✔ all field objectives are physically reachable from the actual spawn (18.1526ms)
+✔ objectives require proximity and sustained interaction; release, damage and pause prevent free completion (0.6961ms)
+✔ partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected (14.2914ms)
+✔ actual objective completion raises threat then ends only after all three actions (0.7019ms)
+✔ expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock (0.8749ms)
+✔ roof union supports overlap joins but rejects void and keeps finite-radius bodies off every outside edge (9.1014ms)
+✔ actual player and large elite navigation cross only the catwalk without cutting across air (54.4737ms)
+✔ actual rooftop has complete original native art coverage and cannot dash through the void (23.3394ms)
+✔ defense advances while moving inside the signal radius, decays outside, pauses and saves mid-transmission (3.7727ms)
+✔ roof metadata is key-order independent but rejects forged platforms, elevation and off-platform saved actors (3.796ms)
+✔ rooftop requires city progress and records its own verified objective completion without erasing the first expedition (0.4555ms)
+✔ molotov aimed into rooftop void falls below the level, resumes mid-fall and creates no floating damage field (2.6565ms)
+✔ fresh launch preloads the actual expedition world and native roof surface before commit (10.8398ms)
+✔ radio starts on a real new mission and freezes across pause without touching checkpoints or RNG (9.3132ms)
+✔ only matching real boss milestones create cues; duplicates and false kills stay silent (1.5149ms)
+✔ restored progress does not replay opening, and fresh mission identity resets radio (2.2658ms)
+✔ victory clue requires the actual final boss result and never claims overseas maps are completed (0.5459ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 365.0736

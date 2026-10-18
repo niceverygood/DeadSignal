@@ -1,0 +1,316 @@
+TAP version 13
+# Subtest: unsupported, invalid, pre-aborted and state-getter failures refuse warmup before allocation without changing read statistics or source pixels
+ok 1 - unsupported, invalid, pre-aborted and state-getter failures refuse warmup before allocation without changing read statistics or source pixels
+  ---
+  duration_ms: 5.8153
+  type: 'test'
+  ...
+# Subtest: warmup compiles both materials once, restores state before waiting, shares its flight and lets the next exact read reuse every resource
+ok 2 - warmup compiles both materials once, restores state before waiting, shares its flight and lets the next exact read reuse every resource
+  ---
+  duration_ms: 8.1158
+  type: 'test'
+  ...
+# Subtest: abort and dispose settle immediately, release once and isolate late completion or rejection from a replacement flight
+ok 3 - abort and dispose settle immediately, release once and isolate late completion or rejection from a replacement flight
+  ---
+  duration_ms: 10.1774
+  type: 'test'
+  ...
+# Subtest: preparation, binding, compilation and readonly restoration failures never report READY and release resources before retry
+ok 4 - preparation, binding, compilation and readonly restoration failures never report READY and release resources before retry
+  ---
+  duration_ms: 8.8308
+  type: 'test'
+  ...
+# Subtest: timeout, context loss and XR changes cancel pending readiness without late resurrection and allow clean preparation afterward
+ok 5 - timeout, context loss and XR changes cancel pending readiness without late resurrection and allow clean preparation afterward
+  ---
+  duration_ms: 5.2392
+  type: 'test'
+  ...
+# Subtest: one failed restoration setter still attempts every subsequent renderer-state restoration and never reports READY
+ok 6 - one failed restoration setter still attempts every subsequent renderer-state restoration and never reports READY
+  ---
+  duration_ms: 3.2332
+  type: 'test'
+  ...
+# Subtest: prepare cancels an in-flight generation and event-supported context loss invalidates even a transient lost/restored interval while unregistering old owners
+ok 7 - prepare cancels an in-flight generation and event-supported context loss invalidates even a transient lost/restored interval while unregistering old owners
+  ---
+  duration_ms: 1.7624
+  type: 'test'
+  ...
+# Subtest: explicit idle leases are bounded, survive only pending preparation or readiness before the first successful read, and do not appear by default
+ok 8 - explicit idle leases are bounded, survive only pending preparation or readiness before the first successful read, and do not appear by default
+  ---
+  duration_ms: 5.2606
+  type: 'test'
+  ...
+# Subtest: actual LiveBossRig idle cleanup honors only compatible explicit leases and preserves private completed death images through release
+ok 9 - actual LiveBossRig idle cleanup honors only compatible explicit leases and preserves private completed death images through release
+  ---
+  duration_ms: 5.6101
+  type: 'test'
+  ...
+# Subtest: sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+ok 10 - sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+  ---
+  duration_ms: 26.7249
+  type: 'test'
+  ...
+# Subtest: invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+ok 11 - invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+  ---
+  duration_ms: 2.4999
+  type: 'test'
+  ...
+# Subtest: cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+ok 12 - cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+  ---
+  duration_ms: 5.1532
+  type: 'test'
+  ...
+# Subtest: timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+ok 13 - timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+  ---
+  duration_ms: 12.7467
+  type: 'test'
+  ...
+# Subtest: shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+ok 14 - shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+  ---
+  duration_ms: 6.6912
+  type: 'test'
+  ...
+# Subtest: load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+ok 15 - load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+  ---
+  duration_ms: 2.7913
+  type: 'test'
+  ...
+# Subtest: original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+ok 16 - original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+  ---
+  duration_ms: 10.8507
+  type: 'test'
+  ...
+# Subtest: an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+ok 17 - an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+  ---
+  duration_ms: 1.1957
+  type: 'test'
+  ...
+# Subtest: cancelled asynchronous creation retires only its late new rig and never disposes an existing rig returned by a faulty factory
+ok 18 - cancelled asynchronous creation retires only its late new rig and never disposes an existing rig returned by a faulty factory
+  ---
+  duration_ms: 1.4536
+  type: 'test'
+  ...
+# Subtest: an original rig becoming active during candidate loading rejects the candidate before any texture upload and preserves that active owner
+ok 19 - an original rig becoming active during candidate loading rejects the candidate before any texture upload and preserves that active owner
+  ---
+  duration_ms: 2.3141
+  type: 'test'
+  ...
+# Subtest: default/protected/unbranded/unknown/invalid-fixture modes install no hook and perform no owner, storage, GPU or model IO
+ok 20 - default/protected/unbranded/unknown/invalid-fixture modes install no hook and perform no owner, storage, GPU or model IO
+  ---
+  duration_ms: 22.3321
+  type: 'test'
+  ...
+# Subtest: CPU and exact share original max-three 4K texture/shader preparation, preserve call arguments and return the same unadopted handle
+ok 21 - CPU and exact share original max-three 4K texture/shader preparation, preserve call arguments and return the same unadopted handle
+  ---
+  duration_ms: 28.0151
+  type: 'test'
+  ...
+# Subtest: original app adoption owns the ready rig; snapshot observes paused native usage and stop never disposes or aborts the product rig
+ok 22 - original app adoption owns the ready rig; snapshot observes paused native usage and stop never disposes or aborts the product rig
+  ---
+  duration_ms: 14.5465
+  type: 'test'
+  ...
+# Subtest: hot original rigs and invalid rosters keep their original fallback without constructing a forced context
+ok 23 - hot original rigs and invalid rosters keep their original fallback without constructing a forced context
+  ---
+  duration_ms: 17.0251
+  type: 'test'
+  ...
+# Subtest: original errors retain identity; false warmup, state changes, lost contexts and stale candidates return null and clean only the candidate
+ok 24 - original errors retain identity; false warmup, state changes, lost contexts and stale candidates return null and clean only the candidate
+  ---
+  duration_ms: 88.1682
+  type: 'test'
+  ...
+# Subtest: parent abort, timeout, stop and a superseding token cancel pending work and reject late adoption while releasing late models
+ok 25 - parent abort, timeout, stop and a superseding token cancel pending work and reject late adoption while releasing late models
+  ---
+  duration_ms: 77.9401
+  type: 'test'
+  ...
+# Subtest: ready but unadopted handles remain linked to the LaunchGate signal until commit
+ok 26 - ready but unadopted handles remain linked to the LaunchGate signal until commit
+  ---
+  duration_ms: 17.6842
+  type: 'test'
+  ...
+# Subtest: foreign owner/attribute/method replacements survive cleanup, while borrowed calls and accessor options retain original forwarding semantics
+ok 27 - foreign owner/attribute/method replacements survive cleanup, while borrowed calls and accessor options retain original forwarding semantics
+  ---
+  duration_ms: 25.2203
+  type: 'test'
+  ...
+# Subtest: an externally replaced pending method or its same-value attributes remains authoritative and its candidate is never returned
+ok 28 - an externally replaced pending method or its same-value attributes remains authoritative and its candidate is never returned
+  ---
+  duration_ms: 23.1124
+  type: 'test'
+  ...
+# Subtest: the original undefined-to-loaded owner transition is accepted while a faulty handle can never dispose the original rig
+ok 29 - the original undefined-to-loaded owner transition is accepted while a faulty handle can never dispose the original rig
+  ---
+  duration_ms: 72.9628
+  type: 'test'
+  ...
+# Subtest: transient context loss or restore while warming invalidates the pending candidate and cannot later adopt it
+ok 30 - transient context loss or restore while warming invalidates the pending candidate and cannot later adopt it
+  ---
+  duration_ms: 18.6085
+  type: 'test'
+  ...
+# Subtest: inherited methods restore without an instance shadow and duplicate, accessor or immutable hooks are rejected without invoking them
+ok 31 - inherited methods restore without an instance shadow and duplicate, accessor or immutable hooks are rejected without invoking them
+  ---
+  duration_ms: 20.0981
+  type: 'test'
+  ...
+# Subtest: movement mode parsing accepts only the explicit counts and wall values
+ok 32 - movement mode parsing accepts only the explicit counts and wall values
+  ---
+  duration_ms: 12.7773
+  type: 'test'
+  ...
+# Subtest: protected origins and unbranded storage reject before DOM, read or any observer factory
+ok 33 - protected origins and unbranded storage reject before DOM, read or any observer factory
+  ---
+  duration_ms: 5.6437
+  type: 'test'
+  ...
+# Subtest: absent or unknown movement mode preserves the full original report, clock calls and Game behavior
+ok 34 - absent or unknown movement mode preserves the full original report, clock calls and Game behavior
+  ---
+  duration_ms: 114.7434
+  type: 'test'
+  ...
+# Subtest: enabled movement lifecycle composes with native and cost without supplying extra ticks, events or renders
+ok 35 - enabled movement lifecycle composes with native and cost without supplying extra ticks, events or renders
+  ---
+  duration_ms: 38.3138
+  type: 'test'
+  ...
+# Subtest: the actual movement helper observes normal clamped Game calls and restores only its own instance methods
+ok 36 - the actual movement helper observes normal clamped Game calls and restores only its own instance methods
+  ---
+  duration_ms: 39.7336
+  type: 'test'
+  ...
+# Subtest: an original frame exception keeps its identity while every composed observer stops and restores
+ok 37 - an original frame exception keeps its identity while every composed observer stops and restores
+  ---
+  duration_ms: 7.2373
+  type: 'test'
+  ...
+# Subtest: app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+ok 38 - app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+  ---
+  duration_ms: 3.918
+  type: 'test'
+  ...
+# Subtest: memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+ok 39 - memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+  ---
+  duration_ms: 189.9526
+  type: 'test'
+  ...
+# Subtest: invalid density never seeds or saves a partial memory checkpoint
+ok 40 - invalid density never seeds or saves a partial memory checkpoint
+  ---
+  duration_ms: 1.2393
+  type: 'test'
+  ...
+# Subtest: real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+ok 41 - real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+  ---
+  duration_ms: 167.5941
+  type: 'test'
+  ...
+# Subtest: the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+ok 42 - the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+  ---
+  duration_ms: 10.454
+  type: 'test'
+  ...
+# Subtest: external replacements survive stop and a new Game releases the previous instance wrappers
+ok 43 - external replacements survive stop and a new Game releases the previous instance wrappers
+  ---
+  duration_ms: 6.9616
+  type: 'test'
+  ...
+# Subtest: start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+ok 44 - start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+  ---
+  duration_ms: 5.3863
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original frame return value
+ok 45 - a failing stop observer cannot replace the original frame return value
+  ---
+  duration_ms: 5.669
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original thrown frame error
+ok 46 - a failing stop observer cannot replace the original thrown frame error
+  ---
+  duration_ms: 6.7566
+  type: 'test'
+  ...
+# Subtest: original observer tick arguments, post-catchup drains, final checkpoint and both RNGs replay exactly without mutating trace input
+ok 47 - original observer tick arguments, post-catchup drains, final checkpoint and both RNGs replay exactly without mutating trace input
+  ---
+  duration_ms: 69.9718
+  type: 'test'
+  ...
+# Subtest: checkpoint, RNG, frame and recorded-event mismatches are exposed strictly without changing HP, inventing drains or filtering events
+ok 48 - checkpoint, RNG, frame and recorded-event mismatches are exposed strictly without changing HP, inventing drains or filtering events
+  ---
+  duration_ms: 38.3863
+  type: 'test'
+  ...
+# Subtest: ambiguous event-drain evidence, invalid ordering/counts and unrestorable checkpoints fail instead of claiming an exact replay
+ok 49 - ambiguous event-drain evidence, invalid ordering/counts and unrestorable checkpoints fail instead of claiming an exact replay
+  ---
+  duration_ms: 57.7502
+  type: 'test'
+  ...
+# Subtest: initial, final and every before/after context must contain real supported game fields before replay can claim context equality
+ok 50 - initial, final and every before/after context must contain real supported game fields before replay can claim context equality
+  ---
+  duration_ms: 35.7886
+  type: 'test'
+  ...
+# Subtest: CLI creates reports exclusively, preserves original evidence, reports mismatches as exit1 and invalid input/I/O as exit2
+ok 51 - CLI creates reports exclusively, preserves original evidence, reports mismatches as exit1 and invalid input/I/O as exit2
+  ---
+  duration_ms: 58.208
+  type: 'test'
+  ...
+1..51
+# tests 51
+# suites 0
+# pass 51
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1359.797

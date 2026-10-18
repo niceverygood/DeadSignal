@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical
+ok 1 - new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical
+  ---
+  duration_ms: 152.2686
+  type: 'test'
+  ...
+# Subtest: all field objectives are physically reachable from the actual spawn
+ok 2 - all field objectives are physically reachable from the actual spawn
+  ---
+  duration_ms: 31.5075
+  type: 'test'
+  ...
+# Subtest: objectives require proximity and sustained interaction; release, damage and pause prevent free completion
+ok 3 - objectives require proximity and sustained interaction; release, damage and pause prevent free completion
+  ---
+  duration_ms: 0.9902
+  type: 'test'
+  ...
+# Subtest: partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected
+ok 4 - partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected
+  ---
+  duration_ms: 10.1267
+  type: 'test'
+  ...
+# Subtest: actual objective completion raises threat then ends only after all three actions
+ok 5 - actual objective completion raises threat then ends only after all three actions
+  ---
+  duration_ms: 0.6849
+  type: 'test'
+  ...
+# Subtest: expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock
+ok 6 - expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock
+  ---
+  duration_ms: 1.0313
+  type: 'test'
+  ...
+# Subtest: delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events
+ok 7 - delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events
+  ---
+  duration_ms: 11.9643
+  type: 'test'
+  ...
+# Subtest: selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request
+ok 8 - selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request
+  ---
+  duration_ms: 0.3387
+  type: 'test'
+  ...
+# Subtest: failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness
+ok 9 - failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness
+  ---
+  duration_ms: 4.5025
+  type: 'test'
+  ...
+# Subtest: operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules
+ok 10 - operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules
+  ---
+  duration_ms: 4.0383
+  type: 'test'
+  ...
+# Subtest: environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state
+ok 11 - environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state
+  ---
+  duration_ms: 40.3909
+  type: 'test'
+  ...
+# Subtest: preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure
+ok 12 - preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure
+  ---
+  duration_ms: 1.8925
+  type: 'test'
+  ...
+# Subtest: registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks
+ok 13 - registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks
+  ---
+  duration_ms: 2.1381
+  type: 'test'
+  ...
+# Subtest: actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable
+ok 14 - actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable
+  ---
+  duration_ms: 27.9493
+  type: 'test'
+  ...
+# Subtest: an actor physically reaches the other side of an L corner without crossing a wall
+ok 15 - an actor physically reaches the other side of an L corner without crossing a wall
+  ---
+  duration_ms: 17.1197
+  type: 'test'
+  ...
+# Subtest: player and lure can alternate flow fields and lead through different corners
+ok 16 - player and lure can alternate flow fields and lead through different corners
+  ---
+  duration_ms: 6.3655
+  type: 'test'
+  ...
+# Subtest: a destroyed car immediately opens a shortcut and rebuilding it closes the shortcut
+ok 17 - a destroyed car immediately opens a shortcut and rebuilding it closes the shortcut
+  ---
+  duration_ms: 2.2977
+  type: 'test'
+  ...
+# Subtest: unreachable rooms return a finite zero direction rather than targeting through a wall
+ok 18 - unreachable rooms return a finite zero direction rather than targeting through a wall
+  ---
+  duration_ms: 3.6068
+  type: 'test'
+  ...
+# Subtest: a previously unreachable route opens after a destroyed divider invalidates failed fields
+ok 19 - a previously unreachable route opens after a destroyed divider invalidates failed fields
+  ---
+  duration_ms: 0.93
+  type: 'test'
+  ...
+# Subtest: a target too close to a wall is approached at a physically safe reachable edge
+ok 20 - a target too close to a wall is approached at a physically safe reachable edge
+  ---
+  duration_ms: 3.3507
+  type: 'test'
+  ...
+# Subtest: source cells next to a wall can find a nearby visible grid node
+ok 21 - source cells next to a wall can find a nearby visible grid node
+  ---
+  duration_ms: 6.1071
+  type: 'test'
+  ...
+# Subtest: an elite can follow the narrow real street around a building and a fence
+ok 22 - an elite can follow the narrow real street around a building and a fence
+  ---
+  duration_ms: 22.1654
+  type: 'test'
+  ...
+# Subtest: a small actor fits a doorway while the collector cannot squeeze through
+ok 23 - a small actor fits a doorway while the collector cannot squeeze through
+  ---
+  duration_ms: 2.4003
+  type: 'test'
+  ...
+# Subtest: line of sight respects rounded circle clearance at a rectangle corner
+ok 24 - line of sight respects rounded circle clearance at a rectangle corner
+  ---
+  duration_ms: 0.5767
+  type: 'test'
+  ...
+# Subtest: adjacent, identical, and invalid points cannot produce NaN or unwanted movement
+ok 25 - adjacent, identical, and invalid points cannot produce NaN or unwanted movement
+  ---
+  duration_ms: 0.3544
+  type: 'test'
+  ...
+# Subtest: explicit invalidation updates a changed obstacle layout
+ok 26 - explicit invalidation updates a changed obstacle layout
+  ---
+  duration_ms: 0.9187
+  type: 'test'
+  ...
+# Subtest: 210 enemies with seven radii reuse player and lure navigation within a bounded frame budget
+ok 27 - 210 enemies with seven radii reuse player and lure navigation within a bounded frame budget
+  ---
+  duration_ms: 152.7806
+  type: 'test'
+  ...
+# Subtest: roof union supports overlap joins but rejects void and keeps finite-radius bodies off every outside edge
+ok 28 - roof union supports overlap joins but rejects void and keeps finite-radius bodies off every outside edge
+  ---
+  duration_ms: 2.9377
+  type: 'test'
+  ...
+# Subtest: actual player and large elite navigation cross only the catwalk without cutting across air
+ok 29 - actual player and large elite navigation cross only the catwalk without cutting across air
+  ---
+  duration_ms: 57.292
+  type: 'test'
+  ...
+# Subtest: actual rooftop has complete original native art coverage and cannot dash through the void
+ok 30 - actual rooftop has complete original native art coverage and cannot dash through the void
+  ---
+  duration_ms: 19.5037
+  type: 'test'
+  ...
+# Subtest: defense advances while moving inside the signal radius, decays outside, pauses and saves mid-transmission
+ok 31 - defense advances while moving inside the signal radius, decays outside, pauses and saves mid-transmission
+  ---
+  duration_ms: 20.8084
+  type: 'test'
+  ...
+# Subtest: roof metadata is key-order independent but rejects forged platforms, elevation and off-platform saved actors
+ok 32 - roof metadata is key-order independent but rejects forged platforms, elevation and off-platform saved actors
+  ---
+  duration_ms: 5.0554
+  type: 'test'
+  ...
+# Subtest: rooftop requires city progress and records its own verified objective completion without erasing the first expedition
+ok 33 - rooftop requires city progress and records its own verified objective completion without erasing the first expedition
+  ---
+  duration_ms: 0.589
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 427.3413

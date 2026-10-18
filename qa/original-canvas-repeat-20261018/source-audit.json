@@ -1,0 +1,331 @@
+{
+  "tool": "read-only-original-canvas-repeat-source-audit",
+  "createdUTC": "2026-10-18T06:46:38.6245143Z",
+  "status": "source-paths-identified-cause-unresolved",
+  "sourceFiles": [
+    {
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "bytes": 137275,
+      "sha256": "4ca94fcf3188f6665eff5587d96eda47ffd44a843c63e99a997d1a830128a1e2"
+    },
+    {
+      "path": "work/dead-signal-game/dist/production-art.js",
+      "bytes": 45528,
+      "sha256": "017c977b477d6f2d37067dfea48dbafa50166661cc93274bc549ab9354250c5d"
+    },
+    {
+      "path": "work/dead-signal-game/dist/native-prop-frames.js",
+      "bytes": 2169,
+      "sha256": "1d40316345179f2bb4244c78df344c759a29b201f2e8fbc4408060fb494a6084"
+    },
+    {
+      "path": "work/dead-signal-game/dist/render-materials.js",
+      "bytes": 1568,
+      "sha256": "fcd0708dad81310edc2a4f746fd0ac59fa9adaa2c54bd1b884bd652abb15e111"
+    },
+    {
+      "path": "work/dead-signal-game/dist/projection.js",
+      "bytes": 527,
+      "sha256": "b7f066e335fcd89c7cf67fc523b1e62b3094ca0a61cd438bf21c822edeb42082"
+    },
+    {
+      "path": "work/dead-signal-game/dist/player-rig/live-player.js",
+      "bytes": 16124,
+      "sha256": "cf5c5721485f0ca2e531136d1a845d1111260ff12a3aaecf14e23312f702dfba"
+    },
+    {
+      "path": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "bytes": 62558,
+      "sha256": "72bc1e76066fe4b8e710b0217ae8aab61f15ee55d24a857bd894ad5154db01f4"
+    }
+  ],
+  "execution": {
+    "node": false,
+    "tests": false,
+    "benchmarks": false,
+    "game": false,
+    "gpu": false,
+    "browser": false,
+    "protectedFilesModified": false,
+    "onlyNewArtifact": "qa/original-canvas-repeat-20261018/source-audit.json"
+  },
+  "evidence": {
+    "historicalBrowser": "qa/player-deferred-read-20261018/browser-quality.json",
+    "historicalPNGAnalysis": "qa/player-deferred-read-20261018/quality-png-analysis.json",
+    "scope": "Read existing root-saved reports only; did not rerun or independently execute the PNG decoder.",
+    "complete": false,
+    "qualityOnly": true,
+    "literalFramesCompared": 80,
+    "literalStateEventsCommandsMotionBothRNGExact": true,
+    "cleanupComplete": true,
+    "playerSameContext": {
+      "calls": 40,
+      "passed": true,
+      "colourDifferences": 0,
+      "bodyDifferences": 0,
+      "metadataDifferences": 0,
+      "originalRepeatColourDifferences": 0,
+      "originalRepeatBodyDifferences": 0,
+      "originalRepeatMetadataDifferences": 0
+    },
+    "wholeCanvas": {
+      "candidateVsFirst": {
+        "differentComponents": 903,
+        "differentPixels": 347,
+        "maxDelta": 67
+      },
+      "originalRepeat": {
+        "differentComponents": 1322575,
+        "differentPixels": 582443,
+        "fractionOfPixels": 0.9479866536458333,
+        "maxDelta": 69
+      },
+      "candidateVsRepeat": {
+        "differentComponents": 1322461,
+        "differentPixels": 582427,
+        "maxDelta": 60
+      },
+      "dimensions": "All 960x640, CSS960x640, dpr1",
+      "alphaDifferentComponents": 0,
+      "changedRGBMeanAbsoluteDelta": {
+        "r": 1.9023295859065847,
+        "g": 1.9896282279654791,
+        "b": 1.7380875095070096
+      },
+      "strictWholeEquality": false
+    },
+    "loading": {
+      "allThreeAsphaltReady": true,
+      "allThreeReadyRecordsBeforeDraw": 27,
+      "allThreeInitialNPCKeys": [
+        "enemy-walker"
+      ],
+      "maxNativeModelsByArm": [
+        1,
+        2,
+        1
+      ],
+      "initialPlayerDraws": 0,
+      "note": "Runtime on-demand model readiness differed, so equal initial source counts do not certify identical final source selection."
+    }
+  },
+  "facts": [
+    {
+      "id": "fresh-instances",
+      "path": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "lines": [
+        203,
+        205,
+        206
+      ],
+      "fact": "The historical A1/B/A2 harness restores a new Game and creates a new Renderer/Canvas/Art per arm. Equal checkpoints/arguments are not identical renderer, Canvas, cache or GPU-context instances."
+    },
+    {
+      "id": "canvas-defaults",
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "lines": [
+        127,
+        404,
+        408,
+        409,
+        450
+      ],
+      "fact": "Main getContext is 2d alpha:false. Floor getContext is default 2d. resize uses layout and devicePixelRatio. No explicit 2d colorSpace/colorType/read-frequency choice exists in Renderer; actual context attributes/backing raster backend were not captured by the historical report."
+    },
+    {
+      "id": "floor-lifecycle",
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "lines": [
+        416,
+        420,
+        421,
+        423,
+        425,
+        440,
+        444,
+        445,
+        446
+      ],
+      "fact": "Asphalt is an asynchronous Image. Its onload/onerror invalidates floorKey. Floor cache is keyed by world identity and layout/material fields. This is a real first-versus-repeated source path, but the historical harness awaited asphalt ready before drawing all arms."
+    },
+    {
+      "id": "floor-wide-raster",
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "lines": [
+        447,
+        448,
+        449,
+        450,
+        453,
+        454,
+        472,
+        473,
+        475,
+        479,
+        480,
+        714
+      ],
+      "fact": "The floor is a full world-sized Canvas (normal2400x1800), painted with opaque base/roads, 32%-alpha original asphalt tiles, 19000 deterministic subpixel grains and cracks/lines. It is then drawImage-composited through the ISO transform and zoom. It covers most battle background and exercises blending/resampling."
+    },
+    {
+      "id": "screen-wide-overlays",
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "lines": [
+        642,
+        646,
+        649,
+        651,
+        656,
+        657,
+        673,
+        677,
+        686,
+        774,
+        775,
+        776,
+        777,
+        778
+      ],
+      "fact": "A full-screen radial vignette is rebuilt each render; cached fog is painted over the viewport; low-health/alarm/flash paths can also tint broad areas. Their values depend on explicit viewport/Game/time fields. They are actual wide-RGB paths rather than player-only pixels."
+    },
+    {
+      "id": "deterministic-camera-time",
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "lines": [
+        61,
+        66,
+        696,
+        700,
+        701,
+        702,
+        703,
+        704,
+        710
+      ],
+      "fact": "Renderer uses deterministic sin hash and explicit now/Game.time. Camera dt derives from lastNow and now, then easing/zoom/projection determines every world draw. Source search found no direct Math.random/performance.now/Date.now. The historical harness passes (frame+1)*.12, but did not serialize each renderer camera/Canvas state."
+    },
+    {
+      "id": "main-state-surface",
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "lines": [
+        690,
+        693,
+        710,
+        772,
+        774,
+        779,
+        780,
+        781,
+        782
+      ],
+      "fact": "render start resets transform and paints the background; it does not reset globalAlpha, globalCompositeOperation, filter, shadow or clipping. Inspected normal world/screen/identification/minimap paths use save/restore. No concrete unbalanced normal path was identified by this audit; arbitrary external state/hidden stack cannot be excluded from source alone."
+    },
+    {
+      "id": "original-sprite-draw",
+      "path": "work/dead-signal-game/dist/production-art.js",
+      "lines": [
+        716,
+        721,
+        722,
+        723,
+        727
+      ],
+      "fact": "Original drawFrame saves state, applies alpha, selects high smoothing, issues the original nine-argument drawImage and restores in finally. It performs no recolour/filter/time/random operation. A changed source image/readiness can change a sprite; no documented global colour transform is introduced here."
+    },
+    {
+      "id": "prop-cache",
+      "path": "work/dead-signal-game/dist/native-prop-frames.js",
+      "lines": [
+        7,
+        18,
+        21,
+        24,
+        27
+      ],
+      "fact": "NativePropFrames caches immutable selections keyed by object/record/image/metadata/layout identities. It does not render or modify source pixels. Renderer may choose native versus procedural fallback when asset status differs; shared ready-record identity is not proof of browser-decoded pixel equality."
+    },
+    {
+      "id": "original-player-pipeline",
+      "path": "work/dead-signal-game/dist/player-rig/live-player.js",
+      "lines": [
+        52,
+        53,
+        174,
+        176,
+        177,
+        178,
+        184,
+        187,
+        188,
+        189
+      ],
+      "fact": "Original player uses fixed256/pixelRatio1, SRGB output and NoToneMapping, two GL draws and original body/colour Canvas copies. Only a separate QA duplicate relocated the legacy read; original source remains cf5c5721. Same-context player A/B/A captures are exact in all40 samples, while the historical final whole-canvas original repeat failed."
+    },
+    {
+      "id": "ready-before-draw",
+      "path": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "lines": [
+        170,
+        172,
+        173,
+        176,
+        210,
+        220,
+        221,
+        223
+      ],
+      "fact": "The historical helper waits for original launch/native preparation, requires player/boss frame0, waits for asphalt ready and effect-art load, and records source readiness. All three recorded asphaltReady true. Therefore a simple unawaited asphalt onload is not established as the observed cause."
+    },
+    {
+      "id": "load-timeout-separation",
+      "path": "qa/player-deferred-read-20261018/cost-not-executed.json",
+      "fact": "The separate cost-attempt loading abort did not produce cost frames. It is not the source of the saved completed quality arm PNG differences; those three arms reached capture and cleanup. No performance winner is inferred."
+    }
+  ],
+  "inferences": [
+    {
+      "priority": 1,
+      "status": "testable-source-path-not-proven-cause",
+      "statement": "The floor raw raster plus transformed main-Canvas blit and broad overlay blending can affect almost all RGB pixels. Capture original floor and main-context state/attributes on a bounded original-only repeat to separate cache-image pixels from later composition."
+    },
+    {
+      "priority": 2,
+      "status": "testable-source-path-not-proven-cause",
+      "statement": "Camera/zoom/viewport or drawing-state differences would move/retint much of the scene. Fixed args and exact Game do not themselves prove these renderer-private fields equal; record them before/after identical original calls."
+    },
+    {
+      "priority": 3,
+      "status": "unresolved-browser-hypothesis",
+      "statement": "RGB-only mostly1-to2-level widespread differences with alpha unchanged are compatible with Canvas raster/blend/resampling/backend precision differences. Source and histogram do not prove a GPU-to-software transition, colour-space conversion or browser defect."
+    },
+    {
+      "priority": 4,
+      "status": "localized-confound",
+      "statement": "Different on-demand NPC readiness or a few native private frames can change bodies/occlusion. By itself this does not explain broad floor-region RGB changes without ROI/source evidence; no blanket exclusion is claimed."
+    },
+    {
+      "priority": 5,
+      "status": "bounded-exclusion",
+      "statement": "The deferred player read is not necessary for the huge difference because the original A1-versus-original A2 comparison already fails. Its separate same-context player exact result does not certify the whole world or justify relaxing any pixel gate."
+    }
+  ],
+  "unknowns": [
+    "No exact floor Canvas pixel hash/copy was stored for the failed arms.",
+    "No before/after main Canvas context attributes, transform, composite, alpha, filter, shadow or stack-sentinel proof was stored.",
+    "No same Renderer/same Game/same now original repeat has been executed in this audit.",
+    "Asphalt source URL/readiness is known, but decoded-image/backend/source-floor pixel equality across fresh instances is not proven.",
+    "Exact final native-versus-baked source selection and per-source private RGBA equality were not certified for all actors.",
+    "Colour-space/backend changes or an original renderer defect remain unresolved; do not label the failure harmless or a flake."
+  ],
+  "recommendedNextControl": {
+    "scope": "QA-owned original only; product unchanged",
+    "first": "Use one owned Renderer, original assets, one held Game/command/now with no tick/selection/camera input advance; record private state and two ordinary original renders, preserving first failure.",
+    "then": "If same-instance repeat is exact, compare fresh original instances while recording floor pixels and actual main/floor Canvas context attributes/state. If it fails, localize floor/world/screen overlay stages through separate bounded correctness captures after measurement.",
+    "rules": [
+      "Do not rerun a candidate to find favourable costs.",
+      "Do not replace recorded failures, loosen strict RGBA equality, disable atmosphere/art or reduce quality for acceptance.",
+      "Correctness readbacks/diagnostics are not performance/FPS evidence.",
+      "Keep the separate loading-timeout incident separate from rendered-quality evidence."
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+TAP version 13
+# Subtest: an unregistered speaker keeps legacy fallback and performs no eager asset request
+ok 1 - an unregistered speaker keeps legacy fallback and performs no eager asset request
+  ---
+  duration_ms: 22.2136
+  type: 'test'
+  ...
+# Subtest: only a successfully loaded speaker is selectable; a pending atlas never claims the draw
+ok 2 - only a successfully loaded speaker is selectable; a pending atlas never claims the draw
+  ---
+  duration_ms: 6.2109
+  type: 'test'
+  ...
+# Subtest: a real E lure paints once at its baked ground pivot and preserves the active game and context
+ok 3 - a real E lure paints once at its baked ground pivot and preserves the active game and context
+  ---
+  duration_ms: 12.2929
+  type: 'test'
+  ...
+# Subtest: explicit reviewed height and orientation use atlas metadata; pause and checkpoint restore freeze the same body
+ok 4 - explicit reviewed height and orientation use atlas metadata; pause and checkpoint restore freeze the same body
+  ---
+  duration_ms: 89.1914
+  type: 'test'
+  ...
+# Subtest: PNG failure and Canvas paint failure both leave the legacy caller responsible for its body
+ok 5 - PNG failure and Canvas paint failure both leave the legacy caller responsible for its body
+  ---
+  duration_ms: 30.814
+  type: 'test'
+  ...
+# Subtest: Q launches a separate bottle then creates area fire; neither enters the speaker branch
+ok 6 - Q launches a separate bottle then creates area fire; neither enters the speaker branch
+  ---
+  duration_ms: 11.6355
+  type: 'test'
+  ...
+# Subtest: expired or invalid lures cannot leave a phantom native object
+ok 7 - expired or invalid lures cannot leave a phantom native object
+  ---
+  duration_ms: 12.3784
+  type: 'test'
+  ...
+# Subtest: the actual renderer swaps one speaker body while preserving all three sound waves, glow and ground shadow
+ok 8 - the actual renderer swaps one speaker body while preserving all three sound waves, glow and ground shadow
+  ---
+  duration_ms: 9.3382
+  type: 'test'
+  ...
+# Subtest: real renderer PNG failure keeps its full legacy speaker; offscreen culling performs no body draw or fetch
+ok 9 - real renderer PNG failure keeps its full legacy speaker; offscreen culling performs no body draw or fetch
+  ---
+  duration_ms: 5.2269
+  type: 'test'
+  ...
+# Subtest: a slow frame redirects the next normal shot after its old target dies without changing ammo or fire rate
+ok 10 - a slow frame redirects the next normal shot after its old target dies without changing ammo or fire rate
+  ---
+  duration_ms: 148.0117
+  type: 'test'
+  ...
+# Subtest: every automatic step and its render command use the enemy latest physical position
+ok 11 - every automatic step and its render command use the enemy latest physical position
+  ---
+  duration_ms: 1.3966
+  type: 'test'
+  ...
+# Subtest: automatic fire stops within the same frame when a target leaves range or loses its shot line
+ok 12 - automatic fire stops within the same frame when a target leaves range or loses its shot line
+  ---
+  duration_ms: 4.2286
+  type: 'test'
+  ...
+# Subtest: manual pointer and touch-assisted frame commands remain fixed and mode changes do not carry old aim
+ok 13 - manual pointer and touch-assisted frame commands remain fixed and mode changes do not carry old aim
+  ---
+  duration_ms: 1.3877
+  type: 'test'
+  ...
+# Subtest: a short manual click fires once during a slow hasted frame while held or legacy controls keep normal rapid fire
+ok 14 - a short manual click fires once during a slow hasted frame while held or legacy controls keep normal rapid fire
+  ---
+  duration_ms: 1.7348
+  type: 'test'
+  ...
+# Subtest: automatic rapid fire is unaffected by a released pointer or a fireOnce impulse
+ok 15 - automatic rapid fire is unaffected by a released pointer or a fireOnce impulse
+  ---
+  duration_ms: 1.046
+  type: 'test'
+  ...
+# Subtest: a disabled screen suppresses firing in either mode while preserving movement and ground targets
+ok 16 - a disabled screen suppresses firing in either mode while preserving movement and ground targets
+  ---
+  duration_ms: 0.8606
+  type: 'test'
+  ...
+# Subtest: dash, lure, fire and reload impulses reach only the first consumed step
+ok 17 - dash, lure, fire and reload impulses reach only the first consumed step
+  ---
+  duration_ms: 1.4439
+  type: 'test'
+  ...
+# Subtest: substep frames preserve pending impulses and RNG and carry their remainder into the next frame
+ok 18 - substep frames preserve pending impulses and RNG and carry their remainder into the next frame
+  ---
+  duration_ms: 9.2526
+  type: 'test'
+  ...
+# Subtest: the poststep render command drops a target killed in the final tick and its resolve does not advance combat
+ok 19 - the poststep render command drops a target killed in the final tick and its resolve does not advance combat
+  ---
+  duration_ms: 3.6714
+  type: 'test'
+  ...
+# Subtest: an upgrade opened during catch-up disables later automatic shots and existing paused or result states remain frozen
+ok 20 - an upgrade opened during catch-up disables later automatic shots and existing paused or result states remain frozen
+  ---
+  duration_ms: 1.5416
+  type: 'test'
+  ...
+# Subtest: automatic intent refresh stays bounded in a short 210-target diagnostic without running engine physics
+ok 21 - automatic intent refresh stays bounded in a short 210-target diagnostic without running engine physics
+  ---
+  duration_ms: 45.1681
+  type: 'test'
+  ...
+# Auto refresh: 210 targets, 120 ticks + 60 render resolves, CPU=31.00ms, wall=44.48ms, rays=37800 (no engine physics)
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1160.6715

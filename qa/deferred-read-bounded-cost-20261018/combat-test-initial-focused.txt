@@ -1,0 +1,292 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {compareCanvasStateCombat} from '../dist/qa-canvas-state-combat.js';
+import {createOwnedCleanupTracker} from '../dist/qa-owned-cleanup-tracker.js';
+
+const qa = new URL('../../../qa/deferred-read-bounded-cost-20261018/', import.meta.url);
+const harnessURL = new URL('../dist/qa-canvas-state-combat.js', import.meta.url);
+const supportURL = new URL('./qa-player-deferred-read-combat.test.mjs', import.meta.url);
+const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+const moduleURL = source => 'data:text/javascript;base64,' + Buffer.from(source).toString('base64');
+const rebase = (source, base) => source.replace(/from\s+(['"])([^'"]+)\1/g, (all, quote, specifier) =>
+  specifier.startsWith('.') ? 'from ' + quote + new URL(specifier, base).href + quote : all);
+const prior = JSON.parse(await readFile(new URL('previous-source-freeze.json', qa), 'utf8'));
+const beforeBytes = await readFile(new URL('combat-harness-before.txt', qa));
+const beforeRow = prior.files.find(row => row.file.endsWith('/dist/qa-canvas-state-combat.js'));
+assert.equal(beforeRow.bytes, 71409);
+assert.equal(beforeRow.sha256, 'a1034de38e494e4c399c1a7725242193aa6d240f7ae2083b54f2e212ad138d7c');
+assert.equal(beforeBytes.length, beforeRow.bytes);
+assert.equal(sha(beforeBytes), beforeRow.sha256);
+const before = await import(moduleURL(rebase(beforeBytes.toString('utf8'), harnessURL)));
+const supportBytes = await readFile(supportURL);
+const supportRow = prior.files.find(row => row.file.endsWith('/tests/qa-player-deferred-read-combat.test.mjs'));
+assert.equal(supportBytes.length, supportRow.bytes);
+assert.equal(sha(supportBytes), supportRow.sha256);
+const support = supportBytes.toString('utf8'), boundary = support.indexOf('\ntest(');
+assert.ok(boundary > 0);
+assert.equal(support.slice(0, boundary).includes('\ntest('), false);
+// Only frozen declarations are imported: their old tests never register or run.
+// Rebase import.meta.url too, so nested raw-evidence readers retain their base.
+const declarations = rebase(support.slice(0, boundary), supportURL)
+  .replaceAll('import.meta.url', JSON.stringify(supportURL.href));
+const {environment, address, gate, state, mainUnchanged, ownedImagesAndAssetsRetired, failure, turn, deferredInstaller} =
+  await import(moduleURL(declarations + '\nexport {environment,address,gate,state,mainUnchanged,ownedImagesAndAssetsRetired,failure,turn,deferredInstaller};'));
+
+function clock() {
+  let at = 100, next = 1;
+  const timers = new Map(), scheduled = [], cleared = [];
+  return {
+    now: () => at,
+    setTimer(fn, ms) { const id = next++; timers.set(id, {fn, due: at + ms}); scheduled.push(ms); return id; },
+    clearTimer(id) { cleared.push(id); timers.delete(id); },
+    advance(ms) {
+      at += ms;
+      for (const [id, timer] of [...timers]) if (timer.due <= at) { timers.delete(id); timer.fn(); }
+    },
+    timers, scheduled, cleared,
+  };
+}
+const costAddress = extra => address('qa&qa-memory=deferred-bounded-test&qa-player-deferred-read=1&qa-owned-cleanup=1' + (extra ?? ''));
+const originalAddress = () => address('qa&qa-memory=deferred-bounded-original&qa-original-readback=1&qa-owned-cleanup=1');
+const trace = e => e.draws.map(({state, motion, input, command, time}) => ({state, motion, input, command, time}));
+function setup(e, {original = false, bounded = true, drain = 'normal'} = {}) {
+  const time = clock();
+  let factories = 0, waits = 0;
+  e.testDeps.ownedCleanupTestOptions = {now: time.now, setTimer: time.setTimer, clearTimer: time.clearTimer, timeoutMs: 5};
+  e.testDeps.createOwnedCleanupTracker = options => {
+    factories++;
+    const tracker = createOwnedCleanupTracker(options);
+    return {
+      follow: tracker.follow,
+      snapshot: tracker.snapshot,
+      wait() {
+        waits++;
+        const waiting = tracker.wait();
+        if (drain === 'resolve') e.pending.resolve();
+        if (drain === 'timeout') time.advance(5);
+        return waiting;
+      },
+    };
+  };
+  e.testDeps.probeOriginalReadback = original
+    ? () => ({complete: true, stable: true, injected: true})
+    : () => { throw Error('cost mode must not invoke original readback probes'); };
+  const options = {
+    ...gate(original ? originalAddress() : costAddress()),
+    ...(original ? {originalReadbackProbe: true} : {playerDeferredRead: true}),
+    boundedOwnedCleanup: bounded,
+    document: e.document,
+    testDeps: e.testDeps,
+  };
+  return {options, time, factories: () => factories, waits: () => waits};
+}
+function assertFrozenTree(value) {
+  if (value === null || typeof value !== 'object') return;
+  assert.equal(Object.isFrozen(value), true);
+  assert.equal(ArrayBuffer.isView(value), false);
+  for (const child of Object.values(value)) assertFrozenTree(child);
+}
+
+test('old bounded original and disabled-bounded deferred failure paths retain full frozen-before reports, clocks and call order', async () => {
+  for (const original of [true, false]) {
+    const a = environment('render-failure'), b = environment('render-failure');
+    if (!original) { deferredInstaller(a); deferredInstaller(b); }
+    const x = setup(a, {original, bounded: original}), y = setup(b, {original, bounded: original});
+    const old = await failure(before.compareCanvasStateCombat(a.mainRenderer, x.options));
+    const current = await failure(compareCanvasStateCombat(b.mainRenderer, y.options));
+    assert.equal(current.message, old.message);
+    assert.deepEqual(current.report, old.report);
+    assert.deepEqual(current.cleanup, old.cleanup);
+    assert.deepEqual(b.events, a.events);
+    assert.deepEqual(trace(b), trace(a));
+    assert.equal(x.factories(), original ? 1 : 0);
+    assert.equal(y.factories(), original ? 1 : 0);
+    assert.equal(Object.hasOwn(current.report, 'deferredBoundedCost'), false);
+    mainUnchanged(a); mainUnchanged(b);
+    ownedImagesAndAssetsRetired(a); ownedImagesAndAssetsRetired(b);
+  }
+});
+
+test('bounded deferred cost requires exclusive exact flags and genuine memory before any owner, DOM or factory access', async () => {
+  const invalid = [
+    [address('qa&qa-memory=d&qa-player-deferred-read=1'), {}],
+    [address('qa&qa-memory=d&qa-player-deferred-read=1&qa-owned-cleanup=0'), {}],
+    [costAddress('&qa-player-deferred-read-verify=1'), {}],
+    [costAddress(), {playerDeferredReadVerify: true}],
+    [costAddress(), {originalReadbackProbe: true}],
+    [costAddress(), {originalAttribution: true}],
+    [costAddress(), {playerAttribution: true}],
+    [costAddress(), {playerPreparation: true}],
+    [costAddress(), {playerAlphaRows: true}],
+    [new URL('http://localhost:8806/?qa&qa-memory=d&qa-player-deferred-read=1&qa-owned-cleanup=1'), {}],
+    [new URL('https://localhost:8851/?qa&qa-memory=d&qa-player-deferred-read=1&qa-owned-cleanup=1'), {}],
+  ];
+  for (const [location, extra] of invalid) {
+    let reads = 0;
+    const options = {...gate(location), playerDeferredRead: true, boundedOwnedCleanup: true, ...extra};
+    for (const key of ['document', 'testDeps']) Object.defineProperty(options, key, {get() { reads++; throw Error('gate must precede dependencies'); }});
+    const renderer = new Proxy({}, {
+      get() { reads++; throw Error('gate must precede owner reads'); },
+      getOwnPropertyDescriptor() { reads++; throw Error('gate must precede owner descriptors'); },
+    });
+    const result = await compareCanvasStateCombat(renderer, options);
+    assert.equal(result.report.available, false);
+    assert.equal(result.report.complete, false);
+    assert.equal(reads, 0);
+  }
+  let reads = 0;
+  const location = costAddress();
+  const result = await compareCanvasStateCombat(new Proxy({}, {get() { reads++; throw Error('fake memory owner'); }}), {
+    location, query: location.searchParams, storage: new Map(),
+    playerDeferredRead: true, boundedOwnedCleanup: true,
+    get testDeps() { reads++; throw Error('fake memory factory'); },
+  });
+  assert.equal(result.report.available, false);
+  assert.equal(reads, 0);
+});
+
+test('three original/deferred/original40-callback arms preserve real Game and exact pixels while late native loads drain outside costs', async () => {
+  const e = environment(), OriginalRenderer = e.testDeps.Renderer;
+  e.testDeps.Renderer = class extends OriginalRenderer {
+    render(...args) {
+      const value = super.render(...args);
+      if (!this.startedControlledLateLoad) {
+        this.startedControlledLateLoad = true;
+        this.liveEnemies.load('enemy-elite');
+      }
+      return value;
+    }
+  };
+  const handles = deferredInstaller(e), configured = setup(e, {drain: 'resolve'}), images = [];
+  const {report} = await compareCanvasStateCombat(e.mainRenderer, {...configured.options, onImage: image => images.push(image)});
+  assert.equal(report.complete, true);
+  assert.equal(report.boundedOwnedCleanup, true);
+  assert.equal(report.deferredBoundedCost, true);
+  assert.equal(report.playerDeferredReadVerify, false);
+  assert.equal(Object.hasOwn(report, 'originalReadbackProbe'), false);
+  assert.deepEqual(report.passes.map(pass => [pass.arm, pass.mode]), [['A1', 'original'], ['B', 'deferred'], ['A2', 'original']]);
+  assert.equal(e.draws.length, 120);
+  assert.equal(e.advances.length, 120);
+  assert.equal(images.length, 3);
+  assert.equal(e.events.filter(event => event[0] === 'readback').length, 3, 'one final R0 per arm; no R1/floor/R2 probe');
+  assert.equal(e.installers.length, 0, 'no Canvas candidate or profiler is introduced');
+  assert.deepEqual(handles.map(handle => [handle.enabled, handle.verify]), [[false, false], [true, false], [false, false]]);
+  assert.ok(handles.every(handle => handle.stops === 1));
+  const groups = e.renderers.map(renderer => e.draws.filter(draw => draw.renderer === renderer));
+  assert.ok(groups.every(group => group.length === 40));
+  const baseline = groups[0].map(({state, motion, input, command, time}) => ({state, motion, input, command, time}));
+  for (const group of groups.slice(1)) assert.deepEqual(group.map(({state, motion, input, command, time}) => ({state, motion, input, command, time})), baseline);
+  assert.ok(groups[0].at(-1).state.snapshot.time > 4.7);
+  assert.equal(report.equivalence.framesCompared, 80);
+  for (const key of ['state', 'events', 'commands', 'motion', 'random', 'visualRandom']) assert.equal(report.equivalence[key], true, key);
+  assert.deepEqual(report.equivalence.mismatches, []);
+  for (const pass of report.passes) {
+    assert.equal(pass.samples.length, 40);
+    assert.equal(pass.firstFrame.frame, 0);
+    assert.equal(pass.preparation.source.playerDrawsBefore, 0);
+    assert.equal(pass.preparation.source.nativeDrawsBefore, 0);
+    assert.equal(pass.playerDeferredRead.used, pass.mode === 'deferred' ? 40 : 0);
+    assert.equal(pass.playerDeferredRead.verification.calls, 0);
+    assert.equal(pass.playerDeferredRead.cleanupComplete, true);
+    assert.equal(pass.drainInclusiveSummary.count, 41);
+    assert.equal(pass.sumPlusReadbackMs, pass.all40Summary.callbackMs.sumMs + pass.readbackMs);
+    assert.equal(pass.totalPreparationAndCombatAndReadbackMs, pass.preparation.preparationMs + pass.sumPlusReadbackMs);
+  }
+  for (const diff of Object.values(report.pixels)) { assert.equal(diff.differentComponents, 0); assert.equal(diff.maxDelta, 0); }
+  assert.equal(report.performance.criterion, 'preparation+callback40+finalReadback and steady30');
+  assert.equal(report.performance.requiredImprovementFraction, .03);
+  assert.equal(report.performance.accepted, false, 'injected renderer/clock/installer never certify adoption');
+  assert.equal(report.performance.adopted, false);
+  assert.equal(report.performance.qualityOnly, false);
+  assert.equal(report.cleanup.complete, true);
+  assert.equal(report.cleanup.drain.success, true);
+  assert.equal(report.cleanup.drain.scheduled, 3);
+  assert.equal(report.cleanup.drain.completed, 3);
+  assert.equal(report.cleanup.drain.active, 0);
+  assert.equal(configured.factories(), 1);
+  assert.equal(configured.waits(), 1);
+  assert.deepEqual(configured.time.scheduled, [5]);
+  assert.equal(configured.time.timers.size, 0);
+  for (const renderer of e.renderers) {
+    assert.equal(renderer.liveEnemies.lateModelsDisposed, 1);
+    assert.equal(renderer.liveEnemies.pending.size, 0);
+    assert.equal(renderer.liveEnemies.models.size, 0);
+  }
+  assert.ok(report.cleanup.arms.every(row => row.finalAfterDrain && row.npcPendingRemaining === 0 && row.playerDeferredReadRestored));
+  assertFrozenTree(report.cleanup);
+  mainUnchanged(e); ownedImagesAndAssetsRetired(e);
+});
+
+test('timeout preserves frozen primary failure and late retirement, while stop/read faults remain errors instead of successful cleanup', async () => {
+  const e = environment('late-model-failure'), handles = deferredInstaller(e), configured = setup(e, {drain: 'timeout'});
+  const error = await failure(compareCanvasStateCombat(e.mainRenderer, configured.options));
+  assert.equal(error.message, 'controlled canvas combat render failure');
+  assert.equal(error.cleanup.complete, false);
+  assert.equal(error.cleanup.drain.timedOut, true);
+  assert.equal(error.cleanup.drain.active, 1);
+  assert.equal(error.cleanup.drain.pending[0].label.key, 'enemy-elite');
+  assert.equal(handles[0].stops, 1);
+  assertFrozenTree(error.cleanup);
+  const saved = JSON.stringify(error.report), rig = e.renderers[0].liveEnemies, beforeState = state(e.advances[0].game);
+  e.pending.resolve();
+  await turn(); await turn();
+  assert.equal(rig.lateModelsDisposed, 1);
+  assert.equal(rig.pending.size, 0);
+  assert.equal(rig.models.size, 0);
+  assert.equal(JSON.stringify(error.report), saved);
+  assert.deepEqual(state(e.advances[0].game), beforeState);
+  mainUnchanged(e); ownedImagesAndAssetsRetired(e);
+
+  const stopped = environment('render-failure');
+  const stoppedHandles = deferredInstaller(stopped, {mode: 'stop-failure'});
+  const failedStop = await failure(compareCanvasStateCombat(stopped.mainRenderer, setup(stopped).options));
+  assert.equal(failedStop.message, 'controlled canvas combat render failure');
+  assert.equal(failedStop.cleanup.complete, false);
+  assert.equal(failedStop.cleanup.drain.success, true);
+  assert.ok(failedStop.cleanup.errors.some(row => row.where === 'playerDeferredRead.stop'));
+  assert.ok(stoppedHandles.every(handle => handle.stops === 1));
+  assertFrozenTree(failedStop.cleanup);
+  mainUnchanged(stopped); ownedImagesAndAssetsRetired(stopped);
+
+  const read = environment(), OriginalRenderer = read.testDeps.Renderer;
+  read.testDeps.Renderer = class extends OriginalRenderer {
+    constructor(...args) {
+      super(...args);
+      this.ctx.getImageData = () => { throw Error('controlled final R0 read failure'); };
+    }
+  };
+  const readHandles = deferredInstaller(read);
+  const failedRead = await failure(compareCanvasStateCombat(read.mainRenderer, setup(read).options));
+  assert.equal(failedRead.message, 'controlled final R0 read failure');
+  assert.equal(read.draws.length, 40);
+  assert.equal(failedRead.cleanup.drain.success, true);
+  assert.equal(failedRead.cleanup.complete, true);
+  assert.ok(readHandles.every(handle => handle.stops === 1));
+  assertFrozenTree(failedRead.cleanup);
+  mainUnchanged(read); ownedImagesAndAssetsRetired(read);
+});
+
+test('aborting preloading still drains owned late work without drawing, and reports stay fixed after cleanup', async () => {
+  const e = environment('deferred'), controller = new AbortController(), configured = setup(e, {drain: 'resolve'});
+  e.setController(controller);
+  deferredInstaller(e);
+  const running = compareCanvasStateCombat(e.mainRenderer, {...configured.options, signal: controller.signal});
+  running.catch(() => {});
+  await turn();
+  controller.abort();
+  const error = await failure(running);
+  assert.match(error.message, /aborted/);
+  assert.equal(e.draws.length, 0);
+  assert.equal(e.advances.length, 0);
+  assert.equal(error.cleanup.complete, true);
+  assert.equal(error.cleanup.drain.success, true);
+  assert.equal(error.cleanup.drain.active, 0);
+  assert.ok(error.cleanup.drain.scheduled > 0);
+  assertFrozenTree(error.cleanup);
+  const saved = JSON.stringify(error.report);
+  await turn(); await turn();
+  assert.equal(JSON.stringify(error.report), saved);
+  mainUnchanged(e); ownedImagesAndAssetsRetired(e);
+});

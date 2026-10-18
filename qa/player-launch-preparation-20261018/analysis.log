@@ -1,0 +1,578 @@
+{
+  "scope": "Fresh original player/current-weapon texture and shader preparation A/B/A. Both originals receive the same canonical public-state normalization; only B submits original textures and shader API work. No extra pose/draw/read/prime. Preparation costs are included; loading/cache variation remains and timings are CPU call wall, not GPU duration, presented FPS or peak memory.",
+  "complete": false,
+  "error": "qa-canvas-combat-whole-canvas-pixels-differ",
+  "equivalenceExact": true,
+  "strictPixels": {
+    "candidateVsFirst": {
+      "differentComponents": 73,
+      "maxDelta": 11,
+      "dimensionsEqual": true
+    },
+    "originalRepeat": {
+      "differentComponents": 76,
+      "maxDelta": 11,
+      "dimensionsEqual": true
+    },
+    "candidateVsRepeat": {
+      "differentComponents": 55,
+      "maxDelta": 1,
+      "dimensionsEqual": true
+    }
+  },
+  "performance": {
+    "accepted": false,
+    "adopted": false,
+    "criterion": "preparation+callback40+finalReadback",
+    "fasterOriginalTotalMs": 11002.500000059605,
+    "candidateTotalMs": 8780.599999904633,
+    "improvementFraction": 0.20194501251015085,
+    "fasterOriginalAll40SumMs": 2740.699999988079,
+    "candidateAll40SumMs": 2339.2999998927116,
+    "fasterOriginalSumPlusReadbackMs": 2749.800000011921,
+    "candidateSumPlusReadbackMs": 2350.69999986887,
+    "firstCallbackNoWorse": true,
+    "callbackTailsNoWorse": false,
+    "drainTailsNoWorse": false,
+    "tailsNoWorse": false,
+    "requiredImprovementFraction": 0.03,
+    "note": "QA diagnostic only: preparation (including first-draw certificate disposal) plus all40 callback wall and final readback must improve at least3% over the faster normalized control; first callback and callback40/drain41 p95/max cannot regress against either control. Raw preparation/first/steady/callback/drain stay separate so a startup cost shift is not a total win. Strict pixels, literal Game equivalence and cleanup must pass. Injected tests are never accepted; product adoption is never automatic."
+  },
+  "independentTotal": {
+    "fastOriginalMs": 11002.500000059605,
+    "candidateMs": 8780.599999904633,
+    "improvementFraction": 0.2019450125101509
+  },
+  "cleanup": {
+    "ownedRenderers": 3,
+    "retiredRenderers": 3,
+    "ownedArts": 3,
+    "releasedArts": 3,
+    "hostsCreated": 3,
+    "hostsRemoved": 3,
+    "lateScheduled": 12,
+    "lateSettled": 12,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerPreparationDisposed": true
+      },
+      {
+        "arm": "B",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerPreparationDisposed": true
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerPreparationDisposed": true
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": true
+  },
+  "arms": [
+    {
+      "arm": "A1",
+      "mode": "original",
+      "preparation": {
+        "preparationMs": 7728.699999988079,
+        "loadAndNativePreparationMs": 7445.700000047684,
+        "assetsReadyMs": 0.5,
+        "originalLaunchWaitLimitMs": 60000,
+        "player": {
+          "enabled": false,
+          "prepared": true,
+          "ready": true,
+          "disposed": false,
+          "error": "",
+          "elapsedMs": 105.19999998807907,
+          "totalPreparationMs": 105.19999998807907,
+          "texturePreparationMs": 3.100000023841858,
+          "shaderPreparationMs": 0,
+          "frameBefore": 0,
+          "frameAfter": 0,
+          "preserved": true,
+          "sourceUnchanged": true,
+          "renderStateUnchanged": true,
+          "textureUpload": {
+            "submitted": false,
+            "enabled": false,
+            "textures": [
+              {
+                "uuid": "131b8415-56c8-411b-b3a8-7f8ffdf1f7ae",
+                "width": 4096,
+                "height": 4096,
+                "version": 1,
+                "sourceVersion": 1
+              },
+              {
+                "uuid": "89239069-0ba9-47f3-91f3-ceca3978c65e",
+                "width": 4096,
+                "height": 4096,
+                "version": 1,
+                "sourceVersion": 1
+              }
+            ],
+            "texturesBefore": 0,
+            "texturesAfter": 0,
+            "error": "",
+            "stateNormalized": true
+          },
+          "shaders": [],
+          "sourceCounts": {
+            "nodes": 33,
+            "materials": 2,
+            "textures": 2,
+            "geometries": 2,
+            "arrays": 223,
+            "sourceBytes": 3391246
+          },
+          "cleanup": {
+            "detached": false,
+            "errors": []
+          },
+          "note": "QA-only preparation of the already loaded original run subject and current weapon root. A read-only union submits each original Texture identity at most once; baseline performs the same canonical normalization without uploads or shader compilation. Candidate compiles the two real roots without posing, reparenting, new source assets, bitmaps, render targets or extra drawing/pixel reads. initTexture and shader compilation may create GPU textures/programs. API readiness is not GPU completion or first-draw validation. Public renderer normalization is not historical raw GL-binding restoration, and a synchronous vendor compile failure does not certify private renderer stacks. Abort/timeout revoke readiness; vendor shader polling cannot be cancelled. This handle never disposes the caller-owned GPU, geometry, material, texture or image. The caller retires a failed/partial candidate. Timings include source-proof overhead, not FPS or peak memory."
+        },
+        "playerPreparationMs": 208.5,
+        "playerFinalizationMs": 32.89999997615814,
+        "playerReadyBeforeFirstDraw": true,
+        "playerDisposedBeforeFirstDraw": true
+      },
+      "firstCallbackMs": 563.8000000119209,
+      "preparationPlusFirstMs": 8292.5,
+      "all40": {
+        "simulationMs": {
+          "count": 40,
+          "medianMs": 15.5,
+          "p95Ms": 28.099999964237213,
+          "maxMs": 42.5,
+          "sumMs": 651.3000000119209
+        },
+        "interpolationMs": {
+          "count": 40,
+          "medianMs": 0.6000000238418579,
+          "p95Ms": 2.799999952316284,
+          "maxMs": 10.699999988079071,
+          "sumMs": 42.80000001192093
+        },
+        "renderMs": {
+          "count": 40,
+          "medianMs": 39.299999952316284,
+          "p95Ms": 220.39999997615814,
+          "maxMs": 533.9000000357628,
+          "sumMs": 2572.0000000596046
+        },
+        "callbackMs": {
+          "count": 40,
+          "medianMs": 56.299999952316284,
+          "p95Ms": 236.39999997615814,
+          "maxMs": 563.8000000119209,
+          "sumMs": 3266.3000000715256
+        }
+      },
+      "steady30": {
+        "simulationMs": {
+          "count": 30,
+          "medianMs": 16.5,
+          "p95Ms": 28.099999964237213,
+          "maxMs": 42.5,
+          "sumMs": 536.9000000953674
+        },
+        "interpolationMs": {
+          "count": 30,
+          "medianMs": 0.6000000238418579,
+          "p95Ms": 2.699999988079071,
+          "maxMs": 10.699999988079071,
+          "sumMs": 34.30000001192093
+        },
+        "renderMs": {
+          "count": 30,
+          "medianMs": 43.30000001192093,
+          "p95Ms": 128.69999998807907,
+          "maxMs": 192.5999999642372,
+          "sumMs": 1572.2000000476837
+        },
+        "callbackMs": {
+          "count": 30,
+          "medianMs": 62.80000001192093,
+          "p95Ms": 155.79999995231628,
+          "maxMs": 212.69999998807907,
+          "sumMs": 2143.5000001192093
+        }
+      },
+      "readbackMs": 7.5,
+      "callbackPlusReadbackMs": 3273.8000000715256,
+      "preparationPlusAll40AndReadbackMs": 11002.500000059605,
+      "drainInclusive": {
+        "count": 41,
+        "medianMs": 54,
+        "p95Ms": 212.69999998807907,
+        "maxMs": 563.8000000119209,
+        "sumMs": 3273.8000000715256
+      },
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      }
+    },
+    {
+      "arm": "B",
+      "mode": "prepared",
+      "preparation": {
+        "preparationMs": 6429.900000035763,
+        "loadAndNativePreparationMs": 4926,
+        "assetsReadyMs": 0.40000003576278687,
+        "originalLaunchWaitLimitMs": 60000,
+        "player": {
+          "enabled": true,
+          "prepared": true,
+          "ready": true,
+          "disposed": false,
+          "error": "",
+          "elapsedMs": 1458.300000011921,
+          "totalPreparationMs": 1458.300000011921,
+          "texturePreparationMs": 172,
+          "shaderPreparationMs": 1214.800000011921,
+          "frameBefore": 0,
+          "frameAfter": 0,
+          "preserved": true,
+          "sourceUnchanged": true,
+          "renderStateUnchanged": true,
+          "textureUpload": {
+            "submitted": true,
+            "enabled": true,
+            "textures": [
+              {
+                "uuid": "9222b2b0-d89d-44f7-bd46-490efc4c8921",
+                "width": 4096,
+                "height": 4096,
+                "version": 1,
+                "sourceVersion": 1
+              },
+              {
+                "uuid": "a171a196-58eb-45c6-a44a-3be1b127c76e",
+                "width": 4096,
+                "height": 4096,
+                "version": 1,
+                "sourceVersion": 1
+              }
+            ],
+            "texturesBefore": 0,
+            "texturesAfter": 2,
+            "error": "",
+            "stateNormalized": true
+          },
+          "shaders": [
+            {
+              "root": "run",
+              "ready": true,
+              "elapsedMs": 1093.300000011921
+            },
+            {
+              "root": "weapon",
+              "ready": true,
+              "elapsedMs": 88.69999998807907
+            }
+          ],
+          "sourceCounts": {
+            "nodes": 33,
+            "materials": 2,
+            "textures": 2,
+            "geometries": 2,
+            "arrays": 223,
+            "sourceBytes": 3391246
+          },
+          "cleanup": {
+            "detached": false,
+            "errors": []
+          },
+          "note": "QA-only preparation of the already loaded original run subject and current weapon root. A read-only union submits each original Texture identity at most once; baseline performs the same canonical normalization without uploads or shader compilation. Candidate compiles the two real roots without posing, reparenting, new source assets, bitmaps, render targets or extra drawing/pixel reads. initTexture and shader compilation may create GPU textures/programs. API readiness is not GPU completion or first-draw validation. Public renderer normalization is not historical raw GL-binding restoration, and a synchronous vendor compile failure does not certify private renderer stacks. Abort/timeout revoke readiness; vendor shader polling cannot be cancelled. This handle never disposes the caller-owned GPU, geometry, material, texture or image. The caller retires a failed/partial candidate. Timings include source-proof overhead, not FPS or peak memory."
+        },
+        "playerPreparationMs": 1458.9000000357628,
+        "playerFinalizationMs": 7.300000011920929,
+        "playerReadyBeforeFirstDraw": true,
+        "playerDisposedBeforeFirstDraw": true
+      },
+      "firstCallbackMs": 144.89999997615814,
+      "preparationPlusFirstMs": 6574.800000011921,
+      "all40": {
+        "simulationMs": {
+          "count": 40,
+          "medianMs": 14.700000047683716,
+          "p95Ms": 23.30000001192093,
+          "maxMs": 40.19999998807907,
+          "sumMs": 613.3999997973442
+        },
+        "interpolationMs": {
+          "count": 40,
+          "medianMs": 0.699999988079071,
+          "p95Ms": 2,
+          "maxMs": 2.300000011920929,
+          "sumMs": 32.19999998807907
+        },
+        "renderMs": {
+          "count": 40,
+          "medianMs": 33.10000002384186,
+          "p95Ms": 131.5,
+          "maxMs": 155.30000001192093,
+          "sumMs": 1693.400000154972
+        },
+        "callbackMs": {
+          "count": 40,
+          "medianMs": 49.80000001192093,
+          "p95Ms": 144.89999997615814,
+          "maxMs": 196.0999999642372,
+          "sumMs": 2339.2999998927116
+        }
+      },
+      "steady30": {
+        "simulationMs": {
+          "count": 30,
+          "medianMs": 16.5,
+          "p95Ms": 23.30000001192093,
+          "maxMs": 40.19999998807907,
+          "sumMs": 499.79999977350235
+        },
+        "interpolationMs": {
+          "count": 30,
+          "medianMs": 0.6000000238418579,
+          "p95Ms": 1.800000011920929,
+          "maxMs": 2.300000011920929,
+          "sumMs": 22.19999998807907
+        },
+        "renderMs": {
+          "count": 30,
+          "medianMs": 33.60000002384186,
+          "p95Ms": 118.30000001192093,
+          "maxMs": 155.30000001192093,
+          "sumMs": 1286.900000154972
+        },
+        "callbackMs": {
+          "count": 30,
+          "medianMs": 50.40000003576279,
+          "p95Ms": 137.89999997615814,
+          "maxMs": 196.0999999642372,
+          "sumMs": 1808.9999998807907
+        }
+      },
+      "readbackMs": 11.399999976158142,
+      "callbackPlusReadbackMs": 2350.69999986887,
+      "preparationPlusAll40AndReadbackMs": 8780.599999904633,
+      "drainInclusive": {
+        "count": 41,
+        "medianMs": 49.19999998807907,
+        "p95Ms": 137.89999997615814,
+        "maxMs": 196.0999999642372,
+        "sumMs": 2350.69999986887
+      },
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      }
+    },
+    {
+      "arm": "A2",
+      "mode": "original",
+      "preparation": {
+        "preparationMs": 13342.699999988079,
+        "loadAndNativePreparationMs": 12664.400000035763,
+        "assetsReadyMs": 0.5,
+        "originalLaunchWaitLimitMs": 60000,
+        "player": {
+          "enabled": false,
+          "prepared": true,
+          "ready": true,
+          "disposed": false,
+          "error": "",
+          "elapsedMs": 610,
+          "totalPreparationMs": 610,
+          "texturePreparationMs": 0.7999999523162842,
+          "shaderPreparationMs": 0,
+          "frameBefore": 0,
+          "frameAfter": 0,
+          "preserved": true,
+          "sourceUnchanged": true,
+          "renderStateUnchanged": true,
+          "textureUpload": {
+            "submitted": false,
+            "enabled": false,
+            "textures": [
+              {
+                "uuid": "b642584f-a958-45db-90e5-9ca7bbec3d49",
+                "width": 4096,
+                "height": 4096,
+                "version": 1,
+                "sourceVersion": 1
+              },
+              {
+                "uuid": "80e5fd95-2e4f-4dca-bf69-37f6d9b024b3",
+                "width": 4096,
+                "height": 4096,
+                "version": 1,
+                "sourceVersion": 1
+              }
+            ],
+            "texturesBefore": 0,
+            "texturesAfter": 0,
+            "error": "",
+            "stateNormalized": true
+          },
+          "shaders": [],
+          "sourceCounts": {
+            "nodes": 33,
+            "materials": 2,
+            "textures": 2,
+            "geometries": 2,
+            "arrays": 223,
+            "sourceBytes": 3391246
+          },
+          "cleanup": {
+            "detached": false,
+            "errors": []
+          },
+          "note": "QA-only preparation of the already loaded original run subject and current weapon root. A read-only union submits each original Texture identity at most once; baseline performs the same canonical normalization without uploads or shader compilation. Candidate compiles the two real roots without posing, reparenting, new source assets, bitmaps, render targets or extra drawing/pixel reads. initTexture and shader compilation may create GPU textures/programs. API readiness is not GPU completion or first-draw validation. Public renderer normalization is not historical raw GL-binding restoration, and a synchronous vendor compile failure does not certify private renderer stacks. Abort/timeout revoke readiness; vendor shader polling cannot be cancelled. This handle never disposes the caller-owned GPU, geometry, material, texture or image. The caller retires a failed/partial candidate. Timings include source-proof overhead, not FPS or peak memory."
+        },
+        "playerPreparationMs": 612.7000000476837,
+        "playerFinalizationMs": 8.300000011920929,
+        "playerReadyBeforeFirstDraw": true,
+        "playerDisposedBeforeFirstDraw": true
+      },
+      "firstCallbackMs": 632.6000000238419,
+      "preparationPlusFirstMs": 13975.300000011921,
+      "all40": {
+        "simulationMs": {
+          "count": 40,
+          "medianMs": 13.199999988079071,
+          "p95Ms": 25.700000047683716,
+          "maxMs": 29.19999998807907,
+          "sumMs": 599.9999999403954
+        },
+        "interpolationMs": {
+          "count": 40,
+          "medianMs": 0.5999999642372131,
+          "p95Ms": 1.5,
+          "maxMs": 2.100000023841858,
+          "sumMs": 26.69999998807907
+        },
+        "renderMs": {
+          "count": 40,
+          "medianMs": 34.80000001192093,
+          "p95Ms": 114.59999996423721,
+          "maxMs": 619.8000000119209,
+          "sumMs": 2113.5000000596046
+        },
+        "callbackMs": {
+          "count": 40,
+          "medianMs": 49.69999998807907,
+          "p95Ms": 130.5,
+          "maxMs": 632.6000000238419,
+          "sumMs": 2740.699999988079
+        }
+      },
+      "steady30": {
+        "simulationMs": {
+          "count": 30,
+          "medianMs": 15.599999964237213,
+          "p95Ms": 25.700000047683716,
+          "maxMs": 29.19999998807907,
+          "sumMs": 484.6999999284744
+        },
+        "interpolationMs": {
+          "count": 30,
+          "medianMs": 0.5,
+          "p95Ms": 0.800000011920929,
+          "maxMs": 1,
+          "sumMs": 17.49999988079071
+        },
+        "renderMs": {
+          "count": 30,
+          "medianMs": 35.799999952316284,
+          "p95Ms": 63.90000003576279,
+          "maxMs": 73.70000004768372,
+          "sumMs": 1133.4000002145767
+        },
+        "callbackMs": {
+          "count": 30,
+          "medianMs": 50.89999997615814,
+          "p95Ms": 75.5,
+          "maxMs": 85.10000002384186,
+          "sumMs": 1636.1000000238419
+        }
+      },
+      "readbackMs": 9.100000023841858,
+      "callbackPlusReadbackMs": 2749.800000011921,
+      "preparationPlusAll40AndReadbackMs": 16092.5,
+      "drainInclusive": {
+        "count": 41,
+        "medianMs": 49.5,
+        "p95Ms": 85.10000002384186,
+        "maxMs": 632.6000000238419,
+        "sumMs": 2749.800000011921
+      },
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      }
+    }
+  ]
+}

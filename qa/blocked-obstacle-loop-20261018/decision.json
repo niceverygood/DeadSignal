@@ -1,0 +1,48 @@
+{
+  "status": "parked-insufficient-measured-gain",
+  "adopted": false,
+  "measuredOrder": [
+    "original",
+    "candidate",
+    "original"
+  ],
+  "cpuMs": [
+    13782,
+    13688,
+    13562
+  ],
+  "wallMs": [
+    14786.77,
+    13789.04,
+    13480.08
+  ],
+  "callbackPass": [
+    true,
+    true,
+    true
+  ],
+  "originalBudgetMs": 15000,
+  "candidateUnderBothOriginals": false,
+  "minimumRequiredImprovementPercent": 3,
+  "actualImprovementAgainstFasterOriginalPercent": -0.9290665093644006,
+  "oracle": {
+    "passed": 9,
+    "preExecutionReview": "Custom revoking Proxy guard changed to method identity first before any execution. Unused expected-argument fixture branch removed and controlled TypeError identity assertions added before source freeze. Initial executed oracle9/9 passed; no failed executed oracle or remeasurement."
+  },
+  "game": {
+    "cases": 6,
+    "comparisons": 2166,
+    "passed": true
+  },
+  "source": {
+    "count": 423,
+    "exact": true,
+    "protectedOriginalRecords": 22,
+    "allProtectedExact": true,
+    "productEngineSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "candidateSHA": "d12df8316e258d8254f89d18a4c887db67d0ab0391ce19513f062009eaf62335"
+  },
+  "noNewWholeSuiteOrBrowser": "QA candidate not adopted; product source and previous QA415 exact. Latest whole remains1223/1224 with CPU16250>15000; historical verify mismatch remains.",
+  "scope": "One fresh-process uninstrumented A1/B/A2 source-pinned original24000tick callback, including native ToLength/HasProperty/manual-loop/fallback costs. CLI checks original20000ms registration metadata but does not install a node:test watchdog. Failures/results remain; no repeat to search for a favorable result. Normal unmodified Array/Math/Reflect intrinsics; native TypeError class only versus original controlled thrown-value identity. No FPS or peak-memory claim.",
+  "next": "Separate clock-gated atomic task: player body readback pipeline; existing direct player+NPC alpha comparison and GPU-tail regressions remain unadopted. Fresh player-only evidence required; no default activation."
+}

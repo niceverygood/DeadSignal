@@ -1,0 +1,150 @@
+TAP version 13
+# Subtest: real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+ok 1 - real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+  ---
+  duration_ms: 436.6828
+  type: 'test'
+  ...
+# Subtest: all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+not ok 2 - all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+  ---
+  duration_ms: 170.7555
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\enemy-grid-runtime.test.mjs:41:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 12
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 12
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/enemy-grid-runtime.test.mjs:45:140)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+ok 3 - screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+  ---
+  duration_ms: 30.7816
+  type: 'test'
+  ...
+# Subtest: burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+ok 4 - burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+  ---
+  duration_ms: 20.3464
+  type: 'test'
+  ...
+# Subtest: rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+ok 5 - rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+  ---
+  duration_ms: 201.4667
+  type: 'test'
+  ...
+# Subtest: a throwing real movement stage releases every actor reference without replacing its error
+ok 6 - a throwing real movement stage releases every actor reference without replacing its error
+  ---
+  duration_ms: 1.0565
+  type: 'test'
+  ...
+# Subtest: reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+ok 7 - reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+  ---
+  duration_ms: 2.8904
+  type: 'test'
+  ...
+# Subtest: numeric/string keys, floor boundaries and original actor insertion order match the independent construction exactly
+ok 8 - numeric/string keys, floor boundaries and original actor insertion order match the independent construction exactly
+  ---
+  duration_ms: 6.5197
+  type: 'test'
+  ...
+# Subtest: one owner reuses its Map and empty bucket arrays while allocation counters are immutable copies
+ok 9 - one owner reuses its Map and empty bucket arrays while allocation counters are immutable copies
+  ---
+  duration_ms: 1.2957
+  type: 'test'
+  ...
+# Subtest: legacy acquisitions always allocate fresh Maps/buckets and never consume or seed the reusable pool
+ok 10 - legacy acquisitions always allocate fresh Maps/buckets and never consume or seed the reusable pool
+  ---
+  duration_ms: 0.3305
+  type: 'test'
+  ...
+# Subtest: nested acquisitions and different owners cannot overwrite outer tick-start memberships
+ok 11 - nested acquisitions and different owners cannot overwrite outer tick-start memberships
+  ---
+  duration_ms: 0.2881
+  type: 'test'
+  ...
+# Subtest: actor moves, death, newly pushed spawns and array replacement preserve fixed membership with current actor references
+ok 12 - actor moves, death, newly pushed spawns and array replacement preserve fixed membership with current actor references
+  ---
+  duration_ms: 0.3512
+  type: 'test'
+  ...
+# Subtest: builder throws keep the original error and release partial actor references; caller finally can release after an update error
+ok 13 - builder throws keep the original error and release partial actor references; caller finally can release after an update error
+  ---
+  duration_ms: 0.4027
+  type: 'test'
+  ...
+# Subtest: idle buckets stay bounded and drop all actor references even after oversized custom crowds
+ok 14 - idle buckets stay bounded and drop all actor references even after oversized custom crowds
+  ---
+  duration_ms: 1.2828
+  type: 'test'
+  ...
+# Subtest: actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+ok 15 - actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+  ---
+  duration_ms: 4474.9487
+  type: 'test'
+  ...
+# Subtest: all original preparation and an unmutated prime finish before measured ticks or frame observers start
+ok 16 - all original preparation and an unmutated prime finish before measured ticks or frame observers start
+  ---
+  duration_ms: 761.1722
+  type: 'test'
+  ...
+# Subtest: wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+ok 17 - wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+  ---
+  duration_ms: 5.2053
+  type: 'test'
+  ...
+# Subtest: unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+ok 18 - unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+  ---
+  duration_ms: 332.9056
+  type: 'test'
+  ...
+# Subtest: the comparison requires both observed native batch work and nonempty actual native selection
+ok 19 - the comparison requires both observed native batch work and nonempty actual native selection
+  ---
+  duration_ms: 861.5448
+  type: 'test'
+  ...
+# Subtest: minimal observation with all-fresh control counts only original native renders, retains all40 samples including warm outliers and restores the exact method descriptor
+ok 20 - minimal observation with all-fresh control counts only original native renders, retains all40 samples including warm outliers and restores the exact method descriptor
+  ---
+  duration_ms: 769.3104
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 19
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7556.3191

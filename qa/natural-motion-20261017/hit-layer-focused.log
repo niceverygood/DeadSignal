@@ -1,0 +1,34 @@
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (3.8142ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (202.6468ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (3.5671ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.4914ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (0.2808ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (1.105ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (196.5507ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (25.7488ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (47.8551ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (35.9068ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (6.191ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (19.5679ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (1.1113ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (132.4787ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (24.1946ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (15.6286ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (1.7529ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (470.8226ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (37.5072ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (209.8292ms)
+✔ thousands of changing crowd actors use a fixed12 image surfaces and stale ownership cannot leak a different character (26.5364ms)
+✔ unpooled hero/boss/death images remain valid and reserving a smaller batch never reallocates surfaces (0.3238ms)
+✔ moving non-knockback damage retains walk with native hit phase; actual stun gets full stagger (2.8002ms)
+✔ damage overlay never replaces saved warning or active charge pose and ends when flash expires (13.0863ms)
+✔ persistent native pose buffers retain exact transforms while reuse removes per-frame bone allocations (3.4984ms)
+✔ a frozen transition remains independent when the next native pose reuses its buffers (0.428ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1863.5535

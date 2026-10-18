@@ -1,0 +1,74 @@
+TAP version 13
+# Subtest: setup selects the tracked game IK source and generated runtime/provenance exactly match its compiled bytes
+ok 1 - setup selects the tracked game IK source and generated runtime/provenance exactly match its compiled bytes
+  ---
+  duration_ms: 12.9023
+  type: 'test'
+  ...
+# Subtest: unknown module names reject before fallback and a missing canonical file never silently loads the old baker
+ok 2 - unknown module names reject before fallback and a missing canonical file never silently loads the old baker
+  ---
+  duration_ms: 16.2678
+  type: 'test'
+  ...
+# Subtest: historical baker modules, source/runtime models and the original recoil thresholds remain byte exact
+ok 3 - historical baker modules, source/runtime models and the original recoil thresholds remain byte exact
+  ---
+  duration_ms: 629.0766
+  type: 'test'
+  ...
+# Subtest: omitted and zero retraction retain the actual original baker pose, feet and two-hand weapon transforms exactly
+ok 4 - omitted and zero retraction retain the actual original baker pose, feet and two-hand weapon transforms exactly
+  ---
+  duration_ms: 260.9129
+  type: 'test'
+  ...
+# Subtest: invalid retraction never coerces inputs and positive finite requests remain bounded with the original feet and arm geometry
+not ok 5 - invalid retraction never coerces inputs and positive finite requests remain bounded with the original feet and arm geometry
+  ---
+  duration_ms: 63.2328
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\player-runtime-recoil-source.test.mjs:124:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(current.right.error<1e-4)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/player-runtime-recoil-source.test.mjs:142:93)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: weapon impulse has continuous onset/release and a stronger shotgun with no extra timer
+ok 6 - weapon impulse has continuous onset/release and a stronger shotgun with no extra timer
+  ---
+  duration_ms: 3.3963
+  type: 'test'
+  ...
+# Subtest: actual original two-hand weapons recoil without stretching, losing aim or changing feet at eight headings
+ok 7 - actual original two-hand weapons recoil without stretching, losing aim or changing feet at eight headings
+  ---
+  duration_ms: 391.3407
+  type: 'test'
+  ...
+# Subtest: last actual shot starts automatic reload while its saved recoil still drives a physical impulse
+ok 8 - last actual shot starts automatic reload while its saved recoil still drives a physical impulse
+  ---
+  duration_ms: 11.8657
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 7
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1168.7029

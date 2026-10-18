@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: observer CLI bounds actors/windows and rejects duplicates or invalid output/worker modes before diagnostic work
+ok 1 - observer CLI bounds actors/windows and rejects duplicates or invalid output/worker modes before diagnostic work
+  ---
+  duration_ms: 3.3047
+  type: 'test'
+  ...
+# Subtest: injected both-count A/B/A work is sequential and timing-only differences do not alter strict proof comparison
+ok 2 - injected both-count A/B/A work is sequential and timing-only differences do not alter strict proof comparison
+  ---
+  duration_ms: 44.3763
+  type: 'test'
+  ...
+# Subtest: exclusive existing output and malformed arguments stop all injected source/worker work while preserving existing evidence
+ok 3 - exclusive existing output and malformed arguments stop all injected source/worker work while preserving existing evidence
+  ---
+  duration_ms: 65.7139
+  type: 'test'
+  ...
+# Subtest: CLI preserves success/mismatch/failure reports with exit0/1/2 and never reruns or overwrites an existing failure
+ok 4 - CLI preserves success/mismatch/failure reports with exit0/1/2 and never reruns or overwrites an existing failure
+  ---
+  duration_ms: 396.1752
+  type: 'test'
+  ...
+# Subtest: stdout throwing after a completed report preserves the single valid full report and returns an explicit output failure
+ok 5 - stdout throwing after a completed report preserves the single valid full report and returns an explicit output failure
+  ---
+  duration_ms: 67.7827
+  type: 'test'
+  ...
+# Subtest: an unfinished partial report is replaced from byte0 and truncated to one valid failure JSON
+ok 6 - an unfinished partial report is replaced from byte0 and truncated to one valid failure JSON
+  ---
+  duration_ms: 125.9371
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1364.1803

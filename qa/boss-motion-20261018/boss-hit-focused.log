@@ -1,0 +1,196 @@
+TAP version 13
+# Subtest: a charge warns before damage, locks its direction, and a final boss really performs its second warned charge
+ok 1 - a charge warns before damage, locks its direction, and a final boss really performs its second warned charge
+  ---
+  duration_ms: 32.0555
+  type: 'test'
+  ...
+# Subtest: charge movement respects physical walls and its configured impact damage respects dodge invulnerability
+ok 2 - charge movement respects physical walls and its configured impact damage respects dodge invulnerability
+  ---
+  duration_ms: 6.2453
+  type: 'test'
+  ...
+# Subtest: summoning uses its warned circle, distinct middle/final populations and a bounded living summon limit
+ok 3 - summoning uses its warned circle, distinct middle/final populations and a bounded living summon limit
+  ---
+  duration_ms: 99.0048
+  type: 'test'
+  ...
+# Subtest: spit warning precedes swept projectile damage, creates real pools and final fan rays match their shots
+ok 4 - spit warning precedes swept projectile damage, creates real pools and final fan rays match their shots
+  ---
+  duration_ms: 12.2972
+  type: 'test'
+  ...
+# Subtest: walls stop hostile shots and contamination cannot damage a survivor behind the wall
+ok 5 - walls stop hostile shots and contamination cannot damage a survivor behind the wall
+  ---
+  duration_ms: 23.1209
+  type: 'test'
+  ...
+# Subtest: live attack phases, projectiles and pools freeze during pause or upgrade and their saved clocks resume exactly
+ok 6 - live attack phases, projectiles and pools freeze during pause or upgrade and their saved clocks resume exactly
+  ---
+  duration_ms: 13.4301
+  type: 'test'
+  ...
+# Subtest: boss death purges its warned and active attacks, and lethal projectiles cannot repeat damage after a terminal tick
+ok 7 - boss death purges its warned and active attacks, and lethal projectiles cannot repeat damage after a terminal tick
+  ---
+  duration_ms: 7.7658
+  type: 'test'
+  ...
+# Subtest: sustained ordinary hits preserve bounded checkpoints while a boss warning and skill keep progressing
+ok 8 - sustained ordinary hits preserve bounded checkpoints while a boss warning and skill keep progressing
+  ---
+  duration_ms: 10.9727
+  type: 'test'
+  ...
+# Subtest: all24 campaign bosses retain damage, flash, impact particles, events and both RNGs from the full original; only ordinary impulse/stun refresh changes
+ok 9 - all24 campaign bosses retain damage, flash, impact particles, events and both RNGs from the full original; only ordinary impulse/stun refresh changes
+  ---
+  duration_ms: 122.9353
+  type: 'test'
+  ...
+# Subtest: real60Hz haste2 nailgun reproduces the original five-tick permanent hit lock; normal bossHP candidate warns, attacks and moves while retaining impacts
+ok 10 - real60Hz haste2 nailgun reproduces the original five-tick permanent hit lock; normal bossHP candidate warns, attacks and moves while retaining impacts
+  ---
+  duration_ms: 90.0557
+  type: 'test'
+  ...
+# Subtest: all24 bosses walk and complete real skills under repeated low damage, with bounded hazards and exact restored same-schedule checkpoints/RNG/events
+ok 11 - all24 bosses walk and complete real skills under repeated low damage, with bounded hazards and exact restored same-schedule checkpoints/RNG/events
+  ---
+  duration_ms: 2485.0983
+  type: 'test'
+  ...
+# Subtest: explicit stun is neither shortened nor refreshed by ordinary boss hits, survives mid-warning restore, and continues to stop the original windup
+ok 12 - explicit stun is neither shortened nor refreshed by ordinary boss hits, survives mid-warning restore, and continues to stop the original windup
+  ---
+  duration_ms: 450.3408
+  type: 'test'
+  ...
+# Subtest: walking bosses keep the full original impulse movement and one common-path decay; busy bosses decay a saved impulse once without moving it
+ok 13 - walking bosses keep the full original impulse movement and one common-path decay; busy bosses decay a saved impulse once without moving it
+  ---
+  duration_ms: 55.4205
+  type: 'test'
+  ...
+# Subtest: all seven noncampaign enemy types retain exact original hit-stun, knockback, walls, real bullets, events, effects, checkpoints and both RNG traces
+ok 14 - all seven noncampaign enemy types retain exact original hit-stun, knockback, walls, real bullets, events, effects, checkpoints and both RNG traces
+  ---
+  duration_ms: 409.0545
+  type: 'test'
+  ...
+# Subtest: nine additional skill families cover both roles with genuine warning geometry before harm
+ok 15 - nine additional skill families cover both roles with genuine warning geometry before harm
+  ---
+  duration_ms: 38.2946
+  type: 'test'
+  ...
+# Subtest: warning and active area/line geometry remain identical for every damaging hazard family
+ok 16 - warning and active area/line geometry remain identical for every damaging hazard family
+  ---
+  duration_ms: 22.0994
+  type: 'test'
+  ...
+# Subtest: final slam has a real second annulus, with a safe centre and damaging outer ring
+ok 17 - final slam has a real second annulus, with a safe centre and damaging outer ring
+  ---
+  duration_ms: 0.9696
+  type: 'test'
+  ...
+# Subtest: shield protects only its facing arc while the actual guard is active
+ok 18 - shield protects only its facing arc while the actual guard is active
+  ---
+  duration_ms: 0.7335
+  type: 'test'
+  ...
+# Subtest: both leap roles land legally through Game.move and detonate only their announced landing circles
+ok 19 - both leap roles land legally through Game.move and detonate only their announced landing circles
+  ---
+  duration_ms: 2.5273
+  type: 'test'
+  ...
+# Subtest: a new obstruction cancels a leap impact instead of creating unannounced damage
+ok 20 - a new obstruction cancels a leap impact instead of creating unannounced damage
+  ---
+  duration_ms: 0.6712
+  type: 'test'
+  ...
+# Subtest: beam warnings stop at walls and their actual damage obeys the exact clipped line
+ok 21 - beam warnings stop at walls and their actual damage obeys the exact clipped line
+  ---
+  duration_ms: 1.6234
+  type: 'test'
+  ...
+# Subtest: fire persists for its catalog duration and applies separated repeated damage ticks
+ok 22 - fire persists for its catalog duration and applies separated repeated damage ticks
+  ---
+  duration_ms: 0.7877
+  type: 'test'
+  ...
+# Subtest: mine circles remain harmless until their individual fuse expires
+ok 23 - mine circles remain harmless until their individual fuse expires
+  ---
+  duration_ms: 3.9641
+  type: 'test'
+  ...
+# Subtest: pull moves the player through collision-aware movement and deals its closing impact later
+ok 24 - pull moves the player through collision-aware movement and deals its closing impact later
+  ---
+  duration_ms: 3.6624
+  type: 'test'
+  ...
+# Subtest: spread creates real fan projectiles and the final boss fires its second independently warned wave
+ok 25 - spread creates real fan projectiles and the final boss fires its second independently warned wave
+  ---
+  duration_ms: 1.0157
+  type: 'test'
+  ...
+# Subtest: spread projectile sweeps hit players on an open lane and stop at solid walls
+ok 26 - spread projectile sweeps hit players on an open lane and stop at solid walls
+  ---
+  duration_ms: 2.583
+  type: 'test'
+  ...
+# Subtest: storm uses deterministic saved RNG and genuinely staggered lightning circles
+ok 27 - storm uses deterministic saved RNG and genuinely staggered lightning circles
+  ---
+  duration_ms: 2.3554
+  type: 'test'
+  ...
+# Subtest: paused attacks freeze, stunned warnings wait, dead owners purge and terminal hazards cannot keep hurting
+ok 28 - paused attacks freeze, stunned warnings wait, dead owners purge and terminal hazards cannot keep hurting
+  ---
+  duration_ms: 0.8047
+  type: 'test'
+  ...
+# Subtest: hazard and projectile queues stay within caps even under repeated casts
+ok 29 - hazard and projectile queues stay within caps even under repeated casts
+  ---
+  duration_ms: 3.71
+  type: 'test'
+  ...
+# Subtest: all eighteen bosses resume warning and active combat through strict actual checkpoints
+ok 30 - all eighteen bosses resume warning and active combat through strict actual checkpoints
+  ---
+  duration_ms: 50.4833
+  type: 'test'
+  ...
+# Subtest: full Game.tick dispatches all eighteen additional bosses into their actual patterns
+ok 31 - full Game.tick dispatches all eighteen additional bosses into their actual patterns
+  ---
+  duration_ms: 54.7124
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4031.4897

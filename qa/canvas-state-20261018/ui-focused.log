@@ -1,0 +1,74 @@
+TAP version 13
+# Subtest: new QA UI is append-only after the exact original 167556-byte player-rig script
+not ok 1 - new QA UI is append-only after the exact original 167556-byte player-rig script
+  ---
+  duration_ms: 8.4546
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-canvas-state-ui.test.mjs:29:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(source.slice(original.length).includes('installCanvasStatePixelQA({document,location,status,read:()=>({ready,playing,renderer})})'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-canvas-state-ui.test.mjs:33:9)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: origin, memory and exact flag gate reject before DOM, owner, storage or helper inspection
+ok 2 - origin, memory and exact flag gate reject before DOM, owner, storage or helper inspection
+  ---
+  duration_ms: 0.545
+  type: 'test'
+  ...
+# Subtest: only an explicit ready, idle click imports the utility and creates genuine isolated storage once
+ok 3 - only an explicit ready, idle click imports the utility and creates genuine isolated storage once
+  ---
+  duration_ms: 1.6046
+  type: 'test'
+  ...
+# Subtest: late imports after pagehide or owner replacement never run the candidate or access persistence
+not ok 4 - late imports after pagehide or owner replacement never run the candidate or access persistence
+  ---
+  duration_ms: 1.0138
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-canvas-state-ui.test.mjs:54:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-canvas-state-ui.test.mjs:60:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: quality failure is displayed as failure and a thrown helper is contained with button/listener cleanup
+ok 5 - quality failure is displayed as failure and a thrown helper is contained with button/listener cleanup
+  ---
+  duration_ms: 0.6418
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 3
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 137.6161

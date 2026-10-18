@@ -1,0 +1,336 @@
+TAP version 13
+# Subtest: the original artifacts and product callback, launch commits and native adoption paths remain unchanged
+ok 1 - the original artifacts and product callback, launch commits and native adoption paths remain unchanged
+  ---
+  duration_ms: 2.3612
+  type: 'test'
+  ...
+# Subtest: the exact app bootstrap installs the helper only after a valid guarded fixture and recognized mode
+ok 2 - the exact app bootstrap installs the helper only after a valid guarded fixture and recognized mode
+  ---
+  duration_ms: 21.8849
+  type: 'test'
+  ...
+# Subtest: without GPU or autostart flags the complete old manual report, clocks and actual Game results stay identical
+ok 3 - without GPU or autostart flags the complete old manual report, clocks and actual Game results stay identical
+  ---
+  duration_ms: 147.3472
+  type: 'test'
+  ...
+# Subtest: autostart lets the original callback drain pending resume events before observing the next playing callback once
+ok 4 - autostart lets the original callback drain pending resume events before observing the next playing callback once
+  ---
+  duration_ms: 28.161
+  type: 'test'
+  ...
+# Subtest: automatic observation preserves actual catch-up state/events and optional pre-probe GPU counters as snapshots
+ok 5 - automatic observation preserves actual catch-up state/events and optional pre-probe GPU counters as snapshots
+  ---
+  duration_ms: 99.9563
+  type: 'test'
+  ...
+# Subtest: manual start consumes the one-shot autostart and external methods survive stop; thrown original callbacks keep identity
+ok 6 - manual start consumes the one-shot autostart and external methods survive stop; thrown original callbacks keep identity
+  ---
+  duration_ms: 38.8068
+  type: 'test'
+  ...
+# Subtest: pagehide keeps original pause/checkpoint calls and only stops the optional QA controller
+ok 7 - pagehide keeps original pause/checkpoint calls and only stops the optional QA controller
+  ---
+  duration_ms: 1.3154
+  type: 'test'
+  ...
+# Subtest: movement mode parsing accepts only the explicit counts and wall values
+ok 8 - movement mode parsing accepts only the explicit counts and wall values
+  ---
+  duration_ms: 15.8717
+  type: 'test'
+  ...
+# Subtest: protected origins and unbranded storage reject before DOM, read or any observer factory
+ok 9 - protected origins and unbranded storage reject before DOM, read or any observer factory
+  ---
+  duration_ms: 7.9397
+  type: 'test'
+  ...
+# Subtest: absent or unknown movement mode preserves the full original report, clock calls and Game behavior
+ok 10 - absent or unknown movement mode preserves the full original report, clock calls and Game behavior
+  ---
+  duration_ms: 225.3747
+  type: 'test'
+  ...
+# Subtest: enabled movement lifecycle composes with native and cost without supplying extra ticks, events or renders
+ok 11 - enabled movement lifecycle composes with native and cost without supplying extra ticks, events or renders
+  ---
+  duration_ms: 55.2011
+  type: 'test'
+  ...
+# Subtest: the actual movement helper observes normal clamped Game calls and restores only its own instance methods
+ok 12 - the actual movement helper observes normal clamped Game calls and restores only its own instance methods
+  ---
+  duration_ms: 73.2865
+  type: 'test'
+  ...
+# Subtest: an original frame exception keeps its identity while every composed observer stops and restores
+ok 13 - an original frame exception keeps its identity while every composed observer stops and restores
+  ---
+  duration_ms: 17.6593
+  type: 'test'
+  ...
+# Subtest: default QA loop keeps the original game/events/RNG, profile ordering and report shape without creating a sprite observer
+ok 14 - default QA loop keeps the original game/events/RNG, profile ordering and report shape without creating a sprite observer
+  ---
+  duration_ms: 99.2241
+  type: 'test'
+  ...
+# Subtest: only the exact optional flag creates the sprite observer; nested begin/end/stop order preserves the original frame and game
+ok 15 - only the exact optional flag creates the sprite observer; nested begin/end/stop order preserves the original frame and game
+  ---
+  duration_ms: 91.3789
+  type: 'test'
+  ...
+# Subtest: outside the exact genuine-memory 8851 gate, no DOM, renderer, read, storage or optional observer access occurs
+ok 16 - outside the exact genuine-memory 8851 gate, no DOM, renderer, read, storage or optional observer access occurs
+  ---
+  duration_ms: 10.6869
+  type: 'test'
+  ...
+# Subtest: an unexpected sprite stop failure does not prevent existing cost/native cleanup or proof/report delivery
+ok 17 - an unexpected sprite stop failure does not prevent existing cost/native cleanup or proof/report delivery
+  ---
+  duration_ms: 11.0126
+  type: 'test'
+  ...
+# Subtest: app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+ok 18 - app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+  ---
+  duration_ms: 5.0134
+  type: 'test'
+  ...
+# Subtest: memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+ok 19 - memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+  ---
+  duration_ms: 293.0388
+  type: 'test'
+  ...
+# Subtest: invalid density never seeds or saves a partial memory checkpoint
+ok 20 - invalid density never seeds or saves a partial memory checkpoint
+  ---
+  duration_ms: 1.1801
+  type: 'test'
+  ...
+# Subtest: real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+ok 21 - real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+  ---
+  duration_ms: 173.1984
+  type: 'test'
+  ...
+# Subtest: the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+ok 22 - the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+  ---
+  duration_ms: 52.737
+  type: 'test'
+  ...
+# Subtest: external replacements survive stop and a new Game releases the previous instance wrappers
+ok 23 - external replacements survive stop and a new Game releases the previous instance wrappers
+  ---
+  duration_ms: 9.2479
+  type: 'test'
+  ...
+# Subtest: start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+ok 24 - start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+  ---
+  duration_ms: 18.4398
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original frame return value
+ok 25 - a failing stop observer cannot replace the original frame return value
+  ---
+  duration_ms: 4.1862
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original thrown frame error
+ok 26 - a failing stop observer cannot replace the original thrown frame error
+  ---
+  duration_ms: 5.2517
+  type: 'test'
+  ...
+# Subtest: 60/180 observed actor fixtures retain original exact reports, labels, nested calls, cold caches and owner identities
+ok 27 - 60/180 observed actor fixtures retain original exact reports, labels, nested calls, cold caches and owner identities
+  ---
+  duration_ms: 233.1174
+  type: 'test'
+  ...
+# Subtest: original returns, Promise/throw identity, receiver/args, descriptors, missing stages and broken clocks remain exact
+ok 28 - original returns, Promise/throw identity, receiver/args, descriptors, missing stages and broken clocks remain exact
+  ---
+  duration_ms: 4.1211
+  type: 'test'
+  ...
+# Subtest: overlapping profiles stop in either order and restore every exact owner method descriptor
+ok 29 - overlapping profiles stop in either order and restore every exact owner method descriptor
+  ---
+  duration_ms: 3.9123
+  type: 'test'
+  ...
+# Subtest: recursive same-slot dispatch, live listener removal/addition, custom original.apply and external replacement match the original
+ok 30 - recursive same-slot dispatch, live listener removal/addition, custom original.apply and external replacement match the original
+  ---
+  duration_ms: 0.8222
+  type: 'test'
+  ...
+# Subtest: observer-clock recursion, frame rotation, stop and throw preserve frame capture and original lifecycle reports
+ok 31 - observer-clock recursion, frame rotation, stop and throw preserve frame capture and original lifecycle reports
+  ---
+  duration_ms: 2.1311
+  type: 'test'
+  ...
+# Subtest: read callbacks that recurse, rotate frames, stop or throw keep the original lifecycle and error behavior
+ok 32 - read callbacks that recurse, rotate frames, stop or throw keep the original lifecycle and error behavior
+  ---
+  duration_ms: 3.1701
+  type: 'test'
+  ...
+# Subtest: QA-only factory capture proves steady reuse, bounded idle pools and clearing of every inactive reference
+ok 33 - QA-only factory capture proves steady reuse, bounded idle pools and clearing of every inactive reference
+  ---
+  duration_ms: 85.5248
+  type: 'test'
+  ...
+# Subtest: instance-only observation preserves original outputs and calls, records real Navigation cold work and existing player reads without initiating any work
+ok 34 - instance-only observation preserves original outputs and calls, records real Navigation cold work and existing player reads without initiating any work
+  ---
+  duration_ms: 26.8953
+  type: 'test'
+  ...
+# Subtest: this/arguments/return, promise and thrown identities survive broken clocks and readonly methods; disabled mode never reads any owner or clock
+ok 35 - this/arguments/return, promise and thrown identities survive broken clocks and readonly methods; disabled mode never reads any owner or clock
+  ---
+  duration_ms: 3.7697
+  type: 'test'
+  ...
+# Subtest: overlap restoration works in either order, owner replacement releases prior hooks and external method replacement is preserved
+ok 36 - overlap restoration works in either order, owner replacement releases prior hooks and external method replacement is preserved
+  ---
+  duration_ms: 3.6424
+  type: 'test'
+  ...
+# Subtest: lazy existing player surfaces are attached at first use, navigation replacement and bounded cache snapshots are observational only
+ok 37 - lazy existing player surfaces are attached at first use, navigation replacement and bounded cache snapshots are observational only
+  ---
+  duration_ms: 1.6602
+  type: 'test'
+  ...
+# Subtest: actual ProductionArt sprite calls are scoped once to the innermost renderer category and conservatively split into native/baked/unknown without Canvas hooks
+ok 38 - actual ProductionArt sprite calls are scoped once to the innermost renderer category and conservatively split into native/baked/unknown without Canvas hooks
+  ---
+  duration_ms: 1.8017
+  type: 'test'
+  ...
+# Subtest: scoped sprite observation preserves original this/args/return/Promise/throw identities and restores category after errors without invoking metadata getters
+ok 39 - scoped sprite observation preserves original this/args/return/Promise/throw identities and restores category after errors without invoking metadata getters
+  ---
+  duration_ms: 1.0342
+  type: 'test'
+  ...
+# Subtest: overlapping sprite observers restore replaced ProductionArt owners independently and preserve external replacement descriptors
+ok 40 - overlapping sprite observers restore replaced ProductionArt owners independently and preserve external replacement descriptors
+  ---
+  duration_ms: 0.8259
+  type: 'test'
+  ...
+# Subtest: actual ProductionArt drawFrame is an independent strict Canvas/state oracle, including the original save/draw/restore failure policy
+ok 41 - actual ProductionArt drawFrame is an independent strict Canvas/state oracle, including the original save/draw/restore failure policy
+  ---
+  duration_ms: 20.5755
+  type: 'test'
+  ...
+# Subtest: forwarding preserves this, argument and return/Promise/error identities, and observes only the renderer context during a drawFrame
+ok 42 - forwarding preserves this, argument and return/Promise/error identities, and observes only the renderer context during a drawFrame
+  ---
+  duration_ms: 1.946
+  type: 'test'
+  ...
+# Subtest: nested drawFrame calls restore the outer scope after success and throw without duplicate Canvas work
+ok 43 - nested drawFrame calls restore the outer scope after success and throw without duplicate Canvas work
+  ---
+  duration_ms: 0.4923
+  type: 'test'
+  ...
+# Subtest: nested foreign receiver/context or retired owner calls cannot inherit the outer measured Canvas scope
+ok 44 - nested foreign receiver/context or retired owner calls cannot inherit the outer measured Canvas scope
+  ---
+  duration_ms: 0.7743
+  type: 'test'
+  ...
+# Subtest: class getters, readonly/unknown methods and descriptor failures are unmeasured without being invoked or changing original drawing
+ok 45 - class getters, readonly/unknown methods and descriptor failures are unmeasured without being invoked or changing original drawing
+  ---
+  duration_ms: 2.7965
+  type: 'test'
+  ...
+# Subtest: overlapping observers restore in either stop order and owner changes/foreign full descriptors remain isolated
+ok 46 - overlapping observers restore in either stop order and owner changes/foreign full descriptors remain isolated
+  ---
+  duration_ms: 1.8101
+  type: 'test'
+  ...
+# Subtest: restoration failure is reported, and stopping during a drawing call preserves original return/error and drops the unfinished report
+not ok 47 - restoration failure is reported, and stopping during a drawing call preserves original return/error and drops the unfinished report
+  ---
+  duration_ms: 6.3539
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-sprite-call-profile.test.mjs:213:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(report.unmeasured.includes('drawImage.restore'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-sprite-call-profile.test.mjs:219:119)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: frame/outlier caps retain copied primitive asset/rect evidence, skip metadata getters, and auto-stop leaves subsequent original calls entirely unobserved
+ok 48 - frame/outlier caps retain copied primitive asset/rect evidence, skip metadata getters, and auto-stop leaves subsequent original calls entirely unobserved
+  ---
+  duration_ms: 14.2821
+  type: 'test'
+  ...
+# Subtest: disabled mode performs no owner, metadata, read callback or clock access; malformed selection remains the original false/throw
+ok 49 - disabled mode performs no owner, metadata, read callback or clock access; malformed selection remains the original false/throw
+  ---
+  duration_ms: 1.2188
+  type: 'test'
+  ...
+# Subtest: the documented cost-first/sprite-second composition measures each original call once and restores both independent observer modules
+ok 50 - the documented cost-first/sprite-second composition measures each original call once and restores both independent observer modules
+  ---
+  duration_ms: 3.231
+  type: 'test'
+  ...
+# Subtest: cost-first composition restores full retired art/context descriptors across successive owner identities, with sprite hooks detached after each frame
+ok 51 - cost-first composition restores full retired art/context descriptors across successive owner identities, with sprite hooks detached after each frame
+  ---
+  duration_ms: 1.9735
+  type: 'test'
+  ...
+1..51
+# tests 51
+# suites 0
+# pass 50
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2481.3307

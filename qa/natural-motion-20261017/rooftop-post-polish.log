@@ -1,0 +1,280 @@
+TAP version 13
+# Subtest: all render actor pools interpolate without changing checkpoints, random streams or actor identity
+ok 1 - all render actor pools interpolate without changing checkpoints, random streams or actor identity
+  ---
+  duration_ms: 11.3969
+  type: 'test'
+  ...
+# Subtest: attack warnings, shields and gun aim keep exact angles while regular turns use the shortest arc
+ok 2 - attack warnings, shields and gun aim keep exact angles while regular turns use the shortest arc
+  ---
+  duration_ms: 1.1187
+  type: 'test'
+  ...
+# Subtest: paused positions snap once and stay fixed; teleports/new runs do not create sliding ghosts
+ok 3 - paused positions snap once and stay fixed; teleports/new runs do not create sliding ghosts
+  ---
+  duration_ms: 1.1123
+  type: 'test'
+  ...
+# Subtest: substep renders are continuous and physics/checkpoints remain identical with interpolation enabled
+ok 4 - substep renders are continuous and physics/checkpoints remain identical with interpolation enabled
+  ---
+  duration_ms: 81.4111
+  type: 'test'
+  ...
+# Subtest: a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+ok 5 - a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+  ---
+  duration_ms: 36.7177
+  type: 'test'
+  ...
+# Subtest: snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+ok 6 - snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+  ---
+  duration_ms: 4.5772
+  type: 'test'
+  ...
+# Subtest: RNG state setters reject corruption without changing the next random value
+ok 7 - RNG state setters reject corruption without changing the next random value
+  ---
+  duration_ms: 0.4467
+  type: 'test'
+  ...
+# Subtest: a piercing bullet remembers its earlier hit after JSON round trip
+ok 8 - a piercing bullet remembers its earlier hit after JSON round trip
+  ---
+  duration_ms: 5.2222
+  type: 'test'
+  ...
+# Subtest: shots and fire thrown outside the map edge remain valid resumable combat
+ok 9 - shots and fire thrown outside the map edge remain valid resumable combat
+  ---
+  duration_ms: 3.8244
+  type: 'test'
+  ...
+# Subtest: city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+ok 10 - city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+  ---
+  duration_ms: 7.3537
+  type: 'test'
+  ...
+# Subtest: navigation caches are omitted and restore creates navigation over the restored city
+ok 11 - navigation caches are omitted and restore creates navigation over the restored city
+  ---
+  duration_ms: 1.9784
+  type: 'test'
+  ...
+# Subtest: a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+ok 12 - a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+  ---
+  duration_ms: 67.8083
+  type: 'test'
+  ...
+# Subtest: route and hospital event screens retain choices and cannot pay their rewards twice
+ok 13 - route and hospital event screens retain choices and cannot pay their rewards twice
+  ---
+  duration_ms: 33.0128
+  type: 'test'
+  ...
+# Subtest: collector attack phases survive restore and boss keeps the live enemy reference
+ok 14 - collector attack phases survive restore and boss keeps the live enemy reference
+  ---
+  duration_ms: 20.952
+  type: 'test'
+  ...
+# Subtest: signed idle timers and inactive stale alarm IDs are valid checkpoint data
+ok 15 - signed idle timers and inactive stale alarm IDs are valid checkpoint data
+  ---
+  duration_ms: 17.6789
+  type: 'test'
+  ...
+# Subtest: supply preserves a cleared gate and an active orphan alarm until the next district
+ok 16 - supply preserves a cleared gate and an active orphan alarm until the next district
+  ---
+  duration_ms: 1.5944
+  type: 'test'
+  ...
+# Subtest: a stage clear before pickup cleanup can save more than four hundred fifty pickups
+ok 17 - a stage clear before pickup cleanup can save more than four hundred fifty pickups
+  ---
+  duration_ms: 15.8682
+  type: 'test'
+  ...
+# Subtest: restored gameplay and future rolls match the original when transient navigation caches are reset
+ok 18 - restored gameplay and future rolls match the original when transient navigation caches are reset
+  ---
+  duration_ms: 77.0918
+  type: 'test'
+  ...
+# Subtest: menu and terminal runs do not create resumable checkpoints
+ok 19 - menu and terminal runs do not create resumable checkpoints
+  ---
+  duration_ms: 2.0881
+  type: 'test'
+  ...
+# Subtest: corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+ok 20 - corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+  ---
+  duration_ms: 33.3477
+  type: 'test'
+  ...
+# Subtest: duplicate, capped, or missing upgrade choices cannot create a broken selection screen
+ok 21 - duplicate, capped, or missing upgrade choices cannot create a broken selection screen
+  ---
+  duration_ms: 4.664
+  type: 'test'
+  ...
+# Subtest: the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly
+ok 22 - the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly
+  ---
+  duration_ms: 16.4599
+  type: 'test'
+  ...
+# Subtest: metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input
+ok 23 - metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input
+  ---
+  duration_ms: 7.3352
+  type: 'test'
+  ...
+# Subtest: one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior
+ok 24 - one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior
+  ---
+  duration_ms: 9.9958
+  type: 'test'
+  ...
+# Subtest: time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock
+ok 25 - time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock
+  ---
+  duration_ms: 0.5014
+  type: 'test'
+  ...
+# Subtest: exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache
+ok 26 - exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache
+  ---
+  duration_ms: 3.7897
+  type: 'test'
+  ...
+# Subtest: larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded
+ok 27 - larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded
+  ---
+  duration_ms: 2.4532
+  type: 'test'
+  ...
+# Subtest: the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry
+ok 28 - the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry
+  ---
+  duration_ms: 1.4843
+  type: 'test'
+  ...
+# Subtest: actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample
+ok 29 - actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample
+  ---
+  duration_ms: 55.6981
+  type: 'test'
+  ...
+# Subtest: actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites
+ok 30 - actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites
+  ---
+  duration_ms: 12.9932
+  type: 'test'
+  ...
+# Subtest: unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers
+ok 31 - unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers
+  ---
+  duration_ms: 5.628
+  type: 'test'
+  ...
+# Subtest: repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock
+ok 32 - repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock
+  ---
+  duration_ms: 3.558
+  type: 'test'
+  ...
+# Subtest: native flame clusters can be restricted to supported surfaces without changing canvas state or substituting fallback polygons
+ok 33 - native flame clusters can be restricted to supported surfaces without changing canvas state or substituting fallback polygons
+  ---
+  duration_ms: 0.5001
+  type: 'test'
+  ...
+# Subtest: roof union supports overlap joins but rejects void and keeps finite-radius bodies off every outside edge
+ok 34 - roof union supports overlap joins but rejects void and keeps finite-radius bodies off every outside edge
+  ---
+  duration_ms: 2.3185
+  type: 'test'
+  ...
+# Subtest: actual player and large elite navigation cross only the catwalk without cutting across air
+ok 35 - actual player and large elite navigation cross only the catwalk without cutting across air
+  ---
+  duration_ms: 80.7638
+  type: 'test'
+  ...
+# Subtest: actual rooftop has complete original native art coverage and cannot dash through the void
+ok 36 - actual rooftop has complete original native art coverage and cannot dash through the void
+  ---
+  duration_ms: 16.67
+  type: 'test'
+  ...
+# Subtest: defense advances while moving inside the signal radius, decays outside, pauses and saves mid-transmission
+ok 37 - defense advances while moving inside the signal radius, decays outside, pauses and saves mid-transmission
+  ---
+  duration_ms: 7.863
+  type: 'test'
+  ...
+# Subtest: roof metadata is key-order independent but rejects forged platforms, elevation and off-platform saved actors
+ok 38 - roof metadata is key-order independent but rejects forged platforms, elevation and off-platform saved actors
+  ---
+  duration_ms: 14.7388
+  type: 'test'
+  ...
+# Subtest: rooftop requires city progress and records its own verified objective completion without erasing the first expedition
+ok 39 - rooftop requires city progress and records its own verified objective completion without erasing the first expedition
+  ---
+  duration_ms: 0.5631
+  type: 'test'
+  ...
+# Subtest: molotov aimed into rooftop void falls below the level, resumes mid-fall and creates no floating damage field
+ok 40 - molotov aimed into rooftop void falls below the level, resumes mid-fall and creates no floating damage field
+  ---
+  duration_ms: 3.1986
+  type: 'test'
+  ...
+# Subtest: fresh launch preloads the actual expedition world and native roof surface before commit
+ok 41 - fresh launch preloads the actual expedition world and native roof surface before commit
+  ---
+  duration_ms: 10.1215
+  type: 'test'
+  ...
+# Subtest: radio starts on a real new mission and freezes across pause without touching checkpoints or RNG
+ok 42 - radio starts on a real new mission and freezes across pause without touching checkpoints or RNG
+  ---
+  duration_ms: 22.7026
+  type: 'test'
+  ...
+# Subtest: only matching real boss milestones create cues; duplicates and false kills stay silent
+ok 43 - only matching real boss milestones create cues; duplicates and false kills stay silent
+  ---
+  duration_ms: 1.3518
+  type: 'test'
+  ...
+# Subtest: restored progress does not replay opening, and fresh mission identity resets radio
+ok 44 - restored progress does not replay opening, and fresh mission identity resets radio
+  ---
+  duration_ms: 1.2195
+  type: 'test'
+  ...
+# Subtest: victory clue requires the actual final boss result and never claims overseas maps are completed
+ok 45 - victory clue requires the actual final boss result and never claims overseas maps are completed
+  ---
+  duration_ms: 0.6566
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 810.3504

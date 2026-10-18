@@ -1,0 +1,13 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const qa=new URL('./',import.meta.url),root=new URL('../../',import.meta.url),sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+const initial=JSON.parse(await readFile(new URL('source-freeze.json',qa),'utf8')),final=JSON.parse(await readFile(new URL('source-freeze-final.json',qa),'utf8'));
+const file='work/dead-signal-game/tests/qa-original-readback-probe.test.mjs';
+const changed=initial.files.filter(old=>{const current=final.files.find(row=>row.file===old.file);return old.bytes!==current.bytes||old.sha256!==current.sha256;}).map(row=>row.file);assert.deepEqual(changed,[file]);
+const failed=await readFile(new URL('probe-test-initial.txt',qa)),fixed=await readFile(new URL(file,root));assert.equal(sha(failed),initial.files.find(row=>row.file===file).sha256);assert.equal(sha(fixed),final.files.find(row=>row.file===file).sha256);
+const fixedText=fixed.toString('utf8'),badFragment="getContext:fail('native GPU query')},player=",goodFragment="getContext:fail('native GPU query')}},player=";
+assert.equal(fixedText.split(goodFragment).length,2);const inverse=Buffer.from(fixedText.replace(goodFragment,badFragment));assert.ok(inverse.equals(failed),'only the missing fixture brace changed');
+const parse=async name=>{const log=await readFile(new URL(name,qa),'utf8'),result={};for(const key of['tests','pass','fail','cancelled','skipped','duration_ms']){const match=log.match(new RegExp('^# '+key+' ([\\d.]+)','m'));assert.ok(match,key+' exists in '+name);result[key]=Number(match[1]);}return result;};
+const result={initial:{...await parse('focused-initial.log'),exit:1,actualPassingCases:9,unparsedHelperCases:6,reason:'Missing closing brace in new test fixture rig object; file-level syntax failure'},repair:{...await parse('focused-helper-repaired.log'),exit:0,changedFiles:changed,fixtureClosingBraceOnly:true,sourceInverseByteExact:true,productAndHelperSourceChanged:false,thresholdOrAssertionChanges:false},preserved:{initialSourceFreeze:'source-freeze.json',initialSourceCopy:'probe-test-initial.txt',initialSourceSHA256:sha(failed),finalSourceFreeze:'source-freeze-final.json',finalSourceSHA256:sha(fixed)},note:'Nine initial combat/UI cases passed. Only the six previously unparsed helper cases were rerun after the fixture syntax repair. Do not describe this as a single15/15 initial run.'};
+await writeFile(new URL('focused-result.json',qa),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

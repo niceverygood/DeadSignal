@@ -1,0 +1,16 @@
+2026-10-18 11:08 KST 시작 / root 진행 중 / 같은 작업 중복 착수 금지
+마감2026-10-19 00:00 KST(15:00Z). 실제시계 확인02:08:30Z. 시작Git clean/base6878d5e181aa188b23bd850a80ab6c3b60c805fd; 직전 사용자 요청의 push/다른PC 인계는 완료. 이번 heartbeat는 외부공개 금지이므로 새 push를 하지 않는다.
+
+최신 baseline: 이전Windows Node22.23.3 whole1119/1120PASS/CPU15062>15000 유일실패; profilerCPU15297(오버헤드)/updateEnemies·Navigation 주요비용. 상세는 qa/upgrade-status-20261018/profile-after-combined-1120 및 qa/building-occlusion-20261018 인계. 原본/저장/GPU기본OFF/새보스상체기본OFF 유지. verify 역사manifest mismatch는 숨기지 않는다.
+
+현재 QA-only 후보: Navigation.segmentIntersectsRect의 두 primitive swap tuple 임시배열 제거, _los의 숫자 radius제곱을 기존bounds 뒤 한 번 계산. 객체radius는 원래 곱셈 시점/변환/throw fallback 유지. point/rect읽기·원래산술순서·경로·AI주기·캐시·Game·RNG·이미지 변경 없음. 정상 내장 Array iterator 전제이며 변조된 전역 Array iterator의 부작용까지 동치라는 주장은 하지 않는다.
+frame_pacing_audit: full원본current-navigation.txt+후보candidate-navigation.mjs와 독립Navigation oracle. interpolation_pool: exact기존24k callback 원본/candidate bench와 별도실제Game60/180/210 strict state/events/RNG oracle. render_cost_audit: 독립읽기 검토완료. root만 Node/브라우저 실행, agent실행0. 제품/test source는 아직변경0.
+
+다음: 코드/후보SHA확인→독립oracle→같은기존비계측callback A/B/A를순차실행(15000assert/24k동작/동시조건 유지,관찰기/추가snapshot은성능구간에넣지않음). 비용이줄지않으면미채택/실패그대로기록. 긍정적이면제품최소반영후기존관련검사·전체검사·8851 genuine-memory180적 실제40playingcallbacks/원본이미지·오디오·저장·오류 검수. headlessCPU를FPS/메모리/전체프레임향상으로표현금지. 임의상한/AI주기/동작품질/테스트예산을낮추지않는다.
+
+사용자8806/IAB/기존pending세이브·원본Meshy·무드보드·서버보존. 유료생성/결제/키저장/automation7/외부공개/스토어제출금지. 100h·실기기·전체무렉·cold첫건물텍스처차이·모든12보스새동작은미완료.
+
+[2026-10-18 11:16 KST 완료 / root 실행 종료 / QA 후보 미채택]
+독립Navigation oracle 6/6 PASS(7641.5285ms), 실제Game 6조건(2seed×60/180/210적) 2166회 strict 상태/이벤트/두RNG 비교 PASS. Node22.23.3 원래24,000틱 callback A/B/A: 원본A1 CPU13672ms/wall13490ms, 후보B CPU13938ms/wall13636.89ms, 원본A2 CPU13625ms/wall13220.35ms. 각원래15000ms CPUassert는PASS. 후보는두원본보다느리고더빠른원본대비2.30%증가하여사전기준(두원본보다낮고>=3%감소) 실패. 재측정으로유리한결과찾지않고 QA-only로보존/미채택한다. 상세decision.json. 이것은전체1120PASS나FPS/전체프레임/메모리개선증거가아니다. 직전whole1119/1120/CPU15062실패유효.
+제품Navigation SHA549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9 유지. tools/dist/tests Gitdiff0 확인. 제품변경이없어새브라우저/전체검사중복실행하지않았다. 이작업의root CPU/agent실행모두종료. 사용자탭/8806/8851서버/저장/원본에셋보존. 새push/유료요청/자동화변경없음.
+다음권장: 측정된Navigation._field의이웃순회할당/호출비용을독립QA 후보로검토하되 AI경로·방향·캐시·동작품질은그대로보존하고전투상태/RNG와같은기존callback조건으로판단. 실제브라우저전체프레임/메모리도미완료로유지한다.

@@ -1,0 +1,20 @@
+✔ hero edge bounds/contour retain original full-scan results for cutouts, sparse rows, threshold pixels and empty masks (37.4809ms)
+✔ identification contour preserves clipped/fractional body/core bounds and unusual threshold semantics (3.9339ms)
+✔ edge scan agrees with original full pixel bounds for sparse islands, cutouts and exact threshold pixels (13.4388ms)
+✔ single pixels on every border and empty frames keep exact clipping and empty semantics (1.6112ms)
+✔ batch-cell regions produce the same local bounds as individually cropped RGBA frames (0.8705ms)
+✔ actual alpha-derived contour coordinates survive validation, cloning and deep freezing without changing the input (20.0289ms)
+✔ malformed optional contours reject the entire atlas before any PNG is decoded (141.9641ms)
+✔ only complete validated tables bypass the declared mask, with a shared ready promise and no pixel read (5.2259ms)
+✔ complete contours work without a mask registration, while old and partial tables still require the existing mask/retry path (9.816ms)
+✔ mask failure still blocks launch/restore for partial metadata; complete contours unblock it without changing the saved run or RNG (15.052ms)
+✔ release/reload drops contour eligibility and never reuses a prior record or its readiness promise (7.8681ms)
+✔ late completion of a released legacy mask cannot overwrite or notify readiness for a reloaded contour record (6.3964ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 413.1131

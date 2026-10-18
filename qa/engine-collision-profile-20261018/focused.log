@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: the whole QA candidate is one reversible replacement and the default production engine stays original
+ok 1 - the whole QA candidate is one reversible replacement and the default production engine stays original
+  ---
+  duration_ms: 42.0748
+  type: 'test'
+  ...
+# Subtest: cached direction primitives preserve falsey normalization, signed zeros, numeric strings and the two speed reads
+ok 2 - cached direction primitives preserve falsey normalization, signed zeros, numeric strings and the two speed reads
+  ---
+  duration_ms: 6.1419
+  type: 'test'
+  ...
+# Subtest: truthy direction and speed objects preserve exact Math conversion order without extra field reads
+ok 3 - truthy direction and speed objects preserve exact Math conversion order without extra field reads
+  ---
+  duration_ms: 0.595
+  type: 'test'
+  ...
+# Subtest: getter/coercion/setter and move failures preserve the first thrown value, argument evaluation and grid release
+ok 4 - getter/coercion/setter and move failures preserve the first thrown value, argument evaluation and grid release
+  ---
+  duration_ms: 3.9642
+  type: 'test'
+  ...
+# Subtest: same-owner reentry and original move return values cannot expose or retain a removed temporary object
+ok 5 - same-owner reentry and original move return values cannot expose or retain a removed temporary object
+  ---
+  duration_ms: 0.5621
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 207.3083

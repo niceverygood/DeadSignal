@@ -1,0 +1,59 @@
+NativeShaderWarmup focused tests; mock compile-only lifecycle and original asset/public-state preservation.
+TAP version 13
+# Subtest: original skinned geometry, UVs, materials, hierarchy, bone matrices and camera survive deferred compile with synchronous public-state restoration
+ok 1 - original skinned geometry, UVs, materials, hierarchy, bone matrices and camera survive deferred compile with synchronous public-state restoration
+  ---
+  duration_ms: 9.2127
+  type: 'test'
+  ...
+# Subtest: missing models, unsupported APIs, lost/nondefault/XR contexts and pre-aborted requests reject before compilation or model changes
+ok 2 - missing models, unsupported APIs, lost/nondefault/XR contexts and pre-aborted requests reject before compilation or model changes
+  ---
+  duration_ms: 14.6771
+  type: 'test'
+  ...
+# Subtest: synchronous compile exceptions and asynchronous rejection report false, restore public state and allow an isolated retry
+ok 3 - synchronous compile exceptions and asynchronous rejection report false, restore public state and allow an isolated retry
+  ---
+  duration_ms: 2.1954
+  type: 'test'
+  ...
+# Subtest: abort, timeout and explicit disposal settle false while late old completions cannot replace or invalidate a new generation
+ok 4 - abort, timeout and explicit disposal settle false while late old completions cannot replace or invalidate a new generation
+  ---
+  duration_ms: 19.2736
+  type: 'test'
+  ...
+# Subtest: context loss/restoration events and changed context identities invalidate readiness without resurrecting old work
+ok 5 - context loss/restoration events and changed context identities invalidate readiness without resurrecting old work
+  ---
+  duration_ms: 1.751
+  type: 'test'
+  ...
+# Subtest: model, subject, renderer, scene and camera identity replacement cannot reuse stale ready or pending work
+ok 6 - model, subject, renderer, scene and camera identity replacement cannot reuse stale ready or pending work
+  ---
+  duration_ms: 3.5127
+  type: 'test'
+  ...
+# Subtest: actual releaseUnused model removal prevents stale certification and helper cleanup never double-disposes the rig-owned assets
+ok 7 - actual releaseUnused model removal prevents stale certification and helper cleanup never double-disposes the rig-owned assets
+  ---
+  duration_ms: 1.1225
+  type: 'test'
+  ...
+# Subtest: a failed public-state restoration still attempts independent restorations and never certifies readiness
+ok 8 - a failed public-state restoration still attempts independent restorations and never certifies readiness
+  ---
+  duration_ms: 4.0493
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 240.7701

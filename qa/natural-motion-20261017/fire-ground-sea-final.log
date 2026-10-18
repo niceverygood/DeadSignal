@@ -1,0 +1,28 @@
+✔ the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly (5.5237ms)
+✔ metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input (6.0932ms)
+✔ one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior (7.9957ms)
+✔ time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock (0.5173ms)
+✔ exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache (3.6864ms)
+✔ larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded (1.0281ms)
+✔ the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry (0.8055ms)
+✔ actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample (13.2666ms)
+✔ actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites (11.7153ms)
+✔ unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers (6.8498ms)
+✔ repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock (2.8039ms)
+✔ native flame clusters can be restricted to supported surfaces without changing canvas state or substituting fallback polygons (0.4723ms)
+✔ scorch footprint is irregular and bounded by the actual fire radius; repeat renders reuse bounded cached surfaces (11.7761ms)
+✔ ground glow is driven by simulation age, static in reduced motion, and preserves caller alpha (0.5695ms)
+✔ sea launch matches actual original-art world and requires northern cargo evidence (16.6925ms)
+✔ all relay zones and boarding objectives are physically reachable without crossing water (21.5825ms)
+✔ cross-channel relay keeps earned progress, changes real target every8 seconds, pauses and restores mid-channel (4.8087ms)
+✔ saved water boundary is canonical and cannot smuggle new hazards into old runs or place actors in the sea (4.6393ms)
+✔ Molotov landing in water makes a splash and never creates floating persistent fire (1.267ms)
+✔ water rendering preserves canvas/world state and original native fire clusters stay on supported ground (2.0816ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 301.348

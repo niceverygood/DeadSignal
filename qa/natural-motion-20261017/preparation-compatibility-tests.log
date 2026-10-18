@@ -1,0 +1,23 @@
+✔ finale is locked after Haifa and original launch geometry/assets remain complete (45.1883ms)
+✔ actual final boss must die before the vaccine can be recovered, death alone is not victory (5.9664ms)
+✔ missing or falsely defeated active boss and legacy extra flags fail restore (3.1011ms)
+✔ legacy collector defeat still ends its original survival game (0.6385ms)
+✔ new finales require30s preparation while old four-field saves restore byte exactly (3.8549ms)
+✔ preparation progress and interpolated HUD stay continuous without changing the authoritative save (3.5039ms)
+✔ delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events (18.2675ms)
+✔ selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request (0.6789ms)
+✔ failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness (4.8844ms)
+✔ operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules (4.764ms)
+✔ environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state (21.5596ms)
+✔ preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure (1.5259ms)
+✔ registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks (2.2797ms)
+✔ actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable (9.7986ms)
+✔ launch decode work is bounded to four concurrent assets while every planned request is retained (0.5857ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 270.6338

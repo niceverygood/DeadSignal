@@ -1,0 +1,2490 @@
+{
+  "stage": "before-quality",
+  "files": [
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/bench-blocked-obstacle.mjs",
+      "bytes": 14455,
+      "sha256": "d17ca221c1704ad5ed56348d9e98454dccc94ea0bb4eadb35a5b9382eead1781"
+    },
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/blocked-obstacle-oracle.mjs",
+      "bytes": 20188,
+      "sha256": "af499f62066e83ff30718219be8cde9508df461d2e7acc6360d801811a059d8a"
+    },
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/candidate-engine.mjs",
+      "bytes": 59591,
+      "sha256": "d12df8316e258d8254f89d18a4c887db67d0ab0391ce19513f062009eaf62335"
+    },
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/capture-source.mjs",
+      "bytes": 2563,
+      "sha256": "f4c7ba68ec550f7b64e951f701c4a220712f4838441136049e38aafe43819c75"
+    },
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/current-engine.txt",
+      "bytes": 59149,
+      "sha256": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce"
+    },
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/current-grid-helper.txt",
+      "bytes": 3866,
+      "sha256": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7"
+    },
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/stress-fixture.txt",
+      "bytes": 29739,
+      "sha256": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8"
+    },
+    {
+      "file": "qa/blocked-obstacle-loop-20261018/verify-blocked-obstacle-game.mjs",
+      "bytes": 6580,
+      "sha256": "4833bc1b980f152cb6e9522edd3922bf17114c170cda87fdf3df671c8e2d9354"
+    },
+    {
+      "file": "qa/canvas-state-20261018/capture-source.mjs",
+      "bytes": 2550,
+      "sha256": "e124d079f2db9f041b4b8d2d03cd28965a6e8f354acc7fef099bd125aa1452ac"
+    },
+    {
+      "file": "qa/canvas-state-20261018/current-qa-player-rig.txt",
+      "bytes": 167556,
+      "sha256": "a398cf929cf8382134b17228521600e8c4747880d99b49f94ded4047e98f70bc"
+    },
+    {
+      "file": "qa/canvas-state-combat-20261018/analyse.mjs",
+      "bytes": 5128,
+      "sha256": "72b4b080f76e650c1185f3e0b2520908fe061b7ad78dce92bc3dc12a3ded0c9c"
+    },
+    {
+      "file": "qa/canvas-state-combat-20261018/capture-source.mjs",
+      "bytes": 2628,
+      "sha256": "42afb0138cc8cbe85c0ba718d16ffb4d08edfad1152e664e2c8292e0f172b7d0"
+    },
+    {
+      "file": "qa/canvas-state-combat-20261018/current-qa-player-rig.txt",
+      "bytes": 170464,
+      "sha256": "85f9e6d3c6bef51a9593ba635a2bd38e0dd685e504304039a6d27958429f7527"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/bench-enemy-neighborhood.mjs",
+      "bytes": 12714,
+      "sha256": "4fa4cc4325ce6300ae62e5ec6f89169b0d70c335222ffa1948941b5a1406b891"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/candidate-engine.mjs",
+      "bytes": 60233,
+      "sha256": "25729a8d916a153859542f62288e73279866ed6d4ed06c390218274e0e2f694b"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/capture-source.mjs",
+      "bytes": 2575,
+      "sha256": "35aa80239e3f80be2f3e120c20898420032df7a4aa022bc08487c6e68e38adee"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/current-engine.txt",
+      "bytes": 59149,
+      "sha256": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/current-grid-helper.txt",
+      "bytes": 3866,
+      "sha256": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/enemy-neighborhood-oracle.mjs",
+      "bytes": 17840,
+      "sha256": "3e45f0afd112d3761df4c5162d7d5356470006b53471d0385ddc407082a701a3"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/stress-fixture.txt",
+      "bytes": 29739,
+      "sha256": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8"
+    },
+    {
+      "file": "qa/enemy-neighborhood-cache-20261018/verify-enemy-neighborhood-game.mjs",
+      "bytes": 6314,
+      "sha256": "3642afaa6c9a55a2f6d098a4a51e358f8ba5177868f91018e94dd6af35c4e769"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/analyze-profile.mjs",
+      "bytes": 1395,
+      "sha256": "7f57322596b92cb6700bd8859fde2ee1af6836bc3c4c7d4147d303b07e9f142c"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/build-candidate.mjs",
+      "bytes": 1632,
+      "sha256": "c815b7807fbe61d0a6c9f3f2e10383c0fa207f0e2a8e4adf2d62354b0b8f7c71"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/candidate-transform.json",
+      "bytes": 693,
+      "sha256": "8edcac1c0dbe9fbd170fb14bb0646fa35136df28506efb1435624317fc99f37c"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/capture-source.mjs",
+      "bytes": 2305,
+      "sha256": "90e02c9af2040039b9de02d1c88ae76c8189a684e2cddf89626a31c87b0c6939"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/cost.mjs",
+      "bytes": 4171,
+      "sha256": "53ede5f8b93d90874d99ae54a62f465e85c3be4c1038d6023a11bf70e85575e9"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/engine-before.txt",
+      "bytes": 59149,
+      "sha256": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/previous-source-freeze.json",
+      "bytes": 90519,
+      "sha256": "3e38adee024b8b2aa1c97acc19be24e57ad23fe56f625cdcce59b88dac038c62"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/profile.mjs",
+      "bytes": 1694,
+      "sha256": "e060a99124013668c9ec08e60d73cca1dc84cc69834dbe99a821635fd7f1406b"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/protocol-review.json",
+      "bytes": 8779,
+      "sha256": "5fe102ac6e4e174e3a7804af61220a2e0f603e342689546625ec608b33597d08"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/protocol.json",
+      "bytes": 2301,
+      "sha256": "73d6bc5e380c3202f2769a41c593eacef79ad14ea687d246081e07812dae06b2"
+    },
+    {
+      "file": "qa/engine-collision-profile-20261018/quality.mjs",
+      "bytes": 3978,
+      "sha256": "4571033b35227b0d93bbabe8799cb576fc327f5bd5969158cc552120dda51215"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/capture-source.mjs",
+      "bytes": 2984,
+      "sha256": "0786e318eb829b6f184c64290b89468d9250dd5b017612bf4e240f016b585c88"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/combat-fixture-before.txt",
+      "bytes": 24058,
+      "sha256": "5dd93656b65aeb2f3125270adbb973ff5aa9c9e8b216c8840e88cb2997fdd664"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/combat-harness-before.txt",
+      "bytes": 62558,
+      "sha256": "72bc1e76066fe4b8e710b0217ae8aab61f15ee55d24a857bd894ad5154db01f4"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/focused-test-review.json",
+      "bytes": 2430,
+      "sha256": "01e9475f77ba41bfb2d763267c01874d511f64412c3ed8ee1df4a0b95708b58d"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/helper-source-review.json",
+      "bytes": 6321,
+      "sha256": "40b9dc45576e680afad925b85b8e86f18c27c929b0e0e01948febc856199c310"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/integrate.mjs",
+      "bytes": 6392,
+      "sha256": "9aa48104633f74de0b89ab69b7a5b867eb1bce3d95dc5cf7926a8f9df5a6a5f6"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/prepare.mjs",
+      "bytes": 1741,
+      "sha256": "1b2411ad458da5068f78990a377233d09c60fa34d6fcba0c8b84991982e257fe"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/previous-source-freeze.json",
+      "bytes": 85745,
+      "sha256": "d491865a07794cf9298ab85298225ac299f4985e4f43be7c0ccaa57ca9b3a97b"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/protocol.json",
+      "bytes": 2340,
+      "sha256": "91089a60065936faaf25770bc9397976c074e47d115f11e6dd21a324912385f0"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/qa-ui-script-before.txt",
+      "bytes": 190616,
+      "sha256": "b3bab88e2cce1f0f2efbf7f9b7b536a09f74b33b5ab00105558256b617fb3075"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/review.json",
+      "bytes": 3626,
+      "sha256": "c828baf58dfbf28d407dd1c3745323abde1ef7b12ecb0038fe283f76ff4f2d40"
+    },
+    {
+      "file": "qa/original-readback-probe-20261018/start.json",
+      "bytes": 678,
+      "sha256": "e163b74b7fc2893d1fbe358afc580af27a8d1b2613830c9136ad2c027466afab"
+    },
+    {
+      "file": "qa/owned-late-cleanup-20261018/capture-source.mjs",
+      "bytes": 2641,
+      "sha256": "0fe3e325ed766c496f95aac5a3ec9a648b8f2d3237d0b6c5ca97b6be71fd5cb7"
+    },
+    {
+      "file": "qa/owned-late-cleanup-20261018/combat-harness-before.txt",
+      "bytes": 65836,
+      "sha256": "47289d0b5daf0f5fe08001b4f95f0aab23a297200302cf79de6194b49972678c"
+    },
+    {
+      "file": "qa/owned-late-cleanup-20261018/integrate.mjs",
+      "bytes": 7034,
+      "sha256": "7639e3ac06fc1b0a7838d67aee6ba2154caf23d1b75c24840c91126cab85b02f"
+    },
+    {
+      "file": "qa/owned-late-cleanup-20261018/previous-source-freeze.json",
+      "bytes": 88775,
+      "sha256": "7306c4010da4e29dfe77988d6276646868f5bbc23ae6f8064c87f9656a400424"
+    },
+    {
+      "file": "qa/owned-late-cleanup-20261018/protocol.json",
+      "bytes": 1528,
+      "sha256": "2fe667a18c47615eb2ea78617c67276ee87e1570036b205d184e9ca7fb879596"
+    },
+    {
+      "file": "qa/owned-late-cleanup-20261018/qa-ui-script-before.txt",
+      "bytes": 193925,
+      "sha256": "75b76b4cde811c5dd4b074308cf807e268e511e6b09fe102bd54b41ad448de88"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/before-copies.json",
+      "bytes": 1095,
+      "sha256": "b9eda1e4aa9ce95f018bd590eadf353e6c69a68c24cf2932c88252ef3c1af870"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/capture-source.mjs",
+      "bytes": 3271,
+      "sha256": "06a61abfc4aa096340e1f22dea44a0f51ad8adbcccb88b07354eac50e5d91101"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/combat-fixture-before.txt",
+      "bytes": 24058,
+      "sha256": "5dd93656b65aeb2f3125270adbb973ff5aa9c9e8b216c8840e88cb2997fdd664"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/combat-harness-before.txt",
+      "bytes": 49069,
+      "sha256": "1b85a05d6eab059684984a43167d798a6823a9088bf5733c38405f841751c9bd"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/player-live-before.txt",
+      "bytes": 16124,
+      "sha256": "cf5c5721485f0ca2e531136d1a845d1111260ff12a3aaecf14e23312f702dfba"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/previous-source-freeze.json",
+      "bytes": 78934,
+      "sha256": "2c545d68014c5ea3bf5f44b8c2c4f8ec395f556d16df7ce8bdc3981e95a8dfbe"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/qa-ui-before.txt",
+      "bytes": 1664,
+      "sha256": "695bda62a2ff6f60a537bedf798fdf0b6e0d0542e780b84a7b57bab2d8c5155f"
+    },
+    {
+      "file": "qa/player-alpha-rows-20261018/qa-ui-script-before.txt",
+      "bytes": 183586,
+      "sha256": "e3115f8f434b9dc2aecf8a1047cb7c451a6768656103629463048eeff4633d8a"
+    },
+    {
+      "file": "qa/player-attribution-20261018/analyse.mjs",
+      "bytes": 4344,
+      "sha256": "2ef276eebf2a255150c3fbc62c562ac8212b3365b2af70d4f2a49e918766cd32"
+    },
+    {
+      "file": "qa/player-attribution-20261018/capture-source.mjs",
+      "bytes": 3389,
+      "sha256": "407d223e03db6a3d537be38df4595077e393b440b12e2d2154ded7e2df537dfe"
+    },
+    {
+      "file": "qa/player-attribution-20261018/combat-fixture-before.txt",
+      "bytes": 24058,
+      "sha256": "5dd93656b65aeb2f3125270adbb973ff5aa9c9e8b216c8840e88cb2997fdd664"
+    },
+    {
+      "file": "qa/player-attribution-20261018/combat-harness-before.txt",
+      "bytes": 41072,
+      "sha256": "65a5e97893c4021f6f3e58d2f2474d1c1286a0843f76581bc77be4602a3e8e3b"
+    },
+    {
+      "file": "qa/player-attribution-20261018/current-qa-player-rig.txt",
+      "bytes": 176911,
+      "sha256": "c007586d0f64b1f9936322d2ddb8cf2d26937016ab3e624f05bb64d3e1fb59ce"
+    },
+    {
+      "file": "qa/player-attribution-20261018/profiler-before.txt",
+      "bytes": 14926,
+      "sha256": "bf0b0fa84aa7c6c72727026424014766d1c1de39e9247e6890d4b3136639313a"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/before-copies.json",
+      "bytes": 669,
+      "sha256": "904074efcd53834f5877483561545619fdf287571320c928389a907adbe6fd7d"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/capture-source.mjs",
+      "bytes": 3669,
+      "sha256": "8d3728d2de9dda2126a8a8b25c9d2fd72bd9b3bb1ab019958edb1ff1ce14daf3"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/combat-fixture-before.txt",
+      "bytes": 24058,
+      "sha256": "5dd93656b65aeb2f3125270adbb973ff5aa9c9e8b216c8840e88cb2997fdd664"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/combat-harness-before.txt",
+      "bytes": 55058,
+      "sha256": "cf11605fa6a7256868e20222b81c8ee714fc84f94f2e6757cb1ca03ce1c67c0d"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/integrate-qa.mjs",
+      "bytes": 14376,
+      "sha256": "1eb01603fe983339a6823f6990b8c80bfb188661ff69b3d8304193a5d9aa5fa1"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/player-live-before.txt",
+      "bytes": 16124,
+      "sha256": "cf5c5721485f0ca2e531136d1a845d1111260ff12a3aaecf14e23312f702dfba"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/prepare-evidence.mjs",
+      "bytes": 2002,
+      "sha256": "276bf6befb48a5be23367e89d156edc88cb0015133ef53fd4d9fae884f418cd8"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/prepare-ui-tests.mjs",
+      "bytes": 884,
+      "sha256": "016318cc4aa75d11bc6e2e1c07c7bf35d1c4926453aa8b749438df74ca3ea52d"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/previous-source-freeze.json",
+      "bytes": 81906,
+      "sha256": "63a798d9540beca59a57496dfc82512b649ea5c1c6181c6a06e7ba1e0990ac61"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/provenance.json",
+      "bytes": 3376,
+      "sha256": "4a87029a7371cd1847e571b85787d84f2a5c06d995d1856633d239cda8df72cb"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/qa-ui-script-before.txt",
+      "bytes": 187056,
+      "sha256": "8329b21b1ec59b90ee7bb2e2204ae458a6036682cd6745a1b019b7ad10f66f38"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/quality-protocol.json",
+      "bytes": 1754,
+      "sha256": "e27481925c19fdffba2017d872da660c53b000aad2d974bbf8b0ff48548be941"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/review.json",
+      "bytes": 6736,
+      "sha256": "db77863c054b0e6140fa516151e00f55e9e42885df34e48245e7219224497b3c"
+    },
+    {
+      "file": "qa/player-deferred-read-20261018/start.json",
+      "bytes": 1037,
+      "sha256": "493d66c149f1b0b03a62514ba5aeeec080a85d2ab657d0d3f07c81f79c1615af"
+    },
+    {
+      "file": "qa/player-launch-preparation-20261018/analyse.mjs",
+      "bytes": 4362,
+      "sha256": "d9e6e8683396c0de326f9e8ae2e1f8eba379f663d23e82f410fe2d8909fe6796"
+    },
+    {
+      "file": "qa/player-launch-preparation-20261018/capture-source.mjs",
+      "bytes": 3313,
+      "sha256": "9f27e0e74faa82c6179b5a2370ec7ebd2a1c046457707ddba77f1bd5fd1df7a0"
+    },
+    {
+      "file": "qa/player-launch-preparation-20261018/combat-fixture-before.txt",
+      "bytes": 24058,
+      "sha256": "5dd93656b65aeb2f3125270adbb973ff5aa9c9e8b216c8840e88cb2997fdd664"
+    },
+    {
+      "file": "qa/player-launch-preparation-20261018/combat-harness-before.txt",
+      "bytes": 41883,
+      "sha256": "793e6ec9556284301614e17fadee0c4073c3e7bcdd37689ed27ff88e1cd642f0"
+    },
+    {
+      "file": "qa/player-launch-preparation-20261018/current-qa-player-rig.txt",
+      "bytes": 180258,
+      "sha256": "562857ecb7343db1f4bff1ab03fccf6ad4afb5021a037b1a206f30432852a0ee"
+    },
+    {
+      "file": "qa/render-attribution-20261018/analyse.mjs",
+      "bytes": 4320,
+      "sha256": "41e785fbb54975a97fb0a09abcbeb0c190ef7faf49f00643c18cf8c83a8d36a7"
+    },
+    {
+      "file": "qa/render-attribution-20261018/capture-source.mjs",
+      "bytes": 3295,
+      "sha256": "2aebdb11a43c274028f7b9d9a005624c849e425ee02f61fa9e7744283be7fec4"
+    },
+    {
+      "file": "qa/render-attribution-20261018/combat-fixture-before.txt",
+      "bytes": 24058,
+      "sha256": "5dd93656b65aeb2f3125270adbb973ff5aa9c9e8b216c8840e88cb2997fdd664"
+    },
+    {
+      "file": "qa/render-attribution-20261018/combat-harness-before-launch-timeout-fix.txt",
+      "bytes": 40969,
+      "sha256": "fbe7d106bf09c6e07f1e521c646bfbc1948455dc38b496d5786c09e0aa0868f5"
+    },
+    {
+      "file": "qa/render-attribution-20261018/combat-harness-before.txt",
+      "bytes": 37171,
+      "sha256": "3b3ae5ca126f3a3c840bd73138ea9fac3eb770056288a74837eafc94cffbf92d"
+    },
+    {
+      "file": "qa/render-attribution-20261018/current-qa-player-rig.txt",
+      "bytes": 173665,
+      "sha256": "8cbc0f7d49034d990fd7a3d801b5127343814ce6f809422f72a122dc8f168c1a"
+    },
+    {
+      "file": "tools/player-runtime-sources.mjs",
+      "bytes": 1149,
+      "sha256": "6d6fc41855d7fec6f3ac7d7786095fa2a7e8a502b46df65afb307932e1c5b3b3"
+    },
+    {
+      "file": "tools/prepare-player-runtime.mjs",
+      "bytes": 2864,
+      "sha256": "27e71512e855b1d3509af6a9340228129cb80459b0e1da546b09f19f63d6ec77"
+    },
+    {
+      "file": "work/dead-signal-game/dist/actor-interpolation.js",
+      "bytes": 5908,
+      "sha256": "ca3c22b0409bc4b296331658f57fb786a64e1efbd2c044fb34d3582a4b7f40cc"
+    },
+    {
+      "file": "work/dead-signal-game/dist/actor-occlusion-bounds.js",
+      "bytes": 6012,
+      "sha256": "41766d599a67da84b5a0d5ce9f32cc94108811abeda3ee8b0ed179655f8ab0f1"
+    },
+    {
+      "file": "work/dead-signal-game/dist/app.js",
+      "bytes": 61499,
+      "sha256": "6b5d83157b47a95508ddf51607f97ed9c434770d9be47ddcf9ba6fea0dbac244"
+    },
+    {
+      "file": "work/dead-signal-game/dist/audio.js",
+      "bytes": 9061,
+      "sha256": "2433f7a7e0148c3a5bd194f23e950b5f8cd77468d37a74e049f9ae0c58146bfd"
+    },
+    {
+      "file": "work/dead-signal-game/dist/blast-ground.js",
+      "bytes": 1485,
+      "sha256": "7e95fb79490de29cbc324833ffe8d6da3886aeeb51d764259a1a1bf1cd5eb857"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-art.js",
+      "bytes": 23993,
+      "sha256": "6866522117edcc69391d5263945dfb7c952d56e71b9dac13f9523a0d2fbd471a"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-combat.js",
+      "bytes": 9467,
+      "sha256": "11a4ce520101d27750cd2ddc92ff9dd588e998918b72eeed8b7fbb93db4737df"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-patterns.js",
+      "bytes": 13375,
+      "sha256": "55a67d60e3de86a053ba87db88cf4a7000f419c06eb17c97a75b5aca7c58eff5"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/animation-only-loader.js",
+      "bytes": 546,
+      "sha256": "16966486a631865777f39f296c606f758eefe667c0d3188dc10216d78f4a3418"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/batch-native-ink.js",
+      "bytes": 1806,
+      "sha256": "668f5a0747d86f9b432a7bcbd6a610450bd55e0ac9c14c3dacb76a0a7a327e30"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/boss-action-layer.js",
+      "bytes": 6701,
+      "sha256": "1f5e80093788c91c8e1ada85ee18c5930c518781f66c6473f2b816a0a86e0e1b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/boss-pose.js",
+      "bytes": 2366,
+      "sha256": "dbe72923e154d3df09a574c8118ef39f51be400e671f1fb9434c2220cb404076"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/frame-pool.js",
+      "bytes": 351,
+      "sha256": "89b1e5060e8fcbd1985caae0eb390c50dfef24edba75d0c399a15b2c362efb2c"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/gpu-alpha-bounds.js",
+      "bytes": 13382,
+      "sha256": "e8b234eaaaa46f533647884f8dd641ba461e15e3ce1cbe1409412b8611c6869b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/hit-layer.js",
+      "bytes": 1166,
+      "sha256": "2b88c223e331bc9aea494e7cc5d06952423c9c637db1931000f91fd2658ac2dd"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/live-boss.js",
+      "bytes": 22579,
+      "sha256": "c9c9b93cc20dad6b63bcbcda7997ced15883b810f8fe674d3384fee502290cfa"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/native-composite.js",
+      "bytes": 1131,
+      "sha256": "bb75498a37df3b8d01c2d5455a25ea20f926695095d8a0f765b70e451dae48ce"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/native-launch-preparation.js",
+      "bytes": 11347,
+      "sha256": "ac4d8169832892d9690fa47387bdb13f52b6b193cdb354cbb1a7f10ea9519395"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/native-shader-warmup.js",
+      "bytes": 10030,
+      "sha256": "52388064775b517f68b7251055274cdc860e6cb47ea1a0f17f266c8b9ccadb31"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/native-texture-upload.js",
+      "bytes": 11376,
+      "sha256": "fbd980ee20779c7705c8b218cb9f697f0dd6e3ad0b26d5b14ff6dd2c0e34e815"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/pose-bounds.js",
+      "bytes": 3531,
+      "sha256": "f363b9cdb21f480dc00c299b550e90654d471912d13dc7b7df04b0bea1edcda0"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/pose-buffer.js",
+      "bytes": 737,
+      "sha256": "e30129c511736dec3d00cb4192cb278844261756a4de7816e23a26839e0b1160"
+    },
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/pose-history.js",
+      "bytes": 1542,
+      "sha256": "f28e4ba87009706339530bbb9564e6a9bd7891094c3deb4c7a85e4549b5502c5"
+    },
+    {
+      "file": "work/dead-signal-game/dist/bullet-broadphase.js",
+      "bytes": 1697,
+      "sha256": "184cd1b2091c2d9f462f0bd1e08b8f80b18c51b978fd60b7e92906a72a5929c6"
+    },
+    {
+      "file": "work/dead-signal-game/dist/campaign-progress.js",
+      "bytes": 2616,
+      "sha256": "f6a0372891f25e0b249ce8352411ca15ed20b4bca9b07da84e72dc4f83fd38c4"
+    },
+    {
+      "file": "work/dead-signal-game/dist/campaign-ui.js",
+      "bytes": 6734,
+      "sha256": "ed6fbf40031f78cc98a4f01c77401a35f34d3ccb45b6752480323764144078bc"
+    },
+    {
+      "file": "work/dead-signal-game/dist/campaign.css",
+      "bytes": 9932,
+      "sha256": "1e177a7012d37feac58fff644d9c0f104df36000191e6093b4386b41dbda2fcf"
+    },
+    {
+      "file": "work/dead-signal-game/dist/campaign.js",
+      "bytes": 22863,
+      "sha256": "b7df24448ef01a78bf17570e97d6b094951fe6877d9dae993085fc7c004c22b6"
+    },
+    {
+      "file": "work/dead-signal-game/dist/charge-wall-feedback.js",
+      "bytes": 2098,
+      "sha256": "6857f058499d59522ce30021c94d9a2f2c36d96040d79d6063bc5e147e58f73a"
+    },
+    {
+      "file": "work/dead-signal-game/dist/codex-scroll.js",
+      "bytes": 6849,
+      "sha256": "f65ca764f74592e1868bcd34d7b558dc0d005b73849851cd5f17c6a10d01e062"
+    },
+    {
+      "file": "work/dead-signal-game/dist/cold-chain-expedition.js",
+      "bytes": 3077,
+      "sha256": "037080e07ce6041728796fda95dbc4cdd4c1141550847da554aaf3575f6565ab"
+    },
+    {
+      "file": "work/dead-signal-game/dist/combat-detail.js",
+      "bytes": 2883,
+      "sha256": "2557bb0df1061c2c735a9f6e7f8fcd49e1668cb205e727f3e4b2968cc39e593a"
+    },
+    {
+      "file": "work/dead-signal-game/dist/completed-enemy-frames.js",
+      "bytes": 1685,
+      "sha256": "281982f307a6f70e691f2e32c234d0fedf7ccf47aef74fdebf73e388f2262fcf"
+    },
+    {
+      "file": "work/dead-signal-game/dist/damage-feedback.js",
+      "bytes": 1349,
+      "sha256": "c09563e9ec7ebb0afad9743f5e85bb4927ee7cd0775e6fb0349737bd454e675a"
+    },
+    {
+      "file": "work/dead-signal-game/dist/directions.js",
+      "bytes": 3746,
+      "sha256": "04ee81442891c7809785660e617df6f931d65d33fa15fdb287766f5c6984470d"
+    },
+    {
+      "file": "work/dead-signal-game/dist/enemy-locomotion.js",
+      "bytes": 4159,
+      "sha256": "10b681927a3b080d47373aa91af53b6c201b0477b30511b9e66ad85c88023a35"
+    },
+    {
+      "file": "work/dead-signal-game/dist/enemy-motion-profiles.js",
+      "bytes": 56611,
+      "sha256": "9dce3ee7ffffba588529f947d2cdd87526ddf80854fd7d9a4b27509c343a3ffd"
+    },
+    {
+      "file": "work/dead-signal-game/dist/enemy-motion-review.html",
+      "bytes": 5597,
+      "sha256": "4ac59b1e060f293b17d96dd91dcf76dd09a6ac9d9362177d192c86960a9b1f27"
+    },
+    {
+      "file": "work/dead-signal-game/dist/enemy-motion-review.js",
+      "bytes": 21867,
+      "sha256": "2125287486569f085c85790e91ebc919f7d066631110aed12456396fbd3b78c5"
+    },
+    {
+      "file": "work/dead-signal-game/dist/enemy-separation-grid.js",
+      "bytes": 3866,
+      "sha256": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7"
+    },
+    {
+      "file": "work/dead-signal-game/dist/engine.js",
+      "bytes": 59149,
+      "sha256": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce"
+    },
+    {
+      "file": "work/dead-signal-game/dist/equipment-art.js",
+      "bytes": 9368,
+      "sha256": "15c09645421b0ba0797ddff848a7d48f1b0feacf5f0ed20828fe0d5e11e85677"
+    },
+    {
+      "file": "work/dead-signal-game/dist/equipment-ui.js",
+      "bytes": 8276,
+      "sha256": "cfe6c4b96279693164558959ce2cf8ad7ebdcf054718c09b8cc593d596f0ed86"
+    },
+    {
+      "file": "work/dead-signal-game/dist/equipment.css",
+      "bytes": 9261,
+      "sha256": "9b0f65190ea438593e2ea754ccb6a8a3aed5d11c10182f08be0a9c6b2d25e0ef"
+    },
+    {
+      "file": "work/dead-signal-game/dist/equipment.js",
+      "bytes": 6592,
+      "sha256": "f5e9517ecbe53b21733d8cba20686b8b926a6ce9503aacdc355429c56796d9a3"
+    },
+    {
+      "file": "work/dead-signal-game/dist/escort.js",
+      "bytes": 8928,
+      "sha256": "418911451432e2fc8a46ea0b2563db3133c205b793719c3118b18b21db12704b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/exit-state.js",
+      "bytes": 796,
+      "sha256": "256a116ec1e1045f3dbaa64e6f7f88b2d9d98fc293561ba3d356c95dd52d01a2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/expedition-art.js",
+      "bytes": 4030,
+      "sha256": "6a118d9d07564922bb61da936aa53de91baa806889649ecdda5d791bf6b37278"
+    },
+    {
+      "file": "work/dead-signal-game/dist/expedition-ui.css",
+      "bytes": 986,
+      "sha256": "17981e5da74407fca7d9c4ec1f57cbbc333edb82a152718bd1809386e1999ec6"
+    },
+    {
+      "file": "work/dead-signal-game/dist/expedition-ui.js",
+      "bytes": 5735,
+      "sha256": "1f5c04adff5a065b91ad500c8845eb5ac239d33b7826e2f086d4295c620297c2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/expedition.js",
+      "bytes": 25307,
+      "sha256": "b574dbfacb3d1e8c802439e2a6800936db431144736efdcda06aeb5cf51bf768"
+    },
+    {
+      "file": "work/dead-signal-game/dist/explosion-art.js",
+      "bytes": 5520,
+      "sha256": "7a98a1b6635b4022c1e800315dcd02c1657c7f887ea2b9be009a2fb7bd4aab14"
+    },
+    {
+      "file": "work/dead-signal-game/dist/finale-world.js",
+      "bytes": 1578,
+      "sha256": "0ae803150e8f6f6c062c7e9d98423ea86c1bc0ee4037270c2082a1690d03100f"
+    },
+    {
+      "file": "work/dead-signal-game/dist/fire-art.js",
+      "bytes": 10932,
+      "sha256": "508ed2e9e2b49630250ff3d55a570a884a34ab8c6b3455c90fe86d545b7f9fc3"
+    },
+    {
+      "file": "work/dead-signal-game/dist/fire-ground.js",
+      "bytes": 3115,
+      "sha256": "516cdb0e81d391a9dbd342c69bb2e3dfb3cfb78f6cb9000b8c635a40f1ff2ce0"
+    },
+    {
+      "file": "work/dead-signal-game/dist/firing.js",
+      "bytes": 2366,
+      "sha256": "692b0a975fef86b45f7de3e7e39bc7377e9f7081e08da1fee8f61215326a556c"
+    },
+    {
+      "file": "work/dead-signal-game/dist/guidance.js",
+      "bytes": 4590,
+      "sha256": "0a2bda37f2840327047a4dd789889d06a56103bd13ed34adee7785b0884aeb3d"
+    },
+    {
+      "file": "work/dead-signal-game/dist/haifa-transfer-expedition.js",
+      "bytes": 4915,
+      "sha256": "c4f0a0d4535dcc85bbb3a4c3444aaabd2b34f6ddddae7d262f41f426fba37460"
+    },
+    {
+      "file": "work/dead-signal-game/dist/harbor-power-expedition.js",
+      "bytes": 4087,
+      "sha256": "e466f3d754be668a534b104155f06a4a3cd2c7e970b14f82b043286674e0b6e2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/health-warning.js",
+      "bytes": 308,
+      "sha256": "605c30ade0ae46c66e4a8aac262a36ac682ea8e9e26f2892010176e3f15132fb"
+    },
+    {
+      "file": "work/dead-signal-game/dist/hospital-world.js",
+      "bytes": 1593,
+      "sha256": "2c794cc8780aa4f4129bbfb9427f7e9bad0bf45847b387f4e8c319c1bf7d0622"
+    },
+    {
+      "file": "work/dead-signal-game/dist/impact-marks.js",
+      "bytes": 3127,
+      "sha256": "410b419fd3d12bbf7dd43fbc528a50714f61f929015091ff890532c694823fc3"
+    },
+    {
+      "file": "work/dead-signal-game/dist/index.html",
+      "bytes": 7528,
+      "sha256": "82515e8cbf1ef923224ab0f79e0893fe20e27b8a4ee554fde435a478a677b5fd"
+    },
+    {
+      "file": "work/dead-signal-game/dist/israel-world.js",
+      "bytes": 1576,
+      "sha256": "366a33a00f8233fe27827026b98d7f92896d0b4f05e5f9d5db9fd3ba6e4d0cad"
+    },
+    {
+      "file": "work/dead-signal-game/dist/launch-gate.js",
+      "bytes": 8573,
+      "sha256": "e3d1102190f327b892965c17a53389aae817648563e68627356ac6b32d507caf"
+    },
+    {
+      "file": "work/dead-signal-game/dist/live-enemy-selection.js",
+      "bytes": 1261,
+      "sha256": "b9a57a06b31d9e4599fd309609a21496d0e48345e71e42882459ad4dd9327e85"
+    },
+    {
+      "file": "work/dead-signal-game/dist/minimap.js",
+      "bytes": 2163,
+      "sha256": "ec23e69fd205ff029f77755ff01029f988a8b3ccf7c9a306155db8ecc2f3ab8c"
+    },
+    {
+      "file": "work/dead-signal-game/dist/molotov.js",
+      "bytes": 2806,
+      "sha256": "9980db5b3568c160a7dda90fef2ce2a22b4a6cb845964679eca00045a663659b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/moodboard-ui.css",
+      "bytes": 21429,
+      "sha256": "fa355638c750349072b18fe601a50f8a824f7effbd3c1d67630d9f3d5b59c267"
+    },
+    {
+      "file": "work/dead-signal-game/dist/moodboard-ui.js",
+      "bytes": 12795,
+      "sha256": "beab47cf7c1ab7d84a52f408266ab75601f71f3baa8bd940845f040d1dd1632e"
+    },
+    {
+      "file": "work/dead-signal-game/dist/motion-review.html",
+      "bytes": 5411,
+      "sha256": "86149ab8c943c9ceed9b9a6b1551765c1d98889906458955e34db4a7b82b58c6"
+    },
+    {
+      "file": "work/dead-signal-game/dist/motion-review.js",
+      "bytes": 14152,
+      "sha256": "98f1ce6a58ce3624ab2e29c2ff5f3ed767f4597a24d2a521a4a07321c21e3db6"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-action-animation.js",
+      "bytes": 5469,
+      "sha256": "50ca2882edcda606c081ca26403311d9bc21a6d85fbe5dbb191cfbec27e5af4e"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-alpha-bounds.js",
+      "bytes": 574,
+      "sha256": "3816c17f737f013f24642f3bca48dba964fa1e02d53d4e665ad9ba235c1efdcb"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-alpha-readback.js",
+      "bytes": 1531,
+      "sha256": "b5e452f6a7a905bf856ecab07c19bfa24c479f89233ab3dbbc51cdde7a3d4f2a"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-catalog-ids.js",
+      "bytes": 1716,
+      "sha256": "ab77462c8adfb1ce9542f021188cd8e2768ece1ba1e5e7dac92aa15394a63163"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-hit-light.js",
+      "bytes": 1390,
+      "sha256": "3d60cb0e3281b72127f35d5ea1294f889c249bd71f07b18b48d50b1764de8ae0"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-launch-owner.js",
+      "bytes": 2661,
+      "sha256": "c12dcb303a3185a5c28d05fa0b5dcaf49ea5626f8ad0c5273904a37915403326"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-launch-plan.js",
+      "bytes": 801,
+      "sha256": "0b914d19f30c75f14333b11e1ff0e6142e3f186f62bef5e1209ad8b5f9c78c10"
+    },
+    {
+      "file": "work/dead-signal-game/dist/native-prop-frames.js",
+      "bytes": 2169,
+      "sha256": "1d40316345179f2bb4244c78df344c759a29b201f2e8fbc4408060fb494a6084"
+    },
+    {
+      "file": "work/dead-signal-game/dist/navigation.js",
+      "bytes": 12361,
+      "sha256": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9"
+    },
+    {
+      "file": "work/dead-signal-game/dist/north-world.js",
+      "bytes": 1338,
+      "sha256": "67d1b6a74f565e651d785b459b5afd6d4c5051497ff8f612f7196f9732d784a2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/patient-record-expedition.js",
+      "bytes": 4432,
+      "sha256": "51ab4e159ba7ef29ae88a07efb157a156af11acd18585f979d81030ee92b521d"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-grounding.js",
+      "bytes": 1909,
+      "sha256": "c73da24b475a63510ba85caf66f1c271170eac41b96a71737d1a39cd8d0531e0"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-locomotion.js",
+      "bytes": 590,
+      "sha256": "0541abdfc06e5ad56d12790998ce8c66794d0ea476e967935b610027b0c68c32"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-movement.js",
+      "bytes": 884,
+      "sha256": "f7aeb58ce0ff082c571ffe807d325e4029fed5be5a5f609634692da647d7ddb0"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig-motion.js",
+      "bytes": 1865,
+      "sha256": "7cc7cf0f08a899502484cbdfa8334f9a8553e92c6098405994b122a2a9cc89be"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/animation.js",
+      "bytes": 4938,
+      "sha256": "cfecf8e94dcee26173785bd97bd12505bc31f341fc0d30c2eba0cba19a6bbd39"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/death-pose.js",
+      "bytes": 3509,
+      "sha256": "4a39e2746a90af6511ca0af17748368bf7275e0fe55631b2e38536e588b12ad9"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/foot-planting.js",
+      "bytes": 2426,
+      "sha256": "72704c9657bc109bc3ed3815f7b624717b9f3a17f2ba4fca9a5a079cfad7b292"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/live-player.js",
+      "bytes": 16124,
+      "sha256": "cf5c5721485f0ca2e531136d1a845d1111260ff12a3aaecf14e23312f702dfba"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/locomotion-blend.js",
+      "bytes": 4148,
+      "sha256": "bce2c428ab5ad70ca1f23be8d999317f2b33ae49b43613ff1b0573e7b4c04151"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/provenance.json",
+      "bytes": 3049,
+      "sha256": "8f8635a6887900db7a2eb9c5c007ea43f68e4e496f7afc22bd08f0cf6c916a94"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/qa-live-player-deferred.js",
+      "bytes": 16124,
+      "sha256": "2c45565ed4416d727fd6974c60241490c4c3341f59ed5c6e4fee74be61a7f170"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/reload-pose.js",
+      "bytes": 1762,
+      "sha256": "8eb410c9241b2fe52045a94c2659e70d37fb4939291eab30dc51e926d704ca56"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/throw-pose.js",
+      "bytes": 1689,
+      "sha256": "2a81f4d40c96b0ff4d9d4b6b449e1766d165d9c824c70f45947f027e385bb622"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/weapon-attachment.js",
+      "bytes": 16525,
+      "sha256": "575be0239587ab3d2f5b76856fd8ac6058fa3301c88c5a285cdf2ab037392400"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/weapon-config.json",
+      "bytes": 1314,
+      "sha256": "7d944593d3995ac419fefbaa1aca5b283d1573767f88f124a962323d830ab94b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/weapon-pose.js",
+      "bytes": 9321,
+      "sha256": "f534640a1dabc21a9cabf36589945168546815622146b95b4c3b2f1069b27b37"
+    },
+    {
+      "file": "work/dead-signal-game/dist/player-rig/weapon-recoil.js",
+      "bytes": 829,
+      "sha256": "a90ef42228cb08a795b4f8f96131732867027067c773baf9cde588b74b221ea3"
+    },
+    {
+      "file": "work/dead-signal-game/dist/pointer-fire.js",
+      "bytes": 1505,
+      "sha256": "110051267f46c28271ad1e74314ea5369b62d13a6ba0768884caa4b68822e48a"
+    },
+    {
+      "file": "work/dead-signal-game/dist/production-art.js",
+      "bytes": 45528,
+      "sha256": "017c977b477d6f2d37067dfea48dbafa50166661cc93274bc549ab9354250c5d"
+    },
+    {
+      "file": "work/dead-signal-game/dist/production-buildings.js",
+      "bytes": 3142,
+      "sha256": "6279eec7f09579522b3ca25613962f17790f5cca5463558d62b73fa7e4f5a2f2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/production-fences.js",
+      "bytes": 940,
+      "sha256": "a144bfe2cdfb6c08f965ec29209fba3d99b36eca303e48c6275d06f48f8c4de9"
+    },
+    {
+      "file": "work/dead-signal-game/dist/production-manifest.js",
+      "bytes": 134760,
+      "sha256": "2fbf44e91325cc6a21b1540aaa4d025d8c067ef416fd41b28b358b1f45db4283"
+    },
+    {
+      "file": "work/dead-signal-game/dist/production-props.js",
+      "bytes": 1720,
+      "sha256": "6482f8e57ee07750288aee05892151ee6bb91caedd390f3e7d4889cf2ea38e44"
+    },
+    {
+      "file": "work/dead-signal-game/dist/production-rules.js",
+      "bytes": 1205,
+      "sha256": "825c75f9509ab8fb0fbb28490758b3ee1348270fa048b64b84f66bc863ddc7f3"
+    },
+    {
+      "file": "work/dead-signal-game/dist/projection.js",
+      "bytes": 527,
+      "sha256": "b7f066e335fcd89c7cf67fc523b1e62b3094ca0a61cd438bf21c822edeb42082"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-app-gpu-alpha-launch.js",
+      "bytes": 14873,
+      "sha256": "1310560089d41adb41e82d02c1da1c241e4b65062bf485d9e2a88cd19c3398d3"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-app-loop.js",
+      "bytes": 14191,
+      "sha256": "1272da2ced154cdfbb8f9434de836d450ff8a486db4b5ffa8ca52eb744640dd5"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-audio-envelope.html",
+      "bytes": 2639,
+      "sha256": "fd86e69e264b66d9628fb29dfb613ab8ff057810f83a51790880321647dd9d63"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-audio-envelope.js",
+      "bytes": 8077,
+      "sha256": "08b14dbe5e904fe18e21178ed1eb58628230e31a488bf8d5f769b379edd1bdc9"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-batch-native-ink.js",
+      "bytes": 2178,
+      "sha256": "ad023033259a8ac6aead6ffdf4c834abf54b242be9d6c52b73a6af188e456662"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-boss-action-layer.js",
+      "bytes": 28833,
+      "sha256": "d4cfac4014b8cdb968e785cae64965d6430c417c7b4cd6b7d2ef948ac9c44fb7"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-boss-hit-motion.js",
+      "bytes": 18294,
+      "sha256": "0a6f7ce324d4a4254c1c4bdbec0b033edafbfbf4a453a56f23f0acd4dc62a5b7"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-boss-pose-audit.js",
+      "bytes": 13587,
+      "sha256": "6ed85b0eb27fab605dbb03272fbde5c8f5f90125d4574a21cb7a9a0c6c6055cc"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-building-occlusion-page.js",
+      "bytes": 2896,
+      "sha256": "483362917bf9d394fba1ee42a4358d7bea3017972079b9eacdf9fcb8427bb0cc"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-building-occlusion.html",
+      "bytes": 1055,
+      "sha256": "88f0be1edca1731af727c9724147c15a9b0f2417a15509415bc2358be3d41ec2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-building-occlusion.js",
+      "bytes": 34245,
+      "sha256": "12dc2fe535c32388e7a720fa67ae4a80c74ffcb79d539863181c095dde3fa343"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-bullet-broadphase.js",
+      "bytes": 7127,
+      "sha256": "c2314eceedf4e0b9d59f104dc32bfb4d7437566ecdde5b31f55c666ed7298767"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-canvas-readback-probe.js",
+      "bytes": 18207,
+      "sha256": "a18eabe971e500c349fb5ef97f1754cfc118c35ae9a161e69f0376037da159fd"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "bytes": 71409,
+      "sha256": "a1034de38e494e4c399c1a7725242193aa6d240f7ae2083b54f2e212ad138d7c"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-canvas-state-install.js",
+      "bytes": 6777,
+      "sha256": "939103ea6d3e6e48b20224f1325660a77c4ca649ee330c399fea59456b896df6"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-canvas-state-pixels.js",
+      "bytes": 17611,
+      "sha256": "9808b15a2ce814e8c7f59d84c164f3b64f3b15b2b6a7b33507523f9311f02797"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-canvas-state.js",
+      "bytes": 10353,
+      "sha256": "c23329a0a4b7748b5fc9fc3ca78c65479b19dc7d7316a3ba4a9a0bf407d46cdd"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-catalog-ids.js",
+      "bytes": 3913,
+      "sha256": "f5282843bbd8d9c13a092bb455e9009ea44e0d9c043d781b1a553c4af6aad880"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-cold-chain.js",
+      "bytes": 1966,
+      "sha256": "03bd9df4b6f1173e8d3c65fba18b72c2b56d38d2c5eb677437dd5951a075083a"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-enemy-grid-reuse.js",
+      "bytes": 11583,
+      "sha256": "6821e5ff60338f954c9471786527d138be90d1d110f55a6e50fbcd9c6830d020"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-engine-direction-candidate.js",
+      "bytes": 59149,
+      "sha256": "62d0bd9a718757354a62e36d928c75a97f4a464ffd93d81e2344648183f6f34d"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-frame-cost-profile.js",
+      "bytes": 11661,
+      "sha256": "3b2f3774d703f84952c501f85b001d169e6fbbda024d407478bd989539026cce"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-gpu-alpha-bounds.js",
+      "bytes": 6141,
+      "sha256": "1d469c60b20a65296e95a35cead6e36bd022ba5b059b1c15c9127cba4e114bc2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-gpu-alpha-empty-lease.js",
+      "bytes": 18207,
+      "sha256": "c705677adf9983702afaa5bbe9670f85c23c65d882749be2a0803f755865ef09"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-gpu-alpha-preupload.js",
+      "bytes": 18136,
+      "sha256": "499bd61742db482172db381272f8c902fc59a40967bc1ac88b373e1484b3c2ac"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-gpu-alpha-warmup.js",
+      "bytes": 6905,
+      "sha256": "3eaa4085b3f13d0f0f3a6708bfb9b7c7eb4604182a38bdc2a024ee1f59921b37"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-haifa-transfer.js",
+      "bytes": 2425,
+      "sha256": "90520cddf84ca5a1039ea61e0ed28a3348447adc0299fb1b4c23ac8323026645"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-harbor-power.js",
+      "bytes": 2114,
+      "sha256": "d7e68b973b701d5e9d6b2fa64100066f5cf3e6fc31c29ab291a1477303e5d7a3"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-hero-mask.js",
+      "bytes": 2397,
+      "sha256": "ed40b25dbd33cc8f9aeb08d2e5b12b1c91c0e6482afa4eda935922e0904ddb96"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-image-decode-combat.js",
+      "bytes": 24515,
+      "sha256": "165588ff77022a36e8a91385d7f0b3851f030339292e0582ec522e1e3b0fe4aa"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-image-decode-preparation.js",
+      "bytes": 10898,
+      "sha256": "37da900c91ea0d731e42b1992e84ff68ef02308b12399be1494b03babee5b696"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-input-probe.js",
+      "bytes": 1725,
+      "sha256": "5511717902bdc8ad11f9818c15dd7d76ee4ee86220f316b34245ea6fcf268bd1"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-interpolation-pool.js",
+      "bytes": 5863,
+      "sha256": "7678f27cdf3349f75a817e55c68d95cff749afa895365ed598364e9537abe64f"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-movement-profile.js",
+      "bytes": 7940,
+      "sha256": "74615827026044d3040c97c52d382a0cefb5d17e00c2c4f2c9e7987d30bf58ba"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-native-composite.js",
+      "bytes": 3796,
+      "sha256": "d7429b5faeca495c602c79f43dbc5bd77390ab8e03372b4969c647e8bae1cecb"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-native-frame-profile.js",
+      "bytes": 8915,
+      "sha256": "316346a83a2ee89b184c7ce5ac90802afc62c33b7870f560118f907367349a84"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-native-shader-warmup.js",
+      "bytes": 13572,
+      "sha256": "6588cfd9fae45f3bced7b30858965e63db80fc7b627d434a53466583c23dbff8"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-native-upload-profile.js",
+      "bytes": 5603,
+      "sha256": "a9756184a90b8b55fd70c1108c0698b2c797fa491f55221908ef7dfc7455034e"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-owned-atlas-json.js",
+      "bytes": 5009,
+      "sha256": "0e64d10294f37c5dfaebc5798460923b25354cada118eaef288e1463bbdc5575"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-owned-cleanup-tracker.js",
+      "bytes": 9424,
+      "sha256": "e5f46f819af311f193e37fe63a8c1537ad9da51c826aa135339d3ca74872f347"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-paced-native-combat.js",
+      "bytes": 4644,
+      "sha256": "63180494fd1dd487cede927218b2456042f8daf98a90b63d00dcc3cac48b9734"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-patient-record.js",
+      "bytes": 2147,
+      "sha256": "198a44721a940c0b9e2f2292ca71bd038e2163279e3da73ed46161ab82e4b790"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-player-alpha-rows-install.js",
+      "bytes": 13108,
+      "sha256": "583214616031ac6cff5caa6a631bc0415ae6211adfe982e9ba17d836f19a30f0"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-player-alpha-rows.js",
+      "bytes": 10344,
+      "sha256": "5659dfb93be9d6544edf7aa6e41d8210af9cf4ca4bf9bdecc72b345b2cafed3e"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-player-deferred-read-install.js",
+      "bytes": 15740,
+      "sha256": "3c4d5580b6030c5169f23b20e4781696bb3fd2f0646da7e594440e7cb7991966"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-player-launch-preparation.js",
+      "bytes": 22116,
+      "sha256": "4bea8bb0e5b4200881a6533034d8a351ba61ab64d57ab5e3ea628f297ba641f2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-player-rig.html",
+      "bytes": 1664,
+      "sha256": "695bda62a2ff6f60a537bedf798fdf0b6e0d0542e780b84a7b57bab2d8c5155f"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-player-rig.js",
+      "bytes": 197374,
+      "sha256": "45a4cc6713ca65352867ed7c6456843228f791995a88af7fb5f4669691a6a211"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-player-skin-updates.js",
+      "bytes": 2521,
+      "sha256": "e08e3d897b20fe766ecc6d3a55c604dc6dfa0a7a902fef9ab6916bbdd81f90c8"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-pose-bounds.js",
+      "bytes": 3078,
+      "sha256": "768649e0c601f17f2f73686a9b06fb89fe869b57e4f6413bb1a95496a411f92b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-render-attribution.js",
+      "bytes": 20442,
+      "sha256": "bc9fdd82ee5bc7e7a179e5c6d407ca8fdbc20c088b58b6eb889f802a3c122854"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-render-profile.js",
+      "bytes": 3532,
+      "sha256": "15be2ca7f544dd33b8b418b5bac5262ad2ad560500f6008189fcb29016d6c87c"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-sprite-call-pixels.js",
+      "bytes": 12210,
+      "sha256": "f3935689c3ae94ca60a2a6af74c395bb3d8d784d4c9df0416e4a038834271d40"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-sprite-call-profile.js",
+      "bytes": 10327,
+      "sha256": "7fe65c346cb056ad22320fea4a020297d74edc17dc5870468a4d53dc22ac461f"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-storage.js",
+      "bytes": 637,
+      "sha256": "aeb0a91e89944e7db6a8e724bd6e76470eabcac9b3b0cdff72b5573cad673931"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-story-journal.js",
+      "bytes": 1499,
+      "sha256": "967ad42969f510ac7b61109d2e8bc61522d65fba4de44a30b465551015856af7"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-upgrade-status.js",
+      "bytes": 2593,
+      "sha256": "151c179c500d3a85e69ea9fd57e951c81e7118be7d13a0f600a80f98d40c79bd"
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-walk-texture-loading.js",
+      "bytes": 3617,
+      "sha256": "32c28ac83cd9c2aece845907d68a95ddf7c3f02f0bd871968d00736438dad6d5"
+    },
+    {
+      "file": "work/dead-signal-game/dist/reload-stages.js",
+      "bytes": 556,
+      "sha256": "ad0d0875054638ffdb474b9d6e58ac39a0577a430d5a339e55827b4612a22c71"
+    },
+    {
+      "file": "work/dead-signal-game/dist/render-materials.js",
+      "bytes": 1568,
+      "sha256": "fcd0708dad81310edc2a4f746fd0ac59fa9adaa2c54bd1b884bd652abb15e111"
+    },
+    {
+      "file": "work/dead-signal-game/dist/render-schedule.js",
+      "bytes": 1030,
+      "sha256": "80471a1d4495e245ee330ac441fc70cd56ebaace64409bd8a076f400bb42b357"
+    },
+    {
+      "file": "work/dead-signal-game/dist/renderer.js",
+      "bytes": 137275,
+      "sha256": "4ca94fcf3188f6665eff5587d96eda47ffd44a843c63e99a997d1a830128a1e2"
+    },
+    {
+      "file": "work/dead-signal-game/dist/rig-review.html",
+      "bytes": 5214,
+      "sha256": "6334d87d3f1553295bce222da9d60634f86abb15ea96092378a4a54efe76df3f"
+    },
+    {
+      "file": "work/dead-signal-game/dist/rig-review.js",
+      "bytes": 14647,
+      "sha256": "90cf6c7b91588286fa8f49f3bb4701c4fa2fe1885f16b57ec49424327e392556"
+    },
+    {
+      "file": "work/dead-signal-game/dist/rooftop-art.js",
+      "bytes": 3532,
+      "sha256": "015288db14653567f20353f58bf72cd1123a185bdd7fd248a662b6b947355856"
+    },
+    {
+      "file": "work/dead-signal-game/dist/rooftop-world.js",
+      "bytes": 4300,
+      "sha256": "4111a27d0fb8298cb7ba37fb5ad113617818bdebc84ff90ea7b8367d772d5708"
+    },
+    {
+      "file": "work/dead-signal-game/dist/sea-art.js",
+      "bytes": 1457,
+      "sha256": "da265461f8c329b64f87139c6ae5a54bc57b7d84383c2087c1583b8a5b041418"
+    },
+    {
+      "file": "work/dead-signal-game/dist/sea-world.js",
+      "bytes": 1723,
+      "sha256": "c1c666996a03af0b76ba35606c4882c3053e4c76fe9224a7cc1b850eaac0b96b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/simulation.js",
+      "bytes": 1407,
+      "sha256": "5be59728d0b7306cf489578c8b3790a902b11ff1c6a1afb32970b349726d4210"
+    },
+    {
+      "file": "work/dead-signal-game/dist/skill-cutin.css",
+      "bytes": 2589,
+      "sha256": "1e617cb43d0f4903c656df9fe47817f5c697be83bb729192d5d6555babaaf435"
+    },
+    {
+      "file": "work/dead-signal-game/dist/skill-cutin.js",
+      "bytes": 1342,
+      "sha256": "9ba2b33e822c95cef0b15ef4c2642d00967576ca072b7e817eae84c2e97aa25d"
+    },
+    {
+      "file": "work/dead-signal-game/dist/sound-perspective.js",
+      "bytes": 360,
+      "sha256": "529d6d06741aa9babb8a5034f953de19d27730a355244266b2a74dc5fa7eddd9"
+    },
+    {
+      "file": "work/dead-signal-game/dist/storage.js",
+      "bytes": 4597,
+      "sha256": "c2d190f00fe0166b3c00bb54ccfe612c11b3782ed7c81d4f98f1bd47bc828d09"
+    },
+    {
+      "file": "work/dead-signal-game/dist/story-campaign.js",
+      "bytes": 8501,
+      "sha256": "b3468d6c760e2495b9ad229446988bb6bc979a5fa25b3f911b99b056efafa9eb"
+    },
+    {
+      "file": "work/dead-signal-game/dist/story-journal.js",
+      "bytes": 2843,
+      "sha256": "29cd6d0fc50b1e6b7824614632a065ee46761e2b03cb8b651655ad1718ccd49b"
+    },
+    {
+      "file": "work/dead-signal-game/dist/story-radio.css",
+      "bytes": 1132,
+      "sha256": "e81b4d7f94ea870516b2316c06875472c260562b810c691b95fdbf7458c1be04"
+    },
+    {
+      "file": "work/dead-signal-game/dist/story-radio.js",
+      "bytes": 7008,
+      "sha256": "2460830f9f5312c9e7e9e8eaec4c91782b09af768a0122fb52a14e8e5618bd63"
+    },
+    {
+      "file": "work/dead-signal-game/dist/story-route.js",
+      "bytes": 3435,
+      "sha256": "00a5a74d719a94048511cd329894a339b553f327731db92e259557b4bf026d31"
+    },
+    {
+      "file": "work/dead-signal-game/dist/style.css",
+      "bytes": 32032,
+      "sha256": "4d67f6b5117a96a6840fe038c0a21b2667e3755755e286b7da49ecd351491395"
+    },
+    {
+      "file": "work/dead-signal-game/dist/touch-fire.js",
+      "bytes": 374,
+      "sha256": "2c1fd9db192a37371734a00c9c0d00aed988278b7a2fe368421dd82b67775916"
+    },
+    {
+      "file": "work/dead-signal-game/dist/training.js",
+      "bytes": 1358,
+      "sha256": "12da9e59c386b7e86417278b8c56794d68a158b0ba899729625ba90b66ecd391"
+    },
+    {
+      "file": "work/dead-signal-game/dist/upgrade-model.js",
+      "bytes": 8810,
+      "sha256": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce"
+    },
+    {
+      "file": "work/dead-signal-game/dist/upgrade-status-view.js",
+      "bytes": 6635,
+      "sha256": "264a6e961858168c4155f7aa63667cff8eb32368f826da42074682d9ccd1a175"
+    },
+    {
+      "file": "work/dead-signal-game/dist/upgrade-status.css",
+      "bytes": 11104,
+      "sha256": "4fdabfaf568d6449320893a4816e9e2bda1ecf776aa07ede0ca25e54bc679a68"
+    },
+    {
+      "file": "work/dead-signal-game/dist/weapon-impact.js",
+      "bytes": 6683,
+      "sha256": "3c84025b562192dd603866b0e3cb954908c9c0347d76f516b74ff07dcd51729c"
+    },
+    {
+      "file": "work/dead-signal-game/dist/world-depth.js",
+      "bytes": 4720,
+      "sha256": "5bee6ba5ba3fc4f1239bf2115f3067cb51897ab8e91f68b1d93970f7942d1900"
+    },
+    {
+      "file": "work/dead-signal-game/dist/world.js",
+      "bytes": 11983,
+      "sha256": "4d4c7619e2d8a77edf723425af7bcf17f6af91132419b145748b66a55bdde88a"
+    },
+    {
+      "file": "work/dead-signal-game/player-rig-src/weapon-pose.js",
+      "bytes": 9302,
+      "sha256": "5ac742cc7062c665efbb5db339e5f53507140c87ececd1c18abac2e46405e814"
+    },
+    {
+      "file": "work/dead-signal-game/tests/actor-interpolation-pool.test.mjs",
+      "bytes": 14441,
+      "sha256": "2f3217f1395d4f7f5557f2018675febd56992749d5e035c16591bd9dd9b4d313"
+    },
+    {
+      "file": "work/dead-signal-game/tests/actor-interpolation.test.mjs",
+      "bytes": 5504,
+      "sha256": "7f22c4f587f9ecd6259511442edb677085d5539ac0bfdb3c37024b94611620c4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/animation-only-walk-loader.test.mjs",
+      "bytes": 9777,
+      "sha256": "da1adc0ce204b8f2be9c51d10d042bbcb508c459bdb32adc1705cdf2a1b6b3af"
+    },
+    {
+      "file": "work/dead-signal-game/tests/armory-ui.test.mjs",
+      "bytes": 7278,
+      "sha256": "2203a01e314db8ff5c067124930bb2bc15dcc17cd379e4a8b4b0e0d105a2b5ea"
+    },
+    {
+      "file": "work/dead-signal-game/tests/asset-revisions.test.mjs",
+      "bytes": 10982,
+      "sha256": "480d0cc72da0e9f738acfb22b586fd9c1f6bb1d2331f0382917581e70798916b"
+    },
+    {
+      "file": "work/dead-signal-game/tests/audio-noise-envelope.test.mjs",
+      "bytes": 18964,
+      "sha256": "f91b507ea6e304e93125ac912b144191c48b8fb085c587582e2f3b83a59b8a30"
+    },
+    {
+      "file": "work/dead-signal-game/tests/batch-native-ink.test.mjs",
+      "bytes": 7702,
+      "sha256": "541d8106b2cff03517a95c9f0f6c71a4e1dbe1f17f7111026d00b4181ac85cc8"
+    },
+    {
+      "file": "work/dead-signal-game/tests/blast-ground.test.mjs",
+      "bytes": 1529,
+      "sha256": "1303803bfdb44ede8718523efa48a6657a5440269c026b8596415408b344fce6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/blocked-expedition-guard.test.mjs",
+      "bytes": 7951,
+      "sha256": "06bebc900f1f7f71ac332ffbcbe981d3950d12eda5dab9120754ac823c6915a8"
+    },
+    {
+      "file": "work/dead-signal-game/tests/boss-action-layer.test.mjs",
+      "bytes": 15295,
+      "sha256": "d1f62503fc81dfc49d6c7b393e71ab394523694d225a690e0fcf48d56c3f9fc6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/boss-combat.test.mjs",
+      "bytes": 11170,
+      "sha256": "c6f06b1f2c5a4b3a1a3ee372f790d05a3881a5192541612248a3030d8edcd867"
+    },
+    {
+      "file": "work/dead-signal-game/tests/boss-continuous-rig.test.mjs",
+      "bytes": 3785,
+      "sha256": "08e9c4e197c44b84aa1f8c2aedbc2f9cd4888acb9b05da82f9d45b856238d5de"
+    },
+    {
+      "file": "work/dead-signal-game/tests/boss-detail-portraits.test.mjs",
+      "bytes": 16447,
+      "sha256": "1f7a8d192eb67c34b93d831bee7385da90183ed7bc4b2991f1f7c352e203dadc"
+    },
+    {
+      "file": "work/dead-signal-game/tests/boss-hit-motion.test.mjs",
+      "bytes": 12837,
+      "sha256": "fbe52bed2725dcc5e399b45276904f4bfcc4e22d91e41da23bc2ddea391b5d73"
+    },
+    {
+      "file": "work/dead-signal-game/tests/boss-patterns.test.mjs",
+      "bytes": 15864,
+      "sha256": "c0a80ccb5f57f473c2d0bee85a865ea4105c6d286635d280c2d4703df8c3068b"
+    },
+    {
+      "file": "work/dead-signal-game/tests/boss-rotation.test.mjs",
+      "bytes": 21419,
+      "sha256": "64cb3749124191e429f9e29036918d4ca58b66ee52a966f35be6282bd8b22e41"
+    },
+    {
+      "file": "work/dead-signal-game/tests/building-occlusion.test.mjs",
+      "bytes": 12159,
+      "sha256": "76353b09c7596e98f1c3b1a2f507a4e117537e886e1b33667898ddc10acd11cd"
+    },
+    {
+      "file": "work/dead-signal-game/tests/bullet-broadphase.test.mjs",
+      "bytes": 13364,
+      "sha256": "b882b30daffb49d69294344613b9234805529cfd81308449ef6d715d90b8ca24"
+    },
+    {
+      "file": "work/dead-signal-game/tests/campaign-engine.test.mjs",
+      "bytes": 13949,
+      "sha256": "485b75742696436ded2d6884b983763ae6adb471db646246315cf6182bf65397"
+    },
+    {
+      "file": "work/dead-signal-game/tests/campaign-guidance.test.mjs",
+      "bytes": 2959,
+      "sha256": "44a9bf8af0ba852a82f13f21d02f4697ddb52622ae4566b6036ba05f7ba451e6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/campaign-progress.test.mjs",
+      "bytes": 4973,
+      "sha256": "4994c0ecfe18eef054620ec597bcf2636e96fd65634db16d3246a70eb2fd31dc"
+    },
+    {
+      "file": "work/dead-signal-game/tests/campaign-renderer.test.mjs",
+      "bytes": 12405,
+      "sha256": "522679343b737b40d1a7b137abff5f6fc43c591166d14cda6b7a9f44f2c6cfb2"
+    },
+    {
+      "file": "work/dead-signal-game/tests/campaign-world.test.mjs",
+      "bytes": 5010,
+      "sha256": "cb7907844f4b86abc6863053ee60bd3abe4042e8230c98ca8bc73f1e61b1eb37"
+    },
+    {
+      "file": "work/dead-signal-game/tests/campaign.test.mjs",
+      "bytes": 5467,
+      "sha256": "c3c8c3a8fe7c45a41f87cc5e8f7a9ace89ac351d214086441b8b59e58656b6a7"
+    },
+    {
+      "file": "work/dead-signal-game/tests/charge-wall-feedback.test.mjs",
+      "bytes": 3265,
+      "sha256": "087d9671dbd1d5de1534fa2e6463a91e320164b267d183a46d48a1bf88b36b03"
+    },
+    {
+      "file": "work/dead-signal-game/tests/checkpoint.test.mjs",
+      "bytes": 15616,
+      "sha256": "db4c85e4987f3f79f0f1bf05b83d8ddae4a1b5f285adcbc209190145578c5591"
+    },
+    {
+      "file": "work/dead-signal-game/tests/codex-portraits.test.mjs",
+      "bytes": 11550,
+      "sha256": "a355913c82c9b233e4c2ee7ad015ad72917fc6589e99de5ae646629b76092f36"
+    },
+    {
+      "file": "work/dead-signal-game/tests/codex-scroll.test.mjs",
+      "bytes": 10874,
+      "sha256": "a5d08d3d8cc1b4c801e41e02bd8f5abee54d107c50e666299e03b0e4835a5678"
+    },
+    {
+      "file": "work/dead-signal-game/tests/cold-chain.test.mjs",
+      "bytes": 3454,
+      "sha256": "ff31f77ef9ff4b769fb2c2c504a2f9635b24f75947648244812ea14b8ba327c4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/combat-detail.test.mjs",
+      "bytes": 2986,
+      "sha256": "d73b7f3bdf44c951fe4dc68f9f7dfb47730500d4aa7339a921cfcb54ecf5a82f"
+    },
+    {
+      "file": "work/dead-signal-game/tests/completed-enemy-frames.test.mjs",
+      "bytes": 3081,
+      "sha256": "f67495d6dd8141b8ced1eed0954c1ff7f7790f2e889fcf209c89accef24d1342"
+    },
+    {
+      "file": "work/dead-signal-game/tests/damage-feedback.test.mjs",
+      "bytes": 2407,
+      "sha256": "c3d1d9ea03d38c1eced11d808b462bfb52d516a6054c333fa92012eb9dd04ff2"
+    },
+    {
+      "file": "work/dead-signal-game/tests/directions.test.mjs",
+      "bytes": 8262,
+      "sha256": "6a53308404282265cf79bd47972a9723cf17febf9c2cda2b8d032c515072fe2c"
+    },
+    {
+      "file": "work/dead-signal-game/tests/enemy-continuous-rig.test.mjs",
+      "bytes": 3593,
+      "sha256": "2a9a96842c55b0d081ef64a92d462659dc252e797e2b0d44d707081fd1735c67"
+    },
+    {
+      "file": "work/dead-signal-game/tests/enemy-grid-runtime.test.mjs",
+      "bytes": 9896,
+      "sha256": "9d411c05647a880660cb2c039a1448402774f52b0b17695eb093418f5c980889"
+    },
+    {
+      "file": "work/dead-signal-game/tests/enemy-locomotion-integration.test.mjs",
+      "bytes": 4477,
+      "sha256": "68966043fb0e632f71f4a9c2d67306c0684da258b5d293896c58bb5da0612038"
+    },
+    {
+      "file": "work/dead-signal-game/tests/enemy-locomotion.test.mjs",
+      "bytes": 4055,
+      "sha256": "2ce6e14416ffca7026ceeab4c4acf035bfda9b532590844b2a8cf96623f92378"
+    },
+    {
+      "file": "work/dead-signal-game/tests/enemy-motion-review.test.mjs",
+      "bytes": 3905,
+      "sha256": "d36ef3e53d3208532c38b04661b6643fc571df8161a503363ebd7672891a3867"
+    },
+    {
+      "file": "work/dead-signal-game/tests/enemy-pivot.test.mjs",
+      "bytes": 1687,
+      "sha256": "5406d184d1a4538eabaddf73d22da47a565b87f6a64fd0ca757d11110ea08bce"
+    },
+    {
+      "file": "work/dead-signal-game/tests/enemy-separation-grid.test.mjs",
+      "bytes": 8524,
+      "sha256": "379ca40bcd056aa532fba9b995d4a73121727a9866e74707147d10e8a5869359"
+    },
+    {
+      "file": "work/dead-signal-game/tests/engine-direction-candidate.test.mjs",
+      "bytes": 12615,
+      "sha256": "78c543e27467e84a1ee3c8fb0532bedb0d730a8f12b57509ae09b1c5f5902fe9"
+    },
+    {
+      "file": "work/dead-signal-game/tests/engine.test.mjs",
+      "bytes": 29739,
+      "sha256": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8"
+    },
+    {
+      "file": "work/dead-signal-game/tests/equipment-art-recovery.test.mjs",
+      "bytes": 9558,
+      "sha256": "be14ed652cb5ddaf759a032f774b1e9ab529ddfd45c1d25acc3145bee59a9d8d"
+    },
+    {
+      "file": "work/dead-signal-game/tests/equipment-engine.test.mjs",
+      "bytes": 19861,
+      "sha256": "bfe643625b4280705eaaf9fa9ac4bc00bcdbeee1698a3638e25d6b7ee0402844"
+    },
+    {
+      "file": "work/dead-signal-game/tests/equipment-storage.test.mjs",
+      "bytes": 4805,
+      "sha256": "5cff9cb0cc108361317b91ce9e0f0bc33915cf55081318ff00be2ab033291911"
+    },
+    {
+      "file": "work/dead-signal-game/tests/equipment.test.mjs",
+      "bytes": 6207,
+      "sha256": "db55fd26b158bd68bf32083407a4c5e07ce8715835524fb313ea56132488175b"
+    },
+    {
+      "file": "work/dead-signal-game/tests/exit-state.test.mjs",
+      "bytes": 2135,
+      "sha256": "bbd2413060d73f94e6cc69b6639c0a61dba5117efc324981ac1d9ede39e40141"
+    },
+    {
+      "file": "work/dead-signal-game/tests/expedition.test.mjs",
+      "bytes": 4199,
+      "sha256": "70af4ffeb8b6381e282c7583731aa5a9cb0266c62ac89c3fe5a0248c2555000c"
+    },
+    {
+      "file": "work/dead-signal-game/tests/explosion-art.test.mjs",
+      "bytes": 14723,
+      "sha256": "97f3b7100e192003611a1e475c58d711ca16a18a6f5e6f9acff7d6a6ffebfdda"
+    },
+    {
+      "file": "work/dead-signal-game/tests/explosion-depth.test.mjs",
+      "bytes": 9519,
+      "sha256": "5569dc3eda10566cb9ecab6593ba3ca458318b03d5e79f48be633cffe0b3c3c6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/finale.test.mjs",
+      "bytes": 6517,
+      "sha256": "9d57f7667946e6c9422155a50897db26f0d359f92200c3c4086b8b5a8151df6e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/fire-art.test.mjs",
+      "bytes": 16575,
+      "sha256": "1bbfea8a08077578b4fed063998a8e1807345808f9b5e1f40b155e11c73cac10"
+    },
+    {
+      "file": "work/dead-signal-game/tests/fire-ground.test.mjs",
+      "bytes": 3295,
+      "sha256": "5582ea9034ea0eea10d7b17c25496f46bd430f869286997fdaba4d88fe44e596"
+    },
+    {
+      "file": "work/dead-signal-game/tests/firing.test.mjs",
+      "bytes": 9850,
+      "sha256": "1d079b7bfbc3a41b226fc936364a98ec55625e7821e6af19748899a6953ef991"
+    },
+    {
+      "file": "work/dead-signal-game/tests/gpu-alpha-bounds.test.mjs",
+      "bytes": 30196,
+      "sha256": "72b4f638ca06833ef48c2a4b0fe338e1556ba25afb500ced93e060fabb53ed16"
+    },
+    {
+      "file": "work/dead-signal-game/tests/gpu-alpha-empty-lease.test.mjs",
+      "bytes": 17011,
+      "sha256": "87ff7a870f0aaeed309076e0bb90815cef0e2a0a0b7482a846f05aafde9ca2e3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/gpu-alpha-read-restore.test.mjs",
+      "bytes": 18019,
+      "sha256": "e24297f26831146a077f72cf8bbfa0fb5b3cc67e4b7f4d3f76c606c13bafd6a0"
+    },
+    {
+      "file": "work/dead-signal-game/tests/gpu-alpha-warmup.test.mjs",
+      "bytes": 24330,
+      "sha256": "9158c05d6302066e4c256cb8a6bf05111d831f844243cb3890ad5a289c8a8a9f"
+    },
+    {
+      "file": "work/dead-signal-game/tests/guidance.test.mjs",
+      "bytes": 9688,
+      "sha256": "952991da285be8f92844bb0c42e6eaf335d5aee8825a1492fcddf1b30f1bf696"
+    },
+    {
+      "file": "work/dead-signal-game/tests/haifa-transfer.test.mjs",
+      "bytes": 3467,
+      "sha256": "e6e57307d9c6c635421b684b19cfcf3c8b86398e0f1e7e30a798c67dd5278818"
+    },
+    {
+      "file": "work/dead-signal-game/tests/harbor-power.test.mjs",
+      "bytes": 3198,
+      "sha256": "151c4be69380c6e712ed1bdc5ea95ccb702b8b9c43293882c2ba2269233439c3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/health-warning.test.mjs",
+      "bytes": 5217,
+      "sha256": "8bc4711bed0c7606add0c088b8d11df5c374180ca13fadf7ec67c2778fb23a62"
+    },
+    {
+      "file": "work/dead-signal-game/tests/hero-mask.test.mjs",
+      "bytes": 1329,
+      "sha256": "e25a41ed4de1b92bf69883330e70c3cfe76fdea6acfedfddccbc882130543ff9"
+    },
+    {
+      "file": "work/dead-signal-game/tests/hospital.test.mjs",
+      "bytes": 5077,
+      "sha256": "764b97d1d7f0faaca3b4e00c1d11b643157c7d04dd7335b150beb429e8be2a85"
+    },
+    {
+      "file": "work/dead-signal-game/tests/impact-marks.test.mjs",
+      "bytes": 3130,
+      "sha256": "f027083f7ab1a6c4100f6e2cb65b82dc6d774e3643f4c11b25b3492098d42292"
+    },
+    {
+      "file": "work/dead-signal-game/tests/israel.test.mjs",
+      "bytes": 3136,
+      "sha256": "7203a68561afc0451b7c6590231b9d809ee5d67f9047f73af7384ef609b1dfa5"
+    },
+    {
+      "file": "work/dead-signal-game/tests/launch-gate.test.mjs",
+      "bytes": 14006,
+      "sha256": "0965fcdc792dfffe8e8fc504bfdb7b1c16d3143be13c69c49a8ad163d12ec738"
+    },
+    {
+      "file": "work/dead-signal-game/tests/launch-residency.test.mjs",
+      "bytes": 2498,
+      "sha256": "1c03b3cbb3e529ffc1efbf51f2c0691c5d06a5d96d25f755943c1b21ab9ced31"
+    },
+    {
+      "file": "work/dead-signal-game/tests/live-boss-action-layer.test.mjs",
+      "bytes": 15173,
+      "sha256": "6c0879338cf77cb95bad485c6aef0cf3b47688bb309b7d4d8653758ddc594ed2"
+    },
+    {
+      "file": "work/dead-signal-game/tests/live-enemy-selection.test.mjs",
+      "bytes": 2158,
+      "sha256": "f329cf299bb07612a7ce32a4b7e4627ef71cb8563cc68bf6d4b65102bad22924"
+    },
+    {
+      "file": "work/dead-signal-game/tests/minimap.test.mjs",
+      "bytes": 6514,
+      "sha256": "d6880a66c8e94513d9036d6a8fc6a290e616a1e013949ff013b1a4bac6aae455"
+    },
+    {
+      "file": "work/dead-signal-game/tests/molotov.test.mjs",
+      "bytes": 1749,
+      "sha256": "1c3872e529a90ab07b1d79532c939105dc43edc5876a6375fefd9f7df4c4fc85"
+    },
+    {
+      "file": "work/dead-signal-game/tests/motion-review.test.mjs",
+      "bytes": 2689,
+      "sha256": "4271da11caa3f49471a92b642422dffa66c76ecb5b60737b037b298b65eb48d3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-action-animation.test.mjs",
+      "bytes": 26445,
+      "sha256": "ccb32c86d16439a78ecd5f498ca47adc61a48fa804077a8d4509485f35a046d4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-alpha-bounds.test.mjs",
+      "bytes": 1531,
+      "sha256": "e9c5d22a347f64813797fca69aeef0e0c27ad939733fa3861840fb96bb19db69"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-alpha-readback.test.mjs",
+      "bytes": 1774,
+      "sha256": "dc694a5e4bf6bb95c0d5e1c88eaf161b921c539256c7c9c19393660bc81cfc54"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-asset-lifecycle.test.mjs",
+      "bytes": 7384,
+      "sha256": "8ccd77f00d8877b7775514e1bd850bc5ecaae169254e04b0a141c388f51c64b3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-catalog-ids.test.mjs",
+      "bytes": 12501,
+      "sha256": "21ccb20ae75304ef01ed5c7b6723ffa004e9f75c34497d5fef4a1483a907cf13"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-composite.test.mjs",
+      "bytes": 2407,
+      "sha256": "18bb84e7984ff37cf1a0182ecd71bfd279b6b3bfa5fcdbeaf9600462f5546338"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-contours.test.mjs",
+      "bytes": 14283,
+      "sha256": "b04bbe69442042e34fd47207521a2ec91c2eeb84c9ed3b281dd3698705d6715a"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-corpse-batch.test.mjs",
+      "bytes": 2466,
+      "sha256": "90b87eb150e79ec662b13e9a614d57d42662017f220007bf1ce2dbbf7e634d14"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-enemy-preparation.test.mjs",
+      "bytes": 14685,
+      "sha256": "670f6bac29dd1958416c274206c52869f301b4622958985befeb3ee58d661342"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-environment-fit.test.mjs",
+      "bytes": 2626,
+      "sha256": "e6aa87416f0d75182abbb9074fdef46a5c8b86df997706b7036e9af99c426a75"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-hit-light.test.mjs",
+      "bytes": 1763,
+      "sha256": "ec4ca62cfdc5dd989e65046a0a763fab0ca466d394941a49a1afd9c417064e60"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-launch-integration.test.mjs",
+      "bytes": 16856,
+      "sha256": "686b815c11420c771d60f2a43690d7c6c2fab478c060ed67cace931e84879d39"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-launch-preparation.test.mjs",
+      "bytes": 16079,
+      "sha256": "a9288a67992b3245157b59aedb5d58f6916db6cdb1a4ae9e1eb3562a1e91a6c9"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-prop-frames.test.mjs",
+      "bytes": 4207,
+      "sha256": "214206bcd990735a46bafa9bb1a1e78b3504e972407bdae436d21c867a7458a0"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-section-occlusion.test.mjs",
+      "bytes": 5056,
+      "sha256": "d385c8e011022f165eedee891544d7a0e4dbd852ea07c08a19c6e13588820052"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-shader-warmup.test.mjs",
+      "bytes": 18409,
+      "sha256": "ca832df156ddfa87033c924fd06ed103968ff1a5b787e4b628e53e642eca8dcd"
+    },
+    {
+      "file": "work/dead-signal-game/tests/native-texture-upload.test.mjs",
+      "bytes": 16622,
+      "sha256": "d198c54e6e6ff32dd32a2b8aa54cd7a90907237f3dd35b46d4b9e6eea8a0b829"
+    },
+    {
+      "file": "work/dead-signal-game/tests/navigation.test.mjs",
+      "bytes": 9509,
+      "sha256": "783d9284f5355d356f15f20374f36c231a7355a49b0ff09f18e6331c3c756961"
+    },
+    {
+      "file": "work/dead-signal-game/tests/north.test.mjs",
+      "bytes": 5194,
+      "sha256": "73cda5ab601e85456533d97fc6a492e669d9db30de3f634179f523ad8bfbc896"
+    },
+    {
+      "file": "work/dead-signal-game/tests/owned-atlas-json.test.mjs",
+      "bytes": 18263,
+      "sha256": "977f5ea352b2ff95aed9d4d77412bf16d253d21643b8cb30432ed816e4af1794"
+    },
+    {
+      "file": "work/dead-signal-game/tests/patient-record.test.mjs",
+      "bytes": 2167,
+      "sha256": "609d880c8c9c885700708acc56a66f1cef1efd4a1f8e576c4912377fc8d85861"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-death-pose.test.mjs",
+      "bytes": 7940,
+      "sha256": "ab94eafbb8a2afec92d5aff0bb263020e523a92f4cebf78e3831f6a5631d5c18"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-grounding.test.mjs",
+      "bytes": 1701,
+      "sha256": "2ac592296946cf4a382898a330bd8dc55de085ef31af1feef0ff00e49613b769"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-locomotion.test.mjs",
+      "bytes": 4588,
+      "sha256": "deb46e00dc748b80489d3acd08f9339e85eb074dd6708c5e4ebd23d385ee7f2e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-movement.test.mjs",
+      "bytes": 5717,
+      "sha256": "3f97faeab9a81c2cfa657acc2e2fbf29680f827dfd74ba37dfa430f0a9ec0248"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-original-rig.test.mjs",
+      "bytes": 6016,
+      "sha256": "cf8289c2fe5f73f90f7abea32553e9e9b60950b2694482f7c3d1991313540935"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-reload-pose.test.mjs",
+      "bytes": 3375,
+      "sha256": "21323b1bc4e82c089b8bf8fc5b1602ad382a316a2d3efd2df19c3bd168b11f63"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-rig-motion.test.mjs",
+      "bytes": 2728,
+      "sha256": "f082077251160a3c050179e97263f7744245b1193cb1ac78360a5cc4834dd2a5"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-runtime-recoil-source.test.mjs",
+      "bytes": 15884,
+      "sha256": "28f2adb661555560f8452e3834527a9bc8a4731e732c7ad9239d6d4b1afa9b45"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-skin-updates.test.mjs",
+      "bytes": 8708,
+      "sha256": "ec48fef5b3e7e8e93a43bbeaf5c79dd42b9711ee2fd60a2c4cbf37fbd55b1615"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-upper-action.test.mjs",
+      "bytes": 4217,
+      "sha256": "146e134b00277322008919ca642cc8573871c9db453af46a1c88b81055b6fc7c"
+    },
+    {
+      "file": "work/dead-signal-game/tests/player-weapon-recoil.test.mjs",
+      "bytes": 4210,
+      "sha256": "ad60f614a4aeb9e82996ce440b02a7c3726c8a1a600c0261aa36c20f747be4bc"
+    },
+    {
+      "file": "work/dead-signal-game/tests/pointer-fire.test.mjs",
+      "bytes": 12232,
+      "sha256": "df00620baa6c7758be48902e89fbb6adebd471b58b13b5323d62b11676d333e6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-art-32frames.test.mjs",
+      "bytes": 8536,
+      "sha256": "60b59f90c6e2e9aaa922506f242391abcc37943a78ad310356171be2db46923e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-art.test.mjs",
+      "bytes": 26519,
+      "sha256": "96334c6fef49f6ef0aa6df2babfdd04c501c2e62efb59acaa408fa64054b04ac"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-buildings.test.mjs",
+      "bytes": 7952,
+      "sha256": "36d94db75e8961da7550ea8ad47bed694800fc9b07d9366cccb79e9660098f7b"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-content.test.mjs",
+      "bytes": 40797,
+      "sha256": "5c79ac09838feb2511d64e7258b1c5e0677d3158398430e970d100bd06a77ab4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-fences.test.mjs",
+      "bytes": 2188,
+      "sha256": "fb9145623e3c0380fcfe124ed4042741edc3bb8afdb8020da10a621b314728e3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-props.test.mjs",
+      "bytes": 13311,
+      "sha256": "75932135fb0d2529caf4296921404da35c5132be0f626185fd024785146f5105"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-renderer.test.mjs",
+      "bytes": 25984,
+      "sha256": "cbc9d782432af0b558d6925c99b3903ea2664de0662d8db0e12195cd7c286480"
+    },
+    {
+      "file": "work/dead-signal-game/tests/production-rules.test.mjs",
+      "bytes": 1508,
+      "sha256": "cd1c5d79fb0a2d6a520aa8170467577060b9a9168750141bde4e86f53f15a2ba"
+    },
+    {
+      "file": "work/dead-signal-game/tests/projection-ground-depth.test.mjs",
+      "bytes": 10996,
+      "sha256": "e37aa12231216664d43b97cd9c892d55b138f20e804cdd55969b338d560c61ee"
+    },
+    {
+      "file": "work/dead-signal-game/tests/projection.test.mjs",
+      "bytes": 5025,
+      "sha256": "48ae934c869e1beed5960ec0bec3b08ec554f0a92941a6a03399af0c75410b6e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-app-gpu-alpha-launch.test.mjs",
+      "bytes": 33062,
+      "sha256": "2a889bd0427216617e1878f6cfe52130db0b6fb0f2a0557bcbc63a2a221381a3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-app-gpu-alpha-loop.test.mjs",
+      "bytes": 17521,
+      "sha256": "32dd4532cb4f6c24633c8f894b1d016369b900995dfcb3fb8830d7ea4099a538"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-app-loop-movement.test.mjs",
+      "bytes": 14034,
+      "sha256": "98eb1b34074dc14ce30bfd5b3f1b76b33d5ce78ba1edf418bfd9fbbc3bf451b4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-app-loop-sprite-calls.test.mjs",
+      "bytes": 8833,
+      "sha256": "cea7913586c230d62c479a767da1080a1ae62b5c31abb0030305a92d375df50a"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-app-loop.test.mjs",
+      "bytes": 16819,
+      "sha256": "8150b689285df3b17503a4936440cbc788cf329d7378f7552cd1a30db7118492"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-app-tick-replay.test.mjs",
+      "bytes": 7475,
+      "sha256": "6158f80cef336b679d149d8913e0b8f397625cd983bdc11ed2dfa9d503d3b3e6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-audio-envelope-browser.test.mjs",
+      "bytes": 3985,
+      "sha256": "6c2afc2fc9933e7d3774cac21b722498f03c3e15389eb3d81532d4eff9c50985"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-audio-envelope.test.mjs",
+      "bytes": 11472,
+      "sha256": "86f4eac44444349ad43eb668f2912f81aa13177f46a16483bed9c7e9dca29e58"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-boss-hit-motion.test.mjs",
+      "bytes": 13887,
+      "sha256": "9c38dd0fcccbb938f109ef336b3b5301c812d4bb059101bd06072ae331d85f2e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-building-occlusion.test.mjs",
+      "bytes": 17274,
+      "sha256": "5c114d1526ac65d8f42be3dd0ca6e5a68c44362384e096d3dc93b98d1421d4cf"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-canvas-state-combat-ui.test.mjs",
+      "bytes": 7576,
+      "sha256": "84d0e14aac67b1e68f636b174db7fce3c420f0bfffb9f0518f21bd1c97846021"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-canvas-state-combat.test.mjs",
+      "bytes": 24058,
+      "sha256": "5dd93656b65aeb2f3125270adbb973ff5aa9c9e8b216c8840e88cb2997fdd664"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-canvas-state-install.test.mjs",
+      "bytes": 15107,
+      "sha256": "d6fef21e1fd577c619b97e2d7f18b5be95d67835c0bc937982002b09bb0b1d0a"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-canvas-state-pixels-gates.test.mjs",
+      "bytes": 2320,
+      "sha256": "f61e581e2403872d36cf89a174272e344ef90f72d7c4f18a717a756b057c39f4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-canvas-state-ui.test.mjs",
+      "bytes": 6767,
+      "sha256": "304ded33e9ddf270db61788ed9a9ad3530a47eccf007f54a01b8c82972a695d0"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-canvas-state.test.mjs",
+      "bytes": 20330,
+      "sha256": "ebe57c3bed399849f95fb98f00346c8f1b3d7aac6fdae87d691f6e2f834bdbe4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-enemy-grid-reuse.test.mjs",
+      "bytes": 23943,
+      "sha256": "a52f6015636b626ce96ebe113af679074769d0f95bcdecb93d047f6b73edeba7"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-frame-cost-pool.test.mjs",
+      "bytes": 21803,
+      "sha256": "4f5944bb0ba139199d0dce52f41f3b6c30b7be8fa3238a151368234fa2552502"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-frame-cost-profile.test.mjs",
+      "bytes": 21002,
+      "sha256": "d13b660020ca6e78569f3255954b36e8dd838adab389a1052ea8c2c88bee7876"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-frame-observer-pool-cli.test.mjs",
+      "bytes": 13745,
+      "sha256": "8533f831412aa83867171b8c86e355c3d9f20ed97e7edfe573a3d14b02554700"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-frame-pacing.test.mjs",
+      "bytes": 13792,
+      "sha256": "830c2c12b33571ecad7f25f13ac5127acddc7c20ded9ba44f729c01a3dc7a0b6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-gpu-alpha-empty-lease.test.mjs",
+      "bytes": 11699,
+      "sha256": "7b200fe59d6fd76ad0f5d6cd77f0ceaacf12d74ba12ff2f2504d52b9ab5a5a01"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-gpu-alpha-preupload-ui.test.mjs",
+      "bytes": 12487,
+      "sha256": "661987d9afecb251c3dd144c0b1984b457c46f59dc89b2716c0eff7bc2ac404e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-gpu-alpha-preupload.test.mjs",
+      "bytes": 30656,
+      "sha256": "72a0f30699236987ba3177f44e451623c40efd01c90bbc40a85c4205c9af1b62"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-image-decode-combat.test.mjs",
+      "bytes": 19933,
+      "sha256": "225a31df82c17c96dc2d872e93e2b1e7d51846509e247b735b49d6e4ddfa0236"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-image-decode-preparation.test.mjs",
+      "bytes": 18513,
+      "sha256": "03d8257f9de627e2129235b33d603ce6ab205e5d30b344b03f07a50b730134ef"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-impact-fragment-table.test.mjs",
+      "bytes": 9570,
+      "sha256": "a318ff298d271f845496b3eb4102b0d015104b61f81e7733548323ce99cdb9a2"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-interpolation-pool.test.mjs",
+      "bytes": 13252,
+      "sha256": "0fa6e4eec11e4181ba977c37a132fa461d932e5953d3918a88fbf3524efb61ae"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-movement-profile.test.mjs",
+      "bytes": 21323,
+      "sha256": "657b541eb780294833710355bfb8daede8f248cb51de8728b2b7c23f2cb80044"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-native-frame-profile.test.mjs",
+      "bytes": 11323,
+      "sha256": "2b1a60016eeb22c012862e5b22ea65c9e0ce699af48056569d94e3c5826ca0bd"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-native-shader-warmup.test.mjs",
+      "bytes": 21804,
+      "sha256": "363e67e49b7a746372f9ab96f191cef55a2d0ef4c4cc919d84dad28a200e5ec2"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-native-upload-profile.test.mjs",
+      "bytes": 13397,
+      "sha256": "d32304219f1f0e1638fcf34dd27349a7a969d7fd320bea2189df350e0ffc3e57"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-original-readback-combat.test.mjs",
+      "bytes": 11151,
+      "sha256": "bd48f0ecceeca6a0c7239d61d9a659ff0030e40719be445a8716f73c6b4086e3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-original-readback-probe.test.mjs",
+      "bytes": 13918,
+      "sha256": "0d7948fd11f73997dbacbee065bd647f103d7b17912352ca77f33336aa0e6807"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-original-readback-ui.test.mjs",
+      "bytes": 10541,
+      "sha256": "18106ed33e9feaccf67c21c8f2f3571cadbb5fcb95ff6af022c2e3425ee35fee"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-owned-atlas-json.test.mjs",
+      "bytes": 8091,
+      "sha256": "5d59f3cec96c8c6d5e1bfb6596abf5f481662f8ab46b0afb3d0591193f973669"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-owned-atlas-observer.test.mjs",
+      "bytes": 4001,
+      "sha256": "8bc13f7bab2f4fca2bd5eb91d73e304d1e0c42598b425bd2fcde1b580958b20d"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-owned-cleanup-combat.test.mjs",
+      "bytes": 9639,
+      "sha256": "2cff997aac81960c2531176bbfa5060df1f15f1bcbb27ee31d7bb46a0d735fd3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-owned-cleanup-tracker.test.mjs",
+      "bytes": 20581,
+      "sha256": "8b629eb289ea005eb6613d3ec699bc6232281350c1f39c5b0f1c3e61dfb6ae9d"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-owned-cleanup-ui.test.mjs",
+      "bytes": 11050,
+      "sha256": "9fcd801959d5a27066ea49478204c56790c1742545492503cd70ac60107177f8"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-alpha-rows-combat.test.mjs",
+      "bytes": 13767,
+      "sha256": "cccbfae4e431b72866a0ff521611ec90076faddbef156711e2d1cf05e8ac3020"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-alpha-rows-install.test.mjs",
+      "bytes": 18029,
+      "sha256": "cb734ce4f8acc5f8ec3a78601895bda40fe32f629a5c92165fdd6880b6a10731"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-alpha-rows-ui.test.mjs",
+      "bytes": 7145,
+      "sha256": "11a7a8fb972c803c28b1b8c6abfb46934e9b0b64f840c92b88eeb2dab6c48d36"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-alpha-rows.test.mjs",
+      "bytes": 16384,
+      "sha256": "c7d2a3f8d03d77519f77e38da6314d166b46d9c4f85d54f8e9b82b83ee640115"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-attribution-combat.test.mjs",
+      "bytes": 11914,
+      "sha256": "28bc2237d209165a2c1d3ebe609e55d585788aa4e41a5c25e51a927392e2c581"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-attribution-ui.test.mjs",
+      "bytes": 6517,
+      "sha256": "d46b63dff4a0295dfff00d10ba7468fbc4fc93a104d1aa61dbcb2390a1287ab6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-attribution.test.mjs",
+      "bytes": 14611,
+      "sha256": "dbc39cf3b567c3cc4390d7c89a62449992b4a42a953e67d664960f22bf61608b"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-deferred-read-combat.test.mjs",
+      "bytes": 16741,
+      "sha256": "7106a384b512934ec1105dbda2b16a936b5f4505ba76803c55c10fe7b8b9caa4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-deferred-read-install.test.mjs",
+      "bytes": 13928,
+      "sha256": "7f063e22185443c099f6cf45e2b9569675df6ec90d31c7b8bc70eb10f36bf865"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-deferred-read-source.test.mjs",
+      "bytes": 12806,
+      "sha256": "d078f9abaa2860288b5388490aa1f34e99c9048cfe37a67e0a9981e13eed6d2f"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-deferred-read-ui.test.mjs",
+      "bytes": 7237,
+      "sha256": "19c10d81e6c924a9632a1080509c61ce65915a1da9969e134be73fec101bf5da"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-launch-preparation-combat.test.mjs",
+      "bytes": 13818,
+      "sha256": "7f933e51f12466b6a394bf4c4004e165fe9d6b6452a489bdfb52c074a3c15682"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-launch-preparation-ui.test.mjs",
+      "bytes": 6504,
+      "sha256": "4872284fb288c4488766c00a9f322bb0fd8f086b22b105287dd2faa239d4b339"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-player-launch-preparation.test.mjs",
+      "bytes": 18719,
+      "sha256": "39a4525380e98694fd9f03c37c6997464ad1b1a36ac1ef4a2a957910e3eb2571"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-render-attribution-combat.test.mjs",
+      "bytes": 11061,
+      "sha256": "13c6802ba7671e1242c281aa6a93ad4952235c971bad6398b4a9ae35b553e6b6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-render-attribution-ui.test.mjs",
+      "bytes": 6277,
+      "sha256": "5b7c08b3b47aff74ded810c87d0ad6f2f174bcdce0c4db8ff3f069be6e496474"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-render-attribution.test.mjs",
+      "bytes": 14289,
+      "sha256": "d22f2a2a0702d02d8971478fbb2d23b953567c45b2b2cd6e764ed4845d894bcd"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-sprite-call-pixels.test.mjs",
+      "bytes": 15281,
+      "sha256": "e0b7b4fe4e9ef87d6585b836ef50525313e26a15e06bcaba8399227f995680eb"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-sprite-call-profile.test.mjs",
+      "bytes": 28755,
+      "sha256": "56708cc498b24d166844123d75317ff606dee2d3eba9eff0448f6b2fcd01488c"
+    },
+    {
+      "file": "work/dead-signal-game/tests/qa-upgrade-status.test.mjs",
+      "bytes": 4463,
+      "sha256": "292538357c3322741aad28c6c460f8cd2599dbae4bee4b77d3bf764183502c0c"
+    },
+    {
+      "file": "work/dead-signal-game/tests/reload-interpolation.test.mjs",
+      "bytes": 658,
+      "sha256": "4bd40751e113a1cec9077e538a50f20e2b78b8064a800bb00c0c161c96d6fa7d"
+    },
+    {
+      "file": "work/dead-signal-game/tests/reload-stage-sound.test.mjs",
+      "bytes": 2002,
+      "sha256": "6c38e98c8a3ffad0b4e5956408b22072025e01995746caae2ea3d87fa4658368"
+    },
+    {
+      "file": "work/dead-signal-game/tests/render-schedule.test.mjs",
+      "bytes": 8522,
+      "sha256": "b6cbcce03963cbaedce02910674cce4c8bb27dc3ba18d1148a7e6e899ae9ae0a"
+    },
+    {
+      "file": "work/dead-signal-game/tests/renderer-ground-depth.test.mjs",
+      "bytes": 13303,
+      "sha256": "dc76609401547c2b5e81dafabaae1e1cd8a4e57e67a30d91a08de5b55d653554"
+    },
+    {
+      "file": "work/dead-signal-game/tests/renderer.test.mjs",
+      "bytes": 45424,
+      "sha256": "ac65c13c74ae2fe491020571a73d5002c46b08dab9f3539f654f2e7ace5fe281"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-finished-death-cache.test.mjs",
+      "bytes": 7622,
+      "sha256": "96cae4bdc44fc5b0ee7ebb801f23f876e84e536802f7a4cd423b4e6bcc5181c6"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-frame-pool.test.mjs",
+      "bytes": 1077,
+      "sha256": "51fe26f433293630c3ae882ee7981e572193d6695b326694097259ab1271fac2"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-gpu-copy.test.mjs",
+      "bytes": 2240,
+      "sha256": "a9addbdcdc33aa2d2618a6d38254359da4a627c36cb679cb404cfe83b63cf064"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-hit-envelope.test.mjs",
+      "bytes": 658,
+      "sha256": "9389e1b0386bb6b54f0340911d27710a88ef54b3245a669489e99d83a934c3a4"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-hit-layer.test.mjs",
+      "bytes": 3327,
+      "sha256": "5c159b4df6daf2a4c3af51fdf9f4dde74143417ea732d389060ae85aa7dc7ae3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-pose-bounds.test.mjs",
+      "bytes": 3523,
+      "sha256": "d99f04ae2e11fd5c400261b59b40a6efd206191ddac0b8d3436d8873a209f552"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-pose-buffer.test.mjs",
+      "bytes": 1333,
+      "sha256": "b6b10b41205de561bd71cb7d305af0110ff922d072f484a35f37caca52b0993f"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rig-pose-history.test.mjs",
+      "bytes": 4345,
+      "sha256": "a5c8af53fce44be14ee15f55ba15efcf58b6bddd70ee3ddb01b22e6ddeb50001"
+    },
+    {
+      "file": "work/dead-signal-game/tests/rooftop.test.mjs",
+      "bytes": 5908,
+      "sha256": "dd4cf61a9bad79ccb1e8f2637ca8d1b209aed83f4f9313b7156fdd5c21772d7e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/sea.test.mjs",
+      "bytes": 6359,
+      "sha256": "de51358a9d5fce3411995ed6adbfef2233ec294bdefcfa7528540cde9cedaed0"
+    },
+    {
+      "file": "work/dead-signal-game/tests/simulation.test.mjs",
+      "bytes": 14214,
+      "sha256": "aa55c1bd2538652226be0bcc971430a1879a14423a2e87610f9ead11e3e37fed"
+    },
+    {
+      "file": "work/dead-signal-game/tests/sound-perspective.test.mjs",
+      "bytes": 6925,
+      "sha256": "1a49508a2fc1a8c551428738c764880e87d5039608514b64ffd2412f366b7f70"
+    },
+    {
+      "file": "work/dead-signal-game/tests/storage.test.mjs",
+      "bytes": 9711,
+      "sha256": "3fa6d6350588e63e9db6eabc425fd67e7a424c4ee1da45ae75bd86dfbd1b1736"
+    },
+    {
+      "file": "work/dead-signal-game/tests/story-campaign.test.mjs",
+      "bytes": 1472,
+      "sha256": "48605e82b84040f392035c41ff6ba0bec01e74f4e7f317ee558d79ffdb4d24b1"
+    },
+    {
+      "file": "work/dead-signal-game/tests/story-journal.test.mjs",
+      "bytes": 4411,
+      "sha256": "bef7b601dbbc6541e10816f9c980713eeddb57f06a696d136c552ad818ce9ba3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/story-radio.test.mjs",
+      "bytes": 2539,
+      "sha256": "0eebde705c7d23bea07057870f7bda40eab217bfe8e59e0d1c8482ccc6d983b3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/story-route.test.mjs",
+      "bytes": 2773,
+      "sha256": "9ec1c6bf4d6056f4393a66997e8baf99d1d288566279e3dbaf127e79b9b40060"
+    },
+    {
+      "file": "work/dead-signal-game/tests/telegraph-capsules.test.mjs",
+      "bytes": 11705,
+      "sha256": "5763910f05a7f6fec34259fd10742f017c2c70614792a9a0b8805d6ce697807e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/touch-fire.test.mjs",
+      "bytes": 5485,
+      "sha256": "2f36d3ff83738f1bec5d16f73f1f13ae8387589fbdd5acabd66371a83bc4c4c3"
+    },
+    {
+      "file": "work/dead-signal-game/tests/training-engine.test.mjs",
+      "bytes": 6296,
+      "sha256": "1d5c5a992e5251ca3fc764d2e052d57b65047921747fd517562de413cf0bc298"
+    },
+    {
+      "file": "work/dead-signal-game/tests/training.test.mjs",
+      "bytes": 9491,
+      "sha256": "d3224949cdec23f6ea4f23947d68cda486c3bd67f87a33d803ac59d605cc7f8c"
+    },
+    {
+      "file": "work/dead-signal-game/tests/transport-contact.test.mjs",
+      "bytes": 3931,
+      "sha256": "3863df0a5f77af7d6c666d059a8eb0e4690972ff8af9d2d1be4f30f2de52b7cc"
+    },
+    {
+      "file": "work/dead-signal-game/tests/unbounded-upgrades.test.mjs",
+      "bytes": 19763,
+      "sha256": "55a1431fc0fc145c2f3029acc5aaa9e9553d5747f3f1ad3419b9771e4ca2bac7"
+    },
+    {
+      "file": "work/dead-signal-game/tests/upgrade-status-view.test.mjs",
+      "bytes": 3995,
+      "sha256": "749df90f9909d2184389dc1b9845573bd40eb04a043948f2ba5e4234212a9b90"
+    },
+    {
+      "file": "work/dead-signal-game/tests/weapon-impact-fragment-table.test.mjs",
+      "bytes": 12714,
+      "sha256": "d080f2c49bf5cb9fbd73922d145ee8294a96188105b8bd080d61d0b915979a8c"
+    },
+    {
+      "file": "work/dead-signal-game/tests/weapon-impact.test.mjs",
+      "bytes": 5042,
+      "sha256": "f0e4b055145d898b438bfd5ea286ed1b9ae3709f85138884a6a0e892aac80b2e"
+    },
+    {
+      "file": "work/dead-signal-game/tests/world-depth.test.mjs",
+      "bytes": 1770,
+      "sha256": "b3ca00368f2b06d755891ac04c5429250091c6482b26be839a5981bfa096d858"
+    },
+    {
+      "file": "work/dead-signal-game/tests/world.test.mjs",
+      "bytes": 1357,
+      "sha256": "613af94db477962bf3f8e1527fdb774f1f0f6b0799d24f5a3afdcc419b39de78"
+    }
+  ],
+  "count": 496,
+  "previous483Changed": [],
+  "productionEngineUnchanged": true,
+  "protectedOriginalRecords": 22,
+  "allProtectedExact": true
+}

@@ -1,0 +1,38 @@
+DeadSignal 실제 주인공 반동 / setup 재생성 복구
+마감: 2026-10-19 00:00 KST(2026-10-18 15:00Z). 자동화4 ACTIVE, 마감 이후 새 개발 금지/정리 뒤 PAUSED. 자동화7·유료 생성·결제·키 저장·외부 공개·새 push·스토어 제출 금지.
+
+발견 및 원인
+직전 sprite-call-cost 원자 작업의 전체 검사1139/1141 중 기존 player-weapon-recoil actual rig 검사가 실패했다. ignored generated dist/player-rig/weapon-pose.js는 retraction 입력/반환을 갖지 않는 역사 baker의 import 치환본(SHA ac1b3ed2…)이었다. 실제 LivePlayerRig가 전달하는 반동을 무시했고 테스트 peak는 undefined→NaN이었다.
+푸시 준비에서 02:01:56Z 실행한 prepare-player-runtime이 기존 runtime-only 반동 처리를 덮어쓴 경로를 확인했다. 원본 baker를 수정하지 않고 tracked 게임 전용 소스로 분리해야 setup/새 PC에서도 유지된다. 최초 unchanged actual rig 검사2/3PASS1FAIL/955.4942ms는 actual-rig-before.log에 보존한다.
+
+구현
+work/dead-signal-game/player-rig-src/weapon-pose.js 신규: 원본 baker 전체 로직에서 positive finite primitive retraction만 최대1.1로 제한하고, 두 팔의 원래 관절 길이와 공통 inner/outer 도달 범위 안에서 양손 목표를 같은 subject-local -Z로 후퇴시킨다. coupled support offset은 그대로 재구성하고 solveArm은 rotations-only 원본을 유지한다. 기본/0/invalid는 원래 계산 순서와 bone transforms exact, numeric retraction/requestedRetraction만 추가한다. 원본 baker·GLB·live-player·engine·renderer·기존 recoil test 변경0.
+tools/player-runtime-sources.mjs 신규: 명시 module whitelist. weapon-pose만 tracked game source, animation/attachment는 기존 baker. canonical 누락 시 ENOENT로 실패하고 old baker fallback 없다. prepare-player-runtime은 이 loader로 compiled import를 생성하며 source/compiled SHA·portable 경로를 provenance.runtimeModules에 기록한다.
+canonical 9302bytes SHA5ac742cc7062c665efbb5db339e5f53507140c87ececd1c18abac2e46405e814. 생성 pose SHAf534640a1dabc21a9cabf36589945168546815622146b95b4c3b2f1069b27b37.
+
+검수 완료
+Node22.23.3 구문 검사/prepare-first.log 정상. 실제 npm run setup exit0: locked dependency4곳 npm ci --ignore-scripts 복원과 player/boss/enemy runtime 생성 성공. 보스·적 runtime55파일 전후 SHA/bytes 동일(boss-enemy-runtime-after-setup.json). 원본 보호8module+14source/runtimeGLB=22개 exact.
+최종 focused-after-setup.log 15/15PASS/1522.1793ms/취소·생략0. 기존 unchanged actual2weapon×3phase×8heading×3upperTwist×5remaining 검사는 grip<1e-5/support<1e-4/aim<1e-5/feet<1e-6/peak>1 기준을 그대로 통과한다. 기존 이동·발접지·spine aim 검사도 통과한다.
+새5검사: source mapping/compiled/runtime/provenance exact, unknown/missing canonical fail, 원본baker/모델/기존test bytes, 독립 frozen baker 전체원본 oracle와 default0 모든뼈/무기/발 exact, invalid/positive finite 경계·도달불가 fallback·위치/scale 보존.
+초기 새 boundary fixture 실패는 원본/후보 모두 똑같은 .00021578 잔차였고 clone skin inverse 갱신 전 Box3를 계산해 몸 크기가 과대 정규화된 원인이다. SkeletonUtils.clone뒤 root.updateMatrixWorld(true)/skeleton.update로 GLTFLoader와 같은 준비를 하고 실제 높이44·바닥0 검증을 추가했다. 한계/기존테스트/제품소스 변경 없이 통과. focused-first.log와 edge-diagnostic.log 실패도 보존. 새 테스트 SHA28f2adb661555560f8452e3834527a9bc8a4731e732c7ad9239d6d4b1afa9b45.
+
+실제 브라우저
+fresh own Chrome1494332500, 8851/qa-player-rig.html?qa=1&qa-memory=recoil-restore-20261018에서 기존 원본2무기 실제 발사 반동·총구 검수 버튼1회. 원본 모델/이미지 로딩 준비 완료 후 실제 Game.tick발사 및 ammo 감소/6시점/마지막탄 자동reload 기록. 적 격리·정지 사격 fixture이며 저장 접근 없다. 사용자8806/IAB/기존pending선택 미조작.
+shotgun 적용 후퇴 peak1.0666793/nailgun.339398, 둘다129ms에서0복귀. 양손 grip 최대3.59e-15/support2.27e-6/aim0°, frame snapshot12/12 동일, muzzle/firstBullet 모든값유한/console warn/error0. 마지막탄 ammo0/reload1.35·1.1s에서도 applied1.0422368/.3316208/주손·조준·snapshot 유지. reload 중 지원손은 원래 떼는 동작이며 이 fixture autoReload에는 supportError가 없어 해당 수치 검수 주장 금지.
+browser-recoil.json, browser-recoil-1.png/2.png, browser-page.png 보존/PNG2직접 시각확인. 원본 몸/총/손 분리·잘림 명백한 문제 없음. check-browser-result.mjs 최종검증 exit0/browser-validation.json. 초기 보조validator의 잘못 가정한 못총 탄창13을 실제 Game 초기ammo−1로 바로잡았고 원래 실패log도 유지. 실제 QA를 재실행해 유리한 결과를 찾지 않았다.
+전용 탭 close+freshlist absent 확인, 다른 탭/서버 유지. 이번 실제 검수는 정지 발사만이며 이동 중 접지·전체밀집성능·모든캐릭터/실기기/100시간 완성 증거가 아니다.
+
+현재 전체 검사 진행
+root만 Node22.23.3 npm test 기본concurrency2/기존stressCPU15000 기준으로 실행 중(session6010). 로그 npm-test-final.log. 전체 완료 전 통과 주장 금지. 다른 root/agent CPU·브라우저 작업 없음. 생성 runtime 포함364파일 source-freeze.json으로 동결; 전체 검사 후 같은 파일 SHA를 확인해야 한다.
+정정: 직전 WINDOWS 인계의 '358freeze가ignoredrig를포함하지않음'은 잘못된 설명이었다. 실제 당시 source-freeze.json은 ignored weapon-pose 포함 rig JS를 기록했고 ac1b3ed2(이미 덮어써진 상태)를 고정했다. 이번 재검사에서 이전358파일 중 의도한 generated weapon-pose1개만 변경됐음을 확인했다. immutable 옛 보고서는 고치지 않고 이 정정으로 남긴다. 새 freeze는 loader/canonical/test/provenance까지364개 포함한다.
+verify는 이전부터 .gitignore 역사manifest mismatch로 exit1이며 immutable manifest를 재작성하지 않는다. 전체 검사 완료 뒤 결과/미완료·다음 추천을 이 파일과 WINDOWS_CONTINUATION.txt에 기록한다.
+
+다음 추천(아직 미구현)
+실제 renderer에서 관측한 restore 호출의 긴 대기 비용을 줄일 수 있는 QA-only native Canvas state 후보를 원본 whole drawFrame oracle/엄격한 실제RGBA/상태·예외·owner 복원과 함께 검토한다. restore 지연은 순수 stack 비용 원인으로 확정되지 않았으므로 setter/next draw로 이동한 지연도 전체callback으로 검수하고 기본 적용은 비용 이득 확인 뒤 판단한다. GPUalpha/decode/보스 추가상체 기존defaultOFF 유지. 새로운 작업 착수 전 실제 시계/최신 인계/중복 작업 확인.
+
+[2026-10-18 12:08 KST 완료 / root 모든 실행 종료]
+whole npm-test-final.log: Node22.23.3 기본concurrency2 한회1146/1146PASS/114802.444ms/exit0/실패·취소·생략0. 기존20분stress CPU13219ms<15000/wall13112.34ms 통과. 기존engine/fixture/budget는변경0이며직전CPU16875실패를지우지않는다. 이번통과를밀집전투제품성능향상·FPS나무렉증거로표현하지않는다.
+source-after-whole.json:364개전체SHA/bytes가source-freeze.json과exact, 보호22module/modelrecords exact, 이전358중의도된generatedpose만변경. 이번소스이후새편집0. verify현재도Node22에서.gitignore역사manifest mismatch/exit1,immutable목록그대로. decision.json의로컬기능복구retain결정참조.
+Git현재remote main6878d5e181aa188b23bd850a80ab6c3b60c805fd 이후로컬개선이며새push하지않았다. 새PC로이복구를전달하려면trackedcanonical/tools/tests 및테스트에필요한qa original-baker-weapon-pose.txt/source-before.json을함께포함해야한다. generated weapon-pose.js는기존대로ignore하고setup으로복원. newQA실패/성공로그도보존할것.
+모든root Node/browser/CPU작업종료,ownChrome2500닫음/absent확인,agent편집·실행종료. 사용자8806/IAB/기존선택·저장·서버·원본Meshy보존. 자동화4ACTIVE/마감2026-10-19 00:00KST/마감뒤새착수금지및정리PAUSED/automation7금지유지.
+다음원자작업읽기감사추가: drawFrame3state수동복원은범용대체불가. 원본native Canvas메서드/accessor와plain-own-data primitive숫자 selected/rect/placement만eligible,후반getter/ToPrimitive의clip/transform부작용은원본fallback. smoothingQuality nativeaccessor없는browser/ownhooks/custommethod/변경proto모두fallback,eligibilitycache오래보존금지. 기존spriteobserver의ctxownhooks는strictcandidate를fallback시키므로전체framecost검수와8canvasstage관측을분리하고실제candidateUsed/fallback카운트를명시해야한다. 예외뒤원본재시도금지/이중그리기위험. nonidentitytransform·clip·alpha0/.5/1·smoothing조합·composite/filter/shadow·draw오류·caller stack 실제RGBA/state원본oracle및전체180동일fixedworkA/B/A까지성공전채택금지. restore지연이setter/다음draw로이동할수있음. 아직후보구현0/제품효과없음. 다음heartbeat실제시계/중복상태확인뒤한작업씩이어갈것.

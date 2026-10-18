@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: old bounded original and disabled-bounded deferred failure paths retain full frozen-before reports, clocks and call order
+ok 1 - old bounded original and disabled-bounded deferred failure paths retain full frozen-before reports, clocks and call order
+  ---
+  duration_ms: 308.0211
+  type: 'test'
+  ...
+# Subtest: bounded deferred cost requires exclusive exact flags and genuine memory before any owner, DOM or factory access
+ok 2 - bounded deferred cost requires exclusive exact flags and genuine memory before any owner, DOM or factory access
+  ---
+  duration_ms: 1.0136
+  type: 'test'
+  ...
+# Subtest: three original/deferred/original40-callback arms preserve real Game and exact pixels while late native loads drain outside costs
+ok 3 - three original/deferred/original40-callback arms preserve real Game and exact pixels while late native loads drain outside costs
+  ---
+  duration_ms: 6104.3454
+  type: 'test'
+  ...
+# Subtest: timeout preserves frozen primary failure and late retirement, while stop/read faults remain errors instead of successful cleanup
+ok 4 - timeout preserves frozen primary failure and late retirement, while stop/read faults remain errors instead of successful cleanup
+  ---
+  duration_ms: 1670.4622
+  type: 'test'
+  ...
+# Subtest: aborting preloading still drains owned late work without drawing, and reports stay fixed after cleanup
+ok 5 - aborting preloading still drains owned late work without drawing, and reports stay fixed after cleanup
+  ---
+  duration_ms: 26.0115
+  type: 'test'
+  ...
+# Subtest: an attempted installer that throws after a partial hook cannot certify restoration
+ok 6 - an attempted installer that throws after a partial hook cannot certify restoration
+  ---
+  duration_ms: 28.7361
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8469.6139

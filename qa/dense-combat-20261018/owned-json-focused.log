@@ -1,0 +1,179 @@
+TAP version 13
+# Subtest: every unique original production and runtime-expedition metadata text has identical data, exact scalars, keys, prototypes and deeply frozen nodes
+ok 1 - every unique original production and runtime-expedition metadata text has identical data, exact scalars, keys, prototypes and deeply frozen nodes
+  ---
+  duration_ms: 31164.7575
+  type: 'test'
+  ...
+# Original unique metadata texts compared sequentially: 157
+# Subtest: owned JSON preserves original stringify canonicalization, JSON keys/prototypes, text coercion and malformed/deep rejection semantics
+ok 2 - owned JSON preserves original stringify canonicalization, JSON keys/prototypes, text coercion and malformed/deep rejection semantics
+  ---
+  duration_ms: 15.8154
+  type: 'test'
+  ...
+# Subtest: public arbitrary-object validator still clones without freezing callers and preserves getters, own toJSON, omissions, cycles and thrown identities
+ok 3 - public arbitrary-object validator still clones without freezing callers and preserves getters, own toJSON, omissions, cycles and thrown identities
+  ---
+  duration_ms: 1.6943
+  type: 'test'
+  ...
+# Subtest: inherited Object/Array toJSON getters, functions and noncallable values preserve the original observation and exception order with guaranteed descriptor restoration
+ok 4 - inherited Object/Array toJSON getters, functions and noncallable values preserve the original observation and exception order with guaranteed descriptor restoration
+  ---
+  duration_ms: 5.1283
+  type: 'test'
+  ...
+# Subtest: default and explicitly forced legacy loads retain parser boundary, errors, image allocation and timeout semantics; parseMetadata remains an ordinary instance-method seam
+ok 5 - default and explicitly forced legacy loads retain parser boundary, errors, image allocation and timeout semantics; parseMetadata remains an ordinary instance-method seam
+  ---
+  duration_ms: 59.8226
+  type: 'test'
+  ...
+# Subtest: world-facing directions wrap correctly and do not use the distorted screen angle
+ok 6 - world-facing directions wrap correctly and do not use the distorted screen angle
+  ---
+  duration_ms: 2.3468
+  type: 'test'
+  ...
+# Subtest: looping gait uses the saved distance phase; stationary and one-shot samples stop correctly
+ok 7 - looping gait uses the saved distance phase; stationary and one-shot samples stop correctly
+  ---
+  duration_ms: 0.5514
+  type: 'test'
+  ...
+# Subtest: the fixed foot pivot cancels source padding and preserves world scale and body/core separation
+ok 8 - the fixed foot pivot cancels source padding and preserves world scale and body/core separation
+  ---
+  duration_ms: 1.7532
+  type: 'test'
+  ...
+# Subtest: the render-only pose clock observes actual movement and freezes under repeated paused renders
+ok 9 - the render-only pose clock observes actual movement and freezes under repeated paused renders
+  ---
+  duration_ms: 1.2458
+  type: 'test'
+  ...
+# Subtest: loader accepts validated real-atlas format, deduplicates loads, and draws into an already projected context
+ok 10 - loader accepts validated real-atlas format, deduplicates loads, and draws into an already projected context
+  ---
+  duration_ms: 8.2664
+  type: 'test'
+  ...
+# Subtest: a character uses the existing world foot, aiming direction and walkPhase without changing simulation or RNG
+ok 11 - a character uses the existing world foot, aiming direction and walkPhase without changing simulation or RNG
+  ---
+  duration_ms: 30.42
+  type: 'test'
+  ...
+# Subtest: invalid projection, clipping, frame order, transparency and image dimensions never become ready
+ok 12 - invalid projection, clipping, frame order, transparency and image dimensions never become ready
+  ---
+  duration_ms: 5.7851
+  type: 'test'
+  ...
+# Subtest: CORS/fetch/PNG failures and unsafe paths resolve false, retain the caller fallback and allow explicit retry
+ok 13 - CORS/fetch/PNG failures and unsafe paths resolve false, retain the caller fallback and allow explicit retry
+  ---
+  duration_ms: 3.187
+  type: 'test'
+  ...
+# Subtest: metadata and image timeouts cannot leave a pending loading state
+ok 14 - metadata and image timeouts cannot leave a pending loading state
+  ---
+  duration_ms: 33.5016
+  type: 'test'
+  ...
+# Subtest: default browser fetch retains its global receiver and injected fetch remains compatible
+ok 15 - default browser fetch retains its global receiver and injected fetch remains compatible
+  ---
+  duration_ms: 2.4923
+  type: 'test'
+  ...
+# Subtest: dash, walk and run poses follow observed movement speed without adding actor fields
+ok 16 - dash, walk and run poses follow observed movement speed without adding actor fields
+  ---
+  duration_ms: 0.3316
+  type: 'test'
+  ...
+# Subtest: grounded player gait respects native clip duration and caps dash cadence without changing engine phase
+ok 17 - grounded player gait respects native clip duration and caps dash cadence without changing engine phase
+  ---
+  duration_ms: 0.4571
+  type: 'test'
+  ...
+# Subtest: optional boss registration loads only real catalog entries and supports static and animated poses
+ok 18 - optional boss registration loads only real catalog entries and supports static and animated poses
+  ---
+  duration_ms: 9.1248
+  type: 'test'
+  ...
+# Subtest: catalog updates preserve unchanged loaded assets and invalidate obsolete asynchronous results
+ok 19 - catalog updates preserve unchanged loaded assets and invalidate obsolete asynchronous results
+  ---
+  duration_ms: 2.2967
+  type: 'test'
+  ...
+# Subtest: single-view props use the same game camera and uniform footprint fit preserves the collision cell
+ok 20 - single-view props use the same game camera and uniform footprint fit preserves the collision cell
+  ---
+  duration_ms: 1.7306
+  type: 'test'
+  ...
+# Subtest: native GLB ground extents are normalized and yaw-rotated once, and an offset source pivot stays centered
+ok 21 - native GLB ground extents are normalized and yaw-rotated once, and an offset source pivot stays centered
+  ---
+  duration_ms: 0.421
+  type: 'test'
+  ...
+# Subtest: actual pre-outline body pixels remain separately available with an optional real body-alpha mask
+ok 22 - actual pre-outline body pixels remain separately available with an optional real body-alpha mask
+  ---
+  duration_ms: 1.6361
+  type: 'test'
+  ...
+# Subtest: final weapon anchors already include normalization and baked direction; hand IK diagnostics are not attachments
+ok 23 - final weapon anchors already include normalization and baked direction; hand IK diagnostics are not attachments
+  ---
+  duration_ms: 2.1297
+  type: 'test'
+  ...
+# Subtest: actual launch roster has six deduplicated original metadata files in stable catalog order and all scope uses registered assets only
+ok 24 - actual launch roster has six deduplicated original metadata files in stable catalog order and all scope uses registered assets only
+  ---
+  duration_ms: 10.9537
+  type: 'test'
+  ...
+# Subtest: legacy module rewriting requires the immutable original SHA and preserves production-relative import/base URL semantics
+ok 25 - legacy module rewriting requires the immutable original SHA and preserves production-relative import/base URL semantics
+  ---
+  duration_ms: 21.9178
+  type: 'test'
+  ...
+# Subtest: only original parser calls are timed, one final tree per file remains retained, and heap snapshots never become a claimed peak
+ok 26 - only original parser calls are timed, one final tree per file remains retained, and heap snapshots never become a claimed peak
+  ---
+  duration_ms: 1.6508
+  type: 'test'
+  ...
+# Subtest: isolated A/B/A workers run sequentially with matching flags and exact file/source/frame/output/freeze oracles
+ok 27 - isolated A/B/A workers run sequentially with matching flags and exact file/source/frame/output/freeze oracles
+  ---
+  duration_ms: 2.9553
+  type: 'test'
+  ...
+# Subtest: CLI exclusively creates new reports, keeps existing source evidence intact and reports mismatches/worker failures without spawning real diagnostics
+ok 28 - CLI exclusively creates new reports, keeps existing source evidence intact and reports mismatches/worker failures without spawning real diagnostics
+  ---
+  duration_ms: 8.1965
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 28
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 31531.3197

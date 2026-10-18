@@ -1,0 +1,97 @@
+TAP version 13
+# Subtest: all thirty equipped ranks produce their disclosed effects in actual combat, movement, growth or recovery
+ok 1 - all thirty equipped ranks produce their disclosed effects in actual combat, movement, growth or recovery
+  ---
+  duration_ms: 130.5873
+  type: 'test'
+  ...
+# Subtest: unowned, unequipped, malformed or cross-slot inventory cannot grant effects or consume gameplay RNG
+ok 2 - unowned, unequipped, malformed or cross-slot inventory cannot grant effects or consume gameplay RNG
+  ---
+  duration_ms: 5.9467
+  type: 'test'
+  ...
+# Subtest: training and run upgrades compose once with armor, magazines and movement without altering weapon constants
+ok 3 - training and run upgrades compose once with armor, magazines and movement without altering weapon constants
+  ---
+  duration_ms: 12.9304
+  type: 'test'
+  ...
+# Subtest: bullet damage, pellet count and haste combine with only the selected weapon equipment
+ok 4 - bullet damage, pellet count and haste combine with only the selected weapon equipment
+  ---
+  duration_ms: 0.8021
+  type: 'test'
+  ...
+# Subtest: enhanced fire and reload rates produce equal fixed-step results at thirty and sixty rendering frames per second
+ok 5 - enhanced fire and reload rates produce equal fixed-step results at thirty and sixty rendering frames per second
+  ---
+  duration_ms: 9.8372
+  type: 'test'
+  ...
+# Subtest: XP amplification occurs exactly once for collection and overflow while added magnet reach leaves distant bare pickups still
+ok 6 - XP amplification occurs exactly once for collection and overflow while added magnet reach leaves distant bare pickups still
+  ---
+  duration_ms: 0.8092
+  type: 'test'
+  ...
+# Subtest: a lethal hit consumes one core charge, preserves position, protects for two seconds and ends once after exhaustion
+ok 7 - a lethal hit consumes one core charge, preserves position, protects for two seconds and ends once after exhaustion
+  ---
+  duration_ms: 2.6685
+  type: 'test'
+  ...
+# Subtest: two lethal enemy contacts in the same actual tick consume one charge and preserve the live checkpoint
+ok 8 - two lethal enemy contacts in the same actual tick consume one charge and preserve the live checkpoint
+  ---
+  duration_ms: 1.8539
+  type: 'test'
+  ...
+# Subtest: saved equipment and consumed charges remain frozen when the inventory is upgraded, switched or unloaded before restore
+ok 9 - saved equipment and consumed charges remain frozen when the inventory is upgraded, switched or unloaded before restore
+  ---
+  duration_ms: 3.8994
+  type: 'test'
+  ...
+# Subtest: a version-seventeen mission with no equipment fields resumes unchanged with neutral effects and zero charges
+ok 10 - a version-seventeen mission with no equipment fields resumes unchanged with neutral effects and zero charges
+  ---
+  duration_ms: 3.7771
+  type: 'test'
+  ...
+# Subtest: legacy mode ignores equipment in tuned gameplay and restores old version-one checkpoints byte-for-byte
+ok 11 - legacy mode ignores equipment in tuned gameplay and restores old version-one checkpoints byte-for-byte
+  ---
+  duration_ms: 583.8859
+  type: 'test'
+  ...
+# Subtest: incomplete equipment pairs, impossible derived combinations and invalid remaining charges cannot restore
+ok 12 - incomplete equipment pairs, impossible derived combinations and invalid remaining charges cannot restore
+  ---
+  duration_ms: 13.3215
+  type: 'test'
+  ...
+# Subtest: unused core charges and revival protection freeze through paused and queued upgrade checkpoints
+ok 13 - unused core charges and revival protection freeze through paused and queued upgrade checkpoints
+  ---
+  duration_ms: 3.072
+  type: 'test'
+  ...
+# Subtest: three controlled real middle-and-final boss battles improve with the fixed legendary loadout
+ok 14 - three controlled real middle-and-final boss battles improve with the fixed legendary loadout
+  ---
+  duration_ms: 179.107
+  type: 'test'
+  ...
+# mission-01 practice arena: bare=win 10.35s/54 shots/35 HP; equipped=win 5.80s/27 shots/349 HP; both won: strict shot/time efficiency
+# mission-05 practice arena: bare=loss 14.05s/72 shots/0 HP; equipped=win 10.05s/52 shots/253 HP; bare lost: survival and boss clears; death duration/shots are not victory efficiency
+# mission-12 practice arena: bare=loss 6.40s/33 shots/0 HP; equipped=win 16.75s/109 shots/4 HP; bare lost: survival and boss clears; death duration/shots are not victory efficiency
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2683.3138

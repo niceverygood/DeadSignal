@@ -874,3 +874,253 @@ export function installBuildingOcclusionQA({document,location,query=new URLSearc
 }
 // END BUILDING OCCLUSION UI
 installBuildingOcclusionQA({document,location,status,read:()=>({ready,playing,renderer,canvas})});
+
+// BEGIN CANVAS STATE PIXEL UI
+export function installCanvasStatePixelQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-pixels.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-canvas-state')!=='1')return null;
+ const button=document.createElement('button');button.id='canvas-state-pixels-qa';button.textContent='Canvas 상태 후보 · 원본 픽셀·복원 검수';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');
+ summary.textContent='Canvas 상태 후보 · 별도 원본 A/B/A';output.id='canvas-state-pixel-report';proof.id='canvas-state-pixel-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ const show=result=>{const {images=[],...report}=result;output.textContent=JSON.stringify(report,null,2);proof.replaceChildren();for(const item of images.slice(0,2)){const image=document.createElement('img');image.src=item.src;image.alt=item.alt;image.style.maxWidth='100%';proof.append(image);}return report;};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='원본 셀 · Canvas 상태 후보 A/B/A 검수 중';
+  try{
+   const {compareCanvasStatePixels}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){show({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='검수 중단 · 원본 준비 상태가 변경됨';return;}
+   storage??=createStorage(query,()=>{throw Error('canvas-state-persistent-storage-forbidden');});
+   const result=compareCanvasStatePixels({renderer:current.renderer,document,location,query,storage});if(controller.signal.aborted)return;
+   show(result);status.textContent=result.complete?'Canvas 상태 후보 · 원본 픽셀·복원 일치':'Canvas 상태 후보 · 미완료 또는 차이 발견';return result;
+  }catch(error){if(controller.signal.aborted)return;show({complete:false,reason:'canvas-state-pixel-qa-failed',error:error?.message??String(error)});status.textContent='Canvas 상태 후보 검수 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END CANVAS STATE PIXEL UI
+installCanvasStatePixelQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN CANVAS STATE COMBAT UI
+export function installCanvasStateCombatQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-canvas-combat')!=='1')return null;
+ const button=document.createElement('button');button.id='canvas-state-combat-qa';button.textContent='180적 Canvas 후보 · 동일 작업량 A/B/A';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='180적 시뮬레이션·보간·렌더 비용 비교';output.id='canvas-state-combat-report';proof.id='canvas-state-combat-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ const show=report=>{output.textContent=JSON.stringify(report,null,2);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='180적 동일 체크포인트 · 별도 렌더러 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){show({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='비교 중단 · 원본 준비 상태가 변경됨';return;}
+   storage??=createStorage(query,()=>{throw Error('canvas-combat-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='180적 A/B/A · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('180적 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent=result.report.complete?'180적 A/B/A 비교 완료 · 비용·동치·정리 기록 확인':'180적 A/B/A · 미완료 또는 동치 차이 발견';return result;
+  }catch(error){if(controller.signal.aborted)return;show({complete:false,reason:'canvas-combat-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null});status.textContent='180적 Canvas 후보 비교 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END CANVAS STATE COMBAT UI
+installCanvasStateCombatQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN RENDER ATTRIBUTION UI
+export function installRenderAttributionQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-render-attribution')!=='1')return null;
+ const button=document.createElement('button');button.id='render-attribution-qa';button.textContent='180적 첫 렌더 · 원본 구간별 비용';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='원본 첫 렌더 · 배경·주인공·적 비용 귀속';output.id='render-attribution-report';proof.id='render-attribution-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ const show=report=>{output.textContent=JSON.stringify(report,null,2);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='180적 원본 첫 렌더 · 별도 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){show({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='원본 계측 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('render-attribution-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,originalAttribution:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='원본 첫 렌더 비용 · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=2)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('원본 계측 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent=result.report.complete?'원본 비용 귀속 완료 · 동치·품질·정리 기록 확인':'원본 비용 귀속 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;show({complete:false,reason:'render-attribution-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null});status.textContent='원본 비용 귀속 검수 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END RENDER ATTRIBUTION UI
+installRenderAttributionQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN PLAYER ATTRIBUTION UI
+export function installPlayerAttributionQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-render-attribution')!=='1'||query.get('qa-player-attribution')!=='1')return null;
+ const button=document.createElement('button');button.id='player-attribution-qa';button.textContent='주인공 포즈·그리기·픽셀 읽기 비용';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='주인공 원본 처리 · 첫 렌더 구간별 기록';output.id='player-attribution-report';proof.id='player-attribution-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 원본 계측 · 별도 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='주인공 계측 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('player-attribution-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,originalAttribution:true,playerAttribution:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='주인공 처리 비용 · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=2)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('주인공 계측 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'주인공 원본 계측 완료 · 동치·품질·정리 기록 확인':'주인공 원본 계측 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'player-attribution-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 원본 계측 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END PLAYER ATTRIBUTION UI
+installPlayerAttributionQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN PLAYER PREPARATION UI
+export function installPlayerPreparationQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-player-preparation')!=='1')return null;
+ const button=document.createElement('button');button.id='player-preparation-qa';button.textContent='주인공 첫 전투 · 원본 사전 준비 비교';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='주인공 텍스처·셰이더 준비 · 원본 A/B/A';output.id='player-preparation-report';proof.id='player-preparation-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 사전 준비 후보 · 별도 원본 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='주인공 준비 비교 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('player-preparation-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,playerPreparation:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='주인공 원본 준비 A/B/A · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('주인공 사전 준비 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'주인공 준비 비교 완료 · 품질·준비 포함 비용 기록 확인':'주인공 준비 비교 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'player-preparation-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 사전 준비 비교 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END PLAYER PREPARATION UI
+installPlayerPreparationQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN PLAYER ALPHA ROWS UI
+export function installPlayerAlphaRowsQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-player-alpha-rows')!=='1')return null;
+ const verify=query.get('qa-player-alpha-rows-verify')==='1',button=document.createElement('button');button.id='player-alpha-rows-qa';button.textContent=verify?'주인공 행 경계 · 동일 프레임 품질 검사':'주인공 행 경계 · 180적 전투 비용';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent=verify?'원본 RGBA와 행 경계 · 품질 A/B/A':'행 경계 읽기 · 준비·첫 전투·지속 비용';output.id='player-alpha-rows-report';proof.id='player-alpha-rows-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 행 경계 후보 · 별도 원본 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='행 경계 비교 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('player-alpha-rows-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,playerAlphaRows:true,playerAlphaRowsVerify:verify,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='주인공 행 경계 A/B/A · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('주인공 행 경계 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'행 경계 비교 완료 · 품질·비용·정리 기록 확인':'행 경계 비교 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'player-alpha-rows-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 행 경계 비교 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END PLAYER ALPHA ROWS UI
+installPlayerAlphaRowsQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+
+// BEGIN PLAYER DEFERRED READ UI
+export function installPlayerDeferredReadQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-player-deferred-read')!=='1')return null;
+ const verify=query.get('qa-player-deferred-read-verify')==='1',button=document.createElement('button');button.id='player-deferred-read-qa';button.textContent=verify?'주인공 읽기 순서 · 같은 포즈 품질 검사':'주인공 읽기 순서 · 180적 전투 비용';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent=verify?'같은 포즈 원본·후보·원본 · 전체 RGBA 품질':'원본 RGBA 읽기 순서 · 첫 전투·지속 비용 A/B/A';output.id='player-deferred-read-report';proof.id='player-deferred-read-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 읽기 순서 후보 · 별도 원본 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='읽기 순서 비교 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('player-deferred-read-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,playerDeferredRead:true,playerDeferredReadVerify:verify,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='주인공 읽기 순서 A/B/A · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('주인공 읽기 순서 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'읽기 순서 비교 완료 · 품질·비용·정리 기록 확인':'읽기 순서 비교 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'player-deferred-read-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 읽기 순서 비교 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END PLAYER DEFERRED READ UI
+installPlayerDeferredReadQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN ORIGINAL READBACK UI
+export function installOriginalReadbackQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-original-readback')!=='1')return null;
+ const button=document.createElement('button');button.id='original-readback-qa';button.textContent='180적 원본 A/A · Canvas 읽기 안정성';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='원본 최종 화면·바닥 읽기 진단 · 추가 렌더 없음';output.id='original-readback-report';proof.id='original-readback-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='180적 원본 읽기 진단 · 별도 원본 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='원본 읽기 진단 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('original-readback-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,originalReadbackProbe:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='180적 원본 A/A 읽기 · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=2)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('원본 읽기 진단 후 화면 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'원본 읽기 진단 완료 · 반복 픽셀·동치·정리 기록 확인':'원본 읽기 진단 · 미완료 또는 픽셀 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'original-readback-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='원본 읽기 진단 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END ORIGINAL READBACK UI
+installOriginalReadbackQA({document,location,status,read:()=>({ready,playing,renderer})});
+// BEGIN OWNED CLEANUP UI
+export function installOwnedCleanupQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-original-readback')!=='1'||query.get('qa-owned-cleanup')!=='1')return null;
+ const button=document.createElement('button');button.id='owned-cleanup-qa';button.textContent='180적 원본 A/A · 전투 후 정리 대기 진단';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='진단 전용 · 전투 시간 밖 최대 15초 소유 자원 정리 대기';output.id='owned-cleanup-report';proof.id='owned-cleanup-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='원본 정리 진단 준비 · 정리 대기는 전투 시간 밖 최대 15초';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='원본 정리 진단 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('owned-cleanup-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,originalReadbackProbe:true,boundedOwnedCleanup:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='원본 A/A·정리 진단 · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=2)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('원본 정리 진단 후 화면 (primary R0 동등 미인증) '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'원본 정리 진단 완료 · 픽셀·동치·최종 정리 기록 확인':'원본 정리 진단 · 미완료 또는 정리·픽셀 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'owned-cleanup-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='원본 정리 대기 진단 중단 · 원시 실패 기록 유지';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END OWNED CLEANUP UI
+installOwnedCleanupQA({document,location,status,read:()=>({ready,playing,renderer})});
+// BEGIN DEFERRED BOUNDED COST UI
+export function installDeferredBoundedCostQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-player-deferred-read')!=='1'||query.get('qa-owned-cleanup')!=='1'||query.get('qa-player-deferred-read-verify')==='1')return null;
+ const button=document.createElement('button');button.id='deferred-bounded-cost-qa';button.textContent='180적 주인공 읽기 순서 · 정리 포함 비용 비교';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='진단 전용 · 준비 + 40회 콜백 + 최종 읽기 비용 · 정리 대기는 전투 시간 밖 최대 15초로 별도 기록';output.id='deferred-bounded-cost-report';proof.id='deferred-bounded-cost-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 읽기 순서 비용 준비 · 최대 15초 정리 대기는 전투 비용과 별도';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='읽기 순서 비용 비교 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('deferred-bounded-cost-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,playerDeferredRead:true,boundedOwnedCleanup:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='읽기 순서 A/B/A·정리 비용 진단 · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('읽기 순서 비용 비교 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'읽기 순서 비용 진단 완료 · 품질·동치·준비 포함 비용·정리 기록 확인':'읽기 순서 비용 진단 · 미완료 또는 품질·동치·정리 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'deferred-bounded-cost-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 읽기 순서 비용 진단 중단 · 원시 실패 기록 유지';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END DEFERRED BOUNDED COST UI
+installDeferredBoundedCostQA({document,location,status,read:()=>({ready,playing,renderer})});

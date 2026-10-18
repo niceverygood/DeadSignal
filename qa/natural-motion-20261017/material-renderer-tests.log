@@ -1,0 +1,39 @@
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (2.927ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (126.9127ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (1.5212ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.4683ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (0.283ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (1.2307ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (162.3396ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (23.6567ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (42.325ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (22.5718ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (4.0014ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (9.3173ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (0.6769ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (49.6127ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (3.0449ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (6.4839ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (1.2565ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (304.0714ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (26.5255ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (146.7686ms)
+✔ walking, dashing and knockback cannot tunnel through the physical convoy body (4.2242ms)
+✔ moving convoy stops before touching the player and resumes after the front is cleared (1.6557ms)
+✔ local navigation routes a body around a parked convoy without rebuilding static grids or entering it (23.7792ms)
+✔ convoy blocks real bullets and auto aim with native metal feedback, without damage or explosions (2.0564ms)
+✔ pre-collision overlapping convoy saves recover nearby without losing progress, RNG, health or IDs (7.3152ms)
+✔ contact gives way to a wider shock ring and fragments without losing weapon identity (1.0592ms)
+✔ longer shotgun follow-through expires and restores while damage and RNG stay exact (10.0519ms)
+✔ pellet impacts merge per target without altering damage, knockback, or combat RNG (7.3558ms)
+✔ burn does not create fake bullet impacts and shield feedback remains distinct (1.4871ms)
+✔ weapon effects restore canvas state and never mutate supplied actors/particles (1.4519ms)
+✔ material contact separates gold ricochets from masonry dust and restores at every age (1.0789ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1107.828

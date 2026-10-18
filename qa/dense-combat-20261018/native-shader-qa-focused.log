@@ -1,0 +1,35 @@
+Native shader QA orchestration focused tests with explicit local service mocks; no actual WebGL or timing claims.
+TAP version 13
+# Subtest: the actual QA orchestrator awaits original loading and preparation before drawing, preserves six normal combat delegations and releases its own contexts
+ok 1 - the actual QA orchestrator awaits original loading and preparation before drawing, preserves six normal combat delegations and releases its own contexts
+  ---
+  duration_ms: 46.1074
+  type: 'test'
+  ...
+# Subtest: missing native submission, empty native selection or a rig error rejects the combat comparison and restores the previous product rig
+ok 2 - missing native submission, empty native selection or a rig error rejects the combat comparison and restores the previous product rig
+  ---
+  duration_ms: 42.5916
+  type: 'test'
+  ...
+# Subtest: load, preparation, source-audit and combat-render failures clean up helpers, profiles and owned contexts without releasing the prior rig
+ok 3 - load, preparation, source-audit and combat-render failures clean up helpers, profiles and owned contexts without releasing the prior rig
+  ---
+  duration_ms: 25.9043
+  type: 'test'
+  ...
+# Subtest: non-loopback, non-8851 or non-memory requests reject before any DOM, model, preparation or combat service access
+ok 4 - non-loopback, non-8851 or non-memory requests reject before any DOM, model, preparation or combat service access
+  ---
+  duration_ms: 4.1297
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 334.1817

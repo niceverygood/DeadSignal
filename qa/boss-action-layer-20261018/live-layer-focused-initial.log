@@ -1,0 +1,549 @@
+TAP version 13
+# Subtest: same actor/time/pose flag changes invalidate exactly once while unchanged flags reuse the actual private frame; unsupported NPC signatures stay original
+ok 1 - same actor/time/pose flag changes invalidate exactly once while unchanged flags reuse the actual private frame; unsupported NPC signatures stay original
+  ---
+  duration_ms: 29.7262
+  type: 'test'
+  ...
+# Subtest: batch items capture independent primitive layer diagnostics before another actor resets the cached layer diagnostic object
+ok 2 - batch items capture independent primitive layer diagnostics before another actor resets the cached layer diagnostic object
+  ---
+  duration_ms: 5.591
+  type: 'test'
+  ...
+# Subtest: the layer uses the fresh base sample before original torso-hit blending, transitions and live-to-death history while rest/actor data remain untouched
+not ok 3 - the layer uses the fresh base sample before original torso-hit blending, transitions and live-to-death history while rest/actor data remain untouched
+  ---
+  duration_ms: 10.0087
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\live-boss-action-layer.test.mjs:71:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    the existing transition starts from the actual preceding layered/hit pose
+    + actual - expected
+    ... Skipped lines
+    
+      [
+        {
+          name: 'DS_Root',
+          position: [
+            0,
+    ...
+          quaternion: [
+    +       -0.01658359225554299,
+    -       -0.016583592255542994,
+            0,
+            0,
+    +       0.9998624827784578
+    -       0.999862482778458
+          ],
+          scale: [
+            1,
+            1,
+            1
+    ...
+          quaternion: [
+    +       -0.0329525185963886,
+    +       -0.001654167025658446,
+    +       -0.05010807634636435,
+    +       0.998198665564362
+    -       -0.03295251859638859,
+    -       -0.0016541670256584456,
+    -       -0.050108076346364334,
+    -       0.9981986655643618
+          ],
+          scale: [
+            1,
+            1,
+            1
+    ...
+          quaternion: [
+    +       -0.032961877723676654,
+    +       -0.0014558046996424022,
+    +       -0.04409927891413535,
+    +       0.9984821725243067
+    -       -0.03296187772367665,
+    -       -0.001455804699642402,
+    -       -0.04409927891413534,
+    -       0.9984821725243065
+          ],
+          scale: [
+            1,
+            1,
+            1
+    ...
+          quaternion: [
+    +       0.0329525185963886,
+    +       -0.001654167025658446,
+    +       0.05010807634636435,
+    +       0.998198665564362
+    -       0.03295251859638859,
+    -       -0.0016541670256584456,
+    -       0.050108076346364334,
+    -       0.9981986655643618
+          ],
+          scale: [
+            1,
+            1,
+            1
+    ...
+          quaternion: [
+    +       0.032961877723676654,
+    +       -0.0014558046996424022,
+    +       0.04409927891413535,
+    +       0.9984821725243067
+    -       0.03296187772367665,
+    -       -0.001455804699642402,
+    -       0.04409927891413534,
+    -       0.9984821725243065
+          ],
+          scale: [
+            1,
+            1,
+            1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0:
+      name: 'DS_Root'
+      position:
+        0: 0
+        1: 0
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    1:
+      name: 'DS_Thorax'
+      position:
+        0: 0
+        1: 10
+        2: 0
+      quaternion:
+        0: -0.016583592255542994
+        1: 0
+        2: 0
+        3: 0.999862482778458
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    2:
+      name: 'DS_Arm_0_-1'
+      position:
+        0: -3
+        1: 0
+        2: 0
+      quaternion:
+        0: -0.03282814626583972
+        1: -0.003304173594523437
+        2: -0.10009012401278979
+        3: 0.9944311752578509
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    3:
+      name: 'DS_Forearm_0_-1'
+      position:
+        0: -2
+        1: 0
+        2: 0
+      quaternion:
+        0: -0.03295251859638859
+        1: -0.0016541670256584456
+        2: -0.050108076346364334
+        3: 0.9981986655643618
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    4:
+      name: 'DS_Arm_1_-1'
+      position:
+        0: -3
+        1: 2
+        2: 0
+      quaternion:
+        0: -0.0328655410056624
+        1: -0.0029087737621264487
+        2: -0.08811266062380617
+        3: 0.9955639378198669
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    5:
+      name: 'DS_Forearm_1_-1'
+      position:
+        0: -2
+        1: 0
+        2: 0
+      quaternion:
+        0: -0.03296187772367665
+        1: -0.001455804699642402
+        2: -0.04409927891413534
+        3: 0.9984821725243065
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    6:
+      name: 'DS_Arm_0_1'
+      position:
+        0: 3
+        1: 0
+        2: 0
+      quaternion:
+        0: 0.03282814626583972
+        1: -0.003304173594523437
+        2: 0.10009012401278979
+        3: 0.9944311752578509
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    7:
+      name: 'DS_Forearm_0_1'
+      position:
+        0: 2
+        1: 0
+        2: 0
+      quaternion:
+        0: 0.03295251859638859
+        1: -0.0016541670256584456
+        2: 0.050108076346364334
+        3: 0.9981986655643618
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    8:
+      name: 'DS_Arm_1_1'
+      position:
+        0: 3
+        1: 2
+        2: 0
+      quaternion:
+        0: 0.0328655410056624
+        1: -0.0029087737621264487
+        2: 0.08811266062380617
+        3: 0.9955639378198669
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    9:
+      name: 'DS_Forearm_1_1'
+      position:
+        0: 2
+        1: 0
+        2: 0
+      quaternion:
+        0: 0.03296187772367665
+        1: -0.001455804699642402
+        2: 0.04409927891413534
+        3: 0.9984821725243065
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    10:
+      name: 'DS_Leg_-1'
+      position:
+        0: -2
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    11:
+      name: 'DS_Foot_-1'
+      position:
+        0: 0
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    12:
+      name: 'DS_Leg_1'
+      position:
+        0: 2
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    13:
+      name: 'DS_Foot_1'
+      position:
+        0: 0
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+  actual:
+    0:
+      name: 'DS_Root'
+      position:
+        0: 0
+        1: 0
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    1:
+      name: 'DS_Thorax'
+      position:
+        0: 0
+        1: 10
+        2: 0
+      quaternion:
+        0: -0.01658359225554299
+        1: 0
+        2: 0
+        3: 0.9998624827784578
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    2:
+      name: 'DS_Arm_0_-1'
+      position:
+        0: -3
+        1: 0
+        2: 0
+      quaternion:
+        0: -0.03282814626583972
+        1: -0.003304173594523437
+        2: -0.10009012401278979
+        3: 0.9944311752578509
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    3:
+      name: 'DS_Forearm_0_-1'
+      position:
+        0: -2
+        1: 0
+        2: 0
+      quaternion:
+        0: -0.0329525185963886
+        1: -0.001654167025658446
+        2: -0.05010807634636435
+        3: 0.998198665564362
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    4:
+      name: 'DS_Arm_1_-1'
+      position:
+        0: -3
+        1: 2
+        2: 0
+      quaternion:
+        0: -0.0328655410056624
+        1: -0.0029087737621264487
+        2: -0.08811266062380617
+        3: 0.9955639378198669
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    5:
+      name: 'DS_Forearm_1_-1'
+      position:
+        0: -2
+        1: 0
+        2: 0
+      quaternion:
+        0: -0.032961877723676654
+        1: -0.0014558046996424022
+        2: -0.04409927891413535
+        3: 0.9984821725243067
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    6:
+      name: 'DS_Arm_0_1'
+      position:
+        0: 3
+        1: 0
+        2: 0
+      quaternion:
+        0: 0.03282814626583972
+        1: -0.003304173594523437
+        2: 0.10009012401278979
+        3: 0.9944311752578509
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    7:
+      name: 'DS_Forearm_0_1'
+      position:
+        0: 2
+        1: 0
+        2: 0
+      quaternion:
+        0: 0.0329525185963886
+        1: -0.001654167025658446
+        2: 0.05010807634636435
+        3: 0.998198665564362
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    8:
+      name: 'DS_Arm_1_1'
+      position:
+        0: 3
+        1: 2
+        2: 0
+      quaternion:
+        0: 0.0328655410056624
+        1: -0.0029087737621264487
+        2: 0.08811266062380617
+        3: 0.9955639378198669
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    9:
+      name: 'DS_Forearm_1_1'
+      position:
+        0: 2
+        1: 0
+        2: 0
+      quaternion:
+        0: 0.032961877723676654
+        1: -0.0014558046996424022
+        2: 0.04409927891413535
+        3: 0.9984821725243067
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    10:
+      name: 'DS_Leg_-1'
+      position:
+        0: -2
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    11:
+      name: 'DS_Foot_-1'
+      position:
+        0: 0
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    12:
+      name: 'DS_Leg_1'
+      position:
+        0: 2
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+    13:
+      name: 'DS_Foot_1'
+      position:
+        0: 0
+        1: -5
+        2: 0
+      quaternion:
+        0: 0
+        1: 0
+        2: 0
+        3: 1
+      scale:
+        0: 1
+        1: 1
+        2: 1
+  operator: 'deepStrictEqual'
+  stack: |-
+    file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/live-boss-action-layer.test.mjs:75:80
+    withCanvas (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/live-boss-action-layer.test.mjs:22:13)
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/live-boss-action-layer.test.mjs:71:162)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 2
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 458.2821

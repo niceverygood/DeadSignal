@@ -1,0 +1,18 @@
+{
+  "url": "http://localhost:8851/qa-player-rig.html?qa=1&qa-memory=player-deferred-read-cost-20261018&qa-player-deferred-read=1",
+  "navigationTimedOut": true,
+  "statusFromScreenshot": "original-asset-load-failed: survivor-shotgun-idle/walk/run/rig-motion: signal is aborted without reason",
+  "costButtonClicked": false,
+  "measuredCombatRuns": 0,
+  "playwrightInspection": "CDP focus/evaluate timeout; tab screenshot and native URL/log methods remained available.",
+  "console": [
+    {
+      "level": "error",
+      "message": "Error: original-asset-load-failed · survivor-shotgun-idle: signal is aborted without reason · survivor-shotgun-walk: signal is aborted without reason · survivor-shotgun-run: signal is aborted without reason · survivor-shotgun-rig-motion: signal is aborted without reason\n    at load (http://localhost:8851/qa-player-rig.js:31:11)",
+      "timestamp": "2026-10-18T06:07:35.122Z",
+      "url": "http://localhost:8851/qa-player-rig.js"
+    }
+  ],
+  "screenshot": "cost-navigation-page.jpg",
+  "recovery": "One owned QA tab reload; no cost benchmark rerun, no user tab reload."
+}

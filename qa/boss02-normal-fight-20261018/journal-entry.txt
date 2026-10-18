@@ -1,0 +1,15 @@
+
+
+DEAD SIGNAL — 보스02 정상 Game 실전 연결 검수 (2026-10-18T11:59:50Z)
+
+기존 제품/원본664기록을 그대로두고 전용page/worker/test를 추가했다. genuine-memory8851의새ownRenderer·원래Game mission02 seed774 못총/정상HP·AI·기존적·spawnClock·stageDuration과 실제60Hz advanceSimulation/ActorInterpolation/원본fullRenderer를 사용한다. QA final-entry flags와 원래월드에서검증한520거리 초기위치만설정, skillCd7/경고1.2/회복1.6·피해·무적·이동속도·적명단은바꾸지않았다. 실행전계획60→300realcap/전체준비15→60초/통로270→520변경은각초안보존후선언했고최초실행재시도가아니다. cleanup은별도15초상한이다.
+
+최초집중6/6PASS1182.5019ms 뒤최초IAB10원본검수는준비중Illegal invocation/전투0으로실패했다. 실패raw/화면/console/탭정리/초기3소스/699freeze를모두보존했다. Window타이머를deps메서드로호출해receiver가틀린원인이며default set/clearTimer2literal만globalThis에bind했다. 전체module역복원exact, 기존6case15757B prefixexact+receiver1case추가후집중7/7PASS787.6131ms다. 처음부터native성공/단일최초7개로덮지않는다. 첫실패의asphalt정리미확정은cleanupfalse그대로다.
+
+수정후원본A own11/후보B own12각1회정상전투를완료했다. 각각720ticks/12.000000000000176게임초, 실제native348/386GL, windup29/33·attack40/45, 경고1/skill1/회복표시/원본512drawidentity·geometry/UV/skin/material/source보존을통과했다. 양쪽actualskill발생은tick492/time8.216666666666654, 원본Game snapshot/RNG는매렌더전후동일검사다. 두최종HP5.499999999999975·boss1089·ammo24·두RNG값은같았지만다른RAF일정의전체state/픽셀동치나속도비교를주장하지않는다. 사격0/실제hurt10회이며음향·실제피격팔반응시험과구분한다. 원래world warning/impact/finalPNG각3과raw를보존했다.
+
+첫skill native는A이전windup.96056→attack.00167/B.97647→.01360에서실제75ms transition elapsed0을확인했다. 준비자세가접촉근처였으므로큰시각지연을확정하지않는다. 원본clip authoredX가경계에서어깨약15/전완11도뛸가능성은읽기수식추정이며미계측이다. 임의보간삭제는보류하고후속pose-step검수필요. OFF원본대비fold팔접힘은제한개선이나강한자연slam/제품ON/다른보스승인은이번범위밖이다. 실제화면에서피해텍스트9.450000000000001가보여다음은전투값을보존한표시축약을권한다.
+
+양쪽known late46/46완료/active0, 소유모델·pending·records·surfaces·alpha/inkbytes·poolslots0, flag/메서드복원·refs해제완료, console0. UI입력과RAF는정리전에차단, sharedfire/explosion singleton이미지는원래대로보존. 부분player병렬로드/미완료asphalt같은실패한계는성공으로숨기지않는다. own10/11/12닫고fresh목록부재확인; usertab1/8806/저장조작0.
+
+전체npm test1381개중1380PASS/1FAIL, cancelled/skipped0/0, 820698.0748ms. stress CPU16141.00ms/wall29144.30ms, 원래engine동일이므로최적화성과/원인주장0·유리한재실행/기준변경0. verify는역사.gitignore첫불일치exit1·manifest변경0. 최종713기록native/whole전후exact, 초기699중timer/test2선언변경외exact·기존664제품과원본보존. 새유료Meshy/키/결제/automation7/새commitpush/공개/스토어0. 모든자연스러움/무렉/실제peak RAM/VRAM/100시간스토리미완료. 매다음작업전신뢰시계확인, 마감2026-10-19 00:00KST(15:00Z)이후새개발0·정리기록후automation4 PAUSED.

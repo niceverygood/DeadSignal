@@ -1,0 +1,31 @@
+✔ molotov winds up, releases, arcs and lands before creating fire (4.3821ms)
+✔ in flight checkpoint resumes deterministically and old saves remain valid (7.4171ms)
+✔ projectile rejects corrupt state and remains bounded at maximum range (0.3294ms)
+✔ district transition clears pending projectiles (0.737ms)
+✔ sound pan matches the isometric camera and attenuation stays bounded (1.6954ms)
+✔ voice graph uses per-event pan/gain, limiter and disconnects temporary nodes (1.1794ms)
+✔ actual bullet obstacle collision creates merged material feedback and keeps bullets stopped (13.4188ms)
+✔ crowded gunfire reserves headroom for real damage and layered explosions, then releases every voice (0.9512ms)
+✖ actual Molotov land/lure/reload events carry their real spatial source and weapon without new save fields (1.3858ms)
+✔ Molotov break and ignition have separate spectral layers; weapon reload mechanics have separated timing (0.4651ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 202.8317
+
+✖ failing tests:
+
+test at tests\sound-perspective.test.mjs:16:1
+✖ actual Molotov land/lure/reload events carry their real spatial source and weapon without new save fields (1.3858ms)
+  TypeError: g.updatePlayer is not a function
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/sound-perspective.test.mjs:16:1028)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

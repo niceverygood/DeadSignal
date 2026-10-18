@@ -1,0 +1,22 @@
+✔ new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical (56.7395ms)
+✔ all field objectives are physically reachable from the actual spawn (24.9785ms)
+✔ objectives require proximity and sustained interaction; release, damage and pause prevent free completion (1.0528ms)
+✔ partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected (10.2325ms)
+✔ actual objective completion raises threat then ends only after all three actions (0.9233ms)
+✔ expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock (0.9288ms)
+✔ fresh and unlocked-only profiles reveal no unearned clues (4.8934ms)
+✔ a real completed city goal survives pause/restore and reveals its clue without touching game or progress (33.309ms)
+✔ partial defense holds and forged finale state never reveal a future recovery (1.4632ms)
+✔ replaying a cleared branch keeps previously earned clues without duplication and does not mutate profile (3.4581ms)
+✔ story route shows seven actual linked chapters plus the optional cold-chain branch with real unlocks (2.7688ms)
+✔ active saved expedition uses continue rather than creating a replacement, and final vaccine wording needs final clearance (0.6221ms)
+✔ memory-only actual app QA never reads or writes local profiles, and new QA sessions are fresh (0.8164ms)
+✔ normal launch keeps default storage, while original qa profile suffix remains unchanged (0.279ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 554.3483

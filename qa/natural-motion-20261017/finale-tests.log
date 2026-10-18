@@ -1,0 +1,18 @@
+✔ new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical (44.2476ms)
+✔ all field objectives are physically reachable from the actual spawn (21.2972ms)
+✔ objectives require proximity and sustained interaction; release, damage and pause prevent free completion (1.1772ms)
+✔ partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected (11.0127ms)
+✔ actual objective completion raises threat then ends only after all three actions (0.805ms)
+✔ expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock (1.0122ms)
+✔ finale is locked after Haifa and original launch geometry/assets remain complete (42.9986ms)
+✔ actual final boss must die before the vaccine can be recovered, death alone is not victory (5.5202ms)
+✔ missing or falsely defeated active boss and legacy extra flags fail restore (3.4743ms)
+✔ legacy collector defeat still ends its original survival game (1.0527ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 256.2815

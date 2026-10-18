@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: normal60/180 CPU/decode/CPU arms include the first of forty .12 renders, preserve real combat/RNG/events/motion, and release only owned images/native rigs
+ok 1 - normal60/180 CPU/decode/CPU arms include the first of forty .12 renders, preserve real combat/RNG/events/motion, and release only owned images/native rigs
+  ---
+  duration_ms: 7968.3181
+  type: 'test'
+  ...
+# Subtest: unsupported explicit decode remains a visible unsuccessful candidate while original normal combat still matches
+ok 2 - unsupported explicit decode remains a visible unsuccessful candidate while original normal combat still matches
+  ---
+  duration_ms: 5583.1548
+  type: 'test'
+  ...
+# Subtest: origin/brand/pre-abort guards have zero owner/service IO; pending preparation abort and external same-value descriptor changes preserve original owners
+ok 3 - origin/brand/pre-abort guards have zero owner/service IO; pending preparation abort and external same-value descriptor changes preserve original owners
+  ---
+  duration_ms: 71.9198
+  type: 'test'
+  ...
+# Subtest: original render error identity and not-ready preparation clean owned resources without pixel prewarming or original mutations
+ok 4 - original render error identity and not-ready preparation clean owned resources without pixel prewarming or original mutations
+  ---
+  duration_ms: 46.3858
+  type: 'test'
+  ...
+# Subtest: same-value external art descriptor ownership preserves every current record and original throw identity during cleanup
+ok 5 - same-value external art descriptor ownership preserves every current record and original throw identity during cleanup
+  ---
+  duration_ms: 38.3994
+  type: 'test'
+  ...
+# Subtest: at most two unique ready originals decode sequentially with original receiver/order, no image or external resource creation and primitive diagnostics
+ok 6 - at most two unique ready originals decode sequentially with original receiver/order, no image or external resource creation and primitive diagnostics
+  ---
+  duration_ms: 34.7329
+  type: 'test'
+  ...
+# Subtest: invalid IDs, unknown getters, image overrides and unsupported default/native prototypes refuse before decode without invoking untrusted accessors
+ok 7 - invalid IDs, unknown getters, image overrides and unsupported default/native prototypes refuse before decode without invoking untrusted accessors
+  ---
+  duration_ms: 42.8709
+  type: 'test'
+  ...
+# Subtest: decode rejection, synchronous throw and trusted prototype getter failures preserve sources and refuse partial readiness
+ok 8 - decode rejection, synchronous throw and trusted prototype getter failures preserve sources and refuse partial readiness
+  ---
+  duration_ms: 11.4565
+  type: 'test'
+  ...
+# Subtest: abort, timeout and owner/source generations cannot become READY after late original decode completion or rejection
+ok 9 - abort, timeout and owner/source generations cannot become READY after late original decode completion or rejection
+  ---
+  duration_ms: 43.9477
+  type: 'test'
+  ...
+# Subtest: preparing originals leaves full pinned ProductionArt frame selection, metadata, source RGBA and every Canvas command/state/exception unchanged
+ok 10 - preparing originals leaves full pinned ProductionArt frame selection, metadata, source RGBA and every Canvas command/state/exception unchanged
+  ---
+  duration_ms: 43.593
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14914.4621

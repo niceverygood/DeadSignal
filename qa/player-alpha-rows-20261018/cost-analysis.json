@@ -1,0 +1,264 @@
+{
+  "adopted": false,
+  "status": "parked-quality-gate-failed-despite-raw-cost-precriterion",
+  "passes": [
+    {
+      "arm": "A1",
+      "preparationMs": 8502.699999988079,
+      "loadAndNativePreparationMs": 8418.100000023842,
+      "first": 978.0999999642372,
+      "all40": {
+        "count": 40,
+        "medianMs": 52.69999998807907,
+        "p95Ms": 361.89999997615814,
+        "maxMs": 978.0999999642372,
+        "sumMs": 3918.4999999403954
+      },
+      "steady30": {
+        "count": 30,
+        "medianMs": 54.09999996423721,
+        "p95Ms": 194.80000001192093,
+        "maxMs": 251.9000000357628,
+        "sumMs": 2227.600000023842
+      },
+      "readbackMs": 10.899999976158142,
+      "preparationPlus40PlusReadbackMs": 12432.099999904633,
+      "used": 0,
+      "requestedRowBytes": 0,
+      "qualityExtraCPUReadCount": 0,
+      "cleanup": true,
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "yields": [
+        {
+          "afterFrame": 7,
+          "elapsedMs": 0.800000011920929
+        },
+        {
+          "afterFrame": 15,
+          "elapsedMs": 5.699999988079071
+        },
+        {
+          "afterFrame": 23,
+          "elapsedMs": 7.100000023841858
+        },
+        {
+          "afterFrame": 31,
+          "elapsedMs": 4.800000011920929
+        },
+        {
+          "afterFrame": 39,
+          "elapsedMs": 32.60000002384186
+        }
+      ]
+    },
+    {
+      "arm": "B",
+      "preparationMs": 7106.199999988079,
+      "loadAndNativePreparationMs": 7042.200000047684,
+      "first": 589.7999999523163,
+      "all40": {
+        "count": 40,
+        "medianMs": 62.69999998807907,
+        "p95Ms": 284.69999998807907,
+        "maxMs": 589.7999999523163,
+        "sumMs": 3544.19999986887
+      },
+      "steady30": {
+        "count": 30,
+        "medianMs": 68.40000003576279,
+        "p95Ms": 173,
+        "maxMs": 284.69999998807907,
+        "sumMs": 2527.199999988079
+      },
+      "readbackMs": 8.699999988079071,
+      "preparationPlus40PlusReadbackMs": 10659.099999845028,
+      "used": 40,
+      "requestedRowBytes": 40960,
+      "qualityExtraCPUReadCount": 0,
+      "cleanup": true,
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "yields": [
+        {
+          "afterFrame": 7,
+          "elapsedMs": 25.100000023841858
+        },
+        {
+          "afterFrame": 15,
+          "elapsedMs": 633
+        },
+        {
+          "afterFrame": 23,
+          "elapsedMs": 251.5
+        },
+        {
+          "afterFrame": 31,
+          "elapsedMs": 314.2000000476837
+        },
+        {
+          "afterFrame": 39,
+          "elapsedMs": 935.6000000238419
+        }
+      ]
+    },
+    {
+      "arm": "A2",
+      "preparationMs": 9150.899999976158,
+      "loadAndNativePreparationMs": 9097.5,
+      "first": 1287.3999999761581,
+      "all40": {
+        "count": 40,
+        "medianMs": 85.69999998807907,
+        "p95Ms": 590.3999999761581,
+        "maxMs": 1287.3999999761581,
+        "sumMs": 6693.000000119209
+      },
+      "steady30": {
+        "count": 30,
+        "medianMs": 101.10000002384186,
+        "p95Ms": 589,
+        "maxMs": 590.3999999761581,
+        "sumMs": 4761.699999988079
+      },
+      "readbackMs": 9.199999988079071,
+      "preparationPlus40PlusReadbackMs": 15853.100000083447,
+      "used": 0,
+      "requestedRowBytes": 0,
+      "qualityExtraCPUReadCount": 0,
+      "cleanup": true,
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "yields": [
+        {
+          "afterFrame": 7,
+          "elapsedMs": 10
+        },
+        {
+          "afterFrame": 15,
+          "elapsedMs": 685.7000000476837
+        },
+        {
+          "afterFrame": 23,
+          "elapsedMs": 306.5999999642372
+        },
+        {
+          "afterFrame": 31,
+          "elapsedMs": 269.2000000476837
+        },
+        {
+          "afterFrame": 39,
+          "elapsedMs": 717.1000000238419
+        }
+      ]
+    }
+  ],
+  "performance": {
+    "accepted": false,
+    "adopted": false,
+    "qualityOnly": false,
+    "criterion": "preparation+callback40+finalReadback",
+    "fasterOriginalTotalMs": 12432.099999904633,
+    "candidateTotalMs": 10659.099999845028,
+    "improvementFraction": 0.14261468296371538,
+    "firstCallbackNoWorse": true,
+    "callbackTailsNoWorse": true,
+    "drainTailsNoWorse": true,
+    "tailsNoWorse": true,
+    "requiredImprovementFraction": 0.03,
+    "note": "Only cost mode without verification can be performance evidence. Preparation plus40 callbacks plus final drain must improve3% over the faster original; first callback and40/41 p95/max may not regress against either original. GPU row copy/render/read and computational mask work remain inside timing. Strict pixels, literal Game, actual usage with no fallbacks, method/resource cleanup and independent same-frame quality are required. No automatic adoption/FPS/peak-memory claim."
+  },
+  "pixels": {
+    "candidateVsFirst": {
+      "differentComponents": 38,
+      "maxDelta": 1,
+      "dimensionsEqual": true
+    },
+    "originalRepeat": {
+      "differentComponents": 25,
+      "maxDelta": 1,
+      "dimensionsEqual": true
+    },
+    "candidateVsRepeat": {
+      "differentComponents": 39,
+      "maxDelta": 1,
+      "dimensionsEqual": true
+    }
+  },
+  "literalGameComparisons": 80,
+  "cleanup": {
+    "ownedRenderers": 3,
+    "retiredRenderers": 3,
+    "ownedArts": 3,
+    "releasedArts": 3,
+    "hostsCreated": 3,
+    "hostsRemoved": 3,
+    "lateScheduled": 12,
+    "lateSettled": 12,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerAlphaRowsRestored": true
+      },
+      {
+        "arm": "B",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerAlphaRowsRestored": true
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerAlphaRowsRestored": true
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": true
+  },
+  "console": [],
+  "originalPlayerBodyReadRequestedBytesPer40": 10485760,
+  "candidateRequestedRowBytesPer40": 40960,
+  "expectedPlayerGLSubmissionCountFromUnchangedRasterAndValidHelper": {
+    "original": 80,
+    "candidate": 120,
+    "note": "Code-derived two original colour draws plus one helper row pass per successful read, not a new GL timing observer."
+  },
+  "scope": "Fresh owned original/row/original instances in one cost bracket after a separate verify-only quality bracket; shared URL/driver caches remain resident. Original colour canvases and source/physics/RNG stay unchanged. Preparation and shader first-use costs remain included; load variance is retained rather than claimed to be isolated CPU/GPU benefit. Callback wall includes graphics waits and installer reporting; not FPS or GPU duration. Reusable computational mask262144B, rows1024B and raw target263168B are bounded logical storage estimates, not measured heap/VRAM/peak. Strict whole AA/AB failures remain, no tolerance change or successful rerender search. Product defaults remain unchanged."
+}

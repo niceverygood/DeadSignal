@@ -1,0 +1,43 @@
+{
+  "sameFrameRows": {
+    "verifiedFrames": 40,
+    "verifiedRows": 10240,
+    "rowDifferences": 0,
+    "boundsDifferences": 0,
+    "contourDifferences": 0,
+    "used": 40,
+    "fallbacks": 0,
+    "requestedRowBytes": 40960
+  },
+  "literalGameComparisons": 80,
+  "pixels": {
+    "candidateVsFirst": {
+      "differentComponents": 2,
+      "maxDelta": 1,
+      "dimensionsEqual": true
+    },
+    "originalRepeat": {
+      "differentComponents": 546,
+      "maxDelta": 8,
+      "dimensionsEqual": true
+    },
+    "candidateVsRepeat": {
+      "differentComponents": 546,
+      "maxDelta": 8,
+      "dimensionsEqual": true
+    }
+  },
+  "cleanup": {
+    "complete": true,
+    "arms": 3,
+    "lateSettled": 12,
+    "errors": [],
+    "mainOwnersUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainSourceImagesUnchanged": true
+  },
+  "qualityGatePassed": false,
+  "reason": "qa-canvas-combat-whole-canvas-pixels-differ",
+  "adopted": false,
+  "note": "All256 top-down row endpoints at alpha>=8, original bounds/core/open contour and computational-mask metadata match the original same-frame fullRGBA read. The computational mask is never drawn; colour uses the unchanged original GL/body canvases. This is not full-alpha-byte equality, an all-motion/weapon certificate, or a whole-canvas quality pass. Original AA546 components/max8 remains unresolved; no gate relaxation or favorable remeasurement. Quality timing includes the additional original fullRGBA read and is not performance evidence. Separate cost-only fresh A/B/A may diagnose runtime cost but cannot override this quality failure."
+}

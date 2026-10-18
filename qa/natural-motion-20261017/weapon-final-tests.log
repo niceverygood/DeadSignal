@@ -1,0 +1,3454 @@
+
+> dead-signal-development-workspace@0.29.0 test
+> npm --prefix work/dead-signal-game test
+
+
+> dead-signal@0.29.0 test
+> node --test --test-concurrency=2 tests/*.test.mjs
+
+TAP version 13
+# Subtest: all render actor pools interpolate without changing checkpoints, random streams or actor identity
+ok 1 - all render actor pools interpolate without changing checkpoints, random streams or actor identity
+  ---
+  duration_ms: 12.6008
+  type: 'test'
+  ...
+# Subtest: attack warnings, shields and gun aim keep exact angles while regular turns use the shortest arc
+ok 2 - attack warnings, shields and gun aim keep exact angles while regular turns use the shortest arc
+  ---
+  duration_ms: 1.0453
+  type: 'test'
+  ...
+# Subtest: paused positions snap once and stay fixed; teleports/new runs do not create sliding ghosts
+ok 3 - paused positions snap once and stay fixed; teleports/new runs do not create sliding ghosts
+  ---
+  duration_ms: 0.9666
+  type: 'test'
+  ...
+# Subtest: substep renders are continuous and physics/checkpoints remain identical with interpolation enabled
+ok 4 - substep renders are continuous and physics/checkpoints remain identical with interpolation enabled
+  ---
+  duration_ms: 29.5568
+  type: 'test'
+  ...
+# Subtest: the actual armory supplies image zones on all five cards while preserving live prices, shortages and locked progress
+ok 5 - the actual armory supplies image zones on all five cards while preserving live prices, shortages and locked progress
+  ---
+  duration_ms: 3.7029
+  type: 'test'
+  ...
+# Subtest: real training purchases update the illustrated cards once, and maxed or unlocked states keep their original behavior
+ok 6 - real training purchases update the illustrated cards once, and maxed or unlocked states keep their original behavior
+  ---
+  duration_ms: 3.1648
+  type: 'test'
+  ...
+# Subtest: the armory adapter paints three registered illustrations and two canonical weapon crops once without replacing controls
+ok 7 - the armory adapter paints three registered illustrations and two canonical weapon crops once without replacing controls
+  ---
+  duration_ms: 1.5359
+  type: 'test'
+  ...
+# Subtest: legacy metadata/atlas/mask URLs remain byte-for-byte unchanged and continue using normal HTTP cache policy
+ok 8 - legacy metadata/atlas/mask URLs remain byte-for-byte unchanged and continue using normal HTTP cache policy
+  ---
+  duration_ms: 11.365
+  type: 'test'
+  ...
+# Subtest: one catalog revision versions metadata, atlas and optional mask with exactly one identical safe query token
+ok 9 - one catalog revision versions metadata, atlas and optional mask with exactly one identical safe query token
+  ---
+  duration_ms: 1.9447
+  type: 'test'
+  ...
+# Subtest: a changed source revision splits cached metadata and repaired PNG URLs, while unchanged revisions retain their cache identity
+ok 10 - a changed source revision splits cached metadata and repaired PNG URLs, while unchanged revisions retain their cache identity
+  ---
+  duration_ms: 3.3328
+  type: 'test'
+  ...
+# Subtest: revision validation rejects malformed catalog values before I/O and an invalid extension preserves loaded records atomically
+ok 11 - revision validation rejects malformed catalog values before I/O and an invalid extension preserves loaded records atomically
+  ---
+  duration_ms: 6.1377
+  type: 'test'
+  ...
+# Subtest: revision queries cannot bypass the existing origin/path/extension guards or supplied query/fragment and malformed encoding checks
+ok 12 - revision queries cannot bypass the existing origin/path/extension guards or supplied query/fragment and malformed encoding checks
+  ---
+  duration_ms: 15.5711
+  type: 'test'
+  ...
+# Subtest: updating a revision invalidates only that bundle; a late old mask cannot replace the new revision or notify ready
+ok 13 - updating a revision invalidates only that bundle; a late old mask cannot replace the new revision or notify ready
+  ---
+  duration_ms: 1.4838
+  type: 'test'
+  ...
+# Subtest: content revisions leave validated frame geometry, high-quality drawing and active Game/RNG/checkpoint data unchanged
+ok 14 - content revisions leave validated frame geometry, high-quality drawing and active Game/RNG/checkpoint data unchanged
+  ---
+  duration_ms: 17.6987
+  type: 'test'
+  ...
+# Subtest: a charge warns before damage, locks its direction, and a final boss really performs its second warned charge
+ok 15 - a charge warns before damage, locks its direction, and a final boss really performs its second warned charge
+  ---
+  duration_ms: 16.9304
+  type: 'test'
+  ...
+# Subtest: charge movement respects physical walls and its configured impact damage respects dodge invulnerability
+ok 16 - charge movement respects physical walls and its configured impact damage respects dodge invulnerability
+  ---
+  duration_ms: 4.9278
+  type: 'test'
+  ...
+# Subtest: summoning uses its warned circle, distinct middle/final populations and a bounded living summon limit
+ok 17 - summoning uses its warned circle, distinct middle/final populations and a bounded living summon limit
+  ---
+  duration_ms: 86.8616
+  type: 'test'
+  ...
+# Subtest: spit warning precedes swept projectile damage, creates real pools and final fan rays match their shots
+ok 18 - spit warning precedes swept projectile damage, creates real pools and final fan rays match their shots
+  ---
+  duration_ms: 15.2988
+  type: 'test'
+  ...
+# Subtest: walls stop hostile shots and contamination cannot damage a survivor behind the wall
+ok 19 - walls stop hostile shots and contamination cannot damage a survivor behind the wall
+  ---
+  duration_ms: 18.1377
+  type: 'test'
+  ...
+# Subtest: live attack phases, projectiles and pools freeze during pause or upgrade and their saved clocks resume exactly
+ok 20 - live attack phases, projectiles and pools freeze during pause or upgrade and their saved clocks resume exactly
+  ---
+  duration_ms: 11.5162
+  type: 'test'
+  ...
+# Subtest: boss death purges its warned and active attacks, and lethal projectiles cannot repeat damage after a terminal tick
+ok 21 - boss death purges its warned and active attacks, and lethal projectiles cannot repeat damage after a terminal tick
+  ---
+  duration_ms: 10.0229
+  type: 'test'
+  ...
+# Subtest: sustained hit stun cannot push a boss cooldown outside the checkpoint contract
+ok 22 - sustained hit stun cannot push a boss cooldown outside the checkpoint contract
+  ---
+  duration_ms: 6.8564
+  type: 'test'
+  ...
+# Subtest: boss-01-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 23 - boss-01-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 292.1488
+  type: 'test'
+  ...
+# Subtest: boss-07-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 24 - boss-07-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 167.3339
+  type: 'test'
+  ...
+# Subtest: boss-01-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 25 - boss-01-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 178.9298
+  type: 'test'
+  ...
+# Subtest: boss-02-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 26 - boss-02-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 196.6229
+  type: 'test'
+  ...
+# Subtest: boss-02-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 27 - boss-02-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 242.8387
+  type: 'test'
+  ...
+# Subtest: boss-03-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 28 - boss-03-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 194.0101
+  type: 'test'
+  ...
+# Subtest: boss-03-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 29 - boss-03-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 174.4135
+  type: 'test'
+  ...
+# Subtest: boss-04-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 30 - boss-04-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 158.4794
+  type: 'test'
+  ...
+# Subtest: boss-04-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 31 - boss-04-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 171.5142
+  type: 'test'
+  ...
+# Subtest: boss-05-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 32 - boss-05-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 165.515
+  type: 'test'
+  ...
+# Subtest: boss-06-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 33 - boss-06-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 166.7468
+  type: 'test'
+  ...
+# Subtest: boss-05-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 34 - boss-05-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 152.0952
+  type: 'test'
+  ...
+# Subtest: boss-06-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 35 - boss-06-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 159.3097
+  type: 'test'
+  ...
+# Subtest: boss-07-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 36 - boss-07-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 152.2867
+  type: 'test'
+  ...
+# Subtest: boss-08-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 37 - boss-08-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 161.7538
+  type: 'test'
+  ...
+# Subtest: boss-08-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 38 - boss-08-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 200.4434
+  type: 'test'
+  ...
+# Subtest: boss-09-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 39 - boss-09-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 153.8026
+  type: 'test'
+  ...
+# Subtest: boss-09-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 40 - boss-09-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 160.7453
+  type: 'test'
+  ...
+# Subtest: boss-10-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 41 - boss-10-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 192.8196
+  type: 'test'
+  ...
+# Subtest: boss-11-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 42 - boss-11-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 158.9618
+  type: 'test'
+  ...
+# Subtest: boss-11-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 43 - boss-11-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 164.6048
+  type: 'test'
+  ...
+# Subtest: boss-12-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 44 - boss-12-mid: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 167.7531
+  type: 'test'
+  ...
+# Subtest: boss-12-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 45 - boss-12-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 163.237
+  type: 'test'
+  ...
+# Subtest: boss-10-final: unchanged original rig has distinct continuous walk/attack/hit poses
+ok 46 - boss-10-final: unchanged original rig has distinct continuous walk/attack/hit poses
+  ---
+  duration_ms: 186.4676
+  type: 'test'
+  ...
+# Subtest: optional detail map validates registered string IDs atomically and leaves both catalog defaults unchanged
+ok 47 - optional detail map validates registered string IDs atomically and leaves both catalog defaults unchanged
+  ---
+  duration_ms: 7.2851
+  type: 'test'
+  ...
+# Subtest: opening 24 small thumbnails keeps the 72MiB existing path and never requests any HD, walking sheet or mask
+ok 48 - opening 24 small thumbnails keeps the 72MiB existing path and never requests any HD, walking sheet or mask
+  ---
+  duration_ms: 45.2555
+  type: 'test'
+  ...
+# Subtest: one selected large canvas lazily loads one HD sheet while painting its ready small fallback and repainting from normal notifications
+ok 49 - one selected large canvas lazily loads one HD sheet while painting its ready small fallback and repainting from normal notifications
+  ---
+  duration_ms: 3.0358
+  type: 'test'
+  ...
+# Subtest: missing optional detail coverage keeps the existing large portrait and releases the previous optional HD selection
+ok 50 - missing optional detail coverage keeps the existing large portrait and releases the previous optional HD selection
+  ---
+  duration_ms: 5.1416
+  type: 'test'
+  ...
+# Subtest: seven rapid selections evict only earlier HD records and ignore their late PNG completion without evicting gameplay or regular sheets
+ok 51 - seven rapid selections evict only earlier HD records and ignore their late PNG completion without evicting gameplay or regular sheets
+  ---
+  duration_ms: 12.402
+  type: 'test'
+  ...
+# Subtest: failed HD remains a nonempty regular portrait, and a failed regular sheet still permits HD or the existing legacy fallback
+ok 52 - failed HD remains a nonempty regular portrait, and a failed regular sheet still permits HD or the existing legacy fallback
+  ---
+  duration_ms: 5.2976
+  type: 'test'
+  ...
+# Subtest: HD IDs also used by gameplay or regular portraits are protected from detail-only eviction
+ok 53 - HD IDs also used by gameplay or regular portraits are protected from detail-only eviction
+  ---
+  duration_ms: 2.0873
+  type: 'test'
+  ...
+# Subtest: the selected 512px HD outline fits a DPR2 detail canvas while repeated paints preserve Game checkpoint/RNG/effects
+ok 54 - the selected 512px HD outline fits a DPR2 detail canvas while repeated paints preserve Game checkpoint/RNG/effects
+  ---
+  duration_ms: 5.7415
+  type: 'test'
+  ...
+# Subtest: nine additional skill families cover both roles with genuine warning geometry before harm
+ok 55 - nine additional skill families cover both roles with genuine warning geometry before harm
+  ---
+  duration_ms: 13.111
+  type: 'test'
+  ...
+# Subtest: warning and active area/line geometry remain identical for every damaging hazard family
+ok 56 - warning and active area/line geometry remain identical for every damaging hazard family
+  ---
+  duration_ms: 5.7766
+  type: 'test'
+  ...
+# Subtest: final slam has a real second annulus, with a safe centre and damaging outer ring
+ok 57 - final slam has a real second annulus, with a safe centre and damaging outer ring
+  ---
+  duration_ms: 0.9272
+  type: 'test'
+  ...
+# Subtest: shield protects only its facing arc while the actual guard is active
+ok 58 - shield protects only its facing arc while the actual guard is active
+  ---
+  duration_ms: 0.8968
+  type: 'test'
+  ...
+# Subtest: both leap roles land legally through Game.move and detonate only their announced landing circles
+ok 59 - both leap roles land legally through Game.move and detonate only their announced landing circles
+  ---
+  duration_ms: 1.9619
+  type: 'test'
+  ...
+# Subtest: a new obstruction cancels a leap impact instead of creating unannounced damage
+ok 60 - a new obstruction cancels a leap impact instead of creating unannounced damage
+  ---
+  duration_ms: 0.5322
+  type: 'test'
+  ...
+# Subtest: beam warnings stop at walls and their actual damage obeys the exact clipped line
+ok 61 - beam warnings stop at walls and their actual damage obeys the exact clipped line
+  ---
+  duration_ms: 1.7308
+  type: 'test'
+  ...
+# Subtest: fire persists for its catalog duration and applies separated repeated damage ticks
+ok 62 - fire persists for its catalog duration and applies separated repeated damage ticks
+  ---
+  duration_ms: 0.678
+  type: 'test'
+  ...
+# Subtest: mine circles remain harmless until their individual fuse expires
+ok 63 - mine circles remain harmless until their individual fuse expires
+  ---
+  duration_ms: 1.0752
+  type: 'test'
+  ...
+# Subtest: pull moves the player through collision-aware movement and deals its closing impact later
+ok 64 - pull moves the player through collision-aware movement and deals its closing impact later
+  ---
+  duration_ms: 1.5818
+  type: 'test'
+  ...
+# Subtest: spread creates real fan projectiles and the final boss fires its second independently warned wave
+ok 65 - spread creates real fan projectiles and the final boss fires its second independently warned wave
+  ---
+  duration_ms: 1.4649
+  type: 'test'
+  ...
+# Subtest: spread projectile sweeps hit players on an open lane and stop at solid walls
+ok 66 - spread projectile sweeps hit players on an open lane and stop at solid walls
+  ---
+  duration_ms: 2.2936
+  type: 'test'
+  ...
+# Subtest: storm uses deterministic saved RNG and genuinely staggered lightning circles
+ok 67 - storm uses deterministic saved RNG and genuinely staggered lightning circles
+  ---
+  duration_ms: 1.1508
+  type: 'test'
+  ...
+# Subtest: paused attacks freeze, stunned warnings wait, dead owners purge and terminal hazards cannot keep hurting
+ok 68 - paused attacks freeze, stunned warnings wait, dead owners purge and terminal hazards cannot keep hurting
+  ---
+  duration_ms: 1.0136
+  type: 'test'
+  ...
+# Subtest: hazard and projectile queues stay within caps even under repeated casts
+ok 69 - hazard and projectile queues stay within caps even under repeated casts
+  ---
+  duration_ms: 2.7946
+  type: 'test'
+  ...
+# Subtest: all eighteen bosses resume warning and active combat through strict actual checkpoints
+ok 70 - all eighteen bosses resume warning and active combat through strict actual checkpoints
+  ---
+  duration_ms: 34.0325
+  type: 'test'
+  ...
+# Subtest: full Game.tick dispatches all eighteen additional bosses into their actual patterns
+ok 71 - full Game.tick dispatches all eighteen additional bosses into their actual patterns
+  ---
+  duration_ms: 33.7222
+  type: 'test'
+  ...
+# Subtest: all 24 immutable native HD tables resolve named front/back to actual frame1/frame5; yaw is read without mutating metadata
+ok 72 - all 24 immutable native HD tables resolve named front/back to actual frame1/frame5; yaw is read without mutating metadata
+  ---
+  duration_ms: 33.3561
+  type: 'test'
+  ...
+# Subtest: view state wraps in both directions, resets only a new boss, and remains separate immutable UI data
+ok 73 - view state wraps in both directions, resets only a new boss, and remains separate immutable UI data
+  ---
+  duration_ms: 0.5318
+  type: 'test'
+  ...
+# Subtest: ready HD rotation reuses the identical native image for eight unique directions while small thumbnails keep the original angle
+ok 74 - ready HD rotation reuses the identical native image for eight unique directions while small thumbnails keep the original angle
+  ---
+  duration_ms: 17.9609
+  type: 'test'
+  ...
+# Subtest: renderer reads the ready HD yaw and existing callers still retain their .35 view without an explicit UI step
+ok 75 - renderer reads the ready HD yaw and existing callers still retain their .35 view without an explicit UI step
+  ---
+  duration_ms: 7.3217
+  type: 'test'
+  ...
+# Subtest: a failed canvas context never leaves rotation enabled for an image that could not be drawn
+ok 76 - a failed canvas context never leaves rotation enabled for an image that could not be drawn
+  ---
+  duration_ms: 7.4806
+  type: 'test'
+  ...
+# Subtest: HD loading/failure leaves the existing image and angle fallback intact, without retries, walking sheets or masks
+ok 77 - HD loading/failure leaves the existing image and angle fallback intact, without retries, walking sheets or masks
+  ---
+  duration_ms: 32.9553
+  type: 'test'
+  ...
+# Subtest: two accessible controls and all eight visible names mount once; loading and failure keep buttons disabled
+ok 78 - two accessible controls and all eight visible names mount once; loading and failure keep buttons disabled
+  ---
+  duration_ms: 1.6401
+  type: 'test'
+  ...
+# Subtest: the real delegated rotation click retains canvas/control identity, focus and four scroll positions with zero Game/RNG/save/input/audio side effects
+ok 79 - the real delegated rotation click retains canvas/control identity, focus and four scroll positions with zero Game/RNG/save/input/audio side effects
+  ---
+  duration_ms: 34.1247
+  type: 'test'
+  ...
+# Subtest: rotation is inert outside the codex, for disabled/loading controls and for malformed values; a new selected boss resets to front
+ok 80 - rotation is inert outside the codex, for disabled/loading controls and for malformed values; a new selected boss resets to front
+  ---
+  duration_ms: 18.5262
+  type: 'test'
+  ...
+# Subtest: all twelve missions have independent worlds and resume their trained player in the same mission
+ok 81 - all twelve missions have independent worlds and resume their trained player in the same mission
+  ---
+  duration_ms: 33.7207
+  type: 'test'
+  ...
+# Subtest: each mission requires a live middle boss before its final boss and ends only after both actual kills
+ok 82 - each mission requires a live middle boss before its final boss and ends only after both actual kills
+  ---
+  duration_ms: 62.2577
+  type: 'test'
+  ...
+# Subtest: a middle boss killed early does not spawn the final before the seventy-five-percent clock
+ok 83 - a middle boss killed early does not spawn the final before the seventy-five-percent clock
+  ---
+  duration_ms: 1.6269
+  type: 'test'
+  ...
+# Subtest: failed mandatory spawns leave their flag unset and retry after an enemy slot becomes free
+ok 84 - failed mandatory spawns leave their flag unset and retry after an enemy slot becomes free
+  ---
+  duration_ms: 8.0093
+  type: 'test'
+  ...
+# Subtest: normal pools and boss stats apply the mission difficulty without altering global types or the legacy operation
+ok 85 - normal pools and boss stats apply the mission difficulty without altering global types or the legacy operation
+  ---
+  duration_ms: 2.7742
+  type: 'test'
+  ...
+# Subtest: the existing version-one checkpoint restores byte-for-byte without campaign activation
+ok 86 - the existing version-one checkpoint restores byte-for-byte without campaign activation
+  ---
+  duration_ms: 5.041
+  type: 'test'
+  ...
+# Subtest: the tuned version-one operation retains deterministic live replay across a mid-movement checkpoint
+ok 87 - the tuned version-one operation retains deterministic live replay across a mid-movement checkpoint
+  ---
+  duration_ms: 155.9289
+  type: 'test'
+  ...
+# Subtest: mission progression, active boss reference and maximum seed survive version-two restore
+ok 88 - mission progression, active boss reference and maximum seed survive version-two restore
+  ---
+  duration_ms: 1.7981
+  type: 'test'
+  ...
+# Subtest: corrupt version-two progress, catalog roles, skill timers and unbounded effect queues are rejected without throwing
+ok 89 - corrupt version-two progress, catalog roles, skill timers and unbounded effect queues are rejected without throwing
+  ---
+  duration_ms: 19.1954
+  type: 'test'
+  ...
+# Subtest: all twenty-four bosses retain strict checkpoints through actual warnings, running attacks, hazards and projectiles
+ok 90 - all twenty-four bosses retain strict checkpoints through actual warnings, running attacks, hazards and projectiles
+  ---
+  duration_ms: 783.7162
+  type: 'test'
+  ...
+# Subtest: additional hazard fields and hostile projectile payloads reject invalid or incoherent saved data
+ok 91 - additional hazard fields and hostile projectile payloads reject invalid or incoherent saved data
+  ---
+  duration_ms: 21.108
+  type: 'test'
+  ...
+# Subtest: mission countdowns use the real mid and final thresholds independently of legacy district flags
+ok 92 - mission countdowns use the real mid and final thresholds independently of legacy district flags
+  ---
+  duration_ms: 5.0622
+  type: 'test'
+  ...
+# Subtest: all 24 real mission bosses own guidance and offscreen priority ahead of optional alarms
+ok 93 - all 24 real mission bosses own guidance and offscreen priority ahead of optional alarms
+  ---
+  duration_ms: 50.8314
+  type: 'test'
+  ...
+# Subtest: a fresh or legacy survivor unlocks exactly the first campaign mission
+ok 94 - a fresh or legacy survivor unlocks exactly the first campaign mission
+  ---
+  duration_ms: 2.7032
+  type: 'test'
+  ...
+# Subtest: progress sanitization requires a sequential clear prefix and rejects invalid boss and timing records
+ok 95 - progress sanitization requires a sequential clear prefix and rejects invalid boss and timing records
+  ---
+  duration_ms: 0.3245
+  type: 'test'
+  ...
+# Subtest: locked missions cannot be selected or cleared by an out of sequence result
+ok 96 - locked missions cannot be selected or cleared by an out of sequence result
+  ---
+  duration_ms: 0.4296
+  type: 'test'
+  ...
+# Subtest: twelve successive victories unlock only the next map and record both mission bosses
+ok 97 - twelve successive victories unlock only the next map and record both mission bosses
+  ---
+  duration_ms: 1.331
+  type: 'test'
+  ...
+# Subtest: encounter records are idempotent and completion improves best time without duplicate mission clears
+ok 98 - encounter records are idempotent and completion improves best time without duplicate mission clears
+  ---
+  duration_ms: 0.7109
+  type: 'test'
+  ...
+# Subtest: campaign and old training/settings persist in one profile and a completed run cannot award twice
+ok 99 - campaign and old training/settings persist in one profile and a completed run cannot award twice
+  ---
+  duration_ms: 0.9529
+  type: 'test'
+  ...
+# Subtest: all 24 catalog bosses have distinct geometry even with palette and size differences removed
+ok 100 - all 24 catalog bosses have distinct geometry even with palette and size differences removed
+  ---
+  duration_ms: 13.7793
+  type: 'test'
+  ...
+# Subtest: catalog head equipment and mechanical limb counts affect the figure beyond its colors
+ok 101 - catalog head equipment and mechanical limb counts affect the figure beyond its colors
+  ---
+  duration_ms: 1.6944
+  type: 'test'
+  ...
+# Subtest: every portrait fits its canvas at both pixel ratios and invalid keys clear without changing layout
+ok 102 - every portrait fits its canvas at both pixel ratios and invalid keys clear without changing layout
+  ---
+  duration_ms: 29.111
+  type: 'test'
+  ...
+# Subtest: live rendering uses canonical characters and names while missing boss keys retain legacy sprites
+ok 103 - live rendering uses canonical characters and names while missing boss keys retain legacy sprites
+  ---
+  duration_ms: 8.2002
+  type: 'test'
+  ...
+# Subtest: a tall campaign silhouette can hide the player where a legacy collector could not
+ok 104 - a tall campaign silhouette can hide the player where a legacy collector could not
+  ---
+  duration_ms: 1.2915
+  type: 'test'
+  ...
+# Subtest: warning geometry uses total line width and a summon boundary remains unfilled
+ok 105 - warning geometry uses total line width and a summon boundary remains unfilled
+  ---
+  duration_ms: 1.7413
+  type: 'test'
+  ...
+# Subtest: hostile trails project actual previous positions and long objective names fit inside their plaque
+ok 106 - hostile trails project actual previous positions and long objective names fit inside their plaque
+  ---
+  duration_ms: 1.3067
+  type: 'test'
+  ...
+# Subtest: annular warnings and active slams preserve the empty centre while fire and contamination become active fields
+ok 107 - annular warnings and active slams preserve the empty centre while fire and contamination become active fields
+  ---
+  duration_ms: 1.4653
+  type: 'test'
+  ...
+# Subtest: repeated campaign rendering never changes checkpoints, combat RNG or active warnings
+ok 108 - repeated campaign rendering never changes checkpoints, combat RNG or active warnings
+  ---
+  duration_ms: 19.861
+  type: 'test'
+  ...
+# Subtest: legacy three-stage layouts, random consumption and obstacle IDs remain exactly v0.16
+ok 109 - legacy three-stage layouts, random consumption and obstacle IDs remain exactly v0.16
+  ---
+  duration_ms: 5.9386
+  type: 'test'
+  ...
+# Subtest: twelve campaign cities have distinct physical layouts and use the existing render/save vocabulary
+ok 110 - twelve campaign cities have distinct physical layouts and use the existing render/save vocabulary
+  ---
+  duration_ms: 7.8637
+  type: 'test'
+  ...
+# Subtest: actual navigation and movement let the player and r49 bosses reach the exit and all combat streets
+ok 111 - actual navigation and movement let the player and r49 bosses reach the exit and all combat streets
+  ---
+  duration_ms: 391.9313
+  type: 'test'
+  ...
+# Subtest: campaign has twelve ordered, individually themed missions and an unbroken unlock chain
+ok 112 - campaign has twelve ordered, individually themed missions and an unbroken unlock chain
+  ---
+  duration_ms: 1.725
+  type: 'test'
+  ...
+# Subtest: twenty-four bosses have distinct identities, occupational silhouettes and readable counterplay
+ok 113 - twenty-four bosses have distinct identities, occupational silhouettes and readable counterplay
+  ---
+  duration_ms: 2.3777
+  type: 'test'
+  ...
+# Subtest: all four mission factors and scaled boss hp/contact damage strictly increase
+ok 114 - all four mission factors and scaled boss hp/contact damage strictly increase
+  ---
+  duration_ms: 1.7947
+  type: 'test'
+  ...
+# Subtest: catalog lookups reject unknown keys and scaling is pure with bounded invalid input
+ok 115 - catalog lookups reject unknown keys and scaling is pure with bounded invalid input
+  ---
+  duration_ms: 0.9328
+  type: 'test'
+  ...
+# Subtest: a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+ok 116 - a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+  ---
+  duration_ms: 18.3368
+  type: 'test'
+  ...
+# Subtest: snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+ok 117 - snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+  ---
+  duration_ms: 3.6109
+  type: 'test'
+  ...
+# Subtest: RNG state setters reject corruption without changing the next random value
+ok 118 - RNG state setters reject corruption without changing the next random value
+  ---
+  duration_ms: 0.5712
+  type: 'test'
+  ...
+# Subtest: a piercing bullet remembers its earlier hit after JSON round trip
+ok 119 - a piercing bullet remembers its earlier hit after JSON round trip
+  ---
+  duration_ms: 4.3688
+  type: 'test'
+  ...
+# Subtest: shots and fire thrown outside the map edge remain valid resumable combat
+ok 120 - shots and fire thrown outside the map edge remain valid resumable combat
+  ---
+  duration_ms: 2.9153
+  type: 'test'
+  ...
+# Subtest: city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+ok 121 - city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+  ---
+  duration_ms: 4.8608
+  type: 'test'
+  ...
+# Subtest: navigation caches are omitted and restore creates navigation over the restored city
+ok 122 - navigation caches are omitted and restore creates navigation over the restored city
+  ---
+  duration_ms: 2.2984
+  type: 'test'
+  ...
+# Subtest: a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+ok 123 - a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+  ---
+  duration_ms: 5.6875
+  type: 'test'
+  ...
+# Subtest: route and hospital event screens retain choices and cannot pay their rewards twice
+ok 124 - route and hospital event screens retain choices and cannot pay their rewards twice
+  ---
+  duration_ms: 30.0777
+  type: 'test'
+  ...
+# Subtest: collector attack phases survive restore and boss keeps the live enemy reference
+ok 125 - collector attack phases survive restore and boss keeps the live enemy reference
+  ---
+  duration_ms: 4.9207
+  type: 'test'
+  ...
+# Subtest: signed idle timers and inactive stale alarm IDs are valid checkpoint data
+ok 126 - signed idle timers and inactive stale alarm IDs are valid checkpoint data
+  ---
+  duration_ms: 19.6426
+  type: 'test'
+  ...
+# Subtest: supply preserves a cleared gate and an active orphan alarm until the next district
+ok 127 - supply preserves a cleared gate and an active orphan alarm until the next district
+  ---
+  duration_ms: 1.7547
+  type: 'test'
+  ...
+# Subtest: a stage clear before pickup cleanup can save more than four hundred fifty pickups
+ok 128 - a stage clear before pickup cleanup can save more than four hundred fifty pickups
+  ---
+  duration_ms: 9.2073
+  type: 'test'
+  ...
+# Subtest: restored gameplay and future rolls match the original when transient navigation caches are reset
+ok 129 - restored gameplay and future rolls match the original when transient navigation caches are reset
+  ---
+  duration_ms: 25.6656
+  type: 'test'
+  ...
+# Subtest: menu and terminal runs do not create resumable checkpoints
+ok 130 - menu and terminal runs do not create resumable checkpoints
+  ---
+  duration_ms: 2.8852
+  type: 'test'
+  ...
+# Subtest: corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+ok 131 - corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+  ---
+  duration_ms: 20.4301
+  type: 'test'
+  ...
+# Subtest: duplicate, capped, or missing upgrade choices cannot create a broken selection screen
+ok 132 - duplicate, capped, or missing upgrade choices cannot create a broken selection screen
+  ---
+  duration_ms: 3.6629
+  type: 'test'
+  ...
+# Subtest: optional portrait catalog is an immutable explicit asset map; invalid extensions are atomic
+ok 133 - optional portrait catalog is an immutable explicit asset map; invalid extensions are atomic
+  ---
+  duration_ms: 7.2267
+  type: 'test'
+  ...
+# Subtest: opening all 24 portraits fetches only 12 small mid sheets and reused static finals, never walking atlases or masks
+ok 134 - opening all 24 portraits fetches only 12 small mid sheets and reused static finals, never walking atlases or masks
+  ---
+  duration_ms: 43.4712
+  type: 'test'
+  ...
+# Subtest: an absent optional catalog causes zero codex fetches but permits an already loaded gameplay boss to be reused
+ok 135 - an absent optional catalog causes zero codex fetches but permits an already loaded gameplay boss to be reused
+  ---
+  duration_ms: 9.0943
+  type: 'test'
+  ...
+# Subtest: a failed explicit portrait retains legacy art without falling through to a full walking request
+ok 136 - a failed explicit portrait retains legacy art without falling through to a full walking request
+  ---
+  duration_ms: 3.0915
+  type: 'test'
+  ...
+# Subtest: existing loader notifications repaint the small portrait and preserve the prior onChange observer
+ok 137 - existing loader notifications repaint the small portrait and preserve the prior onChange observer
+  ---
+  duration_ms: 2.6377
+  type: 'test'
+  ...
+# Subtest: ready small portraits fit their real outline at DPR2 and repeated paints never consume Game RNG or effects
+ok 138 - ready small portraits fit their real outline at DPR2 and repeated paints never consume Game RNG or effects
+  ---
+  duration_ms: 10.3474
+  type: 'test'
+  ...
+# Subtest: an existing codex selection captures fractional coordinates as immutable data without keeping or changing DOM nodes
+ok 139 - an existing codex selection captures fractional coordinates as immutable data without keeping or changing DOM nodes
+  ---
+  duration_ms: 3.5024
+  type: 'test'
+  ...
+# Subtest: fresh replacement nodes regain inner-to-outer scroll positions after selected-card focus, even when focus scrolls an ancestor
+ok 140 - fresh replacement nodes regain inner-to-outer scroll positions after selected-card focus, even when focus scrolls an ancestor
+  ---
+  duration_ms: 0.5689
+  type: 'test'
+  ...
+# Subtest: a shorter dossier or resized roster clamps to fresh real bounds rather than creating horizontal or vertical overflow
+ok 141 - a shorter dossier or resized roster clamps to fresh real bounds rather than creating horizontal or vertical overflow
+  ---
+  duration_ms: 0.8026
+  type: 'test'
+  ...
+# Subtest: initial entry, other actions/screens, missing codex DOM and malformed coordinates never restore or focus anything
+ok 142 - initial entry, other actions/screens, missing codex DOM and malformed coordinates never restore or focus anything
+  ---
+  duration_ms: 0.3837
+  type: 'test'
+  ...
+# Subtest: elastic negative or nonfinite offsets become safe zeroes without requiring global window or document
+ok 143 - elastic negative or nonfinite offsets become safe zeroes without requiring global window or document
+  ---
+  duration_ms: 0.3349
+  type: 'test'
+  ...
+# Subtest: the real app boss-selection action preserves the current mobile roster and page scroll after repeated DOM replacements, without Game/RNG/save drift
+ok 144 - the real app boss-selection action preserves the current mobile roster and page scroll after repeated DOM replacements, without Game/RNG/save drift
+  ---
+  duration_ms: 11.6086
+  type: 'test'
+  ...
+# Subtest: the real campaign-to-codex boss entry keeps first-entry focus and fresh scroll instead of restoring the previous modal
+ok 145 - the real campaign-to-codex boss entry keeps first-entry focus and fresh scroll instead of restoring the previous modal
+  ---
+  duration_ms: 5.7483
+  type: 'test'
+  ...
+# Subtest: mandatory objectives lead one alarm target regardless of enemy array order
+ok 146 - mandatory objectives lead one alarm target regardless of enemy array order
+  ---
+  duration_ms: 2.3272
+  type: 'test'
+  ...
+# Subtest: a mandatory role wins over a same-ID optional alarm and duplicate target copies
+ok 147 - a mandatory role wins over a same-ID optional alarm and duplicate target copies
+  ---
+  duration_ms: 0.2045
+  type: 'test'
+  ...
+# Subtest: dead, zero-health, invalid-position and wrong-role enemies cannot become objectives
+ok 148 - dead, zero-health, invalid-position and wrong-role enemies cannot become objectives
+  ---
+  duration_ms: 0.352
+  type: 'test'
+  ...
+# Subtest: inactive, missing or dead alarm references are omitted without hiding the mandatory target
+ok 149 - inactive, missing or dead alarm references are omitted without hiding the mandatory target
+  ---
+  duration_ms: 0.2524
+  type: 'test'
+  ...
+# Subtest: pause, choices and terminal states provide no directional objectives
+ok 150 - pause, choices and terminal states provide no directional objectives
+  ---
+  duration_ms: 0.3688
+  type: 'test'
+  ...
+# Subtest: targets inside the actual viewport including its boundary do not get an edge marker
+ok 151 - targets inside the actual viewport including its boundary do not get an edge marker
+  ---
+  duration_ms: 0.4974
+  type: 'test'
+  ...
+# Subtest: all eight screen directions retain their angle and hit the correct safe edge
+ok 152 - all eight screen directions retain their angle and hit the correct safe edge
+  ---
+  duration_ms: 0.6533
+  type: 'test'
+  ...
+# Subtest: diagonal rays land exactly on a safe corner without division artifacts
+ok 153 - diagonal rays land exactly on a safe corner without division artifacts
+  ---
+  duration_ms: 0.2747
+  type: 'test'
+  ...
+# Subtest: an external player keeps its original ray when it crosses the safe box and has a bounded fallback when it misses
+ok 154 - an external player keeps its original ray when it crosses the safe box and has a bounded fallback when it misses
+  ---
+  duration_ms: 0.4953
+  type: 'test'
+  ...
+# Subtest: small or clipped safe rectangles stay finite while NaN, zero rays and invalid viewports are rejected
+ok 155 - small or clipped safe rectangles stay finite while NaN, zero rays and invalid viewports are rejected
+  ---
+  duration_ms: 0.576
+  type: 'test'
+  ...
+# Subtest: objective selection and edge math preserve game snapshots, RNG and caller objects
+ok 156 - objective selection and edge math preserve game snapshots, RNG and caller objects
+  ---
+  duration_ms: 8.2374
+  type: 'test'
+  ...
+# Subtest: all31 NPCs retain HQ32 moving feet, authored idle/stagger, exact warnings and immutable paused actors
+ok 157 - all31 NPCs retain HQ32 moving feet, authored idle/stagger, exact warnings and immutable paused actors
+  ---
+  duration_ms: 13180.3186
+  type: 'test'
+  ...
+# Subtest: enemy stride is actual distance and body scale, with stable individual phase and no actor writes
+ok 158 - enemy stride is actual distance and body scale, with stable individual phase and no actor writes
+  ---
+  duration_ms: 4.957
+  type: 'test'
+  ...
+# Subtest: walking turns take the shortest bounded arc while warnings and charges use the exact danger angle
+ok 159 - walking turns take the shortest bounded arc while warnings and charges use the exact danger angle
+  ---
+  duration_ms: 0.3443
+  type: 'test'
+  ...
+# Subtest: blocked movement, paused draws and knockback never spin the legs; restore has deterministic phase
+ok 160 - blocked movement, paused draws and knockback never spin the legs; restore has deterministic phase
+  ---
+  duration_ms: 0.2473
+  type: 'test'
+  ...
+# Subtest: measured sole correction is limited and never flattens running flight or adjusts actions
+ok 161 - measured sole correction is limited and never flattens running flight or adjusts actions
+  ---
+  duration_ms: 0.3668
+  type: 'test'
+  ...
+# Subtest: NPC review creates all 24 real campaign bosses and 7 distinct ordinary enemies on original maps
+ok 162 - NPC review creates all 24 real campaign bosses and 7 distinct ordinary enemies on original maps
+  ---
+  duration_ms: 12.5422
+  type: 'test'
+  ...
+# Subtest: controlled NPC review uses actual collision displacement and keeps RNG plus original speed intact
+ok 163 - controlled NPC review uses actual collision displacement and keeps RNG plus original speed intact
+  ---
+  duration_ms: 8.1058
+  type: 'test'
+  ...
+# Subtest: wall and stop cases reveal real stopped displacement without pretending a walking sample moved
+ok 164 - wall and stop cases reveal real stopped displacement without pretending a walking sample moved
+  ---
+  duration_ms: 10.9503
+  type: 'test'
+  ...
+# Subtest: bounded review requires actual elapsed screen time and tracks wrapped turn increments
+ok 165 - bounded review requires actual elapsed screen time and tracks wrapped turn increments
+  ---
+  duration_ms: 2.0607
+  type: 'test'
+  ...
+# Subtest: review page keeps all playback isolated from storage and retains manual zoom after resize
+ok 166 - review page keeps all playback isolated from storage and retains manual zoom after resize
+  ---
+  duration_ms: 16.7495
+  type: 'test'
+  ...
+# Subtest: seeded actions produce the same world and combat result
+ok 167 - seeded actions produce the same world and combat result
+  ---
+  duration_ms: 141.339
+  type: 'test'
+  ...
+# Subtest: pause and upgrade menus freeze world, player timers, and combat
+ok 168 - pause and upgrade menus freeze world, player timers, and combat
+  ---
+  duration_ms: 1.6556
+  type: 'test'
+  ...
+# Subtest: upgrade choices are unique, valid, capped, and queued levels are consumed
+ok 169 - upgrade choices are unique, valid, capped, and queued levels are consumed
+  ---
+  duration_ms: 1.3377
+  type: 'test'
+  ...
+# Subtest: walking and a complete dash cannot cross a building or intact car
+ok 170 - walking and a complete dash cannot cross a building or intact car
+  ---
+  duration_ms: 1.9711
+  type: 'test'
+  ...
+# Subtest: circle collisions preserve edge and rounded corner tangency after optimization
+ok 171 - circle collisions preserve edge and rounded corner tangency after optimization
+  ---
+  duration_ms: 0.331
+  type: 'test'
+  ...
+# Subtest: lure changes walker direction while collector continues toward player
+ok 172 - lure changes walker direction while collector continues toward player
+  ---
+  duration_ms: 1.2626
+  type: 'test'
+  ...
+# Subtest: gas deaths and car/barrel explosions terminate and count each enemy once
+ok 173 - gas deaths and car/barrel explosions terminate and count each enemy once
+  ---
+  duration_ms: 1.1144
+  type: 'test'
+  ...
+# Subtest: normal shots kill an enemy, grant parts, and allow XP pickup
+ok 174 - normal shots kill an enemy, grant parts, and allow XP pickup
+  ---
+  duration_ms: 10.3035
+  type: 'test'
+  ...
+# Subtest: fast nailgun bullets hit crossed enemies at the maximum supported tick
+ok 175 - fast nailgun bullets hit crossed enemies at the maximum supported tick
+  ---
+  duration_ms: 0.8294
+  type: 'test'
+  ...
+# Subtest: fast bullets cannot shoot through a narrow explosive barrel
+ok 176 - fast bullets cannot shoot through a narrow explosive barrel
+  ---
+  duration_ms: 12.3082
+  type: 'test'
+  ...
+# Subtest: the nearest enemy intercepts a shot before a farther obstacle
+ok 177 - the nearest enemy intercepts a shot before a farther obstacle
+  ---
+  duration_ms: 0.9169
+  type: 'test'
+  ...
+# Subtest: piercing bullets damage each crossed enemy once
+ok 178 - piercing bullets damage each crossed enemy once
+  ---
+  duration_ms: 1.1083
+  type: 'test'
+  ...
+# Subtest: supply heal and mod charge once, respect funds, and never over-heal
+ok 179 - supply heal and mod charge once, respect funds, and never over-heal
+  ---
+  duration_ms: 0.5827
+  type: 'test'
+  ...
+# Subtest: supply cannot spend parts on a mod after every upgrade is capped
+ok 180 - supply cannot spend parts on a mod after every upgrade is capped
+  ---
+  duration_ms: 0.2669
+  type: 'test'
+  ...
+# Subtest: gatekeepers, supply, hospital route, collector, and victory form one complete run
+ok 181 - gatekeepers, supply, hospital route, collector, and victory form one complete run
+  ---
+  duration_ms: 38.1937
+  type: 'test'
+  ...
+# Subtest: police route triggers its alarm once and bypasses hospital event
+ok 182 - police route triggers its alarm once and bypasses hospital event
+  ---
+  duration_ms: 9.7629
+  type: 'test'
+  ...
+# Subtest: death freezes simulation and emits only one end result
+ok 183 - death freezes simulation and emits only one end result
+  ---
+  duration_ms: 1.0451
+  type: 'test'
+  ...
+# Subtest: a fatal contact cannot be undone by a pickup later in the same tick
+ok 184 - a fatal contact cannot be undone by a pickup later in the same tick
+  ---
+  duration_ms: 0.5503
+  type: 'test'
+  ...
+# Subtest: winning from a projectile stops enemy contact damage in the same tick
+ok 185 - winning from a projectile stops enemy contact damage in the same tick
+  ---
+  duration_ms: 0.6655
+  type: 'test'
+  ...
+# Subtest: a winning explosion leaves the recorded kills and currency consistent
+ok 186 - a winning explosion leaves the recorded kills and currency consistent
+  ---
+  duration_ms: 0.5309
+  type: 'test'
+  ...
+# Subtest: a full crowd cannot prevent a district gatekeeper from appearing
+ok 187 - a full crowd cannot prevent a district gatekeeper from appearing
+  ---
+  duration_ms: 16.1544
+  type: 'test'
+  ...
+# Subtest: a full crowd still gives an alarm a live elite that can be killed
+ok 188 - a full crowd still gives an alarm a live elite that can be killed
+  ---
+  duration_ms: 1.8939
+  type: 'test'
+  ...
+# Subtest: hit highlights and gun recoil expire after their short feedback window
+ok 189 - hit highlights and gun recoil expire after their short feedback window
+  ---
+  duration_ms: 1.173
+  type: 'test'
+  ...
+# Subtest: a lethal hit emits one routable kill event with the enemy type as payload
+ok 190 - a lethal hit emits one routable kill event with the enemy type as payload
+  ---
+  duration_ms: 0.4236
+  type: 'test'
+  ...
+# Subtest: walking phases follow physical displacement and remain fixed when standing or blocked
+ok 191 - walking phases follow physical displacement and remain fixed when standing or blocked
+  ---
+  duration_ms: 2.3216
+  type: 'test'
+  ...
+# Subtest: collector charge advances its movement phase and recovery holds it still
+ok 192 - collector charge advances its movement phase and recovery holds it still
+  ---
+  duration_ms: 0.7692
+  type: 'test'
+  ...
+# Subtest: corpses expire after twelve seconds and rapid kills keep their pool at seventy
+ok 193 - corpses expire after twelve seconds and rapid kills keep their pool at seventy
+  ---
+  duration_ms: 8.1879
+  type: 'test'
+  ...
+# Subtest: pause and upgrade screens freeze corpses, particles, hit highlights, and recoil together
+ok 194 - pause and upgrade screens freeze corpses, particles, hit highlights, and recoil together
+  ---
+  duration_ms: 1.2737
+  type: 'test'
+  ...
+# Subtest: explosion smoke, embers, and shockwaves remain finite and bounded during a burst
+ok 195 - explosion smoke, embers, and shockwaves remain finite and bounded during a burst
+  ---
+  duration_ms: 9.0371
+  type: 'test'
+  ...
+# Subtest: fire continues emitting live embers, then cleans up after its duration
+ok 196 - fire continues emitting live embers, then cleans up after its duration
+  ---
+  duration_ms: 1.9744
+  type: 'test'
+  ...
+# Subtest: extra cosmetic bursts do not change enemy spawns, shot spread, loot, or upgrade rolls
+ok 197 - extra cosmetic bursts do not change enemy spawns, shot spread, loot, or upgrade rolls
+  ---
+  duration_ms: 13.5592
+  type: 'test'
+  ...
+# Subtest: a district transition clears visual remains and old fire from the previous map
+ok 198 - a district transition clears visual remains and old fire from the previous map
+  ---
+  duration_ms: 3.8074
+  type: 'test'
+  ...
+# Subtest: victory and death preserve the final combat pose and effects on the result screen
+ok 199 - victory and death preserve the final combat pose and effects on the result screen
+  ---
+  duration_ms: 1.1765
+  type: 'test'
+  ...
+# Subtest: twenty minutes of seeded autopilot keeps entity pools finite and bounded
+not ok 200 - twenty minutes of seeded autopilot keeps entity pools finite and bounded
+  ---
+  duration_ms: 22879.5046
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\engine.test.mjs:547:1'
+  failureType: 'testCodeFailure'
+  error: 'Headless twenty minute simulation exceeds its CPU budget: CPU=19890.00ms, wall=22876.74ms'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs:578:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Stress wall=22876.74ms, CPU=19890.00ms
+# Subtest: run rewards and weapon unlocks survive a real save/load round trip
+ok 201 - run rewards and weapon unlocks survive a real save/load round trip
+  ---
+  duration_ms: 1.5658
+  type: 'test'
+  ...
+# Subtest: corrupt profile data recovers and unsafe settings are sanitized
+ok 202 - corrupt profile data recovers and unsafe settings are sanitized
+  ---
+  duration_ms: 0.3976
+  type: 'test'
+  ...
+# Subtest: a blocked localStorage getter or quota error cannot prevent play
+ok 203 - a blocked localStorage getter or quota error cannot prevent play
+  ---
+  duration_ms: 0.7487
+  type: 'test'
+  ...
+# Subtest: all six loading shop images keep the actual painted canvas accessible without replacing purchase/equip controls
+ok 204 - all six loading shop images keep the actual painted canvas accessible without replacing purchase/equip controls
+  ---
+  duration_ms: 29.3935
+  type: 'test'
+  ...
+# Subtest: PNG failures preserve all six previews and create one shared retry notice, including repeated decoration
+ok 205 - PNG failures preserve all six previews and create one shared retry notice, including repeated decoration
+  ---
+  duration_ms: 5.9436
+  type: 'test'
+  ...
+# Subtest: successful images replace the fallback exactly once while preserving original Board49 crop coordinates and source URL
+ok 206 - successful images replace the fallback exactly once while preserving original Board49 crop coordinates and source URL
+  ---
+  duration_ms: 4.2867
+  type: 'test'
+  ...
+# Subtest: already complete cached successes and failures settle immediately; reopening after a failure can recover
+ok 207 - already complete cached successes and failures settle immediately; reopening after a failure can recover
+  ---
+  duration_ms: 8.3464
+  type: 'test'
+  ...
+# Subtest: the canonical flex portrait explicitly obeys hidden while its image is unavailable
+ok 208 - the canonical flex portrait explicitly obeys hidden while its image is unavailable
+  ---
+  duration_ms: 8.0858
+  type: 'test'
+  ...
+# Subtest: all thirty equipped ranks produce their disclosed effects in actual combat, movement, growth or recovery
+ok 209 - all thirty equipped ranks produce their disclosed effects in actual combat, movement, growth or recovery
+  ---
+  duration_ms: 35.4832
+  type: 'test'
+  ...
+# Subtest: unowned, unequipped, malformed or cross-slot inventory cannot grant effects or consume gameplay RNG
+ok 210 - unowned, unequipped, malformed or cross-slot inventory cannot grant effects or consume gameplay RNG
+  ---
+  duration_ms: 1.6214
+  type: 'test'
+  ...
+# Subtest: training and run upgrades compose once with armor, magazines and movement without altering weapon constants
+ok 211 - training and run upgrades compose once with armor, magazines and movement without altering weapon constants
+  ---
+  duration_ms: 2.5573
+  type: 'test'
+  ...
+# Subtest: bullet damage, pellet count and haste combine with only the selected weapon equipment
+ok 212 - bullet damage, pellet count and haste combine with only the selected weapon equipment
+  ---
+  duration_ms: 0.6023
+  type: 'test'
+  ...
+# Subtest: enhanced fire and reload rates produce equal fixed-step results at thirty and sixty rendering frames per second
+ok 213 - enhanced fire and reload rates produce equal fixed-step results at thirty and sixty rendering frames per second
+  ---
+  duration_ms: 7.0952
+  type: 'test'
+  ...
+# Subtest: XP amplification occurs exactly once for collection and overflow while added magnet reach leaves distant bare pickups still
+ok 214 - XP amplification occurs exactly once for collection and overflow while added magnet reach leaves distant bare pickups still
+  ---
+  duration_ms: 0.8333
+  type: 'test'
+  ...
+# Subtest: a lethal hit consumes one core charge, preserves position, protects for two seconds and ends once after exhaustion
+ok 215 - a lethal hit consumes one core charge, preserves position, protects for two seconds and ends once after exhaustion
+  ---
+  duration_ms: 1.6737
+  type: 'test'
+  ...
+# Subtest: two lethal enemy contacts in the same actual tick consume one charge and preserve the live checkpoint
+ok 216 - two lethal enemy contacts in the same actual tick consume one charge and preserve the live checkpoint
+  ---
+  duration_ms: 0.7972
+  type: 'test'
+  ...
+# Subtest: saved equipment and consumed charges remain frozen when the inventory is upgraded, switched or unloaded before restore
+ok 217 - saved equipment and consumed charges remain frozen when the inventory is upgraded, switched or unloaded before restore
+  ---
+  duration_ms: 1.7226
+  type: 'test'
+  ...
+# Subtest: a version-seventeen mission with no equipment fields resumes unchanged with neutral effects and zero charges
+ok 218 - a version-seventeen mission with no equipment fields resumes unchanged with neutral effects and zero charges
+  ---
+  duration_ms: 3.2754
+  type: 'test'
+  ...
+# Subtest: legacy mode ignores equipment in tuned gameplay and restores old version-one checkpoints byte-for-byte
+ok 219 - legacy mode ignores equipment in tuned gameplay and restores old version-one checkpoints byte-for-byte
+  ---
+  duration_ms: 132.0562
+  type: 'test'
+  ...
+# Subtest: incomplete equipment pairs, impossible derived combinations and invalid remaining charges cannot restore
+ok 220 - incomplete equipment pairs, impossible derived combinations and invalid remaining charges cannot restore
+  ---
+  duration_ms: 3.9541
+  type: 'test'
+  ...
+# Subtest: unused core charges and revival protection freeze through paused and queued upgrade checkpoints
+ok 221 - unused core charges and revival protection freeze through paused and queued upgrade checkpoints
+  ---
+  duration_ms: 2.9924
+  type: 'test'
+  ...
+# Subtest: three controlled real middle-and-final boss battles improve with the fixed legendary loadout
+ok 222 - three controlled real middle-and-final boss battles improve with the fixed legendary loadout
+  ---
+  duration_ms: 54.9581
+  type: 'test'
+  ...
+# mission-01 practice arena: bare=win 15.80s/84 shots/97 HP; equipped=win 5.95s/29 shots/349 HP
+# mission-05 practice arena: bare=win 43.75s/238 shots/124 HP; equipped=win 10.20s/53 shots/349 HP
+# mission-12 practice arena: bare=loss 30.55s/165 shots/0 HP; equipped=win 14.70s/97 shots/349 HP
+# Subtest: legacy progression gains an empty equipment inventory and retains its operation and preferences
+ok 223 - legacy progression gains an empty equipment inventory and retains its operation and preferences
+  ---
+  duration_ms: 1.9342
+  type: 'test'
+  ...
+# Subtest: one test grant and each fixed item upgrade persist as a single write and the grant cannot repeat after reload
+ok 224 - one test grant and each fixed item upgrade persist as a single write and the grant cannot repeat after reload
+  ---
+  duration_ms: 0.7604
+  type: 'test'
+  ...
+# Subtest: failed grant, purchase or equipment writes keep both profile and the persisted wallet unchanged
+ok 225 - failed grant, purchase or equipment writes keep both profile and the persisted wallet unchanged
+  ---
+  duration_ms: 0.5755
+  type: 'test'
+  ...
+# Subtest: gear selection preserves an already saved mission byte for byte and survives profile reload
+ok 226 - gear selection preserves an already saved mission byte for byte and survives profile reload
+  ---
+  duration_ms: 9.112
+  type: 'test'
+  ...
+# Subtest: insufficient funds, rank caps and invalid cross-slot selections never write or change inventory
+ok 227 - insufficient funds, rank caps and invalid cross-slot selections never write or change inventory
+  ---
+  duration_ms: 0.5206
+  type: 'test'
+  ...
+# Subtest: unowned or malformed gear grants no combat effects and cannot cross equipment slots
+ok 228 - unowned or malformed gear grants no combat effects and cannot cross equipment slots
+  ---
+  duration_ms: 1.9498
+  type: 'test'
+  ...
+# Subtest: the explicitly marked test grant is available once and never grows beyond the wallet bound
+ok 229 - the explicitly marked test grant is available once and never grows beyond the wallet bound
+  ---
+  duration_ms: 0.247
+  type: 'test'
+  ...
+# Subtest: fixed equipment costs debit once per rank, preserve unrelated items, and stop at the disclosed cap
+ok 230 - fixed equipment costs debit once per rank, preserve unrelated items, and stop at the disclosed cap
+  ---
+  duration_ms: 0.5662
+  type: 'test'
+  ...
+# Subtest: each slot applies only its equipped item, a rank increase takes effect once, and unequipping restores defaults
+ok 231 - each slot applies only its equipped item, a rank increase takes effect once, and unequipping restores defaults
+  ---
+  duration_ms: 0.3787
+  type: 'test'
+  ...
+# Subtest: all 30 equipment ranks stay finite and bounded while each stronger rank improves its stated benefit
+ok 232 - all 30 equipment ranks stay finite and bounded while each stronger rank improves its stated benefit
+  ---
+  duration_ms: 0.538
+  type: 'test'
+  ...
+# Subtest: all 1331 legitimate equipped rank combinations remain valid across JSON save and restore
+ok 233 - all 1331 legitimate equipped rank combinations remain valid across JSON save and restore
+  ---
+  duration_ms: 28.1057
+  type: 'test'
+  ...
+# Subtest: checkpoint gear rejects invented multipliers, simultaneous alternatives, missing and hidden numeric fields
+ok 234 - checkpoint gear rejects invented multipliers, simultaneous alternatives, missing and hidden numeric fields
+  ---
+  duration_ms: 0.4686
+  type: 'test'
+  ...
+# Subtest: the exact image_gen PNG and all sixteen uneven rectangles match their recorded bounds and provenance
+ok 235 - the exact image_gen PNG and all sixteen uneven rectangles match their recorded bounds and provenance
+  ---
+  duration_ms: 7.331
+  type: 'test'
+  ...
+# Subtest: invalid, overlapping, clipped and nonfinite metadata is rejected without changing its input
+ok 236 - invalid, overlapping, clipped and nonfinite metadata is rejected without changing its input
+  ---
+  duration_ms: 5.0015
+  type: 'test'
+  ...
+# Subtest: one optional image load is deduplicated and failures, dimensions and timeouts retain safe explicit retry
+ok 237 - one optional image load is deduplicated and failures, dimensions and timeouts retain safe explicit retry
+  ---
+  duration_ms: 22.4378
+  type: 'test'
+  ...
+# Subtest: the existing .32 second life traverses sixteen frames once, clamps at the end and reads no random or wall clock
+ok 238 - the existing .32 second life traverses sixteen frames once, clamps at the end and reads no random or wall clock
+  ---
+  duration_ms: 0.4715
+  type: 'test'
+  ...
+# Subtest: one fixed whole-cell scale retains the source expansion and common centre without per-frame width normalizing
+ok 239 - one fixed whole-cell scale retains the source expansion and common centre without per-frame width normalizing
+  ---
+  duration_ms: 1.7722
+  type: 'test'
+  ...
+# Subtest: actual Game.explode retains its particle counts, damage result and short anchor life while its smoke tail continues
+ok 240 - actual Game.explode retains its particle counts, damage result and short anchor life while its smoke tail continues
+  ---
+  duration_ms: 14.9616
+  type: 'test'
+  ...
+# Subtest: only the shockwave centre triangles change; the exact ring, glow, alpha, other particles and Canvas state remain intact
+ok 241 - only the shockwave centre triangles change; the exact ring, glow, alpha, other particles and Canvas state remain intact
+  ---
+  duration_ms: 1.697
+  type: 'test'
+  ...
+# Subtest: paused and upgrade renders retain their actual frame and checkpoint/RNG; restore keeps the existing empty cosmetic pool
+ok 242 - paused and upgrade renders retain their actual frame and checkpoint/RNG; restore keeps the existing empty cosmetic pool
+  ---
+  duration_ms: 6.894
+  type: 'test'
+  ...
+# Subtest: real Renderer construction warms one shared image, and later renderers reuse it without new decoding
+ok 243 - real Renderer construction warms one shared image, and later renderers reuse it without new decoding
+  ---
+  duration_ms: 2.1716
+  type: 'test'
+  ...
+# Subtest: a real explosion body sorts between background and foreground geometry, once, while ring/glow remain in the particle pass
+ok 244 - a real explosion body sorts between background and foreground geometry, once, while ring/glow remain in the particle pass
+  ---
+  duration_ms: 13.6963
+  type: 'test'
+  ...
+# Subtest: unavailable art keeps the original post-geometry fallback, and a failed depth draw attempts the image only once
+ok 245 - unavailable art keeps the original post-geometry fallback, and a failed depth draw attempts the image only once
+  ---
+  duration_ms: 5.1664
+  type: 'test'
+  ...
+# Subtest: camera/zoom/DPR keep the body in the same world transform and equal-depth actors stay above it
+ok 246 - camera/zoom/DPR keep the body in the same world transform and equal-depth actors stay above it
+  ---
+  duration_ms: 4.4801
+  type: 'test'
+  ...
+# Subtest: repeated paused/upgrade renders depth-sort every live burst once without changing Game/RNG or allocating another image
+ok 247 - repeated paused/upgrade renders depth-sort every live burst once without changing Game/RNG or allocating another image
+  ---
+  duration_ms: 36.7915
+  type: 'test'
+  ...
+# Subtest: the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly
+ok 248 - the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly
+  ---
+  duration_ms: 6.6293
+  type: 'test'
+  ...
+# Subtest: metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input
+ok 249 - metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input
+  ---
+  duration_ms: 7.0095
+  type: 'test'
+  ...
+# Subtest: one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior
+ok 250 - one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior
+  ---
+  duration_ms: 10.717
+  type: 'test'
+  ...
+# Subtest: time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock
+ok 251 - time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock
+  ---
+  duration_ms: 0.5642
+  type: 'test'
+  ...
+# Subtest: exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache
+ok 252 - exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache
+  ---
+  duration_ms: 4.3286
+  type: 'test'
+  ...
+# Subtest: larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded
+ok 253 - larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded
+  ---
+  duration_ms: 0.847
+  type: 'test'
+  ...
+# Subtest: the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry
+ok 254 - the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry
+  ---
+  duration_ms: 1.923
+  type: 'test'
+  ...
+# Subtest: actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample
+ok 255 - actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample
+  ---
+  duration_ms: 8.4836
+  type: 'test'
+  ...
+# Subtest: actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites
+ok 256 - actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites
+  ---
+  duration_ms: 10.3976
+  type: 'test'
+  ...
+# Subtest: unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers
+ok 257 - unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers
+  ---
+  duration_ms: 5.8038
+  type: 'test'
+  ...
+# Subtest: repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock
+ok 258 - repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock
+  ---
+  duration_ms: 3.1893
+  type: 'test'
+  ...
+# Subtest: automatic firing works without a pointer and selects the nearest living clear target
+ok 259 - automatic firing works without a pointer and selects the nearest living clear target
+  ---
+  duration_ms: 7.0373
+  type: 'test'
+  ...
+# Subtest: each weapon includes its muzzle offset and target body at the exact range boundary
+ok 260 - each weapon includes its muzzle offset and target body at the exact range boundary
+  ---
+  duration_ms: 1.7362
+  type: 'test'
+  ...
+# Subtest: buildings, cars, barrels and fences block automatic aim until destroyed
+ok 261 - buildings, cars, barrels and fences block automatic aim until destroyed
+  ---
+  duration_ms: 1.5694
+  type: 'test'
+  ...
+# Subtest: a closer blocked zombie does not prevent selecting a farther visible zombie
+ok 262 - a closer blocked zombie does not prevent selecting a farther visible zombie
+  ---
+  duration_ms: 0.7492
+  type: 'test'
+  ...
+# Subtest: automatic aim respects inclusive 3px wall edges and the bullet collider square corner
+ok 263 - automatic aim respects inclusive 3px wall edges and the bullet collider square corner
+  ---
+  duration_ms: 1.7493
+  type: 'test'
+  ...
+# Subtest: desktop manual mode keeps pointer aim and fires only while its button is pressed
+ok 264 - desktop manual mode keeps pointer aim and fires only while its button is pressed
+  ---
+  duration_ms: 2.6214
+  type: 'test'
+  ...
+# Subtest: touch manual aim assistance changes aim but never supplies an unpressed fire button
+ok 265 - touch manual aim assistance changes aim but never supplies an unpressed fire button
+  ---
+  duration_ms: 2.2049
+  type: 'test'
+  ...
+# Subtest: automatic fire delegates ammo, damage and continued firing after reload to the engine
+ok 266 - automatic fire delegates ammo, damage and continued firing after reload to the engine
+  ---
+  duration_ms: 2.6064
+  type: 'test'
+  ...
+# Subtest: switching from automatic to manual mode stops unpressed shots after the cooldown
+ok 267 - switching from automatic to manual mode stops unpressed shots after the cooldown
+  ---
+  duration_ms: 2.4272
+  type: 'test'
+  ...
+# Subtest: paused, choice, menu and result states suppress both modes without advancing the run
+ok 268 - paused, choice, menu and result states suppress both modes without advancing the run
+  ---
+  duration_ms: 3.5396
+  type: 'test'
+  ...
+# Subtest: selecting a firing intent is read-only for actors, checkpoints, RNG and effect queues
+ok 269 - selecting a firing intent is read-only for actors, checkpoints, RNG and effect queues
+  ---
+  duration_ms: 5.4573
+  type: 'test'
+  ...
+# Subtest: sixty seconds of representative automatic combat keeps normal entity bounds
+ok 270 - sixty seconds of representative automatic combat keeps normal entity bounds
+  ---
+  duration_ms: 1210.6797
+  type: 'test'
+  ...
+# Automatic combat 60s: CPU=1594.00ms, wall=1209.20ms, shots=268, kills=106, enemies=171
+# Subtest: normal districts show rounded countdown seconds and survival progress
+ok 271 - normal districts show rounded countdown seconds and survival progress
+  ---
+  duration_ms: 1.6365
+  type: 'test'
+  ...
+# Subtest: a delayed gatekeeper spawn stays a survival goal with an approaching message
+ok 272 - a delayed gatekeeper spawn stays a survival goal with an approaching message
+  ---
+  duration_ms: 0.6274
+  type: 'test'
+  ...
+# Subtest: the final collector countdown uses sixty five percent of each operation duration
+ok 273 - the final collector countdown uses sixty five percent of each operation duration
+  ---
+  duration_ms: 0.4023
+  type: 'test'
+  ...
+# Subtest: gatekeeper damage progress comes from the real gatekeeper instead of an alarm elite
+ok 274 - gatekeeper damage progress comes from the real gatekeeper instead of an alarm elite
+  ---
+  duration_ms: 0.5023
+  type: 'test'
+  ...
+# Subtest: alarms never replace a survival countdown or the final collector objective
+ok 275 - alarms never replace a survival countdown or the final collector objective
+  ---
+  duration_ms: 1.8508
+  type: 'test'
+  ...
+# Subtest: a present collector is the final target and a missing gatekeeper has a safe fallback
+ok 276 - a present collector is the final target and a missing gatekeeper has a safe fallback
+  ---
+  duration_ms: 0.2856
+  type: 'test'
+  ...
+# Subtest: cleared districts and victory return completed guidance even during an orphan alarm
+ok 277 - cleared districts and victory return completed guidance even during an orphan alarm
+  ---
+  duration_ms: 0.4251
+  type: 'test'
+  ...
+# Subtest: pause and upgrade menus keep the mission countdown frozen and suppress field hints
+ok 278 - pause and upgrade menus keep the mission countdown frozen and suppress field hints
+  ---
+  duration_ms: 7.528
+  type: 'test'
+  ...
+# Subtest: keyboard hints change at six and twelve seconds and end exactly at eighteen
+ok 279 - keyboard hints change at six and twelve seconds and end exactly at eighteen
+  ---
+  duration_ms: 0.8701
+  type: 'test'
+  ...
+# Subtest: touch hints name the visible controls instead of keyboard keys
+ok 280 - touch hints name the visible controls instead of keyboard keys
+  ---
+  duration_ms: 0.6109
+  type: 'test'
+  ...
+# Subtest: only the first unfinished operation gets hints while actively playing
+ok 281 - only the first unfinished operation gets hints while actively playing
+  ---
+  duration_ms: 0.2742
+  type: 'test'
+  ...
+# Subtest: restoring a run keeps tutorial time and changing districts does not restart the hints
+ok 282 - restoring a run keeps tutorial time and changing districts does not restart the hints
+  ---
+  duration_ms: 7.5625
+  type: 'test'
+  ...
+# Subtest: guidance is read-only and progress remains finite for missing or out of range data
+ok 283 - guidance is read-only and progress remains finite for missing or out of range data
+  ---
+  duration_ms: 0.2887
+  type: 'test'
+  ...
+# Subtest: automatic firing hints explain movement and mode switching without asking for a firing button
+ok 284 - automatic firing hints explain movement and mode switching without asking for a firing button
+  ---
+  duration_ms: 0.2722
+  type: 'test'
+  ...
+# Subtest: critical health uses the inclusive raw fraction rather than rounded or fixed HP
+ok 285 - critical health uses the inclusive raw fraction rather than rounded or fixed HP
+  ---
+  duration_ms: 2.3614
+  type: 'test'
+  ...
+# Subtest: missing, dead and nonfinite combat values cannot trigger a warning
+ok 286 - missing, dead and nonfinite combat values cannot trigger a warning
+  ---
+  duration_ms: 0.4021
+  type: 'test'
+  ...
+# Subtest: real damage crosses the threshold and an offered health upgrade clears it with the new maximum
+ok 287 - real damage crosses the threshold and an offered health upgrade clears it with the new maximum
+  ---
+  duration_ms: 4.757
+  type: 'test'
+  ...
+# Subtest: district clearance and the actual supply purchase recover a critical survivor
+ok 288 - district clearance and the actual supply purchase recover a critical survivor
+  ---
+  duration_ms: 4.9987
+  type: 'test'
+  ...
+# Subtest: trained critical health survives restore and repeated queries leave both RNG streams and effects untouched
+ok 289 - trained critical health survives restore and repeated queries leave both RNG streams and effects untouched
+  ---
+  duration_ms: 4.3669
+  type: 'test'
+  ...
+# Subtest: a real fatal hit ends the living-health warning without altering the terminal result
+ok 290 - a real fatal hit ends the living-health warning without altering the terminal result
+  ---
+  duration_ms: 0.9099
+  type: 'test'
+  ...
+# Subtest: delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events
+ok 291 - delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events
+  ---
+  duration_ms: 9.9726
+  type: 'test'
+  ...
+# Subtest: selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request
+ok 292 - selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request
+  ---
+  duration_ms: 0.3355
+  type: 'test'
+  ...
+# Subtest: failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness
+ok 293 - failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness
+  ---
+  duration_ms: 3.9483
+  type: 'test'
+  ...
+# Subtest: operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules
+ok 294 - operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules
+  ---
+  duration_ms: 4.4775
+  type: 'test'
+  ...
+# Subtest: environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state
+ok 295 - environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state
+  ---
+  duration_ms: 22.3834
+  type: 'test'
+  ...
+# Subtest: preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure
+ok 296 - preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure
+  ---
+  duration_ms: 1.8751
+  type: 'test'
+  ...
+# Subtest: registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks
+ok 297 - registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks
+  ---
+  duration_ms: 2.2658
+  type: 'test'
+  ...
+# Subtest: actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable
+ok 298 - actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable
+  ---
+  duration_ms: 11.897
+  type: 'test'
+  ...
+# Subtest: failed, cancelled and obsolete launches preserve the paused game and its images; only committed replacement trims
+ok 299 - failed, cancelled and obsolete launches preserve the paused game and its images; only committed replacement trims
+  ---
+  duration_ms: 16.0774
+  type: 'test'
+  ...
+# Subtest: a legacy run prepares every later-district native species before committing its first district
+ok 300 - a legacy run prepares every later-district native species before committing its first district
+  ---
+  duration_ms: 37.9287
+  type: 'test'
+  ...
+# Subtest: every district and map aspect ratio fits its complete diamond into the available panel
+ok 301 - every district and map aspect ratio fits its complete diamond into the available panel
+  ---
+  duration_ms: 7.5891
+  type: 'test'
+  ...
+# Subtest: all eight WASD directions and the player arrow agree with movement on the main screen
+ok 302 - all eight WASD directions and the player arrow agree with movement on the main screen
+  ---
+  duration_ms: 0.6113
+  type: 'test'
+  ...
+# Subtest: world east and south retain their thirty-degree ground axes under different panel shapes
+ok 303 - world east and south retain their thirty-degree ground axes under different panel shapes
+  ---
+  duration_ms: 0.213
+  type: 'test'
+  ...
+# Subtest: projection and terrain identity leave the world, options and both RNG streams untouched
+ok 304 - projection and terrain identity leave the world, options and both RNG streams untouched
+  ---
+  duration_ms: 8.0842
+  type: 'test'
+  ...
+# Subtest: terrain cache identity changes on destruction or layout edits but ignores combat and exit state
+ok 305 - terrain cache identity changes on destruction or layout edits but ignores combat and exit state
+  ---
+  duration_ms: 0.7427
+  type: 'test'
+  ...
+# Subtest: small panels and absent or malformed optional dimensions still yield finite usable coordinates
+ok 306 - small panels and absent or malformed optional dimensions still yield finite usable coordinates
+  ---
+  duration_ms: 0.3379
+  type: 'test'
+  ...
+# Subtest: molotov winds up, releases, arcs and lands before creating fire
+ok 307 - molotov winds up, releases, arcs and lands before creating fire
+  ---
+  duration_ms: 4.4402
+  type: 'test'
+  ...
+# Subtest: in flight checkpoint resumes deterministically and old saves remain valid
+ok 308 - in flight checkpoint resumes deterministically and old saves remain valid
+  ---
+  duration_ms: 8.3047
+  type: 'test'
+  ...
+# Subtest: projectile rejects corrupt state and remains bounded at maximum range
+ok 309 - projectile rejects corrupt state and remains bounded at maximum range
+  ---
+  duration_ms: 0.282
+  type: 'test'
+  ...
+# Subtest: district transition clears pending projectiles
+ok 310 - district transition clears pending projectiles
+  ---
+  duration_ms: 0.6258
+  type: 'test'
+  ...
+# Subtest: movement review uses legal unchanged original road and actual analog engine displacement
+ok 311 - movement review uses legal unchanged original road and actual analog engine displacement
+  ---
+  duration_ms: 16.748
+  type: 'test'
+  ...
+# Subtest: review fixed ticks require elapsed wall time and cap frame catch-up
+ok 312 - review fixed ticks require elapsed wall time and cap frame catch-up
+  ---
+  duration_ms: 0.4022
+  type: 'test'
+  ...
+# Subtest: actual no-input follow-up has no drift; pause fingerprint includes both RNG states
+ok 313 - actual no-input follow-up has no drift; pause fingerprint includes both RNG states
+  ---
+  duration_ms: 1.3965
+  type: 'test'
+  ...
+# Subtest: fixed and heading aim are real simulation inputs, and fire fires the actual weapon
+ok 314 - fixed and heading aim are real simulation inputs, and fire fires the actual weapon
+  ---
+  duration_ms: 1.6954
+  type: 'test'
+  ...
+# Subtest: all six named spans select only their own native samples and clamp one shots
+ok 315 - all six named spans select only their own native samples and clamp one shots
+  ---
+  duration_ms: 6.3604
+  type: 'test'
+  ...
+# Subtest: combined walk loops through its own phase and idle breathes without running an action
+ok 316 - combined walk loops through its own phase and idle breathes without running an action
+  ---
+  duration_ms: 0.7756
+  type: 'test'
+  ...
+# Subtest: overlap, out-of-range spans, impossible time and missing idle reject the entire combined atlas
+ok 317 - overlap, out-of-range spans, impossible time and missing idle reject the entire combined atlas
+  ---
+  duration_ms: 4.955
+  type: 'test'
+  ...
+# Subtest: legacy single-clip metadata retains its distance phase and stationary frame selection
+ok 318 - legacy single-clip metadata retains its distance phase and stationary frame selection
+  ---
+  duration_ms: 0.3585
+  type: 'test'
+  ...
+# Subtest: live boss warnings and recovery use saved countdowns; damage cannot hide the warning
+ok 319 - live boss warnings and recovery use saved countdowns; damage cannot hide the warning
+  ---
+  duration_ms: 17.64
+  type: 'test'
+  ...
+# Subtest: each of the twelve real final boss skill states selects the correct attack window
+ok 320 - each of the twelve real final boss skill states selects the correct attack window
+  ---
+  duration_ms: 26.8816
+  type: 'test'
+  ...
+# Subtest: ordinary hit reaction and native death stop inside their own one-shot spans
+ok 321 - ordinary hit reaction and native death stop inside their own one-shot spans
+  ---
+  duration_ms: 0.4238
+  type: 'test'
+  ...
+# Subtest: boss corpse identity persists through new checkpoints and old identity-free saves still restore
+ok 322 - boss corpse identity persists through new checkpoints and old identity-free saves still restore
+  ---
+  duration_ms: 3.4476
+  type: 'test'
+  ...
+# Subtest: native corpse animation follows simulation through pause and completes once after terminal victory without mutating it
+ok 323 - native corpse animation follows simulation through pause and completes once after terminal victory without mutating it
+  ---
+  duration_ms: 6.6023
+  type: 'test'
+  ...
+# Subtest: native dying bodies share the live actor depth sort and do not use the generic ground prepass
+ok 324 - native dying bodies share the live actor depth sort and do not use the generic ground prepass
+  ---
+  duration_ms: 2.2486
+  type: 'test'
+  ...
+# Subtest: losslessly packed variable rectangles preserve every frame world bounds, anchors and sample indices
+ok 325 - losslessly packed variable rectangles preserve every frame world bounds, anchors and sample indices
+  ---
+  duration_ms: 26.0004
+  type: 'test'
+  ...
+# Subtest: packed pivots outside their cropped rectangle remain valid and keep the ground anchor exact
+ok 326 - packed pivots outside their cropped rectangle remain valid and keep the ground anchor exact
+  ---
+  duration_ms: 8.1131
+  type: 'test'
+  ...
+# Subtest: packed validation rejects overlap, fractional or out-of-image rectangles, cropped bounds and unknown packing
+ok 327 - packed validation rejects overlap, fractional or out-of-image rectangles, cropped bounds and unknown packing
+  ---
+  duration_ms: 40.7987
+  type: 'test'
+  ...
+# Subtest: the atlas loader and draw path use each packed source rect rather than the original frame canvas size
+ok 328 - the atlas loader and draw path use each packed source rect rather than the original frame canvas size
+  ---
+  duration_ms: 9.139
+  type: 'test'
+  ...
+# Subtest: real ordinary NPC contact strikes and scream releases use existing saved cooldowns without new gameplay
+ok 329 - real ordinary NPC contact strikes and scream releases use existing saved cooldowns without new gameplay
+  ---
+  duration_ms: 1.2596
+  type: 'test'
+  ...
+# Subtest: ordinary NPC death reuses its exact registered enemy identity and the same saved corpse lifetime
+ok 330 - ordinary NPC death reuses its exact registered enemy identity and the same saved corpse lifetime
+  ---
+  duration_ms: 7.4542
+  type: 'test'
+  ...
+# Subtest: optional hero action reel handles real shooting, hurt and death while preserving packed locomotion aliases and the actual player clock
+ok 331 - optional hero action reel handles real shooting, hurt and death while preserving packed locomotion aliases and the actual player clock
+  ---
+  duration_ms: 45.6037
+  type: 'test'
+  ...
+# Subtest: a missing hero action reel and real reload cooldown retain original equipped hero art instead of substituting an unarmed model
+ok 332 - a missing hero action reel and real reload cooldown retain original equipped hero art instead of substituting an unarmed model
+  ---
+  duration_ms: 31.2693
+  type: 'test'
+  ...
+# Subtest: keeping a ready record preserves atlas/mask identity and deduplicated promises
+ok 333 - keeping a ready record preserves atlas/mask identity and deduplicated promises
+  ---
+  duration_ms: 9.8968
+  type: 'test'
+  ...
+# Subtest: released ready image/mask references are cleared and a later load creates a fresh record
+ok 334 - released ready image/mask references are cleared and a later load creates a fresh record
+  ---
+  duration_ms: 5.7124
+  type: 'test'
+  ...
+# Subtest: a dropped pending metadata request is aborted and its late response never becomes ready
+ok 335 - a dropped pending metadata request is aborted and its late response never becomes ready
+  ---
+  duration_ms: 3.5508
+  type: 'test'
+  ...
+# Subtest: a dropped late PNG cannot replace or notify over a new ready record with the same ID
+ok 336 - a dropped late PNG cannot replace or notify over a new ready record with the same ID
+  ---
+  duration_ms: 7.3534
+  type: 'test'
+  ...
+# Subtest: a late body-mask completion is ignored after release and never repopulates a record or emits ready
+ok 337 - a late body-mask completion is ignored after release and never repopulates a record or emits ready
+  ---
+  duration_ms: 6.5516
+  type: 'test'
+  ...
+# Subtest: failed records can be released and reloaded normally
+ok 338 - failed records can be released and reloaded normally
+  ---
+  duration_ms: 5.1761
+  type: 'test'
+  ...
+# Subtest: invalid keep collections are atomic and an unloaded registered ID is valid
+ok 339 - invalid keep collections are atomic and an unloaded registered ID is valid
+  ---
+  duration_ms: 8.489
+  type: 'test'
+  ...
+# Subtest: actual alpha-derived contour coordinates survive validation, cloning and deep freezing without changing the input
+ok 340 - actual alpha-derived contour coordinates survive validation, cloning and deep freezing without changing the input
+  ---
+  duration_ms: 25.8223
+  type: 'test'
+  ...
+# Subtest: malformed optional contours reject the entire atlas before any PNG is decoded
+ok 341 - malformed optional contours reject the entire atlas before any PNG is decoded
+  ---
+  duration_ms: 181.0563
+  type: 'test'
+  ...
+# Subtest: only complete validated tables bypass the declared mask, with a shared ready promise and no pixel read
+ok 342 - only complete validated tables bypass the declared mask, with a shared ready promise and no pixel read
+  ---
+  duration_ms: 5.3975
+  type: 'test'
+  ...
+# Subtest: complete contours work without a mask registration, while old and partial tables still require the existing mask/retry path
+ok 343 - complete contours work without a mask registration, while old and partial tables still require the existing mask/retry path
+  ---
+  duration_ms: 10.6479
+  type: 'test'
+  ...
+# Subtest: mask failure still blocks launch/restore for partial metadata; complete contours unblock it without changing the saved run or RNG
+ok 344 - mask failure still blocks launch/restore for partial metadata; complete contours unblock it without changing the saved run or RNG
+  ---
+  duration_ms: 21.4668
+  type: 'test'
+  ...
+# Subtest: release/reload drops contour eligibility and never reuses a prior record or its readiness promise
+ok 345 - release/reload drops contour eligibility and never reuses a prior record or its readiness promise
+  ---
+  duration_ms: 12.8836
+  type: 'test'
+  ...
+# Subtest: late completion of a released legacy mask cannot overwrite or notify readiness for a reloaded contour record
+ok 346 - late completion of a released legacy mask cannot overwrite or notify readiness for a reloaded contour record
+  ---
+  duration_ms: 5.3043
+  type: 'test'
+  ...
+# Subtest: real car collision depth h wins over vertical height while explicit width/height rectangle callers remain supported
+ok 347 - real car collision depth h wins over vertical height while explicit width/height rectangle callers remain supported
+  ---
+  duration_ms: 11.5248
+  type: 'test'
+  ...
+# Subtest: all twelve actual canonical landmarks fit their ground collision cells without borrowing the independent art height
+ok 348 - all twelve actual canonical landmarks fit their ground collision cells without borrowing the independent art height
+  ---
+  duration_ms: 40.8205
+  type: 'test'
+  ...
+# Subtest: actual SITE OFFICE six-section PNG/body and physics matrix contains both ends, two occluders and a blocked control
+ok 349 - actual SITE OFFICE six-section PNG/body and physics matrix contains both ends, two occluders and a blocked control
+  ---
+  duration_ms: 22.0254
+  type: 'test'
+  ...
+# Subtest: actual drawObstacle scopes alpha to each native section and restores context/cache/record identities
+ok 350 - actual drawObstacle scopes alpha to each native section and restores context/cache/record identities
+  ---
+  duration_ms: 9.2405
+  type: 'test'
+  ...
+# Subtest: body bounds reject empty PNG padding and invalid inputs while front-facing clear positions stay opaque
+ok 351 - body bounds reject empty PNG padding and invalid inputs while front-facing clear positions stay opaque
+  ---
+  duration_ms: 2.9022
+  type: 'test'
+  ...
+# Subtest: an actor physically reaches the other side of an L corner without crossing a wall
+ok 352 - an actor physically reaches the other side of an L corner without crossing a wall
+  ---
+  duration_ms: 34.3122
+  type: 'test'
+  ...
+# Subtest: player and lure can alternate flow fields and lead through different corners
+ok 353 - player and lure can alternate flow fields and lead through different corners
+  ---
+  duration_ms: 6.844
+  type: 'test'
+  ...
+# Subtest: a destroyed car immediately opens a shortcut and rebuilding it closes the shortcut
+ok 354 - a destroyed car immediately opens a shortcut and rebuilding it closes the shortcut
+  ---
+  duration_ms: 1.8114
+  type: 'test'
+  ...
+# Subtest: unreachable rooms return a finite zero direction rather than targeting through a wall
+ok 355 - unreachable rooms return a finite zero direction rather than targeting through a wall
+  ---
+  duration_ms: 3.2776
+  type: 'test'
+  ...
+# Subtest: a previously unreachable route opens after a destroyed divider invalidates failed fields
+ok 356 - a previously unreachable route opens after a destroyed divider invalidates failed fields
+  ---
+  duration_ms: 0.9989
+  type: 'test'
+  ...
+# Subtest: a target too close to a wall is approached at a physically safe reachable edge
+ok 357 - a target too close to a wall is approached at a physically safe reachable edge
+  ---
+  duration_ms: 3.3401
+  type: 'test'
+  ...
+# Subtest: source cells next to a wall can find a nearby visible grid node
+ok 358 - source cells next to a wall can find a nearby visible grid node
+  ---
+  duration_ms: 6.1657
+  type: 'test'
+  ...
+# Subtest: an elite can follow the narrow real street around a building and a fence
+ok 359 - an elite can follow the narrow real street around a building and a fence
+  ---
+  duration_ms: 15.3791
+  type: 'test'
+  ...
+# Subtest: a small actor fits a doorway while the collector cannot squeeze through
+ok 360 - a small actor fits a doorway while the collector cannot squeeze through
+  ---
+  duration_ms: 2.5809
+  type: 'test'
+  ...
+# Subtest: line of sight respects rounded circle clearance at a rectangle corner
+ok 361 - line of sight respects rounded circle clearance at a rectangle corner
+  ---
+  duration_ms: 0.6697
+  type: 'test'
+  ...
+# Subtest: adjacent, identical, and invalid points cannot produce NaN or unwanted movement
+ok 362 - adjacent, identical, and invalid points cannot produce NaN or unwanted movement
+  ---
+  duration_ms: 0.3828
+  type: 'test'
+  ...
+# Subtest: explicit invalidation updates a changed obstacle layout
+ok 363 - explicit invalidation updates a changed obstacle layout
+  ---
+  duration_ms: 0.9678
+  type: 'test'
+  ...
+# Subtest: 210 enemies with seven radii reuse player and lure navigation within a bounded frame budget
+ok 364 - 210 enemies with seven radii reuse player and lure navigation within a bounded frame budget
+  ---
+  duration_ms: 91.1659
+  type: 'test'
+  ...
+# Subtest: all 32 walking soles reach the same floor, including the new intermediate below-floor poses
+ok 365 - all 32 walking soles reach the same floor, including the new intermediate below-floor poses
+  ---
+  duration_ms: 1.3151
+  type: 'test'
+  ...
+# Subtest: running keeps its real flight while the 32-frame baseline stays above the measured floor
+ok 366 - running keeps its real flight while the 32-frame baseline stays above the measured floor
+  ---
+  duration_ms: 1.2444
+  type: 'test'
+  ...
+# Subtest: measured stride advances from actual distance at 120/60/30/20Hz, independent of the legacy save phase
+ok 367 - measured stride advances from actual distance at 120/60/30/20Hz, independent of the legacy save phase
+  ---
+  duration_ms: 1.8318
+  type: 'test'
+  ...
+# Subtest: slow analogue input uses the real walking stride; backwards reverses the cycle and sideways keeps stepping
+ok 368 - slow analogue input uses the real walking stride; backwards reverses the cycle and sideways keeps stepping
+  ---
+  duration_ms: 0.3326
+  type: 'test'
+  ...
+# Subtest: pause, wall contact and restoration never advance a foot cycle or mutate actor fields
+ok 369 - pause, wall contact and restoration never advance a foot cycle or mutate actor fields
+  ---
+  duration_ms: 0.9756
+  type: 'test'
+  ...
+# Subtest: shotgun: moving fire and hit retain all 32 armed locomotion samples, stationary attacks and death still use the rig
+ok 370 - shotgun: moving fire and hit retain all 32 armed locomotion samples, stationary attacks and death still use the rig
+  ---
+  duration_ms: 1400.3942
+  type: 'test'
+  ...
+# Subtest: nailgun: moving fire and hit retain all 32 armed locomotion samples, stationary attacks and death still use the rig
+ok 371 - nailgun: moving fire and hit retain all 32 armed locomotion samples, stationary attacks and death still use the rig
+  ---
+  duration_ms: 1599.9973
+  type: 'test'
+  ...
+# Subtest: actual movement is 128 world units per second while checkpoint speed stays at the legacy 214
+ok 372 - actual movement is 128 world units per second while checkpoint speed stays at the legacy 214
+  ---
+  duration_ms: 14.5464
+  type: 'test'
+  ...
+# Subtest: digital diagonal movement is normalized and partial analog movement retains its magnitude
+ok 373 - digital diagonal movement is normalized and partial analog movement retains its magnitude
+  ---
+  duration_ms: 9.9652
+  type: 'test'
+  ...
+# Subtest: releasing movement stops on that simulation step and reversing has no forward drift
+ok 374 - releasing movement stops on that simulation step and reversing has no forward drift
+  ---
+  duration_ms: 0.7949
+  type: 'test'
+  ...
+# Subtest: movement and complete 0.23 second dash distances are stable across simulation frame rates
+ok 375 - movement and complete 0.23 second dash distances are stable across simulation frame rates
+  ---
+  duration_ms: 4.0772
+  type: 'test'
+  ...
+# Subtest: dash exit and a stopped dash do not leak velocity into subsequent movement
+ok 376 - dash exit and a stopped dash do not leak velocity into subsequent movement
+  ---
+  duration_ms: 0.6341
+  type: 'test'
+  ...
+# Subtest: wall contact blocks movement and dash without banking velocity for a direction change
+ok 377 - wall contact blocks movement and dash without banking velocity for a direction change
+  ---
+  duration_ms: 1.6634
+  type: 'test'
+  ...
+# Subtest: all existing equipment and speed upgrade bonuses retain their relative actual and saved effects
+ok 378 - all existing equipment and speed upgrade bonuses retain their relative actual and saved effects
+  ---
+  duration_ms: 11.4822
+  type: 'test'
+  ...
+# Subtest: snapshot capture, paused input and legacy speed restore preserve the saved contract and both RNG streams
+ok 379 - snapshot capture, paused input and legacy speed restore preserve the saved contract and both RNG streams
+  ---
+  duration_ms: 3.2035
+  type: 'test'
+  ...
+# Subtest: live mid-movement save and resumePlaying restore remain deterministic without a transient movement cache
+ok 380 - live mid-movement save and resumePlaying restore remain deterministic without a transient movement cache
+  ---
+  duration_ms: 3.5119
+  type: 'test'
+  ...
+# Subtest: the stateless displacement helper cannot mutate the player, consume RNG or accept non-finite controls
+ok 381 - the stateless displacement helper cannot mutate the player, consume RNG or accept non-finite controls
+  ---
+  duration_ms: 0.8487
+  type: 'test'
+  ...
+# Subtest: actual original GLB keeps feet/hips unchanged while both native weapons follow independent spine aim
+ok 382 - actual original GLB keeps feet/hips unchanged while both native weapons follow independent spine aim
+  ---
+  duration_ms: 653.1426
+  type: 'test'
+  ...
+# Subtest: original idle/walk/run transitions stay finite and stance IK holds an actual planted ankle without stretching
+ok 383 - original idle/walk/run transitions stay finite and stance IK holds an actual planted ankle without stretching
+  ---
+  duration_ms: 165.247
+  type: 'test'
+  ...
+# Subtest: eight travel directions keep independent aim and the planted-foot travel sign
+ok 384 - eight travel directions keep independent aim and the planted-foot travel sign
+  ---
+  duration_ms: 3.9823
+  type: 'test'
+  ...
+# Subtest: distance-driven gait is consistent across render rates and save phase is preserved
+ok 385 - distance-driven gait is consistent across render rates and save phase is preserved
+  ---
+  duration_ms: 1.0866
+  type: 'test'
+  ...
+# Subtest: backpedal reverses the original gait, sidestep follows travel, pause and wall stop freeze phase
+ok 386 - backpedal reverses the original gait, sidestep follows travel, pause and wall stop freeze phase
+  ---
+  duration_ms: 0.2168
+  type: 'test'
+  ...
+# Subtest: auto-aim noise near perpendicular does not flip the hips each frame
+ok 387 - auto-aim noise near perpendicular does not flip the hips each frame
+  ---
+  duration_ms: 0.2309
+  type: 'test'
+  ...
+# Subtest: restoration and long discontinuities never animate teleport distance
+ok 388 - restoration and long discontinuities never animate teleport distance
+  ---
+  duration_ms: 0.1632
+  type: 'test'
+  ...
+# Subtest: only a playing left mouse or pen press starts once, updates aim and captures its own pointer
+ok 389 - only a playing left mouse or pen press starts once, updates aim and captures its own pointer
+  ---
+  duration_ms: 3.1793
+  type: 'test'
+  ...
+# Subtest: duplicate presses and a second pointer cannot alter an owned shot or its pending pulse
+ok 390 - duplicate presses and a second pointer cannot alter an owned shot or its pending pulse
+  ---
+  duration_ms: 0.626
+  type: 'test'
+  ...
+# Subtest: normal release and a left release in a right-button chord clear ownership before natural capture loss and keep the tap
+ok 391 - normal release and a left release in a right-button chord clear ownership before natural capture loss and keep the tap
+  ---
+  duration_ms: 0.4668
+  type: 'test'
+  ...
+# Subtest: cancellation or unexpected capture loss clears the pulse and later events are inert
+ok 392 - cancellation or unexpected capture loss clears the pulse and later events are inert
+  ---
+  duration_ms: 1.4089
+  type: 'test'
+  ...
+# Subtest: explicit cancellation releases only the owned capture, preserves other controls and leaves bindings usable
+ok 393 - explicit cancellation releases only the owned capture, preserves other controls and leaves bindings usable
+  ---
+  duration_ms: 0.419
+  type: 'test'
+  ...
+# Subtest: capture failure cancels the pending press even if capture partially succeeded, while preserving located aim
+ok 394 - capture failure cancels the pending press even if capture partially succeeded, while preserving located aim
+  ---
+  duration_ms: 0.6369
+  type: 'test'
+  ...
+# Subtest: a short click or chord release between ticks produces exactly one real shot for either weapon
+ok 395 - a short click or chord release between ticks produces exactly one real shot for either weapon
+  ---
+  duration_ms: 13.3961
+  type: 'test'
+  ...
+# Subtest: a captured held press retains either weapon fire rate and stops without another shot after release
+ok 396 - a captured held press retains either weapon fire rate and stops without another shot after release
+  ---
+  duration_ms: 6.6641
+  type: 'test'
+  ...
+# Subtest: cancelled, reset or uncaptured pending presses spend no real ammo or firing RNG
+ok 397 - cancelled, reset or uncaptured pending presses spend no real ammo or firing RNG
+  ---
+  duration_ms: 2.6182
+  type: 'test'
+  ...
+# Subtest: automatic combat ignores pointer cancellation but still freezes fire when the game pauses
+ok 398 - automatic combat ignores pointer cancellation but still freezes fire when the game pauses
+  ---
+  duration_ms: 1.9775
+  type: 'test'
+  ...
+# Subtest: pointer fire binds only to the supplied EventTarget without ambient window or document access
+ok 399 - pointer fire binds only to the supplied EventTarget without ambient window or document access
+  ---
+  duration_ms: 0.4365
+  type: 'test'
+  ...
+# Subtest: a native 16-direction 32-sample table loads all 512 combined-weapon contours at the existing pixel limit
+ok 400 - a native 16-direction 32-sample table loads all 512 combined-weapon contours at the existing pixel limit
+  ---
+  duration_ms: 641.2762
+  type: 'test'
+  ...
+# Subtest: 33 samples, either oversized axis, and a 64MP table remain rejected before image decoding
+ok 401 - 33 samples, either oversized axis, and a 64MP table remain rejected before image decoding
+  ---
+  duration_ms: 913.1718
+  type: 'test'
+  ...
+# Subtest: 32-frame phase and native-time sampling visit every sample in every direction and wrap without gaps
+ok 402 - 32-frame phase and native-time sampling visit every sample in every direction and wrap without gaps
+  ---
+  duration_ms: 318.0377
+  type: 'test'
+  ...
+# Subtest: the grounded pose clock reaches all 32 samples and freezes repeated paused draws without actor writes
+ok 403 - the grounded pose clock reaches all 32 samples and freezes repeated paused draws without actor writes
+  ---
+  duration_ms: 381.7873
+  type: 'test'
+  ...
+# Subtest: the metadata text limit accepts exactly 8MiB and rejects one extra character before JSON parsing or PNG allocation
+ok 404 - the metadata text limit accepts exactly 8MiB and rejects one extra character before JSON parsing or PNG allocation
+  ---
+  duration_ms: 122.4286
+  type: 'test'
+  ...
+# Subtest: world-facing directions wrap correctly and do not use the distorted screen angle
+ok 405 - world-facing directions wrap correctly and do not use the distorted screen angle
+  ---
+  duration_ms: 4.8149
+  type: 'test'
+  ...
+# Subtest: looping gait uses the saved distance phase; stationary and one-shot samples stop correctly
+ok 406 - looping gait uses the saved distance phase; stationary and one-shot samples stop correctly
+  ---
+  duration_ms: 0.7411
+  type: 'test'
+  ...
+# Subtest: the fixed foot pivot cancels source padding and preserves world scale and body/core separation
+ok 407 - the fixed foot pivot cancels source padding and preserves world scale and body/core separation
+  ---
+  duration_ms: 8.8369
+  type: 'test'
+  ...
+# Subtest: the render-only pose clock observes actual movement and freezes under repeated paused renders
+ok 408 - the render-only pose clock observes actual movement and freezes under repeated paused renders
+  ---
+  duration_ms: 2.2298
+  type: 'test'
+  ...
+# Subtest: loader accepts validated real-atlas format, deduplicates loads, and draws into an already projected context
+ok 409 - loader accepts validated real-atlas format, deduplicates loads, and draws into an already projected context
+  ---
+  duration_ms: 9.2339
+  type: 'test'
+  ...
+# Subtest: a character uses the existing world foot, aiming direction and walkPhase without changing simulation or RNG
+ok 410 - a character uses the existing world foot, aiming direction and walkPhase without changing simulation or RNG
+  ---
+  duration_ms: 33.6999
+  type: 'test'
+  ...
+# Subtest: invalid projection, clipping, frame order, transparency and image dimensions never become ready
+ok 411 - invalid projection, clipping, frame order, transparency and image dimensions never become ready
+  ---
+  duration_ms: 8.2706
+  type: 'test'
+  ...
+# Subtest: CORS/fetch/PNG failures and unsafe paths resolve false, retain the caller fallback and allow explicit retry
+ok 412 - CORS/fetch/PNG failures and unsafe paths resolve false, retain the caller fallback and allow explicit retry
+  ---
+  duration_ms: 3.8868
+  type: 'test'
+  ...
+# Subtest: metadata and image timeouts cannot leave a pending loading state
+ok 413 - metadata and image timeouts cannot leave a pending loading state
+  ---
+  duration_ms: 33.504
+  type: 'test'
+  ...
+# Subtest: default browser fetch retains its global receiver and injected fetch remains compatible
+ok 414 - default browser fetch retains its global receiver and injected fetch remains compatible
+  ---
+  duration_ms: 3.3902
+  type: 'test'
+  ...
+# Subtest: dash, walk and run poses follow observed movement speed without adding actor fields
+ok 415 - dash, walk and run poses follow observed movement speed without adding actor fields
+  ---
+  duration_ms: 0.3606
+  type: 'test'
+  ...
+# Subtest: grounded player gait respects native clip duration and caps dash cadence without changing engine phase
+ok 416 - grounded player gait respects native clip duration and caps dash cadence without changing engine phase
+  ---
+  duration_ms: 0.4678
+  type: 'test'
+  ...
+# Subtest: optional boss registration loads only real catalog entries and supports static and animated poses
+ok 417 - optional boss registration loads only real catalog entries and supports static and animated poses
+  ---
+  duration_ms: 6.0035
+  type: 'test'
+  ...
+# Subtest: catalog updates preserve unchanged loaded assets and invalidate obsolete asynchronous results
+ok 418 - catalog updates preserve unchanged loaded assets and invalidate obsolete asynchronous results
+  ---
+  duration_ms: 4.666
+  type: 'test'
+  ...
+# Subtest: single-view props use the same game camera and uniform footprint fit preserves the collision cell
+ok 419 - single-view props use the same game camera and uniform footprint fit preserves the collision cell
+  ---
+  duration_ms: 1.4402
+  type: 'test'
+  ...
+# Subtest: native GLB ground extents are normalized and yaw-rotated once, and an offset source pivot stays centered
+ok 420 - native GLB ground extents are normalized and yaw-rotated once, and an offset source pivot stays centered
+  ---
+  duration_ms: 0.3364
+  type: 'test'
+  ...
+# Subtest: actual pre-outline body pixels remain separately available with an optional real body-alpha mask
+ok 421 - actual pre-outline body pixels remain separately available with an optional real body-alpha mask
+  ---
+  duration_ms: 2.1314
+  type: 'test'
+  ...
+# Subtest: final weapon anchors already include normalization and baked direction; hand IK diagnostics are not attachments
+ok 422 - final weapon anchors already include normalization and baked direction; hand IK diagnostics are not attachments
+  ---
+  duration_ms: 1.3028
+  type: 'test'
+  ...
+# Subtest: the actual brick geometry forms a connected 2x2 block in a 510x450 outer cell without a 350-high single building
+ok 423 - the actual brick geometry forms a connected 2x2 block in a 510x450 outer cell without a 350-high single building
+  ---
+  duration_ms: 3.1148
+  type: 'test'
+  ...
+# Subtest: preferred coverage chooses the fewest complete houses, with 75-percent and best-fit fallbacks when 80-percent is impossible
+ok 424 - preferred coverage chooses the fewest complete houses, with 75-percent and best-fit fallbacks when 80-percent is impossible
+  ---
+  duration_ms: 0.5859
+  type: 'test'
+  ...
+# Subtest: returned footprints use the existing uniform propPlacement contract and baked pivot without axis stretching
+ok 425 - returned footprints use the existing uniform propPlacement contract and baked pivot without axis stretching
+  ---
+  duration_ms: 0.9247
+  type: 'test'
+  ...
+# Subtest: all twelve actual mission layouts retain exact obstacles, saves and both RNG streams while every building plan is bounded and connected
+ok 426 - all twelve actual mission layouts retain exact obstacles, saves and both RNG streams while every building plan is bounded and connected
+  ---
+  duration_ms: 46.5507
+  type: 'test'
+  ...
+# Subtest: a stricter render height stays bounded and search/output never exceed 8x8 modules
+ok 427 - a stricter render height stays bounded and search/output never exceed 8x8 modules
+  ---
+  duration_ms: 0.9692
+  type: 'test'
+  ...
+# Subtest: invalid geometry, destroyed objects and nonbuildings return null without changing the supplied data
+ok 428 - invalid geometry, destroyed objects and nonbuildings return null without changing the supplied data
+  ---
+  duration_ms: 0.5797
+  type: 'test'
+  ...
+# Subtest: the actual production catalog covers exactly 24 canonical bosses, 7 enemy roles and both armed survivor locomotion/action profiles
+ok 429 - the actual production catalog covers exactly 24 canonical bosses, 7 enemy roles and both armed survivor locomotion/action profiles
+  ---
+  duration_ms: 8.6953
+  type: 'test'
+  ...
+# Subtest: every registered real metadata/atlas/body-alpha file exists, validates unclipped and agrees with its PNG IHDR dimensions
+ok 430 - every registered real metadata/atlas/body-alpha file exists, validates unclipped and agrees with its PNG IHDR dimensions
+  ---
+  duration_ms: 11248.9265
+  type: 'test'
+  ...
+# Subtest: all24 HD detail keys map exactly to separate native sheets while the original24 thumbnails retain their72MiB budget
+ok 431 - all24 HD detail keys map exactly to separate native sheets while the original24 thumbnails retain their72MiB budget
+  ---
+  duration_ms: 55.6402
+  type: 'test'
+  ...
+# Subtest: all24 native HD game/output copies match pinned export bytes and actual approved GLB provenance, including repaired10final
+ok 432 - all24 native HD game/output copies match pinned export bytes and actual approved GLB provenance, including repaired10final
+  ---
+  duration_ms: 2163.8439
+  type: 'test'
+  ...
+# Subtest: all24 bosses and7 NPCs bind actual skinned16direction six-action native reels with512frames
+ok 433 - all24 bosses and7 NPCs bind actual skinned16direction six-action native reels with512frames
+  ---
+  duration_ms: 6.4241
+  type: 'test'
+  ...
+# Subtest: all eight real survivor locomotion and action bindings include their native weapon and finite yawed muzzle in every frame
+ok 434 - all eight real survivor locomotion and action bindings include their native weapon and finite yawed muzzle in every frame
+  ---
+  duration_ms: 5.5207
+  type: 'test'
+  ...
+# Subtest: the real portrait map preserves twelve lightweight mid sheets and static finals separately from motion gameplay
+ok 435 - the real portrait map preserves twelve lightweight mid sheets and static finals separately from motion gameplay
+  ---
+  duration_ms: 5.9675
+  type: 'test'
+  ...
+# Subtest: actual catalog portrait selection reads only its real lightweight files, never implicit walking sheets or pixel masks
+ok 436 - actual catalog portrait selection reads only its real lightweight files, never implicit walking sheets or pixel masks
+  ---
+  duration_ms: 51.7865
+  type: 'test'
+  ...
+# Subtest: all 184 actual mission buildings match one exact native rule, with 172 common cells and twelve unique landmarks, without state drift
+ok 437 - all 184 actual mission buildings match one exact native rule, with 172 common cells and twelve unique landmarks, without state drift
+  ---
+  duration_ms: 223.2767
+  type: 'test'
+  ...
+# Subtest: all24 original thumbnails and24 HD descriptors and bytes remain pinned to the frozen approved catalog
+ok 438 - all24 original thumbnails and24 HD descriptors and bytes remain pinned to the frozen approved catalog
+  ---
+  duration_ms: 581.9985
+  type: 'test'
+  ...
+# Subtest: all32 actual actor bodies have real weighted joints and six varying GLB clips while original geometry UV textures and binary data remain exact
+ok 439 - all32 actual actor bodies have real weighted joints and six varying GLB clips while original geometry UV textures and binary data remain exact
+  ---
+  duration_ms: 13317.2722
+  type: 'test'
+  ...
+# Subtest: the four packed HQ32 survivor sheets preserve all2048 ground anchors muzzle and body contours at original resolution
+ok 440 - the four packed HQ32 survivor sheets preserve all2048 ground anchors muzzle and body contours at original resolution
+  ---
+  duration_ms: 587.0774
+  type: 'test'
+  ...
+# Subtest: all37 newly registered packed atlases and masks match canonical outputs and pinned registration metadata
+ok 441 - all37 newly registered packed atlases and masks match canonical outputs and pinned registration metadata
+  ---
+  duration_ms: 5004.2119
+  type: 'test'
+  ...
+# Subtest: all31 NPC locomotion sheets have32 real looping poses per direction with fixed native scale root compensation and512 persisted unclipped frames
+ok 442 - all31 NPC locomotion sheets have32 real looping poses per direction with fixed native scale root compensation and512 persisted unclipped frames
+  ---
+  duration_ms: 13074.0027
+  type: 'test'
+  ...
+# Subtest: all126 prior descriptors and asset bytes plus armed hero portrait and environment mappings remain exact to frozenv028
+ok 443 - all126 prior descriptors and asset bytes plus armed hero portrait and environment mappings remain exact to frozenv028
+  ---
+  duration_ms: 6647.6912
+  type: 'test'
+  ...
+# Subtest: actual fence meshes repeat to cover every existing long collision cell without stretching or world mutation
+ok 444 - actual fence meshes repeat to cover every existing long collision cell without stretching or world mutation
+  ---
+  duration_ms: 17.7147
+  type: 'test'
+  ...
+# Subtest: invalid or excessive fence dimensions fail closed
+ok 445 - invalid or excessive fence dimensions fail closed
+  ---
+  duration_ms: 0.3508
+  type: 'test'
+  ...
+# Subtest: an unregistered speaker keeps legacy fallback and performs no eager asset request
+ok 446 - an unregistered speaker keeps legacy fallback and performs no eager asset request
+  ---
+  duration_ms: 12.6852
+  type: 'test'
+  ...
+# Subtest: only a successfully loaded speaker is selectable; a pending atlas never claims the draw
+ok 447 - only a successfully loaded speaker is selectable; a pending atlas never claims the draw
+  ---
+  duration_ms: 3.7194
+  type: 'test'
+  ...
+# Subtest: a real E lure paints once at its baked ground pivot and preserves the active game and context
+ok 448 - a real E lure paints once at its baked ground pivot and preserves the active game and context
+  ---
+  duration_ms: 4.947
+  type: 'test'
+  ...
+# Subtest: explicit reviewed height and orientation use atlas metadata; pause and checkpoint restore freeze the same body
+ok 449 - explicit reviewed height and orientation use atlas metadata; pause and checkpoint restore freeze the same body
+  ---
+  duration_ms: 8.9938
+  type: 'test'
+  ...
+# Subtest: PNG failure and Canvas paint failure both leave the legacy caller responsible for its body
+ok 450 - PNG failure and Canvas paint failure both leave the legacy caller responsible for its body
+  ---
+  duration_ms: 3.9326
+  type: 'test'
+  ...
+# Subtest: Q launches a separate bottle then creates area fire; neither enters the speaker branch
+ok 451 - Q launches a separate bottle then creates area fire; neither enters the speaker branch
+  ---
+  duration_ms: 8.544
+  type: 'test'
+  ...
+# Subtest: expired or invalid lures cannot leave a phantom native object
+ok 452 - expired or invalid lures cannot leave a phantom native object
+  ---
+  duration_ms: 4.8781
+  type: 'test'
+  ...
+# Subtest: the actual renderer swaps one speaker body while preserving all three sound waves, glow and ground shadow
+ok 453 - the actual renderer swaps one speaker body while preserving all three sound waves, glow and ground shadow
+  ---
+  duration_ms: 5.4586
+  type: 'test'
+  ...
+# Subtest: real renderer PNG failure keeps its full legacy speaker; offscreen culling performs no body draw or fetch
+ok 454 - real renderer PNG failure keeps its full legacy speaker; offscreen culling performs no body draw or fetch
+  ---
+  duration_ms: 9.708
+  type: 'test'
+  ...
+# Subtest: an unregistered production catalog makes no requests and keeps the existing player art
+ok 455 - an unregistered production catalog makes no requests and keeps the existing player art
+  ---
+  duration_ms: 7.2404
+  type: 'test'
+  ...
+# Subtest: combined player rendering replaces both old body and gun while retaining shadow, reload and invulnerability
+ok 456 - combined player rendering replaces both old body and gun while retaining shadow, reload and invulnerability
+  ---
+  duration_ms: 24.6995
+  type: 'test'
+  ...
+# Subtest: 16-direction gait follows game time and stops changing across paused wall-clock frames
+ok 457 - 16-direction gait follows game time and stops changing across paused wall-clock frames
+  ---
+  duration_ms: 17.189
+  type: 'test'
+  ...
+# Subtest: new bullet art starts at the actual native muzzle and freezes height without changing planar physics
+ok 458 - new bullet art starts at the actual native muzzle and freezes height without changing planar physics
+  ---
+  duration_ms: 11.5572
+  type: 'test'
+  ...
+# Subtest: real walking sole correction keeps native identification, draw bounds and muzzle on the same ground anchor
+ok 459 - real walking sole correction keeps native identification, draw bounds and muzzle on the same ground anchor
+  ---
+  duration_ms: 224.495
+  type: 'test'
+  ...
+# Subtest: the native identification contour uses body-only head and torso alpha with no duplicate fill or gun/legs
+ok 460 - the native identification contour uses body-only head and torso alpha with no duplicate fill or gun/legs
+  ---
+  duration_ms: 11.224
+  type: 'test'
+  ...
+# Subtest: native player and enemy core bounds respect the existing depth order for identification
+ok 461 - native player and enemy core bounds respect the existing depth order for identification
+  ---
+  duration_ms: 14.7626
+  type: 'test'
+  ...
+# Subtest: native bosses and normal enemy types retain names, health and alarm captions after body replacement
+ok 462 - native bosses and normal enemy types retain names, health and alarm captions after body replacement
+  ---
+  duration_ms: 15.3279
+  type: 'test'
+  ...
+# Subtest: native environment selection is explicit, uniformly fitted and preserves building ghost opacity
+ok 463 - native environment selection is explicit, uniformly fitted and preserves building ghost opacity
+  ---
+  duration_ms: 9.4266
+  type: 'test'
+  ...
+# Subtest: native portraits stay instance-scoped and fit the actual visible outline without adding UI labels
+ok 464 - native portraits stay instance-scoped and fit the actual visible outline without adding UI labels
+  ---
+  duration_ms: 10.6351
+  type: 'test'
+  ...
+# Subtest: native render passes and paused redraws preserve real engine checkpoints, IDs, both RNG streams and effect queues
+ok 465 - native render passes and paused redraws preserve real engine checkpoints, IDs, both RNG streams and effect queues
+  ---
+  duration_ms: 13.8785
+  type: 'test'
+  ...
+# Subtest: DOM-only diagnostics describe the actual painted path and sanitized loading failures without layout or game changes
+ok 466 - DOM-only diagnostics describe the actual painted path and sanitized loading failures without layout or game changes
+  ---
+  duration_ms: 14.4647
+  type: 'test'
+  ...
+# Subtest: declared body-alpha failures are retried explicitly while successful and inflight masks stay deduplicated
+ok 467 - declared body-alpha failures are retried explicitly while successful and inflight masks stay deduplicated
+  ---
+  duration_ms: 5.5132
+  type: 'test'
+  ...
+# Subtest: real engine hits briefly brighten the identical native enemy and boss alpha without extra masks or state drift
+ok 468 - real engine hits briefly brighten the identical native enemy and boss alpha without extra masks or state drift
+  ---
+  duration_ms: 20.4399
+  type: 'test'
+  ...
+# Subtest: connected native building blocks reuse placements until their actual geometry or image changes
+ok 469 - connected native building blocks reuse placements until their actual geometry or image changes
+  ---
+  duration_ms: 5.7734
+  type: 'test'
+  ...
+# Subtest: a canonical art rule matches only its original layout instance despite repeated label and variant
+ok 470 - a canonical art rule matches only its original layout instance despite repeated label and variant
+  ---
+  duration_ms: 4.5591
+  type: 'test'
+  ...
+# Subtest: invalid exact fields fail closed and omitted fields preserve existing broad selection
+ok 471 - invalid exact fields fail closed and omitted fields preserve existing broad selection
+  ---
+  duration_ms: 0.4174
+  type: 'test'
+  ...
+# Subtest: world bounds and elevated art points survive projection and inverse projection
+ok 472 - world bounds and elevated art points survive projection and inverse projection
+  ---
+  duration_ms: 1.5317
+  type: 'test'
+  ...
+# Subtest: the ground axes form equal length isometric diagonals and art rises vertically
+ok 473 - the ground axes form equal length isometric diagonals and art rises vertically
+  ---
+  duration_ms: 0.1915
+  type: 'test'
+  ...
+# Subtest: all eight keyboard directions retain their intended screen direction at equal world speed
+ok 474 - all eight keyboard directions retain their intended screen direction at equal world speed
+  ---
+  duration_ms: 0.3673
+  type: 'test'
+  ...
+# Subtest: W and D move a real engine player up and right on screen
+ok 475 - W and D move a real engine player up and right on screen
+  ---
+  duration_ms: 3.9534
+  type: 'test'
+  ...
+# Subtest: zero movement is finite and remains zero; analog directions keep their angle
+ok 476 - zero movement is finite and remains zero; analog directions keep their angle
+  ---
+  duration_ms: 0.2305
+  type: 'test'
+  ...
+# Subtest: cursor at a 22px weapon height recovers the same ground target and aim angle
+ok 477 - cursor at a 22px weapon height recovers the same ground target and aim angle
+  ---
+  duration_ms: 0.4471
+  type: 'test'
+  ...
+# Subtest: a nonplaying canvas draws initially and at the inclusive hundred-millisecond boundary
+ok 478 - a nonplaying canvas draws initially and at the inclusive hundred-millisecond boundary
+  ---
+  duration_ms: 1.5039
+  type: 'test'
+  ...
+# Subtest: playing renders every visible rAF including automatic and manual input with the same scene key
+ok 479 - playing renders every visible rAF including automatic and manual input with the same scene key
+  ---
+  duration_ms: 0.6629
+  type: 'test'
+  ...
+# Subtest: state and screen key changes refresh immediately without waiting for an idle frame
+ok 480 - state and screen key changes refresh immediately without waiting for an idle frame
+  ---
+  duration_ms: 0.5908
+  type: 'test'
+  ...
+# Subtest: explicit resize or option invalidation produces one immediate refresh
+ok 481 - explicit resize or option invalidation produces one immediate refresh
+  ---
+  duration_ms: 0.2446
+  type: 'test'
+  ...
+# Subtest: hidden and opaque-covered canvases skip drawing even while playing and refresh immediately on reveal
+ok 482 - hidden and opaque-covered canvases skip drawing even while playing and refresh immediately on reveal
+  ---
+  duration_ms: 0.2984
+  type: 'test'
+  ...
+# Subtest: invalidations and scene changes survive repeated hiding and covering before the first visible frame
+ok 483 - invalidations and scene changes survive repeated hiding and covering before the first visible frame
+  ---
+  duration_ms: 0.1971
+  type: 'test'
+  ...
+# Subtest: a backward clock forces a fresh frame and restarts the idle interval from that frame
+ok 484 - a backward clock forces a fresh frame and restarts the idle interval from that frame
+  ---
+  duration_ms: 0.1517
+  type: 'test'
+  ...
+# Subtest: invalid clocks cannot poison scene state, timestamps or a pending refresh
+ok 485 - invalid clocks cannot poison scene state, timestamps or a pending refresh
+  ---
+  duration_ms: 0.1691
+  type: 'test'
+  ...
+# Subtest: the schedule uses only supplied time and leaves DOM, caller options, gameplay and RNG untouched
+ok 486 - the schedule uses only supplied time and leaves DOM, caller options, gameplay and RNG untouched
+  ---
+  duration_ms: 7.8211
+  type: 'test'
+  ...
+# Subtest: critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient
+ok 487 - critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient
+  ---
+  duration_ms: 3.8683
+  type: 'test'
+  ...
+# Subtest: actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options
+ok 488 - actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options
+  ---
+  duration_ms: 170.0606
+  type: 'test'
+  ...
+# Subtest: critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state
+ok 489 - critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state
+  ---
+  duration_ms: 2.0928
+  type: 'test'
+  ...
+# Subtest: the actual camera inverse accounts for its screen offset, zoom and sprite height
+ok 490 - the actual camera inverse accounts for its screen offset, zoom and sprite height
+  ---
+  duration_ms: 0.6124
+  type: 'test'
+  ...
+# Subtest: resizing retains pointer accuracy and limits the backing canvas pixel ratio
+ok 491 - resizing retains pointer accuracy and limits the backing canvas pixel ratio
+  ---
+  duration_ms: 0.493
+  type: 'test'
+  ...
+# Subtest: automatic brackets follow only a living selected body and manual mode retains its pointer marker
+ok 492 - automatic brackets follow only a living selected body and manual mode retains its pointer marker
+  ---
+  duration_ms: 3.8669
+  type: 'test'
+  ...
+# Subtest: the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies
+ok 493 - the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies
+  ---
+  duration_ms: 210.08
+  type: 'test'
+  ...
+# Subtest: the outline follows particles and precedes text and cursor only in alive nonterminal scenes
+ok 494 - the outline follows particles and precedes text and cursor only in alive nonterminal scenes
+  ---
+  duration_ms: 31.2901
+  type: 'test'
+  ...
+# Subtest: head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize
+ok 495 - head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize
+  ---
+  duration_ms: 42.5283
+  type: 'test'
+  ...
+# Subtest: repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues
+ok 496 - repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues
+  ---
+  duration_ms: 26.4064
+  type: 'test'
+  ...
+# Subtest: objective directions hide visible or dead targets and preserve offscreen roles and screen headings
+ok 497 - objective directions hide visible or dead targets and preserve offscreen roles and screen headings
+  ---
+  duration_ms: 5.3531
+  type: 'test'
+  ...
+# Subtest: whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens
+ok 498 - whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens
+  ---
+  duration_ms: 10.3243
+  type: 'test'
+  ...
+# Subtest: same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free
+ok 499 - same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free
+  ---
+  duration_ms: 0.8987
+  type: 'test'
+  ...
+# Subtest: objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged
+ok 500 - objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged
+  ---
+  duration_ms: 70.983
+  type: 'test'
+  ...
+# Subtest: hidden minimaps and noncombat or small screens skip terrain preparation and drawing
+ok 501 - hidden minimaps and noncombat or small screens skip terrain preparation and drawing
+  ---
+  duration_ms: 4.5083
+  type: 'test'
+  ...
+# Subtest: minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize
+ok 502 - minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize
+  ---
+  duration_ms: 5.8888
+  type: 'test'
+  ...
+# Subtest: living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically
+ok 503 - living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically
+  ---
+  duration_ms: 1.2659
+  type: 'test'
+  ...
+# Subtest: the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues
+ok 504 - the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues
+  ---
+  duration_ms: 385.3621
+  type: 'test'
+  ...
+# Subtest: environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere
+ok 505 - environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere
+  ---
+  duration_ms: 36.5408
+  type: 'test'
+  ...
+# Subtest: optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives
+ok 506 - optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives
+  ---
+  duration_ms: 219.5693
+  type: 'test'
+  ...
+# Subtest: a slow frame redirects the next normal shot after its old target dies without changing ammo or fire rate
+ok 507 - a slow frame redirects the next normal shot after its old target dies without changing ammo or fire rate
+  ---
+  duration_ms: 14.0258
+  type: 'test'
+  ...
+# Subtest: every automatic step and its render command use the enemy latest physical position
+ok 508 - every automatic step and its render command use the enemy latest physical position
+  ---
+  duration_ms: 1.0322
+  type: 'test'
+  ...
+# Subtest: automatic fire stops within the same frame when a target leaves range or loses its shot line
+ok 509 - automatic fire stops within the same frame when a target leaves range or loses its shot line
+  ---
+  duration_ms: 2.1428
+  type: 'test'
+  ...
+# Subtest: manual pointer and touch-assisted frame commands remain fixed and mode changes do not carry old aim
+ok 510 - manual pointer and touch-assisted frame commands remain fixed and mode changes do not carry old aim
+  ---
+  duration_ms: 1.0651
+  type: 'test'
+  ...
+# Subtest: a short manual click fires once during a slow hasted frame while held or legacy controls keep normal rapid fire
+ok 511 - a short manual click fires once during a slow hasted frame while held or legacy controls keep normal rapid fire
+  ---
+  duration_ms: 1.4614
+  type: 'test'
+  ...
+# Subtest: automatic rapid fire is unaffected by a released pointer or a fireOnce impulse
+ok 512 - automatic rapid fire is unaffected by a released pointer or a fireOnce impulse
+  ---
+  duration_ms: 1.0217
+  type: 'test'
+  ...
+# Subtest: a disabled screen suppresses firing in either mode while preserving movement and ground targets
+ok 513 - a disabled screen suppresses firing in either mode while preserving movement and ground targets
+  ---
+  duration_ms: 0.7306
+  type: 'test'
+  ...
+# Subtest: dash, lure, fire and reload impulses reach only the first consumed step
+ok 514 - dash, lure, fire and reload impulses reach only the first consumed step
+  ---
+  duration_ms: 1.2529
+  type: 'test'
+  ...
+# Subtest: substep frames preserve pending impulses and RNG and carry their remainder into the next frame
+ok 515 - substep frames preserve pending impulses and RNG and carry their remainder into the next frame
+  ---
+  duration_ms: 7.2795
+  type: 'test'
+  ...
+# Subtest: the poststep render command drops a target killed in the final tick and its resolve does not advance combat
+ok 516 - the poststep render command drops a target killed in the final tick and its resolve does not advance combat
+  ---
+  duration_ms: 2.7218
+  type: 'test'
+  ...
+# Subtest: an upgrade opened during catch-up disables later automatic shots and existing paused or result states remain frozen
+ok 517 - an upgrade opened during catch-up disables later automatic shots and existing paused or result states remain frozen
+  ---
+  duration_ms: 1.3239
+  type: 'test'
+  ...
+# Subtest: automatic intent refresh stays bounded in a short 210-target diagnostic without running engine physics
+ok 518 - automatic intent refresh stays bounded in a short 210-target diagnostic without running engine physics
+  ---
+  duration_ms: 14.0482
+  type: 'test'
+  ...
+# Auto refresh: 210 targets, 120 ticks + 60 render resolves, CPU=31.00ms, wall=13.39ms, rays=37800 (no engine physics)
+# Subtest: active run envelope accepts boundary metadata and keeps the selected route
+ok 519 - active run envelope accepts boundary metadata and keeps the selected route
+  ---
+  duration_ms: 2.1935
+  type: 'test'
+  ...
+# Subtest: malformed checkpoint envelopes cannot become resumable runs
+ok 520 - malformed checkpoint envelopes cannot become resumable runs
+  ---
+  duration_ms: 1.6618
+  type: 'test'
+  ...
+# Subtest: checkpoint and progression round trip together in exactly one profile write
+ok 521 - checkpoint and progression round trip together in exactly one profile write
+  ---
+  duration_ms: 0.763
+  type: 'test'
+  ...
+# Subtest: legacy profiles gain empty resume metadata without losing progression
+ok 522 - legacy profiles gain empty resume metadata without losing progression
+  ---
+  duration_ms: 0.242
+  type: 'test'
+  ...
+# Subtest: atmosphere defaults for old or malformed profiles and both boolean preferences survive save and reload
+ok 523 - atmosphere defaults for old or malformed profiles and both boolean preferences survive save and reload
+  ---
+  duration_ms: 0.8675
+  type: 'test'
+  ...
+# Subtest: completion history is sanitized and only the latest 64 distinct valid IDs are retained
+ok 524 - completion history is sanitized and only the latest 64 distinct valid IDs are retained
+  ---
+  duration_ms: 0.3764
+  type: 'test'
+  ...
+# Subtest: a checkpoint for an already completed ID is suppressed on load
+ok 525 - a checkpoint for an already completed ID is suppressed on load
+  ---
+  duration_ms: 0.2153
+  type: 'test'
+  ...
+# Subtest: a completed run ID awards statistics and unlocks once, then clears its matching checkpoint
+ok 526 - a completed run ID awards statistics and unlocks once, then clears its matching checkpoint
+  ---
+  duration_ms: 2.8819
+  type: 'test'
+  ...
+# Subtest: recording another run keeps an unrelated checkpoint and caps completion history
+ok 527 - recording another run keeps an unrelated checkpoint and caps completion history
+  ---
+  duration_ms: 0.6298
+  type: 'test'
+  ...
+# Subtest: a failed atomic write preserves the persisted checkpoint and in-memory completion for retry
+ok 528 - a failed atomic write preserves the persisted checkpoint and in-memory completion for retry
+  ---
+  duration_ms: 0.8086
+  type: 'test'
+  ...
+# Subtest: auto firing is the default and explicit auto/manual modes persist without changing the saved operation
+ok 529 - auto firing is the default and explicit auto/manual modes persist without changing the saved operation
+  ---
+  duration_ms: 0.5778
+  type: 'test'
+  ...
+# Subtest: minimap preferences default on for existing saves and preserve progression on either selection
+ok 530 - minimap preferences default on for existing saves and preserve progression on either selection
+  ---
+  duration_ms: 0.3932
+  type: 'test'
+  ...
+# Subtest: every playable mission has a connected original story without changing its stable save ID
+ok 531 - every playable mission has a connected original story without changing its stable save ID
+  ---
+  duration_ms: 1.7425
+  type: 'test'
+  ...
+# Subtest: future route and100h goal remain explicitly planned, with original vaccine recovery finale
+ok 532 - future route and100h goal remain explicitly planned, with original vaccine recovery finale
+  ---
+  duration_ms: 0.3187
+  type: 'test'
+  ...
+# Subtest: mission clues are shown only after clearing and dossier escapes all authored strings
+ok 533 - mission clues are shown only after clearing and dossier escapes all authored strings
+  ---
+  duration_ms: 0.3539
+  type: 'test'
+  ...
+# Subtest: the actual 7th-mission beam endpoint hit is covered by the rendered round cap in both warning and active phases
+ok 534 - the actual 7th-mission beam endpoint hit is covered by the rendered round cap in both warning and active phases
+  ---
+  duration_ms: 18.4775
+  type: 'test'
+  ...
+# Subtest: all eight world headings project the two exact outer semicircles and preserve total width
+ok 535 - all eight world headings project the two exact outer semicircles and preserve total width
+  ---
+  duration_ms: 22.6072
+  type: 'test'
+  ...
+# Subtest: visible capsule overlap agrees with actual Game hazard damage beside, beyond and behind every heading
+ok 536 - visible capsule overlap agrees with actual Game hazard damage beside, beyond and behind every heading
+  ---
+  duration_ms: 15.7677
+  type: 'test'
+  ...
+# Subtest: wall and map-edge clipping keep the same collision endpoint and round cap extent
+ok 537 - wall and map-edge clipping keep the same collision endpoint and round cap extent
+  ---
+  duration_ms: 3.2697
+  type: 'test'
+  ...
+# Subtest: camera/zoom/DPR/shake preserve the capsule projection and caller Canvas state, with one fill and no doubled seam
+ok 538 - camera/zoom/DPR/shake preserve the capsule projection and caller Canvas state, with one fill and no doubled seam
+  ---
+  duration_ms: 9.3504
+  type: 'test'
+  ...
+# Subtest: a zero-length line is the same finite world disc as its physical capsule and expired or invalid hazards paint nothing
+ok 539 - a zero-length line is the same finite world disc as its physical capsule and expired or invalid hazards paint nothing
+  ---
+  duration_ms: 1.705
+  type: 'test'
+  ...
+# Subtest: repeated warning/active drawing never changes actual Game checkpoints, RNG streams, timers, skill damage or effect queues
+ok 540 - repeated warning/active drawing never changes actual Game checkpoints, RNG streams, timers, skill damage or effect queues
+  ---
+  duration_ms: 34.873
+  type: 'test'
+  ...
+# Subtest: a normal short touch release preserves one pending shot for either weapon
+ok 541 - a normal short touch release preserves one pending shot for either weapon
+  ---
+  duration_ms: 13.4056
+  type: 'test'
+  ...
+# Subtest: matching cancellation or unexpected capture loss before a tick discards the pulse and spends no ammo
+ok 542 - matching cancellation or unexpected capture loss before a tick discards the pulse and spends no ammo
+  ---
+  duration_ms: 1.7847
+  type: 'test'
+  ...
+# Subtest: natural pointerup followed by lost capture still delivers its queued short tap
+ok 543 - natural pointerup followed by lost capture still delivers its queued short tap
+  ---
+  duration_ms: 1.4996
+  type: 'test'
+  ...
+# Subtest: a different finger cannot end the active shooting pointer or clear its pending pulse
+ok 544 - a different finger cannot end the active shooting pointer or clear its pending pulse
+  ---
+  duration_ms: 0.8503
+  type: 'test'
+  ...
+# Subtest: repeat cancellation and late events are inert after a gesture has already ended
+ok 545 - repeat cancellation and late events are inert after a gesture has already ended
+  ---
+  duration_ms: 0.8581
+  type: 'test'
+  ...
+# Subtest: automatic firing remains independent of a cancelled touch gesture when a valid enemy remains
+ok 546 - automatic firing remains independent of a cancelled touch gesture when a valid enemy remains
+  ---
+  duration_ms: 2.2104
+  type: 'test'
+  ...
+# Subtest: every armor and magazine rank starts either weapon at the trained capacity
+ok 547 - every armor and magazine rank starts either weapon at the trained capacity
+  ---
+  duration_ms: 8.1891
+  type: 'test'
+  ...
+# Subtest: invalid ranks fall back independently without removing a valid other training bonus
+ok 548 - invalid ranks fall back independently without removing a valid other training bonus
+  ---
+  duration_ms: 4.1886
+  type: 'test'
+  ...
+# Subtest: training changes neither global weapon constants nor an unrelated new operation
+ok 549 - training changes neither global weapon constants nor an unrelated new operation
+  ---
+  duration_ms: 7.9157
+  type: 'test'
+  ...
+# Subtest: permanent armor composes with all three health upgrades and retains their healing behavior
+ok 550 - permanent armor composes with all three health upgrades and retains their healing behavior
+  ---
+  duration_ms: 1.2193
+  type: 'test'
+  ...
+# Subtest: trained magazines refill after normal reload and district entry while upgraded health stays intact
+ok 551 - trained magazines refill after normal reload and district entry while upgraded health stays intact
+  ---
+  duration_ms: 6.9441
+  type: 'test'
+  ...
+# Subtest: saved player stats resume unchanged even after the next operation buys higher training
+ok 552 - saved player stats resume unchanged even after the next operation buys higher training
+  ---
+  duration_ms: 24.2786
+  type: 'test'
+  ...
+# Subtest: trained health plus run health upgrades survive checkpoint restore without a second bonus
+ok 553 - trained health plus run health upgrades survive checkpoint restore without a second bonus
+  ---
+  duration_ms: 3.2324
+  type: 'test'
+  ...
+# Subtest: legacy progression gains zero training ranks while preserving its wallet and saved operation
+ok 554 - legacy progression gains zero training ranks while preserving its wallet and saved operation
+  ---
+  duration_ms: 4.2715
+  type: 'test'
+  ...
+# Subtest: training normalization rejects malformed ranks and loading sanitizes each rank independently
+ok 555 - training normalization rejects malformed ranks and loading sanitizes each rank independently
+  ---
+  duration_ms: 0.4547
+  type: 'test'
+  ...
+# Subtest: training grants the defined health and weapon-specific ammunition bonuses at every rank
+ok 556 - training grants the defined health and weapon-specific ammunition bonuses at every rank
+  ---
+  duration_ms: 0.2194
+  type: 'test'
+  ...
+# Subtest: each armor and magazine price has an exact affordable boundary with zero remaining parts
+ok 557 - each armor and magazine price has an exact affordable boundary with zero remaining parts
+  ---
+  duration_ms: 0.8677
+  type: 'test'
+  ...
+# Subtest: purchase planning leaves its frozen source and active operation unchanged
+ok 558 - purchase planning leaves its frozen source and active operation unchanged
+  ---
+  duration_ms: 0.5272
+  type: 'test'
+  ...
+# Subtest: insufficient funds, unknown upgrades and max rank cannot write or spend parts
+ok 559 - insufficient funds, unknown upgrades and max rank cannot write or spend parts
+  ---
+  duration_ms: 0.7251
+  type: 'test'
+  ...
+# Subtest: noninteger or blocked wallets cannot produce a purchase candidate
+ok 560 - noninteger or blocked wallets cannot produce a purchase candidate
+  ---
+  duration_ms: 0.2856
+  type: 'test'
+  ...
+# Subtest: successive upgrades spend each tier price once and stop at rank three
+ok 561 - successive upgrades spend each tier price once and stop at rank three
+  ---
+  duration_ms: 0.6103
+  type: 'test'
+  ...
+# Subtest: a purchase persists wallet, permanent training and active checkpoint in one write before committing memory
+ok 562 - a purchase persists wallet, permanent training and active checkpoint in one write before committing memory
+  ---
+  duration_ms: 0.7268
+  type: 'test'
+  ...
+# Subtest: storage write exceptions roll back training, wallet and active operation without changing the persisted profile
+ok 563 - storage write exceptions roll back training, wallet and active operation without changing the persisted profile
+  ---
+  duration_ms: 0.6621
+  type: 'test'
+  ...
+# Subtest: a throwing localStorage accessor blocks purchases without mutating progression
+ok 564 - a throwing localStorage accessor blocks purchases without mutating progression
+  ---
+  duration_ms: 0.3341
+  type: 'test'
+  ...
+# Subtest: pellet impacts merge per target without altering damage, knockback, or combat RNG
+ok 565 - pellet impacts merge per target without altering damage, knockback, or combat RNG
+  ---
+  duration_ms: 11.7027
+  type: 'test'
+  ...
+# Subtest: burn does not create fake bullet impacts and shield feedback remains distinct
+ok 566 - burn does not create fake bullet impacts and shield feedback remains distinct
+  ---
+  duration_ms: 0.8916
+  type: 'test'
+  ...
+# Subtest: weapon effects restore canvas state and never mutate supplied actors/particles
+ok 567 - weapon effects restore canvas state and never mutate supplied actors/particles
+  ---
+  duration_ms: 0.7371
+  type: 'test'
+  ...
+# Subtest: every district and branch has a clear spawn and a physically reachable exit
+ok 568 - every district and branch has a clear spawn and a physically reachable exit
+  ---
+  duration_ms: 76.2778
+  type: 'test'
+  ...
+# Subtest: a fast dodge cannot cross a thin fence and its destruction restores passage
+ok 569 - a fast dodge cannot cross a thin fence and its destruction restores passage
+  ---
+  duration_ms: 3.0262
+  type: 'test'
+  ...
+1..569
+# tests 569
+# suites 0
+# pass 568
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 83334.6427

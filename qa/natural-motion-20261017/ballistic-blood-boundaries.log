@@ -1,0 +1,38 @@
+✔ airborne blood remains visible but landed droplets do not float on water or beyond a roof (6.1896ms)
+✔ physical blood droplets start at the actual hit height, follow shot direction and stop on ground contact (3.5416ms)
+✔ organic hit detail excludes armor and materials, keeps immutable particle and balanced canvas (0.4172ms)
+✔ wick smoke follows the actual Molotov arc and disappears during falling and before release (0.6128ms)
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (5.0257ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (350.6544ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (1.7654ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.7623ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (0.4583ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (11.2859ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (346.4482ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (40.7545ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (50.6625ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (31.4275ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (4.8372ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (14.9489ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (1.3523ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (88.9907ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (4.2215ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (10.898ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (5.6583ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (534.8954ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (36.4034ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (222.6734ms)
+✔ contact gives way to a wider shock ring and fragments without losing weapon identity (5.7263ms)
+✔ longer shotgun follow-through expires and restores while damage and RNG stay exact (14.0264ms)
+✔ pellet impacts merge per target without altering damage, knockback, or combat RNG (4.6157ms)
+✔ burn does not create fake bullet impacts and shield feedback remains distinct (1.0393ms)
+✔ weapon effects restore canvas state and never mutate supplied actors/particles (1.8378ms)
+✔ material contact separates gold ricochets from masonry dust and restores at every age (1.1843ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2411.3041

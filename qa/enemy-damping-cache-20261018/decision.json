@@ -1,0 +1,215 @@
+{
+  "decision": "not-adopted/inconclusive-cost",
+  "productEngineChanged": false,
+  "candidateRetries": 0,
+  "baselineProfileRuns": 1,
+  "compareRuns": 1,
+  "serializedComparisons": 48,
+  "serializedEquality": true,
+  "IEEE64": "Independent focused unit covers damping values including NaN payloads and signed zero; full benchmark serialization normalizes -0.",
+  "totalScheduledAndActiveMeasuredTicks": 14400,
+  "totalMeasuredTerminalTicks": 0,
+  "rows": [
+    {
+      "count": 60,
+      "cpuSumMs": [
+        298,
+        205,
+        124
+      ],
+      "wallSumMs": [
+        250.19140000000021,
+        201.04529999999977,
+        187.34820000000127
+      ],
+      "cpuP95EpisodeMs": [
+        109,
+        47,
+        16
+      ],
+      "wallP95EpisodeMs": [
+        39.35990000000004,
+        29.525900000000092,
+        26.5
+      ],
+      "decision": {
+        "count": 60,
+        "cpuGainPercent": -65.3225806451613,
+        "wallGainPercent": -7.3110390171874595,
+        "cpuDriftPercent": 140.3225806451613,
+        "wallDriftPercent": 33.54353017536251,
+        "sufficientActiveWork": true,
+        "sameWork": true,
+        "cpuGate": false,
+        "wallGate": false,
+        "tails": false,
+        "stable": false,
+        "passed": false
+      }
+    },
+    {
+      "count": 180,
+      "cpuSumMs": [
+        472,
+        454,
+        423
+      ],
+      "wallSumMs": [
+        485.82039999999995,
+        419.5152999999991,
+        460.21740000000045
+      ],
+      "cpuP95EpisodeMs": [
+        79,
+        94,
+        63
+      ],
+      "wallP95EpisodeMs": [
+        65.6749000000001,
+        57.69909999999982,
+        67.90509999999995
+      ],
+      "decision": {
+        "count": 180,
+        "cpuGainPercent": -7.328605200945626,
+        "wallGainPercent": 8.844102808803257,
+        "cpuDriftPercent": 11.583924349881801,
+        "wallDriftPercent": 5.563240329461561,
+        "sufficientActiveWork": true,
+        "sameWork": true,
+        "cpuGate": false,
+        "wallGate": true,
+        "tails": false,
+        "stable": false,
+        "passed": false
+      }
+    },
+    {
+      "count": 210,
+      "cpuSumMs": [
+        578,
+        514,
+        640
+      ],
+      "wallSumMs": [
+        573.4245000000001,
+        535.6885000000007,
+        775.1954999999989
+      ],
+      "cpuP95EpisodeMs": [
+        125,
+        93,
+        125
+      ],
+      "wallP95EpisodeMs": [
+        78.1065000000001,
+        77.77700000000004,
+        116.08869999999933
+      ],
+      "decision": {
+        "count": 210,
+        "cpuGainPercent": 11.072664359861594,
+        "wallGainPercent": 6.580814039162853,
+        "cpuDriftPercent": 10.726643598615926,
+        "wallDriftPercent": 35.18702113355792,
+        "sufficientActiveWork": true,
+        "sameWork": true,
+        "cpuGate": true,
+        "wallGate": true,
+        "tails": true,
+        "stable": false,
+        "passed": false
+      }
+    }
+  ],
+  "profile": {
+    "samples": 670,
+    "durationUs": 1312568,
+    "topSelf": [
+      {
+        "function": "updateEnemies",
+        "file": "isolated-engine-data-module",
+        "line": 398,
+        "column": 16,
+        "samples": 182,
+        "selfSampledUs": 341748
+      },
+      {
+        "function": "tick",
+        "file": "isolated-engine-data-module",
+        "line": 359,
+        "column": 7,
+        "samples": 78,
+        "selfSampledUs": 145785
+      },
+      {
+        "function": "(garbage collector)",
+        "file": "",
+        "line": 0,
+        "column": 0,
+        "samples": 42,
+        "selfSampledUs": 139443
+      },
+      {
+        "function": "move",
+        "file": "isolated-engine-data-module",
+        "line": 253,
+        "column": 7,
+        "samples": 61,
+        "selfSampledUs": 102038
+      },
+      {
+        "function": "direction",
+        "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+        "line": 240,
+        "column": 12,
+        "samples": 23,
+        "selfSampledUs": 42842
+      },
+      {
+        "function": "(program)",
+        "file": "",
+        "line": 0,
+        "column": 0,
+        "samples": 1,
+        "selfSampledUs": 37770
+      },
+      {
+        "function": "distance",
+        "file": "isolated-engine-data-module",
+        "line": 39,
+        "column": 25,
+        "samples": 25,
+        "selfSampledUs": 35461
+      },
+      {
+        "function": "acquireEnemyGrid",
+        "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/enemy-separation-grid.js",
+        "line": 28,
+        "column": 33,
+        "samples": 15,
+        "selfSampledUs": 30887
+      },
+      {
+        "function": "updateEffects",
+        "file": "isolated-engine-data-module",
+        "line": 438,
+        "column": 16,
+        "samples": 16,
+        "selfSampledUs": 30752
+      },
+      {
+        "function": "proof",
+        "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-damping-cache-20261018/bench.mjs",
+        "line": 74,
+        "column": 15,
+        "samples": 12,
+        "selfSampledUs": 29184
+      }
+    ],
+    "limits": "One V8 sampled baseline profile. Startup, import, episode setup and post-timer reporting can appear. Sampled self time is not measured function CPU, GPU time or peak memory. Inlined intrinsic exp absence cannot prove zero cost. Timed tick process CPU is in the independent benchmark result."
+  },
+  "checks": "7/7 initial focusedPASS5608.2715ms. Existing whole1354 baseline remains1353PASS/knownCPU1FAIL, as product sources are exact; no claim that a new whole1361 run occurred.",
+  "next": "Keep this damping candidate OFF. The profile supports inspecting updateEnemies/move but does not isolate intrinsic exp or GC causes. A future separately declared private neighbor iterator candidate needs its own correctness and cost evidence, as V8 may already optimize it. Boss02 fold readability candidate is ready for a separate motion task.",
+  "noGameFPSOrUniversalPerformanceOrMemoryClaim": true
+}

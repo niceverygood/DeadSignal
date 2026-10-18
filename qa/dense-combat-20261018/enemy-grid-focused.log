@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+ok 1 - real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+  ---
+  duration_ms: 405.3978
+  type: 'test'
+  ...
+# Subtest: all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+ok 2 - all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+  ---
+  duration_ms: 212.7476
+  type: 'test'
+  ...
+# Subtest: screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+ok 3 - screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+  ---
+  duration_ms: 26.6446
+  type: 'test'
+  ...
+# Subtest: burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+ok 4 - burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+  ---
+  duration_ms: 18.5803
+  type: 'test'
+  ...
+# Subtest: rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+ok 5 - rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+  ---
+  duration_ms: 159.0951
+  type: 'test'
+  ...
+# Subtest: a throwing real movement stage releases every actor reference without replacing its error
+ok 6 - a throwing real movement stage releases every actor reference without replacing its error
+  ---
+  duration_ms: 0.8926
+  type: 'test'
+  ...
+# Subtest: reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+ok 7 - reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+  ---
+  duration_ms: 3.2978
+  type: 'test'
+  ...
+# Subtest: numeric/string keys, floor boundaries and original actor insertion order match the independent construction exactly
+ok 8 - numeric/string keys, floor boundaries and original actor insertion order match the independent construction exactly
+  ---
+  duration_ms: 5.9988
+  type: 'test'
+  ...
+# Subtest: one owner reuses its Map and empty bucket arrays while allocation counters are immutable copies
+ok 9 - one owner reuses its Map and empty bucket arrays while allocation counters are immutable copies
+  ---
+  duration_ms: 1.4728
+  type: 'test'
+  ...
+# Subtest: legacy acquisitions always allocate fresh Maps/buckets and never consume or seed the reusable pool
+ok 10 - legacy acquisitions always allocate fresh Maps/buckets and never consume or seed the reusable pool
+  ---
+  duration_ms: 0.3341
+  type: 'test'
+  ...
+# Subtest: nested acquisitions and different owners cannot overwrite outer tick-start memberships
+ok 11 - nested acquisitions and different owners cannot overwrite outer tick-start memberships
+  ---
+  duration_ms: 0.304
+  type: 'test'
+  ...
+# Subtest: actor moves, death, newly pushed spawns and array replacement preserve fixed membership with current actor references
+ok 12 - actor moves, death, newly pushed spawns and array replacement preserve fixed membership with current actor references
+  ---
+  duration_ms: 0.3497
+  type: 'test'
+  ...
+# Subtest: builder throws keep the original error and release partial actor references; caller finally can release after an update error
+ok 13 - builder throws keep the original error and release partial actor references; caller finally can release after an update error
+  ---
+  duration_ms: 0.4075
+  type: 'test'
+  ...
+# Subtest: idle buckets stay bounded and drop all actor references even after oversized custom crowds
+ok 14 - idle buckets stay bounded and drop all actor references even after oversized custom crowds
+  ---
+  duration_ms: 1.3806
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1035.9571

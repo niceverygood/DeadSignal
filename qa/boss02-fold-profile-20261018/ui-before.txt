@@ -1,0 +1,115 @@
+import {createQAStorage,isQAMemoryStorage} from './qa-storage.js';
+
+const installed=new WeakSet(),KEY='boss-02-final',PREFIX='boss-action-timeline-';
+const BRANCHES=Object.freeze(['main','hit','death']);
+const text=error=>{try{return String(error?.message??error);}catch{return'boss-action-timeline-ui-error';}};
+function allowed(location,query){try{return location?.protocol==='http:'&&['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)&&location.port==='8851'&&query.has('qa')&&query.has('qa-memory')&&query.get('qa-boss-owned-cleanup')==='1'&&query.get('qa-boss-action-timeline')==='1';}catch{return false;}}
+async function loadOriginalModules(){const [manifest,worker]=await Promise.all([import('./production-manifest.js?v=0.29.0'),import('./qa-boss-action-owned.js')]);return{productionManifest:manifest.productionManifest,compareBossActionLayerOwned:worker.compareBossActionLayerOwned};}
+function copiedFrames(info){
+ if(info.key!==KEY||info.cellWidth!==512||info.cellHeight!==256||info.columns!==8||!Array.isArray(info.frames)||!info.frames.length||info.frames.length>192||info.rows!==Math.ceil(info.frames.length/8)||info.width!==4096||info.height!==info.rows*256||info.height>6144||typeof info.src!=='string'||!info.src.startsWith('data:image/png'))throw Error('boss-action-timeline-preview-shape-invalid');
+ let previous=-Infinity;
+ return info.frames.map((frame,index)=>{
+  const result={};
+  for(const key of ['index','cellIndex','branch','label','time','elapsedMs','pose','progress','hitFlash','deathAge']){
+   const descriptor=Object.getOwnPropertyDescriptor(frame,key);if(!descriptor||!('value'in descriptor))throw Error('boss-action-timeline-frame-data-required');
+   const value=descriptor.value;if(value!==undefined&&value!==null&&typeof value!=='string'&&typeof value!=='boolean'&&!(typeof value==='number'&&Number.isFinite(value)))throw Error('boss-action-timeline-frame-primitive-required');result[key]=value;
+  }
+  if(result.index!==index||result.cellIndex!==index||!BRANCHES.includes(result.branch)||typeof result.time!=='number'||result.time<0||result.time<previous||typeof result.elapsedMs!=='number'||result.elapsedMs<0)throw Error('boss-action-timeline-frame-order-invalid');
+  previous=result.time;return result;
+ });
+}
+
+// Only stored PNG cells are replayed. This module never imports a Game or
+// Renderer and never calls a pose, simulation tick or native rig render.
+export function installBossActionTimelineQA(options={}){
+ const location=options.location??globalThis.location,query=options.query??new URLSearchParams(location?.search??'');if(!allowed(location,query))return null;
+ const createStorage=options.createStorage??createQAStorage,storage=createStorage(query,()=>{throw Error('boss-action-timeline-persistent-storage-forbidden');});if(!isQAMemoryStorage(storage))return null;
+ const {document=globalThis.document,eventTarget=globalThis,loadModules=loadOriginalModules,decodeImage=image=>image.decode(),requestFrame=globalThis.requestAnimationFrame?.bind(globalThis),cancelFrame=globalThis.cancelAnimationFrame?.bind(globalThis)}=options;
+ if(!document||typeof document!=='object'||installed.has(document)||document.getElementById?.(PREFIX+'qa'))return null;
+ const make=(tag,suffix,label)=>{const node=document.createElement(tag);node.id=PREFIX+suffix;if(label)node.textContent=label;return node;};
+ const button=make('button','qa','내려찍기 동작 연결 검수'),status=make('p','status','준비 완료 · boss02 원본·후보를 별도 소유하여 관찰합니다.');
+ const controls=document.createElement('div'),playButton=make('button','play','재생'),stepButton=make('button','step','한 프레임'),peakButton=make('button','peak','예고 정점 (.72)'),transitionButton=make('button','transition','전환 25ms'),cancelButton=make('button','cancel','취소·미리보기 해제'),branch=make('select','branch');
+ for(const [value,label]of [['main','주동작'],['hit','피격'],['death','사망']]){const option=document.createElement('option');option.value=value;option.textContent=label;branch.append(option);}branch.value='main';branch.setAttribute('aria-label','저장된 동작 분기');
+ const preview=make('canvas','preview');preview.width=512;preview.height=256;preview.style.width='1024px';preview.style.maxWidth='100%';
+ const label=make('p','frame','저장된 원본 A / 후보 B 프레임 · 재생은 실제 게임 FPS가 아닙니다.');
+ const atlas=make('img','atlas');atlas.hidden=true;atlas.alt='저장된 A/B 타임라인 미리보기 atlas';
+ const proof=make('div','proof'),details=document.createElement('details'),summary=document.createElement('summary'),output=make('pre','report');summary.textContent='원본 품질·연결 관찰·최종 정리 기록 (제품 적용·실제 전투·성능 증거 아님)';details.append(summary,output);
+ const note=document.createElement('p');note.textContent='저장된 atlas만 재생합니다. 왼쪽 A·오른쪽 B는 원본 512 셀을 미리보기에서만 각각 256으로 축소했습니다. 표시 중 atlas·캔버스·최대 192개 메타데이터는 UI가 보유하며 worker 종료 정리와 별개입니다. atlas decoded 추정 상한은 96MiB이며 실측 메모리·FPS가 아닙니다.';
+ controls.append(playButton,stepButton,peakButton,transitionButton,branch,cancelButton);(document.querySelector('nav')??document.body).append(button);document.body.append(status,proof,controls,label,preview,atlas,note,details);
+ const ownerNodes=[button,status,proof,output,atlas,preview,playButton,stepButton,peakButton,transitionButton,branch,cancelButton,label];
+ const owned=()=>ownerNodes.every(node=>document.getElementById(node.id)===node);
+ let running=false,runningJob=null,terminal=false,generation=0,controller=null,frames=[],selected=[],position=0,ready=false,playing=false,raf=null,baseWall=null,baseTime=0,context=null,previewDelivered=false;
+ function previewState(){return{running,stopped:terminal,ready,playing,frameCount:frames.length,branch:branch.value,currentIndex:selected[position]?.index??null,rafPending:raf!==null,atlasRetained:!!atlas.getAttribute('src'),canvasWidth:preview.width,canvasHeight:preview.height,decodedUpperBoundBytes:frames.length?4096*Math.ceil(frames.length/8)*256*4:0};}
+ function updateControls(){playButton.disabled=!ready||typeof requestFrame!=='function'||typeof cancelFrame!=='function';for(const node of [stepButton,peakButton,transitionButton,branch])node.disabled=!ready;cancelButton.disabled=!running&&!ready;}
+ function pause(){playing=false;baseWall=null;playButton.textContent='재생';if(raf!==null){const pending=raf;raf=null;cancelFrame?.(pending);}}
+ function releasePreview(){pause();ready=false;frames=[];selected=[];position=0;context=null;atlas.removeAttribute('src');preview.width=0;preview.height=0;previewDelivered=false;updateControls();}
+ function cancel(ending=false){generation++;controller?.abort();controller=null;releasePreview();proof.replaceChildren();terminal=terminal||ending;button.disabled=terminal||running;updateControls();if(terminal)eventTarget.removeEventListener?.('pagehide',hide);return previewState();}
+ function valid(epoch){if(terminal||epoch!==generation)return false;if(!owned()){cancel(true);return false;}return !controller?.signal.aborted;}
+ function show(){
+  if(!ready||!owned()||!selected.length){if(ready&&!owned())cancel(true);return;}
+  const frame=selected[position];context??=preview.getContext('2d');if(!context)throw Error('boss-action-timeline-preview-context-required');
+  context.clearRect(0,0,512,256);context.drawImage(atlas,frame.cellIndex%8*512,Math.floor(frame.cellIndex/8)*256,512,256,0,0,512,256);
+  label.textContent='A 원본 / B 후보 · '+frame.branch+' · '+frame.label+' · frame '+frame.index+' · '+frame.time.toFixed(3)+'s · '+frame.elapsedMs.toFixed(1)+'ms · '+frame.pose+(typeof frame.progress==='number'?' '+frame.progress.toFixed(3):'');
+ }
+ function selectBranch(){pause();selected=frames.filter(frame=>frame.branch===branch.value);position=0;if(selected.length)show();}
+ function playbackFailure(error){pause();status.textContent='저장 프레임 재생 중단 · '+text(error);}
+ function canControl(){if(terminal)return false;if(!owned()){cancel(true);return false;}return ready;}
+ function tick(timestamp){
+  raf=null;if(!playing||terminal)return;if(!owned()){cancel(true);return;}
+  try{
+   if(typeof timestamp!=='number'||!Number.isFinite(timestamp))throw Error('boss-action-timeline-invalid-preview-clock');
+   if(baseWall===null)baseWall=timestamp;
+   const target=baseTime+(timestamp-baseWall)/1000;
+   while(position+1<selected.length&&selected[position+1].time<=target)position++;
+   show();if(target>=selected.at(-1).time){pause();return;}raf=requestFrame(tick);
+  }catch(error){playbackFailure(error);}
+ }
+ playButton.onclick=()=>{
+  if(!canControl()||!selected.length)return;if(playing){pause();return;}
+  if(position===selected.length-1)position=0;
+  if(typeof requestFrame!=='function'||typeof cancelFrame!=='function')return;
+  try{show();playing=true;playButton.textContent='일시정지';baseWall=null;baseTime=selected[position].time;raf=requestFrame(tick);}catch(error){playbackFailure(error);}
+ };
+ stepButton.onclick=()=>{if(!canControl())return;pause();position=Math.min(position+1,selected.length-1);try{show();}catch(error){playbackFailure(error);}};
+ branch.onchange=()=>{if(!canControl())return;try{selectBranch();}catch(error){playbackFailure(error);}};
+ function jump(kind){
+  if(!canControl())return;pause();
+  const candidates=selected.map((frame,index)=>({frame,index})).filter(({frame})=>kind==='peak'?frame.pose==='windup'&&typeof frame.progress==='number':frame.pose==='recover');
+  if(!candidates.length){status.textContent='선택 분기에 해당 전환 표본이 없습니다.';return;}
+  const target=kind==='peak'?.72:candidates[0].frame.time+.025;
+  const best=candidates.reduce((a,b)=>Math.abs((kind==='peak'?a.frame.progress:a.frame.time)-target)<=Math.abs((kind==='peak'?b.frame.progress:b.frame.time)-target)?a:b);position=best.index;
+  try{show();}catch(error){playbackFailure(error);}
+ }
+ peakButton.onclick=()=>jump('peak');transitionButton.onclick=()=>jump('transition');cancelButton.onclick=()=>{cancel(false);status.textContent=running?'검수 취소 · 미리보기 해제 · 소유 자원 종료 대기':'재생 취소 · 미리보기 자원 해제';};
+ function hide(){cancel(true);}
+ eventTarget.addEventListener?.('pagehide',hide);
+ button.onclick=async()=>{
+  if(running||terminal||button.disabled)return;if(!owned()){cancel(true);return;}
+  releasePreview();proof.replaceChildren();const epoch=++generation;runningJob=epoch;controller=new AbortController();const signal=controller.signal;running=true;button.disabled=true;updateControls();status.textContent='boss02 원본 타임라인·별도 소유 리그 준비';
+  try{
+   const modules=await loadModules();if(!valid(epoch))return;
+   if(!modules.productionManifest||typeof modules.compareBossActionLayerOwned!=='function')throw Error('boss-action-timeline-original-modules-required');
+   const caller=Object.freeze({productionArt:Object.freeze({manifest:modules.productionManifest})});
+   const result=await modules.compareBossActionLayerOwned(caller,{document,location,query,storage,signal,bossKeys:[KEY],timelineObservation:true,
+    onProgress:info=>{if(valid(epoch))status.textContent='boss02 연결 관찰 · '+(info.phase??'')+' · '+(info.index??info.frame??'');},
+    onTimelineImage:info=>{if(!valid(epoch)||proof.children.length)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??'boss02 원본 native 타임라인 접촉시트';image.style.maxWidth='100%';image.style.maxHeight='1100px';image.style.width='auto';proof.append(image);},
+    onTimelinePreview:async info=>{
+     if(!valid(epoch))return;if(previewDelivered)throw Error('boss-action-timeline-duplicate-preview');previewDelivered=true;
+     const copied=copiedFrames(info);atlas.src=info.src;
+     try{await decodeImage(atlas);}catch(error){if(!valid(epoch))return;releasePreview();throw error;}
+     if(!valid(epoch))return;
+     if(atlas.naturalWidth!==info.width||atlas.naturalHeight!==info.height){releasePreview();throw Error('boss-action-timeline-decoded-dimensions-mismatch');}
+     frames=copied;ready=true;preview.width=512;preview.height=256;branch.value='main';for(const option of branch.children)option.disabled=!frames.some(frame=>frame.branch===option.value);if(!frames.some(frame=>frame.branch===branch.value))branch.value=frames[0].branch;
+     selectBranch();updateControls();
+    },
+   });
+   if(!valid(epoch))return;
+   if(result.report.complete===true&&!ready){const error=Error('boss-action-timeline-preview-required');error.bossActionLayerQA=result.report;throw error;}
+   const display={...result.report,previewUI:{...previewState(),running:false,note:'Retained only for stored-frame display. This UI ownership is separate from the worker GPU/model retirement; pagehide/cancel clears atlas, Canvas backing and metadata. No native rendering occurs during playback.'}};
+   output.textContent=JSON.stringify(display,null,2);status.textContent=result.report.complete===true&&ready?'boss02 관찰 완료 · 저장 프레임 재생 가능 · 제품 적용 없음':'boss02 관찰 미완료 · 품질·정리 기록 확인';return{report:display};
+  }catch(error){
+   if(!valid(epoch))return;releasePreview();const report=error?.bossActionLayerQA??error?.report??null;output.textContent=JSON.stringify({complete:false,error:text(error),report,cleanup:error?.cleanup??report?.cleanup??null,previewUI:previewState()},null,2);status.textContent='boss02 관찰 중단 · 원시 실패·정리 기록 유지';
+  }finally{if(runningJob===epoch){runningJob=null;running=false;if(epoch===generation)controller=null;button.disabled=terminal;updateControls();}}
+ };
+ updateControls();installed.add(document);return{button,status,branch,playButton,stepButton,peakButton,transitionButton,cancelButton,previewState,stop:()=>cancel(true)};
+}

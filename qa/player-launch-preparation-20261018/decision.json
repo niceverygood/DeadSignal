@@ -1,0 +1,181 @@
+{
+  "task": "fresh original player texture and shader preparation",
+  "status": "qa-only-candidate-not-adopted",
+  "accepted": false,
+  "adopted": false,
+  "reasons": [
+    "Strict whole-canvas pixels failed, including the two normalized originals. No pixel tolerance or priming changed.",
+    "Candidate callback40/drain41 tail criterion failed against A2.",
+    "First callback improved but player preparation plus first callback grew; broad loading totals varied and are not an isolated optimization win.",
+    "Existing full-suite CPU stress budget failed; no all-green/FPS/peak-memory claim."
+  ],
+  "performance": {
+    "accepted": false,
+    "adopted": false,
+    "criterion": "preparation+callback40+finalReadback",
+    "fasterOriginalTotalMs": 11002.500000059605,
+    "candidateTotalMs": 8780.599999904633,
+    "improvementFraction": 0.20194501251015085,
+    "fasterOriginalAll40SumMs": 2740.699999988079,
+    "candidateAll40SumMs": 2339.2999998927116,
+    "fasterOriginalSumPlusReadbackMs": 2749.800000011921,
+    "candidateSumPlusReadbackMs": 2350.69999986887,
+    "firstCallbackNoWorse": true,
+    "callbackTailsNoWorse": false,
+    "drainTailsNoWorse": false,
+    "tailsNoWorse": false,
+    "requiredImprovementFraction": 0.03,
+    "note": "QA diagnostic only: preparation (including first-draw certificate disposal) plus all40 callback wall and final readback must improve at least3% over the faster normalized control; first callback and callback40/drain41 p95/max cannot regress against either control. Raw preparation/first/steady/callback/drain stay separate so a startup cost shift is not a total win. Strict pixels, literal Game equivalence and cleanup must pass. Injected tests are never accepted; product adoption is never automatic."
+  },
+  "playerPreparationPlusFirst": [
+    {
+      "arm": "A1",
+      "ms": 805.1999999880791
+    },
+    {
+      "arm": "B",
+      "ms": 1611.1000000238419
+    },
+    {
+      "arm": "A2",
+      "ms": 1253.6000000834465
+    }
+  ],
+  "strictPixels": {
+    "candidateVsFirst": {
+      "differentComponents": 73,
+      "maxDelta": 11,
+      "dimensionsEqual": true
+    },
+    "originalRepeat": {
+      "differentComponents": 76,
+      "maxDelta": 11,
+      "dimensionsEqual": true
+    },
+    "candidateVsRepeat": {
+      "differentComponents": 55,
+      "maxDelta": 1,
+      "dimensionsEqual": true
+    }
+  },
+  "equivalenceExact": true,
+  "cleanup": {
+    "ownedRenderers": 3,
+    "retiredRenderers": 3,
+    "ownedArts": 3,
+    "releasedArts": 3,
+    "hostsCreated": 3,
+    "hostsRemoved": 3,
+    "lateScheduled": 12,
+    "lateSettled": 12,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerPreparationDisposed": true
+      },
+      {
+        "arm": "B",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerPreparationDisposed": true
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "playerPreparationDisposed": true
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": true
+  },
+  "whole": {
+    "passed": 1223,
+    "total": 1224,
+    "failed": 1,
+    "new14Passed": true,
+    "exit": 1,
+    "durationMs": 233300.5253,
+    "failures": [
+      {
+        "name": "twenty minutes of seeded autopilot keeps entity pools finite and bounded",
+        "cpuMs": 16250,
+        "budgetMs": 15000,
+        "wallMs": 33111.98
+      }
+    ]
+  },
+  "focused": {
+    "initial": {
+      "passed": 28,
+      "total": 34,
+      "failed": 6,
+      "durationMs": 47852.9242,
+      "reason": "test fixture treated original THREE.Skeleton as EventDispatcher before helper call"
+    },
+    "repair": {
+      "changed": [
+        "work/dead-signal-game/tests/qa-player-launch-preparation.test.mjs"
+      ],
+      "description": "Skeleton dispose is wrapped to count and call its original function; original event-dispatched asset disposal observers retained; no assertion/helper/quality/budget edits",
+      "passed": 6,
+      "total": 6,
+      "durationMs": 343.898
+    }
+  },
+  "verify": {
+    "exit": 1,
+    "reason": "unchanged historical .gitignore size manifest mismatch",
+    "immutableManifestChanged": false
+  },
+  "source": {
+    "files": 407,
+    "unchangedDuringBrowserAndWhole": true,
+    "protected22Exact": true,
+    "priorQa180258BytePrefixExact": true,
+    "productModulesChanged": false
+  },
+  "browser": {
+    "tab": "1494332542",
+    "closedAbsent": true,
+    "reportChars": 548285,
+    "completePng3": true,
+    "consoleWarnError0": true,
+    "combatRerun": false
+  },
+  "next": "Prioritize sustained whole-frame/crowd CPU and existing player body alpha readback path. Preserve original silhouette/alpha/contour/bounds/pose/data and literal combat state; retained whole-scene original-AA pixel failure must not be hidden. All changes require new clock check and same-condition appropriate QA before product adoption.",
+  "remaining": [
+    "20-minute CPU budget/real-device whole-frame and peak memory",
+    "Original cold/whole-scene AA pixel variance",
+    "Additional boss upper-action layer remaining11 species/whole24 variants",
+    "Connected vaccine campaign 100h actual content/play-time validation"
+  ],
+  "restrictions": "Preserve 8806, IAB/audio-envelope, pending decisions, original Meshy assets/rigs/saves. No paid generation/payment/key storage/automation7/new push/publication/store submission. Deadline2026-10-18T15:00:00Z; afterwards record and PAUSE automation4."
+}

@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: worker and installer reject unsupported origins/flags before DOM, dependencies, source loads or persistent storage
+ok 1 - worker and installer reject unsupported origins/flags before DOM, dependencies, source loads or persistent storage
+  ---
+  duration_ms: 16.8331
+  type: 'test'
+  ...
+# Subtest: a forged storage object cannot pass the worker brand gate or reach its injected rig dependencies
+ok 2 - a forged storage object cannot pass the worker brand gate or reach its injected rig dependencies
+  ---
+  duration_ms: 31.5288
+  type: 'test'
+  ...
+# Subtest: one idle click lazily captures into genuine memory and exports rawRGBA once with at most two proof images
+ok 3 - one idle click lazily captures into genuine memory and exports rawRGBA once with at most two proof images
+  ---
+  duration_ms: 57.8302
+  type: 'test'
+  ...
+# Subtest: duplicate in-flight clicks and pagehide during import abort without starting a late worker or updating proof/raw UI
+ok 4 - duplicate in-flight clicks and pagehide during import abort without starting a late worker or updating proof/raw UI
+  ---
+  duration_ms: 1.889
+  type: 'test'
+  ...
+# Subtest: pagehide after capture starts suppresses late output, while a real failed capture preserves its partial report/cleanup/raw once
+ok 5 - pagehide after capture starts suppresses late output, while a real failed capture preserves its partial report/cleanup/raw once
+  ---
+  duration_ms: 30.3452
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1149.8168

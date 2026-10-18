@@ -1,0 +1,16 @@
+✔ hero edge bounds/contour retain original full-scan results for cutouts, sparse rows, threshold pixels and empty masks (43.4951ms)
+✔ identification contour preserves clipped/fractional body/core bounds and unusual threshold semantics (1.3426ms)
+✔ edge scan agrees with original full pixel bounds for sparse islands, cutouts and exact threshold pixels (8.2574ms)
+✔ single pixels on every border and empty frames keep exact clipping and empty semantics (4.0024ms)
+✔ batch-cell regions produce the same local bounds as individually cropped RGBA frames (1.0288ms)
+✔ direct readback flips WebGL bottom rows exactly and reuses buffers across same/smaller dimensions (3.9422ms)
+✔ unsupported/lost/non-default/error contexts preserve explicit Canvas fallback (1.0413ms)
+✔ verification compares every alpha byte independently of premultiplied RGB (0.2621ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 354.7281

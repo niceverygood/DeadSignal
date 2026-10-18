@@ -1,0 +1,38 @@
+{
+  "initialFocused": {
+    "tests": 10,
+    "pass": 9,
+    "fail": 1,
+    "failed": "preloading abort before installer call incorrectly required absent stop result"
+  },
+  "initialHarness": {
+    "bytes": 72727,
+    "sha256": "256d8e1eee834f87f43d32a81009cb5e6a21ce93bbf46a98543bbd22095b38e1"
+  },
+  "finalHarness": {
+    "bytes": 72907,
+    "sha256": "659d618121874b062a839874470db8ae4322f2d411f7515355bcdc14dc3bb855"
+  },
+  "changes": [
+    [
+      "};owned.push(entry);",
+      "};owned.push(entry);if(deferredBoundedCost)entry.deferredInstallAttempted=false;"
+    ],
+    [
+      "entry.deferredPlayer=renderer.livePlayer;entry.playerDeferred=install(",
+      "entry.deferredPlayer=renderer.livePlayer;if(deferredBoundedCost)entry.deferredInstallAttempted=true;entry.playerDeferred=install("
+    ],
+    [
+      "row.playerDeferredReadRestored=entry.deferredFinal?.cleanupComplete===true;",
+      "row.playerDeferredReadRestored=deferredBoundedCost&&entry.deferredInstallAttempted===false||entry.deferredFinal?.cleanupComplete===true;"
+    ]
+  ],
+  "onlyNewModeAttemptFlag": true,
+  "inverseHarnessExact": true,
+  "initialCombatTestBytes": 16343,
+  "originalTestPrefixExact": true,
+  "oldAssertionsUnchanged": true,
+  "addedPartialInstallThrowCase": 1,
+  "thresholdsAndTimingUnchanged": true,
+  "oldModesUnchanged": true
+}

@@ -1,0 +1,2985 @@
+{
+  "scope": "Two original180-enemy fixed-work arms,40×.12 catch-up/interpolation/actualRenderer each. Outer profiler overhead and synchronous waits included. No optimization candidate or product adoption; no presented FPS or peak-memory claim. Parent-inclusive times overlap; only self buckets partition an observed render.",
+  "error": "qa-canvas-combat-whole-canvas-pixels-differ",
+  "equivalenceExact": true,
+  "strictPixels": {
+    "originalRepeat": {
+      "differentComponents": 2,
+      "maxDelta": 1,
+      "dimensionsEqual": true
+    }
+  },
+  "cleanup": {
+    "ownedRenderers": 2,
+    "retiredRenderers": 2,
+    "ownedArts": 2,
+    "releasedArts": 2,
+    "hostsCreated": 2,
+    "hostsRemoved": 2,
+    "lateScheduled": 8,
+    "lateSettled": 8,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "attributionRestored": true
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "attributionRestored": true
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": true
+  },
+  "arms": [
+    {
+      "arm": "A1",
+      "firstCallbackMs": 1619.4000000357628,
+      "all40Callback": {
+        "count": 40,
+        "sumMs": 7391.700000107288,
+        "medianMs": 108.10000002384186,
+        "p95Ms": 1084.7999999523163,
+        "maxMs": 1619.4000000357628
+      },
+      "steady30Callback": {
+        "count": 30,
+        "sumMs": 3465.100000023842,
+        "medianMs": 104.79999995231628,
+        "p95Ms": 232.60000002384186,
+        "maxMs": 288.80000001192093
+      },
+      "readbackMs": 16.099999964237213,
+      "first": {
+        "frameIndex": 0,
+        "frameWallMs": 1585.199999988079,
+        "renderCalls": 1,
+        "stages": {
+          "renderer.prepareNativeEnemyBatch": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 0.09999996423721313,
+            "selfMs": 0.09999996423721313
+          },
+          "renderer.makeFloor": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 13.800000011920929,
+            "selfMs": 13.800000011920929
+          },
+          "renderer.drawDecor": {
+            "calls": 48,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 19.5,
+            "selfMs": 17.099999964237213
+          },
+          "production.drawFrame": {
+            "calls": 241,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 185.99999982118607,
+            "selfMs": 185.99999982118607
+          },
+          "renderer.drawObstacle": {
+            "calls": 20,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 86.89999985694885,
+            "selfMs": 22.499999940395355
+          },
+          "renderer.nativeEnemyFrame": {
+            "calls": 180,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 13.399999976158142,
+            "selfMs": 13.399999976158142
+          },
+          "renderer.drawNativeEnemy": {
+            "calls": 180,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 181.99999994039536,
+            "selfMs": 49.500000059604645
+          },
+          "renderer.drawEnemy": {
+            "calls": 180,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 183.30000007152557,
+            "selfMs": 1.3000001311302185
+          },
+          "renderer.nativePlayerFrame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 1218.800000011921,
+            "selfMs": 1218.800000011921
+          },
+          "renderer.drawPlayer": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 1219,
+            "selfMs": 0.10000002384185791
+          },
+          "renderer.prepareMinimap": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 1.199999988079071,
+            "selfMs": 1.199999988079071
+          },
+          "renderer.drawMinimap": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 2.200000047683716,
+            "selfMs": 1.0000000596046448
+          },
+          "renderer.render": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 1584.199999988079,
+            "selfMs": 59.40000003576279
+          }
+        },
+        "buckets": {
+          "nativeBatch": {
+            "calls": 1,
+            "selfMs": 0.09999996423721313
+          },
+          "floorCache": {
+            "calls": 1,
+            "selfMs": 13.800000011920929
+          },
+          "environmentOther": {
+            "calls": 68,
+            "selfMs": 39.59999990463257
+          },
+          "environmentSpriteBaked": {
+            "calls": 60,
+            "selfMs": 66.79999995231628
+          },
+          "npcFrame": {
+            "calls": 180,
+            "selfMs": 13.399999976158142
+          },
+          "npcSpriteBaked": {
+            "calls": 180,
+            "selfMs": 119.09999990463257
+          },
+          "npcOther": {
+            "calls": 360,
+            "selfMs": 50.80000019073486
+          },
+          "playerFrame": {
+            "calls": 1,
+            "selfMs": 1218.800000011921
+          },
+          "playerSpriteNative": {
+            "calls": 1,
+            "selfMs": 0.09999996423721313
+          },
+          "playerOther": {
+            "calls": 1,
+            "selfMs": 0.10000002384185791
+          },
+          "minimap": {
+            "calls": 2,
+            "selfMs": 2.200000047683716
+          },
+          "renderRemainder": {
+            "calls": 1,
+            "selfMs": 59.40000003576279
+          }
+        },
+        "selections": {
+          "player": {
+            "player": {
+              "calls": 1,
+              "native": 1,
+              "baked": 0,
+              "unknown": 0,
+              "none": 0,
+              "thrown": 0
+            }
+          },
+          "npc": {
+            "other": {
+              "calls": 180,
+              "native": 0,
+              "baked": 180,
+              "unknown": 0,
+              "none": 0,
+              "thrown": 0
+            }
+          },
+          "boss": {}
+        },
+        "arm": "A1",
+        "frame": 0,
+        "first": true,
+        "readinessBefore": {
+          "floorReady": false,
+          "floorWorldCached": false,
+          "floorTextureStatus": "ready",
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 0,
+          "npcRenderFrames": 0,
+          "npcModels": 1,
+          "npcPending": 1,
+          "npcPendingWithoutModel": 0,
+          "npcLost": false,
+          "npcError": "",
+          "types": [
+            {
+              "type": "walker",
+              "ready": true,
+              "pending": true
+            },
+            {
+              "type": "runner",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "shield",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "screamer",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "gas",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "elite",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "collector",
+              "ready": false,
+              "pending": false
+            }
+          ]
+        },
+        "readinessAfter": {
+          "floorReady": true,
+          "floorWorldCached": true,
+          "floorTextureStatus": "ready",
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 2,
+          "npcRenderFrames": 0,
+          "npcModels": 1,
+          "npcPending": 1,
+          "npcPendingWithoutModel": 0,
+          "npcLost": false,
+          "npcError": "",
+          "types": [
+            {
+              "type": "walker",
+              "ready": true,
+              "pending": true
+            },
+            {
+              "type": "runner",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "shield",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "screamer",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "gas",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "elite",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "collector",
+              "ready": false,
+              "pending": false
+            }
+          ]
+        }
+      },
+      "all40Stages": {
+        "renderer.prepareNativeEnemyBatch": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1470.399999678135,
+            "medianMs": 31.69999998807907,
+            "p95Ms": 80.69999998807907,
+            "maxMs": 125.69999998807907
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 1064.6999998688698,
+            "medianMs": 22.099999964237213,
+            "p95Ms": 58.10000002384186,
+            "maxMs": 110.59999996423721
+          }
+        },
+        "renderer.makeFloor": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 14.700000047683716,
+            "medianMs": 0,
+            "p95Ms": 0.2999999523162842,
+            "maxMs": 13.800000011920929
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 14.700000047683716,
+            "medianMs": 0,
+            "p95Ms": 0.2999999523162842,
+            "maxMs": 13.800000011920929
+          }
+        },
+        "renderer.drawDecor": {
+          "calls": 1920,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 147.59999948740005,
+            "medianMs": 1.7000000476837158,
+            "p95Ms": 19.5,
+            "maxMs": 32.60000002384186
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 121.19999957084656,
+            "medianMs": 1.4000000357627869,
+            "p95Ms": 17.099999964237213,
+            "maxMs": 32.300000071525574
+          }
+        },
+        "production.drawFrame": {
+          "calls": 9850,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1402.700000166893,
+            "medianMs": 7.499999821186066,
+            "p95Ms": 185.99999982118607,
+            "maxMs": 612.7999999523163
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 1402.700000166893,
+            "medianMs": 7.499999821186066,
+            "p95Ms": 185.99999982118607,
+            "maxMs": 612.7999999523163
+          }
+        },
+        "renderer.drawObstacle": {
+          "calls": 800,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 220.50000035762787,
+            "medianMs": 2.0000000596046448,
+            "p95Ms": 28.399999856948853,
+            "maxMs": 86.89999985694885
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 93.70000010728836,
+            "medianMs": 0.5999999642372131,
+            "p95Ms": 22.499999940395355,
+            "maxMs": 24.999999940395355
+          }
+        },
+        "renderer.nativeEnemyFrame": {
+          "calls": 7743,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 738.2000004649162,
+            "medianMs": 16.80000013113022,
+            "p95Ms": 38.09999996423721,
+            "maxMs": 76.69999998807907
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 738.2000004649162,
+            "medianMs": 16.80000013113022,
+            "p95Ms": 38.09999996423721,
+            "maxMs": 76.69999998807907
+          }
+        },
+        "renderer.drawNativeEnemy": {
+          "calls": 7340,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1788.0000007748604,
+            "medianMs": 17.899999797344208,
+            "p95Ms": 189.29999989271164,
+            "maxMs": 625.7000000476837
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 225.200000166893,
+            "medianMs": 3.2000001668930054,
+            "p95Ms": 17.700000166893005,
+            "maxMs": 49.500000059604645
+          }
+        },
+        "renderer.drawEnemy": {
+          "calls": 7340,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1813.8000004291534,
+            "medianMs": 18.399999737739563,
+            "p95Ms": 190.19999986886978,
+            "maxMs": 626.7999999523163
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 25.79999965429306,
+            "medianMs": 0.5000000596046448,
+            "p95Ms": 1.7000000476837158,
+            "maxMs": 1.800000011920929
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1865.2999997735023,
+            "medianMs": 11.800000011920929,
+            "p95Ms": 102.19999998807907,
+            "maxMs": 1218.800000011921
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 1865.2999997735023,
+            "medianMs": 11.800000011920929,
+            "p95Ms": 102.19999998807907,
+            "maxMs": 1218.800000011921
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1890.300000011921,
+            "medianMs": 12.400000035762787,
+            "p95Ms": 102.60000002384186,
+            "maxMs": 1219
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 5.900000154972076,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.3999999761581421,
+            "maxMs": 1.5999999642372131
+          }
+        },
+        "renderer.prepareMinimap": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 7.70000022649765,
+            "medianMs": 0,
+            "p95Ms": 1.199999988079071,
+            "maxMs": 3.5
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 7.70000022649765,
+            "medianMs": 0,
+            "p95Ms": 1.199999988079071,
+            "maxMs": 3.5
+          }
+        },
+        "renderer.drawMinimap": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 55.10000002384186,
+            "medianMs": 0.5,
+            "p95Ms": 7,
+            "maxMs": 9.099999964237213
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 47.39999979734421,
+            "medianMs": 0.5,
+            "p95Ms": 6.5,
+            "maxMs": 9.099999964237213
+          }
+        },
+        "renderer.render": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 6043.199999928474,
+            "medianMs": 79.80000001192093,
+            "p95Ms": 906.2999999523163,
+            "maxMs": 1584.199999988079
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 424.3999999165535,
+            "medianMs": 5.099999845027924,
+            "p95Ms": 59.40000003576279,
+            "maxMs": 60.300000071525574
+          }
+        },
+        "renderer.nativeCorpseFrame": {
+          "calls": 15,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 5.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.7000000476837158,
+            "maxMs": 3.899999976158142
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 5.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.7000000476837158,
+            "maxMs": 3.899999976158142
+          }
+        },
+        "renderer.drawNativeCorpse": {
+          "calls": 15,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 0.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.19999998807907104,
+            "maxMs": 0.30000001192092896
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 0.6000000238418579,
+            "medianMs": 0,
+            "p95Ms": 0.19999998807907104,
+            "maxMs": 0.30000001192092896
+          }
+        }
+      },
+      "steady30Stages": {
+        "renderer.nativeEnemyFrame": {
+          "calls": 5900,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 510.3000002503395,
+            "medianMs": 16.80000013113022,
+            "p95Ms": 35.69999974966049,
+            "maxMs": 38.09999996423721
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 510.3000002503395,
+            "medianMs": 16.80000013113022,
+            "p95Ms": 35.69999974966049,
+            "maxMs": 38.09999996423721
+          }
+        },
+        "renderer.prepareNativeEnemyBatch": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 1041.7999997138977,
+            "medianMs": 33.5,
+            "p95Ms": 55.700000047683716,
+            "maxMs": 76.69999998807907
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 734.5,
+            "medianMs": 22.099999964237213,
+            "p95Ms": 38.90000009536743,
+            "maxMs": 58.10000002384186
+          }
+        },
+        "renderer.makeFloor": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 0.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.2999999523162842
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 0.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.2999999523162842
+          }
+        },
+        "renderer.drawDecor": {
+          "calls": 1440,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 66.59999930858612,
+            "medianMs": 1.5999999046325684,
+            "p95Ms": 7.699999928474426,
+            "maxMs": 7.700000047683716
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 52.69999945163727,
+            "medianMs": 1.199999988079071,
+            "p95Ms": 4.200000047683716,
+            "maxMs": 7.399999976158142
+          }
+        },
+        "production.drawFrame": {
+          "calls": 7423,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 504.19999980926514,
+            "medianMs": 7.300000011920929,
+            "p95Ms": 102.00000005960464,
+            "maxMs": 182.6000000834465
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 504.19999980926514,
+            "medianMs": 7.300000011920929,
+            "p95Ms": 102.00000005960464,
+            "maxMs": 182.6000000834465
+          }
+        },
+        "renderer.drawObstacle": {
+          "calls": 600,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 81.70000034570694,
+            "medianMs": 1.399999976158142,
+            "p95Ms": 6.000000059604645,
+            "maxMs": 28.399999856948853
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 44.799999952316284,
+            "medianMs": 0.5,
+            "p95Ms": 4.600000023841858,
+            "maxMs": 24.999999940395355
+          }
+        },
+        "renderer.drawNativeEnemy": {
+          "calls": 5540,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 765.300000667572,
+            "medianMs": 15.399999976158142,
+            "p95Ms": 120.90000003576279,
+            "maxMs": 189.29999989271164
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 118.00000059604645,
+            "medianMs": 3.100000023841858,
+            "p95Ms": 12.20000010728836,
+            "maxMs": 13.600000023841858
+          }
+        },
+        "renderer.drawEnemy": {
+          "calls": 5540,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 782.6000003814697,
+            "medianMs": 16.700000166893005,
+            "p95Ms": 121.30000001192093,
+            "maxMs": 190.19999986886978
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 17.299999713897705,
+            "medianMs": 0.5000000596046448,
+            "p95Ms": 1.699999988079071,
+            "maxMs": 1.7000000476837158
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 340.3999997973442,
+            "medianMs": 11.300000011920929,
+            "p95Ms": 18.69999998807907,
+            "maxMs": 19.399999976158142
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 340.3999997973442,
+            "medianMs": 11.300000011920929,
+            "p95Ms": 18.69999998807907,
+            "maxMs": 19.399999976158142
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 352.50000005960464,
+            "medianMs": 11.699999988079071,
+            "p95Ms": 19.5,
+            "maxMs": 19.5
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 3.1000002026557922,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.30000007152557373,
+            "maxMs": 0.30000007152557373
+          }
+        },
+        "renderer.prepareMinimap": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 5.200000166893005,
+            "medianMs": 0,
+            "p95Ms": 0.5,
+            "maxMs": 3.5
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 5.200000166893005,
+            "medianMs": 0,
+            "p95Ms": 0.5,
+            "maxMs": 3.5
+          }
+        },
+        "renderer.drawMinimap": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 40.3999999165535,
+            "medianMs": 0.5,
+            "p95Ms": 5.100000023841858,
+            "maxMs": 9.099999964237213
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 35.19999974966049,
+            "medianMs": 0.40000003576278687,
+            "p95Ms": 5.100000023841858,
+            "maxMs": 9.099999964237213
+          }
+        },
+        "renderer.render": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 2563.199999988079,
+            "medianMs": 77.19999998807907,
+            "p95Ms": 178.19999998807907,
+            "maxMs": 243.69999998807907
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 190.50000029802322,
+            "medianMs": 4.500000178813934,
+            "p95Ms": 20.700000047683716,
+            "maxMs": 20.899999976158142
+          }
+        },
+        "renderer.nativeCorpseFrame": {
+          "calls": 15,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 5.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.7000000476837158,
+            "maxMs": 3.899999976158142
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 5.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.7000000476837158,
+            "maxMs": 3.899999976158142
+          }
+        },
+        "renderer.drawNativeCorpse": {
+          "calls": 15,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 0.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.19999998807907104,
+            "maxMs": 0.30000001192092896
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 0.6000000238418579,
+            "medianMs": 0,
+            "p95Ms": 0.19999998807907104,
+            "maxMs": 0.30000001192092896
+          }
+        }
+      },
+      "all40Buckets": {
+        "nativeBatch": {
+          "count": 40,
+          "sumMs": 1064.6999998688698,
+          "medianMs": 22.099999964237213,
+          "p95Ms": 58.10000002384186,
+          "maxMs": 110.59999996423721
+        },
+        "floorCache": {
+          "count": 40,
+          "sumMs": 14.700000047683716,
+          "medianMs": 0,
+          "p95Ms": 0.2999999523162842,
+          "maxMs": 13.800000011920929
+        },
+        "environmentOther": {
+          "count": 40,
+          "sumMs": 214.89999967813492,
+          "medianMs": 2.3000000715255737,
+          "p95Ms": 32.90000009536743,
+          "maxMs": 39.59999990463257
+        },
+        "environmentSpriteBaked": {
+          "count": 40,
+          "sumMs": 153.200000166893,
+          "medianMs": 1.699999988079071,
+          "p95Ms": 7.600000023841858,
+          "maxMs": 66.79999995231628
+        },
+        "npcFrame": {
+          "count": 40,
+          "sumMs": 738.2000004649162,
+          "medianMs": 16.80000013113022,
+          "p95Ms": 38.09999996423721,
+          "maxMs": 76.69999998807907
+        },
+        "npcSpriteBaked": {
+          "count": 40,
+          "sumMs": 1188.0999999642372,
+          "medianMs": 3.9000000953674316,
+          "p95Ms": 181.0000001192093,
+          "maxMs": 610.4000000357628
+        },
+        "npcOther": {
+          "count": 40,
+          "sumMs": 250.99999982118607,
+          "medianMs": 3.7999998927116394,
+          "p95Ms": 19.500000178813934,
+          "maxMs": 50.80000019073486
+        },
+        "playerFrame": {
+          "count": 40,
+          "sumMs": 1865.2999997735023,
+          "medianMs": 11.800000011920929,
+          "p95Ms": 102.19999998807907,
+          "maxMs": 1218.800000011921
+        },
+        "playerSpriteNative": {
+          "count": 40,
+          "sumMs": 19.100000083446503,
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 3.800000011920929,
+          "maxMs": 6.199999988079071
+        },
+        "playerOther": {
+          "count": 40,
+          "sumMs": 5.900000154972076,
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 0.3999999761581421,
+          "maxMs": 1.5999999642372131
+        },
+        "minimap": {
+          "count": 40,
+          "sumMs": 55.10000002384186,
+          "medianMs": 0.5,
+          "p95Ms": 7,
+          "maxMs": 9.099999964237213
+        },
+        "renderRemainder": {
+          "count": 40,
+          "sumMs": 424.3999999165535,
+          "medianMs": 5.099999845027924,
+          "p95Ms": 59.40000003576279,
+          "maxMs": 60.300000071525574
+        },
+        "npcSpriteNative": {
+          "count": 40,
+          "sumMs": 42.19999998807907,
+          "medianMs": 0.6000000238418579,
+          "p95Ms": 3.699999988079071,
+          "maxMs": 8.300000071525574
+        },
+        "corpseFrame": {
+          "count": 40,
+          "sumMs": 5.699999988079071,
+          "medianMs": 0,
+          "p95Ms": 0.7000000476837158,
+          "maxMs": 3.899999976158142
+        },
+        "corpseSpriteBaked": {
+          "count": 40,
+          "sumMs": 0.09999996423721313,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "maxMs": 0.09999996423721313
+        },
+        "corpseOther": {
+          "count": 40,
+          "sumMs": 0.6000000238418579,
+          "medianMs": 0,
+          "p95Ms": 0.19999998807907104,
+          "maxMs": 0.30000001192092896
+        }
+      },
+      "steady30Buckets": {
+        "npcFrame": {
+          "count": 30,
+          "sumMs": 510.3000002503395,
+          "medianMs": 16.80000013113022,
+          "p95Ms": 35.69999974966049,
+          "maxMs": 38.09999996423721
+        },
+        "nativeBatch": {
+          "count": 30,
+          "sumMs": 734.5,
+          "medianMs": 22.099999964237213,
+          "p95Ms": 38.90000009536743,
+          "maxMs": 58.10000002384186
+        },
+        "floorCache": {
+          "count": 30,
+          "sumMs": 0.699999988079071,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.2999999523162842
+        },
+        "environmentOther": {
+          "count": 30,
+          "sumMs": 97.49999940395355,
+          "medianMs": 2.0000000596046448,
+          "p95Ms": 8.299999952316284,
+          "maxMs": 26.29999989271164
+        },
+        "environmentSpriteBaked": {
+          "count": 30,
+          "sumMs": 50.80000025033951,
+          "medianMs": 1.1999998688697815,
+          "p95Ms": 4.799999952316284,
+          "maxMs": 7.200000047683716
+        },
+        "npcSpriteBaked": {
+          "count": 30,
+          "sumMs": 408.19999969005585,
+          "medianMs": 3.300000011920929,
+          "p95Ms": 100.09999990463257,
+          "maxMs": 181.0000001192093
+        },
+        "npcOther": {
+          "count": 30,
+          "sumMs": 135.30000030994415,
+          "medianMs": 3.7000001668930054,
+          "p95Ms": 13.100000083446503,
+          "maxMs": 14.300000011920929
+        },
+        "npcSpriteNative": {
+          "count": 30,
+          "sumMs": 36.099999845027924,
+          "medianMs": 0.6999999284744263,
+          "p95Ms": 3.699999988079071,
+          "maxMs": 8.300000071525574
+        },
+        "playerFrame": {
+          "count": 30,
+          "sumMs": 340.3999997973442,
+          "medianMs": 11.300000011920929,
+          "p95Ms": 18.69999998807907,
+          "maxMs": 19.399999976158142
+        },
+        "playerSpriteNative": {
+          "count": 30,
+          "sumMs": 9.000000059604645,
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 0.9000000357627869,
+          "maxMs": 3.800000011920929
+        },
+        "playerOther": {
+          "count": 30,
+          "sumMs": 3.1000002026557922,
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 0.30000007152557373,
+          "maxMs": 0.30000007152557373
+        },
+        "minimap": {
+          "count": 30,
+          "sumMs": 40.3999999165535,
+          "medianMs": 0.5,
+          "p95Ms": 5.100000023841858,
+          "maxMs": 9.099999964237213
+        },
+        "renderRemainder": {
+          "count": 30,
+          "sumMs": 190.50000029802322,
+          "medianMs": 4.500000178813934,
+          "p95Ms": 20.700000047683716,
+          "maxMs": 20.899999976158142
+        },
+        "corpseFrame": {
+          "count": 30,
+          "sumMs": 5.699999988079071,
+          "medianMs": 0,
+          "p95Ms": 0.7000000476837158,
+          "maxMs": 3.899999976158142
+        },
+        "corpseSpriteBaked": {
+          "count": 30,
+          "sumMs": 0.09999996423721313,
+          "medianMs": 0,
+          "p95Ms": 0,
+          "maxMs": 0.09999996423721313
+        },
+        "corpseOther": {
+          "count": 30,
+          "sumMs": 0.6000000238418579,
+          "medianMs": 0,
+          "p95Ms": 0.19999998807907104,
+          "maxMs": 0.30000001192092896
+        }
+      },
+      "outliers": [
+        {
+          "frameIndex": 0,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 1584.199999988079,
+          "selfMs": 59.40000003576279,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.drawPlayer",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 1219,
+          "selfMs": 0.10000002384185791,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.nativePlayerFrame",
+          "type": null,
+          "source": "native",
+          "assetId": "survivor-original-live-rig",
+          "inclusiveMs": 1218.800000011921,
+          "selfMs": 1218.800000011921,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 906.2999999523163,
+          "selfMs": 60.300000071525574,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.drawNativeEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 603.6999999880791,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.drawEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 603.6999999880791,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "production.drawFrame",
+          "type": null,
+          "source": "baked",
+          "assetId": "enemy-walker-locomotion-hq32",
+          "inclusiveMs": 603.5,
+          "selfMs": 603.5,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 32,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 243.69999998807907,
+          "selfMs": 4.1000001430511475,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 2,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 206.80000001192093,
+          "selfMs": 33.79999989271164,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 31,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 178.19999998807907,
+          "selfMs": 7.199999928474426,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 32,
+          "stage": "renderer.drawNativeEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 178,
+          "selfMs": 0.10000002384185791,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 32,
+          "stage": "renderer.drawEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 178,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 32,
+          "stage": "production.drawFrame",
+          "type": null,
+          "source": "baked",
+          "assetId": "enemy-gas-locomotion-hq32",
+          "inclusiveMs": 177.80000001192093,
+          "selfMs": 177.80000001192093,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 7,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 168,
+          "selfMs": 5.099999845027924,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 3,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 159.10000002384186,
+          "selfMs": 32.80000001192093,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 7,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 125.69999998807907,
+          "selfMs": 110.59999996423721,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 6,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 120.70000004768372,
+          "selfMs": 24.599999964237213,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 33,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 116.90000003576279,
+          "selfMs": 20.899999976158142,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 5,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 116,
+          "selfMs": 6.9999998807907104,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 12,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 107.19999998807907,
+          "selfMs": 2.1000000834465027,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.drawPlayer",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 102.60000002384186,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.nativePlayerFrame",
+          "type": null,
+          "source": "native",
+          "assetId": "survivor-original-live-rig",
+          "inclusiveMs": 102.19999998807907,
+          "selfMs": 102.19999998807907,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 34,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 94.40000003576279,
+          "selfMs": 7.599999964237213,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 31,
+          "stage": "renderer.drawNativeEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 93.30000001192093,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 31,
+          "stage": "renderer.drawEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 93.30000001192093,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 31,
+          "stage": "production.drawFrame",
+          "type": null,
+          "source": "baked",
+          "assetId": "enemy-gas-rig-motion",
+          "inclusiveMs": 93.20000004768372,
+          "selfMs": 93.20000004768372,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 4,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 91.79999995231628,
+          "selfMs": 2.800000011920929,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 19,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 91.19999998807907,
+          "selfMs": 6.099999964237213,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 30,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 89.30000001192093,
+          "selfMs": 2.8000000715255737,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 38,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 87,
+          "selfMs": 4.0000001192092896,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 10,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 85.5,
+          "selfMs": 6.400000035762787,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 80.69999998807907,
+          "selfMs": 15.199999988079071,
+          "threw": false,
+          "falseReturn": false
+        }
+      ],
+      "unmeasured": [],
+      "restoration": {
+        "restored": 17,
+        "shared": 0,
+        "foreignPreserved": 0,
+        "failed": 0
+      },
+      "nativeRuntime": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "finalReadiness": {
+        "floorReady": true,
+        "floorWorldCached": true,
+        "floorTextureStatus": "ready",
+        "playerReady": true,
+        "playerError": null,
+        "playerRenderFrames": 80,
+        "npcRenderFrames": 403,
+        "npcModels": 1,
+        "npcPending": 2,
+        "npcPendingWithoutModel": 1,
+        "npcLost": false,
+        "npcError": "",
+        "types": [
+          {
+            "type": "walker",
+            "ready": true,
+            "pending": true
+          },
+          {
+            "type": "runner",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "shield",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "screamer",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "gas",
+            "ready": false,
+            "pending": true
+          },
+          {
+            "type": "elite",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "collector",
+            "ready": false,
+            "pending": false
+          }
+        ]
+      },
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      }
+    },
+    {
+      "arm": "A2",
+      "firstCallbackMs": 641.8000000119209,
+      "all40Callback": {
+        "count": 40,
+        "sumMs": 8343.099999904633,
+        "medianMs": 103.19999998807907,
+        "p95Ms": 962.3999999761581,
+        "maxMs": 1128.3999999761581
+      },
+      "steady30Callback": {
+        "count": 30,
+        "sumMs": 7044.8999999165535,
+        "medianMs": 108.30000001192093,
+        "p95Ms": 962.3999999761581,
+        "maxMs": 1128.3999999761581
+      },
+      "readbackMs": 20.19999998807907,
+      "first": {
+        "frameIndex": 0,
+        "frameWallMs": 596.5,
+        "renderCalls": 1,
+        "stages": {
+          "renderer.prepareNativeEnemyBatch": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 0,
+            "selfMs": 0
+          },
+          "renderer.makeFloor": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 17.100000023841858,
+            "selfMs": 17.100000023841858
+          },
+          "renderer.drawDecor": {
+            "calls": 48,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 33.69999998807907,
+            "selfMs": 33.40000003576279
+          },
+          "production.drawFrame": {
+            "calls": 241,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 5.500000238418579,
+            "selfMs": 5.500000238418579
+          },
+          "renderer.drawObstacle": {
+            "calls": 20,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 8.399999916553497,
+            "selfMs": 6.199999928474426
+          },
+          "renderer.nativeEnemyFrame": {
+            "calls": 180,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 3.8999998569488525,
+            "selfMs": 3.8999998569488525
+          },
+          "renderer.drawNativeEnemy": {
+            "calls": 180,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 11.100000023841858,
+            "selfMs": 4.3999998569488525
+          },
+          "renderer.drawEnemy": {
+            "calls": 180,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 12.100000143051147,
+            "selfMs": 1.0000001192092896
+          },
+          "renderer.nativePlayerFrame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 496.2000000476837,
+            "selfMs": 496.2000000476837
+          },
+          "renderer.drawPlayer": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 496.5,
+            "selfMs": 0.09999996423721313
+          },
+          "renderer.prepareMinimap": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 4.100000023841858,
+            "selfMs": 4.100000023841858
+          },
+          "renderer.drawMinimap": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 5,
+            "selfMs": 0.8999999761581421
+          },
+          "renderer.render": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 596.4000000357628,
+            "selfMs": 23.599999964237213
+          }
+        },
+        "buckets": {
+          "nativeBatch": {
+            "calls": 1,
+            "selfMs": 0
+          },
+          "floorCache": {
+            "calls": 1,
+            "selfMs": 17.100000023841858
+          },
+          "environmentOther": {
+            "calls": 68,
+            "selfMs": 39.59999996423721
+          },
+          "environmentSpriteBaked": {
+            "calls": 60,
+            "selfMs": 2.4999999403953552
+          },
+          "npcFrame": {
+            "calls": 180,
+            "selfMs": 3.8999998569488525
+          },
+          "npcSpriteBaked": {
+            "calls": 180,
+            "selfMs": 2.800000309944153
+          },
+          "npcOther": {
+            "calls": 360,
+            "selfMs": 5.399999976158142
+          },
+          "playerFrame": {
+            "calls": 1,
+            "selfMs": 496.2000000476837
+          },
+          "playerSpriteNative": {
+            "calls": 1,
+            "selfMs": 0.19999998807907104
+          },
+          "playerOther": {
+            "calls": 1,
+            "selfMs": 0.09999996423721313
+          },
+          "minimap": {
+            "calls": 2,
+            "selfMs": 5
+          },
+          "renderRemainder": {
+            "calls": 1,
+            "selfMs": 23.599999964237213
+          }
+        },
+        "selections": {
+          "player": {
+            "player": {
+              "calls": 1,
+              "native": 1,
+              "baked": 0,
+              "unknown": 0,
+              "none": 0,
+              "thrown": 0
+            }
+          },
+          "npc": {
+            "other": {
+              "calls": 180,
+              "native": 0,
+              "baked": 180,
+              "unknown": 0,
+              "none": 0,
+              "thrown": 0
+            }
+          },
+          "boss": {}
+        },
+        "arm": "A2",
+        "frame": 0,
+        "first": true,
+        "readinessBefore": {
+          "floorReady": false,
+          "floorWorldCached": false,
+          "floorTextureStatus": "ready",
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 0,
+          "npcRenderFrames": 0,
+          "npcModels": 1,
+          "npcPending": 1,
+          "npcPendingWithoutModel": 0,
+          "npcLost": false,
+          "npcError": "",
+          "types": [
+            {
+              "type": "walker",
+              "ready": true,
+              "pending": true
+            },
+            {
+              "type": "runner",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "shield",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "screamer",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "gas",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "elite",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "collector",
+              "ready": false,
+              "pending": false
+            }
+          ]
+        },
+        "readinessAfter": {
+          "floorReady": true,
+          "floorWorldCached": true,
+          "floorTextureStatus": "ready",
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 2,
+          "npcRenderFrames": 0,
+          "npcModels": 1,
+          "npcPending": 1,
+          "npcPendingWithoutModel": 0,
+          "npcLost": false,
+          "npcError": "",
+          "types": [
+            {
+              "type": "walker",
+              "ready": true,
+              "pending": true
+            },
+            {
+              "type": "runner",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "shield",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "screamer",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "gas",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "elite",
+              "ready": false,
+              "pending": false
+            },
+            {
+              "type": "collector",
+              "ready": false,
+              "pending": false
+            }
+          ]
+        }
+      },
+      "all40Stages": {
+        "renderer.prepareNativeEnemyBatch": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 2012.5000000596046,
+            "medianMs": 26.100000023841858,
+            "p95Ms": 252.4000000357628,
+            "maxMs": 253.9000000357628
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 1545.3999999761581,
+            "medianMs": 21,
+            "p95Ms": 235.30000001192093,
+            "maxMs": 242.39999997615814
+          }
+        },
+        "renderer.makeFloor": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 17.5,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 17.100000023841858
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 17.5,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 17.100000023841858
+          }
+        },
+        "renderer.drawDecor": {
+          "calls": 1920,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 129.99999976158142,
+            "medianMs": 1.3999999165534973,
+            "p95Ms": 31.600000023841858,
+            "maxMs": 33.69999998807907
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 117.60000002384186,
+            "medianMs": 1.1999998092651367,
+            "p95Ms": 31.5,
+            "maxMs": 33.40000003576279
+          }
+        },
+        "production.drawFrame": {
+          "calls": 9850,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 624.0000009536743,
+            "medianMs": 5.200000047683716,
+            "p95Ms": 69.39999997615814,
+            "maxMs": 249.4999998807907
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 624.0000009536743,
+            "medianMs": 5.200000047683716,
+            "p95Ms": 69.39999997615814,
+            "maxMs": 249.4999998807907
+          }
+        },
+        "renderer.drawObstacle": {
+          "calls": 800,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 152.59999936819077,
+            "medianMs": 1.4000000357627869,
+            "p95Ms": 11.399999976158142,
+            "maxMs": 58.49999988079071
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 37.79999905824661,
+            "medianMs": 0.5000000596046448,
+            "p95Ms": 5.1999998688697815,
+            "maxMs": 6.199999928474426
+          }
+        },
+        "renderer.nativeEnemyFrame": {
+          "calls": 7743,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 814.4999994039536,
+            "medianMs": 11.199999868869781,
+            "p95Ms": 101.90000021457672,
+            "maxMs": 157.59999978542328
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 814.4999994039536,
+            "medianMs": 11.199999868869781,
+            "p95Ms": 101.90000021457672,
+            "maxMs": 157.59999978542328
+          }
+        },
+        "renderer.drawNativeEnemy": {
+          "calls": 7340,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 972.2000008821487,
+            "medianMs": 12.100000023841858,
+            "p95Ms": 89.49999988079071,
+            "maxMs": 260.89999985694885
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 135.9000008702278,
+            "medianMs": 2.9000000953674316,
+            "p95Ms": 7.199999988079071,
+            "maxMs": 13.099999785423279
+          }
+        },
+        "renderer.drawEnemy": {
+          "calls": 7340,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1017.4000006914139,
+            "medianMs": 12.599999964237213,
+            "p95Ms": 90.3999999165535,
+            "maxMs": 262.39999997615814
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 45.19999980926514,
+            "medianMs": 0.5999999642372131,
+            "p95Ms": 4,
+            "maxMs": 17.600000023841858
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1233.799999833107,
+            "medianMs": 10.5,
+            "p95Ms": 127.80000001192093,
+            "maxMs": 496.2000000476837
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 1233.799999833107,
+            "medianMs": 10.5,
+            "p95Ms": 127.80000001192093,
+            "maxMs": 496.2000000476837
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1245.1999999284744,
+            "medianMs": 10.699999988079071,
+            "p95Ms": 128.5,
+            "maxMs": 496.5
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 3.6999999284744263,
+            "medianMs": 0.09999996423721313,
+            "p95Ms": 0.30000001192092896,
+            "maxMs": 0.5
+          }
+        },
+        "renderer.prepareMinimap": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 5.600000083446503,
+            "medianMs": 0,
+            "p95Ms": 0.19999998807907104,
+            "maxMs": 4.100000023841858
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 5.600000083446503,
+            "medianMs": 0,
+            "p95Ms": 0.19999998807907104,
+            "maxMs": 4.100000023841858
+          }
+        },
+        "renderer.drawMinimap": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 31.900000035762787,
+            "medianMs": 0.40000003576278687,
+            "p95Ms": 5,
+            "maxMs": 8.699999988079071
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 26.299999952316284,
+            "medianMs": 0.3999999761581421,
+            "p95Ms": 1.5,
+            "maxMs": 8.699999988079071
+          }
+        },
+        "renderer.render": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 4834.999999821186,
+            "medianMs": 68.59999996423721,
+            "p95Ms": 596.4000000357628,
+            "maxMs": 604.9000000357628
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 226.49999994039536,
+            "medianMs": 4.100000023841858,
+            "p95Ms": 15.100000023841858,
+            "maxMs": 23.599999964237213
+          }
+        },
+        "renderer.nativeCorpseFrame": {
+          "calls": 15,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 0.5,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.19999998807907104
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 0.5,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.19999998807907104
+          }
+        },
+        "renderer.drawNativeCorpse": {
+          "calls": 15,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 0.9000000357627869,
+            "medianMs": 0,
+            "p95Ms": 0.20000004768371582,
+            "maxMs": 0.2999999523162842
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 0.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.2999999523162842
+          }
+        }
+      },
+      "steady30Stages": {
+        "renderer.nativeEnemyFrame": {
+          "calls": 5900,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 723.099999666214,
+            "medianMs": 14.20000010728836,
+            "p95Ms": 101.90000021457672,
+            "maxMs": 157.59999978542328
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 723.099999666214,
+            "medianMs": 14.20000010728836,
+            "p95Ms": 101.90000021457672,
+            "maxMs": 157.59999978542328
+          }
+        },
+        "renderer.prepareNativeEnemyBatch": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 1760.4999999403954,
+            "medianMs": 33.80000001192093,
+            "p95Ms": 252.4000000357628,
+            "maxMs": 253.9000000357628
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 1336.300000011921,
+            "medianMs": 22.5,
+            "p95Ms": 235.30000001192093,
+            "maxMs": 242.39999997615814
+          }
+        },
+        "renderer.makeFloor": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 0.30000001192092896,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.10000002384185791
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 0.30000001192092896,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.10000002384185791
+          }
+        },
+        "renderer.drawDecor": {
+          "calls": 1440,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 84.69999986886978,
+            "medianMs": 1.4000000953674316,
+            "p95Ms": 6.100000023841858,
+            "maxMs": 31.600000023841858
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 74.1000000834465,
+            "medianMs": 1.2000001072883606,
+            "p95Ms": 5.799999952316284,
+            "maxMs": 31.5
+          }
+        },
+        "production.drawFrame": {
+          "calls": 7423,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 578.0999995470047,
+            "medianMs": 5.500000059604645,
+            "p95Ms": 69.39999997615814,
+            "maxMs": 249.4999998807907
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 578.0999995470047,
+            "medianMs": 5.500000059604645,
+            "p95Ms": 69.39999997615814,
+            "maxMs": 249.4999998807907
+          }
+        },
+        "renderer.drawObstacle": {
+          "calls": 600,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 120.09999966621399,
+            "medianMs": 1.5,
+            "p95Ms": 6.300000011920929,
+            "maxMs": 58.49999988079071
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 26.299999475479126,
+            "medianMs": 0.5999999046325684,
+            "p95Ms": 4.700000047683716,
+            "maxMs": 5.1999998688697815
+          }
+        },
+        "renderer.drawNativeEnemy": {
+          "calls": 5540,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 877.1000002026558,
+            "medianMs": 14.699999988079071,
+            "p95Ms": 89.49999988079071,
+            "maxMs": 260.89999985694885
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 109.90000104904175,
+            "medianMs": 3.0000000596046448,
+            "p95Ms": 7.199999988079071,
+            "maxMs": 13.099999785423279
+          }
+        },
+        "renderer.drawEnemy": {
+          "calls": 5540,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 915.7000002264977,
+            "medianMs": 15.299999952316284,
+            "p95Ms": 90.3999999165535,
+            "maxMs": 262.39999997615814
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 38.60000002384186,
+            "medianMs": 0.5999999642372131,
+            "p95Ms": 4,
+            "maxMs": 17.600000023841858
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 655.5999998450279,
+            "medianMs": 10.599999964237213,
+            "p95Ms": 75.89999997615814,
+            "maxMs": 127.80000001192093
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 655.5999998450279,
+            "medianMs": 10.599999964237213,
+            "p95Ms": 75.89999997615814,
+            "maxMs": 127.80000001192093
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 664.0999999642372,
+            "medianMs": 11.399999976158142,
+            "p95Ms": 76,
+            "maxMs": 128.5
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 3.300000011920929,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.30000001192092896,
+            "maxMs": 0.5
+          }
+        },
+        "renderer.prepareMinimap": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 1.1000000834465027,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.19999998807907104
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 1.1000000834465027,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.19999998807907104
+          }
+        },
+        "renderer.drawMinimap": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 23.599999964237213,
+            "medianMs": 0.40000003576278687,
+            "p95Ms": 1.699999988079071,
+            "maxMs": 8.699999988079071
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 22.49999988079071,
+            "medianMs": 0.3999999761581421,
+            "p95Ms": 1.5,
+            "maxMs": 8.699999988079071
+          }
+        },
+        "renderer.render": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 3740.499999821186,
+            "medianMs": 74.89999997615814,
+            "p95Ms": 448.60000002384186,
+            "maxMs": 604.9000000357628
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 170.10000014305115,
+            "medianMs": 4.400000035762787,
+            "p95Ms": 14.099999904632568,
+            "maxMs": 15.100000023841858
+          }
+        },
+        "renderer.nativeCorpseFrame": {
+          "calls": 15,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 0.5,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.19999998807907104
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 0.5,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.19999998807907104
+          }
+        },
+        "renderer.drawNativeCorpse": {
+          "calls": 15,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 0.9000000357627869,
+            "medianMs": 0,
+            "p95Ms": 0.20000004768371582,
+            "maxMs": 0.2999999523162842
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 0.699999988079071,
+            "medianMs": 0,
+            "p95Ms": 0.10000002384185791,
+            "maxMs": 0.2999999523162842
+          }
+        }
+      },
+      "all40Buckets": {
+        "nativeBatch": {
+          "count": 40,
+          "sumMs": 1545.3999999761581,
+          "medianMs": 21,
+          "p95Ms": 235.30000001192093,
+          "maxMs": 242.39999997615814
+        },
+        "floorCache": {
+          "count": 40,
+          "sumMs": 17.5,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 17.100000023841858
+        },
+        "environmentOther": {
+          "count": 40,
+          "sumMs": 155.39999908208847,
+          "medianMs": 1.7999998927116394,
+          "p95Ms": 33.5,
+          "maxMs": 39.59999996423721
+        },
+        "environmentSpriteBaked": {
+          "count": 40,
+          "sumMs": 127.20000004768372,
+          "medianMs": 1.0999999046325684,
+          "p95Ms": 10.699999928474426,
+          "maxMs": 58.39999997615814
+        },
+        "npcFrame": {
+          "count": 40,
+          "sumMs": 814.4999994039536,
+          "medianMs": 11.199999868869781,
+          "p95Ms": 101.90000021457672,
+          "maxMs": 157.59999978542328
+        },
+        "npcSpriteBaked": {
+          "count": 40,
+          "sumMs": 391.4000005722046,
+          "medianMs": 2.699999988079071,
+          "p95Ms": 18.499999940395355,
+          "maxMs": 237.79999989271164
+        },
+        "npcOther": {
+          "count": 40,
+          "sumMs": 181.10000067949295,
+          "medianMs": 3.600000023841858,
+          "p95Ms": 13.999999821186066,
+          "maxMs": 20.200000047683716
+        },
+        "playerFrame": {
+          "count": 40,
+          "sumMs": 1233.799999833107,
+          "medianMs": 10.5,
+          "p95Ms": 127.80000001192093,
+          "maxMs": 496.2000000476837
+        },
+        "playerSpriteNative": {
+          "count": 40,
+          "sumMs": 7.700000166893005,
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 1,
+          "maxMs": 1.4000000357627869
+        },
+        "playerOther": {
+          "count": 40,
+          "sumMs": 3.6999999284744263,
+          "medianMs": 0.09999996423721313,
+          "p95Ms": 0.30000001192092896,
+          "maxMs": 0.5
+        },
+        "minimap": {
+          "count": 40,
+          "sumMs": 31.900000035762787,
+          "medianMs": 0.40000003576278687,
+          "p95Ms": 5,
+          "maxMs": 8.699999988079071
+        },
+        "renderRemainder": {
+          "count": 40,
+          "sumMs": 226.49999994039536,
+          "medianMs": 4.100000023841858,
+          "p95Ms": 15.100000023841858,
+          "maxMs": 23.599999964237213
+        },
+        "npcSpriteNative": {
+          "count": 40,
+          "sumMs": 97.50000011920929,
+          "medianMs": 0.5,
+          "p95Ms": 8.600000023841858,
+          "maxMs": 47.200000047683716
+        },
+        "corpseFrame": {
+          "count": 40,
+          "sumMs": 0.5,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.19999998807907104
+        },
+        "corpseSpriteBaked": {
+          "count": 40,
+          "sumMs": 0.20000004768371582,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.10000002384185791
+        },
+        "corpseOther": {
+          "count": 40,
+          "sumMs": 0.699999988079071,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.2999999523162842
+        }
+      },
+      "steady30Buckets": {
+        "npcFrame": {
+          "count": 30,
+          "sumMs": 723.099999666214,
+          "medianMs": 14.20000010728836,
+          "p95Ms": 101.90000021457672,
+          "maxMs": 157.59999978542328
+        },
+        "nativeBatch": {
+          "count": 30,
+          "sumMs": 1336.300000011921,
+          "medianMs": 22.5,
+          "p95Ms": 235.30000001192093,
+          "maxMs": 242.39999997615814
+        },
+        "floorCache": {
+          "count": 30,
+          "sumMs": 0.30000001192092896,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.10000002384185791
+        },
+        "environmentOther": {
+          "count": 30,
+          "sumMs": 100.39999955892563,
+          "medianMs": 1.899999976158142,
+          "p95Ms": 6.899999916553497,
+          "maxMs": 33.5
+        },
+        "environmentSpriteBaked": {
+          "count": 30,
+          "sumMs": 104.39999997615814,
+          "medianMs": 1.0999998450279236,
+          "p95Ms": 6.199999988079071,
+          "maxMs": 58.39999997615814
+        },
+        "npcSpriteBaked": {
+          "count": 30,
+          "sumMs": 372.99999928474426,
+          "medianMs": 3.799999952316284,
+          "p95Ms": 18.499999940395355,
+          "maxMs": 237.79999989271164
+        },
+        "npcOther": {
+          "count": 30,
+          "sumMs": 148.5000010728836,
+          "medianMs": 3.7999998927116394,
+          "p95Ms": 13.999999821186066,
+          "maxMs": 20.200000047683716
+        },
+        "npcSpriteNative": {
+          "count": 30,
+          "sumMs": 95.30000013113022,
+          "medianMs": 0.6999999284744263,
+          "p95Ms": 8.600000023841858,
+          "maxMs": 47.200000047683716
+        },
+        "playerFrame": {
+          "count": 30,
+          "sumMs": 655.5999998450279,
+          "medianMs": 10.599999964237213,
+          "p95Ms": 75.89999997615814,
+          "maxMs": 127.80000001192093
+        },
+        "playerSpriteNative": {
+          "count": 30,
+          "sumMs": 5.200000107288361,
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 0.5999999642372131,
+          "maxMs": 1.4000000357627869
+        },
+        "playerOther": {
+          "count": 30,
+          "sumMs": 3.300000011920929,
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 0.30000001192092896,
+          "maxMs": 0.5
+        },
+        "minimap": {
+          "count": 30,
+          "sumMs": 23.599999964237213,
+          "medianMs": 0.40000003576278687,
+          "p95Ms": 1.699999988079071,
+          "maxMs": 8.699999988079071
+        },
+        "renderRemainder": {
+          "count": 30,
+          "sumMs": 170.10000014305115,
+          "medianMs": 4.400000035762787,
+          "p95Ms": 14.099999904632568,
+          "maxMs": 15.100000023841858
+        },
+        "corpseFrame": {
+          "count": 30,
+          "sumMs": 0.5,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.19999998807907104
+        },
+        "corpseSpriteBaked": {
+          "count": 30,
+          "sumMs": 0.20000004768371582,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.10000002384185791
+        },
+        "corpseOther": {
+          "count": 30,
+          "sumMs": 0.699999988079071,
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791,
+          "maxMs": 0.2999999523162842
+        }
+      },
+      "outliers": [
+        {
+          "frameIndex": 22,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 604.9000000357628,
+          "selfMs": 5.800000071525574,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 596.4000000357628,
+          "selfMs": 23.599999964237213,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.drawPlayer",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 496.5,
+          "selfMs": 0.09999996423721313,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.nativePlayerFrame",
+          "type": null,
+          "source": "native",
+          "assetId": "survivor-original-live-rig",
+          "inclusiveMs": 496.2000000476837,
+          "selfMs": 496.2000000476837,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 20,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 448.60000002384186,
+          "selfMs": 7.800000071525574,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 24,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 289,
+          "selfMs": 3.6999999284744263,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 22,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 253.9000000357628,
+          "selfMs": 104.90000003576279,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 24,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 252.4000000357628,
+          "selfMs": 235.30000001192093,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 20,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 251.69999998807907,
+          "selfMs": 242.39999997615814,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 17,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 238.0999999642372,
+          "selfMs": 15.100000023841858,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 22,
+          "stage": "renderer.drawNativeEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 199.60000002384186,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 22,
+          "stage": "renderer.drawEnemy",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 199.60000002384186,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 22,
+          "stage": "production.drawFrame",
+          "type": null,
+          "source": "baked",
+          "assetId": "enemy-walker-locomotion-hq32",
+          "inclusiveMs": 199.5,
+          "selfMs": 199.5,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 27,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 193.0999999642372,
+          "selfMs": 7.100000083446503,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 23,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 191.80000001192093,
+          "selfMs": 8.200000047683716,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 25,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 162.69999998807907,
+          "selfMs": 4.400000095367432,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 26,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 160.5,
+          "selfMs": 3.800000011920929,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 155.69999998807907,
+          "selfMs": 3.7000001668930054,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 16,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 154,
+          "selfMs": 6.399999976158142,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 20,
+          "stage": "renderer.drawPlayer",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 128.5,
+          "selfMs": 0.19999998807907104,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 20,
+          "stage": "renderer.nativePlayerFrame",
+          "type": null,
+          "source": "native",
+          "assetId": "survivor-original-live-rig",
+          "inclusiveMs": 127.80000001192093,
+          "selfMs": 127.80000001192093,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 108.79999995231628,
+          "selfMs": 86.09999996423721,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 7,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 100.5,
+          "selfMs": 6.699999988079071,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 36,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 99.29999995231628,
+          "selfMs": 5.3000001311302185,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 18,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 89.5,
+          "selfMs": 13.599999904632568,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 17,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 83.69999998807907,
+          "selfMs": 65.5,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 34,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 81.80000001192093,
+          "selfMs": 10.299999952316284,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 21,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 81.5,
+          "selfMs": 4.100000023841858,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 27,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 79.5,
+          "selfMs": 74.60000002384186,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 16,
+          "stage": "renderer.prepareNativeEnemyBatch",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 76.69999998807907,
+          "selfMs": 68.59999996423721,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 38,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 76.30000001192093,
+          "selfMs": 4.899999976158142,
+          "threw": false,
+          "falseReturn": false
+        },
+        {
+          "frameIndex": 22,
+          "stage": "renderer.drawPlayer",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 76,
+          "selfMs": 0,
+          "threw": false,
+          "falseReturn": false
+        }
+      ],
+      "unmeasured": [],
+      "restoration": {
+        "restored": 17,
+        "shared": 0,
+        "foreignPreserved": 0,
+        "failed": 0
+      },
+      "nativeRuntime": {
+        "maxModels": 2,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "finalReadiness": {
+        "floorReady": true,
+        "floorWorldCached": true,
+        "floorTextureStatus": "ready",
+        "playerReady": true,
+        "playerError": null,
+        "playerRenderFrames": 80,
+        "npcRenderFrames": 403,
+        "npcModels": 2,
+        "npcPending": 2,
+        "npcPendingWithoutModel": 0,
+        "npcLost": false,
+        "npcError": "",
+        "types": [
+          {
+            "type": "walker",
+            "ready": true,
+            "pending": true
+          },
+          {
+            "type": "runner",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "shield",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "screamer",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "gas",
+            "ready": true,
+            "pending": true
+          },
+          {
+            "type": "elite",
+            "ready": false,
+            "pending": false
+          },
+          {
+            "type": "collector",
+            "ready": false,
+            "pending": false
+          }
+        ]
+      },
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      }
+    }
+  ]
+}

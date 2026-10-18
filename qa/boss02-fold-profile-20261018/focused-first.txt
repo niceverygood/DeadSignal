@@ -1,0 +1,608 @@
+TAP version 13
+# Subtest: only the twelve original DS final rigs are supported; unsupported/inactive calls perform exactly zero bone changes
+ok 1 - only the twelve original DS final rigs are supported; unsupported/inactive calls perform exactly zero bone changes
+  ---
+  duration_ms: 69.1173
+  type: 'test'
+  ...
+# Subtest: windup visibly raises the paired original X-lever arms and holds20/10 degrees at its end without moving feet/root/head
+ok 2 - windup visibly raises the paired original X-lever arms and holds20/10 degrees at its end without moving feet/root/head
+  ---
+  duration_ms: 3.0561
+  type: 'test'
+  ...
+# Subtest: all skill families join the warning boundary exactly, stay bounded, and leave only leap landing for the existing recovery transition
+ok 3 - all skill families join the warning boundary exactly, stay bounded, and leave only leap landing for the existing recovery transition
+  ---
+  duration_ms: 287.2594
+  type: 'test'
+  ...
+# Subtest: immediate skills strike by warning expiry, travelling skills brace, and leap strikes only on arrival instead of prematurely during flight
+ok 4 - immediate skills strike by warning expiry, travelling skills brace, and leap strikes only on arrival instead of prematurely during flight
+  ---
+  duration_ms: 10.2169
+  type: 'test'
+  ...
+# Subtest: the fresh-sample X articulation is amplified only1.5x and capped40 degrees; repeated fresh replays retain exact source identity/data with no drift
+ok 5 - the fresh-sample X articulation is amplified only1.5x and capped40 degrees; repeated fresh replays retain exact source identity/data with no drift
+  ---
+  duration_ms: 7.3889
+  type: 'test'
+  ...
+# Subtest: the actual SHA-pinned original hammer GLB keeps mesh/UV/skin/clip/rest data and exact planted bone transforms while its sampled upper-body quaternion changes
+ok 6 - the actual SHA-pinned original hammer GLB keeps mesh/UV/skin/clip/rest data and exact planted bone transforms while its sampled upper-body quaternion changes
+  ---
+  duration_ms: 378.0917
+  type: 'test'
+  ...
+# Subtest: full original layer/live sources are independently invertible and every default final-key pose remains bit-exact against the saved whole module
+ok 7 - full original layer/live sources are independently invertible and every default final-key pose remains bit-exact against the saved whole module
+  ---
+  duration_ms: 68.6017
+  type: 'test'
+  ...
+# Subtest: fold is boss02-only, independently cached, clones legacy entries and never changes a legacy layer cache or unsupported sampler
+ok 8 - fold is boss02-only, independently cached, clones legacy entries and never changes a legacy layer cache or unsupported sampler
+  ---
+  duration_ms: 1.7296
+  type: 'test'
+  ...
+# Subtest: actual Quaternion peak gives pair0 30/32 degrees and remaining pairs 8/4 weighted, with exact old zero/contact endpoints and planted feet
+ok 9 - actual Quaternion peak gives pair0 30/32 degrees and remaining pairs 8/4 weighted, with exact old zero/contact endpoints and planted feet
+  ---
+  duration_ms: 4.2163
+  type: 'test'
+  ...
+# Subtest: fold map joins at zero without a derivative jump and fresh samples remain deterministic, bounded and source/rest preserving
+ok 10 - fold map joins at zero without a derivative jump and fresh samples remain deterministic, bounded and source/rest preserving
+  ---
+  duration_ms: 38.9547
+  type: 'test'
+  ...
+# Subtest: actual constructor/load privately selects only the explicit boss02 profile; default/invalid/other-key paths retain original model selection and no new own fields
+ok 11 - actual constructor/load privately selects only the explicit boss02 profile; default/invalid/other-key paths retain original model selection and no new own fields
+  ---
+  duration_ms: 55.7954
+  type: 'test'
+  ...
+# Subtest: only exact fold query adds the new own option/callback; the original contact and stored preview remain first and unchanged
+ok 12 - only exact fold query adds the new own option/callback; the original contact and stored preview remain first and unchanged
+  ---
+  duration_ms: 12.8046
+  type: 'test'
+  ...
+# Subtest: fold callback failure retains worker raw evidence and cancellation cannot append a late second image
+ok 13 - fold callback failure retains worker raw evidence and cancellation cannot append a late second image
+  ---
+  duration_ms: 3.8315
+  type: 'test'
+  ...
+# Subtest: same actor/time/pose flag changes invalidate exactly once while unchanged flags reuse the actual private frame; unsupported NPC signatures stay original
+ok 14 - same actor/time/pose flag changes invalidate exactly once while unchanged flags reuse the actual private frame; unsupported NPC signatures stay original
+  ---
+  duration_ms: 20.6967
+  type: 'test'
+  ...
+# Subtest: batch items capture independent primitive layer diagnostics before another actor resets the cached layer diagnostic object
+ok 15 - batch items capture independent primitive layer diagnostics before another actor resets the cached layer diagnostic object
+  ---
+  duration_ms: 4.257
+  type: 'test'
+  ...
+# Subtest: the layer uses the fresh base sample before original torso-hit blending, transitions and live-to-death history while rest/actor data remain untouched
+ok 16 - the layer uses the fresh base sample before original torso-hit blending, transitions and live-to-death history while rest/actor data remain untouched
+  ---
+  duration_ms: 13.3388
+  type: 'test'
+  ...
+# Subtest: standalone boss UI gates exact origin and flag before DOM/dependencies and requires genuine memory storage
+ok 17 - standalone boss UI gates exact origin and flag before DOM/dependencies and requires genuine memory storage
+  ---
+  duration_ms: 8.6369
+  type: 'test'
+  ...
+# Subtest: one idle click loads the original manifest lazily and runs exactly one of twelve final keys with at most one PNG
+ok 18 - one idle click loads the original manifest lazily and runs exactly one of twelve final keys with at most one PNG
+  ---
+  duration_ms: 3.8788
+  type: 'test'
+  ...
+# Subtest: duplicate clicks, selection changes and UI owner replacement cannot launch a late lazy-loaded worker
+ok 19 - duplicate clicks, selection changes and UI owner replacement cannot launch a late lazy-loaded worker
+  ---
+  duration_ms: 1.4181
+  type: 'test'
+  ...
+# Subtest: pagehide and replaced UI owners abort running work and suppress late images, progress and results
+ok 20 - pagehide and replaced UI owners abort running work and suppress late images, progress and results
+  ---
+  duration_ms: 1.317
+  type: 'test'
+  ...
+# Subtest: raw worker failure and incomplete cleanup remain failed evidence without auto-adoption or extra attempts
+ok 21 - raw worker failure and incomplete cleanup remain failed evidence without auto-adoption or extra attempts
+  ---
+  duration_ms: 2.0619
+  type: 'test'
+  ...
+# Subtest: exact opt-in and genuine memory gate precede main owner, DOM and dependency reads
+ok 22 - exact opt-in and genuine memory gate precede main owner, DOM and dependency reads
+  ---
+  duration_ms: 2.9389
+  type: 'test'
+  ...
+# Subtest: abort before an unsettled original model arrives waits for its late retirement exactly once and preserves every main owner
+ok 23 - abort before an unsettled original model arrives waits for its late retirement exactly once and preserves every main owner
+  ---
+  duration_ms: 8.5658
+  type: 'test'
+  ...
+# Subtest: load false leaves no retained pending entry and retains the original failure instead of claiming a visual run
+ok 24 - load false leaves no retained pending entry and retains the original failure instead of claiming a visual run
+  ---
+  duration_ms: 1.8
+  type: 'test'
+  ...
+# Subtest: a geometry retirement that discovers another original pending Promise keeps the drain active until the new model retires
+ok 25 - a geometry retirement that discovers another original pending Promise keeps the drain active until the new model retires
+  ---
+  duration_ms: 2.2858
+  type: 'test'
+  ...
+# Subtest: one cleanup deadline freezes incomplete evidence while a later original model still retires without rewriting the report or primary error
+ok 26 - one cleanup deadline freezes incomplete evidence while a later original model still retires without rewriting the report or primary error
+  ---
+  duration_ms: 2.9081
+  type: 'test'
+  ...
+# Subtest: disposal and registration failures are honest, preserve the primary failure and independently attempt all remaining resource cleanup
+ok 27 - disposal and registration failures are honest, preserve the primary failure and independently attempt all remaining resource cleanup
+  ---
+  duration_ms: 8.9756
+  type: 'test'
+  ...
+# Subtest: a constructor returning the caller protected rig cannot release its original model, frame pool or surface
+ok 28 - a constructor returning the caller protected rig cannot release its original model, frame pool or surface
+  ---
+  duration_ms: 0.9254
+  type: 'test'
+  ...
+# Subtest: borrowed main canvases, frame-pool surfaces, slot ownership and atlas record maps stay protected independently
+ok 29 - borrowed main canvases, frame-pool surfaces, slot ownership and atlas record maps stay protected independently
+  ---
+  duration_ms: 4.3586
+  type: 'test'
+  ...
+# Subtest: the historical phase, geometry, pixel, hand-travel and native rendering oracle changes only at the declared lifecycle sites
+not ok 30 - the historical phase, geometry, pixel, hand-travel and native rendering oracle changes only at the declared lifecycle sites
+  ---
+  duration_ms: 16.1727
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-boss-action-owned.test.mjs:120:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    the existing source is unchanged: action-layer-before.txt
+    + actual - expected
+    ... Skipped lines
+    
+      "import {getBoss} from '../campaign.js?v=0.29.0';\n" +
+        '\n' +
+        'const DEG=Math.PI/180,MAX_ANGLE=40*DEG,SHOULDER=20*DEG,FOREARM=10*DEG,TORSO=3*DEG;\n' +
+        'const caches=new WeakMap(),finite=Number.isFinite,clamp=value=>Math.max(0,Math.min(1,value));\n' +
+    +   'const foldCaches=new WeakMap();\n' +
+        'const ease=value=>{const p=clamp(value);return p*p*(3-2*p);};\n' +
+        "function diagnostics(supported,kind=''){\n" +
+        " return {supported,active:false,kind,pose:'',progress:0,shoulderRaise:0,forearmRaise:0,torsoPitch:0,maxCombinedAngle:0,appliedBones:0,cappedBones:0};\n" +
+        '}\n' +
+        'const unsupported={supported:false,diagnostics:diagnostics(false),apply(){return this.diagnostics;}};\n' +
+    ...
+        "   const extraX=entry.role==='torso'?torso:.5*(2*Math.atan2(dx,dw));\n" +
+    +   "   let extraZ=entry.role==='torso'?0:entry.side*entry.weight*(entry.role==='arm'?SHOULDER:FOREARM)*raise;\n" +
+    +   '   // Dormant boss02-only profile. Keep the exact original expression above for\n' +
+    +   '   // the default entries, both signed zeroes, and the unchanged contact endpoint.\n' +
+    +   "   if(entry.peak!==undefined&&entry.role!=='torso'&&raise!==0&&raise!==-.4){\n" +
+    +   "    const base=entry.role==='arm'?SHOULDER:FOREARM,peak=entry.peak,m=Math.min(base,peak);\n" +
+    +   '    const mapped=raise>=0?m*raise+(peak-m)*raise*raise:base*raise+(m-base)*raise*(raise+.4)/.4;\n' +
+    +   '    extraZ=entry.side*entry.weight*mapped;\n' +
+    +   '   }\n' +
+    -   "   const extraZ=entry.role==='torso'?0:entry.side*entry.weight*(entry.role==='arm'?SHOULDER:FOREARM)*raise;\n" +
+        '   let c=Math.cos(extraX*.5),s=Math.sin(extraX*.5);\n' +
+        '   let nx=x*c+w*s,ny=y*c+z*s,nz=z*c-y*s,nw=w*c-x*s;\n' +
+        '   c=Math.cos(extraZ*.5);s=Math.sin(extraZ*.5);\n' +
+        '   x=nx*c+ny*s;y=ny*c-nx*s;z=nz*c+nw*s;w=nw*c-nz*s;\n' +
+        '   const length=Math.hypot(x,y,z,w);if(!(length>0)||!finite(length))continue;\n' +
+    ...
+        ' return layer;\n' +
+    +   '}\n' +
+    +   '\n' +
+    +   '// A separate cache and cloned entries keep the existing factory/layers intact.\n' +
+    +   '// This is an explicit QA profile, not an anatomical hinge or product approval.\n' +
+    +   'export function createBoss02FoldActionLayer(sampler,key){\n' +
+    +   " if(key!=='boss-02-final')return unsupported;\n" +
+    +   ' const cached=foldCaches.get(sampler);if(cached)return cached;\n' +
+    +   ' const original=createBossActionLayer(sampler,key);if(!original.supported)return original;\n' +
+    +   ' const entries=original.entries.map(entry=>{\n' +
+    +   '  const copy={...entry};\n' +
+    +   "  if(entry.role!=='torso'){\n" +
+    +   '   const upper=/^DS_(?:Arm|Forearm)_0_/.test(entry.bone.name);\n' +
+    +   "   copy.peak=(entry.role==='arm'?(upper?30:8):(upper?32:4))*DEG;\n" +
+    +   '  }\n' +
+    +   '  return copy;\n' +
+    +   ' });\n' +
+    +   " const layer=new BossActionLayer(entries,original.kind);layer.profile='boss02-fold-v1';foldCaches.set(sampler,layer);return layer;\n" +
+        '}\n'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: |-
+    import {getBoss} from '../campaign.js?v=0.29.0';
+    
+    const DEG=Math.PI/180,MAX_ANGLE=40*DEG,SHOULDER=20*DEG,FOREARM=10*DEG,TORSO=3*DEG;
+    const caches=new WeakMap(),finite=Number.isFinite,clamp=value=>Math.max(0,Math.min(1,value));
+    const ease=value=>{const p=clamp(value);return p*p*(3-2*p);};
+    function diagnostics(supported,kind=''){
+     return {supported,active:false,kind,pose:'',progress:0,shoulderRaise:0,forearmRaise:0,torsoPitch:0,maxCombinedAngle:0,appliedBones:0,cappedBones:0};
+    }
+    const unsupported={supported:false,diagnostics:diagnostics(false),apply(){return this.diagnostics;}};
+    
+    // Input must be the fresh authored pose from AnimationSampler.sample, before
+    // the existing hit layer, transition/history and updateSkinPose. No clocks or
+    // gameplay references are used. Replaying the same fresh sample is deterministic;
+    // every application requires a fresh sample. This is not an anatomical IK solver.
+    class BossActionLayer{
+     constructor(entries,kind){this.entries=entries;this.kind=kind;this.supported=true;this.diagnostics=diagnostics(true,kind);}
+     apply(pose,_options){
+      const d=this.diagnostics;d.active=false;d.pose='';d.progress=0;d.shoulderRaise=0;d.forearmRaise=0;d.torsoPitch=0;d.maxCombinedAngle=0;d.appliedBones=0;d.cappedBones=0;
+      if(!pose||(pose.name!=='windup'&&pose.name!=='attack')||!finite(pose.progress))return d;
+      const p=clamp(pose.progress),kind=this.kind;
+      let raise,torso;
+      const immediate=kind!=='charge'&&kind!=='dash'&&kind!=='shield'&&kind!=='leap'&&kind!=='summon'&&kind!=='pull';
+      const impact=kind==='slam'?-.4:-.25;
+      if(pose.name==='windup'){
+       if(immediate){
+        // These original skills resolve when the warning reaches zero. Finish the
+        // stroke during that warning, so visible contact is not delayed into recovery.
+        const lift=ease(p/.72),strike=ease((p-.72)/.28);
+        raise=lift*(1-strike)+impact*strike;torso=-TORSO*lift*(1-strike)+TORSO*strike;
+       }else{raise=ease(p);torso=-TORSO*raise;}
+      }
+      else if(kind==='charge'||kind==='dash'||kind==='shield'){
+       // A travelling/guarding body braces; it does not pretend to strike repeatedly.
+       raise=1-ease((p-.35)/.65);torso=-TORSO*raise;
+      }else if(kind==='leap'){
+       // The original leap damages on arrival at the end of its active countdown.
+       // Its landing pose then returns through the existing live recovery transition.
+       const drop=ease((p-.58)/.42),follow=1;
+       raise=(1-drop)-.4*drop*follow;torso=-TORSO*(1-drop)+TORSO*drop*follow;
+      }else if(kind==='summon'||kind==='pull'){
+       const open=1-ease(p),pulse=Math.sin(Math.PI*p);
+       raise=open;torso=-TORSO*open+2*DEG*pulse*pulse;
+      }else{
+       // The release/impact already happened at the warning boundary. This is
+       // its gradual follow-through, not a second delayed visual strike.
+       const follow=1-ease(p);raise=impact*follow;torso=TORSO*follow;
+      }
+      d.active=true;d.pose=pose.name;d.progress=p;d.shoulderRaise=SHOULDER*raise;d.forearmRaise=FOREARM*raise;d.torsoPitch=torso;
+      for(let i=0;i<this.entries.length;i++){
+       const entry=this.entries[i],q=entry.bone.quaternion;
+       let x=q.x,y=q.y,z=q.z,w=q.w;
+       if(!finite(x)||!finite(y)||!finite(z)||!finite(w))continue;
+       // Inverse-rest * original: only the original local-X articulation gets
+       // at most another half of its angle; original Y/Z components remain inputs.
+       let dx=entry.rw*x-entry.rx*w-entry.ry*z+entry.rz*y;
+       let dy=entry.rw*y+entry.rx*z-entry.ry*w-entry.rz*x;
+       let dz=entry.rw*z-entry.rx*y+entry.ry*x-entry.rz*w;
+       let dw=entry.rw*w+entry.rx*x+entry.ry*y+entry.rz*z;
+       if(dw<0){dx=-dx;dy=-dy;dz=-dz;dw=-dw;}
+       const extraX=entry.role==='torso'?torso:.5*(2*Math.atan2(dx,dw));
+       const extraZ=entry.role==='torso'?0:entry.side*entry.weight*(entry.role==='arm'?SHOULDER:FOREARM)*raise;
+       let c=Math.cos(extraX*.5),s=Math.sin(extraX*.5);
+       let nx=x*c+w*s,ny=y*c+z*s,nz=z*c-y*s,nw=w*c-x*s;
+       c=Math.cos(extraZ*.5);s=Math.sin(extraZ*.5);
+       x=nx*c+ny*s;y=ny*c-nx*s;z=nz*c+nw*s;w=nw*c-nz*s;
+       const length=Math.hypot(x,y,z,w);if(!(length>0)||!finite(length))continue;
+       x/=length;y/=length;z/=length;w/=length;
+       dx=entry.rw*x-entry.rx*w-entry.ry*z+entry.rz*y;
+       dy=entry.rw*y+entry.rx*z-entry.ry*w-entry.rz*x;
+       dz=entry.rw*z-entry.rx*y+entry.ry*x-entry.rz*w;
+       dw=entry.rw*w+entry.rx*x+entry.ry*y+entry.rz*z;
+       if(dw<0){dx=-dx;dy=-dy;dz=-dz;dw=-dw;}
+       let angle=2*Math.acos(Math.max(-1,Math.min(1,dw)));
+       if(angle>MAX_ANGLE){
+        const axisLength=Math.hypot(dx,dy,dz);if(!(axisLength>0))continue;
+        const k=Math.sin(MAX_ANGLE*.5)/axisLength;dx*=k;dy*=k;dz*=k;dw=Math.cos(MAX_ANGLE*.5);
+        x=entry.rw*dx+entry.rx*dw+entry.ry*dz-entry.rz*dy;
+        y=entry.rw*dy-entry.rx*dz+entry.ry*dw+entry.rz*dx;
+        z=entry.rw*dz+entry.rx*dy-entry.ry*dx+entry.rz*dw;
+        w=entry.rw*dw-entry.rx*dx-entry.ry*dy-entry.rz*dz;
+        angle=MAX_ANGLE;d.cappedBones++;
+       }
+       q.set(x,y,z,w);d.appliedBones++;if(angle>d.maxCombinedAngle)d.maxCombinedAngle=angle;
+      }
+      return d;
+     }
+    }
+    
+    export function createBossActionLayer(sampler,key){
+     const boss=typeof key==='string'?getBoss(key):null;
+     // The custom DS axes below belong to the original final-boss rig only.
+     // Humanoid middle-boss axes and unregistered/custom actors are never guessed.
+     if(!boss||boss.role!=='final'||!sampler||typeof sampler!=='object')return unsupported;
+     let byKey=caches.get(sampler);if(byKey?.has(key))return byKey.get(key);
+     const rest=sampler.restTransforms;if(!Array.isArray(rest))return unsupported;
+     const entries=[],arms=new Set(),forearms=new Set();let thorax=0,valid=true;
+     for(let i=0;i<rest.length;i++){
+      const saved=rest[i],bone=saved?.object;if(!bone?.isBone)continue;
+      const match=/^DS_(Arm|Forearm)_([0-2])_(-1|1)$/.exec(bone.name);
+      const role=bone.name==='DS_Thorax'?'torso':match?(match[1]==='Arm'?'arm':'forearm'):null;
+      if(!role)continue;
+      const q=saved.quaternion,live=bone.quaternion;
+      if(!q||!live||typeof live.set!=='function'||![q.x,q.y,q.z,q.w].every(finite)){valid=false;break;}
+      const length=Math.hypot(q.x,q.y,q.z,q.w);if(!(length>0)||!finite(length)){valid=false;break;}
+      if(role==='torso')thorax++;else{const set=role==='arm'?arms:forearms,name=match[2]+'_'+match[3];if(set.has(name)){valid=false;break;}set.add(name);}
+      entries.push({bone,role,side:match?Number(match[3]):0,weight:match?1-Number(match[2])*.12:1,rx:q.x/length,ry:q.y/length,rz:q.z/length,rw:q.w/length});
+     }
+     if(!valid||thorax!==1||![4,6].includes(arms.size)||forearms.size!==arms.size||[...arms].some(name=>{const [pair,side]=name.split('_');return !forearms.has(name)||!arms.has(pair+'_'+(-Number(side)));}))return unsupported;
+     const layer=new BossActionLayer(entries,boss.skill.kind);
+     if(!byKey){byKey=new Map();caches.set(sampler,byKey);}byKey.set(key,layer);
+     return layer;
+    }
+    
+  actual: |-
+    import {getBoss} from '../campaign.js?v=0.29.0';
+    
+    const DEG=Math.PI/180,MAX_ANGLE=40*DEG,SHOULDER=20*DEG,FOREARM=10*DEG,TORSO=3*DEG;
+    const caches=new WeakMap(),finite=Number.isFinite,clamp=value=>Math.max(0,Math.min(1,value));
+    const foldCaches=new WeakMap();
+    const ease=value=>{const p=clamp(value);return p*p*(3-2*p);};
+    function diagnostics(supported,kind=''){
+     return {supported,active:false,kind,pose:'',progress:0,shoulderRaise:0,forearmRaise:0,torsoPitch:0,maxCombinedAngle:0,appliedBones:0,cappedBones:0};
+    }
+    const unsupported={supported:false,diagnostics:diagnostics(false),apply(){return this.diagnostics;}};
+    
+    // Input must be the fresh authored pose from AnimationSampler.sample, before
+    // the existing hit layer, transition/history and updateSkinPose. No clocks or
+    // gameplay references are used. Replaying the same fresh sample is deterministic;
+    // every application requires a fresh sample. This is not an anatomical IK solver.
+    class BossActionLayer{
+     constructor(entries,kind){this.entries=entries;this.kind=kind;this.supported=true;this.diagnostics=diagnostics(true,kind);}
+     apply(pose,_options){
+      const d=this.diagnostics;d.active=false;d.pose='';d.progress=0;d.shoulderRaise=0;d.forearmRaise=0;d.torsoPitch=0;d.maxCombinedAngle=0;d.appliedBones=0;d.cappedBones=0;
+      if(!pose||(pose.name!=='windup'&&pose.name!=='attack')||!finite(pose.progress))return d;
+      const p=clamp(pose.progress),kind=this.kind;
+      let raise,torso;
+      const immediate=kind!=='charge'&&kind!=='dash'&&kind!=='shield'&&kind!=='leap'&&kind!=='summon'&&kind!=='pull';
+      const impact=kind==='slam'?-.4:-.25;
+      if(pose.name==='windup'){
+       if(immediate){
+        // These original skills resolve when the warning reaches zero. Finish the
+        // stroke during that warning, so visible contact is not delayed into recovery.
+        const lift=ease(p/.72),strike=ease((p-.72)/.28);
+        raise=lift*(1-strike)+impact*strike;torso=-TORSO*lift*(1-strike)+TORSO*strike;
+       }else{raise=ease(p);torso=-TORSO*raise;}
+      }
+      else if(kind==='charge'||kind==='dash'||kind==='shield'){
+       // A travelling/guarding body braces; it does not pretend to strike repeatedly.
+       raise=1-ease((p-.35)/.65);torso=-TORSO*raise;
+      }else if(kind==='leap'){
+       // The original leap damages on arrival at the end of its active countdown.
+       // Its landing pose then returns through the existing live recovery transition.
+       const drop=ease((p-.58)/.42),follow=1;
+       raise=(1-drop)-.4*drop*follow;torso=-TORSO*(1-drop)+TORSO*drop*follow;
+      }else if(kind==='summon'||kind==='pull'){
+       const open=1-ease(p),pulse=Math.sin(Math.PI*p);
+       raise=open;torso=-TORSO*open+2*DEG*pulse*pulse;
+      }else{
+       // The release/impact already happened at the warning boundary. This is
+       // its gradual follow-through, not a second delayed visual strike.
+       const follow=1-ease(p);raise=impact*follow;torso=TORSO*follow;
+      }
+      d.active=true;d.pose=pose.name;d.progress=p;d.shoulderRaise=SHOULDER*raise;d.forearmRaise=FOREARM*raise;d.torsoPitch=torso;
+      for(let i=0;i<this.entries.length;i++){
+       const entry=this.entries[i],q=entry.bone.quaternion;
+       let x=q.x,y=q.y,z=q.z,w=q.w;
+       if(!finite(x)||!finite(y)||!finite(z)||!finite(w))continue;
+       // Inverse-rest * original: only the original local-X articulation gets
+       // at most another half of its angle; original Y/Z components remain inputs.
+       let dx=entry.rw*x-entry.rx*w-entry.ry*z+entry.rz*y;
+       let dy=entry.rw*y+entry.rx*z-entry.ry*w-entry.rz*x;
+       let dz=entry.rw*z-entry.rx*y+entry.ry*x-entry.rz*w;
+       let dw=entry.rw*w+entry.rx*x+entry.ry*y+entry.rz*z;
+       if(dw<0){dx=-dx;dy=-dy;dz=-dz;dw=-dw;}
+       const extraX=entry.role==='torso'?torso:.5*(2*Math.atan2(dx,dw));
+       let extraZ=entry.role==='torso'?0:entry.side*entry.weight*(entry.role==='arm'?SHOULDER:FOREARM)*raise;
+       // Dormant boss02-only profile. Keep the exact original expression above for
+       // the default entries, both signed zeroes, and the unchanged contact endpoint.
+       if(entry.peak!==undefined&&entry.role!=='torso'&&raise!==0&&raise!==-.4){
+        const base=entry.role==='arm'?SHOULDER:FOREARM,peak=entry.peak,m=Math.min(base,peak);
+        const mapped=raise>=0?m*raise+(peak-m)*raise*raise:base*raise+(m-base)*raise*(raise+.4)/.4;
+        extraZ=entry.side*entry.weight*mapped;
+       }
+       let c=Math.cos(extraX*.5),s=Math.sin(extraX*.5);
+       let nx=x*c+w*s,ny=y*c+z*s,nz=z*c-y*s,nw=w*c-x*s;
+       c=Math.cos(extraZ*.5);s=Math.sin(extraZ*.5);
+       x=nx*c+ny*s;y=ny*c-nx*s;z=nz*c+nw*s;w=nw*c-nz*s;
+       const length=Math.hypot(x,y,z,w);if(!(length>0)||!finite(length))continue;
+       x/=length;y/=length;z/=length;w/=length;
+       dx=entry.rw*x-entry.rx*w-entry.ry*z+entry.rz*y;
+       dy=entry.rw*y+entry.rx*z-entry.ry*w-entry.rz*x;
+       dz=entry.rw*z-entry.rx*y+entry.ry*x-entry.rz*w;
+       dw=entry.rw*w+entry.rx*x+entry.ry*y+entry.rz*z;
+       if(dw<0){dx=-dx;dy=-dy;dz=-dz;dw=-dw;}
+       let angle=2*Math.acos(Math.max(-1,Math.min(1,dw)));
+       if(angle>MAX_ANGLE){
+        const axisLength=Math.hypot(dx,dy,dz);if(!(axisLength>0))continue;
+        const k=Math.sin(MAX_ANGLE*.5)/axisLength;dx*=k;dy*=k;dz*=k;dw=Math.cos(MAX_ANGLE*.5);
+        x=entry.rw*dx+entry.rx*dw+entry.ry*dz-entry.rz*dy;
+        y=entry.rw*dy-entry.rx*dz+entry.ry*dw+entry.rz*dx;
+        z=entry.rw*dz+entry.rx*dy-entry.ry*dx+entry.rz*dw;
+        w=entry.rw*dw-entry.rx*dx-entry.ry*dy-entry.rz*dz;
+        angle=MAX_ANGLE;d.cappedBones++;
+       }
+       q.set(x,y,z,w);d.appliedBones++;if(angle>d.maxCombinedAngle)d.maxCombinedAngle=angle;
+      }
+      return d;
+     }
+    }
+    
+    export function createBossActionLayer(sampler,key){
+     const boss=typeof key==='string'?getBoss(key):null;
+     // The custom DS axes below belong to the original final-boss rig only.
+     // Humanoid middle-boss axes and unregistered/custom actors are never guessed.
+     if(!boss||boss.role!=='final'||!sampler||typeof sampler!=='object')return unsupported;
+     let byKey=caches.get(sampler);if(byKey?.has(key))return byKey.get(key);
+     const rest=sampler.restTransforms;if(!Array.isArray(rest))return unsupported;
+     const entries=[],arms=new Set(),forearms=new Set();let thorax=0,valid=true;
+     for(let i=0;i<rest.length;i++){
+      const saved=rest[i],bone=saved?.object;if(!bone?.isBone)continue;
+      const match=/^DS_(Arm|Forearm)_([0-2])_(-1|1)$/.exec(bone.name);
+      const role=bone.name==='DS_Thorax'?'torso':match?(match[1]==='Arm'?'arm':'forearm'):null;
+      if(!role)continue;
+      const q=saved.quaternion,live=bone.quaternion;
+      if(!q||!live||typeof live.set!=='function'||![q.x,q.y,q.z,q.w].every(finite)){valid=false;break;}
+      const length=Math.hypot(q.x,q.y,q.z,q.w);if(!(length>0)||!finite(length)){valid=false;break;}
+      if(role==='torso')thorax++;else{const set=role==='arm'?arms:forearms,name=match[2]+'_'+match[3];if(set.has(name)){valid=false;break;}set.add(name);}
+      entries.push({bone,role,side:match?Number(match[3]):0,weight:match?1-Number(match[2])*.12:1,rx:q.x/length,ry:q.y/length,rz:q.z/length,rw:q.w/length});
+     }
+     if(!valid||thorax!==1||![4,6].includes(arms.size)||forearms.size!==arms.size||[...arms].some(name=>{const [pair,side]=name.split('_');return !forearms.has(name)||!arms.has(pair+'_'+(-Number(side)));}))return unsupported;
+     const layer=new BossActionLayer(entries,boss.skill.kind);
+     if(!byKey){byKey=new Map();caches.set(sampler,byKey);}byKey.set(key,layer);
+     return layer;
+    }
+    
+    // A separate cache and cloned entries keep the existing factory/layers intact.
+    // This is an explicit QA profile, not an anatomical hinge or product approval.
+    export function createBoss02FoldActionLayer(sampler,key){
+     if(key!=='boss-02-final')return unsupported;
+     const cached=foldCaches.get(sampler);if(cached)return cached;
+     const original=createBossActionLayer(sampler,key);if(!original.supported)return original;
+     const entries=original.entries.map(entry=>{
+      const copy={...entry};
+      if(entry.role!=='torso'){
+       const upper=/^DS_(?:Arm|Forearm)_0_/.test(entry.bone.name);
+       copy.peak=(entry.role==='arm'?(upper?30:8):(upper?32:4))*DEG;
+      }
+      return copy;
+     });
+     const layer=new BossActionLayer(entries,original.kind);layer.profile='boss02-fold-v1';foldCaches.set(sampler,layer);return layer;
+    }
+    
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-boss-action-owned.test.mjs:135:221)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: timeline dual gate and memory brand precede all DOM, import, playback or persistent effects
+ok 31 - timeline dual gate and memory brand precede all DOM, import, playback or persistent effects
+  ---
+  duration_ms: 9.9955
+  type: 'test'
+  ...
+# Subtest: fixed boss02 lazy capture stores one atlas, shows proof before raw JSON and never autoplays
+ok 32 - fixed boss02 lazy capture stores one atlas, shows proof before raw JSON and never autoplays
+  ---
+  duration_ms: 8.2077
+  type: 'test'
+  ...
+# Subtest: play, step, branch and boundary seeks draw only stored cells and pagehide cancels and drops UI resources
+ok 33 - play, step, branch and boundary seeks draw only stored cells and pagehide cancels and drops UI resources
+  ---
+  duration_ms: 2.7297
+  type: 'test'
+  ...
+# Subtest: duplicates, cancellation and late decode cannot revive preview or overlap a still-retiring worker
+ok 34 - duplicates, cancellation and late decode cannot revive preview or overlap a still-retiring worker
+  ---
+  duration_ms: 0.7371
+  type: 'test'
+  ...
+# Subtest: owner replacement cancels decode/playback while decode failures preserve raw worker evidence
+ok 35 - owner replacement cancels decode/playback while decode failures preserve raw worker evidence
+  ---
+  duration_ms: 1.5277
+  type: 'test'
+  ...
+# Subtest: the boss02 timeline derives its real warning/recovery durations and has a fixed, frozen 192-pair/96MiB preview bound
+ok 36 - the boss02 timeline derives its real warning/recovery durations and has a fixed, frozen 192-pair/96MiB preview bound
+  ---
+  duration_ms: 7.5291
+  type: 'test'
+  ...
+# Subtest: the plan includes the .72 lift maximum, both exact contact endpoints and every requested 75ms-blend interior
+ok 37 - the plan includes the .72 lift maximum, both exact contact endpoints and every requested 75ms-blend interior
+  ---
+  duration_ms: 0.9872
+  type: 'test'
+  ...
+# Subtest: actual original action selection maps saved recover to attack and applies a torso-only hit layer during the warning
+ok 38 - actual original action selection maps saved recover to attack and applies a torso-only hit layer during the warning
+  ---
+  duration_ms: 2.1586
+  type: 'test'
+  ...
+# Subtest: lockstep orchestration keeps both live identities/one epoch, uses real recover countdowns and carries both corpse seeds through their bridge
+ok 39 - lockstep orchestration keeps both live identities/one epoch, uses real recover countdowns and carries both corpse seeds through their bridge
+  ---
+  duration_ms: 37.1651
+  type: 'test'
+  ...
+# Subtest: interruption and output rejection retain their primary identity, partial proof and the original action flag
+ok 40 - interruption and output rejection retain their primary identity, partial proof and the original action flag
+  ---
+  duration_ms: 20.4539
+  type: 'test'
+  ...
+# Subtest: native/clip, clipping and protected-foot failures cannot become a successful observation; foreign flag descriptors survive
+ok 41 - native/clip, clipping and protected-foot failures cannot become a successful observation; foreign flag descriptors survive
+  ---
+  duration_ms: 27.9148
+  type: 'test'
+  ...
+# Subtest: exact optional timeline gate rejects wrong flags, subsets and forged storage before owner, document, dependencies or callbacks
+ok 42 - exact optional timeline gate rejects wrong flags, subsets and forged storage before owner, document, dependencies or callbacks
+  ---
+  duration_ms: 3.0063
+  type: 'test'
+  ...
+# Subtest: four declared opt-in hook edits reverse to the pinned whole worker; default report/query/callback behavior remains original
+ok 43 - four declared opt-in hook edits reverse to the pinned whole worker; default report/query/callback behavior remains original
+  ---
+  duration_ms: 27.3418
+  type: 'test'
+  ...
+# file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-boss-fold-peaks.test.mjs:33
+#  const document={createElement(tag){assert.equal(tag,'canvas');const canvas={width:0,height:0};surfaces.push(canvas);canvas.getContext=(kind,options)=>{assert.equal(kind,'2d');assert.deepEqual(options,{alpha:true});return{drawImage(...args){assert.ok(registered.has(canvas),'register scratch before any draw');assert.equal(args[0],image);draws.push(args);}};canvas.toDataURL=kind=>{assert.equal(kind,'image/png');assert.equal(calls.length,8);return'data:image/png;base64,CONTROLLED';};return canvas;}};
+#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^
+# SyntaxError: Unexpected token ';'
+#     at compileSourceTextModule (node:internal/modules/esm/utils:346:16)
+#     at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)
+#     at \#translate (node:internal/modules/esm/loader:559:20)
+#     at afterLoad (node:internal/modules/esm/loader:612:29)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)
+#     at \#createModuleJob (node:internal/modules/esm/loader:640:36)
+#     at \#getJobFromResolveResult (node:internal/modules/esm/loader:353:34)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:25)
+# Node.js v22.23.3
+# Subtest: tests\\qa-boss-fold-peaks.test.mjs
+not ok 9 - tests\\qa-boss-fold-peaks.test.mjs
+  ---
+  duration_ms: 74.5136
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-boss-fold-peaks.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..44
+# tests 44
+# suites 0
+# pass 42
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2851.066

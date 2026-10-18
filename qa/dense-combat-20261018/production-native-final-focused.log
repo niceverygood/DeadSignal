@@ -1,0 +1,280 @@
+TAP version 13
+# Subtest: native startup roster is bounded, stable by positive mission weight and independent from the complete baked asset roster
+ok 1 - native startup roster is bounded, stable by positive mission weight and independent from the complete baked asset roster
+  ---
+  duration_ms: 2.8116
+  type: 'test'
+  ...
+# Subtest: continued launch reads actual live-pose relevance and fresh corpse selection without advancing original Game, RNG, events or corpse caches
+ok 2 - continued launch reads actual live-pose relevance and fresh corpse selection without advancing original Game, RNG, events or corpse caches
+  ---
+  duration_ms: 6.5167
+  type: 'test'
+  ...
+# Subtest: optional native preparation follows successful assets, hero, bosses and masks; default and baked failures do not invoke it
+ok 3 - optional native preparation follows successful assets, hero, bosses and masks; default and baked failures do not invoke it
+  ---
+  duration_ms: 1.4246
+  type: 'test'
+  ...
+# Subtest: candidate disposal always occurs at launch completion while art/boss release is restricted to a successful commit
+ok 4 - candidate disposal always occurs at launch completion while art/boss release is restricted to a successful commit
+  ---
+  duration_ms: 0.3866
+  type: 'test'
+  ...
+# Subtest: renderer preparation waits for its captured original owner and swaps both pointer and promise only during one synchronous adoption
+ok 5 - renderer preparation waits for its captured original owner and swaps both pointer and promise only during one synchronous adoption
+  ---
+  duration_ms: 6.1081
+  type: 'test'
+  ...
+# Subtest: used originals skip candidate creation; cancellation, external owner replacement and newly active batches reject candidates before adoption
+ok 6 - used originals skip candidate creation; cancellation, external owner replacement and newly active batches reject candidates before adoption
+  ---
+  duration_ms: 18.0761
+  type: 'test'
+  ...
+# Subtest: LaunchGate aborts a cancelled loser without committing its Game/save or unlocking a newer native preparation
+ok 7 - LaunchGate aborts a cancelled loser without committing its Game/save or unlocking a newer native preparation
+  ---
+  duration_ms: 12.2701
+  type: 'test'
+  ...
+# Subtest: mismatched original rig/Promise owners reject before preparation and candidate observer exceptions preserve the existing product owner
+ok 8 - mismatched original rig/Promise owners reject before preparation and candidate observer exceptions preserve the existing product owner
+  ---
+  duration_ms: 0.6951
+  type: 'test'
+  ...
+# Subtest: actual Renderer entry point skips native launch work when motion is disabled without touching its on-demand owner
+ok 9 - actual Renderer entry point skips native launch work when motion is disabled without touching its on-demand owner
+  ---
+  duration_ms: 0.5192
+  type: 'test'
+  ...
+# Subtest: sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+ok 10 - sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+  ---
+  duration_ms: 24.6959
+  type: 'test'
+  ...
+# Subtest: invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+ok 11 - invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+  ---
+  duration_ms: 1.9335
+  type: 'test'
+  ...
+# Subtest: cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+ok 12 - cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+  ---
+  duration_ms: 6.0725
+  type: 'test'
+  ...
+# Subtest: timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+ok 13 - timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+  ---
+  duration_ms: 12.9812
+  type: 'test'
+  ...
+# Subtest: shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+ok 14 - shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+  ---
+  duration_ms: 6.1362
+  type: 'test'
+  ...
+# Subtest: load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+ok 15 - load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+  ---
+  duration_ms: 2.3523
+  type: 'test'
+  ...
+# Subtest: original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+ok 16 - original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+  ---
+  duration_ms: 11.2993
+  type: 'test'
+  ...
+# Subtest: an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+ok 17 - an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+  ---
+  duration_ms: 1.9702
+  type: 'test'
+  ...
+# Subtest: cancelled asynchronous creation retires only its late new rig and never disposes an existing rig returned by a faulty factory
+ok 18 - cancelled asynchronous creation retires only its late new rig and never disposes an existing rig returned by a faulty factory
+  ---
+  duration_ms: 2.8538
+  type: 'test'
+  ...
+# Subtest: an original rig becoming active during candidate loading rejects the candidate before any texture upload and preserves that active owner
+ok 19 - an original rig becoming active during candidate loading rejects the candidate before any texture upload and preserves that active owner
+  ---
+  duration_ms: 4.0756
+  type: 'test'
+  ...
+# Subtest: fresh owned original static textures submit once per Texture identity and retain source expression while accepting normal Three dispose-listener bookkeeping
+ok 20 - fresh owned original static textures submit once per Texture identity and retain source expression while accepting normal Three dispose-listener bookkeeping
+  ---
+  duration_ms: 8.3063
+  type: 'test'
+  ...
+# Subtest: validated baseline performs the same public normalization without uploading, creating texture caches or marking readiness
+ok 21 - validated baseline performs the same public normalization without uploading, creating texture caches or marking readiness
+  ---
+  duration_ms: 6.6607
+  type: 'test'
+  ...
+# Subtest: unowned, previously drawn, allocated, nondefault, lost, unsupported and nonstatic inputs reject before upload or reset
+ok 22 - unowned, previously drawn, allocated, nondefault, lost, unsupported and nonstatic inputs reject before upload or reset
+  ---
+  duration_ms: 8.6531
+  type: 'test'
+  ...
+# Subtest: abort, context/owner replacement and source-expression mutation between original uploads stop further submission and reject the result
+ok 23 - abort, context/owner replacement and source-expression mutation between original uploads stop further submission and reject the result
+  ---
+  duration_ms: 9.4694
+  type: 'test'
+  ...
+# Subtest: partial original upload failure retains its error, restores public state and leaves remaining GPU-resource cleanup to the caller
+ok 24 - partial original upload failure retains its error, restores public state and leaves remaining GPU-resource cleanup to the caller
+  ---
+  duration_ms: 0.7736
+  type: 'test'
+  ...
+# Subtest: every public state restoration is attempted independently, and normalization failure cannot report a clean preparation
+ok 25 - every public state restoration is attempted independently, and normalization failure cannot report a clean preparation
+  ---
+  duration_ms: 2.3788
+  type: 'test'
+  ...
+# Subtest: abort or source/owner mutation during canonical normalization invalidates final submission after all restore attempts
+ok 26 - abort or source/owner mutation during canonical normalization invalidates final submission after all restore attempts
+  ---
+  duration_ms: 2.4547
+  type: 'test'
+  ...
+# Subtest: multi-key preparation validates all loaded originals and uploads their ordered Texture identity union once through the production ownership alias
+ok 27 - multi-key preparation validates all loaded originals and uploads their ordered Texture identity union once through the production ownership alias
+  ---
+  duration_ms: 1.1613
+  type: 'test'
+  ...
+# Subtest: multi-key preflight rejects a missing or invalid later model before any first-model upload/reset
+ok 28 - multi-key preflight rejects a missing or invalid later model before any first-model upload/reset
+  ---
+  duration_ms: 2.06
+  type: 'test'
+  ...
+# Subtest: multi-key source identity checks cover every model while uploads are in flight and use one baseline normalization
+ok 29 - multi-key source identity checks cover every model while uploads are in flight and use one baseline normalization
+  ---
+  duration_ms: 1.6926
+  type: 'test'
+  ...
+# Subtest: app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+ok 30 - app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+  ---
+  duration_ms: 3.6367
+  type: 'test'
+  ...
+# Subtest: memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+ok 31 - memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+  ---
+  duration_ms: 169.1097
+  type: 'test'
+  ...
+# Subtest: invalid density never seeds or saves a partial memory checkpoint
+ok 32 - invalid density never seeds or saves a partial memory checkpoint
+  ---
+  duration_ms: 1.0682
+  type: 'test'
+  ...
+# Subtest: real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+ok 33 - real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+  ---
+  duration_ms: 119.2719
+  type: 'test'
+  ...
+# Subtest: the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+ok 34 - the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+  ---
+  duration_ms: 8.6016
+  type: 'test'
+  ...
+# Subtest: external replacements survive stop and a new Game releases the previous instance wrappers
+ok 35 - external replacements survive stop and a new Game releases the previous instance wrappers
+  ---
+  duration_ms: 7.715
+  type: 'test'
+  ...
+# Subtest: start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+ok 36 - start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+  ---
+  duration_ms: 5.367
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original frame return value
+ok 37 - a failing stop observer cannot replace the original frame return value
+  ---
+  duration_ms: 3.3982
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original thrown frame error
+ok 38 - a failing stop observer cannot replace the original thrown frame error
+  ---
+  duration_ms: 3.0698
+  type: 'test'
+  ...
+# Subtest: the actual QA orchestrator awaits original loading and preparation before drawing, preserves six normal combat delegations and releases its own contexts
+ok 39 - the actual QA orchestrator awaits original loading and preparation before drawing, preserves six normal combat delegations and releases its own contexts
+  ---
+  duration_ms: 47.5229
+  type: 'test'
+  ...
+# Subtest: missing native submission, empty native selection or a rig error rejects the combat comparison and restores the previous product rig
+ok 40 - missing native submission, empty native selection or a rig error rejects the combat comparison and restores the previous product rig
+  ---
+  duration_ms: 44.9275
+  type: 'test'
+  ...
+# Subtest: load, preparation, source-audit and combat-render failures clean up helpers, profiles and owned contexts without releasing the prior rig
+ok 41 - load, preparation, source-audit and combat-render failures clean up helpers, profiles and owned contexts without releasing the prior rig
+  ---
+  duration_ms: 27.5284
+  type: 'test'
+  ...
+# Subtest: non-loopback, non-8851 or non-memory requests reject before any DOM, model, preparation or combat service access
+ok 42 - non-loopback, non-8851 or non-memory requests reject before any DOM, model, preparation or combat service access
+  ---
+  duration_ms: 4.5145
+  type: 'test'
+  ...
+# Subtest: texture mode normalizes every false/true/false arm, submits only original candidate textures and awaits common shader preparation before any draw
+ok 43 - texture mode normalizes every false/true/false arm, submits only original candidate textures and awaits common shader preparation before any draw
+  ---
+  duration_ms: 50.7096
+  type: 'test'
+  ...
+# Subtest: candidate original texture upload failure closes preparation/combat observers and releases every owned rig before restoring the prior renderer rig
+ok 44 - candidate original texture upload failure closes preparation/combat observers and releases every owned rig before restoring the prior renderer rig
+  ---
+  duration_ms: 24.9417
+  type: 'test'
+  ...
+# Subtest: invalid mode and protected-origin texture requests perform no optional service, DOM or gameplay work
+ok 45 - invalid mode and protected-origin texture requests perform no optional service, DOM or gameplay work
+  ---
+  duration_ms: 3.198
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 892.2126

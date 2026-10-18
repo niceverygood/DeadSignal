@@ -1,0 +1,210 @@
+import {RigPoseHistory,deathBridgeFacing,deathBridgeWeight} from './pose-history.js';
+import {BatchNativeInk} from './batch-native-ink.js';
+import {GPUAlphaBounds} from './gpu-alpha-bounds.js';
+import {createAnimationOnlyLoader} from './animation-only-loader.js';
+import {nativeCompositeRegion,composeNativeFrame} from './native-composite.js';
+import {NativeAlphaReadback} from '../native-alpha-readback.js';
+import {SkinnedPoseBounds} from './pose-bounds.js';
+import {RigFramePool} from './frame-pool.js';
+import {upperBodyBones,hitLayerWeight,blendHitLayer} from './hit-layer.js';
+import {captureBonePose as snapshot,cloneBonePose,blendBonePose} from './pose-buffer.js';
+import {nativeAlphaBounds} from '../native-alpha-bounds.js';
+import * as THREE from '../player-rig/vendor/three.module.js';
+import {GLTFLoader} from '../player-rig/vendor/GLTFLoader.js';
+import {AnimationSampler} from '../player-rig/animation.js';
+import {unlit} from '../player-rig/live-player.js';
+import {spritePlacement} from '../production-art.js?v=0.29.0';
+import {bossClipIndices,bossPose} from './boss-pose.js';
+import {createBossActionLayer} from './boss-action-layer.js';
+const SIZE=512,DENSITY=2.25,PIVOT={x:256,y:410},TAU=Math.PI*2;
+const base=new URL('./',import.meta.url),clamp=value=>Math.max(0,Math.min(1,value));
+function floorHeight(profile,phase){
+  if(!profile?.soleHeights?.length)return 0;
+  if(profile.grounding?.includes('preserve-flight'))return profile.groundingBaseline||0;
+  const n=profile.soleHeights.length,s=((phase%TAU)+TAU)%TAU/TAU*n,index=Math.floor(s),a=profile.soleHeights[index%n],b=profile.soleHeights[(index+1)%n];
+  return a+(b-a)*(s-index);
+}
+export class LiveBossRig {
+  constructor({size=512,registryFile='registry.json'}={}){
+    const SIZE=size;this.size=size;this.framePool=new RigFramePool(()=>{const image=document.createElement('canvas');image.width=image.height=SIZE;return {image,context:image.getContext('2d')};});
+    this.models=new Map();this.pending=new Map();this.frames=new WeakMap();this.scene=new THREE.Scene();this.loader=new GLTFLoader();
+    this.clipLoader=createAnimationOnlyLoader();this.forceWalkTextureDecode=size!==256;
+    this.alphaReadback=new NativeAlphaReadback();this.directAlphaReadback=false;this.verifyAlphaReadback=false;
+    this.cropNativeComposite=false;
+    this.batchInkComposite=false;this.batchInk=new BatchNativeInk();
+    // Exact GPU bounds remain QA-only: dense combat still shows long stalls.
+    this.exactGPUAlphaBounds=false;this.minGPUAlphaCells=12;this.verifyExactGPUAlphaBounds=false;this.gpuAlphaStats={frames:0,verified:0,mismatches:0,fallbacks:0,bytesRead:0};
+    this.gpuPoseBounds=false;this.verifyPoseBounds=false;this.boundsStats={samples:0,misses:0,maxExtraPixels:0,maxAreaRatio:0,gpuFrames:0,fallbacks:0};
+    this.renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true});this.renderer.setSize(SIZE,SIZE,false);this.renderer.setPixelRatio(1);this.renderer.outputColorSpace=THREE.SRGBColorSpace;this.renderer.toneMapping=THREE.NoToneMapping;
+    const k=DENSITY*Math.sqrt(3/2);this.camera=new THREE.OrthographicCamera(-PIVOT.x/k,(SIZE-PIVOT.x)/k,PIVOT.y/k,(PIVOT.y-SIZE)/k,.1,8000);this.camera.position.set(1000,1000,1000);this.camera.lookAt(0,0,0);
+    this.raw=document.createElement('canvas');this.raw.width=this.raw.height=SIZE;this.rawContext=this.raw.getContext('2d',{willReadFrequently:true});
+    this.ink=document.createElement('canvas');this.ink.width=this.ink.height=SIZE;this.inkContext=this.ink.getContext('2d');
+    this.registry=fetch(new URL(registryFile,base)).then(response=>{if(!response.ok)throw new Error('boss-runtime-registry-missing');return response.json();});
+    this.lost=false;this.error='';
+    this.bossActionLayerEnabled=false;
+    this.renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();this.lost=true;this.releaseExactGPUAlpha();});
+    this.renderer.domElement.addEventListener('webglcontextrestored',()=>{this.lost=false;this.frames=new WeakMap();this.releaseExactGPUAlpha();});
+  }
+  load(key){
+    if(!this.pending.has(key))this.pending.set(key,(async()=>{
+      const config=(await this.registry).bosses[key];if(!config)throw new Error('unregistered-boss');
+      const gltf=await this.loader.loadAsync(new URL(config.file,base).href),root=gltf.scene;
+      if(config.walkFile){const walk=await (this.forceWalkTextureDecode?this.loader:this.clipLoader).loadAsync(new URL(config.walkFile,base).href);gltf.animations.push(...walk.animations);}
+      const normal=new THREE.Group(),motion=new THREE.Group(),subject=new THREE.Group(),scale=config.source.scale,p=config.source.originPivot;
+      normal.scale.setScalar(scale);normal.position.set(-p.x*scale,-p.y*scale,-p.z*scale);normal.add(root);motion.add(normal);subject.add(motion);unlit(root);
+      const sampler=new AnimationSampler({root,subject,motion,clips:gltf.animations,subjectHeight:config.projection.subjectHeight});
+      const indices=bossClipIndices(config,gltf.animations),bones=sampler.restTransforms.filter(entry=>entry.object.isBone).map(entry=>entry.object);
+      const actions=createBossActionLayer(sampler,key);
+      this.models.set(key,{config,root,subject,sampler,indices,bones,upperBones:upperBodyBones(bones),states:new WeakMap(),history:new RigPoseHistory(),actionLayer:actions.supported?actions:null});return true;
+    })().catch(error=>{this.error=error.message;return false;}));
+    return this.pending.get(key);
+  }
+  releaseUnused(keys){
+    const keep=new Set(keys);
+    for(const [key,model]of this.models)if(!keep.has(key)){
+      model.subject.traverse(object=>{object.geometry?.dispose();for(const material of Array.isArray(object.material)?object.material:object.material?[object.material]:[]){material.map?.dispose();material.map?.source?.data?.close?.();material.dispose();}});
+      this.models.delete(key);this.pending.delete(key);
+    }
+    if(!this.models.size)this.releaseExactGPUAlpha();
+  }
+  frame(key,actor,time,fallback,{height,profile,...options}={}){
+    if(this.gpuAlphaBounds?.rawBytes&&!this.gpuAlphaCompatible())this.releaseExactGPUAlpha();
+    const SIZE=this.size;const model=this.models.get(key);if(!model||this.lost||!fallback)return null;
+    const {config,sampler,subject,indices,bones,upperBones}=model;
+    const resolution=SIZE/256,density=config.projection.pixelsPerWorld*resolution,pivot={x:config.projection.footPivot.x*resolution,y:config.projection.footPivot.y*resolution},k=density*Math.sqrt(3/2);
+    Object.assign(this.camera,{left:-pivot.x/k,right:(SIZE-pivot.x)/k,top:pivot.y/k,bottom:(pivot.y-SIZE)/k});this.camera.updateProjectionMatrix();
+    const pose=bossPose(config,sampler.clips,indices,actor,time,fallback.locomotion,options);
+    let state=model.states.get(actor),cache=this.frames.get(actor);
+    if(!state&&pose.name==='death')state=model.history.takeDeath(options.epoch,actor,time,options.animationTime??0);
+    if(pose.name==='death')pose.angle=deathBridgeFacing(state,pose.angle,options.animationTime??0);
+    // A completed original corpse is static even while the fight's clock keeps
+    // advancing. Keep a late inherited live-to-death transition sampling until
+    // it has actually settled; otherwise its first standing pose would freeze.
+    const clock=pose.name==='death'?(options.animationTime??time):time;
+    const transitionFinished=!state?.transition||clock-state.transition.start>=state.transition.duration;
+    const settledDeath=pose.name==='death'&&pose.progress===1&&(!state?.pose||state.key==='death'&&transitionFinished);
+    const signature=[key,settledDeath?'settled-death':time,pose.name,pose.time,pose.angle,height,actor.x,actor.y,pose.hitLayer?.time,actor.hitFlash,pose.locomotionMix?.weight,this.gpuPoseBounds?1:0,this.verifyPoseBounds?1:0,this.directAlphaReadback?1:0,this.verifyAlphaReadback?1:0,this.cropNativeComposite?1:0,this.batchInkComposite?1:0,this.exactGPUAlphaBounds?1:0,this.verifyExactGPUAlphaBounds?1:0,this.minGPUAlphaCells??1].join(':')+(model.actionLayer?(this.bossActionLayerEnabled===true?':boss-actions-on':':boss-actions-off'):'');
+    if(!this.batch&&cache?.signature===signature&&this.framePool.valid(cache,actor)){this.diagnostics=cache.diagnostics||this.diagnostics;return cache.selected;}
+    subject.rotation.y=Math.PI/2-pose.angle+(config.projection.frontYawRadians||0);
+    if(pose.hitLayer){sampler.sample(pose.hitLayer.index,pose.hitLayer.time,{removeRootMotion:true,once:true});state??={};state.hitPose=snapshot(upperBones,state.hitPose);}
+    if(pose.locomotionMix&&pose.name==='walk'&&pose.locomotionMix.weight<1){sampler.sample(pose.locomotionMix.idleIndex,pose.locomotionMix.idleTime,{removeRootMotion:true});state??={};state.idlePose=snapshot(bones,state.idlePose);}
+    sampler.sample(pose.index,pose.time,{removeRootMotion:true,once:!pose.loop});
+    if(pose.locomotionMix&&pose.name==='walk'&&pose.locomotionMix.weight<1)blendBonePose(bones,state.idlePose,1-pose.locomotionMix.weight);
+    const bossActions=model.actionLayer&&this.bossActionLayerEnabled===true?model.actionLayer.apply(pose):null;
+    if(pose.hitLayer)blendHitLayer(upperBones,state.hitPose,hitLayerWeight(actor.hitFlash)*(pose.hitLayer.scale??1),pose.hitLayer);
+    if(pose.hasMoveWeight&&state?.key!==pose.name&&['idle','walk'].includes(state?.key)&&['idle','walk'].includes(pose.name))delete state.transition;
+    else if(state?.pose&&state.key!==pose.name)state.transition={from:cloneBonePose(state.pose),start:clock,duration:pose.name==='hit'?.025:.075};
+    if(state?.transition){
+      const t=clamp((clock-state.transition.start)/state.transition.duration),ease=t*t*(3-2*t);
+      bones.forEach((bone,index)=>{bone.position.lerp(state.transition.from[index].position,1-ease);bone.quaternion.slerp(state.transition.from[index].quaternion,1-ease);bone.scale.lerp(state.transition.from[index].scale,1-ease);});
+      if(t===1)delete state.transition;
+    }
+    if(pose.name==='death'&&state?.deathMotion)sampler.motion.position.lerp(state.deathMotion,deathBridgeWeight(state,options.animationTime??0));
+    state??={};state.key=pose.name;state.pose=snapshot(bones,state.pose);state.motion??=new THREE.Vector3();state.motion.copy(sampler.motion.position);model.states.set(actor,state);const remembered=model.history.remember(options.epoch,actor,time,state,pose.angle);sampler.updateSkinPose();
+    this.scene.clear();this.scene.add(subject);
+    const item={key,actor,time,config,sampler,pose,fallback,height,profile,SIZE,signature,density,pivot,deathAge:options.animationTime??0,remembered};
+    if(model.actionLayer){item.bossActionsEnabled=this.bossActionLayerEnabled===true;item.bossActionsActive=!!bossActions?.active;item.bossActionsBones=bossActions?.appliedBones??0;item.bossActionsMaxRadians=bossActions?.maxCombinedAngle??0;item.bossActionsKind=model.actionLayer.kind;}
+    if(this.gpuPoseBounds){model.poseBounds??=new SkinnedPoseBounds(model.root);item.poseBounds=model.poseBounds.project(this.camera,SIZE);if(!item.poseBounds)this.boundsStats.fallbacks++;}
+    if(this.batch){const slot=this.batch.items.length,offsetX=slot%this.batch.columns*SIZE,offsetY=Math.floor(slot/this.batch.columns)*SIZE;this.renderer.setViewport(offsetX,this.batch.height-offsetY-SIZE,SIZE,SIZE);this.renderer.setScissor(offsetX,this.batch.height-offsetY-SIZE,SIZE,SIZE);this.renderer.render(this.scene,this.camera);this.batch.items.push({...item,slot,offsetX,offsetY});return null;}
+    if(this.renderer.domElement.width!==SIZE||this.renderer.domElement.height!==SIZE)this.renderer.setSize(SIZE,SIZE,false);
+    this.renderer.setScissorTest(false);this.renderer.setViewport(0,0,SIZE,SIZE);this.renderer.render(this.scene,this.camera);
+    if(this.exactGPUAlphaBounds){const exact=this.exactAlphaSurface(SIZE,SIZE,[item]);if(exact)return this.finishFrame(item,exact.source,null,SIZE,0,0,exact.bounds[0],null,true);}
+    if(this.gpuPoseBounds&&item.poseBounds){const source=this.gpuSurface(SIZE,SIZE);if(this.verifyPoseBounds){const {pixels}=this.readSurface(SIZE,SIZE);this.verifyGeometryBounds(item,pixels,SIZE,SIZE,0,0);}this.boundsStats.gpuFrames++;return this.finishFrame(item,source,null,SIZE,0,0,item.poseBounds);}
+    const {source,pixels}=this.readSurface(SIZE,SIZE);return this.finishFrame(item,source,pixels,SIZE,0,0);
+  }
+  beginBatch(count){
+    const SIZE=this.size,columns=Math.min(4,Math.max(1,count)),rows=Math.ceil(Math.max(1,count)/columns),width=columns*SIZE,height=rows*SIZE;
+    this.framePool.reserve(count);this.batch={columns,width,height,items:[]};this.lastBatchReadbacks=0;
+    if(this.renderer.domElement.width!==width||this.renderer.domElement.height!==height)this.renderer.setSize(width,height,false);
+    this.renderer.setScissorTest(false);this.renderer.clear();this.renderer.setScissorTest(true);
+  }
+  endBatch(){
+    const batch=this.batch;this.batch=null;this.renderer.setScissorTest(false);if(!batch?.items.length){
+      this.batchInk?.release();
+      // Preserve an unconsumed compile lease only across an actual empty batch.
+      const keepWarmup=batch&&this.exactGPUAlphaBounds&&batch.items.length===0&&!this.lost&&!this.renderer.xr?.isPresenting&&this.gpuAlphaCompatible()&&this.gpuAlphaBounds?.owner===this.renderer&&this.gpuAlphaBounds.retainWarmupResources?.();
+      if(!keepWarmup)this.releaseExactGPUAlpha();return;
+    }
+    if(this.gpuAlphaBounds?.rawBytes&&!this.gpuAlphaCompatible())this.releaseExactGPUAlpha();
+    if(this.exactGPUAlphaBounds){const exact=this.exactAlphaSurface(batch.width,batch.height,batch.items);if(exact){this.batchInk?.release();for(let i=0;i<batch.items.length;i++){const item=batch.items[i];this.finishFrame(item,exact.source,null,batch.width,item.offsetX,item.offsetY,exact.bounds[i],null,true);}return;}}
+    if(this.gpuPoseBounds&&batch.items.every(item=>item.poseBounds)){
+      this.batchInk?.release();
+      const source=this.gpuSurface(batch.width,batch.height);let pixels=null;
+      if(this.verifyPoseBounds){pixels=this.readSurface(batch.width,batch.height).pixels;this.lastBatchReadbacks=1;}
+      for(const item of batch.items){if(pixels)this.verifyGeometryBounds(item,pixels,batch.width,batch.height,item.offsetX,item.offsetY);this.finishFrame(item,source,null,batch.width,item.offsetX,item.offsetY,item.poseBounds);}
+      this.boundsStats.gpuFrames+=batch.items.length;return;
+    }
+    const {source,pixels}=this.readSurface(batch.width,batch.height);this.lastBatchReadbacks=1;
+    let ink=null;
+    if(this.batchInkComposite&&!this.cropNativeComposite){this.batchInk??=new BatchNativeInk();ink=this.batchInk.prepare(source,batch.width,batch.height,this.size);}
+    else this.batchInk?.release();
+    for(const item of batch.items){
+      if(ink)this.finishFrame(item,source,pixels,batch.width,item.offsetX,item.offsetY,undefined,ink);
+      else this.finishFrame(item,source,pixels,batch.width,item.offsetX,item.offsetY);
+    }
+  }
+  gpuSurface(width,height){
+    if(!this.gpuRaw){this.gpuRaw=document.createElement('canvas');this.gpuRawContext=this.gpuRaw.getContext('2d');}
+    if(this.gpuRaw.width!==width||this.gpuRaw.height!==height){this.gpuRaw.width=width;this.gpuRaw.height=height;}
+    this.gpuRawContext.clearRect(0,0,width,height);this.gpuRawContext.drawImage(this.renderer.domElement,0,0);return this.gpuRaw;
+  }
+  gpuAlphaCompatible(){return this.exactGPUAlphaBounds&&this.size===256&&!this.gpuPoseBounds&&!this.directAlphaReadback&&!this.cropNativeComposite&&!this.batchInkComposite;}
+  releaseExactGPUAlpha(){
+    this.gpuAlphaBounds?.dispose();
+    if(this.gpuRaw&&!this.gpuPoseBounds){this.gpuRaw.width=this.gpuRaw.height=1;}
+  }
+  releaseIdleExactGPUAlpha(aliveCount=0,corpseCount=0){if(!aliveCount&&!corpseCount){if(this.gpuAlphaCompatible()&&this.gpuAlphaBounds?.retainWarmupResources?.())return;if(this.gpuAlphaBounds?.rawBytes||(!this.gpuPoseBounds&&this.gpuRaw&&(this.gpuRaw.width>1||this.gpuRaw.height>1)))this.releaseExactGPUAlpha();}}
+  exactAlphaSurface(width,height,items){
+    if(!this.gpuAlphaCompatible()){this.releaseExactGPUAlpha();return null;}
+    if(items.length<(this.minGPUAlphaCells??1))return null;
+    this.gpuAlphaBounds??=new GPUAlphaBounds();this.gpuAlphaStats??={frames:0,verified:0,mismatches:0,fallbacks:0,bytesRead:0};
+    const s=this.gpuAlphaStats,bounds=this.gpuAlphaBounds.read(this.renderer,width,height,items.length);
+    if(!bounds?.every(Boolean)){s.fallbacks++;return null;}
+    this.lastBatchReadbacks=1;s.bytesRead=this.gpuAlphaBounds.bytesRead;
+    if(this.verifyExactGPUAlphaBounds){
+      const pixels=this.readSurface(width,height).pixels;this.lastBatchReadbacks++;
+      for(let i=0;i<items.length;i++){const item=items[i],actual=nativeAlphaBounds(pixels,width,height,8,{x:item.offsetX||0,y:item.offsetY||0,w:item.SIZE,h:item.SIZE}),b=bounds[i];s.verified++;if(!actual||actual.x!==b.x||actual.y!==b.y||actual.width!==b.width||actual.height!==b.height){s.mismatches++;return null;}}
+    }
+    try{const source=this.gpuSurface(width,height);s.frames+=items.length;return {source,bounds};}
+    catch{s.fallbacks++;this.releaseExactGPUAlpha();return null;}
+  }
+  readSurface(width,height){
+    if(this.raw.width!==width||this.raw.height!==height){this.raw.width=width;this.raw.height=height;}
+    const raw=this.rawContext;raw.clearRect(0,0,width,height);raw.drawImage(this.renderer.domElement,0,0);
+    const direct=this.directAlphaReadback?this.alphaReadback.read(this.renderer,width,height):null,legacy=!direct||this.verifyAlphaReadback?raw.getImageData(0,0,width,height).data:null;
+    if(direct&&legacy)this.alphaReadback.compareAlpha(direct,legacy);return {source:this.raw,pixels:direct||legacy};
+  }
+  verifyGeometryBounds(item,pixels,width,height,x,y){
+    const actual=nativeAlphaBounds(pixels,width,height,8,{x,y,w:item.SIZE,h:item.SIZE}),b=item.poseBounds,s=this.boundsStats;s.samples++;
+    if(!actual){s.misses++;return;}
+    if(b.x>actual.x||b.y>actual.y||b.x+b.width<actual.x+actual.width||b.y+b.height<actual.y+actual.height)s.misses++;
+    s.maxExtraPixels=Math.max(s.maxExtraPixels,actual.x-b.x,actual.y-b.y,b.x+b.width-actual.x-actual.width,b.y+b.height-actual.y-actual.height);
+    s.maxAreaRatio=Math.max(s.maxAreaRatio,b.width*b.height/(actual.width*actual.height));
+  }
+  finishFrame({key,actor,config,sampler,pose,fallback,height,profile,SIZE,signature,density,pivot,slot,deathAge=0,remembered,bossActionsEnabled,bossActionsActive,bossActionsBones,bossActionsMaxRadians,bossActionsKind},source,pixels,width,offsetX,offsetY,overrideBounds=null,batchInk=null,exactAlpha=false){
+    const bounds=overrideBounds||nativeAlphaBounds(pixels,width,source.height,8,{x:offsetX,y:offsetY,w:SIZE,h:SIZE});if(!bounds)throw new Error('boss-native-frame-empty');
+    const left=bounds.x,top=bounds.y,right=left+bounds.width,bottom=top+bounds.height;let cache=this.frames.get(actor);
+    if(slot!==undefined){const pooled=this.framePool.claim(slot,actor);cache??={};Object.assign(cache,{image:pooled.image,context:pooled.context,pool:pooled});this.frames.set(actor,cache);}
+    else if(!cache||cache.pool){const image=document.createElement('canvas');image.width=image.height=SIZE;cache={image,context:image.getContext('2d')};this.frames.set(actor,cache);}
+    const region=this.cropNativeComposite?nativeCompositeRegion(pixels,width,source.height,SIZE,offsetX,offsetY):null;
+    const batched=!!batchInk?.draw(cache.context,source,SIZE,offsetX,offsetY);
+    if(!batched&&region)composeNativeFrame(cache.context,this.inkContext,this.ink,source,SIZE,offsetX,offsetY,region);
+    else if(!batched){
+      const ink=this.inkContext,c=cache.context;ink.clearRect(0,0,SIZE,SIZE);ink.drawImage(source,offsetX,offsetY,SIZE,SIZE,0,0,SIZE,SIZE);ink.globalCompositeOperation='source-in';ink.fillStyle='#181c1e';ink.fillRect(0,0,SIZE,SIZE);ink.globalCompositeOperation='source-over';c.clearRect(0,0,SIZE,SIZE);
+      for(const [x,y]of [[-3,0],[3,0],[0,-3],[0,3],[-2,-2],[2,-2],[-2,2],[2,2]])c.drawImage(this.ink,x,y);c.drawImage(source,offsetX,offsetY,SIZE,SIZE,0,0,SIZE,SIZE);
+    }
+    const core={...bounds,height:bounds.height*.72};
+    const metadata={...fallback.metadata,liveRig:true,boundsKind:overrideBounds&&!exactAlpha?'conservative-geometry':'alpha',projection:{...config.projection,pixelsPerWorld:density},animation:{name:sampler.clips[pose.index].name,duration:sampler.clips[pose.index].duration,samples:pose.count,loop:pose.loop},atlas:{...fallback.metadata.atlas,samples:pose.count}};
+    const frame={...fallback.frame,rect:{x:0,y:0,width:SIZE,height:SIZE},footPivot:pivot,alphaBounds:bounds,outlineBounds:bounds,coreBounds:core,sample:pose.sample,index:pose.sample,angle:pose.angle};
+    const worldHeight=height||config.projection.subjectHeight,scale=worldHeight/config.projection.subjectHeight,groundFoot={x:(actor.x-actor.y)*Math.sqrt(3)/2,y:(actor.x+actor.y)*.5};
+    const correction=pose.name==='walk'?Math.max(-config.projection.subjectHeight*.04,Math.min(config.projection.subjectHeight*.04,floorHeight(profile,fallback.locomotion?.phase||0)))*scale*(pose.locomotionMix?.weight??1):pose.name==='death'?(this.models.get(key)?.states.get(actor)?.deathGrounding||0)*deathBridgeWeight(this.models.get(key)?.states.get(actor),deathAge):0;
+    if(remembered)remembered.groundingHeight=correction;
+    const foot={x:groundFoot.x,y:groundFoot.y+correction};
+    const settledDeath=pose.name==='death'&&pose.progress===1&&!this.models.get(key)?.states.get(actor)?.transition;
+    const selected={...fallback,image:cache.image,bodyAlpha:null,metadata,frame,settledDeath,placement:{...spritePlacement(metadata,frame,{foot,worldHeight}),groundFoot,groundingHeight:correction,depth:groundFoot.y}};
+    cache.signature=signature;cache.selected=selected;
+    cache.diagnostics=this.diagnostics={key,clip:pose.name,sample:pose.sample,sampleDensity:pose.count,continuousSampling:true,deathBridgeWeight:pose.name==='death'?deathBridgeWeight(this.models.get(key)?.states.get(actor),deathAge):0,moveWeight:pose.locomotionMix?.weight,hitLayerWeight:pose.hitLayer?hitLayerWeight(actor.hitFlash)*(pose.hitLayer.scale??1):0,hitTorsoOnly:!!pose.hitLayer?.torsoOnly,boundsKind:metadata.boundsKind,source:config.original,angle:pose.angle,clipped:overrideBounds&&!exactAlpha?undefined:left===0||top===0||right===SIZE||bottom===SIZE};
+    if(bossActionsEnabled!==undefined){this.diagnostics.bossActionsEnabled=bossActionsEnabled;this.diagnostics.bossActionsActive=bossActionsActive;this.diagnostics.bossActionsBones=bossActionsBones;this.diagnostics.bossActionsMaxRadians=bossActionsMaxRadians;this.diagnostics.bossActionsKind=bossActionsKind;}
+    return selected;
+  }
+}

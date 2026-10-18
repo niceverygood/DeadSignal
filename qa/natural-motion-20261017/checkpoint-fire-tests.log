@@ -1,0 +1,577 @@
+TAP version 13
+# Subtest: all twelve missions have independent worlds and resume their trained player in the same mission
+ok 1 - all twelve missions have independent worlds and resume their trained player in the same mission
+  ---
+  duration_ms: 108.745
+  type: 'test'
+  ...
+# Subtest: each mission requires a live middle boss before its final boss and ends only after both actual kills
+ok 2 - each mission requires a live middle boss before its final boss and ends only after both actual kills
+  ---
+  duration_ms: 114.7612
+  type: 'test'
+  ...
+# Subtest: a middle boss killed early does not spawn the final before the seventy-five-percent clock
+ok 3 - a middle boss killed early does not spawn the final before the seventy-five-percent clock
+  ---
+  duration_ms: 1.8081
+  type: 'test'
+  ...
+# Subtest: failed mandatory spawns leave their flag unset and retry after an enemy slot becomes free
+ok 4 - failed mandatory spawns leave their flag unset and retry after an enemy slot becomes free
+  ---
+  duration_ms: 8.1859
+  type: 'test'
+  ...
+# Subtest: normal pools and boss stats apply the mission difficulty without altering global types or the legacy operation
+ok 5 - normal pools and boss stats apply the mission difficulty without altering global types or the legacy operation
+  ---
+  duration_ms: 32.6386
+  type: 'test'
+  ...
+# Subtest: the existing version-one checkpoint restores byte-for-byte without campaign activation
+ok 6 - the existing version-one checkpoint restores byte-for-byte without campaign activation
+  ---
+  duration_ms: 16.3209
+  type: 'test'
+  ...
+# Subtest: the tuned version-one operation retains deterministic live replay across a mid-movement checkpoint
+ok 7 - the tuned version-one operation retains deterministic live replay across a mid-movement checkpoint
+  ---
+  duration_ms: 372.2061
+  type: 'test'
+  ...
+# Subtest: mission progression, active boss reference and maximum seed survive version-two restore
+ok 8 - mission progression, active boss reference and maximum seed survive version-two restore
+  ---
+  duration_ms: 2.0969
+  type: 'test'
+  ...
+# Subtest: corrupt version-two progress, catalog roles, skill timers and unbounded effect queues are rejected without throwing
+ok 9 - corrupt version-two progress, catalog roles, skill timers and unbounded effect queues are rejected without throwing
+  ---
+  duration_ms: 19.3232
+  type: 'test'
+  ...
+# Subtest: all twenty-four bosses retain strict checkpoints through actual warnings, running attacks, hazards and projectiles
+ok 10 - all twenty-four bosses retain strict checkpoints through actual warnings, running attacks, hazards and projectiles
+  ---
+  duration_ms: 1855.5417
+  type: 'test'
+  ...
+# Subtest: additional hazard fields and hostile projectile payloads reject invalid or incoherent saved data
+ok 11 - additional hazard fields and hostile projectile payloads reject invalid or incoherent saved data
+  ---
+  duration_ms: 29.3367
+  type: 'test'
+  ...
+# Subtest: mission countdowns use the real mid and final thresholds independently of legacy district flags
+ok 12 - mission countdowns use the real mid and final thresholds independently of legacy district flags
+  ---
+  duration_ms: 18.1984
+  type: 'test'
+  ...
+# Subtest: all 24 real mission bosses own guidance and offscreen priority ahead of optional alarms
+ok 13 - all 24 real mission bosses own guidance and offscreen priority ahead of optional alarms
+  ---
+  duration_ms: 252.6104
+  type: 'test'
+  ...
+# Subtest: a fresh or legacy survivor unlocks exactly the first campaign mission
+ok 14 - a fresh or legacy survivor unlocks exactly the first campaign mission
+  ---
+  duration_ms: 2.7921
+  type: 'test'
+  ...
+# Subtest: progress sanitization requires a sequential clear prefix and rejects invalid boss and timing records
+ok 15 - progress sanitization requires a sequential clear prefix and rejects invalid boss and timing records
+  ---
+  duration_ms: 0.4557
+  type: 'test'
+  ...
+# Subtest: locked missions cannot be selected or cleared by an out of sequence result
+ok 16 - locked missions cannot be selected or cleared by an out of sequence result
+  ---
+  duration_ms: 0.4435
+  type: 'test'
+  ...
+# Subtest: twelve successive victories unlock only the next map and record both mission bosses
+ok 17 - twelve successive victories unlock only the next map and record both mission bosses
+  ---
+  duration_ms: 1.4559
+  type: 'test'
+  ...
+# Subtest: encounter records are idempotent and completion improves best time without duplicate mission clears
+ok 18 - encounter records are idempotent and completion improves best time without duplicate mission clears
+  ---
+  duration_ms: 0.478
+  type: 'test'
+  ...
+# Subtest: campaign and old training/settings persist in one profile and a completed run cannot award twice
+ok 19 - campaign and old training/settings persist in one profile and a completed run cannot award twice
+  ---
+  duration_ms: 9.1827
+  type: 'test'
+  ...
+# Subtest: all 24 catalog bosses have distinct geometry even with palette and size differences removed
+ok 20 - all 24 catalog bosses have distinct geometry even with palette and size differences removed
+  ---
+  duration_ms: 45.1852
+  type: 'test'
+  ...
+# Subtest: catalog head equipment and mechanical limb counts affect the figure beyond its colors
+ok 21 - catalog head equipment and mechanical limb counts affect the figure beyond its colors
+  ---
+  duration_ms: 40.2944
+  type: 'test'
+  ...
+# Subtest: every portrait fits its canvas at both pixel ratios and invalid keys clear without changing layout
+ok 22 - every portrait fits its canvas at both pixel ratios and invalid keys clear without changing layout
+  ---
+  duration_ms: 101.3495
+  type: 'test'
+  ...
+# Subtest: live rendering uses canonical characters and names while missing boss keys retain legacy sprites
+ok 23 - live rendering uses canonical characters and names while missing boss keys retain legacy sprites
+  ---
+  duration_ms: 10.6394
+  type: 'test'
+  ...
+# Subtest: a tall campaign silhouette can hide the player where a legacy collector could not
+ok 24 - a tall campaign silhouette can hide the player where a legacy collector could not
+  ---
+  duration_ms: 1.1663
+  type: 'test'
+  ...
+# Subtest: warning geometry uses total line width and a summon boundary remains unfilled
+ok 25 - warning geometry uses total line width and a summon boundary remains unfilled
+  ---
+  duration_ms: 1.2476
+  type: 'test'
+  ...
+# Subtest: hostile trails project actual previous positions and long objective names fit inside their plaque
+ok 26 - hostile trails project actual previous positions and long objective names fit inside their plaque
+  ---
+  duration_ms: 1.0153
+  type: 'test'
+  ...
+# Subtest: annular warnings and active slams preserve the empty centre while fire and contamination become active fields
+ok 27 - annular warnings and active slams preserve the empty centre while fire and contamination become active fields
+  ---
+  duration_ms: 8.4604
+  type: 'test'
+  ...
+# Subtest: repeated campaign rendering never changes checkpoints, combat RNG or active warnings
+ok 28 - repeated campaign rendering never changes checkpoints, combat RNG or active warnings
+  ---
+  duration_ms: 76.6486
+  type: 'test'
+  ...
+# Subtest: legacy three-stage layouts, random consumption and obstacle IDs remain exactly v0.16
+ok 29 - legacy three-stage layouts, random consumption and obstacle IDs remain exactly v0.16
+  ---
+  duration_ms: 56.528
+  type: 'test'
+  ...
+# Subtest: twelve campaign cities have distinct physical layouts and use the existing render/save vocabulary
+ok 30 - twelve campaign cities have distinct physical layouts and use the existing render/save vocabulary
+  ---
+  duration_ms: 22.0383
+  type: 'test'
+  ...
+# Subtest: actual navigation and movement let the player and r49 bosses reach the exit and all combat streets
+ok 31 - actual navigation and movement let the player and r49 bosses reach the exit and all combat streets
+  ---
+  duration_ms: 868.4893
+  type: 'test'
+  ...
+# Subtest: campaign has twelve ordered, individually themed missions and an unbroken unlock chain
+ok 32 - campaign has twelve ordered, individually themed missions and an unbroken unlock chain
+  ---
+  duration_ms: 2.5658
+  type: 'test'
+  ...
+# Subtest: twenty-four bosses have distinct identities, occupational silhouettes and readable counterplay
+ok 33 - twenty-four bosses have distinct identities, occupational silhouettes and readable counterplay
+  ---
+  duration_ms: 2.6386
+  type: 'test'
+  ...
+# Subtest: all four mission factors and scaled boss hp/contact damage strictly increase
+ok 34 - all four mission factors and scaled boss hp/contact damage strictly increase
+  ---
+  duration_ms: 2.0289
+  type: 'test'
+  ...
+# Subtest: catalog lookups reject unknown keys and scaling is pure with bounded invalid input
+ok 35 - catalog lookups reject unknown keys and scaling is pure with bounded invalid input
+  ---
+  duration_ms: 0.7959
+  type: 'test'
+  ...
+# Subtest: a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+ok 36 - a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+  ---
+  duration_ms: 121.8986
+  type: 'test'
+  ...
+# Subtest: snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+ok 37 - snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+  ---
+  duration_ms: 3.8535
+  type: 'test'
+  ...
+# Subtest: RNG state setters reject corruption without changing the next random value
+ok 38 - RNG state setters reject corruption without changing the next random value
+  ---
+  duration_ms: 0.5908
+  type: 'test'
+  ...
+# Subtest: a piercing bullet remembers its earlier hit after JSON round trip
+ok 39 - a piercing bullet remembers its earlier hit after JSON round trip
+  ---
+  duration_ms: 36.9767
+  type: 'test'
+  ...
+# Subtest: shots and fire thrown outside the map edge remain valid resumable combat
+ok 40 - shots and fire thrown outside the map edge remain valid resumable combat
+  ---
+  duration_ms: 3.9049
+  type: 'test'
+  ...
+# Subtest: city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+ok 41 - city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+  ---
+  duration_ms: 24.5313
+  type: 'test'
+  ...
+# Subtest: navigation caches are omitted and restore creates navigation over the restored city
+ok 42 - navigation caches are omitted and restore creates navigation over the restored city
+  ---
+  duration_ms: 21.9217
+  type: 'test'
+  ...
+# Subtest: a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+ok 43 - a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+  ---
+  duration_ms: 11.857
+  type: 'test'
+  ...
+# Subtest: route and hospital event screens retain choices and cannot pay their rewards twice
+ok 44 - route and hospital event screens retain choices and cannot pay their rewards twice
+  ---
+  duration_ms: 98.1736
+  type: 'test'
+  ...
+# Subtest: collector attack phases survive restore and boss keeps the live enemy reference
+ok 45 - collector attack phases survive restore and boss keeps the live enemy reference
+  ---
+  duration_ms: 6.2448
+  type: 'test'
+  ...
+# Subtest: signed idle timers and inactive stale alarm IDs are valid checkpoint data
+ok 46 - signed idle timers and inactive stale alarm IDs are valid checkpoint data
+  ---
+  duration_ms: 15.9259
+  type: 'test'
+  ...
+# Subtest: supply preserves a cleared gate and an active orphan alarm until the next district
+ok 47 - supply preserves a cleared gate and an active orphan alarm until the next district
+  ---
+  duration_ms: 5.161
+  type: 'test'
+  ...
+# Subtest: a stage clear before pickup cleanup can save more than four hundred fifty pickups
+ok 48 - a stage clear before pickup cleanup can save more than four hundred fifty pickups
+  ---
+  duration_ms: 9.9638
+  type: 'test'
+  ...
+# Subtest: restored gameplay and future rolls match the original when transient navigation caches are reset
+ok 49 - restored gameplay and future rolls match the original when transient navigation caches are reset
+  ---
+  duration_ms: 46.3457
+  type: 'test'
+  ...
+# Subtest: menu and terminal runs do not create resumable checkpoints
+ok 50 - menu and terminal runs do not create resumable checkpoints
+  ---
+  duration_ms: 2.2117
+  type: 'test'
+  ...
+# Subtest: corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+ok 51 - corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+  ---
+  duration_ms: 41.8175
+  type: 'test'
+  ...
+# Subtest: duplicate, capped, or missing upgrade choices cannot create a broken selection screen
+ok 52 - duplicate, capped, or missing upgrade choices cannot create a broken selection screen
+  ---
+  duration_ms: 5.5901
+  type: 'test'
+  ...
+# Subtest: all six loading shop images keep the actual painted canvas accessible without replacing purchase/equip controls
+ok 53 - all six loading shop images keep the actual painted canvas accessible without replacing purchase/equip controls
+  ---
+  duration_ms: 77.3914
+  type: 'test'
+  ...
+# Subtest: PNG failures preserve all six previews and create one shared retry notice, including repeated decoration
+ok 54 - PNG failures preserve all six previews and create one shared retry notice, including repeated decoration
+  ---
+  duration_ms: 6.9239
+  type: 'test'
+  ...
+# Subtest: successful images replace the fallback exactly once while preserving original Board49 crop coordinates and source URL
+ok 55 - successful images replace the fallback exactly once while preserving original Board49 crop coordinates and source URL
+  ---
+  duration_ms: 6.1017
+  type: 'test'
+  ...
+# Subtest: already complete cached successes and failures settle immediately; reopening after a failure can recover
+ok 56 - already complete cached successes and failures settle immediately; reopening after a failure can recover
+  ---
+  duration_ms: 47.7235
+  type: 'test'
+  ...
+# Subtest: the canonical flex portrait explicitly obeys hidden while its image is unavailable
+ok 57 - the canonical flex portrait explicitly obeys hidden while its image is unavailable
+  ---
+  duration_ms: 23.9084
+  type: 'test'
+  ...
+# Subtest: all thirty equipped ranks produce their disclosed effects in actual combat, movement, growth or recovery
+ok 58 - all thirty equipped ranks produce their disclosed effects in actual combat, movement, growth or recovery
+  ---
+  duration_ms: 71.7153
+  type: 'test'
+  ...
+# Subtest: unowned, unequipped, malformed or cross-slot inventory cannot grant effects or consume gameplay RNG
+ok 59 - unowned, unequipped, malformed or cross-slot inventory cannot grant effects or consume gameplay RNG
+  ---
+  duration_ms: 5.0739
+  type: 'test'
+  ...
+# Subtest: training and run upgrades compose once with armor, magazines and movement without altering weapon constants
+ok 60 - training and run upgrades compose once with armor, magazines and movement without altering weapon constants
+  ---
+  duration_ms: 2.7904
+  type: 'test'
+  ...
+# Subtest: bullet damage, pellet count and haste combine with only the selected weapon equipment
+ok 61 - bullet damage, pellet count and haste combine with only the selected weapon equipment
+  ---
+  duration_ms: 0.7239
+  type: 'test'
+  ...
+# Subtest: enhanced fire and reload rates produce equal fixed-step results at thirty and sixty rendering frames per second
+ok 62 - enhanced fire and reload rates produce equal fixed-step results at thirty and sixty rendering frames per second
+  ---
+  duration_ms: 6.3672
+  type: 'test'
+  ...
+# Subtest: XP amplification occurs exactly once for collection and overflow while added magnet reach leaves distant bare pickups still
+ok 63 - XP amplification occurs exactly once for collection and overflow while added magnet reach leaves distant bare pickups still
+  ---
+  duration_ms: 1.1285
+  type: 'test'
+  ...
+# Subtest: a lethal hit consumes one core charge, preserves position, protects for two seconds and ends once after exhaustion
+ok 64 - a lethal hit consumes one core charge, preserves position, protects for two seconds and ends once after exhaustion
+  ---
+  duration_ms: 2.0118
+  type: 'test'
+  ...
+# Subtest: two lethal enemy contacts in the same actual tick consume one charge and preserve the live checkpoint
+ok 65 - two lethal enemy contacts in the same actual tick consume one charge and preserve the live checkpoint
+  ---
+  duration_ms: 1.0525
+  type: 'test'
+  ...
+# Subtest: saved equipment and consumed charges remain frozen when the inventory is upgraded, switched or unloaded before restore
+ok 66 - saved equipment and consumed charges remain frozen when the inventory is upgraded, switched or unloaded before restore
+  ---
+  duration_ms: 9.0394
+  type: 'test'
+  ...
+# Subtest: a version-seventeen mission with no equipment fields resumes unchanged with neutral effects and zero charges
+ok 67 - a version-seventeen mission with no equipment fields resumes unchanged with neutral effects and zero charges
+  ---
+  duration_ms: 8.2489
+  type: 'test'
+  ...
+# Subtest: legacy mode ignores equipment in tuned gameplay and restores old version-one checkpoints byte-for-byte
+ok 68 - legacy mode ignores equipment in tuned gameplay and restores old version-one checkpoints byte-for-byte
+  ---
+  duration_ms: 237.5294
+  type: 'test'
+  ...
+# Subtest: incomplete equipment pairs, impossible derived combinations and invalid remaining charges cannot restore
+ok 69 - incomplete equipment pairs, impossible derived combinations and invalid remaining charges cannot restore
+  ---
+  duration_ms: 23.2965
+  type: 'test'
+  ...
+# Subtest: unused core charges and revival protection freeze through paused and queued upgrade checkpoints
+ok 70 - unused core charges and revival protection freeze through paused and queued upgrade checkpoints
+  ---
+  duration_ms: 3.3221
+  type: 'test'
+  ...
+# Subtest: three controlled real middle-and-final boss battles improve with the fixed legendary loadout
+ok 71 - three controlled real middle-and-final boss battles improve with the fixed legendary loadout
+  ---
+  duration_ms: 104.8954
+  type: 'test'
+  ...
+# mission-01 practice arena: bare=win 15.80s/84 shots/97 HP; equipped=win 5.95s/29 shots/349 HP
+# mission-05 practice arena: bare=win 43.75s/238 shots/124 HP; equipped=win 10.20s/53 shots/349 HP
+# mission-12 practice arena: bare=loss 30.55s/165 shots/0 HP; equipped=win 14.70s/97 shots/349 HP
+# Subtest: legacy progression gains an empty equipment inventory and retains its operation and preferences
+ok 72 - legacy progression gains an empty equipment inventory and retains its operation and preferences
+  ---
+  duration_ms: 3.0369
+  type: 'test'
+  ...
+# Subtest: one test grant and each fixed item upgrade persist as a single write and the grant cannot repeat after reload
+ok 73 - one test grant and each fixed item upgrade persist as a single write and the grant cannot repeat after reload
+  ---
+  duration_ms: 0.9311
+  type: 'test'
+  ...
+# Subtest: failed grant, purchase or equipment writes keep both profile and the persisted wallet unchanged
+ok 74 - failed grant, purchase or equipment writes keep both profile and the persisted wallet unchanged
+  ---
+  duration_ms: 0.6357
+  type: 'test'
+  ...
+# Subtest: gear selection preserves an already saved mission byte for byte and survives profile reload
+ok 75 - gear selection preserves an already saved mission byte for byte and survives profile reload
+  ---
+  duration_ms: 46.5407
+  type: 'test'
+  ...
+# Subtest: insufficient funds, rank caps and invalid cross-slot selections never write or change inventory
+ok 76 - insufficient funds, rank caps and invalid cross-slot selections never write or change inventory
+  ---
+  duration_ms: 0.6277
+  type: 'test'
+  ...
+# Subtest: unowned or malformed gear grants no combat effects and cannot cross equipment slots
+ok 77 - unowned or malformed gear grants no combat effects and cannot cross equipment slots
+  ---
+  duration_ms: 2.1545
+  type: 'test'
+  ...
+# Subtest: the explicitly marked test grant is available once and never grows beyond the wallet bound
+ok 78 - the explicitly marked test grant is available once and never grows beyond the wallet bound
+  ---
+  duration_ms: 0.2599
+  type: 'test'
+  ...
+# Subtest: fixed equipment costs debit once per rank, preserve unrelated items, and stop at the disclosed cap
+ok 79 - fixed equipment costs debit once per rank, preserve unrelated items, and stop at the disclosed cap
+  ---
+  duration_ms: 0.5553
+  type: 'test'
+  ...
+# Subtest: each slot applies only its equipped item, a rank increase takes effect once, and unequipping restores defaults
+ok 80 - each slot applies only its equipped item, a rank increase takes effect once, and unequipping restores defaults
+  ---
+  duration_ms: 0.4393
+  type: 'test'
+  ...
+# Subtest: all 30 equipment ranks stay finite and bounded while each stronger rank improves its stated benefit
+ok 81 - all 30 equipment ranks stay finite and bounded while each stronger rank improves its stated benefit
+  ---
+  duration_ms: 1.7458
+  type: 'test'
+  ...
+# Subtest: all 1331 legitimate equipped rank combinations remain valid across JSON save and restore
+ok 82 - all 1331 legitimate equipped rank combinations remain valid across JSON save and restore
+  ---
+  duration_ms: 59.4456
+  type: 'test'
+  ...
+# Subtest: checkpoint gear rejects invented multipliers, simultaneous alternatives, missing and hidden numeric fields
+ok 83 - checkpoint gear rejects invented multipliers, simultaneous alternatives, missing and hidden numeric fields
+  ---
+  duration_ms: 0.3848
+  type: 'test'
+  ...
+# Subtest: the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly
+ok 84 - the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly
+  ---
+  duration_ms: 5.8658
+  type: 'test'
+  ...
+# Subtest: metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input
+ok 85 - metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input
+  ---
+  duration_ms: 19.6848
+  type: 'test'
+  ...
+# Subtest: one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior
+ok 86 - one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior
+  ---
+  duration_ms: 22.0874
+  type: 'test'
+  ...
+# Subtest: time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock
+ok 87 - time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock
+  ---
+  duration_ms: 0.7873
+  type: 'test'
+  ...
+# Subtest: exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache
+ok 88 - exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache
+  ---
+  duration_ms: 5.5034
+  type: 'test'
+  ...
+# Subtest: larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded
+ok 89 - larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded
+  ---
+  duration_ms: 26.8675
+  type: 'test'
+  ...
+# Subtest: the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry
+ok 90 - the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry
+  ---
+  duration_ms: 0.9216
+  type: 'test'
+  ...
+# Subtest: actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample
+ok 91 - actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample
+  ---
+  duration_ms: 24.1488
+  type: 'test'
+  ...
+# Subtest: actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites
+ok 92 - actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites
+  ---
+  duration_ms: 15.1692
+  type: 'test'
+  ...
+# Subtest: unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers
+ok 93 - unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers
+  ---
+  duration_ms: 5.5899
+  type: 'test'
+  ...
+# Subtest: repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock
+ok 94 - repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock
+  ---
+  duration_ms: 3.4843
+  type: 'test'
+  ...
+1..94
+# tests 94
+# suites 0
+# pass 94
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2841.8916

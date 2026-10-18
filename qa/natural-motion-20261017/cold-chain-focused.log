@@ -1,0 +1,807 @@
+✖ optional cold-chain branch unlocks after city while existing roof route and original launch assets stay intact (18.9089ms)
+✖ cold-chain objectives really defend, spawn a blocking elite and restore mid-defense without awarding vaccine (7.6659ms)
+✔ new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical (55.4095ms)
+✔ all field objectives are physically reachable from the actual spawn (18.1167ms)
+✔ objectives require proximity and sustained interaction; release, damage and pause prevent free completion (0.9999ms)
+✔ partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected (13.5172ms)
+✔ actual objective completion raises threat then ends only after all three actions (0.8339ms)
+✔ expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock (0.8319ms)
+✔ finale is locked after Haifa and original launch geometry/assets remain complete (46.4855ms)
+✔ actual final boss must die before the vaccine can be recovered, death alone is not victory (7.5783ms)
+✔ missing or falsely defeated active boss and legacy extra flags fail restore (3.9881ms)
+✔ legacy collector defeat still ends its original survival game (1.6193ms)
+✔ new finales require30s preparation while old four-field saves restore byte exactly (2.1903ms)
+✔ preparation progress and interpolated HUD stay continuous without changing the authoritative save (4.4272ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 12
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 275.4506
+
+✖ failing tests:
+
+test at tests\cold-chain.test.mjs:2:1
+✖ optional cold-chain branch unlocks after city while existing roof route and original launch assets stay intact (18.9089ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      decor: [
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.2232720274478197,
+  -       x: 639.4301008433104,
+  -       y: 0.5935422610491514
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5450490827206522,
+  -       x: 350.88515505194664,
+  -       y: 841.1900812759995
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.45600721263326705,
+  -       x: 1476.6033226624131,
+  -       y: 1168.1736837141216
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.09785169479437172,
+  -       x: 1394.9255224317312,
+  -       y: 443.2635541073978
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.7202955442480743,
+  -       x: 2168.234290368855,
+  -       y: 734.7667008172721
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.6261914535425603,
+  -       x: 1583.7761376053095,
+  -       y: 1450.5453177262098
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.24193100933916867,
+  -       x: 1367.259145528078,
+  -       y: 218.22540974244475
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.08783002896234393,
+  -       x: 1956.9022050127387,
+  -       y: 582.3388935998082
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.551719788229093,
+  -       x: 1894.98385861516,
+  -       y: 1634.3795822001994
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.09744705795310438,
+  -       x: 1125.1132378354669,
+  -       y: 641.0976127255708
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.2047672572080046,
+  -       x: 1805.4541429504752,
+  -       y: 947.9200218804181
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.25051057478412986,
+  -       x: 310.5046385899186,
+  -       y: 591.6583206038922
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.17744940402917564,
+  -       x: 837.0527219027281,
+  -       y: 470.1712100766599
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.43362422985956073,
+  -       x: 812.229498848319,
+  -       y: 1470.142163336277
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.7565535784233361,
+  -       x: 1146.6175518929958,
+  -       y: 1316.4524019230157
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5354834103491157,
+  -       x: 2314.02470190078,
+  -       y: 933.0971617251635
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.21020137425512075,
+  -       x: 923.5573299229145,
+  -       y: 723.3080654405057
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.38805842166766524,
+  -       x: 1554.218678176403,
+  -       y: 37.852352019399405
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.4891930732410401,
+  -       x: 2317.5307229161263,
+  -       y: 842.3384342808276
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.16894655022770166,
+  -       x: 185.17843633890152,
+  -       y: 10.530978720635176
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.337965794140473,
+  -       x: 1.043510064482689,
+  -       y: 1354.6817371621728
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.8895441221538931,
+  -       x: 542.1903854236007,
+  -       y: 1784.3392793554813
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.07567508867941797,
+  -       x: 1125.490098260343,
+  -       y: 1563.8622213620692
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.8220296828076243,
+  -       x: 604.480853676796,
+  -       y: 1305.2401043940336
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.22137079876847565,
+  -       x: 1875.2220114693046,
+  -       y: 172.26663250476122
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.03431691275909543,
+  -       x: 1076.6601210460067,
+  -       y: 653.1324415002018
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5592889664694667,
+  -       x: 1974.3091698735952,
+  -       y: 1403.1690190080553
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5814830472227186,
+  -       x: 2099.040044657886,
+  -       y: 91.93854443728924
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.30809039273299277,
+  -       x: 1740.7080296427011,
+  -       y: 361.5247125271708
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.0002898331731557846,
+  -       x: 1527.2078236564994,
+  -       y: 837.3567771166563
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.6178396919276565,
+  -       x: 470.4324781894684,
+  -       y: 1112.1546680107713
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.9406286105513573,
+  -       x: 507.46671594679356,
+  -       y: 469.8720565997064
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.7815446960739791,
+  -       x: 1409.656160697341,
+  -       y: 312.36260742880404
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.34268549107946455,
+  -       x: 1539.3424317240715,
+  -       y: 992.8994785062969
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5487891419325024,
+  -       x: 1101.439973898232,
+  -       y: 722.8830484673381
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5515118767507374,
+  -       x: 1446.8613535165787,
+  -       y: 471.18228636682034
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.013889708323404193,
+  -       x: 1878.1745413318276,
+  -       y: 927.4671882390976
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.08160997787490487,
+  -       x: 1531.6129848361015,
+  -       y: 1187.1624779887497
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.8512866217643023,
+  -       x: 2013.0203638225794,
+  -       y: 280.9748866595328
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.1206361714284867,
+  -       x: 134.00411680340767,
+  -       y: 1209.194295387715
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.7892054363619536,
+  -       x: 1743.791389837861,
+  -       y: 1643.5296637471765
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.1535755442455411,
+  -       x: 1782.316846959293,
+  -       y: 1472.2158080432564
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.2285008691251278,
+  -       x: 2224.7222162783146,
+  -       y: 1139.551564771682
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.7762461183592677,
+  -       x: 1668.9778603613377,
+  -       y: 922.6132675074041
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.31957281148061156,
+  -       x: 1968.2434955611825,
+  -       y: 487.62522800825536
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.8527013291604817,
+  -       x: 178.25816050171852,
+  -       y: 1382.2784073650837
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.6723629275802523,
+  -       x: 2290.646235086024,
+  -       y: 798.2893550768495
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.944757284829393,
+  -       x: 543.8407877460122,
+  -       y: 237.26433156989515
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5452289956156164,
+  -       x: 1994.7431730106473,
+  -       y: 1540.326128108427
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.6733717718161643,
+  -       x: 1585.7935605570674,
+  -       y: 144.51742214150727
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.22762329084798694,
+  -       x: 133.6323045194149,
+  -       y: 306.25282949768007
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.08162638056091964,
+  -       x: 1872.5332137197256,
+  -       y: 343.64987779408693
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.8373788236640394,
+  -       x: 807.3042461648583,
+  -       y: 118.29391387291253
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.7793251327238977,
+  -       x: 2194.4580355659127,
+  -       y: 882.4519463349134
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.8625601520761847,
+  -       x: 1843.0914603173733,
+  -       y: 1405.9054237324744
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5883076258469373,
+  -       x: 701.5142502263188,
+  -       y: 1003.6906788591295
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.30432303436100483,
+  -       x: 399.19334817677736,
+  -       y: 760.3815161157399
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.9850235034245998,
+  -       x: 1108.244619704783,
+  -       y: 1170.6495273392648
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.5066364819649607,
+  -       x: 196.58922739326954,
+  -       y: 647.7224498055875
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.06718621193431318,
+  -       x: 465.38097504526377,
+  -       y: 717.1150283887982
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.10647526662796736,
+  -       x: 45.927590131759644,
+  -       y: 1536.3940293900669
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.321827897336334,
+  -       x: 1030.5904526263475,
+  -       y: 448.93540358170867
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.3765527317300439,
+  -       x: 1523.7620512023568,
+  -       y: 383.88507161289454
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.889068040298298,
+  -       x: 1748.635958880186,
+  -       y: 277.3671240080148
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.3119522307533771,
+  -       x: 1532.444341108203,
+  -       y: 1043.0809940211475
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.14327110769227147,
+  -       x: 873.069810681045,
+  -       y: 694.0956430044025
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.6602062517777085,
+  -       x: 62.43058014661074,
+  -       y: 315.6010412145406
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.14661561651155353,
+  -       x: 2082.9991495236754,
+  -       y: 448.50857108831406
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.9952349248342216,
+  -       x: 2007.7670568600297,
+  -       y: 384.9768036045134
+        },
+        {
+          kind: 'rubble',
+  +       seed: 0.5,
+  +       x: 1200,
+  +       y: 900
+  -       seed: 0.34522137767635286,
+  -       x: 1445.5647328868508,
+  -       y: 503.77010204829276
+        },
+        {
+          kind: 'lamp',
+          x: 660,
+          y: 800
+  ...
+          kind: 'trash',
+  +       seed: 0.5,
+  -       seed: 0.39656011504121125,
+          x: 1010,
+          y: 790
+        },
+        {
+          kind: 'trash',
+  +       seed: 0.5,
+  -       seed: 0.5506445346400142,
+          x: 1430,
+          y: 1070
+        },
+        {
+          kind: 'trash',
+  +       seed: 0.5,
+  -       seed: 0.9053222124930471,
+          x: 980,
+          y: 1250
+        },
+        {
+          kind: 'trash',
+  +       seed: 0.5,
+  -       seed: 0.24762575537897646,
+          x: 1790,
+          y: 1090
+        },
+        {
+          kind: 'sign',
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/cold-chain.test.mjs:2:489)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      width: 2400,
+      height: 1800,
+      obstacles: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object]
+      ],
+      decor: [
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object]
+      ],
+      roads: [ [Object], [Object], [Object], [Object] ],
+      theme: 'residential',
+      exit: { x: 1200, y: 510, open: false },
+      spawn: { x: 1200, y: 930 },
+      seed: 0,
+      expeditionId: 'last-signal-cold-chain-01b'
+    },
+    expected: {
+      width: 2400,
+      height: 1800,
+      obstacles: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object]
+      ],
+      decor: [
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object], [Object], [Object], [Object], [Object],
+        [Object], [Object]
+      ],
+      roads: [ [Object], [Object], [Object], [Object] ],
+      theme: 'residential',
+      exit: { x: 1200, y: 510, open: false },
+      spawn: { x: 1200, y: 930 },
+      seed: 0,
+      expeditionId: 'last-signal-cold-chain-01b'
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\cold-chain.test.mjs:3:1
+✖ cold-chain objectives really defend, spawn a blocking elite and restore mid-defense without awarding vaccine (7.6659ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/cold-chain.test.mjs:3:641)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,23 @@
+✔ airborne blood remains visible but landed droplets do not float on water or beyond a roof (1.9484ms)
+✔ physical blood droplets start at the actual hit height, follow shot direction and stop on ground contact (1.0948ms)
+✔ organic hit detail excludes armor and materials, keeps immutable particle and balanced canvas (0.3658ms)
+✔ wick smoke follows the actual Molotov arc and disappears during falling and before release (0.6569ms)
+✔ actual front-face bullet collision leaves bounded visual scars without changing saved simulation/RNG (49.0816ms)
+✔ hidden/back faces, shields and destroyed objects do not leave visible scars; renderer history resets between worlds (0.526ms)
+✔ surface and ground marks restore compositing/alpha and remain fixed under paused redraw (0.6968ms)
+✔ fractional render time settling after pause does not erase already settled marks (0.2538ms)
+✔ flesh contact light ends promptly while physical blood and armored ricochets remain distinct (4.6745ms)
+✔ contact gives way to a wider shock ring and fragments without losing weapon identity (0.3112ms)
+✔ longer shotgun follow-through expires and restores while damage and RNG stay exact (12.0273ms)
+✔ pellet impacts merge per target without altering damage, knockback, or combat RNG (3.2651ms)
+✔ burn does not create fake bullet impacts and shield feedback remains distinct (0.5696ms)
+✔ weapon effects restore canvas state and never mutate supplied actors/particles (0.6289ms)
+✔ material contact separates gold ricochets from masonry dust and restores at every age (0.9653ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 585.6739

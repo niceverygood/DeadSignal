@@ -1,0 +1,52 @@
+{
+  "at": "2026-10-18T05:56:05.9352772Z",
+  "scope": "QA-only original legacy body-read scheduling candidate; not a production installation or performance/quality success",
+  "source": {
+    "path": "work/dead-signal-game/dist/player-rig/live-player.js",
+    "bytes": 16124,
+    "sha256": "cf5c5721485f0ca2e531136d1a845d1111260ff12a3aaecf14e23312f702dfba",
+    "portableBefore": "qa/player-deferred-read-20261018/player-live-before.txt",
+    "rasterFingerprint": "eb5f9c06"
+  },
+  "candidate": {
+    "path": "work/dead-signal-game/dist/player-rig/qa-live-player-deferred.js",
+    "bytes": 16124,
+    "sha256": "2c45565ed4416d727fd6974c60241490c4c3341f59ed5c6e4fee74be61a7f170",
+    "rasterFingerprint": "7964b30a",
+    "sameFolderImportsAndAssetBaseUnchanged": true,
+    "constructorOrLoadUsedByInstaller": false
+  },
+  "installer": {
+    "path": "work/dead-signal-game/dist/qa-player-deferred-read-install.js",
+    "bytes": 15740,
+    "sha256": "3c4d5580b6030c5169f23b20e4781696bb3fd2f0646da7e594440e7cb7991966",
+    "vendorRenderFingerprint": "5f756eb1",
+    "vendorRenderNormalizedChars": 5644,
+    "vendorSHA256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea",
+    "defaultEnabled": false,
+    "injectedTestAPIBlocksActualAcceptance": true
+  },
+  "approvedRelocation": {
+    "block": "    const direct=this.directAlphaReadback?this.alphaReadback.read(this.renderer,SIZE,SIZE):null,legacy=!direct||this.verifyAlphaReadback?bc.getImageData(0,0,SIZE,SIZE).data:null;\n    if(direct&&legacy)this.alphaReadback.compareAlpha(direct,legacy);const pixels=direct||legacy;\n    const bounds=nativeAlphaBounds(pixels,SIZE,SIZE)||{x:SIZE,y:SIZE,width:1,height:1};\n    const {x:left,y:top}=bounds;\n    const core={x:left,y:top,width:bounds.width,height:bounds.height*.72};\n",
+    "chars": 473,
+    "removeBefore": "    weapon.root.visible=weaponVisible;if(held)this.bottle.visible=true;this.renderer.render(this.scene,this.camera);",
+    "insertBefore": "    const metadata={...fallback.metadata,projection:",
+    "otherBytesUnchanged": true,
+    "inverseWholeSourceExact": true,
+    "validation": "Raw UTF-8 source substring relocation and ordinal whole-file inverse comparison; no JavaScript/Game execution"
+  },
+  "supported": {
+    "flags": "Only own directAlphaReadback===false and verifyAlphaReadback===false; other values use whole original raster",
+    "ownership": "Fresh original LivePlayerRig prototype, original source fingerprint, ready/error/last/frame0, original native private Canvas contexts and critical method/property descriptors, unwrapped pinned Three render",
+    "exceptions": "Native-successful-path only. Deferred body-read errors occur after armed/compositor side effects; armed/compositor errors can precede body reading. No original retry after the candidate starts.",
+    "foreignMutation": "Global ImageData/HTMLCanvas accessor or Three render-graph callback/prototype mutation is outside scope",
+    "quality": "Optional verify=true original/candidate/original raster, same inputs and no pose/tick/clip advance, native colour/body RGBA and metadata AB/AA/BA strict-zero comparison, final original result returned; not a performance or whole-scene pass"
+  },
+  "executed": {
+    "node": false,
+    "tests": false,
+    "browser": false,
+    "gpu": false,
+    "setup": false
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "status": "parked-slower-and-original-CPU-budget-failed",
+  "adopted": false,
+  "measuredOrder": [
+    "original",
+    "candidate",
+    "original"
+  ],
+  "cpuMs": [
+    15313,
+    19126,
+    17421
+  ],
+  "wallMs": [
+    25903.32,
+    42151.94,
+    28663.63
+  ],
+  "callbackPass": [
+    false,
+    false,
+    false
+  ],
+  "originalBudgetMs": 15000,
+  "minimumRequiredImprovementPercent": 3,
+  "actualImprovementAgainstFasterOriginalPercent": -24.900411415137466,
+  "oracle": {
+    "initialFailurePreserved": true,
+    "initialFile": "oracle-result.json",
+    "fixtureRepair": "screamer position only; damage/HP/AI/gates/candidate unchanged",
+    "repairedPassed": 8
+  },
+  "game": {
+    "cases": 6,
+    "comparisons": 2166,
+    "passed": true
+  },
+  "source": {
+    "count": 415,
+    "exact": true,
+    "protectedOriginalRecords": 22,
+    "allProtectedExact": true,
+    "productEngineSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "candidateSHA": "25729a8d916a153859542f62288e73279866ed6d4ed06c390218274e0e2f694b"
+  },
+  "noNewWholeSuiteOrBrowser": "QA candidate not adopted; product source and previous QA415 exact. Latest whole remains1223/1224 with CPU16250>15000; historical verify mismatch remains.",
+  "scope": "One fresh-process uninstrumented A1/B/A2 source-pinned original24000tick callback including candidate allocation/cleanup. CLI checks original20000ms registration metadata but does not install a node:test watchdog. Failures remain; no repeat to search for a favorable result. No FPS or peak-memory claim.",
+  "next": "Read-only independent audits of move/Navigation/crowd math; begin one next atomic implementation only after clock check."
+}

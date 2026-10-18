@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: native startup roster is bounded, stable by positive mission weight and independent from the complete baked asset roster
+ok 1 - native startup roster is bounded, stable by positive mission weight and independent from the complete baked asset roster
+  ---
+  duration_ms: 4.3975
+  type: 'test'
+  ...
+# Subtest: continued launch reads actual live-pose relevance and fresh corpse selection without advancing original Game, RNG, events or corpse caches
+ok 2 - continued launch reads actual live-pose relevance and fresh corpse selection without advancing original Game, RNG, events or corpse caches
+  ---
+  duration_ms: 7.6587
+  type: 'test'
+  ...
+# Subtest: optional native preparation follows successful assets, hero, bosses and masks; default and baked failures do not invoke it
+ok 3 - optional native preparation follows successful assets, hero, bosses and masks; default and baked failures do not invoke it
+  ---
+  duration_ms: 9.6289
+  type: 'test'
+  ...
+# Subtest: candidate disposal always occurs at launch completion while art/boss release is restricted to a successful commit
+ok 4 - candidate disposal always occurs at launch completion while art/boss release is restricted to a successful commit
+  ---
+  duration_ms: 0.5839
+  type: 'test'
+  ...
+# Subtest: renderer preparation waits for its captured original owner and swaps both pointer and promise only during one synchronous adoption
+ok 5 - renderer preparation waits for its captured original owner and swaps both pointer and promise only during one synchronous adoption
+  ---
+  duration_ms: 14.1111
+  type: 'test'
+  ...
+# Subtest: used originals skip candidate creation; cancellation, external owner replacement and newly active batches reject candidates before adoption
+ok 6 - used originals skip candidate creation; cancellation, external owner replacement and newly active batches reject candidates before adoption
+  ---
+  duration_ms: 5.933
+  type: 'test'
+  ...
+# Subtest: LaunchGate aborts a cancelled loser without committing its Game/save or unlocking a newer native preparation
+ok 7 - LaunchGate aborts a cancelled loser without committing its Game/save or unlocking a newer native preparation
+  ---
+  duration_ms: 12.9191
+  type: 'test'
+  ...
+# Subtest: mismatched original rig/Promise owners reject before preparation and candidate observer exceptions preserve the existing product owner
+ok 8 - mismatched original rig/Promise owners reject before preparation and candidate observer exceptions preserve the existing product owner
+  ---
+  duration_ms: 0.7582
+  type: 'test'
+  ...
+# Subtest: actual Renderer entry point skips native launch work when motion is disabled without touching its on-demand owner
+ok 9 - actual Renderer entry point skips native launch work when motion is disabled without touching its on-demand owner
+  ---
+  duration_ms: 0.6048
+  type: 'test'
+  ...
+# Subtest: a late original Renderer preload completion cannot overwrite a newer adopted owner or its status
+ok 10 - a late original Renderer preload completion cannot overwrite a newer adopted owner or its status
+  ---
+  duration_ms: 0.6036
+  type: 'test'
+  ...
+# Subtest: the actual QA orchestrator awaits original loading and preparation before drawing, preserves six normal combat delegations and releases its own contexts
+ok 11 - the actual QA orchestrator awaits original loading and preparation before drawing, preserves six normal combat delegations and releases its own contexts
+  ---
+  duration_ms: 85.5129
+  type: 'test'
+  ...
+# Subtest: missing native submission, empty native selection or a rig error rejects the combat comparison and restores the previous product rig
+ok 12 - missing native submission, empty native selection or a rig error rejects the combat comparison and restores the previous product rig
+  ---
+  duration_ms: 68.1656
+  type: 'test'
+  ...
+# Subtest: load, preparation, source-audit and combat-render failures clean up helpers, profiles and owned contexts without releasing the prior rig
+ok 13 - load, preparation, source-audit and combat-render failures clean up helpers, profiles and owned contexts without releasing the prior rig
+  ---
+  duration_ms: 28.6224
+  type: 'test'
+  ...
+# Subtest: non-loopback, non-8851 or non-memory requests reject before any DOM, model, preparation or combat service access
+ok 14 - non-loopback, non-8851 or non-memory requests reject before any DOM, model, preparation or combat service access
+  ---
+  duration_ms: 4.2122
+  type: 'test'
+  ...
+# Subtest: texture mode normalizes every false/true/false arm, submits only original candidate textures and awaits common shader preparation before any draw
+ok 15 - texture mode normalizes every false/true/false arm, submits only original candidate textures and awaits common shader preparation before any draw
+  ---
+  duration_ms: 59.2209
+  type: 'test'
+  ...
+# Subtest: candidate original texture upload failure closes preparation/combat observers and releases every owned rig before restoring the prior renderer rig
+ok 16 - candidate original texture upload failure closes preparation/combat observers and releases every owned rig before restoring the prior renderer rig
+  ---
+  duration_ms: 22.1241
+  type: 'test'
+  ...
+# Subtest: invalid mode and protected-origin texture requests perform no optional service, DOM or gameplay work
+ok 17 - invalid mode and protected-origin texture requests perform no optional service, DOM or gameplay work
+  ---
+  duration_ms: 3.8628
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 572.9698

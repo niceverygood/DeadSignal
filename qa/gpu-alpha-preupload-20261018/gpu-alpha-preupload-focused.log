@@ -1,0 +1,358 @@
+TAP version 13
+# Subtest: GPU alpha bound records decode empty cells and inclusive one-pixel/extreme coordinates for all twelve cells
+ok 1 - GPU alpha bound records decode empty cells and inclusive one-pixel/extreme coordinates for all twelve cells
+  ---
+  duration_ms: 3.0939
+  type: 'test'
+  ...
+# Subtest: unsupported renderer, invalid atlas sizes and lost/nondefault contexts fail before allocation or rendering
+ok 2 - unsupported renderer, invalid atlas sizes and lost/nondefault contexts fail before allocation or rendering
+  ---
+  duration_ms: 2.2285
+  type: 'test'
+  ...
+# Subtest: read uses raw nearest RGBA targets, copies first, restores state, reuses 12/5/12 resources and releases resized or changed-owner resources
+ok 3 - read uses raw nearest RGBA targets, copies first, restores state, reuses 12/5/12 resources and releases resized or changed-owner resources
+  ---
+  duration_ms: 6.2139
+  type: 'test'
+  ...
+# Subtest: copy, render, read and GL failures release resources and restore every saved renderer state before a clean retry
+ok 4 - copy, render, read and GL failures release resources and restore every saved renderer state before a clean retry
+  ---
+  duration_ms: 3.9222
+  type: 'test'
+  ...
+# Subtest: LiveBossRig batch integration keeps exact alpha metadata, placement, clipping and private original outputs while preserving legacy fallbacks
+ok 5 - LiveBossRig batch integration keeps exact alpha metadata, placement, clipping and private original outputs while preserving legacy fallbacks
+  ---
+  duration_ms: 353.9317
+  type: 'test'
+  ...
+# Subtest: single-frame original rig cache invalidates exact/verify modes without disposing every compatible sampled pose
+ok 6 - single-frame original rig cache invalidates exact/verify modes without disposing every compatible sampled pose
+  ---
+  duration_ms: 28.2542
+  type: 'test'
+  ...
+# Subtest: twelve-cell threshold uses CPU at eleven without disposal churn and invalidates same-time private caches when changed
+ok 7 - twelve-cell threshold uses CPU at eleven without disposal churn and invalidates same-time private caches when changed
+  ---
+  duration_ms: 284.2053
+  type: 'test'
+  ...
+# Subtest: idle cleanup retains GPU resources for live or fresh death selections and releases them without changing completed private corpses
+ok 8 - idle cleanup retains GPU resources for live or fresh death selections and releases them without changing completed private corpses
+  ---
+  duration_ms: 16.221
+  type: 'test'
+  ...
+# Subtest: idle cleanup shrinks the retained colour atlas after the reduction helper has already disposed itself on a read failure
+ok 9 - idle cleanup shrinks the retained colour atlas after the reduction helper has already disposed itself on a read failure
+  ---
+  duration_ms: 80.5099
+  type: 'test'
+  ...
+# Subtest: GPU colour-copy failures preserve successful frame statistics and recover through the same-frame legacy compositor in batch and single paths
+ok 10 - GPU colour-copy failures preserve successful frame statistics and recover through the same-frame legacy compositor in batch and single paths
+  ---
+  duration_ms: 667.611
+  type: 'test'
+  ...
+# Subtest: each failed restoration and multiple failed setters invalidate the read while every other saved state is attempted once
+ok 11 - each failed restoration and multiple failed setters invalidate the read while every other saved state is attempted once
+  ---
+  duration_ms: 14.8012
+  type: 'test'
+  ...
+# Subtest: copy/render/read/GL/decode failures keep the first body error and no success counters even when restoration also fails
+ok 12 - copy/render/read/GL/decode failures keep the first body error and no success counters even when restoration also fails
+  ---
+  duration_ms: 9.0211
+  type: 'test'
+  ...
+# Subtest: cleanup exceptions cannot interrupt restoration or replace the first failure, and all helper-owned disposals are attempted and cleared
+ok 13 - cleanup exceptions cannot interrupt restoration or replace the first failure, and all helper-owned disposals are attempted and cleared
+  ---
+  duration_ms: 2.4292
+  type: 'test'
+  ...
+# Subtest: successful bytes, bounds and complete renderer call traces match the frozen original whole module including saved face/level and resource reuse
+ok 14 - successful bytes, bounds and complete renderer call traces match the frozen original whole module including saved face/level and resource reuse
+  ---
+  duration_ms: 13.9881
+  type: 'test'
+  ...
+# Subtest: invalid sizes/counts/renderers and failed state getters cause no preparation, GPU calls or restoration
+ok 15 - invalid sizes/counts/renderers and failed state getters cause no preparation, GPU calls or restoration
+  ---
+  duration_ms: 3.0731
+  type: 'test'
+  ...
+# Subtest: unsupported, invalid, pre-aborted and state-getter failures refuse warmup before allocation without changing read statistics or source pixels
+ok 16 - unsupported, invalid, pre-aborted and state-getter failures refuse warmup before allocation without changing read statistics or source pixels
+  ---
+  duration_ms: 6.8431
+  type: 'test'
+  ...
+# Subtest: warmup compiles both materials once, restores state before waiting, shares its flight and lets the next exact read reuse every resource
+ok 17 - warmup compiles both materials once, restores state before waiting, shares its flight and lets the next exact read reuse every resource
+  ---
+  duration_ms: 7.8976
+  type: 'test'
+  ...
+# Subtest: abort and dispose settle immediately, release once and isolate late completion or rejection from a replacement flight
+ok 18 - abort and dispose settle immediately, release once and isolate late completion or rejection from a replacement flight
+  ---
+  duration_ms: 13.5328
+  type: 'test'
+  ...
+# Subtest: preparation, binding, compilation and readonly restoration failures never report READY and release resources before retry
+ok 19 - preparation, binding, compilation and readonly restoration failures never report READY and release resources before retry
+  ---
+  duration_ms: 4.9358
+  type: 'test'
+  ...
+# Subtest: timeout, context loss and XR changes cancel pending readiness without late resurrection and allow clean preparation afterward
+ok 20 - timeout, context loss and XR changes cancel pending readiness without late resurrection and allow clean preparation afterward
+  ---
+  duration_ms: 6.3484
+  type: 'test'
+  ...
+# Subtest: one failed restoration setter still attempts every subsequent renderer-state restoration and never reports READY
+ok 21 - one failed restoration setter still attempts every subsequent renderer-state restoration and never reports READY
+  ---
+  duration_ms: 3.3399
+  type: 'test'
+  ...
+# Subtest: prepare cancels an in-flight generation and event-supported context loss invalidates even a transient lost/restored interval while unregistering old owners
+ok 22 - prepare cancels an in-flight generation and event-supported context loss invalidates even a transient lost/restored interval while unregistering old owners
+  ---
+  duration_ms: 1.9198
+  type: 'test'
+  ...
+# Subtest: explicit idle leases are bounded, survive only pending preparation or readiness before the first successful read, and do not appear by default
+ok 23 - explicit idle leases are bounded, survive only pending preparation or readiness before the first successful read, and do not appear by default
+  ---
+  duration_ms: 3.41
+  type: 'test'
+  ...
+# Subtest: actual LiveBossRig idle cleanup honors only compatible explicit leases and preserves private completed death images through release
+ok 24 - actual LiveBossRig idle cleanup honors only compatible explicit leases and preserves private completed death images through release
+  ---
+  duration_ms: 7.8825
+  type: 'test'
+  ...
+# Subtest: sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+ok 25 - sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+  ---
+  duration_ms: 42.2837
+  type: 'test'
+  ...
+# Subtest: invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+ok 26 - invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+  ---
+  duration_ms: 2.0333
+  type: 'test'
+  ...
+# Subtest: cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+ok 27 - cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+  ---
+  duration_ms: 4.8243
+  type: 'test'
+  ...
+# Subtest: timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+ok 28 - timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+  ---
+  duration_ms: 16.9341
+  type: 'test'
+  ...
+# Subtest: shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+ok 29 - shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+  ---
+  duration_ms: 5.2956
+  type: 'test'
+  ...
+# Subtest: load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+ok 30 - load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+  ---
+  duration_ms: 2.4247
+  type: 'test'
+  ...
+# Subtest: original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+ok 31 - original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+  ---
+  duration_ms: 6.432
+  type: 'test'
+  ...
+# Subtest: an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+ok 32 - an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+  ---
+  duration_ms: 1.3938
+  type: 'test'
+  ...
+# Subtest: cancelled asynchronous creation retires only its late new rig and never disposes an existing rig returned by a faulty factory
+ok 33 - cancelled asynchronous creation retires only its late new rig and never disposes an existing rig returned by a faulty factory
+  ---
+  duration_ms: 1.889
+  type: 'test'
+  ...
+# Subtest: an original rig becoming active during candidate loading rejects the candidate before any texture upload and preserves that active owner
+ok 34 - an original rig becoming active during candidate loading rejects the candidate before any texture upload and preserves that active owner
+  ---
+  duration_ms: 2.0912
+  type: 'test'
+  ...
+# Subtest: fresh owned original static textures submit once per Texture identity and retain source expression while accepting normal Three dispose-listener bookkeeping
+ok 35 - fresh owned original static textures submit once per Texture identity and retain source expression while accepting normal Three dispose-listener bookkeeping
+  ---
+  duration_ms: 8.3738
+  type: 'test'
+  ...
+# Subtest: validated baseline performs the same public normalization without uploading, creating texture caches or marking readiness
+ok 36 - validated baseline performs the same public normalization without uploading, creating texture caches or marking readiness
+  ---
+  duration_ms: 4.6919
+  type: 'test'
+  ...
+# Subtest: unowned, previously drawn, allocated, nondefault, lost, unsupported and nonstatic inputs reject before upload or reset
+ok 37 - unowned, previously drawn, allocated, nondefault, lost, unsupported and nonstatic inputs reject before upload or reset
+  ---
+  duration_ms: 7.6729
+  type: 'test'
+  ...
+# Subtest: abort, context/owner replacement and source-expression mutation between original uploads stop further submission and reject the result
+ok 38 - abort, context/owner replacement and source-expression mutation between original uploads stop further submission and reject the result
+  ---
+  duration_ms: 7.4998
+  type: 'test'
+  ...
+# Subtest: partial original upload failure retains its error, restores public state and leaves remaining GPU-resource cleanup to the caller
+ok 39 - partial original upload failure retains its error, restores public state and leaves remaining GPU-resource cleanup to the caller
+  ---
+  duration_ms: 0.7402
+  type: 'test'
+  ...
+# Subtest: every public state restoration is attempted independently, and normalization failure cannot report a clean preparation
+ok 40 - every public state restoration is attempted independently, and normalization failure cannot report a clean preparation
+  ---
+  duration_ms: 2.1176
+  type: 'test'
+  ...
+# Subtest: abort or source/owner mutation during canonical normalization invalidates final submission after all restore attempts
+ok 41 - abort or source/owner mutation during canonical normalization invalidates final submission after all restore attempts
+  ---
+  duration_ms: 2.1223
+  type: 'test'
+  ...
+# Subtest: multi-key preparation validates all loaded originals and uploads their ordered Texture identity union once through the production ownership alias
+ok 42 - multi-key preparation validates all loaded originals and uploads their ordered Texture identity union once through the production ownership alias
+  ---
+  duration_ms: 1.7465
+  type: 'test'
+  ...
+# Subtest: multi-key preflight rejects a missing or invalid later model before any first-model upload/reset
+ok 43 - multi-key preflight rejects a missing or invalid later model before any first-model upload/reset
+  ---
+  duration_ms: 2.0931
+  type: 'test'
+  ...
+# Subtest: multi-key source identity checks cover every model while uploads are in flight and use one baseline normalization
+ok 44 - multi-key source identity checks cover every model while uploads are in flight and use one baseline normalization
+  ---
+  duration_ms: 1.1717
+  type: 'test'
+  ...
+# Subtest: the new button is wired to the real helper and preserves the previous GPU warmup UI baseline
+ok 45 - the new button is wired to the real helper and preserves the previous GPU warmup UI baseline
+  ---
+  duration_ms: 2.0635
+  type: 'test'
+  ...
+# Subtest: only explicit http loopback 8851 memory QA installs the button, without preloading a service or allocating storage
+ok 46 - only explicit http loopback 8851 memory QA installs the button, without preloading a service or allocating storage
+  ---
+  duration_ms: 1.4486
+  type: 'test'
+  ...
+# Subtest: not-ready, playing and duplicate clicks perform no comparison or storage work
+ok 47 - not-ready, playing and duplicate clicks perform no comparison or storage work
+  ---
+  duration_ms: 5.6355
+  type: 'test'
+  ...
+# Subtest: the UI awaits the existing native promise, passes a private branded Map and publishes only a completed restored comparison
+ok 48 - the UI awaits the existing native promise, passes a private branded Map and publishes only a completed restored comparison
+  ---
+  duration_ms: 2.1321
+  type: 'test'
+  ...
+# Subtest: native promise and lazy module failures keep the original Game and error identity and re-enable the button
+ok 49 - native promise and lazy module failures keep the original Game and error identity and re-enable the button
+  ---
+  duration_ms: 0.9832
+  type: 'test'
+  ...
+# Subtest: a comparison failure is not published or swallowed and the restored shared owner is untouched by UI cleanup
+ok 50 - a comparison failure is not published or swallowed and the restored shared owner is untouched by UI cleanup
+  ---
+  duration_ms: 0.4434
+  type: 'test'
+  ...
+# Subtest: fresh CPU/GPU/CPU combat arms share original union preupload and shaders before optional draw-free GPU warmup and adoption
+ok 51 - fresh CPU/GPU/CPU combat arms share original union preupload and shaders before optional draw-free GPU warmup and adoption
+  ---
+  duration_ms: 315.3414
+  type: 'test'
+  ...
+# Subtest: protected origins and nonbranded memory storage reject before model, shader, GPU, canvas or combat service access
+ok 52 - protected origins and nonbranded memory storage reject before model, shader, GPU, canvas or combat service access
+  ---
+  duration_ms: 30.0084
+  type: 'test'
+  ...
+# Subtest: quality/preparation/warmup/readiness/adoption/render failures dispose every owned context and restore prior pointers
+ok 53 - quality/preparation/warmup/readiness/adoption/render failures dispose every owned context and restore prior pointers
+  ---
+  duration_ms: 271.4899
+  type: 'test'
+  ...
+# Subtest: aborting a pending preparation or GPU warmup settles promptly and late completion never adopts or leaks its owned candidate
+ok 54 - aborting a pending preparation or GPU warmup settles promptly and late completion never adopts or leaks its owned candidate
+  ---
+  duration_ms: 42.9639
+  type: 'test'
+  ...
+# Subtest: foreign owner/promise replacements during pending preparation remain untouched while only the QA candidate is cleaned
+ok 55 - foreign owner/promise replacements during pending preparation remain untouched while only the QA candidate is cleaned
+  ---
+  duration_ms: 4.9957
+  type: 'test'
+  ...
+# Subtest: foreign replacements after adoption and same-value descriptor attribute changes are preserved exactly
+ok 56 - foreign replacements after adoption and same-value descriptor attribute changes are preserved exactly
+  ---
+  duration_ms: 28.1345
+  type: 'test'
+  ...
+# Subtest: restoration failure cannot return a valid report, and cleanup failure cannot replace an original rendering error
+ok 57 - restoration failure cannot return a valid report, and cleanup failure cannot replace an original rendering error
+  ---
+  duration_ms: 20.4812
+  type: 'test'
+  ...
+# Subtest: async image rejection propagates once and aborting a started callback prevents later adoption without an unhandled late rejection
+ok 58 - async image rejection propagates once and aborting a started callback prevents later adoption without an unhandled late rejection
+  ---
+  duration_ms: 12.8174
+  type: 'test'
+  ...
+1..58
+# tests 58
+# suites 0
+# pass 58
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2090.7589

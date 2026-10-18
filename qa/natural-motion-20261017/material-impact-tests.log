@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: walking, dashing and knockback cannot tunnel through the physical convoy body
+ok 1 - walking, dashing and knockback cannot tunnel through the physical convoy body
+  ---
+  duration_ms: 4.1884
+  type: 'test'
+  ...
+# Subtest: moving convoy stops before touching the player and resumes after the front is cleared
+ok 2 - moving convoy stops before touching the player and resumes after the front is cleared
+  ---
+  duration_ms: 2.9753
+  type: 'test'
+  ...
+# Subtest: local navigation routes a body around a parked convoy without rebuilding static grids or entering it
+ok 3 - local navigation routes a body around a parked convoy without rebuilding static grids or entering it
+  ---
+  duration_ms: 27.7224
+  type: 'test'
+  ...
+# Subtest: convoy blocks real bullets and auto aim with native metal feedback, without damage or explosions
+ok 4 - convoy blocks real bullets and auto aim with native metal feedback, without damage or explosions
+  ---
+  duration_ms: 2.7655
+  type: 'test'
+  ...
+# Subtest: pre-collision overlapping convoy saves recover nearby without losing progress, RNG, health or IDs
+ok 5 - pre-collision overlapping convoy saves recover nearby without losing progress, RNG, health or IDs
+  ---
+  duration_ms: 8.9871
+  type: 'test'
+  ...
+# Subtest: contact gives way to a wider shock ring and fragments without losing weapon identity
+ok 6 - contact gives way to a wider shock ring and fragments without losing weapon identity
+  ---
+  duration_ms: 1.6321
+  type: 'test'
+  ...
+# Subtest: longer shotgun follow-through expires and restores while damage and RNG stay exact
+ok 7 - longer shotgun follow-through expires and restores while damage and RNG stay exact
+  ---
+  duration_ms: 10.397
+  type: 'test'
+  ...
+# Subtest: pellet impacts merge per target without altering damage, knockback, or combat RNG
+ok 8 - pellet impacts merge per target without altering damage, knockback, or combat RNG
+  ---
+  duration_ms: 1.9625
+  type: 'test'
+  ...
+# Subtest: burn does not create fake bullet impacts and shield feedback remains distinct
+ok 9 - burn does not create fake bullet impacts and shield feedback remains distinct
+  ---
+  duration_ms: 0.6133
+  type: 'test'
+  ...
+# Subtest: weapon effects restore canvas state and never mutate supplied actors/particles
+ok 10 - weapon effects restore canvas state and never mutate supplied actors/particles
+  ---
+  duration_ms: 1.6474
+  type: 'test'
+  ...
+# Subtest: material contact separates gold ricochets from masonry dust and restores at every age
+ok 11 - material contact separates gold ricochets from masonry dust and restores at every age
+  ---
+  duration_ms: 2.8345
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 209.6344

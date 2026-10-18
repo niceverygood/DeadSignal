@@ -1,0 +1,36 @@
+✔ hospital fresh launch and actual world agree and all props use original approved native art (12.237ms)
+✔ hospital targets and guard are reachable at real player and elite radii without crossing walls (30.6825ms)
+✖ hospital guard blocks records until actually killed and survives checkpoint resume (5.1295ms)
+✔ hospital records require sustained interaction and correct theme, then produce the northern cargo clue (3.8413ms)
+✔ roof clear unlocks hospital without bypassing city progress or claiming a completed vaccine (0.6628ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 191.724
+
+✖ failing tests:
+
+test at tests\hospital.test.mjs:23:1
+✖ hospital guard blocks records until actually killed and survives checkpoint resume (5.1295ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 3
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/hospital.test.mjs:27:134)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

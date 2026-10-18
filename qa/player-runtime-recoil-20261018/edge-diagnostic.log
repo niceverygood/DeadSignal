@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: setup selects the tracked game IK source and generated runtime/provenance exactly match its compiled bytes
+ok 1 - setup selects the tracked game IK source and generated runtime/provenance exactly match its compiled bytes
+  ---
+  duration_ms: 14.314
+  type: 'test'
+  ...
+# Subtest: unknown module names reject before fallback and a missing canonical file never silently loads the old baker
+ok 2 - unknown module names reject before fallback and a missing canonical file never silently loads the old baker
+  ---
+  duration_ms: 13.2351
+  type: 'test'
+  ...
+# Subtest: historical baker modules, source/runtime models and the original recoil thresholds remain byte exact
+ok 3 - historical baker modules, source/runtime models and the original recoil thresholds remain byte exact
+  ---
+  duration_ms: 630.7461
+  type: 'test'
+  ...
+# Subtest: omitted and zero retraction retain the actual original baker pose, feet and two-hand weapon transforms exactly
+ok 4 - omitted and zero retraction retain the actual original baker pose, feet and two-hand weapon transforms exactly
+  ---
+  duration_ms: 270.8171
+  type: 'test'
+  ...
+# Subtest: invalid retraction never coerces inputs and positive finite requests remain bounded with the original feet and arm geometry
+not ok 5 - invalid retraction never coerces inputs and positive finite requests remain bounded with the original feet and arm geometry
+  ---
+  duration_ms: 53.35
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\player-runtime-recoil-source.test.mjs:124:1'
+  failureType: 'testCodeFailure'
+  error: 'right IK residual: {"retraction":5e-324,"offset":{"x":-1.7763568394002505e-15,"y":0,"z":9.24856448657624},"old":{"supported":true,"method":"two-bone IK from actual arm joint lengths; no scale or translation","desiredGripHeight":2974.391708928017,"right":{"position":{"x":-118.76011084256368,"y":2974.391793266609,"z":543.6458989838451},"requested":{"x":-118.76029773833814,"y":2974.391708928017,"z":543.6458317714022},"clamped":false,"error":0.00021577891713858176},"left":{"position":{"x":-118.7604561654295,"y":2974.391731268229,"z":552.8944114593114},"requested":{"x":-118.76029773833814,"y":2974.391708928017,"z":552.8943962579784},"clamped":false,"error":0.00016071499264256882},"coupledSupport":{"offset":{"x":-1.7763568394002505e-15,"y":0,"z":9.24856448657624},"reachable":true},"weaponAnchor":{"x":-118.76011084256368,"y":2974.391793266609,"z":543.6458989838451,"forward":{"x":0,"y":0,"z":1},"support":{"x":-118.7604561654295,"y":2974.391731268229,"z":552.8944114593114}},"fingerRig":false,"weaponGeometryAdded":false},"current":{"supported":true,"method":"two-bone IK from actual arm joint lengths; no scale or translation","desiredGripHeight":2974.391708928017,"right":{"position":{"x":-118.76011084256368,"y":2974.391793266609,"z":543.6458989838451},"requested":{"x":-118.76029773833814,"y":2974.391708928017,"z":543.6458317714022},"clamped":false,"error":0.00021577891713858176},"left":{"position":{"x":-118.7604561654295,"y":2974.391731268229,"z":552.8944114593114},"requested":{"x":-118.76029773833814,"y":2974.391708928017,"z":552.8943962579784},"clamped":false,"error":0.00016071499264256882},"retraction":0,"requestedRetraction":5e-324,"coupledSupport":{"offset":{"x":-1.7763568394002505e-15,"y":0,"z":9.24856448657624},"reachable":true},"weaponAnchor":{"x":-118.76011084256368,"y":2974.391793266609,"z":543.6458989838451,"forward":{"x":0,"y":0,"z":1},"support":{"x":-118.7604561654295,"y":2974.391731268229,"z":552.8944114593114}},"fingerRig":false,"weaponGeometryAdded":false}}'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/player-runtime-recoil-source.test.mjs:144:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 4
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1176.7096

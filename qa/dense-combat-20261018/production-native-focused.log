@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events
+ok 1 - delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events
+  ---
+  duration_ms: 12.798
+  type: 'test'
+  ...
+# Subtest: selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request
+ok 2 - selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request
+  ---
+  duration_ms: 0.4174
+  type: 'test'
+  ...
+# Subtest: failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness
+ok 3 - failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness
+  ---
+  duration_ms: 3.5986
+  type: 'test'
+  ...
+# Subtest: operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules
+ok 4 - operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules
+  ---
+  duration_ms: 3.8308
+  type: 'test'
+  ...
+# Subtest: environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state
+ok 5 - environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state
+  ---
+  duration_ms: 23.0405
+  type: 'test'
+  ...
+# Subtest: preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure
+ok 6 - preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure
+  ---
+  duration_ms: 1.7594
+  type: 'test'
+  ...
+# Subtest: registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks
+ok 7 - registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks
+  ---
+  duration_ms: 2.2315
+  type: 'test'
+  ...
+# Subtest: actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable
+ok 8 - actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable
+  ---
+  duration_ms: 11.8539
+  type: 'test'
+  ...
+# Subtest: launch decode work is bounded to four concurrent assets while every planned request is retained
+ok 9 - launch decode work is bounded to four concurrent assets while every planned request is retained
+  ---
+  duration_ms: 0.9007
+  type: 'test'
+  ...
+# Subtest: sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+ok 10 - sequential original loads, union texture upload and all shader readiness finish before a caller-controlled adoption without mutating gameplay or parent pointers
+  ---
+  duration_ms: 25.0228
+  type: 'test'
+  ...
+# Subtest: invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+ok 11 - invalid keys, pre-abort and an already used existing rig fall back without creating or destroying a context
+  ---
+  duration_ms: 1.6851
+  type: 'test'
+  ...
+# Subtest: cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+ok 12 - cancel during an outstanding GLB load destroys its owned context immediately and late completion is released without affecting a subsequent launch
+  ---
+  duration_ms: 3.7649
+  type: 'test'
+  ...
+# Subtest: timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+ok 13 - timeout during GLB loading returns null and disposes immediately while a late rejected original load stays handled
+  ---
+  duration_ms: 6.5502
+  type: 'test'
+  ...
+# Subtest: shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+ok 14 - shader abort and context-loss cancellation return null, clean listeners and cannot resurrect readiness on late compiler completion
+  ---
+  duration_ms: 4.8357
+  type: 'test'
+  ...
+# Subtest: load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+ok 15 - load failure, preflight rejection and partial texture failure fall back and release only the new owned rig
+  ---
+  duration_ms: 2.2453
+  type: 'test'
+  ...
+# Subtest: original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+ok 16 - original model/map/source identity changes while shader readiness is pending invalidate the launch certificate
+  ---
+  duration_ms: 5.5771
+  type: 'test'
+  ...
+# Subtest: an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+ok 17 - an unadopted ready handle becomes invalid on context loss and disposes once; a stale handle cannot adopt
+  ---
+  duration_ms: 3.1859
+  type: 'test'
+  ...
+# Subtest: fresh owned original static textures submit once per Texture identity and retain source expression while accepting normal Three dispose-listener bookkeeping
+ok 18 - fresh owned original static textures submit once per Texture identity and retain source expression while accepting normal Three dispose-listener bookkeeping
+  ---
+  duration_ms: 6.0104
+  type: 'test'
+  ...
+# Subtest: validated baseline performs the same public normalization without uploading, creating texture caches or marking readiness
+ok 19 - validated baseline performs the same public normalization without uploading, creating texture caches or marking readiness
+  ---
+  duration_ms: 4.5865
+  type: 'test'
+  ...
+# Subtest: unowned, previously drawn, allocated, nondefault, lost, unsupported and nonstatic inputs reject before upload or reset
+ok 20 - unowned, previously drawn, allocated, nondefault, lost, unsupported and nonstatic inputs reject before upload or reset
+  ---
+  duration_ms: 5.9714
+  type: 'test'
+  ...
+# Subtest: abort, context/owner replacement and source-expression mutation between original uploads stop further submission and reject the result
+ok 21 - abort, context/owner replacement and source-expression mutation between original uploads stop further submission and reject the result
+  ---
+  duration_ms: 7.4571
+  type: 'test'
+  ...
+# Subtest: partial original upload failure retains its error, restores public state and leaves remaining GPU-resource cleanup to the caller
+ok 22 - partial original upload failure retains its error, restores public state and leaves remaining GPU-resource cleanup to the caller
+  ---
+  duration_ms: 0.7512
+  type: 'test'
+  ...
+# Subtest: every public state restoration is attempted independently, and normalization failure cannot report a clean preparation
+ok 23 - every public state restoration is attempted independently, and normalization failure cannot report a clean preparation
+  ---
+  duration_ms: 2.2771
+  type: 'test'
+  ...
+# Subtest: abort or source/owner mutation during canonical normalization invalidates final submission after all restore attempts
+ok 24 - abort or source/owner mutation during canonical normalization invalidates final submission after all restore attempts
+  ---
+  duration_ms: 1.8436
+  type: 'test'
+  ...
+# Subtest: multi-key preparation validates all loaded originals and uploads their ordered Texture identity union once through the production ownership alias
+ok 25 - multi-key preparation validates all loaded originals and uploads their ordered Texture identity union once through the production ownership alias
+  ---
+  duration_ms: 0.9501
+  type: 'test'
+  ...
+# Subtest: multi-key preflight rejects a missing or invalid later model before any first-model upload/reset
+ok 26 - multi-key preflight rejects a missing or invalid later model before any first-model upload/reset
+  ---
+  duration_ms: 2.0744
+  type: 'test'
+  ...
+# Subtest: multi-key source identity checks cover every model while uploads are in flight and use one baseline normalization
+ok 27 - multi-key source identity checks cover every model while uploads are in flight and use one baseline normalization
+  ---
+  duration_ms: 1.2371
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 507.4607

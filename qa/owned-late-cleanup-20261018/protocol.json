@@ -1,0 +1,12 @@
+{
+ "task":"opt-in bounded owned late-load cleanup completion",
+ "startedAtUTC":"2026-10-18T07:44:27Z",
+ "deadlineUTC":"2026-10-18T15:00:00Z",
+ "baseline":"../original-readback-probe-20261018/source-freeze-final.json",
+ "reason":"Prior native IAB probe pixel/Game passed but lateScheduled8/lateSettled7 cleanup failed. Preserve that raw failure; pending Map and permanent followed Set do not certify promise status.",
+ "policy":"Own-data boundedOwnedCleanup:true plus originalReadbackProbe:true and both exact qa-original-readback=1/qa-owned-cleanup=1, HTTP8851 loopback genuine memory. Event-driven one overall15000ms cleanup deadline, no polling, no extra draw/tick/load. Old modes/defaults unchanged. Immutable as-of final cleanup snapshot after successful drain or timeout. New diagnostic only; no performance acceptance.",
+ "rootSoleExecutor":true,
+ "sourceEdits":"QA harness, appended separate UI, one helper and three tests only. Original assets/rigs/moodboards/runtime/saves unchanged.",
+ "verification":"node --check all edited/new modules first, new focused tests once, whole npm test once and verify once; retain failures and no favorable stress retry. Native own IAB8851 QA after tests, original180 fixture two40callback arms. Save raw report/PNG/console; close only own tab.",
+ "preflightScriptAttempts":"Integration script first assertion aborted before any source write because newline literal did not match CRLF; fixed matcher to preserve CRLF and rerun once successfully. No tests/bench before source freeze."
+}

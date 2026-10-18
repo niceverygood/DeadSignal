@@ -1,0 +1,314 @@
+{
+  "status": "QA-only-not-adopted-quality-failed-and-sustained-cost-unproven",
+  "adopted": false,
+  "defaultProductChanged": false,
+  "implementedQA": {
+    "helper": "work/dead-signal-game/dist/qa-player-alpha-rows.js",
+    "installer": "work/dead-signal-game/dist/qa-player-alpha-rows-install.js",
+    "explicitFlag": "qa-player-alpha-rows=1 on8851 genuine memory QA only",
+    "verifyFlag": "qa-player-alpha-rows-verify=1",
+    "sharedHarnessOldModesExact": 4,
+    "oldUIBytes": 183586,
+    "oldUIPrefixExact": true
+  },
+  "focused": {
+    "passed": true,
+    "tests": 33,
+    "pass": 33,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 103955.6854,
+    "newCases": 21,
+    "previousCases": 12,
+    "sourceCount": 437,
+    "sourceExact": true,
+    "protectedOriginalRecords": 22,
+    "protectedExact": true,
+    "oldUIBytes": 183586,
+    "oldUIPrefixExact": true,
+    "scope": "Focused independent tests and old-mode regression only; GPU shader/browser quality and whole suite not yet run in this task."
+  },
+  "whole": {
+    "tests": 1245,
+    "pass": 1245,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 224262.7783,
+    "originalStressCPUms": 14969,
+    "originalStressWallMs": 17379.74,
+    "originalCPUBudgetMs": 15000,
+    "note": "One unmodified whole-suite run; narrow31ms CPU margin is not a stable-performance or no-lag claim."
+  },
+  "verify": {
+    "exit": 1,
+    "existingHistoricalMismatch": ".gitignore",
+    "immutableManifestChanged": false
+  },
+  "quality": {
+    "sameFrame": {
+      "verifiedFrames": 40,
+      "verifiedRows": 10240,
+      "rowDifferences": 0,
+      "boundsDifferences": 0,
+      "contourDifferences": 0,
+      "used": 40,
+      "fallbacks": 0,
+      "requestedRowBytes": 40960
+    },
+    "pixels": {
+      "candidateVsFirst": {
+        "differentComponents": 2,
+        "maxDelta": 1,
+        "dimensionsEqual": true
+      },
+      "originalRepeat": {
+        "differentComponents": 546,
+        "maxDelta": 8,
+        "dimensionsEqual": true
+      },
+      "candidateVsRepeat": {
+        "differentComponents": 546,
+        "maxDelta": 8,
+        "dimensionsEqual": true
+      }
+    },
+    "strictWholeCanvasPassed": false,
+    "error": "qa-canvas-combat-whole-canvas-pixels-differ",
+    "literalGameComparisons": 80,
+    "cleanup": {
+      "complete": true,
+      "arms": 3,
+      "lateSettled": 12,
+      "errors": [],
+      "mainOwnersUnchanged": true,
+      "mainRecordsUnchanged": true,
+      "mainSourceImagesUnchanged": true
+    }
+  },
+  "cost": {
+    "passes": [
+      {
+        "arm": "A1",
+        "preparationMs": 8502.699999988079,
+        "loadAndNativePreparationMs": 8418.100000023842,
+        "first": 978.0999999642372,
+        "all40": {
+          "count": 40,
+          "medianMs": 52.69999998807907,
+          "p95Ms": 361.89999997615814,
+          "maxMs": 978.0999999642372,
+          "sumMs": 3918.4999999403954
+        },
+        "steady30": {
+          "count": 30,
+          "medianMs": 54.09999996423721,
+          "p95Ms": 194.80000001192093,
+          "maxMs": 251.9000000357628,
+          "sumMs": 2227.600000023842
+        },
+        "readbackMs": 10.899999976158142,
+        "preparationPlus40PlusReadbackMs": 12432.099999904633,
+        "used": 0,
+        "requestedRowBytes": 0,
+        "qualityExtraCPUReadCount": 0,
+        "cleanup": true,
+        "runtimeNative": {
+          "maxModels": 1,
+          "maxPending": 2,
+          "maxPendingWithoutModel": 1
+        },
+        "yields": [
+          {
+            "afterFrame": 7,
+            "elapsedMs": 0.800000011920929
+          },
+          {
+            "afterFrame": 15,
+            "elapsedMs": 5.699999988079071
+          },
+          {
+            "afterFrame": 23,
+            "elapsedMs": 7.100000023841858
+          },
+          {
+            "afterFrame": 31,
+            "elapsedMs": 4.800000011920929
+          },
+          {
+            "afterFrame": 39,
+            "elapsedMs": 32.60000002384186
+          }
+        ]
+      },
+      {
+        "arm": "B",
+        "preparationMs": 7106.199999988079,
+        "loadAndNativePreparationMs": 7042.200000047684,
+        "first": 589.7999999523163,
+        "all40": {
+          "count": 40,
+          "medianMs": 62.69999998807907,
+          "p95Ms": 284.69999998807907,
+          "maxMs": 589.7999999523163,
+          "sumMs": 3544.19999986887
+        },
+        "steady30": {
+          "count": 30,
+          "medianMs": 68.40000003576279,
+          "p95Ms": 173,
+          "maxMs": 284.69999998807907,
+          "sumMs": 2527.199999988079
+        },
+        "readbackMs": 8.699999988079071,
+        "preparationPlus40PlusReadbackMs": 10659.099999845028,
+        "used": 40,
+        "requestedRowBytes": 40960,
+        "qualityExtraCPUReadCount": 0,
+        "cleanup": true,
+        "runtimeNative": {
+          "maxModels": 1,
+          "maxPending": 2,
+          "maxPendingWithoutModel": 1
+        },
+        "yields": [
+          {
+            "afterFrame": 7,
+            "elapsedMs": 25.100000023841858
+          },
+          {
+            "afterFrame": 15,
+            "elapsedMs": 633
+          },
+          {
+            "afterFrame": 23,
+            "elapsedMs": 251.5
+          },
+          {
+            "afterFrame": 31,
+            "elapsedMs": 314.2000000476837
+          },
+          {
+            "afterFrame": 39,
+            "elapsedMs": 935.6000000238419
+          }
+        ]
+      },
+      {
+        "arm": "A2",
+        "preparationMs": 9150.899999976158,
+        "loadAndNativePreparationMs": 9097.5,
+        "first": 1287.3999999761581,
+        "all40": {
+          "count": 40,
+          "medianMs": 85.69999998807907,
+          "p95Ms": 590.3999999761581,
+          "maxMs": 1287.3999999761581,
+          "sumMs": 6693.000000119209
+        },
+        "steady30": {
+          "count": 30,
+          "medianMs": 101.10000002384186,
+          "p95Ms": 589,
+          "maxMs": 590.3999999761581,
+          "sumMs": 4761.699999988079
+        },
+        "readbackMs": 9.199999988079071,
+        "preparationPlus40PlusReadbackMs": 15853.100000083447,
+        "used": 0,
+        "requestedRowBytes": 0,
+        "qualityExtraCPUReadCount": 0,
+        "cleanup": true,
+        "runtimeNative": {
+          "maxModels": 1,
+          "maxPending": 2,
+          "maxPendingWithoutModel": 1
+        },
+        "yields": [
+          {
+            "afterFrame": 7,
+            "elapsedMs": 10
+          },
+          {
+            "afterFrame": 15,
+            "elapsedMs": 685.7000000476837
+          },
+          {
+            "afterFrame": 23,
+            "elapsedMs": 306.5999999642372
+          },
+          {
+            "afterFrame": 31,
+            "elapsedMs": 269.2000000476837
+          },
+          {
+            "afterFrame": 39,
+            "elapsedMs": 717.1000000238419
+          }
+        ]
+      }
+    ],
+    "rawTotalImprovementPercent": 14.261468296371538,
+    "all40AndDrainTailsNoWorse": true,
+    "firstCallbackNoWorse": true,
+    "steady30RegressionVsFasterOriginalPercent": 13.449452323623202,
+    "pixels": {
+      "candidateVsFirst": {
+        "differentComponents": 38,
+        "maxDelta": 1,
+        "dimensionsEqual": true
+      },
+      "originalRepeat": {
+        "differentComponents": 25,
+        "maxDelta": 1,
+        "dimensionsEqual": true
+      },
+      "candidateVsRepeat": {
+        "differentComponents": 39,
+        "maxDelta": 1,
+        "dimensionsEqual": true
+      }
+    },
+    "literalGameComparisons": 80,
+    "cleanupComplete": true,
+    "performanceAccepted": false,
+    "note": "Fresh owned original/row/original instances in one cost bracket after a separate verify-only quality bracket; shared URL/driver caches remain resident. Original colour canvases and source/physics/RNG stay unchanged. Preparation and shader first-use costs remain included; load variance is retained rather than claimed to be isolated CPU/GPU benefit. Callback wall includes graphics waits and installer reporting; not FPS or GPU duration. Reusable computational mask262144B, rows1024B and raw target263168B are bounded logical storage estimates, not measured heap/VRAM/peak. Strict whole AA/AB failures remain, no tolerance change or successful rerender search. Product defaults remain unchanged."
+  },
+  "pngAnalysis": {
+    "allSixOriginalPNGsMatchBrowserDiff": true,
+    "rawEvidenceChanged": false,
+    "source": "pixel-roi-analysis.json",
+    "rootCause": "unresolved",
+    "note": "AA/BA support overlaps and ROI coordinates are descriptive. No tolerance change, image replacement, extra live render or root-cause attribution."
+  },
+  "source": {
+    "count": 437,
+    "exactBeforeAfter": true,
+    "previous423Changed": [
+      "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "work/dead-signal-game/dist/qa-player-rig.js"
+    ],
+    "protectedOriginalRecords": 22,
+    "allProtectedExact": true,
+    "originalPlayerRuntimeExact": true,
+    "engineSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce"
+  },
+  "browser": {
+    "qualityTab": "1494332548",
+    "costTab": "1494332551",
+    "bothClosedConfirmedFreshList": true,
+    "qualityConsoleWarningsErrors": 0,
+    "costConsoleWarningsErrors": 0,
+    "user8806AndIABUntouched": true,
+    "qualityDOMCharacters": 557388,
+    "costDOMCharacters": 557246,
+    "completePNGs": 6,
+    "pageScreenshots": 2,
+    "note": "The first immediate close snapshot briefly listed the cost tab; a later fresh list confirmed both absent. AllGPU QA stopped before whole Node test."
+  },
+  "deadline": "2026-10-19T00:00:00+09:00",
+  "automation4": "ACTIVE unchanged; pause only after deadline",
+  "forbiddenActionsPerformed": false,
+  "next": "Clock-gated separate QA-only candidate: defer the unchanged bodyCanvas fullRGBA read/bounds calculation until after original armed colour rendering/composition. Preserve direct/verify modes, source/state/exception/lifecycle, same-frame RGB/alpha/contour and compare first/steady/all frame costs. This is unimplemented and not a guaranteed benefit. Existing GPU/direct/row candidates remain default OFF."
+}

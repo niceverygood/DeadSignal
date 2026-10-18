@@ -1,0 +1,533 @@
+{
+  "profileFile": "baseline-180.cpuprofile",
+  "bytes": 107598,
+  "sha256": "36e0c0c33e64a3b2050348f5f25818a2b7001d59c9b1e546814f5f927f6216c8",
+  "samples": 670,
+  "profileDurationUs": 1312568,
+  "sampledDeltaUs": 1312040,
+  "topSelf": [
+    {
+      "function": "updateEnemies",
+      "file": "isolated-engine-data-module",
+      "line": 398,
+      "column": 16,
+      "samples": 182,
+      "selfSampledUs": 341748
+    },
+    {
+      "function": "tick",
+      "file": "isolated-engine-data-module",
+      "line": 359,
+      "column": 7,
+      "samples": 78,
+      "selfSampledUs": 145785
+    },
+    {
+      "function": "(garbage collector)",
+      "file": "",
+      "line": 0,
+      "column": 0,
+      "samples": 42,
+      "selfSampledUs": 139443
+    },
+    {
+      "function": "move",
+      "file": "isolated-engine-data-module",
+      "line": 253,
+      "column": 7,
+      "samples": 61,
+      "selfSampledUs": 102038
+    },
+    {
+      "function": "direction",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 240,
+      "column": 12,
+      "samples": 23,
+      "selfSampledUs": 42842
+    },
+    {
+      "function": "(program)",
+      "file": "",
+      "line": 0,
+      "column": 0,
+      "samples": 1,
+      "selfSampledUs": 37770
+    },
+    {
+      "function": "distance",
+      "file": "isolated-engine-data-module",
+      "line": 39,
+      "column": 25,
+      "samples": 25,
+      "selfSampledUs": 35461
+    },
+    {
+      "function": "acquireEnemyGrid",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/enemy-separation-grid.js",
+      "line": 28,
+      "column": 33,
+      "samples": 15,
+      "selfSampledUs": 30887
+    },
+    {
+      "function": "updateEffects",
+      "file": "isolated-engine-data-module",
+      "line": 438,
+      "column": 16,
+      "samples": 16,
+      "selfSampledUs": 30752
+    },
+    {
+      "function": "proof",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-damping-cache-20261018/bench.mjs",
+      "line": 74,
+      "column": 15,
+      "samples": 12,
+      "selfSampledUs": 29184
+    },
+    {
+      "function": "update",
+      "file": "node:internal/crypto/hash",
+      "line": 132,
+      "column": 40,
+      "samples": 7,
+      "selfSampledUs": 17495
+    },
+    {
+      "function": "snapshot",
+      "file": "isolated-engine-data-module",
+      "line": 194,
+      "column": 11,
+      "samples": 8,
+      "selfSampledUs": 15084
+    },
+    {
+      "function": "blocked",
+      "file": "isolated-engine-data-module",
+      "line": 252,
+      "column": 10,
+      "samples": 2,
+      "selfSampledUs": 13891
+    },
+    {
+      "function": "_los",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "column": 7,
+      "samples": 7,
+      "selfSampledUs": 13787
+    },
+    {
+      "function": "snapshot",
+      "file": "isolated-engine-data-module",
+      "line": 194,
+      "column": 11,
+      "samples": 8,
+      "selfSampledUs": 13389
+    },
+    {
+      "function": "release",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/enemy-separation-grid.js",
+      "line": 13,
+      "column": 10,
+      "samples": 8,
+      "selfSampledUs": 13218
+    },
+    {
+      "function": "_clear",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "column": 9,
+      "samples": 8,
+      "selfSampledUs": 11864
+    },
+    {
+      "function": "_los",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "column": 7,
+      "samples": 9,
+      "selfSampledUs": 11343
+    },
+    {
+      "function": "compileSourceTextModule",
+      "file": "node:internal/modules/esm/utils",
+      "line": 344,
+      "column": 33,
+      "samples": 6,
+      "selfSampledUs": 10736
+    },
+    {
+      "function": "_field",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 190,
+      "column": 9,
+      "samples": 6,
+      "selfSampledUs": 10591
+    },
+    {
+      "function": "parse",
+      "file": "",
+      "line": 0,
+      "column": 0,
+      "samples": 6,
+      "selfSampledUs": 10216
+    },
+    {
+      "function": "pick",
+      "file": "isolated-engine-data-module",
+      "line": 52,
+      "column": 12,
+      "samples": 5,
+      "selfSampledUs": 10009
+    },
+    {
+      "function": "updateBullets",
+      "file": "isolated-engine-data-module",
+      "line": 384,
+      "column": 16,
+      "samples": 5,
+      "selfSampledUs": 9054
+    },
+    {
+      "function": "_sync",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "column": 8,
+      "samples": 6,
+      "selfSampledUs": 8814
+    },
+    {
+      "function": "_grid",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "column": 8,
+      "samples": 3,
+      "selfSampledUs": 8653
+    },
+    {
+      "function": "burst",
+      "file": "isolated-engine-data-module",
+      "line": 328,
+      "column": 8,
+      "samples": 1,
+      "selfSampledUs": 7475
+    },
+    {
+      "function": "playEpisode",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-damping-cache-20261018/bench.mjs",
+      "line": 60,
+      "column": 21,
+      "samples": 4,
+      "selfSampledUs": 6774
+    },
+    {
+      "function": "finiteState",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-damping-cache-20261018/bench.mjs",
+      "line": 69,
+      "column": 21,
+      "samples": 5,
+      "selfSampledUs": 6768
+    },
+    {
+      "function": "pick",
+      "file": "isolated-engine-data-module",
+      "line": 52,
+      "column": 12,
+      "samples": 5,
+      "selfSampledUs": 6670
+    },
+    {
+      "function": "validCheckpoint",
+      "file": "isolated-engine-data-module",
+      "line": 67,
+      "column": 25,
+      "samples": 3,
+      "selfSampledUs": 6417
+    }
+  ],
+  "engineAndNavigation": [
+    {
+      "function": "updateEnemies",
+      "file": "isolated-engine-data-module",
+      "line": 398,
+      "column": 16,
+      "samples": 182,
+      "selfSampledUs": 341748
+    },
+    {
+      "function": "tick",
+      "file": "isolated-engine-data-module",
+      "line": 359,
+      "column": 7,
+      "samples": 78,
+      "selfSampledUs": 145785
+    },
+    {
+      "function": "move",
+      "file": "isolated-engine-data-module",
+      "line": 253,
+      "column": 7,
+      "samples": 61,
+      "selfSampledUs": 102038
+    },
+    {
+      "function": "direction",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 240,
+      "column": 12,
+      "samples": 23,
+      "selfSampledUs": 42842
+    },
+    {
+      "function": "distance",
+      "file": "isolated-engine-data-module",
+      "line": 39,
+      "column": 25,
+      "samples": 25,
+      "selfSampledUs": 35461
+    },
+    {
+      "function": "updateEffects",
+      "file": "isolated-engine-data-module",
+      "line": 438,
+      "column": 16,
+      "samples": 16,
+      "selfSampledUs": 30752
+    },
+    {
+      "function": "snapshot",
+      "file": "isolated-engine-data-module",
+      "line": 194,
+      "column": 11,
+      "samples": 8,
+      "selfSampledUs": 15084
+    },
+    {
+      "function": "blocked",
+      "file": "isolated-engine-data-module",
+      "line": 252,
+      "column": 10,
+      "samples": 2,
+      "selfSampledUs": 13891
+    },
+    {
+      "function": "_los",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "column": 7,
+      "samples": 7,
+      "selfSampledUs": 13787
+    },
+    {
+      "function": "snapshot",
+      "file": "isolated-engine-data-module",
+      "line": 194,
+      "column": 11,
+      "samples": 8,
+      "selfSampledUs": 13389
+    },
+    {
+      "function": "_clear",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 84,
+      "column": 9,
+      "samples": 8,
+      "selfSampledUs": 11864
+    },
+    {
+      "function": "_los",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 95,
+      "column": 7,
+      "samples": 9,
+      "selfSampledUs": 11343
+    },
+    {
+      "function": "_field",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 190,
+      "column": 9,
+      "samples": 6,
+      "selfSampledUs": 10591
+    },
+    {
+      "function": "pick",
+      "file": "isolated-engine-data-module",
+      "line": 52,
+      "column": 12,
+      "samples": 5,
+      "selfSampledUs": 10009
+    },
+    {
+      "function": "updateBullets",
+      "file": "isolated-engine-data-module",
+      "line": 384,
+      "column": 16,
+      "samples": 5,
+      "selfSampledUs": 9054
+    },
+    {
+      "function": "_sync",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 67,
+      "column": 8,
+      "samples": 6,
+      "selfSampledUs": 8814
+    },
+    {
+      "function": "_grid",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "column": 8,
+      "samples": 3,
+      "selfSampledUs": 8653
+    },
+    {
+      "function": "burst",
+      "file": "isolated-engine-data-module",
+      "line": 328,
+      "column": 8,
+      "samples": 1,
+      "selfSampledUs": 7475
+    },
+    {
+      "function": "pick",
+      "file": "isolated-engine-data-module",
+      "line": 52,
+      "column": 12,
+      "samples": 5,
+      "selfSampledUs": 6670
+    },
+    {
+      "function": "validCheckpoint",
+      "file": "isolated-engine-data-module",
+      "line": 67,
+      "column": 25,
+      "samples": 3,
+      "selfSampledUs": 6417
+    },
+    {
+      "function": "(anonymous)",
+      "file": "isolated-engine-data-module",
+      "line": 64,
+      "column": 98,
+      "samples": 4,
+      "selfSampledUs": 5311
+    },
+    {
+      "function": "(anonymous)",
+      "file": "isolated-engine-data-module",
+      "line": 200,
+      "column": 53,
+      "samples": 3,
+      "selfSampledUs": 4835
+    },
+    {
+      "function": "segmentRectDistanceSquared",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 38,
+      "column": 36,
+      "samples": 3,
+      "selfSampledUs": 3930
+    },
+    {
+      "function": "Game",
+      "file": "isolated-engine-data-module",
+      "line": 174,
+      "column": 14,
+      "samples": 2,
+      "selfSampledUs": 3198
+    },
+    {
+      "function": "(anonymous)",
+      "file": "isolated-engine-data-module",
+      "line": 52,
+      "column": 59,
+      "samples": 1,
+      "selfSampledUs": 3110
+    },
+    {
+      "function": "(anonymous)",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 213,
+      "column": 38,
+      "samples": 2,
+      "selfSampledUs": 3107
+    },
+    {
+      "function": "shoot",
+      "file": "isolated-engine-data-module",
+      "line": 268,
+      "column": 8,
+      "samples": 2,
+      "selfSampledUs": 2644
+    },
+    {
+      "function": "(anonymous)",
+      "file": "isolated-engine-data-module",
+      "line": 303,
+      "column": 213,
+      "samples": 1,
+      "selfSampledUs": 2573
+    },
+    {
+      "function": "(anonymous)",
+      "file": "isolated-engine-data-module",
+      "line": 427,
+      "column": 39,
+      "samples": 1,
+      "selfSampledUs": 2517
+    },
+    {
+      "function": "_neighbors",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 158,
+      "column": 13,
+      "samples": 2,
+      "selfSampledUs": 2214
+    },
+    {
+      "function": "finitePoint",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 9,
+      "column": 21,
+      "samples": 1,
+      "selfSampledUs": 2100
+    },
+    {
+      "function": "number",
+      "file": "isolated-engine-data-module",
+      "line": 54,
+      "column": 14,
+      "samples": 1,
+      "selfSampledUs": 1798
+    },
+    {
+      "function": "_grid",
+      "file": "file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/navigation.js",
+      "line": 112,
+      "column": 8,
+      "samples": 1,
+      "selfSampledUs": 1791
+    },
+    {
+      "function": "freezeEquipmentStats",
+      "file": "isolated-engine-data-module",
+      "line": 57,
+      "column": 28,
+      "samples": 1,
+      "selfSampledUs": 1751
+    },
+    {
+      "function": "missionEnemyType",
+      "file": "isolated-engine-data-module",
+      "line": 241,
+      "column": 19,
+      "samples": 1,
+      "selfSampledUs": 1735
+    }
+  ],
+  "notes": "One V8 sampled baseline profile. Startup, import, episode setup and post-timer reporting can appear. Sampled self time is not measured function CPU, GPU time or peak memory. Inlined intrinsic exp absence cannot prove zero cost. Timed tick process CPU is in the independent benchmark result."
+}

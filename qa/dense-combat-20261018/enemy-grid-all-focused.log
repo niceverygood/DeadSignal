@@ -1,0 +1,226 @@
+TAP version 13
+# Subtest: real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+ok 1 - real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+  ---
+  duration_ms: 467.3902
+  type: 'test'
+  ...
+# Subtest: all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+ok 2 - all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+  ---
+  duration_ms: 250.3656
+  type: 'test'
+  ...
+# Subtest: screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+ok 3 - screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+  ---
+  duration_ms: 27.7336
+  type: 'test'
+  ...
+# Subtest: burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+ok 4 - burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+  ---
+  duration_ms: 18.0881
+  type: 'test'
+  ...
+# Subtest: rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+ok 5 - rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+  ---
+  duration_ms: 162.858
+  type: 'test'
+  ...
+# Subtest: a throwing real movement stage releases every actor reference without replacing its error
+ok 6 - a throwing real movement stage releases every actor reference without replacing its error
+  ---
+  duration_ms: 1.4194
+  type: 'test'
+  ...
+# Subtest: reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+ok 7 - reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+  ---
+  duration_ms: 2.8203
+  type: 'test'
+  ...
+# Subtest: numeric/string keys, floor boundaries and original actor insertion order match the independent construction exactly
+ok 8 - numeric/string keys, floor boundaries and original actor insertion order match the independent construction exactly
+  ---
+  duration_ms: 5.3422
+  type: 'test'
+  ...
+# Subtest: one owner reuses its Map and empty bucket arrays while allocation counters are immutable copies
+ok 9 - one owner reuses its Map and empty bucket arrays while allocation counters are immutable copies
+  ---
+  duration_ms: 1.365
+  type: 'test'
+  ...
+# Subtest: legacy acquisitions always allocate fresh Maps/buckets and never consume or seed the reusable pool
+ok 10 - legacy acquisitions always allocate fresh Maps/buckets and never consume or seed the reusable pool
+  ---
+  duration_ms: 0.5869
+  type: 'test'
+  ...
+# Subtest: nested acquisitions and different owners cannot overwrite outer tick-start memberships
+ok 11 - nested acquisitions and different owners cannot overwrite outer tick-start memberships
+  ---
+  duration_ms: 0.3392
+  type: 'test'
+  ...
+# Subtest: actor moves, death, newly pushed spawns and array replacement preserve fixed membership with current actor references
+ok 12 - actor moves, death, newly pushed spawns and array replacement preserve fixed membership with current actor references
+  ---
+  duration_ms: 0.3808
+  type: 'test'
+  ...
+# Subtest: builder throws keep the original error and release partial actor references; caller finally can release after an update error
+ok 13 - builder throws keep the original error and release partial actor references; caller finally can release after an update error
+  ---
+  duration_ms: 0.4129
+  type: 'test'
+  ...
+# Subtest: idle buckets stay bounded and drop all actor references even after oversized custom crowds
+ok 14 - idle buckets stay bounded and drop all actor references even after oversized custom crowds
+  ---
+  duration_ms: 1.2791
+  type: 'test'
+  ...
+# Subtest: app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+ok 15 - app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+  ---
+  duration_ms: 14.5236
+  type: 'test'
+  ...
+# Subtest: memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+ok 16 - memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+  ---
+  duration_ms: 206.0077
+  type: 'test'
+  ...
+# Subtest: invalid density never seeds or saves a partial memory checkpoint
+ok 17 - invalid density never seeds or saves a partial memory checkpoint
+  ---
+  duration_ms: 1.2435
+  type: 'test'
+  ...
+# Subtest: real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+ok 18 - real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+  ---
+  duration_ms: 117.7523
+  type: 'test'
+  ...
+# Subtest: the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+ok 19 - the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+  ---
+  duration_ms: 14.0762
+  type: 'test'
+  ...
+# Subtest: external replacements survive stop and a new Game releases the previous instance wrappers
+ok 20 - external replacements survive stop and a new Game releases the previous instance wrappers
+  ---
+  duration_ms: 6.1396
+  type: 'test'
+  ...
+# Subtest: start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+ok 21 - start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+  ---
+  duration_ms: 6.0775
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original frame return value
+ok 22 - a failing stop observer cannot replace the original frame return value
+  ---
+  duration_ms: 3.2117
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original thrown frame error
+ok 23 - a failing stop observer cannot replace the original thrown frame error
+  ---
+  duration_ms: 3.7437
+  type: 'test'
+  ...
+# Subtest: original observer tick arguments, post-catchup drains, final checkpoint and both RNGs replay exactly without mutating trace input
+ok 24 - original observer tick arguments, post-catchup drains, final checkpoint and both RNGs replay exactly without mutating trace input
+  ---
+  duration_ms: 56.1686
+  type: 'test'
+  ...
+# Subtest: checkpoint, RNG, frame and recorded-event mismatches are exposed strictly without changing HP, inventing drains or filtering events
+ok 25 - checkpoint, RNG, frame and recorded-event mismatches are exposed strictly without changing HP, inventing drains or filtering events
+  ---
+  duration_ms: 30.5886
+  type: 'test'
+  ...
+# Subtest: ambiguous event-drain evidence, invalid ordering/counts and unrestorable checkpoints fail instead of claiming an exact replay
+ok 26 - ambiguous event-drain evidence, invalid ordering/counts and unrestorable checkpoints fail instead of claiming an exact replay
+  ---
+  duration_ms: 43.4539
+  type: 'test'
+  ...
+# Subtest: CLI creates reports exclusively, preserves original evidence, reports mismatches as exit1 and invalid input/I/O as exit2
+ok 27 - CLI creates reports exclusively, preserves original evidence, reports mismatches as exit1 and invalid input/I/O as exit2
+  ---
+  duration_ms: 54.069
+  type: 'test'
+  ...
+# Subtest: actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+ok 28 - actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+  ---
+  duration_ms: 4290.9734
+  type: 'test'
+  ...
+# Subtest: all original preparation and an unmutated prime finish before measured ticks or frame observers start
+ok 29 - all original preparation and an unmutated prime finish before measured ticks or frame observers start
+  ---
+  duration_ms: 765.9079
+  type: 'test'
+  ...
+# Subtest: wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+ok 30 - wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+  ---
+  duration_ms: 6.8471
+  type: 'test'
+  ...
+# Subtest: unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+ok 31 - unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+  ---
+  duration_ms: 364.6304
+  type: 'test'
+  ...
+# Subtest: the comparison requires both observed native batch work and nonempty actual native selection
+ok 32 - the comparison requires both observed native batch work and nonempty actual native selection
+  ---
+  duration_ms: 434.3815
+  type: 'test'
+  ...
+# Subtest: instance-only observation preserves original outputs and calls, records real Navigation cold work and existing player reads without initiating any work
+ok 33 - instance-only observation preserves original outputs and calls, records real Navigation cold work and existing player reads without initiating any work
+  ---
+  duration_ms: 8.566
+  type: 'test'
+  ...
+# Subtest: this/arguments/return, promise and thrown identities survive broken clocks and readonly methods; disabled mode never reads any owner or clock
+ok 34 - this/arguments/return, promise and thrown identities survive broken clocks and readonly methods; disabled mode never reads any owner or clock
+  ---
+  duration_ms: 1.0671
+  type: 'test'
+  ...
+# Subtest: overlap restoration works in either order, owner replacement releases prior hooks and external method replacement is preserved
+ok 35 - overlap restoration works in either order, owner replacement releases prior hooks and external method replacement is preserved
+  ---
+  duration_ms: 1.8452
+  type: 'test'
+  ...
+# Subtest: lazy existing player surfaces are attached at first use, navigation replacement and bounded cache snapshots are observational only
+ok 36 - lazy existing player surfaces are attached at first use, navigation replacement and bounded cache snapshots are observational only
+  ---
+  duration_ms: 0.5762
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7160.8572

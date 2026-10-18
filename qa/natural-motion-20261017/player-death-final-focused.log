@@ -1,0 +1,21 @@
+✔ actual original player death retains last independent aim and both native gun grips across eight headings (265.666ms)
+✔ cold/stale or different player death keeps the existing baked fallback without inventing pose history (0.4755ms)
+✔ last-shot muzzle emission expires after lethal damage without changing the frozen saved recoil (0.1791ms)
+✔ visible end motion draws each supplied frame for a bounded interval then returns to idle without gameplay writes (10.2265ms)
+✔ a nonplaying canvas draws initially and at the inclusive hundred-millisecond boundary (0.2409ms)
+✔ playing renders every visible rAF including automatic and manual input with the same scene key (0.2304ms)
+✔ state and screen key changes refresh immediately without waiting for an idle frame (0.2333ms)
+✔ explicit resize or option invalidation produces one immediate refresh (0.1957ms)
+✔ hidden and opaque-covered canvases skip drawing even while playing and refresh immediately on reveal (0.2274ms)
+✔ invalidations and scene changes survive repeated hiding and covering before the first visible frame (0.1695ms)
+✔ a backward clock forces a fresh frame and restarts the idle interval from that frame (0.1584ms)
+✔ invalid clocks cannot poison scene state, timestamps or a pending refresh (0.2455ms)
+✔ the schedule uses only supplied time and leaves DOM, caller options, gameplay and RNG untouched (4.3249ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 506.6978

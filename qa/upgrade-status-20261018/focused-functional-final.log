@@ -1,0 +1,503 @@
+TAP version 13
+# Subtest: only the twelve original DS final rigs are supported; unsupported/inactive calls perform exactly zero bone changes
+ok 1 - only the twelve original DS final rigs are supported; unsupported/inactive calls perform exactly zero bone changes
+  ---
+  duration_ms: 167.3171
+  type: 'test'
+  ...
+# Subtest: windup visibly raises the paired original X-lever arms and holds20/10 degrees at its end without moving feet/root/head
+ok 2 - windup visibly raises the paired original X-lever arms and holds20/10 degrees at its end without moving feet/root/head
+  ---
+  duration_ms: 30.0837
+  type: 'test'
+  ...
+# Subtest: all skill families join the warning boundary exactly, stay bounded, and leave only leap landing for the existing recovery transition
+ok 3 - all skill families join the warning boundary exactly, stay bounded, and leave only leap landing for the existing recovery transition
+  ---
+  duration_ms: 1060.7237
+  type: 'test'
+  ...
+# Subtest: immediate skills strike by warning expiry, travelling skills brace, and leap strikes only on arrival instead of prematurely during flight
+ok 4 - immediate skills strike by warning expiry, travelling skills brace, and leap strikes only on arrival instead of prematurely during flight
+  ---
+  duration_ms: 42.1762
+  type: 'test'
+  ...
+# Subtest: the fresh-sample X articulation is amplified only1.5x and capped40 degrees; repeated fresh replays retain exact source identity/data with no drift
+ok 5 - the fresh-sample X articulation is amplified only1.5x and capped40 degrees; repeated fresh replays retain exact source identity/data with no drift
+  ---
+  duration_ms: 3.5869
+  type: 'test'
+  ...
+# Subtest: the actual SHA-pinned original hammer GLB keeps mesh/UV/skin/clip/rest data and exact planted bone transforms while its sampled upper-body quaternion changes
+ok 6 - the actual SHA-pinned original hammer GLB keeps mesh/UV/skin/clip/rest data and exact planted bone transforms while its sampled upper-body quaternion changes
+  ---
+  duration_ms: 2723.4267
+  type: 'test'
+  ...
+# Subtest: a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+ok 7 - a live checkpoint restores paused with cooldowns, reload, fire, lure, and no replayed audio
+  ---
+  duration_ms: 31.8322
+  type: 'test'
+  ...
+# Subtest: snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+ok 8 - snapshot is a deep copy and neither capture nor restore consumes either RNG stream
+  ---
+  duration_ms: 3.6971
+  type: 'test'
+  ...
+# Subtest: RNG state setters reject corruption without changing the next random value
+ok 9 - RNG state setters reject corruption without changing the next random value
+  ---
+  duration_ms: 0.4796
+  type: 'test'
+  ...
+# Subtest: a piercing bullet remembers its earlier hit after JSON round trip
+ok 10 - a piercing bullet remembers its earlier hit after JSON round trip
+  ---
+  duration_ms: 3.1833
+  type: 'test'
+  ...
+# Subtest: shots and fire thrown outside the map edge remain valid resumable combat
+ok 11 - shots and fire thrown outside the map edge remain valid resumable combat
+  ---
+  duration_ms: 47.7536
+  type: 'test'
+  ...
+# Subtest: city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+ok 12 - city metadata, Infinity health, destroyed props, and labels round trip without sentinel collisions
+  ---
+  duration_ms: 5.2779
+  type: 'test'
+  ...
+# Subtest: navigation caches are omitted and restore creates navigation over the restored city
+ok 13 - navigation caches are omitted and restore creates navigation over the restored city
+  ---
+  duration_ms: 2.0478
+  type: 'test'
+  ...
+# Subtest: a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+ok 14 - a restored gatekeeper still clears the district and keeps queued shop choices in the supply flow
+  ---
+  duration_ms: 5.3981
+  type: 'test'
+  ...
+# Subtest: route and hospital event screens retain choices and cannot pay their rewards twice
+ok 15 - route and hospital event screens retain choices and cannot pay their rewards twice
+  ---
+  duration_ms: 34.637
+  type: 'test'
+  ...
+# Subtest: collector attack phases survive restore and boss keeps the live enemy reference
+ok 16 - collector attack phases survive restore and boss keeps the live enemy reference
+  ---
+  duration_ms: 7.1913
+  type: 'test'
+  ...
+# Subtest: signed idle timers and inactive stale alarm IDs are valid checkpoint data
+ok 17 - signed idle timers and inactive stale alarm IDs are valid checkpoint data
+  ---
+  duration_ms: 26.1673
+  type: 'test'
+  ...
+# Subtest: supply preserves a cleared gate and an active orphan alarm until the next district
+ok 18 - supply preserves a cleared gate and an active orphan alarm until the next district
+  ---
+  duration_ms: 3.2792
+  type: 'test'
+  ...
+# Subtest: a stage clear before pickup cleanup can save more than four hundred fifty pickups
+ok 19 - a stage clear before pickup cleanup can save more than four hundred fifty pickups
+  ---
+  duration_ms: 505.1408
+  type: 'test'
+  ...
+# Subtest: restored gameplay and future rolls match the original when transient navigation caches are reset
+ok 20 - restored gameplay and future rolls match the original when transient navigation caches are reset
+  ---
+  duration_ms: 219.9845
+  type: 'test'
+  ...
+# Subtest: menu and terminal runs do not create resumable checkpoints
+ok 21 - menu and terminal runs do not create resumable checkpoints
+  ---
+  duration_ms: 27.7408
+  type: 'test'
+  ...
+# Subtest: corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+ok 22 - corrupt, oversized, unsupported, and nonfinite snapshots return null without throwing
+  ---
+  duration_ms: 33.0986
+  type: 'test'
+  ...
+# Subtest: duplicate, invalid-rank, or missing upgrade choices cannot create a broken selection screen
+ok 23 - duplicate, invalid-rank, or missing upgrade choices cannot create a broken selection screen
+  ---
+  duration_ms: 9.604
+  type: 'test'
+  ...
+# Subtest: seeded actions produce the same world and combat result
+ok 24 - seeded actions produce the same world and combat result
+  ---
+  duration_ms: 414.9397
+  type: 'test'
+  ...
+# Subtest: pause and upgrade menus freeze world, player timers, and combat
+ok 25 - pause and upgrade menus freeze world, player timers, and combat
+  ---
+  duration_ms: 49.5845
+  type: 'test'
+  ...
+# Subtest: upgrade choices are unique, valid, uncapped, and queued levels are consumed
+ok 26 - upgrade choices are unique, valid, uncapped, and queued levels are consumed
+  ---
+  duration_ms: 2.3732
+  type: 'test'
+  ...
+# Subtest: walking and a complete dash cannot cross a building or intact car
+ok 27 - walking and a complete dash cannot cross a building or intact car
+  ---
+  duration_ms: 7.8055
+  type: 'test'
+  ...
+# Subtest: circle collisions preserve edge and rounded corner tangency after optimization
+ok 28 - circle collisions preserve edge and rounded corner tangency after optimization
+  ---
+  duration_ms: 0.9227
+  type: 'test'
+  ...
+# Subtest: lure changes walker direction while collector continues toward player
+ok 29 - lure changes walker direction while collector continues toward player
+  ---
+  duration_ms: 3.1526
+  type: 'test'
+  ...
+# Subtest: gas deaths and car/barrel explosions terminate and count each enemy once
+ok 30 - gas deaths and car/barrel explosions terminate and count each enemy once
+  ---
+  duration_ms: 2.8608
+  type: 'test'
+  ...
+# Subtest: normal shots kill an enemy, grant parts, and allow XP pickup
+ok 31 - normal shots kill an enemy, grant parts, and allow XP pickup
+  ---
+  duration_ms: 54.2706
+  type: 'test'
+  ...
+# Subtest: fast nailgun bullets hit crossed enemies at the maximum supported tick
+ok 32 - fast nailgun bullets hit crossed enemies at the maximum supported tick
+  ---
+  duration_ms: 7.9045
+  type: 'test'
+  ...
+# Subtest: fast bullets cannot shoot through a narrow explosive barrel
+ok 33 - fast bullets cannot shoot through a narrow explosive barrel
+  ---
+  duration_ms: 211.349
+  type: 'test'
+  ...
+# Subtest: the nearest enemy intercepts a shot before a farther obstacle
+ok 34 - the nearest enemy intercepts a shot before a farther obstacle
+  ---
+  duration_ms: 0.9568
+  type: 'test'
+  ...
+# Subtest: piercing bullets damage each crossed enemy once
+ok 35 - piercing bullets damage each crossed enemy once
+  ---
+  duration_ms: 0.6828
+  type: 'test'
+  ...
+# Subtest: supply heal and mod charge once, respect funds, and never over-heal
+ok 36 - supply heal and mod charge once, respect funds, and never over-heal
+  ---
+  duration_ms: 0.6399
+  type: 'test'
+  ...
+# Subtest: supply buys a real resumable mod beyond every original upgrade threshold
+ok 37 - supply buys a real resumable mod beyond every original upgrade threshold
+  ---
+  duration_ms: 22.8419
+  type: 'test'
+  ...
+# Subtest: gatekeepers, supply, hospital route, collector, and victory form one complete run
+ok 38 - gatekeepers, supply, hospital route, collector, and victory form one complete run
+  ---
+  duration_ms: 536.9802
+  type: 'test'
+  ...
+# Subtest: police route triggers its alarm once and bypasses hospital event
+ok 39 - police route triggers its alarm once and bypasses hospital event
+  ---
+  duration_ms: 26.824
+  type: 'test'
+  ...
+# Subtest: death freezes simulation and emits only one end result
+ok 40 - death freezes simulation and emits only one end result
+  ---
+  duration_ms: 1.2325
+  type: 'test'
+  ...
+# Subtest: a fatal contact cannot be undone by a pickup later in the same tick
+ok 41 - a fatal contact cannot be undone by a pickup later in the same tick
+  ---
+  duration_ms: 0.6113
+  type: 'test'
+  ...
+# Subtest: winning from a projectile stops enemy contact damage in the same tick
+ok 42 - winning from a projectile stops enemy contact damage in the same tick
+  ---
+  duration_ms: 0.6242
+  type: 'test'
+  ...
+# Subtest: a winning explosion leaves the recorded kills and currency consistent
+ok 43 - a winning explosion leaves the recorded kills and currency consistent
+  ---
+  duration_ms: 0.3713
+  type: 'test'
+  ...
+# Subtest: a full crowd cannot prevent a district gatekeeper from appearing
+ok 44 - a full crowd cannot prevent a district gatekeeper from appearing
+  ---
+  duration_ms: 85.6009
+  type: 'test'
+  ...
+# Subtest: a full crowd still gives an alarm a live elite that can be killed
+ok 45 - a full crowd still gives an alarm a live elite that can be killed
+  ---
+  duration_ms: 4.0081
+  type: 'test'
+  ...
+# Subtest: hit highlights and gun recoil expire after their short feedback window
+ok 46 - hit highlights and gun recoil expire after their short feedback window
+  ---
+  duration_ms: 1.3307
+  type: 'test'
+  ...
+# Subtest: a lethal hit emits one routable kill event with the enemy type as payload
+ok 47 - a lethal hit emits one routable kill event with the enemy type as payload
+  ---
+  duration_ms: 0.6462
+  type: 'test'
+  ...
+# Subtest: walking phases follow physical displacement and remain fixed when standing or blocked
+ok 48 - walking phases follow physical displacement and remain fixed when standing or blocked
+  ---
+  duration_ms: 262.4506
+  type: 'test'
+  ...
+# Subtest: collector charge advances its movement phase and recovery holds it still
+ok 49 - collector charge advances its movement phase and recovery holds it still
+  ---
+  duration_ms: 1.3444
+  type: 'test'
+  ...
+# Subtest: corpses expire after twelve seconds and rapid kills keep their pool at seventy
+ok 50 - corpses expire after twelve seconds and rapid kills keep their pool at seventy
+  ---
+  duration_ms: 28.8995
+  type: 'test'
+  ...
+# Subtest: pause and upgrade screens freeze corpses, particles, hit highlights, and recoil together
+ok 51 - pause and upgrade screens freeze corpses, particles, hit highlights, and recoil together
+  ---
+  duration_ms: 1.2183
+  type: 'test'
+  ...
+# Subtest: explosion smoke, embers, and shockwaves remain finite and bounded during a burst
+ok 52 - explosion smoke, embers, and shockwaves remain finite and bounded during a burst
+  ---
+  duration_ms: 20.7921
+  type: 'test'
+  ...
+# Subtest: fire continues emitting live embers, then cleans up after its duration
+ok 53 - fire continues emitting live embers, then cleans up after its duration
+  ---
+  duration_ms: 69.645
+  type: 'test'
+  ...
+# Subtest: extra cosmetic bursts do not change enemy spawns, shot spread, loot, or upgrade rolls
+ok 54 - extra cosmetic bursts do not change enemy spawns, shot spread, loot, or upgrade rolls
+  ---
+  duration_ms: 104.7094
+  type: 'test'
+  ...
+# Subtest: a district transition clears visual remains and old fire from the previous map
+ok 55 - a district transition clears visual remains and old fire from the previous map
+  ---
+  duration_ms: 3.5977
+  type: 'test'
+  ...
+# Subtest: victory and death preserve the final combat pose and effects on the result screen
+ok 56 - victory and death preserve the final combat pose and effects on the result screen
+  ---
+  duration_ms: 1.4498
+  type: 'test'
+  ...
+# Subtest: twenty minutes of seeded autopilot keeps entity pools finite and bounded
+not ok 57 - twenty minutes of seeded autopilot keeps entity pools finite and bounded
+  ---
+  duration_ms: 147972.9133
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\engine.test.mjs:565:1'
+  failureType: 'testCodeFailure'
+  error: 'Headless twenty minute simulation exceeds its CPU budget: CPU=16859.00ms, wall=147963.61ms'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs:596:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Stress wall=147963.61ms, CPU=16859.00ms
+# Subtest: run rewards and weapon unlocks survive a real save/load round trip
+ok 58 - run rewards and weapon unlocks survive a real save/load round trip
+  ---
+  duration_ms: 1.7433
+  type: 'test'
+  ...
+# Subtest: corrupt profile data recovers and unsafe settings are sanitized
+ok 59 - corrupt profile data recovers and unsafe settings are sanitized
+  ---
+  duration_ms: 0.5777
+  type: 'test'
+  ...
+# Subtest: a blocked localStorage getter or quota error cannot prevent play
+ok 60 - a blocked localStorage getter or quota error cannot prevent play
+  ---
+  duration_ms: 0.388
+  type: 'test'
+  ...
+# Subtest: same actor/time/pose flag changes invalidate exactly once while unchanged flags reuse the actual private frame; unsupported NPC signatures stay original
+ok 61 - same actor/time/pose flag changes invalidate exactly once while unchanged flags reuse the actual private frame; unsupported NPC signatures stay original
+  ---
+  duration_ms: 33.3123
+  type: 'test'
+  ...
+# Subtest: batch items capture independent primitive layer diagnostics before another actor resets the cached layer diagnostic object
+ok 62 - batch items capture independent primitive layer diagnostics before another actor resets the cached layer diagnostic object
+  ---
+  duration_ms: 5.8352
+  type: 'test'
+  ...
+# Subtest: the layer uses the fresh base sample before original torso-hit blending, transitions and live-to-death history while rest/actor data remain untouched
+ok 63 - the layer uses the fresh base sample before original torso-hit blending, transitions and live-to-death history while rest/actor data remain untouched
+  ---
+  duration_ms: 123.3107
+  type: 'test'
+  ...
+# Subtest: strict origin, explicit level15 query and real branded memory gate reject before profile/storage work
+ok 64 - strict origin, explicit level15 query and real branded memory gate reject before profile/storage work
+  ---
+  duration_ms: 3.0422
+  type: 'test'
+  ...
+# Subtest: normal XP and13 first-offered choices produce a valid LV15 pending checkpoint and preserve the original enemies/spawn clock in memory only
+ok 65 - normal XP and13 first-offered choices produce a valid LV15 pending checkpoint and preserve the original enemies/spawn clock in memory only
+  ---
+  duration_ms: 1026.0658
+  type: 'test'
+  ...
+# Subtest: unrelated profile state stays exact and a failed memory write restores the prior active-run identity
+ok 66 - unrelated profile state stays exact and a failed memory write restores the prior active-run identity
+  ---
+  duration_ms: 4.8889
+  type: 'test'
+  ...
+# Subtest: app seeder stays dynamically gated and an upgrade fixture takes precedence over density seeding without changing keyboard choices
+ok 67 - app seeder stays dynamically gated and an upgrade fixture takes precedence over density seeding without changing keyboard choices
+  ---
+  duration_ms: 5.0389
+  type: 'test'
+  ...
+# Subtest: original constants, every early rank and seeded real combat stay exact against the frozen full engine
+ok 68 - original constants, every early rank and seeded real combat stay exact against the frozen full engine
+  ---
+  duration_ms: 7309.1349
+  type: 'test'
+  ...
+# Subtest: each skill can be selected 1000 times and an all-old-caps or high-rank queued choice restores intact
+ok 69 - each skill can be selected 1000 times and an all-old-caps or high-rank queued choice restores intact
+  ---
+  duration_ms: 575.3041
+  type: 'test'
+  ...
+# Subtest: levels and queued choices continue beyond former save limits without XP overflow or partial writes
+ok 70 - levels and queued choices continue beyond former save limits without XP overflow or partial writes
+  ---
+  duration_ms: 24.2794
+  type: 'test'
+  ...
+# Subtest: high ranks grant actual finite benefits and the shared current/next UI model reads the real weapon numbers
+ok 71 - high ranks grant actual finite benefits and the shared current/next UI model reads the real weapon numbers
+  ---
+  duration_ms: 696.3464
+  type: 'test'
+  ...
+# Subtest: actual maximum-rate fire retains bounded projectiles and finite resumable state at ranks 100, 1000 and safe precision edge
+ok 72 - actual maximum-rate fire retains bounded projectiles and finite resumable state at ranks 100, 1000 and safe precision edge
+  ---
+  duration_ms: 4019.0358
+  type: 'test'
+  ...
+# [{"weapon":"shotgun","rank":100,"maximum":64,"shots":50},{"weapon":"shotgun","rank":1000,"maximum":64,"shots":50},{"weapon":"shotgun","rank":9007199254740991,"maximum":80,"shots":59},{"weapon":"nailgun","rank":100,"maximum":156,"shots":212},{"weapon":"nailgun","rank":1000,"maximum":156,"shots":213},{"weapon":"nailgun","rank":9007199254740991,"maximum":156,"shots":218}]
+# Subtest: rank-1000 shots, chained hits and Molotov run with 180 real enemies while existing count limits and checkpoints hold
+ok 73 - rank-1000 shots, chained hits and Molotov run with 180 real enemies while existing count limits and checkpoints hold
+  ---
+  duration_ms: 984.585
+  type: 'test'
+  ...
+# {"chains":2,"largestChain":8,"kills":180,"maxParticles":850,"maxBullets":156}
+# Subtest: legacy saves remain valid and unbounded ranks do not weaken corruption or structural-count validation
+ok 74 - legacy saves remain valid and unbounded ranks do not weaken corruption or structural-count validation
+  ---
+  duration_ms: 469.7081
+  type: 'test'
+  ...
+# Subtest: safe-precision saturation preserves owned skills and saved queues without dead cards, unsafe ranks or replayed RNG
+ok 75 - safe-precision saturation preserves owned skills and saved queues without dead cards, unsafe ranks or replayed RNG
+  ---
+  duration_ms: 6.287
+  type: 'test'
+  ...
+# Subtest: view reads shared actual stats and current/next effects without selecting a choice or mutating checkpoint, RNG or effects
+ok 76 - view reads shared actual stats and current/next effects without selecting a choice or mutating checkpoint, RNG or effects
+  ---
+  duration_ms: 1001.4302
+  type: 'test'
+  ...
+# Subtest: markup keeps three existing upgrade actions and keyboard order, prominent current level, original art and choices before owned details
+ok 77 - markup keeps three existing upgrade actions and keyboard order, prominent current level, original art and choices before owned details
+  ---
+  duration_ms: 7.2348
+  type: 'test'
+  ...
+# Subtest: large owned ranks keep all12 current ranks and exact shared next effects without a maximum-rank fraction
+ok 78 - large owned ranks keep all12 current ranks and exact shared next effects without a maximum-rank fraction
+  ---
+  duration_ms: 13.111
+  type: 'test'
+  ...
+# Subtest: compact owned details remain native and optional while the same three choice buttons stay ahead of them
+ok 79 - compact owned details remain native and optional while the same three choice buttons stay ahead of them
+  ---
+  duration_ms: 8.0328
+  type: 'test'
+  ...
+1..79
+# tests 79
+# suites 0
+# pass 78
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 152665.9582

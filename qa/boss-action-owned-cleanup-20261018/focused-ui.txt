@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: standalone boss UI gates exact origin and flag before DOM/dependencies and requires genuine memory storage
+ok 1 - standalone boss UI gates exact origin and flag before DOM/dependencies and requires genuine memory storage
+  ---
+  duration_ms: 9.0855
+  type: 'test'
+  ...
+# Subtest: one idle click loads the original manifest lazily and runs exactly one of twelve final keys with at most one PNG
+ok 2 - one idle click loads the original manifest lazily and runs exactly one of twelve final keys with at most one PNG
+  ---
+  duration_ms: 6.9939
+  type: 'test'
+  ...
+# Subtest: duplicate clicks, selection changes and UI owner replacement cannot launch a late lazy-loaded worker
+ok 3 - duplicate clicks, selection changes and UI owner replacement cannot launch a late lazy-loaded worker
+  ---
+  duration_ms: 1.0907
+  type: 'test'
+  ...
+# Subtest: pagehide and replaced UI owners abort running work and suppress late images, progress and results
+ok 4 - pagehide and replaced UI owners abort running work and suppress late images, progress and results
+  ---
+  duration_ms: 0.8751
+  type: 'test'
+  ...
+# Subtest: raw worker failure and incomplete cleanup remain failed evidence without auto-adoption or extra attempts
+ok 5 - raw worker failure and incomplete cleanup remain failed evidence without auto-adoption or extra attempts
+  ---
+  duration_ms: 1.1522
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 168.0032

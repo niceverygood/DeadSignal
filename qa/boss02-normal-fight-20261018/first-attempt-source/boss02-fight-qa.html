@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>보스02 정상 전투 · 별도 QA</title>
+<style>body{margin:16px;background:#111c22;color:#e3d8ba;font:15px system-ui}main{max-width:1100px;margin:auto}button{padding:12px;margin:4px;background:#26363d;color:inherit;border:1px solid #b49a62;touch-action:none}button:focus-visible{outline:3px solid #f6b648}button:disabled{opacity:.5}.field{height:min(70vh,640px);min-height:320px}canvas{width:100%;height:100%}pre{max-height:400px;overflow:auto;white-space:pre-wrap;word-break:break-word}img{max-width:100%;height:auto}#boss02-fight-status{min-height:2.5em}</style>
+<main><h1>보스02 정상 전투 관찰</h1>
+<p>별도 메모리 QA · 제품 보스 동작과 플레이 저장은 바꾸지 않습니다. 정상 체력·적·스폰·AI·공격 타이머를 유지합니다. 첫 경고는 약 7게임초 이후입니다. 무사격으로 시작하며 보스를 향해 조준합니다.</p>
+<p>약 8–12게임초를 관찰하고 최대 실제 300초에 종료합니다. 불리한 결과·사망·개조 대기도 기록합니다. FPS·자연스러움 완성·제품 적용을 인증하는 화면이 아닙니다. 음향 출력 검수는 포함하지 않습니다.</p>
+<nav><button id="boss02-fight-start" type="button">이번 모드 전투 한 번 시작</button><button id="boss02-fight-stop" type="button" disabled>중단·소유 자원 정리</button><button id="boss02-fight-shoot" type="button" disabled>사격 켜기</button></nav>
+<nav aria-label="이동"><button data-fight-move="w" type="button">위</button><button data-fight-move="a" type="button">왼쪽</button><button data-fight-move="s" type="button">아래</button><button data-fight-move="d" type="button">오른쪽</button><span>WASD / 방향키 · 누르는 동안 이동</span></nav>
+<p id="boss02-fight-status" role="status">HTTP 8851 · qa=1 · genuine memory · qa-boss02-fight=original 또는 fold 필요</p>
+<div class="field"><canvas id="boss02-fight-canvas" aria-label="원본 월드와 실제 보스02 전투"></canvas></div>
+<section id="boss02-fight-proof" aria-label="원래 캔버스 경고·공격·종료 캡처"></section>
+<details><summary>정상 Game·입력·이벤트·원본 리그·최종 정리 원시 기록</summary><pre id="boss02-fight-report"></pre></details>
+</main><script type="module">import {installBoss02FightQA} from './qa-boss02-fight.js';installBoss02FightQA({document,location,eventTarget:window});</script></html>

@@ -1,0 +1,17 @@
+✔ actual charge into solid wall emits one render-only material contact and keeps all gameplay state unchanged (196.2769ms)
+✔ no false collision from pause, stun, free movement or targets behind a wall; restart can contact again (0.358ms)
+✔ free charge, wall behind heading and changed world cannot create a false impact (0.2218ms)
+✔ visible east/south wall impact sits just before the facade while hidden west wall remains behind (0.2237ms)
+✔ a real explosion body sorts between background and foreground geometry, once, while ring/glow remain in the particle pass (22.4701ms)
+✔ unavailable art keeps the original post-geometry fallback, and a failed depth draw attempts the image only once (8.584ms)
+✔ camera/zoom/DPR keep the body in the same world transform and equal-depth actors stay above it (4.5884ms)
+✔ repeated paused/upgrade renders depth-sort every live burst once without changing Game/RNG or allocating another image (32.0012ms)
+✔ boss wall dust joins world depth before foreground roof and after background geometry (2.1714ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 433.3742

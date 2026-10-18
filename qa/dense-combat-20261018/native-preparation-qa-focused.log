@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+ok 1 - actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+  ---
+  duration_ms: 6461.2647
+  type: 'test'
+  ...
+# Subtest: all original preparation and an unmutated prime finish before measured ticks or frame observers start
+ok 2 - all original preparation and an unmutated prime finish before measured ticks or frame observers start
+  ---
+  duration_ms: 834.382
+  type: 'test'
+  ...
+# Subtest: wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+ok 3 - wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+  ---
+  duration_ms: 9.3001
+  type: 'test'
+  ...
+# Subtest: unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+ok 4 - unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+  ---
+  duration_ms: 443.8463
+  type: 'test'
+  ...
+# Subtest: the comparison requires both observed native batch work and nonempty actual native selection
+ok 5 - the comparison requires both observed native batch work and nonempty actual native selection
+  ---
+  duration_ms: 1067.5916
+  type: 'test'
+  ...
+# Subtest: minimal observation with all-fresh control counts only original native renders, retains all40 samples including warm outliers and restores the exact method descriptor
+ok 6 - minimal observation with all-fresh control counts only original native renders, retains all40 samples including warm outliers and restores the exact method descriptor
+  ---
+  duration_ms: 800.5276
+  type: 'test'
+  ...
+# Subtest: native-preparation comparison changes only the renderer preparation mode, keeps all three physics grids pooled and restores the prior flag after success or failure
+ok 7 - native-preparation comparison changes only the renderer preparation mode, keeps all three physics grids pooled and restores the prior flag after success or failure
+  ---
+  duration_ms: 1325.5643
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11167.54

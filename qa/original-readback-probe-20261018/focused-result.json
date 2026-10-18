@@ -1,0 +1,38 @@
+{
+  "initial": {
+    "tests": 10,
+    "pass": 9,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 352276.3045,
+    "exit": 1,
+    "actualPassingCases": 9,
+    "unparsedHelperCases": 6,
+    "reason": "Missing closing brace in new test fixture rig object; file-level syntax failure"
+  },
+  "repair": {
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 1747.0947,
+    "exit": 0,
+    "changedFiles": [
+      "work/dead-signal-game/tests/qa-original-readback-probe.test.mjs"
+    ],
+    "fixtureClosingBraceOnly": true,
+    "sourceInverseByteExact": true,
+    "productAndHelperSourceChanged": false,
+    "thresholdOrAssertionChanges": false
+  },
+  "preserved": {
+    "initialSourceFreeze": "source-freeze.json",
+    "initialSourceCopy": "probe-test-initial.txt",
+    "initialSourceSHA256": "7c0b4c9dc5a46781527667b07c450d17899c35c9741f1bcf0da77af2f4f2db4b",
+    "finalSourceFreeze": "source-freeze-final.json",
+    "finalSourceSHA256": "0d7948fd11f73997dbacbee065bd647f103d7b17912352ca77f33336aa0e6807"
+  },
+  "note": "Nine initial combat/UI cases passed. Only the six previously unparsed helper cases were rerun after the fixture syntax repair. Do not describe this as a single15/15 initial run."
+}

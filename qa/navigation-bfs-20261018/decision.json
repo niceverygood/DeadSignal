@@ -1,0 +1,41 @@
+{
+  "status": "parked-insufficient-measured-gain",
+  "adopted": false,
+  "measuredOrder": [
+    "original",
+    "candidate",
+    "original"
+  ],
+  "original1CPUms": 15297,
+  "candidateCPUms": 14499,
+  "original2CPUms": 14641,
+  "original1WallMs": 18244.41,
+  "candidateWallMs": 17298.68,
+  "original2WallMs": 17318.08,
+  "callbackPass": [
+    false,
+    true,
+    true
+  ],
+  "originalBudgetMs": 15000,
+  "candidateUnderBothOriginals": true,
+  "minimumRequiredImprovementPercent": 3,
+  "actualImprovementAgainstFasterOriginalPercent": 0.9698791066183987,
+  "oraclePassed": 6,
+  "oracleDurationMs": 2076.0977,
+  "actualGameComparisonsPassed": 2166,
+  "actualGameCases": 6,
+  "productionNavigationSHA": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+  "browserOriginal": {
+    "memoryOnly": true,
+    "playingFrames": 40,
+    "frameCpuMedianMs": 61.59999996423721,
+    "frameCpuP95Ms": 184.10000002384186,
+    "rendererMedianMs": 44.10000002384186,
+    "rafMedianMs": 1000.7999999999956,
+    "audioCalls": 72,
+    "storageWrites": 1,
+    "note": "Actual normal 180-enemy fixture via Continue/preload/resume and original auto combat; own tab1494332476 closed and absent. Callback interval near1000ms is not normal presented FPS. Candidate was never installed or run in the product browser."
+  },
+  "scope": "Candidate passed source/Navigation/full-Game equivalence and unchanged15000ms callback, but its gain against the faster bracketing original is below the predeclared3% threshold. Original A1 failed CPU15000 and A2 passed, so noise/environment variability must stay visible. One bracket cannot establish statistical confidence, FPS, total frame or peak memory gain. Last whole-suite result remains1119/1120 with CPU15062>15000."
+}

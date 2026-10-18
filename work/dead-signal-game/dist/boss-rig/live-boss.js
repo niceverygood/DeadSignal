@@ -15,7 +15,8 @@ import {AnimationSampler} from '../player-rig/animation.js';
 import {unlit} from '../player-rig/live-player.js';
 import {spritePlacement} from '../production-art.js?v=0.29.0';
 import {bossClipIndices,bossPose} from './boss-pose.js';
-import {createBossActionLayer} from './boss-action-layer.js';
+import {createBossActionLayer,createBoss02FoldActionLayer} from './boss-action-layer.js';
+const actionProfiles=new WeakMap();
 const SIZE=512,DENSITY=2.25,PIVOT={x:256,y:410},TAU=Math.PI*2;
 const base=new URL('./',import.meta.url),clamp=value=>Math.max(0,Math.min(1,value));
 function floorHeight(profile,phase){
@@ -25,7 +26,7 @@ function floorHeight(profile,phase){
   return a+(b-a)*(s-index);
 }
 export class LiveBossRig {
-  constructor({size=512,registryFile='registry.json'}={}){
+  constructor({size=512,registryFile='registry.json',bossActionProfile}={}){
     const SIZE=size;this.size=size;this.framePool=new RigFramePool(()=>{const image=document.createElement('canvas');image.width=image.height=SIZE;return {image,context:image.getContext('2d')};});
     this.models=new Map();this.pending=new Map();this.frames=new WeakMap();this.scene=new THREE.Scene();this.loader=new GLTFLoader();
     this.clipLoader=createAnimationOnlyLoader();this.forceWalkTextureDecode=size!==256;
@@ -42,6 +43,7 @@ export class LiveBossRig {
     this.registry=fetch(new URL(registryFile,base)).then(response=>{if(!response.ok)throw new Error('boss-runtime-registry-missing');return response.json();});
     this.lost=false;this.error='';
     this.bossActionLayerEnabled=false;
+    if(bossActionProfile==='boss02-fold-v1')actionProfiles.set(this,bossActionProfile);
     this.renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();this.lost=true;this.releaseExactGPUAlpha();});
     this.renderer.domElement.addEventListener('webglcontextrestored',()=>{this.lost=false;this.frames=new WeakMap();this.releaseExactGPUAlpha();});
   }
@@ -54,7 +56,7 @@ export class LiveBossRig {
       normal.scale.setScalar(scale);normal.position.set(-p.x*scale,-p.y*scale,-p.z*scale);normal.add(root);motion.add(normal);subject.add(motion);unlit(root);
       const sampler=new AnimationSampler({root,subject,motion,clips:gltf.animations,subjectHeight:config.projection.subjectHeight});
       const indices=bossClipIndices(config,gltf.animations),bones=sampler.restTransforms.filter(entry=>entry.object.isBone).map(entry=>entry.object);
-      const actions=createBossActionLayer(sampler,key);
+      const actions=actionProfiles.get(this)==='boss02-fold-v1'&&key==='boss-02-final'?createBoss02FoldActionLayer(sampler,key):createBossActionLayer(sampler,key);
       this.models.set(key,{config,root,subject,sampler,indices,bones,upperBones:upperBodyBones(bones),states:new WeakMap(),history:new RigPoseHistory(),actionLayer:actions.supported?actions:null});return true;
     })().catch(error=>{this.error=error.message;return false;}));
     return this.pending.get(key);

@@ -1,0 +1,47 @@
+TAP version 13
+# Subtest: baseline normalizes the same fresh original state without upload or compile and owns no asset disposal
+ok 1 - baseline normalizes the same fresh original state without upload or compile and owns no asset disposal
+  ---
+  duration_ms: 23.6411
+  type: 'test'
+  ...
+# Subtest: enabled preparation uploads the identity union once then compiles original run and weapon in order without pose or parent mutation
+ok 2 - enabled preparation uploads the identity union once then compiles original run and weapon in order without pose or parent mutation
+  ---
+  duration_ms: 11.5977
+  type: 'test'
+  ...
+# Subtest: invalid, unsupported, hot and pre-aborted originals fail before any initialization, compilation or normalization
+ok 3 - invalid, unsupported, hot and pre-aborted originals fail before any initialization, compilation or normalization
+  ---
+  duration_ms: 31.4063
+  type: 'test'
+  ...
+# THREE.Source: "Source" has been renamed to "TextureSource". Please update your code to use "THREE.TextureSource" instead.
+# Subtest: deferred compilation restores state synchronously and changed original owners, source, pose or hierarchy cannot become ready
+ok 4 - deferred compilation restores state synchronously and changed original owners, source, pose or hierarchy cannot become ready
+  ---
+  duration_ms: 57.7633
+  type: 'test'
+  ...
+# Subtest: abort, timeout, context loss and late rejection never revive a candidate or dispose original GPU/model assets
+ok 5 - abort, timeout, context loss and late rejection never revive a candidate or dispose original GPU/model assets
+  ---
+  duration_ms: 17.4331
+  type: 'test'
+  ...
+# Subtest: partial upload, compile or public restoration failures report fallback and still independently restore or release only helper state
+ok 6 - partial upload, compile or public restoration failures report fallback and still independently restore or release only helper state
+  ---
+  duration_ms: 12.2683
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 343.898

@@ -1,0 +1,155 @@
+{
+  "createdAt": "2026-10-18T00:28:06.213Z",
+  "runtime": "v22.23.3",
+  "status": "observed",
+  "fixtureSHA256": "877867c28ead95fc0b570880ab6721ae5285e37dcecfb228e127845b959708af",
+  "engineSHA256": "3551287930debc315d25fd6ef9c5c51e0bf41af98f22f872ea485e5a6888df79",
+  "note": "Read-only outcome diagnosis of the exact preserved test fixture. The original run arrow body, legendary loadout builder and shots helper are extracted without rewriting their simulation logic. Real engine shooting, boss damage/skills, natural death, equipment revival, XP and offered upgrade choices stay live; the existing clear-arena/isolated-spawn positioning remains exactly as in the test. No new HP, invulnerability, balance tuning, inputs or rendering is introduced. Fewer shots/time at an earlier death is recorded as an incomparable efficiency outcome, not a better victory.",
+  "cases": [
+    {
+      "missionId": "mission-01",
+      "equipped": false,
+      "outcome": {
+        "won": true,
+        "time": 10.350000000000012,
+        "shots": 54,
+        "hp": 35,
+        "revives": 0,
+        "defeated": [
+          "boss-01-mid",
+          "boss-01-final"
+        ],
+        "mid": true
+      }
+    },
+    {
+      "missionId": "mission-01",
+      "equipped": true,
+      "outcome": {
+        "won": true,
+        "time": 5.799999999999987,
+        "shots": 27,
+        "hp": 349,
+        "revives": 0,
+        "defeated": [
+          "boss-01-mid",
+          "boss-01-final"
+        ],
+        "mid": true
+      }
+    },
+    {
+      "missionId": "mission-05",
+      "equipped": false,
+      "outcome": {
+        "won": false,
+        "time": 14.050000000000065,
+        "shots": 72,
+        "hp": 0,
+        "revives": 0,
+        "defeated": [
+          "boss-05-mid"
+        ],
+        "mid": true
+      }
+    },
+    {
+      "missionId": "mission-05",
+      "equipped": true,
+      "outcome": {
+        "won": true,
+        "time": 10.050000000000008,
+        "shots": 52,
+        "hp": 253,
+        "revives": 0,
+        "defeated": [
+          "boss-05-mid",
+          "boss-05-final"
+        ],
+        "mid": true
+      }
+    },
+    {
+      "missionId": "mission-12",
+      "equipped": false,
+      "outcome": {
+        "won": false,
+        "time": 6.399999999999985,
+        "shots": 33,
+        "hp": 0,
+        "revives": 0,
+        "defeated": [],
+        "mid": false
+      }
+    },
+    {
+      "missionId": "mission-12",
+      "equipped": true,
+      "outcome": {
+        "won": true,
+        "time": 16.750000000000103,
+        "shots": 109,
+        "hp": 4,
+        "revives": 0,
+        "defeated": [
+          "boss-12-mid",
+          "boss-12-final"
+        ],
+        "mid": true
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "missionId": "mission-01",
+      "bareWon": true,
+      "equippedWon": true,
+      "bareDefeats": 2,
+      "equippedDefeats": 2,
+      "bareHP": 35,
+      "equippedHP": 349,
+      "equippedCompletesPair": true,
+      "hpImproved": true,
+      "originalShotsAssertion": true,
+      "originalTimeAssertion": true,
+      "efficiencyComparable": true,
+      "survivalSuccessWhenBareLoses": false,
+      "interpretation": "Both runs won: original strict fewer-shots and faster-completion comparisons remain meaningful."
+    },
+    {
+      "missionId": "mission-05",
+      "bareWon": false,
+      "equippedWon": true,
+      "bareDefeats": 1,
+      "equippedDefeats": 2,
+      "bareHP": 0,
+      "equippedHP": 253,
+      "equippedCompletesPair": true,
+      "hpImproved": true,
+      "originalShotsAssertion": true,
+      "originalTimeAssertion": true,
+      "efficiencyComparable": false,
+      "survivalSuccessWhenBareLoses": true,
+      "interpretation": "Bare run lost: its shorter survival/fewer fired shots must not be treated as a faster or more efficient victory."
+    },
+    {
+      "missionId": "mission-12",
+      "bareWon": false,
+      "equippedWon": true,
+      "bareDefeats": 0,
+      "equippedDefeats": 2,
+      "bareHP": 0,
+      "equippedHP": 4,
+      "equippedCompletesPair": true,
+      "hpImproved": true,
+      "originalShotsAssertion": false,
+      "originalTimeAssertion": false,
+      "efficiencyComparable": false,
+      "survivalSuccessWhenBareLoses": true,
+      "interpretation": "Bare run lost: its shorter survival/fewer fired shots must not be treated as a faster or more efficient victory."
+    }
+  ],
+  "errors": [],
+  "extractedRunSHA256": "4e469f0c747c772ee4bc8480a0aa246cfff0f0fabd7dc9d1534fa12b81c037a0",
+  "extractedFixtureLength": 1343
+}

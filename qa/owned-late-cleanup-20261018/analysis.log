@@ -1,0 +1,218 @@
+{
+  "tests": {
+    "focused": {
+      "tests": 18,
+      "pass": 18,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 6052.7785
+    },
+    "whole": {
+      "tests": 1298,
+      "pass": 1297,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 421949.1554
+    },
+    "wholeFailures": [
+      "288 - twenty minutes of seeded autopilot keeps entity pools finite and bounded"
+    ],
+    "cpuBudgetFailure": "Headless twenty minute simulation exceeds its CPU budget: CPU=16859.00ms, wall=44604.39ms",
+    "exits": {
+      "whole": 1,
+      "verify": 1
+    },
+    "verifyFirstFailure": ".gitignore historical size mismatch; verifier stopped first error before hashing, unchanged manifest not regenerated",
+    "source": 483
+  },
+  "complete": true,
+  "error": null,
+  "pixels": {
+    "originalRepeat": {
+      "differentComponents": 0,
+      "maxDelta": 0,
+      "dimensionsEqual": true
+    }
+  },
+  "cleanup": {
+    "ownedRenderers": 2,
+    "retiredRenderers": 2,
+    "ownedArts": 2,
+    "releasedArts": 2,
+    "hostsCreated": 2,
+    "hostsRemoved": 2,
+    "lateScheduled": 8,
+    "lateSettled": 8,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "finalAfterDrain": true,
+        "npcPendingRemaining": 0,
+        "bossPendingRemaining": 0,
+        "playerWeaponsRemaining": 0,
+        "playerWeaponLoadsRemaining": 0,
+        "allOwnedRigModelsRemaining": 0,
+        "allOwnedRigPendingRemaining": 0,
+        "nativeCanvasesReleased": true
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "finalAfterDrain": true,
+        "npcPendingRemaining": 0,
+        "bossPendingRemaining": 0,
+        "playerWeaponsRemaining": 0,
+        "playerWeaponLoadsRemaining": 0,
+        "allOwnedRigModelsRemaining": 0,
+        "allOwnedRigPendingRemaining": 0,
+        "nativeCanvasesReleased": true
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": true,
+    "drain": {
+      "complete": true,
+      "success": true,
+      "status": "complete",
+      "timedOut": false,
+      "overflow": false,
+      "capacity": 256,
+      "scheduled": 8,
+      "settled": 8,
+      "callbackEntered": 8,
+      "completed": 8,
+      "active": 0,
+      "fulfilled": 8,
+      "rejected": 0,
+      "retireFailed": 0,
+      "duplicates": 0,
+      "overflowed": 0,
+      "invalid": 0,
+      "observerFailures": 0,
+      "totalErrors": 0,
+      "lateRegistrations": 0,
+      "entries": [
+        {
+          "id": 1,
+          "label": {
+            "arm": "A1",
+            "kind": "candidate",
+            "key": "enemy-walker"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 2,
+          "label": {
+            "arm": "A1",
+            "kind": "candidate",
+            "key": "enemy-gas"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 3,
+          "label": {
+            "arm": "A1",
+            "kind": "boss",
+            "key": "boss-01-mid"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 4,
+          "label": {
+            "arm": "A1",
+            "kind": "boss",
+            "key": "boss-01-final"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 5,
+          "label": {
+            "arm": "A2",
+            "kind": "candidate",
+            "key": "enemy-walker"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 6,
+          "label": {
+            "arm": "A2",
+            "kind": "candidate",
+            "key": "enemy-gas"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 7,
+          "label": {
+            "arm": "A2",
+            "kind": "boss",
+            "key": "boss-01-mid"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 8,
+          "label": {
+            "arm": "A2",
+            "kind": "boss",
+            "key": "boss-01-final"
+          },
+          "status": "completed",
+          "fulfilled": true
+        }
+      ],
+      "pending": [],
+      "errors": [],
+      "wait": {
+        "started": true,
+        "finished": true,
+        "timeoutMs": 15000,
+        "startedAt": 48517.5,
+        "deadlineAt": 63517.5,
+        "elapsedMs": 582.8000000119209,
+        "timerActive": false,
+        "timersScheduled": 1,
+        "timersCleared": 1,
+        "timersFired": 0,
+        "timerCleanupComplete": true
+      },
+      "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+    }
+  }
+}

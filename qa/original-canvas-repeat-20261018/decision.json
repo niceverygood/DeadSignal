@@ -1,0 +1,74 @@
+{
+  "status": "read-only-investigation-complete-cause-unresolved",
+  "startedUTC": "2026-10-18T06:42:43Z",
+  "completedUTC": "2026-10-18 06:50:56 UTC",
+  "productSourceChanged": false,
+  "performanceRunStarted": false,
+  "candidateAdopted": false,
+  "previousAtomic": "qa/player-deferred-read-20261018/decision.json",
+  "latestTests": {
+    "pass": 1264,
+    "total": 1265,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "originalStressCPUms": 15188,
+    "originalBudgetMs": 15000,
+    "rerun": false
+  },
+  "verify": {
+    "exit": 1,
+    "firstMismatch": ".gitignore",
+    "manifestChanged": false,
+    "rerun": false
+  },
+  "source": {
+    "count": 457,
+    "exactAgainstBeforeFocusedFinal": true,
+    "original22Exact": true,
+    "priorUIPrefix187056Exact": true,
+    "evidence": "qa/player-deferred-read-20261018/source-after-readonly.json"
+  },
+  "finding": {
+    "sourcePaths": "Original floor cache/asphalt/subpixel grains, iso resampling and full-screen vignette/fog/health/alarm overlays are plausible whole-RGB paths; no specific normal-path Canvas state leak found.",
+    "pixelFacts": {
+      "ABPixels": 347,
+      "originalAAPixels": 582443,
+      "originalAAPixelFraction": 0.9479866536458333,
+      "A1EqualsBButA2DiffersPixels": 582096,
+      "AA_BA_IntersectionPixels": 582427
+    },
+    "notProven": [
+      "actual Canvas CPU/GPU backend",
+      "reason for original A2 photometric difference",
+      "native model readiness equivalence",
+      "initial asset abort cause",
+      "performance benefit of deferred read"
+    ]
+  },
+  "browser": {
+    "sameChrome": "3",
+    "oldOwnCostTab": "1494332567",
+    "smokeTab": "1494332598",
+    "oldCostNeverClicked": true,
+    "oldCostRuns": 0,
+    "oldQualityCostAndSmokeAbsentInFreshNativeList": true,
+    "smokePublicStatusReady": true,
+    "smokeConsoleWarningsErrors": 0,
+    "smokeSimulationAdvanced": false,
+    "smokeScreenshotSucceeded": false,
+    "smokeCaptureLimitation": "CDP Page.captureScreenshot timed out after ready status; no full visual recovery claim.",
+    "user8806IABAndSavesUntouched": true,
+    "forcedTermination": false
+  },
+  "artifacts": [
+    "source-audit.json",
+    "artifact-audit.json",
+    "original-load-smoke.json",
+    "recovery-protocol.json"
+  ],
+  "next": "Implement a separate opt-in original-only quality diagnostic, without extra simulation or render calls: preserve primary R0 and strict AA, immediate R1, optional existing-floor read F then unchanged-main R2; capture primitive Canvas attributes/state, camera/floor/asphalt identity/key and native model keys/fallback source IDs outside measured callbacks. Stop on unstable readback, keep added reads quality-only and never replace historical wholeCanvas gates or cost evidence. Browser capture remains unstable; avoid new performance runs until usable.",
+  "deadline": "2026-10-19T00:00:00+09:00",
+  "automation4Changed": false,
+  "forbiddenActionsPerformed": false
+}

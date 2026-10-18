@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+ok 1 - real 60/180 enemy fixed-step catch-up preserves original physical values, nav caches, damage/effects, checkpoints and both RNG streams
+  ---
+  duration_ms: 448.1772
+  type: 'test'
+  ...
+# Subtest: all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+ok 2 - all seven radii and sequentially moved live neighbors preserve exact original separation in compact and string key worlds
+  ---
+  duration_ms: 256.1595
+  type: 'test'
+  ...
+# Subtest: screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+ok 3 - screamer same-tick spawns and real 210-cap replacement retain the original array iterator and tick-start membership semantics
+  ---
+  duration_ms: 31.1091
+  type: 'test'
+  ...
+# Subtest: burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+ok 4 - burn death, gas chain explosions, obstacle destruction and lure targeting preserve original effects and order
+  ---
+  duration_ms: 20.779
+  type: 'test'
+  ...
+# Subtest: rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+ok 5 - rooftop, water, physical transport, restored games and new stage owners preserve original movement and cache lifetime
+  ---
+  duration_ms: 214.9222
+  type: 'test'
+  ...
+# Subtest: a throwing real movement stage releases every actor reference without replacing its error
+ok 6 - a throwing real movement stage releases every actor reference without replacing its error
+  ---
+  duration_ms: 0.8443
+  type: 'test'
+  ...
+# Subtest: reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+ok 7 - reentrant real enemy updates use separate scratch without overwriting the outer original neighbor grid
+  ---
+  duration_ms: 2.607
+  type: 'test'
+  ...
+# Subtest: actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+ok 8 - actual normal60/180 .12 catch-up keeps all Game state, 40-frame motion, event streams and interpolated inputs exact across fresh/pooled/fresh arms
+  ---
+  duration_ms: 4876.0902
+  type: 'test'
+  ...
+# Subtest: all original preparation and an unmutated prime finish before measured ticks or frame observers start
+ok 9 - all original preparation and an unmutated prime finish before measured ticks or frame observers start
+  ---
+  duration_ms: 902.2173
+  type: 'test'
+  ...
+# Subtest: wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+ok 10 - wrong origins, missing genuine-memory flags and invalid density reject before DOM, preparations, simulation or persistent storage
+  ---
+  duration_ms: 8.9955
+  type: 'test'
+  ...
+# Subtest: unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+ok 11 - unavailable originals, failed adoption, prime mutation and combat errors release the owned rig and observer before restoring the prior renderer owner
+  ---
+  duration_ms: 509.4738
+  type: 'test'
+  ...
+# Subtest: the comparison requires both observed native batch work and nonempty actual native selection
+ok 12 - the comparison requires both observed native batch work and nonempty actual native selection
+  ---
+  duration_ms: 2043.3368
+  type: 'test'
+  ...
+# Subtest: minimal observation with all-fresh control counts only original native renders, retains all40 samples including warm outliers and restores the exact method descriptor
+ok 13 - minimal observation with all-fresh control counts only original native renders, retains all40 samples including warm outliers and restores the exact method descriptor
+  ---
+  duration_ms: 1319.5647
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9863.8179

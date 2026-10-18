@@ -1,0 +1,48 @@
+{
+  "tool": "qa-navigation-scalar-exact-stress",
+  "arm": "original",
+  "status": "passed-original-callback",
+  "executed": true,
+  "assertSuccess": true,
+  "sourceSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "modelSHA": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+  "fixtureSHA": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+  "navigationOriginalSHA": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+  "navigationCandidateSHA": "79e3e9d0a15b4d3f1ed12a68b3781379cfb00f51708a4ff9ddad9815b3b5e284",
+  "navigationProductionSHA": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+  "rewrittenEngineSHA": "3125730e3b3f673fbe34c13dbaad7c5dd96391d7d953543a9c64b1013c389fab",
+  "invocationSHA": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+  "callbackSHA": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+  "expectedSHA": {
+    "fixture": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "invocation": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+    "callback": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+    "engine": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "model": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+    "navigationOriginal": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+    "navigationCandidate": "79e3e9d0a15b4d3f1ed12a68b3781379cfb00f51708a4ff9ddad9815b3b5e284"
+  },
+  "originalTimeoutMs": 20000,
+  "originalCPUBudgetMs": 15000,
+  "originalLoopTicks": 24000,
+  "cpuMs": 13625,
+  "wallMs": 13220.35,
+  "finalState": null,
+  "diagnostics": [
+    "Stress wall=13220.35ms, CPU=13625.00ms"
+  ],
+  "errors": [],
+  "acceptancePredeclared": {
+    "requiredOrder": [
+      "original",
+      "candidate",
+      "original"
+    ],
+    "candidateMustPassOriginalCPUBudget": true,
+    "candidateCPUUnderBothOriginals": true,
+    "minimumCPUImprovementAgainstFasterOriginalPercent": 3,
+    "otherwise": "park the QA candidate; no production change",
+    "scope": "One bracket does not establish statistical confidence, FPS or peak memory."
+  },
+  "note": "One exact source-pinned original twenty-minute callback, with only its Game Navigation import redirected in an otherwise original cloned full engine. Both arms use the same dataURL/rebase loader, all other imports point to the production modules. All original callback assertions, input, 24000 ticks and 15000ms CPU budget stay unchanged. No Game/method observers or additional snapshots are executed in timing. CPU/wall come only from the original diagnostic rounded to two decimals; private final Game locals are not exposed. This is not a full-suite pass or a speed claim. Production Navigation remains original. The root must compare fresh-process A/B/A observations, including failures. Candidate scalar swap assumes the actual app unmodified built-in Array iterator; non-number radius retains its original conversion path."
+}

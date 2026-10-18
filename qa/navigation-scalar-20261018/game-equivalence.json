@@ -1,0 +1,162 @@
+{
+  "tool": "qa-navigation-scalar-untimed-full-game",
+  "status": "passed-full-game-equivalence",
+  "passed": true,
+  "expectedSHA": {
+    "fixture": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "invocation": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+    "callback": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+    "engine": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "model": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+    "navigationOriginal": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+    "navigationCandidate": "79e3e9d0a15b4d3f1ed12a68b3781379cfb00f51708a4ff9ddad9815b3b5e284"
+  },
+  "sourceSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "modelSHA": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+  "fixtureSHA": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+  "navigationOriginalSHA": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+  "navigationCandidateSHA": "79e3e9d0a15b4d3f1ed12a68b3781379cfb00f51708a4ff9ddad9815b3b5e284",
+  "comparisons": 2166,
+  "cases": [
+    {
+      "seed": 774,
+      "count": 60,
+      "initialEnemies": 5,
+      "originalSpawnClock": 1.5,
+      "frames": 360,
+      "playedTicks": 360,
+      "selectedUpgrades": 0,
+      "final": {
+        "state": "playing",
+        "time": 5.999999999999984,
+        "hp": 73,
+        "kills": 25,
+        "enemies": 79,
+        "level": 1,
+        "random": 4271324464,
+        "visualRandom": 3664678590
+      },
+      "identicalSnapshots": true,
+      "identicalRuntime": true,
+      "identicalEvents": true,
+      "identicalRandom": true
+    },
+    {
+      "seed": 774,
+      "count": 180,
+      "initialEnemies": 5,
+      "originalSpawnClock": 1.5,
+      "frames": 360,
+      "playedTicks": 360,
+      "selectedUpgrades": 0,
+      "final": {
+        "state": "playing",
+        "time": 5.999999999999984,
+        "hp": 73,
+        "kills": 77,
+        "enemies": 180,
+        "level": 1,
+        "random": 3378563797,
+        "visualRandom": 3248896796
+      },
+      "identicalSnapshots": true,
+      "identicalRuntime": true,
+      "identicalEvents": true,
+      "identicalRandom": true
+    },
+    {
+      "seed": 774,
+      "count": 210,
+      "initialEnemies": 5,
+      "originalSpawnClock": 1.5,
+      "frames": 360,
+      "playedTicks": 360,
+      "selectedUpgrades": 0,
+      "final": {
+        "state": "playing",
+        "time": 5.999999999999984,
+        "hp": 73,
+        "kills": 62,
+        "enemies": 210,
+        "level": 1,
+        "random": 644244926,
+        "visualRandom": 1203693198
+      },
+      "identicalSnapshots": true,
+      "identicalRuntime": true,
+      "identicalEvents": true,
+      "identicalRandom": true
+    },
+    {
+      "seed": 19253,
+      "count": 60,
+      "initialEnemies": 5,
+      "originalSpawnClock": 1.5,
+      "frames": 360,
+      "playedTicks": 360,
+      "selectedUpgrades": 0,
+      "final": {
+        "state": "playing",
+        "time": 5.999999999999984,
+        "hp": 88,
+        "kills": 9,
+        "enemies": 95,
+        "level": 1,
+        "random": 2289165836,
+        "visualRandom": 3345905788
+      },
+      "identicalSnapshots": true,
+      "identicalRuntime": true,
+      "identicalEvents": true,
+      "identicalRandom": true
+    },
+    {
+      "seed": 19253,
+      "count": 180,
+      "initialEnemies": 5,
+      "originalSpawnClock": 1.5,
+      "frames": 360,
+      "playedTicks": 360,
+      "selectedUpgrades": 2,
+      "final": {
+        "state": "playing",
+        "time": 5.999999999999984,
+        "hp": 72,
+        "kills": 34,
+        "enemies": 210,
+        "level": 3,
+        "random": 4145876640,
+        "visualRandom": 1918886645
+      },
+      "identicalSnapshots": true,
+      "identicalRuntime": true,
+      "identicalEvents": true,
+      "identicalRandom": true
+    },
+    {
+      "seed": 19253,
+      "count": 210,
+      "initialEnemies": 5,
+      "originalSpawnClock": 1.5,
+      "frames": 360,
+      "playedTicks": 360,
+      "selectedUpgrades": 2,
+      "final": {
+        "state": "playing",
+        "time": 5.999999999999984,
+        "hp": 72,
+        "kills": 34,
+        "enemies": 210,
+        "level": 3,
+        "random": 2370675724,
+        "visualRandom": 3934699749
+      },
+      "identicalSnapshots": true,
+      "identicalRuntime": true,
+      "identicalEvents": true,
+      "identicalRandom": true
+    }
+  ],
+  "errors": [],
+  "note": "Independent full original and candidate engine modules differ only in the Navigation import. Six normal seeded real-city cases retain original obstacles, collision, default constructor roster and automatic spawn clock, then fill to60/180/210 through normal validated spawnEnemy calls including one normal collector and six other original types. No actor teleport, HP/damage/invulnerability boosts, fake world, storage or observers are used. Actual movement, aim, shots, dash, lure and Molotov inputs are identical. Each tick compares live checkpoint, complete actor/particle state, events and both RNG streams strictly, including terminal states if normal combat ends early. Checkpoint capture/verification deliberately lives outside the separate benchmark; this file makes no timing/FPS/memory claim."
+}

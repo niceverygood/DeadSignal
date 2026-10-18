@@ -1,0 +1,1027 @@
+import {CITY_EXPEDITION,ROOF_EXPEDITION,HOSPITAL_EXPEDITION,NORTH_EXPEDITION,SEA_EXPEDITION,ISRAEL_EXPEDITION,FINALE_EXPEDITION,expeditionTarget} from './expedition.js';
+import {createExpeditionUI,expeditionResultHTML} from './expedition-ui.js';
+import {expeditionManifest} from './expedition-art.js';
+import {createStoryRadio} from './story-radio.js';
+import {storyResultHTML} from './story-campaign.js';
+import {AudioSystem,audioNoiseEnvelopeStats} from './audio.js';
+import {BOSS_CATALOG} from './campaign.js';
+import {createSkillCutin} from './skill-cutin.js';
+import {Game} from './engine.js?v=0.29.0';
+import {Renderer} from './renderer.js?v=0.29.0&dense=20261018-4';
+import {productionManifest as originalProductionManifest} from './production-manifest.js?v=0.29.0';
+const productionManifest=expeditionManifest(originalProductionManifest);
+import {productionLaunchPlan,preloadLaunchPlan} from './launch-gate.js?v=0.29.0';
+import {ActorInterpolation} from './actor-interpolation.js';
+import {advanceSimulation,FIXED_STEP} from './simulation.js?v=0.29.0';
+const canvas=document.querySelector('#game'),status=document.querySelector('#status'),diagnostics=document.querySelector('#diagnostics');
+let game=new Game({seed:774,weapon:'shotgun',stageDuration:1e9}),aim=0,ready=false,playing=false;
+const fieldUI=createExpeditionUI();
+const interpolation=new ActorInterpolation();
+const renderer=new Renderer(canvas,{productionManifest});renderer.resize();renderer.shakeEnabled=false;
+const cutin=createSkillCutin(()=>renderer.livePlayer?.canvas);
+const audio=new AudioSystem();audio.enabled=false;const radio=createStoryRadio(()=>audio.play('radio'));
+renderer.onChargeImpact=event=>audio.play('boss-wall',event);
+let lastSpatialSound=null;
+function events(){audio.listener=game.player;for(const event of game.drainEvents()){cutin.play(event.type);audio.play(event.type,event);if(['fire','fire-throw','reload','loaded','lure'].includes(event.type))lastSpatialSound={type:event.type,x:event.x,y:event.y,weapon:event.weapon,...audio.perspective};radio.event(game,event);}}
+const soundButton=document.createElement('button');soundButton.textContent='검수 음향 켜기';document.querySelector('nav').append(soundButton);soundButton.onclick=()=>{audio.unlock();audio.setEnabled(!audio.enabled);soundButton.textContent=audio.enabled?'검수 음향 끄기':'검수 음향 켜기';};
+async function load(){ready=false;status.textContent='원본 에셋을 불러오는 중…';
+  const plan=productionLaunchPlan({manifest:productionManifest,weapon:game.player.weapon,mission:game.mission,world:game.world});
+  if(!await preloadLaunchPlan(renderer,plan)){
+    const failures=[...renderer.productionArt.records].filter(([,r])=>r.status==='failed').map(([id,r])=>id+': '+r.error);
+    throw new Error('original-asset-load-failed'+(failures.length?' · '+failures.join(' · '):''));
+  }
+  ready=true;paint();status.textContent='준비 완료 · 원본 리그와 실제 전투 엔진';}
+function paint(view=game,now=game.time){renderer.render(view,{},now);radio.update(game);fieldUI.update(game);
+  const c=document.querySelector('#closeup').getContext('2d');c.clearRect(0,0,256,256);
+  if(renderer.livePlayer?.canvas)c.drawImage(renderer.livePlayer.canvas,0,0);
+  diagnostics.textContent=JSON.stringify({sound:{state:audio.ctx?.state,active:audio.active,lastSpatialSound},expedition:game.expedition,time:game.time,state:game.state,weapon:game.player.weapon,hp:game.player.hp,flash:game.flash,invul:game.player.invul,
+    x:game.player.x,y:game.player.y,rig:canvas.dataset.productionRig,error:canvas.dataset.productionRigError,
+    gpuAlpha:{enabled:renderer.liveEnemies?.exactGPUAlphaBounds,minCells:renderer.liveEnemies?.minGPUAlphaCells,stats:renderer.liveEnemies?.gpuAlphaStats},boss:renderer.liveBoss?.diagnostics,throwables:game.throwables.map(t=>({elapsed:t.elapsed,height:t.height,released:t.released})),fires:game.fires.length,...renderer.livePlayer?.diagnostics},null,2);}
+function step(x,y,dash=false){if(!ready)return;
+  for(let i=0;i<20;i++){
+    if(game.state!=='playing'){status.textContent='개조/종료 대기 · 현재 선택은 유지됩니다.';break;}
+    game.tick(1/20,{moveX:x,moveY:y,aimX:game.player.x+Math.cos(aim)*300,aimY:game.player.y+Math.sin(aim)*300,fireMode:'manual',shoot:true,dash:dash&&i===0});
+    events();paint();
+  }
+}
+document.querySelectorAll('[data-move]').forEach(button=>button.onclick=()=>step(...button.dataset.move.split(',').map(Number)));
+document.querySelector('#stop').onclick=()=>step(0,0);
+document.querySelector('#dash').onclick=()=>step(1,0,true);
+document.querySelector('#aim').onclick=()=>{aim+=Math.PI/4;step(0,1);};
+document.querySelector('#restore').onclick=()=>{const checkpoint=game.snapshot(),restored=Game.restore(checkpoint);if(!restored)throw new Error('checkpoint-restore');game=restored;paint();status.textContent='복구 완료 · 위치/진행 유지 · localStorage 사용 없음';};
+document.querySelector('#resume').onclick=()=>{game.resume();paint();status.textContent='QA 전투 재개';};
+document.querySelector('#hit').onclick=()=>{game.hurtPlayer(8);paint();};
+document.querySelector('#slow').onclick=()=>step(0,.25);
+document.querySelector('#play-cycle').onclick=()=>{
+  if(!ready)return;playing=!playing;
+  document.querySelector('#play-cycle').textContent=playing?'연속 재생 정지':'연속 이동 재생';
+  if(!playing)return;
+  let last=performance.now(),accumulator=0;
+  const animate=now=>{
+    if(!playing)return;
+    if(game.state!=='playing'){playing=false;document.querySelector('#play-cycle').textContent='연속 이동 재생';status.textContent='전투 선택 대기 · 자동 선택하지 않습니다.';return;}
+    accumulator+=Math.min(.05,(now-last)/1000);last=now;
+    const path=Math.floor(game.time/1.25)%8*Math.PI/4;
+    const command={moveX:Math.cos(path),moveY:Math.sin(path),aimX:game.player.x+300,aimY:game.player.y,fireMode:'manual',shoot:true};
+    accumulator=advanceSimulation(game,command,accumulator,{interpolator:interpolation}).accumulator;
+    events();paint(interpolation.sample(game,accumulator/FIXED_STEP,FIXED_STEP),now/1000);
+    requestAnimationFrame(animate);
+  };requestAnimationFrame(animate);
+};
+document.querySelector('#weapon').onclick=async()=>{if(!ready)return;game.player.weapon=game.player.weapon==='shotgun'?'nailgun':'shotgun';await load();};
+window.addEventListener('resize',()=>{renderer.resize();paint();});
+load().catch(error=>{status.textContent=error.message;console.error(error);});
+
+const throwButton=document.createElement('button');throwButton.textContent='화염병 실시간 검수';document.querySelector('nav').append(throwButton);
+throwButton.onclick=()=>{if(!ready||playing)return;game.player.molotovCd=0;game.throwFire(game.player.x+170,game.player.y-80);events();let last=performance.now(),acc=0,start=game.time,captures=0;
+const frame=now=>{acc+=Math.min(.05,(now-last)/1000);last=now;acc=advanceSimulation(game,{moveX:0,moveY:0,aimX:game.player.x+170,aimY:game.player.y-80,fireMode:'manual'},acc,{interpolator:interpolation}).accumulator;events();paint(interpolation.sample(game,acc/FIXED_STEP,FIXED_STEP),now/1000);const moments=[.1,.32,.84,1.03];if(captures<moments.length&&game.time-start>=moments[captures]){const image=document.createElement('img');image.alt=['손에 든 화염병','포물선 비행','착탄 임팩트','지속 화염'][captures];image.src=canvas.toDataURL();image.style.width='45%';image.dataset.molotovMoment=String(moments[captures++]);document.body.append(image);}if(game.time-start<2.2)requestAnimationFrame(frame);};requestAnimationFrame(frame);};
+
+const select=document.createElement('select');select.setAttribute('aria-label','보스 선택');for(const boss of BOSS_CATALOG){const option=document.createElement('option');option.value=boss.id;option.textContent=boss.id;select.append(option);}document.querySelector('nav').append(select);
+const bossButton=document.createElement('button');bossButton.textContent='보스 실제 출격';document.querySelector('nav').append(bossButton);
+bossButton.onclick=async()=>{playing=false;const catalog=BOSS_CATALOG.find(b=>b.id===select.value);game=new Game({missionId:catalog.missionId,seed:774,weapon:'shotgun',stageDuration:1e9});if(catalog.role==='final'){game.midBossSpawned=true;game.midBossDefeated=true;game.defeatedBossIds=[game.mission.midBoss];}game.spawnMissionBoss(catalog.role);await load();const boss=game.boss;if(boss){boss.x=game.player.x+145;boss.y=game.player.y+20;}events();paint();};
+for(const [label,state] of [['보스 공격','attack'],['보스 피격','hit']]){const b=document.createElement('button');b.textContent=label;document.querySelector('nav').append(b);b.onclick=()=>{if(!game.boss)return;game.boss.attackState=state==='attack'?'windup':'idle';game.boss.attackTime=state==='attack'?.6:0;game.boss.hitFlash=state==='hit'?.22:0;game.boss.stun=state==='hit'?.22:0;paint();};}
+
+for(const weapon of ['shotgun','nailgun']){const b=document.createElement('button');b.textContent=weapon==='shotgun'?'산탄총 명중 임팩트':'못총 명중 임팩트';document.querySelector('nav').append(b);b.onclick=async()=>{playing=false;game=new Game({seed:774,weapon,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+70,y:game.player.y-40,hp:500,maxHp:500,speed:0});game.player.angle=Math.atan2(-40,70);for(let i=0;i<12;i++){game.tick(1/120,{moveX:0,moveY:0,aimX:e.x,aimY:e.y,shoot:i===0,fireMode:'manual'});if(game.particles.some(p=>p.kind==='weapon-impact'))break;}events();paint();status.textContent=weapon+' 실제 탄환 명중 · 피해 '+(500-e.hp).toFixed(1)+' · 섬광 '+game.particles.filter(p=>p.kind==='weapon-impact').length;};}
+
+for(const material of ['concrete','metal']){const b=document.createElement('button');b.textContent=material==='metal'?'금속 명중 검수':'콘크리트 명중 검수';document.querySelector('nav').append(b);b.onclick=async()=>{playing=false;game=new Game({seed:774,weapon:'shotgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();const object={id:++game.id,x:game.player.x+60,y:game.player.y-70,w:25,h:80,kind:material==='metal'?'car':'building',hp:500,maxHp:500,destroyed:false};game.world.obstacles.push(object);game.player.angle=-.25;for(let i=0;i<15;i++){game.tick(1/120,{moveX:0,moveY:0,aimX:game.player.x+100,aimY:game.player.y-25,shoot:i===0,fireMode:'manual'});if(game.particles.some(p=>p.surface===material))break;}events();paint();status.textContent=material+' 실제 장애물 탄환 충돌 · '+game.particles.filter(p=>p.surface===material).length+' 명중';};}
+
+const clueButton=document.createElement('button');clueButton.textContent='실제 보스 격파 단서 검수';document.querySelector('nav').append(clueButton);clueButton.onclick=async()=>{playing=false;game=new Game({missionId:'mission-01',seed:774,stageDuration:1e9});await load();game.spawnMissionBoss('mid');game.damageEnemy(game.boss,1e6);game.spawnMissionBoss('final');game.damageEnemy(game.boss,1e6);events();paint();const result=document.createElement('section');result.innerHTML=storyResultHTML(game);document.querySelector('aside').prepend(result);status.textContent='실제 중간/최종 보스 격파 · '+game.state+' · 저장 접근 없음';};
+
+const expeditionButton=document.createElement('button');expeditionButton.textContent='원정 프롤로그 출격';document.querySelector('nav').append(expeditionButton);expeditionButton.onclick=async()=>{playing=false;game=new Game({seed:774,expeditionId:CITY_EXPEDITION.id,weapon:'shotgun'});await load();paint();};
+const travelButton=document.createElement('button');travelButton.textContent='원정 경로·회수 검수 (적 격리)';document.querySelector('nav').append(travelButton);travelButton.onclick=async()=>{playing=false;game=new Game({seed:774,expeditionId:CITY_EXPEDITION.id,weapon:'shotgun'});await load();let frames=0;while(game.state==='playing'&&frames++<6000){game.enemies=[];game.spawnClock=1e9;const target=expeditionTarget(game);if(!target)break;const near=Math.hypot(game.player.x-target.x,game.player.y-target.y)<=30,d=near?{x:0,y:0}:game.navigation.direction(game.player,target,game.player.r),old=game.expedition.step;game.tick(1/60,{moveX:d.x,moveY:d.y,interact:near,fireMode:'manual'});events();if(game.expedition.step!==old){paint();const image=document.createElement('img');image.alt='원정 경로 검수 '+target.title;image.src=canvas.toDataURL();image.style.width='30%';document.body.append(image);}}paint();const result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);status.textContent='적 격리 경로 검수 · '+game.state+' · 목표 '+game.expedition.step+'/3 · '+game.time.toFixed(1)+'초 · 텔레포트/저장 접근 없음';};
+
+const roofButton=document.createElement('button');roofButton.textContent='옥상 원정 출격';document.querySelector('nav').append(roofButton);roofButton.onclick=async()=>{playing=false;game=new Game({seed:774,expeditionId:ROOF_EXPEDITION.id,weapon:'shotgun'});await load();paint();};
+const roofWalk=document.createElement('button');roofWalk.textContent='옥상 경로·방어 검수 (적 격리)';document.querySelector('nav').append(roofWalk);roofWalk.onclick=async()=>{playing=false;game=new Game({seed:774,expeditionId:ROOF_EXPEDITION.id,weapon:'shotgun'});await load();let frames=0,save=null;while(game.state==='playing'&&frames++<9000){game.enemies=[];game.spawnClock=1e9;const target=expeditionTarget(game);if(!target)break;const near=Math.hypot(game.player.x-target.x,game.player.y-target.y)<=25,d=near?{x:0,y:0}:game.navigation.direction(game.player,target,game.player.r),old=game.expedition.step;game.tick(1/60,{moveX:d.x,moveY:d.y,interact:near,fireMode:'manual'});if(!save&&game.expedition.step===1&&game.expedition.hold>=10)save=game.snapshot();events();if(game.expedition.step!==old){paint();const image=document.createElement('img');image.alt='옥상 검수 '+target.title;image.src=canvas.toDataURL();image.style.width='30%';document.body.append(image);}}paint();const restored=save&&Game.restore(save),result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);status.textContent='옥상 적 격리 경로·방어 · '+game.state+' · '+game.expedition.step+'/3 · '+game.time.toFixed(1)+'초 · 10초 전송 저장복구 '+(restored?.expedition.hold.toFixed(1)||'실패')+' · 텔레포트/저장 접근 없음';};
+
+const roofThrow=document.createElement('button');roofThrow.textContent='옥상 경계 투척 검수';document.querySelector('nav').append(roofThrow);roofThrow.onclick=async()=>{playing=false;game=new Game({seed:774,expeditionId:ROOF_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;game.player.x=1290;game.player.y=790;await load();game.throwFire(1380,790);events();let last=performance.now(),acc=0,start=game.time;const frame=now=>{acc+=Math.min(.05,(now-last)/1000);last=now;acc=advanceSimulation(game,{moveX:0,moveY:0,aimX:1380,aimY:790,fireMode:'manual'},acc,{interpolator:interpolation}).accumulator;events();paint(interpolation.sample(game,acc/FIXED_STEP,FIXED_STEP),now/1000);status.textContent='경계 투척 · 병 높이 '+(game.throwables[0]?.height.toFixed(1)||'낙하 완료')+' · 옥상 지속화염 '+game.fires.length+' · 저장 '+!!game.snapshot();if(game.time-start<2.1)requestAnimationFrame(frame);};requestAnimationFrame(frame);};
+
+const impactSequence=document.createElement('button');impactSequence.textContent='무기 임팩트 단계 비교';document.querySelector('nav').append(impactSequence);
+impactSequence.onclick=async()=>{
+  playing=false;document.querySelector('#impact-sequence')?.remove();
+  const panel=document.createElement('section');panel.id='impact-sequence';
+  panel.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:8px';document.querySelector('main').before(panel);
+  for(const weapon of ['shotgun','nailgun']){
+    game=new Game({seed:774,weapon,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();
+    const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+70,y:game.player.y-40,hp:500,maxHp:500,speed:0});
+    const command={moveX:0,moveY:0,aimX:e.x,aimY:e.y,fireMode:'manual',shoot:true};
+    let contact=null,index=0;const moments=[0,.065,.14,.23];
+    for(let tick=0;tick<60&&index<moments.length;tick++){
+      game.tick(1/120,{...command,shoot:tick===0});events();
+      if(contact===null&&game.particles.some(p=>p.kind==='weapon-impact'))contact=game.time;
+      if(contact!==null&&game.time-contact>=moments[index]){
+        paint();const figure=document.createElement('figure');figure.style.margin='0';
+        const image=document.createElement('img');image.src=canvas.toDataURL();image.style.width='100%';image.alt=weapon+' 명중 '+moments[index]+'초';
+        const caption=document.createElement('figcaption');caption.textContent=(weapon==='shotgun'?'산탄총':'못총')+' · '+Math.round(moments[index]*1000)+'ms';
+        figure.append(image,caption);panel.append(figure);index++;
+      }
+    }
+  }
+  status.textContent='실제 발사·명중 8장 · 접촉/충격 고리/방향 파편/잔광 · 저장 접근 없음';
+};
+
+const hospitalButton=document.createElement('button');hospitalButton.textContent='병원 원정 출격';document.querySelector('nav').append(hospitalButton);
+hospitalButton.onclick=async()=>{playing=false;game=new Game({seed:774,expeditionId:HOSPITAL_EXPEDITION.id});await load();events();paint();};
+const hospitalRoute=document.createElement('button');hospitalRoute.textContent='병원 경로·정예전 검수 (일반 적 격리)';document.querySelector('nav').append(hospitalRoute);
+hospitalRoute.onclick=async()=>{
+ playing=false;game=new Game({seed:774,expeditionId:HOSPITAL_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;await load();let frames=0,guardSave=null;
+ while(game.state==='playing'&&frames++<9000){
+  game.enemies=game.enemies.filter(e=>e.gatekeeper);game.spawnClock=1e9;const target=expeditionTarget(game);if(!target)break;
+  const near=Math.hypot(game.player.x-target.x,game.player.y-target.y)<30,d=near?{x:0,y:0}:game.navigation.direction(game.player,target,game.player.r),old=game.expedition.step;
+  const guard=game.enemies.find(e=>e.gatekeeper&&!e.dead);
+  game.tick(1/60,{moveX:d.x,moveY:d.y,interact:near,fireMode:'manual',aimX:guard?.x??game.player.x+200,aimY:guard?.y??game.player.y,shoot:!!guard});events();
+  if(guard&&!guardSave)guardSave=game.snapshot();
+  if(game.expedition.step!==old){paint();const image=document.createElement('img');image.alt='병원 검수 '+target.title;image.src=canvas.toDataURL();image.style.width='19%';document.body.append(image);}
+ }
+ paint();const result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);
+ status.textContent='일반 적 격리 · 정예 실제 탄환 전투 · '+game.state+' · '+game.expedition.step+'/5 · '+game.time.toFixed(1)+'초 · HP '+Math.ceil(game.player.hp)+' · 정예 저장복구 '+!!Game.restore(guardSave)+' · 무적/순간이동/저장 접근 없음';
+};
+
+const northButton=document.createElement('button');northButton.textContent='북한 검역 원정 출격';document.querySelector('nav').append(northButton);
+northButton.onclick=async()=>{playing=false;game=new Game({seed:774,expeditionId:NORTH_EXPEDITION.id});await load();events();paint();};
+const northRoute=document.createElement('button');northRoute.textContent='검역 경로·차량 호위 검수 (적 격리)';document.querySelector('nav').append(northRoute);
+northRoute.onclick=async()=>{
+ playing=false;game=new Game({seed:774,expeditionId:NORTH_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;await load();let frames=0,resumed=false;
+ while(game.state==='playing'&&frames++<10000){
+  game.enemies=[];game.spawnClock=1e9;const target=expeditionTarget(game);if(!target)break;
+  const near=Math.hypot(game.player.x-target.x,game.player.y-target.y)<target.radius-1;
+  const goal=target.kind==='escort'?{x:target.x+75,y:target.y+60}:target,d=near&&target.kind!=='escort'?{x:0,y:0}:game.navigation.direction(game.player,goal,game.player.r),old=game.expedition.step;
+  game.tick(1/60,{moveX:d.x,moveY:d.y,interact:near,fireMode:'manual'});events();
+  if(!resumed&&game.expedition.step===2&&game.expedition.hold>=10){const restored=Game.restore(game.snapshot(),{resumePlaying:true});if(!restored)throw new Error('escort-restore');game=restored;resumed=true;}
+  if(game.expedition.step!==old){paint();const image=document.createElement('img');image.alt='검역 원정 '+target.title;image.src=canvas.toDataURL();image.style.width='24%';document.body.append(image);}
+ }
+ paint();const result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);
+ status.textContent='적 격리 경로·차량 호위 · '+game.state+' · '+game.expedition.step+'/4 · '+game.time.toFixed(1)+'초 · 호위 10초 실제 저장복구 재개 '+resumed+' · 무적/순간이동/저장 접근 없음';
+};
+
+const convoyContact=document.createElement('button');convoyContact.textContent='견인차 접촉·실제 탄환 검수';document.querySelector('nav').append(convoyContact);
+convoyContact.onclick=async()=>{
+ playing=false;game=new Game({seed:774,expeditionId:NORTH_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;await load();
+ const before=game.player.y;game.move(game.player,0,-350);game.player.angle=-Math.PI/2;game.shoot();game.updateBullets(.3);events();paint();
+ const restored=Game.restore(game.snapshot());status.textContent='실제 차량 몸체 접촉 · 요청350m / 실제 이동 '+(before-game.player.y).toFixed(1)+'m · 금속 탄흔 '+game.particles.filter(p=>p.surface==='metal').length+' · 위치 저장복구 '+!!restored+' · 사용자 저장 접근 없음';
+};
+
+const seaRoute=document.createElement('button');seaRoute.textContent='항만 경로·교차 송신 검수 (일반 적 격리)';document.querySelector('nav').append(seaRoute);
+seaRoute.onclick=async()=>{
+ playing=false;game=new Game({seed:774,expeditionId:SEA_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;await load();let frames=0,resumed=false;
+ while(game.state==='playing'&&frames++<12000){
+  game.enemies=game.enemies.filter(e=>e.gatekeeper);game.spawnClock=1e9;const target=expeditionTarget(game);if(!target)break;
+  const near=Math.hypot(game.player.x-target.x,game.player.y-target.y)<30,d=near?{x:0,y:0}:game.navigation.direction(game.player,target,game.player.r),old=game.expedition.step;
+  const guard=game.enemies.find(e=>e.gatekeeper&&!e.dead);
+  game.tick(1/60,{moveX:d.x,moveY:d.y,interact:near,fireMode:'manual',aimX:guard?.x??game.player.x+200,aimY:guard?.y??game.player.y,shoot:!!guard});events();
+  if(!resumed&&game.expedition.step===2&&game.expedition.hold>=10){const restored=Game.restore(game.snapshot(),{resumePlaying:true});if(!restored)throw new Error('relay-restore');game=restored;resumed=true;}
+  if(game.expedition.step!==old){paint();const image=document.createElement('img');image.alt='항만 원정 '+target.title;image.src=canvas.toDataURL();image.style.width='19%';document.body.append(image);}
+ }
+ paint();const result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);
+ status.textContent='일반 적 격리 · 항만 실제 경로·정예 탄환 전투 · '+game.state+' · '+game.expedition.step+'/5 · '+game.time.toFixed(1)+'초 · 교차 송신 10초 실제 저장복구 재개 '+resumed+' · 무적/순간이동/저장 접근 없음';
+};
+
+const materialSequence=document.createElement('button');materialSequence.textContent='재질 임팩트 시간별 비교';document.querySelector('nav').append(materialSequence);
+materialSequence.onclick=async()=>{
+ playing=false;let count=0;
+ for(const material of ['metal','concrete']){
+  game=new Game({seed:774,weapon:'shotgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();
+  game.world.obstacles.push({id:++game.id,x:game.player.x+60,y:game.player.y-70,w:25,h:80,kind:material==='metal'?'car':'building',hp:500,maxHp:500,destroyed:false});
+  for(let i=0;i<15;i++){game.tick(1/120,{moveX:0,moveY:0,aimX:game.player.x+100,aimY:game.player.y-25,shoot:i===0,fireMode:'manual'});if(game.particles.some(p=>p.surface===material))break;}
+  for(let frame=0;frame<4;frame++){if(frame)game.tick(.045,{moveX:0,moveY:0,shoot:false,fireMode:'manual'});events();paint();const image=document.createElement('img');image.alt=material+' 실제 명중 '+(frame*45)+'ms';image.src=canvas.toDataURL();image.style.width='24%';document.body.append(image);count++;}
+ }
+ status.textContent='실제 탄환 충돌 · 금속/콘크리트 시간별 '+count+' 프레임 · 피해/RNG/저장 형식 변경 없음';
+};
+
+const damageDirection=document.createElement('button');damageDirection.textContent='실제 피격 방향 비교';document.querySelector('nav').append(damageDirection);
+damageDirection.onclick=async()=>{
+ playing=false;let contacts=0;
+ for(const delta of [{x:28,y:0},{x:0,y:28},{x:-28,y:0},{x:0,y:-28}]){
+  game=new Game({seed:774,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();game.player.invul=0;
+  const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+delta.x,y:game.player.y+delta.y,attackCd:0});
+  game.tick(1/60,{moveX:0,moveY:0,shoot:false,fireMode:'manual'});if(game.player.hp<100)contacts++;events();paint();
+  const image=document.createElement('img');image.alt='실제 적 접촉 '+delta.x+','+delta.y;image.src=canvas.toDataURL();image.style.width='49%';document.body.append(image);
+ }
+ status.textContent='실제 적 근접 타격 '+contacts+'/4 · 등각 피격 방향 표시 · 저장 접근 없음';
+};
+
+const blastSequence=document.createElement('button');blastSequence.textContent='원본 폭발·지면 압력파 비교';document.querySelector('nav').append(blastSequence);
+blastSequence.onclick=async()=>{
+ playing=false;game=new Game({seed:774,expeditionId:SEA_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;await load();
+ game.explode(game.player.x+100,game.player.y-30,150,85,false);
+ for(let frame=0;frame<4;frame++){if(frame)for(let step=0;step<7;step++)game.tick(.01,{moveX:0,moveY:0,shoot:false,fireMode:'manual'});events();paint();const image=document.createElement('img');image.alt='원본 폭발 '+frame*70+'ms';image.src=canvas.toDataURL();image.style.width='49%';document.body.append(image);}
+ status.textContent='실제 폭발 · 원본 Meshy 화염 + 지면 압력파·먼지 · 시간별4프레임 · 사용자 저장 접근 없음';
+};
+
+const audioCrowd=document.createElement('button');audioCrowd.textContent='연사·폭발·피격 음향 겹침 검수';document.querySelector('nav').append(audioCrowd);
+audioCrowd.onclick=()=>{
+ if(audioCrowd.disabled)return;audioCrowd.disabled=true;audio.unlock();audio.setEnabled(true);audio.listener=game.player;
+ const gameState=()=>({state:game.state,time:game.time,hp:game.player.hp,x:game.player.x,y:game.player.y,enemies:game.enemies.length,random:game.random.getState(),visualRandom:game.visualRandom.getState()});
+ const before=gameState(),cacheBefore=audioNoiseEnvelopeStats(audio),voices=[];let count=0;
+ const timer=setInterval(()=>{
+  audio.play('shot',{weapon:'shotgun',x:game.player.x,y:game.player.y});count++;
+  if(count===8){audio.play('explosion',{x:game.player.x+100,y:game.player.y});audio.play('hurt');}
+  voices.push({shot:count,active:audio.active,voiceLimit:audio.voiceLimit,contextState:audio.ctx?.state??null});
+  status.textContent='WebAudio '+audio.ctx?.state+' · 활성 음성 '+audio.active+'/22 · 연사 '+count+'회 · 폭발 파열/저음/잔해 + 피격음';
+  if(count>=12){clearInterval(timer);setTimeout(()=>{
+   const after=gameState(),report={shots:count,contextState:audio.ctx?.state??null,sampleRate:audio.ctx?.sampleRate??null,activeAfterEnded:audio.active,cacheBefore,cacheAfter:audioNoiseEnvelopeStats(audio),voices,unchangedGame:JSON.stringify(before)===JSON.stringify(after),before,after,note:'Actual AudioContext uses original shotgun, explosion and hurt calls. Timers and audible output are not a benchmark or proof of human listening. Only numeric decay envelopes are cached; fresh random AudioBuffers and original voice graphs remain in use. No persistent player storage is used.'};
+   let pre=document.querySelector('#audio-crowd-report');if(!pre){pre=document.createElement('pre');pre.id='audio-crowd-report';document.body.append(pre);}pre.textContent=JSON.stringify(report,null,2);
+   status.textContent='WebAudio '+audio.ctx?.state+' · 재생 종료 후 활성 음성 '+audio.active+'/22 · 감쇠 캐시 '+report.cacheAfter.bytes+'bytes · 게임 불변 '+report.unchangedGame;audioCrowd.disabled=false;
+  },800);}
+ },80);
+};
+
+const israelRoute=document.createElement('button');israelRoute.textContent='이스라엘 경로·정예전 검수 (일반 적 격리)';document.querySelector('nav').append(israelRoute);
+israelRoute.onclick=async()=>{
+ playing=false;game=new Game({seed:774,expeditionId:ISRAEL_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;await load();let frames=0,guardSave=null,resumed=false;
+ while(game.state==='playing'&&frames++<9000){
+  game.enemies=game.enemies.filter(e=>e.gatekeeper);game.spawnClock=1e9;const target=expeditionTarget(game);if(!target)break;
+  const near=Math.hypot(game.player.x-target.x,game.player.y-target.y)<30,d=near?{x:0,y:0}:game.navigation.direction(game.player,target,game.player.r),old=game.expedition.step;
+  const guard=game.enemies.find(e=>e.gatekeeper&&!e.dead);
+  game.tick(1/60,{moveX:d.x,moveY:d.y,interact:near,fireMode:'manual',aimX:guard?.x??game.player.x+200,aimY:guard?.y??game.player.y,shoot:!!guard});events();
+  if(!resumed&&game.expedition.step===2&&game.expedition.hold>=10){const restored=Game.restore(game.snapshot(),{resumePlaying:true});if(!restored)throw Error('israel-analysis-restore');game=restored;resumed=true;}
+  if(guard&&!guardSave)guardSave=game.snapshot();
+  if(game.expedition.step!==old){paint();const image=document.createElement('img');image.alt='이스라엘 검수 '+target.title;image.src=canvas.toDataURL();image.style.width='19%';document.body.append(image);}
+ }
+ paint();const result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);
+ status.textContent='일반 적 격리 · 정예 실제 탄환 전투 · '+game.state+' · '+game.expedition.step+'/6 · '+game.time.toFixed(1)+'초 · HP '+Math.ceil(game.player.hp)+' · 정예 저장복구 '+!!Game.restore(guardSave)+' · 분석10초 실제 복구재개 '+resumed+' · 무적/순간이동/저장 접근 없음';
+};
+
+
+const effectSubframes=document.createElement('button');effectSubframes.textContent='폭발·반동 렌더 서브프레임 검수';document.querySelector('nav').append(effectSubframes);
+effectSubframes.onclick=async()=>{
+ playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();game.explode(game.player.x+100,game.player.y,150,85,false);game.player.recoil=.12;
+ interpolation.capture(game);game.tick(FIXED_STEP,{moveX:0,moveY:0,shoot:false,fireMode:'manual'});const before=JSON.stringify(game.snapshot()),lives=[];
+ for(const alpha of [.1,.35,.65,.9]){const view=interpolation.sample(game,alpha,FIXED_STEP);lives.push(view.particles.find(p=>p.kind==='shockwave').life.toFixed(5));paint(view);const image=document.createElement('img');image.alt='렌더 서브프레임 '+alpha;image.src=canvas.toDataURL();image.style.width='49%';document.body.append(image);}
+ status.textContent='동일 물리 틱 · 폭발 남은 수명 '+lives.join(' → ')+' · 스냅샷 동일 '+(JSON.stringify(game.snapshot())===before)+' · 원본 모델 유지';
+};
+
+const enemyDense=document.createElement('button');enemyDense.textContent='일반 적7종 연속 리그·피격 검수';document.querySelector('nav').append(enemyDense);
+enemyDense.onclick=async()=>{
+ playing=false;const report=[];
+ for(const type of ['walker','runner','shield','screamer','gas','elite','collector']){
+  game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;renderer.liveEnemies.releaseUnused(['enemy-'+type]);await renderer.liveEnemies.load('enemy-'+type);const e=game.spawnEnemy(type,300);Object.assign(e,{x:game.player.x+80,y:game.player.y+10,hp:500,maxHp:500,attackCd:.8});
+  paint();const action=renderer.liveEnemies?.diagnostics?.clip;
+  const image=document.createElement('img');image.alt=type+' 원본 연속 공격';image.src=canvas.toDataURL();image.style.width='32%';document.body.append(image);
+  game.damageEnemy(e,1,{x:45,y:0},game.player);e.attackCd=0;paint();report.push(type+':'+action+'/'+renderer.liveEnemies?.diagnostics?.clip);
+  const hit=document.createElement('img');hit.alt=type+' 원본 연속 피격';hit.src=canvas.toDataURL();hit.style.width='32%';document.body.append(hit);
+ }
+ status.textContent='포즈 QA fixture · 원본7종 '+report.join(' · ')+' · 리그 오류 '+(renderer.liveEnemies?.error||'없음')+' · 저장 접근 없음';
+};
+
+const finaleRoute=document.createElement('button');finaleRoute.textContent='최종 보스·백신 실제 회수 검수 (일반 적 격리)';document.querySelector('nav').append(finaleRoute);
+finaleRoute.onclick=async()=>{
+ playing=false;game=new Game({seed:775,expeditionId:FINALE_EXPEDITION.id});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-collector');let ticks=0,resumed=false,prepResumed=false;
+ while(!game.result&&ticks++<12000){
+  if(game.state==='upgrade'){const choice=game.choices.find(c=>c.id==='health')||game.choices[0];game.chooseUpgrade(choice.id);continue;}if(game.state!=='playing')break;
+  game.enemies=game.enemies.filter(e=>e.type==='collector'||e.id===game.alarm.eliteId);game.spawnClock=1e9;const t=expeditionTarget(game);if(!t)break;const p=game.player,boss=game.enemies.find(e=>!e.dead&&e.type==='collector'),near=Math.hypot(p.x-t.x,p.y-t.y)<30;
+  const goal=boss?{x:1770+Math.cos(game.time*.9)*190,y:860+Math.sin(game.time*.9)*130}:t;let d=!boss&&near?{x:0,y:0}:game.navigation.direction(p,goal,p.r);const distance=boss?Math.hypot(boss.x-p.x,boss.y-p.y):Infinity;
+  if(boss&&distance<100)d={x:(p.x-boss.x)/Math.max(1,distance),y:(p.y-boss.y)/Math.max(1,distance)};
+  if(boss&&['windup','charge'].includes(boss.attackState))d={x:-Math.sin(boss.angle),y:Math.cos(boss.angle)};
+  const old=game.expedition.step;game.tick(1/60,{moveX:d.x,moveY:d.y,interact:near,fireMode:'manual',shoot:!!boss,aimX:boss?.x??p.x+200,aimY:boss?.y??p.y,lure:distance<140&&p.lureCd<=0,molotov:distance<220&&p.molotovCd<=0,targetX:boss?.x??p.x,targetY:boss?.y??p.y,dash:distance<110&&p.dashCd<=0});events();
+  if(!prepResumed&&game.expedition.prepHold>=12&&game.expedition.prepHold<30){const restored=Game.restore(game.snapshot(),{resumePlaying:true});if(!restored)throw Error('preparation-restore');game=restored;prepResumed=true;}
+  if(!resumed&&game.boss&&game.boss.hp<game.boss.maxHp*.8){const restored=Game.restore(game.snapshot(),{resumePlaying:true});if(!restored)throw Error('final-boss-restore');game=restored;resumed=true;}
+  if(game.expedition.step!==old){paint();const image=document.createElement('img');image.alt='최종 임무 '+t.title;image.src=canvas.toDataURL();image.style.width='24%';document.body.append(image);}
+ }
+ renderer.cameraReady=false;paint();const result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);status.textContent='일반 적 격리·경보 정예 유지 · 실제 보스 탄환·회피·화염병 · '+game.state+' · '+game.expedition.step+'/4 · 백신 회수 '+(game.result?.vaccineRecovered===true)+' · 보스전 실제 복구재개 '+resumed+' · 정화12초 복구 '+prepResumed+' · HP '+Math.ceil(game.player.hp)+' · 무적/순간이동/저장 접근 없음';
+};
+
+const crowdRender=document.createElement('button');crowdRender.textContent='60적 실제 전투 렌더 비용 비교';document.querySelector('nav').append(crowdRender);
+crowdRender.onclick=async()=>{
+ if(!ready||crowdRender.disabled)return;crowdRender.disabled=true;let native;try{
+ playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');
+ for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}
+ const snapshot=game.snapshot();if(!snapshot)throw Error('crowd-fixture-invalid');native=renderer.liveEnemies;const results=[],saves=[];
+ for(const live of [false,true]){game=Game.restore(snapshot,{resumePlaying:true});renderer.liveEnemies=live?native:null;renderer.cameraReady=false;const times=[];let maxLive=0,maxReadbacks=0;
+  for(let frame=0;frame<100;frame++){if(game.state==='upgrade')game.chooseUpgrade(game.choices[0].id);if(game.state!=='playing')break;game.tick(1/60,{moveX:.3,moveY:.2,shoot:true,fireMode:'manual',aimX:1400,aimY:930});game.drainEvents();const start=performance.now();renderer.render(game,{},game.time);const elapsed=performance.now()-start;if(frame>=10)times.push(elapsed);maxLive=Math.max(maxLive,renderer.enemyLiveFrames||0);maxReadbacks=Math.max(maxReadbacks,live?native.lastBatchReadbacks||0:0);if(frame%8===0)await new Promise(requestAnimationFrame);}
+  times.sort((a,b)=>a-b);results.push({live,frames:times.length,medianMs:times[Math.floor(times.length*.5)],p95Ms:times[Math.floor(times.length*.95)],maxLive,maxReadbacks,hp:game.player.hp,enemies:game.enemies.length});saves.push(JSON.stringify(game.snapshot()));
+ }
+ renderer.liveEnemies=native;paint();const report=document.createElement('pre');report.textContent=JSON.stringify({results,identicalSnapshots:saves[0]===saves[1],note:'render wall cost including GPU readback, not hardware FPS; 10 warmup frames excluded'},null,2);document.querySelector('aside').prepend(report);status.textContent='실제60적 · 렌더 비용 비교 완료 · 저장 동일 '+(saves[0]===saves[1])+' · 라이브 최대 '+results[1].maxLive+' · 실제 FPS 측정 아님';
+ }finally{if(native)renderer.liveEnemies=native;crowdRender.disabled=false;}
+};
+
+const batchPixels=document.createElement('button');batchPixels.textContent='단일·묶음 리그 픽셀 비교 검수';document.querySelector('nav').append(batchPixels);
+batchPixels.onclick=async()=>{
+ playing=false;await load();await renderer.liveEnemiesPromise;const rig=renderer.liveEnemies;await rig.load('enemy-walker');const jobs=[];
+ for(const [i,pose]of ['idle','walk','attack','hit','idle','walk','attack','hit','death','death'].entries()){const actor={id:101+i,type:'walker',x:1200,y:930,hp:500,angle:i*.7,attackState:'walk'},selected=renderer.productionArt.enemyFrame('walker',actor,{pose,simulationTime:1.2,animationTime:.1});const fallback={...selected,locomotion:{pose,phase:2.4,angle:actor.angle,...(pose==='walk'?{moveWeight:i<4?.35:.7}:{})}},options={pose,animationTime:.1,height:42};const frame=rig.frame('enemy-walker',actor,1.2,fallback,options);jobs.push({actor:{...actor},fallback,options,reference:frame.image.getContext('2d').getImageData(0,0,256,256).data,bounds:JSON.stringify(frame.frame.alphaBounds),pose});}
+ rig.beginBatch(jobs.length);for(const job of jobs)rig.frame('enemy-walker',job.actor,1.2,job.fallback,job.options);rig.endBatch();let different=0,maxDelta=0,maxAlphaDelta=0,solidMaxDelta=0,boundsSame=true;
+ for(const job of jobs){const frame=rig.frame('enemy-walker',job.actor,1.2,job.fallback,job.options),pixels=frame.image.getContext('2d').getImageData(0,0,256,256).data;boundsSame&&=JSON.stringify(frame.frame.alphaBounds)===job.bounds;for(let i=0;i<pixels.length;i++)if(pixels[i]!==job.reference[i]){different++;const delta=Math.abs(pixels[i]-job.reference[i]);maxDelta=Math.max(maxDelta,delta);if(i%4===3)maxAlphaDelta=Math.max(maxAlphaDelta,delta);const alphaIndex=i-i%4+3;if(Math.min(pixels[alphaIndex],job.reference[alphaIndex])>=200)solidMaxDelta=Math.max(solidMaxDelta,delta);}const image=document.createElement('img');image.alt='묶음 원본 리그 '+job.pose;image.src=frame.image.toDataURL();image.style.width='23%';document.body.append(image);}
+ status.textContent='원본10포즈(걷기 혼합·사망 포함) 단일/묶음 차이 '+different+'바이트 · 최대 '+maxDelta+' · 불투명 영역 최대 '+solidMaxDelta+' · 알파 최대 '+maxAlphaDelta+' · 외곽 좌표 동일 '+boundsSame+' · 묶음 GPU 읽기 '+rig.lastBatchReadbacks+'회 · 저장 접근 없음';
+};
+
+const movingHit=document.createElement('button');movingHit.textContent='이동 중 원본 상체 피격 검수';document.querySelector('nav').append(movingHit);
+movingHit.onclick=async()=>{if(!ready||movingHit.disabled)return;movingHit.disabled=true;try{playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+100,y:game.player.y+10,hp:500,maxHp:500,attackCd:0});paint();for(let i=0;i<12;i++){game.tick(1/60,{fireMode:'manual',shoot:false});paint();}game.damageEnemy(e,1);const report=[];for(let i=0;i<7;i++){paint();report.push({...renderer.liveEnemies.diagnostics,hitFlash:e.hitFlash});const image=document.createElement('img');image.alt='이동 중 원본 상체 피격 '+i;image.src=canvas.toDataURL();image.style.width='32%';document.body.append(image);game.tick(1/60,{fireMode:'manual',shoot:false});}const pre=document.createElement('pre');pre.textContent=JSON.stringify({movingHit:report},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 이동·비넉백 피해 · 상체 원본 피격 '+report.map(r=>r.hitLayerWeight.toFixed(3)).join('/')+' · 저장 접근 없음';}finally{movingHit.disabled=false;}};
+
+const coldChain=document.createElement('button');coldChain.textContent='마트 냉각 우회·실제 정예전 검수 (일반 적 격리)';document.querySelector('nav').append(coldChain);
+coldChain.onclick=async()=>{if(!ready||coldChain.disabled)return;coldChain.disabled=true;try{playing=false;const {COLD_CHAIN_EXPEDITION}=await import('./expedition.js');game=new Game({seed:774,expeditionId:COLD_CHAIN_EXPEDITION.id});await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-elite');const {runColdChainQA}=await import('./qa-cold-chain.js');const run=await runColdChainQA({onBoundary:async g=>{game=g;paint();const image=document.createElement('img');image.alt='마트 냉각 목표 '+game.expedition.step;image.src=canvas.toDataURL();image.style.width='30%';document.body.append(image);}});game=run.game;renderer.cameraReady=false;paint();const report=document.createElement('pre');report.textContent=JSON.stringify(run.report,null,2);document.querySelector('aside').prepend(report);const result=document.createElement('section');result.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(result);status.textContent='일반 적 격리·실제 정예전 · '+game.state+' · '+game.expedition.step+'/6 · 전원10초 복구 '+run.report.restored+' · 정예 처치 '+run.report.guardKilled+' · HP '+game.player.hp+' · 순간이동/무적/저장 접근 없음';}finally{coldChain.disabled=false;}};
+
+const onsetQA=document.createElement('button');onsetQA.textContent='실제 접촉·피격 시작 서브프레임 검수';document.querySelector('nav').append(onsetQA);
+onsetQA.onclick=async()=>{if(!ready||onsetQA.disabled)return;onsetQA.disabled=true;try{playing=false;const results=[];for(const kind of ['contact','burn']){game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;game.player.invul=0;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+(kind==='contact'?20:100),y:game.player.y,speed:0,hp:500,maxHp:500,attackCd:0,...(kind==='burn'?{burn:1,burnTick:0}:{})});paint();interpolation.capture(game);game.tick(FIXED_STEP,{shoot:false,fireMode:'manual'});game.drainEvents();const before=JSON.stringify(game.snapshot()),samples=[];for(const fraction of [.1,.5,.9]){const view=interpolation.sample(game,fraction,FIXED_STEP);paint(view,view.time);samples.push({fraction,attackCd:view.enemies[0].attackCd,hitFlash:view.enemies[0].hitFlash,clip:renderer.liveEnemies.diagnostics.clip,sample:renderer.liveEnemies.diagnostics.sample});const image=document.createElement('img');image.alt=kind+' 실제 시작 '+fraction;image.src=canvas.toDataURL();image.style.width='30%';document.body.append(image);}results.push({kind,actual:{attackCd:e.attackCd,hitFlash:e.hitFlash},samples,identicalSnapshot:before===JSON.stringify(game.snapshot())});}const report=document.createElement('pre');report.textContent=JSON.stringify(results,null,2);document.querySelector('aside').prepend(report);status.textContent='실제 접촉/화상 피해 시작 · 3서브프레임 즉시 동일 타이머 · 저장 동일 '+results.every(r=>r.identicalSnapshot)+' · 저장 접근 없음';}finally{onsetQA.disabled=false;}};
+
+const marksQA=document.createElement('button');marksQA.textContent='실제 명중 후 건물·차량·바닥 흔적 검수';document.querySelector('nav').append(marksQA);
+marksQA.onclick=async()=>{if(!ready||marksQA.disabled)return;marksQA.disabled=true;try{playing=false;const reports=[];for(const kind of ['concrete','metal','flesh']){game=new Game({seed:774,weapon:kind==='flesh'?'shotgun':'nailgun'});game.enemies=[];game.spawnClock=1e9;let aimX=900,aimY=650;if(kind==='metal'){game.player.x=900;game.player.y=890;aimX=760;aimY=875;}if(kind==='flesh'){const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+80,y:game.player.y,speed:0,hp:500,maxHp:500});aimX=e.x;aimY=e.y;}await load();paint();let hit=false;for(let i=0;i<90;i++){game.tick(1/120,{shoot:i===0,fireMode:'manual',aimX,aimY});events();if(game.particles.some(p=>p.kind==='weapon-impact')){paint();hit=true;break;}}for(let i=0;i<36;i++){game.tick(1/60,{shoot:false,fireMode:'manual',aimX,aimY});events();}renderer.cameraReady=false;paint();const before=JSON.stringify(game.snapshot());paint();reports.push({kind,hit,activeImpact:game.particles.filter(p=>p.kind==='weapon-impact').length,marks:renderer.impactMarks.items.map(m=>({surface:m.surface||'flesh',face:m.face,age:renderer.impactMarks.time-m.born,object:m.obstacle?.kind})),identicalSnapshot:before===JSON.stringify(game.snapshot())});const image=document.createElement('img');image.alt=kind+' 실제 명중 후0.6초';image.src=canvas.toDataURL();image.style.width='45%';document.body.append(image);const mark=renderer.impactMarks.items.find(m=>kind==='flesh'?!m.surface:m.surface===kind);if(mark){const point=renderer.worldToScreen(mark.x,mark.y,kind==='flesh'?1:mark.z),detail=document.createElement('canvas');const px=Math.floor((point.x-48)*renderer.dpr),py=Math.floor((point.y-48)*renderer.dpr),size=Math.floor(96*renderer.dpr),beforePixels=canvas.getContext('2d').getImageData(px,py,size,size).data,kept=renderer.impactMarks.items;renderer.impactMarks.items=[];paint();const without=canvas.getContext('2d').getImageData(px,py,size,size).data;renderer.impactMarks.items=kept;paint();reports.at(-1).changedRgbaComponents=beforePixels.reduce((n,v,i)=>n+(v!==without[i]?1:0),0);reports.at(-1).markPoint={x:mark.x,y:mark.y,z:mark.z};detail.width=detail.height=256;const dc=detail.getContext('2d');dc.imageSmoothingEnabled=false;dc.drawImage(canvas,(point.x-48)*renderer.dpr,(point.y-48)*renderer.dpr,96*renderer.dpr,96*renderer.dpr,0,0,256,256);const zoom=document.createElement('img');zoom.alt=kind+' 실제 탄흔 확대';zoom.src=detail.toDataURL();document.body.append(zoom);}}const report=document.createElement('pre');report.textContent=JSON.stringify(reports,null,2);document.querySelector('aside').prepend(report);status.textContent='실제 탄환 · 섬광 종료 후0.6초 · '+reports.map(r=>r.kind+':'+r.marks.length).join(' / ')+' · 원본 건물/차량 · 저장 접근 없음';}finally{marksQA.disabled=false;}};
+
+const startStopQA=document.createElement('button');startStopQA.textContent='실제 유인 접근·정지·재출발 검수';document.querySelector('nav').append(startStopQA);
+startStopQA.onclick=async()=>{if(!ready||startStopQA.disabled)return;startStopQA.disabled=true;try{playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+220,y:game.player.y});game.placeLure(game.player.x+100,game.player.y);const records=[];paint();for(let frame=0;frame<600;frame++){game.tick(1/60,{shoot:false,fireMode:'manual'});game.drainEvents();if(frame%3===0){paint();const selected=renderer.productionArt.enemyFrame('walker',e,{simulationTime:game.time,enemyMotion:{cycleDistance:50}});records.push({time:game.time,x:e.x,pose:selected?.locomotion?.pose,weight:selected?.locomotion?.moveWeight,nativeWeight:renderer.liveEnemies.diagnostics?.moveWeight,clip:renderer.liveEnemies.diagnostics?.clip});}if([110,220,300,490,510,540].includes(frame)){const image=document.createElement('img');image.alt='실제 접근 정지 재출발 '+frame;image.src=canvas.toDataURL();image.style.width='30%';document.body.append(image);}if(frame%60===0)await new Promise(requestAnimationFrame);}const before=JSON.stringify(game.snapshot());paint();const report=document.createElement('pre');report.textContent=JSON.stringify({records,identicalSnapshot:before===JSON.stringify(game.snapshot()),hp:game.player.hp,lureExpired:game.lure===null,error:renderer.liveEnemies.error},null,2);document.querySelector('aside').prepend(report);status.textContent='실제 유인 접근·정지·8초 만료 후 재출발 · 원본 대기/걷기 혼합 · HP '+game.player.hp+' · 저장 접근 없음';}finally{startStopQA.disabled=false;}};
+
+const heroMaskQA=document.createElement('button');heroMaskQA.textContent='원본 주인공 마스크 정확도·CPU 비용 검수';document.querySelector('nav').append(heroMaskQA);
+heroMaskQA.onclick=async()=>{if(!ready||heroMaskQA.disabled)return;heroMaskQA.disabled=true;try{playing=false;const {benchmarkHeroMask}=await import('./qa-hero-mask.js'),reports=[];for(const weapon of ['shotgun','nailgun']){game=new Game({seed:774,weapon});game.enemies=[];game.spawnClock=1e9;await load();for(let i=0;i<18;i++)game.tick(1/60,{moveX:.35,moveY:.65,shoot:false,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});paint();const body=renderer.livePlayer.body,rgba=body.getContext('2d').getImageData(0,0,body.width,body.height).data,before=JSON.stringify(game.snapshot()),result=benchmarkHeroMask(rgba,body.width,body.height);reports.push({weapon,...result,identicalSnapshot:before===JSON.stringify(game.snapshot())});const image=document.createElement('img');image.alt=weapon+' 원본 몸체 마스크';image.src=body.toDataURL();image.style.width='256px';document.body.append(image);}const report=document.createElement('pre');report.textContent=JSON.stringify(reports,null,2);document.querySelector('aside').prepend(report);status.textContent='원본2무기 몸체 마스크 외곽·윤곽 동일 '+reports.every(r=>r.identical)+' · 저장 동일 '+reports.every(r=>r.identicalSnapshot)+' · CPU 스캔 비용만 비교';}finally{heroMaskQA.disabled=false;}};
+
+const stagesQA=document.createElement('button');stagesQA.textContent='60적 실제 렌더 구간 비용 검수';document.querySelector('nav').append(stagesQA);
+const gpuWarmupQA=document.createElement('button');gpuWarmupQA.textContent='GPU 전투 전 준비·원본56자세·첫 밀집 프레임 검수';document.querySelector('nav').append(gpuWarmupQA);
+gpuWarmupQA.onclick=async()=>{
+ if(!ready||gpuWarmupQA.disabled)return;gpuWarmupQA.disabled=true;playing=false;
+ try{
+  await renderer.liveEnemiesPromise;const {compareGPUAlphaWarmup}=await import('./qa-gpu-alpha-warmup.js');
+  const result=await compareGPUAlphaWarmup(renderer,canvas,{beforeScenario:async({weapon})=>{game=new Game({seed:774,missionId:'mission-01',weapon});await load();},onProgress:info=>{status.textContent=info.phase==='quality'?info.type+' · 준비 전후 원본56자세 검수':info.count+'적 · 전투 전 GPU 준비 '+info.warmed+' · 첫 밀집 프레임 비교';},onImage:info=>{const img=document.createElement('img');img.alt=info.phase==='quality'?'GPU 준비 원본 '+info.type:info.count+'적 GPU 전투 전 준비 '+info.warmed;img.src=info.src;img.style.width=info.phase==='quality'?'128px':'32%';document.body.append(img);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='gpu-warmup-report';pre.textContent=JSON.stringify(result.report,null,2);document.querySelector('aside').prepend(pre);paint();status.textContent='GPU 전투 전 준비 검수 완료 · 전투/이벤트 동일 '+result.report.reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · 원본56자세 동일 '+result.report.original.every(r=>r.comparisons.every(c=>c.different===0&&c.geometrySame&&c.animationSame))+' · GPU 기본 OFF';
+ }catch(error){status.textContent='GPU 준비 검수 중단 · '+error.message;throw error;}finally{gpuWarmupQA.disabled=false;}
+};
+const catalogIdsQA=document.createElement('button');catalogIdsQA.textContent='60·180적 원본 에셋 목록 캐시·로딩 검수';document.querySelector('nav').append(catalogIdsQA);
+catalogIdsQA.onclick=async()=>{
+ if(!ready||catalogIdsQA.disabled)return;catalogIdsQA.disabled=true;playing=false;
+ try{
+  await renderer.liveEnemiesPromise;const {compareCatalogIds}=await import('./qa-catalog-ids.js');
+  const result=await compareCatalogIds(renderer,canvas,{scenarios:new URLSearchParams(location.search).get('catalog-repeat')==='60'?[[60,'shotgun']]:undefined,beforeScenario:async({weapon})=>{game=new Game({seed:774,missionId:'mission-01',weapon});await load();},onProgress:({count,cacheEnabled})=>{status.textContent=count+'적 · 에셋 목록 캐시 '+cacheEnabled+' · 정상 로딩/전투 비교';},onImage:({count,cacheEnabled,src})=>{const img=document.createElement('img');img.alt=count+'적 원본 에셋 목록 캐시 '+cacheEnabled;img.src=src;img.style.width='32%';document.body.append(img);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='catalog-ids-report';pre.textContent=JSON.stringify(result.report,null,2);document.querySelector('aside').prepend(pre);paint();status.textContent='원본 에셋 목록 캐시 검수 완료 · 전투/이벤트 동일 '+result.report.reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · GPU 기본 OFF';
+ }finally{catalogIdsQA.disabled=false;}
+};
+const pacedNativeQA=document.createElement('button');pacedNativeQA.textContent='60·180적 매 프레임 표시·GPU 대기 구간 검수';document.querySelector('nav').append(pacedNativeQA);
+pacedNativeQA.onclick=async()=>{
+ if(!ready||pacedNativeQA.disabled)return;pacedNativeQA.disabled=true;playing=false;
+ try{
+  await renderer.liveEnemiesPromise;const {comparePacedNativeCombat}=await import('./qa-paced-native-combat.js');
+  const result=await comparePacedNativeCombat(renderer,canvas,{beforeScenario:async({weapon})=>{game=new Game({seed:774,missionId:'mission-01',weapon});await load();},onProgress:({framePacing,count,gpuEnabled})=>{status.textContent=framePacing+' · '+count+'적 · GPU '+gpuEnabled+' · 원본 단계/표시 간격 검수';},onImage:({framePacing,count,gpuEnabled,src})=>{const img=document.createElement('img');img.alt=framePacing+' '+count+'적 단계 검수 GPU '+gpuEnabled;img.src=src;img.style.width='32%';document.body.append(img);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='paced-native-combat-report';pre.textContent=JSON.stringify(result.report,null,2);document.querySelector('aside').prepend(pre);paint();status.textContent='표시 간격/원본 구간 검수 완료 · 전투/이벤트 동일 '+result.report.reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · GPU 기본 OFF 유지';
+ }catch(error){status.textContent='표시 간격 검수 중단 · '+error.message;throw error;}finally{pacedNativeQA.disabled=false;}
+};
+const gpuAlphaNearQA=document.createElement('button');gpuAlphaNearQA.textContent='GPU 윤곽 1·4·8·12 근거리 원본 리그 비용 검수';document.querySelector('nav').append(gpuAlphaNearQA);
+gpuAlphaNearQA.onclick=async()=>{
+ if(!ready||gpuAlphaNearQA.disabled)return;gpuAlphaNearQA.disabled=true;playing=false;let rig,prior;
+ try{
+  game=new Game({seed:774,missionId:'mission-01',weapon:'nailgun'});await load();await renderer.liveEnemiesPromise;rig=renderer.liveEnemies;prior={exactGPUAlphaBounds:rig.exactGPUAlphaBounds,verifyExactGPUAlphaBounds:rig.verifyExactGPUAlphaBounds,minGPUAlphaCells:rig.minGPUAlphaCells};rig.minGPUAlphaCells=1;rig.releaseUnused(['enemy-walker']);if(!await rig.load('enemy-walker'))throw Error('walker-not-ready');
+  const {compareBulletBroadphase}=await import('./qa-bullet-broadphase.js?gpuNear=20261018-1'),reports=[];
+  for(const count of [1,4,8,12]){
+   const memory=[],result=await compareBulletBroadphase(renderer,canvas,{count,weapon:'nailgun',frames:60,radius:151,radiusSpread:0,input:{moveX:0,moveY:0,shoot:false,fireMode:'manual',aimX:1400,aimY:930},legacyBulletComparison:false,onPass:force=>{rig.exactGPUAlphaBounds=!force;rig.verifyExactGPUAlphaBounds=false;rig.gpuAlphaStats={frames:0,verified:0,mismatches:0,fallbacks:0,bytesRead:0};},onProgress:force=>{status.textContent=count+' 근거리 원본 리그 GPU 윤곽 '+(!force)+' · 전체 비용 비교';},onImage:(force,src)=>{memory.push({enabled:!force,extraGPUAlphaRawBytes:rig.gpuAlphaBounds?.rawBytes||0,gpuCopyRawBytes:rig.gpuRaw?rig.gpuRaw.width*rig.gpuRaw.height*4:0,stats:{...rig.gpuAlphaStats}});if(!force){const img=document.createElement('img');img.alt=count+' 근거리 원본 GPU 윤곽';img.src=src;img.style.width='49%';document.body.append(img);}}});game=result.game;reports.push({...result.report,memory});
+  }
+  const pre=document.createElement('pre');pre.id='gpu-alpha-near-report';pre.textContent=JSON.stringify({reports},null,2);document.querySelector('aside').prepend(pre);paint();status.textContent='근거리 GPU 윤곽 비용 검수 완료 · 전투/이벤트 동일 '+reports.every(r=>r.identicalCombatState&&r.identicalEvents);
+ }finally{if(rig&&prior){Object.assign(rig,prior);if(!prior.exactGPUAlphaBounds)rig.releaseExactGPUAlpha();}gpuAlphaNearQA.disabled=false;}
+};
+const gpuAlphaCombatQA=document.createElement('button');gpuAlphaCombatQA.textContent='GPU 알파 윤곽·원본56자세·60·180적 비용 검수';document.querySelector('nav').append(gpuAlphaCombatQA);
+gpuAlphaCombatQA.onclick=async()=>{
+ if(!ready||gpuAlphaCombatQA.disabled)return;gpuAlphaCombatQA.disabled=true;playing=false;let rig,prior;
+ try{
+  await renderer.liveEnemiesPromise;rig=renderer.liveEnemies;prior={exactGPUAlphaBounds:rig.exactGPUAlphaBounds,verifyExactGPUAlphaBounds:rig.verifyExactGPUAlphaBounds};
+  const {compareNativeComposite}=await import('./qa-native-composite.js?gpuAlpha=20261018-1'),{compareBulletBroadphase}=await import('./qa-bullet-broadphase.js?gpuAlpha=20261018-1');
+  const original=await compareNativeComposite(renderer,{mode:'gpuAlpha',onImage:async(type,src)=>{status.textContent=type+' 원본56자세 GPU 윤곽/합성 비교';const img=document.createElement('img');img.alt='GPU 윤곽 합성 원본 '+type;img.src=src;img.style.width='128px';document.body.append(img);await new Promise(requestAnimationFrame);}}),reports=[];
+  rig.releaseUnused(['enemy-walker']);if(!await rig.load('enemy-walker'))throw Error('walker-not-ready');
+  for(const [count,weapon]of [[60,'shotgun'],[180,'nailgun']]){
+   game=new Game({seed:774,missionId:'mission-01',weapon});await load();const memory=[];
+   const result=await compareBulletBroadphase(renderer,canvas,{count,weapon,legacyBulletComparison:false,onPass:force=>{rig.exactGPUAlphaBounds=!force;rig.verifyExactGPUAlphaBounds=false;rig.gpuAlphaStats={frames:0,verified:0,mismatches:0,fallbacks:0,bytesRead:0};},onProgress:force=>{status.textContent=count+'적 '+weapon+' GPU 윤곽 '+(!force)+' · 실제 전체 비용 비교';},onImage:(force,src)=>{memory.push({enabled:!force,extraGPUAlphaRawBytes:rig.gpuAlphaBounds?.rawBytes||0,gpuCopyRawBytes:rig.gpuRaw?rig.gpuRaw.width*rig.gpuRaw.height*4:0,stats:{...rig.gpuAlphaStats}});const img=document.createElement('img');img.alt=count+'적 GPU 윤곽 '+(!force);img.src=src;img.style.width='32%';document.body.append(img);}});game=result.game;reports.push({...result.report,memory});
+  }
+  const pre=document.createElement('pre');pre.id='gpu-alpha-combat-report';pre.textContent=JSON.stringify({minGPUAlphaCells:rig.minGPUAlphaCells,original,reports},null,2);document.querySelector('aside').prepend(pre);paint();status.textContent='GPU 윤곽 실제 비교 완료 · 최소 '+rig.minGPUAlphaCells+'셀 · 전투/이벤트 동일 '+reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · 원본56자세 동일 '+original.every(r=>r.comparisons.every(c=>c.different===0&&c.geometrySame&&c.animationSame));
+ }finally{if(rig&&prior){Object.assign(rig,prior);if(!prior.exactGPUAlphaBounds)rig.releaseExactGPUAlpha();}gpuAlphaCombatQA.disabled=false;}
+};
+const gpuAlphaBoundsQA=document.createElement('button');gpuAlphaBoundsQA.textContent='원본7종 GPU 알파8 윤곽 좌표 정확도 검수';document.querySelector('nav').append(gpuAlphaBoundsQA);
+gpuAlphaBoundsQA.onclick=async()=>{
+ if(!ready||gpuAlphaBoundsQA.disabled)return;gpuAlphaBoundsQA.disabled=true;playing=false;
+ try{
+  await renderer.liveEnemiesPromise;const before=JSON.stringify(game.snapshot()),{syntheticGPUAlphaBounds,compareOriginalGPUAlphaBounds}=await import('./qa-gpu-alpha-bounds.js');status.textContent='GPU 알파7·8 경계/빈칸/모서리 실제 검수';
+  const synthetic=syntheticGPUAlphaBounds(),reports=await compareOriginalGPUAlphaBounds(renderer,{onProgress:type=>{status.textContent=type+' GPU 알파8 좌표와 원본 정수 윤곽 비교';},onImage:(type,src)=>{const img=document.createElement('img');img.alt='GPU 알파8 원본 '+type;img.src=src;img.style.width='128px';document.body.append(img);}});
+  const pre=document.createElement('pre');pre.id='gpu-alpha-bounds-report';pre.textContent=JSON.stringify({synthetic,reports,identicalSnapshot:before===JSON.stringify(game.snapshot())},null,2);document.querySelector('aside').prepend(pre);paint();status.textContent='GPU 알파8 검수 완료 · 윤곽 동일 '+(synthetic.records.every(r=>r.exact&&r.stateRestored)&&reports.every(r=>r.exact))+' · 저장 동일 '+(before===JSON.stringify(game.snapshot()));
+ }finally{gpuAlphaBoundsQA.disabled=false;}
+};
+const bulletBoundsQA=document.createElement('button');bulletBoundsQA.textContent='60·180적 실제 탄환 명중 판정 비용 검수';document.querySelector('nav').append(bulletBoundsQA);
+bulletBoundsQA.onclick=async()=>{
+ if(!ready||bulletBoundsQA.disabled)return;bulletBoundsQA.disabled=true;playing=false;
+ try{
+  game=new Game({seed:774,missionId:'mission-01'});await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');const {compareBulletBroadphase}=await import('./qa-bullet-broadphase.js');const reports=[];
+  for(const [count,weapon]of [[60,'shotgun'],[180,'nailgun']]){
+   if(!await renderer.preloadProductionPlayer(weapon))throw Error('original-player-not-ready');
+   const result=await compareBulletBroadphase(renderer,canvas,{count,weapon,onProgress:force=>{status.textContent=count+'적 '+weapon+' 탄환 판정 '+(force?'기존':'사전 제외')+' · 실제 전투 비교 중';},onImage:(force,src)=>{const img=document.createElement('img');img.alt=count+'적 '+weapon+' 탄환 판정 '+(force?'기존':'사전 제외');img.src=src;img.style.width='32%';document.body.append(img);}});game=result.game;reports.push(result.report);
+  }
+  const pre=document.createElement('pre');pre.id='bullet-broadphase-report';pre.textContent=JSON.stringify({reports},null,2);document.querySelector('aside').prepend(pre);paint();status.textContent='탄환 판정 실제 비교 완료 · 전투/이벤트 동일 '+reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · 리그 오류 '+(renderer.liveEnemies.error||'없음');
+ }finally{bulletBoundsQA.disabled=false;}
+};
+const walkTextureQA=document.createElement('button');walkTextureQA.textContent='원본7종 불필요 보행 텍스처 해독 검수';document.querySelector('nav').append(walkTextureQA);
+walkTextureQA.onclick=async()=>{
+ if(!ready||walkTextureQA.disabled)return;walkTextureQA.disabled=true;
+ try{
+  playing=false;await load();await renderer.liveEnemiesPromise;const before=JSON.stringify(game.snapshot()),{compareWalkTextureLoading}=await import('./qa-walk-texture-loading.js');
+  const reports=await compareWalkTextureLoading(renderer,{onImage:async(type,src)=>{status.textContent=type+' 표시용 원본 유지·보행 클립 전용 로드 비교';const img=document.createElement('img');img.alt='보행 클립 전용 로드 '+type;img.src=src;img.style.width='128px';document.body.append(img);await new Promise(requestAnimationFrame);}});
+  const pre=document.createElement('pre');pre.id='walk-texture-report';pre.textContent=JSON.stringify({reports,identicalSnapshot:before===JSON.stringify(game.snapshot()),note:'No actual RAM/VRAM measurement. Load timings include cache/network/decode and are not a controlled load-time benchmark.'},null,2);document.querySelector('aside').prepend(pre);
+  status.textContent='보행 클립 전용 로드 검수 완료 · 원본 픽셀 차이 '+reports.reduce((n,r)=>n+r.different,0)+' · 불필요 텍스처 해독 생략 '+reports.reduce((n,r)=>n+r.loads[1].skippedWalkTextures,0)+'장 · 저장 동일 '+(before===JSON.stringify(game.snapshot()));
+ }finally{walkTextureQA.disabled=false;}
+};
+const inkCountQA=document.createElement('button');inkCountQA.textContent='외곽선 합성1·4·8·12·60적 비용 검수';document.querySelector('nav').append(inkCountQA);
+inkCountQA.onclick=async()=>{
+ if(!ready||inkCountQA.disabled)return;inkCountQA.disabled=true;let rig,prior;
+ try{
+  playing=false;game=new Game({seed:774,missionId:'mission-01'});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;rig=renderer.liveEnemies;prior=rig.batchInkComposite;await rig.load('enemy-walker');const reports=[],{profileRenderStages}=await import('./qa-render-profile.js?inkCount=20261018-1');
+  for(const count of [1,4,8,12,60]){
+   game=new Game({seed:774,missionId:'mission-01'});game.enemies=[];game.spawnClock=1e9;
+   for(let i=0;i<count;i++){
+    if(count===60){const a=i*Math.PI*2/count,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});continue;}
+    let at;for(let turn=0;turn<128;turn++){const a=i*Math.PI*2/count+turn*Math.PI*2/128,x=game.player.x+Math.cos(a)*151,y=game.player.y+Math.sin(a)*151;if(!game.blocked(x,y,16)){at={x,y};break;}}
+    if(!at||!game.spawnEnemy('walker',151,at))throw Error('legal-near-enemy-fixture-failed');
+   }
+   const snapshot=game.snapshot(),results=[],saves=[];
+   for(const enabled of [false,true,false]){game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;rig.batchInkComposite=enabled;status.textContent=count+'적 일괄 외곽선 '+enabled+' · 비용 측정 중';const options=count===60?{}:{input:{moveX:0,moveY:0,shoot:false,fireMode:'manual',aimX:1400,aimY:930}},result=await profileRenderStages(renderer,game,options);results.push({enabled,...result,extraInkRawBytes:rig.batchInk?.rawBytes||0});saves.push(JSON.stringify(game.snapshot()));}
+   reports.push({count,spawned:snapshot.enemies.length,fixture:count===60?'original-60-combat':'legal-near151',normalShooting:count===60,results,identicalSimulation:saves.every(s=>s===saves[0])});
+  }
+  const pre=document.createElement('pre');pre.id='batch-ink-count-report';pre.textContent=JSON.stringify(reports,null,2);document.querySelector('aside').prepend(pre);const img=document.createElement('img');img.alt='적 수별 일괄 합성 실제60적 전투';img.src=canvas.toDataURL();img.style.maxWidth='100%';document.body.append(img);status.textContent='외곽선 합성 적 수별 검수 완료 · 저장 동일 '+reports.every(r=>r.identicalSimulation);
+ }finally{if(rig){rig.batchInkComposite=prior;if(!prior)rig.batchInk?.release();}inkCountQA.disabled=false;}
+};
+const batchInkQA=document.createElement('button');batchInkQA.textContent='외곽선 일괄 합성·원본56포즈·60적 검수';document.querySelector('nav').append(batchInkQA);
+batchInkQA.onclick=async()=>{
+ if(!ready||batchInkQA.disabled)return;batchInkQA.disabled=true;let rig,prior;
+ try{
+  playing=false;await load();await renderer.liveEnemiesPromise;rig=renderer.liveEnemies;prior=rig.batchInkComposite;
+  const before=JSON.stringify(game.snapshot()),{compareBatchInkEdges}=await import('./qa-batch-native-ink.js'),edges=compareBatchInkEdges(),{compareNativeComposite}=await import('./qa-native-composite.js?batchInk=20261018-1');
+  const exact=await compareNativeComposite(renderer,{mode:'batchInk',onImage:async(type,src)=>{status.textContent=type+' 원본 외곽선 합성 비교 중';const img=document.createElement('img');img.alt='일괄 외곽선 '+type;img.src=src;img.style.width='128px';document.body.append(img);await new Promise(requestAnimationFrame);}});
+  const identicalPoseSnapshot=before===JSON.stringify(game.snapshot());game=new Game({seed:774,missionId:'mission-01'});game.enemies=[];game.spawnClock=1e9;await load();await rig.load('enemy-walker');
+  for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}
+  const snapshot=game.snapshot(),{profileRenderStages}=await import('./qa-render-profile.js?batchInk=20261018-1'),results=[],saves=[];
+  for(const enabled of [false,true,false]){game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;rig.batchInkComposite=enabled;status.textContent='60적 외곽선 일괄 합성 '+enabled+' · 비용 측정 중';const prep=rig.batchInk?.preparations||0,result=await profileRenderStages(renderer,game);results.push({enabled,...result,extraInkRawBytes:rig.batchInk?.rawBytes||0,inkPreparations:(rig.batchInk?.preparations||0)-prep});saves.push(JSON.stringify(game.snapshot()));}
+  const pre=document.createElement('pre');pre.id='batch-ink-report';pre.textContent=JSON.stringify({edges,exact,results,identicalPoseSnapshot,identicalSimulation:saves.every(s=>s===saves[0]),defaultEnabled:false},null,2);document.querySelector('aside').prepend(pre);
+  const img=document.createElement('img');img.alt='일괄 외곽선 실제60적 전투';img.src=canvas.toDataURL();img.style.maxWidth='100%';document.body.append(img);
+  status.textContent='일괄 외곽선 비교 완료 · 원본 픽셀 차이 '+exact.reduce((n,r)=>n+r.comparisons[0].different,0)+' · 경계 차이 '+edges.reports.reduce((n,r)=>n+r.different,0)+' · 저장 동일 '+saves.every(s=>s===saves[0]);
+ }finally{if(rig){rig.batchInkComposite=prior;if(!prior)rig.batchInk?.release();}batchInkQA.disabled=false;}
+};
+const skinQA=document.createElement('button');skinQA.textContent='주인공 중복 뼈대 갱신·60적 검수';document.querySelector('nav').append(skinQA);
+skinQA.onclick=async()=>{
+ if(!ready||skinQA.disabled)return;skinQA.disabled=true;let rig,prior;
+ try{
+  playing=false;await load();rig=renderer.livePlayer;prior=rig.forceRedundantSkinUpdates;const {comparePlayerSkinUpdates}=await import('./qa-player-skin-updates.js');
+  const exact=await comparePlayerSkinUpdates(renderer,{onImage:async(weapon,name,src)=>{status.textContent=weapon+' '+name+' 뼈대 갱신 비교 중';const img=document.createElement('img');img.alt='뼈대 갱신 '+weapon+' '+name;img.src=src;img.style.width='128px';document.body.append(img);}});
+  game=new Game({seed:774,missionId:'mission-01'});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');
+  for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}
+  const snapshot=game.snapshot(),{profileRenderStages}=await import('./qa-render-profile.js?skin=20261018-1'),results=[],saves=[];
+  for(const force of [true,false,true]){game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;rig.forceRedundantSkinUpdates=force;status.textContent='60적 주인공 중복 갱신 '+force+' · 비용 측정 중';const result=await profileRenderStages(renderer,game);results.push({force,...result});saves.push(JSON.stringify(game.snapshot()));}
+  const pre=document.createElement('pre');pre.id='player-skin-report';pre.textContent=JSON.stringify({exact,results,identicalSimulation:saves.every(s=>s===saves[0])},null,2);document.querySelector('aside').prepend(pre);
+  const img=document.createElement('img');img.alt='주인공 뼈대 갱신 실제60적 전투';img.src=canvas.toDataURL();img.style.maxWidth='100%';document.body.append(img);
+  status.textContent='주인공 뼈대 갱신 검수 완료 · 픽셀 차이 '+exact.reduce((n,r)=>n+r.comparisons[0].reduce((a,b)=>a+b.different,0),0)+' · 저장 동일 '+saves.every(s=>s===saves[0]);
+ }finally{if(rig)rig.forceRedundantSkinUpdates=prior;skinQA.disabled=false;}
+};
+const compositeQA=document.createElement('button');compositeQA.textContent='원본7종 투명 여백 합성·60적 검수';document.querySelector('nav').append(compositeQA);
+compositeQA.onclick=async()=>{
+ if(!ready||compositeQA.disabled)return;compositeQA.disabled=true;let rig,prior;
+ try{
+  playing=false;await load();await renderer.liveEnemiesPromise;rig=renderer.liveEnemies;prior=rig.cropNativeComposite;
+  const before=JSON.stringify(game.snapshot()),{compareNativeComposite}=await import('./qa-native-composite.js');
+  const exact=await compareNativeComposite(renderer,{onImage:async(type,src)=>{status.textContent=type+' 원본 합성 픽셀 비교 중';const img=document.createElement('img');img.alt='투명 여백 합성 '+type;img.src=src;img.style.width='128px';document.body.append(img);await new Promise(requestAnimationFrame);}});
+  const identicalPoseSnapshot=before===JSON.stringify(game.snapshot());game=new Game({seed:774,missionId:'mission-01'});game.enemies=[];game.spawnClock=1e9;await load();await rig.load('enemy-walker');
+  for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}
+  const snapshot=game.snapshot(),{profileRenderStages}=await import('./qa-render-profile.js?composite=20261018-1'),results=[],saves=[];
+  for(const crop of [false,true,false]){game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;rig.cropNativeComposite=crop;status.textContent='원본60적 투명 여백 합성 '+crop+' · 비용 측정 중';const result=await profileRenderStages(renderer,game);results.push({crop,...result});saves.push(JSON.stringify(game.snapshot()));}
+  const pre=document.createElement('pre');pre.id='native-composite-report';pre.textContent=JSON.stringify({exact,results,identicalPoseSnapshot,identicalSimulation:saves.every(s=>s===saves[0]),defaultEnabled:false},null,2);document.querySelector('aside').prepend(pre);
+  const img=document.createElement('img');img.alt='투명 여백 합성 실제60적 전투';img.src=canvas.toDataURL();img.style.maxWidth='100%';document.body.append(img);
+  status.textContent='투명 여백 합성 비교 완료 · 픽셀 차이 '+exact.reduce((n,r)=>n+r.comparisons[0].different,0)+' · 저장 동일 '+saves.every(s=>s===saves[0])+' · 실험 기본OFF';
+ }finally{if(rig)rig.cropNativeComposite=prior;compositeQA.disabled=false;}
+};
+const propCacheQA=document.createElement('button');propCacheQA.textContent='정적 원본 선택 캐시·60적 전후 검수';document.querySelector('nav').append(propCacheQA);
+propCacheQA.onclick=async()=>{
+ if(!ready||propCacheQA.disabled)return;propCacheQA.disabled=true;const prior=renderer.cacheNativeProps;
+ try{
+  playing=false;game=new Game({seed:774,missionId:'mission-01'});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');
+  for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}
+  const snapshot=game.snapshot(),{profileRenderStages}=await import('./qa-render-profile.js?dense=20261018-4'),results=[],saves=[];
+  for(const enabled of [false,true,false]){
+   game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;renderer.cacheNativeProps=enabled;status.textContent='정적 원본 선택 캐시 '+enabled+' · 실제60적 측정 중';
+   const result=await profileRenderStages(renderer,game);results.push({enabled,...result});saves.push(JSON.stringify(game.snapshot()));
+  }
+  const before=JSON.stringify(game.snapshot()),context=canvas.getContext('2d'),pixels=[];
+  for(const enabled of [false,false,true]){renderer.cacheNativeProps=enabled;renderer.render(game,{},game.time);pixels.push(context.getImageData(0,0,canvas.width,canvas.height).data);}
+  let different=0,maxDelta=0;for(let i=0;i<pixels[0].length;i++){const d=Math.abs(pixels[0][i]-pixels[1][i]);if(d)different++;maxDelta=Math.max(maxDelta,d);}
+  let candidateDifferent=0,candidateMaxDelta=0;for(let i=0;i<pixels[1].length;i++){const d=Math.abs(pixels[1][i]-pixels[2][i]);if(d)candidateDifferent++;candidateMaxDelta=Math.max(candidateMaxDelta,d);}
+  const surface=document.createElement('canvas');surface.width=surface.height=1536;const pc=surface.getContext('2d',{willReadFrequently:true}),props=[];
+  const commands=[],draw=renderer.productionArt.drawFrame;let currentCommands;
+  renderer.productionArt.drawFrame=function(c,selected,...args){if(c===pc)currentCommands.push({id:selected?.id,rect:selected?.frame?.rect,placement:selected?.placement,alpha:c.globalAlpha});return draw.call(this,c,selected,...args);};
+  try{for(const enabled of [false,false,true]){currentCommands=[];surface.width=1536;renderer.cacheNativeProps=enabled;pc.setTransform(1,0,0,1,0,0);pc.clearRect(0,0,1536,1536);pc.setTransform(.5,0,0,.5,768,0);for(const o of game.world.obstacles)renderer.drawObstacle(pc,o,game);props.push(pc.getImageData(0,0,1536,1536).data);const image=document.createElement('img');image.alt='원본 소품 비교 '+props.length;image.src=surface.toDataURL();image.style.width='256px';document.body.append(image);commands.push(JSON.stringify(currentCommands));}}finally{renderer.productionArt.drawFrame=draw;}
+  let propDifferent=0,propMaxDelta=0,propRepeatDifferent=0;for(let i=0;i<props[0].length;i++){if(props[0][i]!==props[1][i])propRepeatDifferent++;const d=Math.abs(props[1][i]-props[2][i]);if(d)propDifferent++;propMaxDelta=Math.max(propMaxDelta,d);}
+  const report=document.createElement('pre');report.id='prop-cache-report';report.textContent=JSON.stringify({results,identicalSimulation:saves.every(s=>s===saves[0]),identicalRenderSnapshot:before===JSON.stringify(game.snapshot()),cacheInstalled:!!renderer.nativePropFrames,pixels:{baselineRepeat:{different,maxDelta},candidate:{different:candidateDifferent,maxDelta:candidateMaxDelta},width:canvas.width,height:canvas.height},propPixels:{baselineRepeatDifferent:propRepeatDifferent,different:propDifferent,maxDelta:propMaxDelta,identicalCommands:commands.every(s=>s===commands[0])}},null,2);document.querySelector('aside').prepend(report);
+  status.textContent='정적 선택 캐시 검수 완료 · 소품 픽셀 차이 '+propDifferent+' · 저장 동일 '+saves.every(s=>s===saves[0]);
+ }finally{renderer.cacheNativeProps=prior;propCacheQA.disabled=false;}
+};
+stagesQA.onclick=async()=>{if(!ready||stagesQA.disabled)return;stagesQA.disabled=true;try{playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}const {profileRenderStages}=await import('./qa-render-profile.js?dense=20261018-4');status.textContent='실제60적 · 렌더 구간 측정 중';const result=await profileRenderStages(renderer,game);paint();const report=document.createElement('pre');report.textContent=JSON.stringify(result,null,2);document.querySelector('aside').prepend(report);status.textContent='실제60적 렌더 구간 측정 완료 · 저장 동일 '+result.identicalSnapshot+' · 중첩 구간 합산 금지 · FPS 아님';}finally{stagesQA.disabled=false;}};
+
+const directAlphaQA=document.createElement('button');directAlphaQA.textContent='직접 알파 읽기 정확도·60적 비교';document.querySelector('nav').append(directAlphaQA);
+directAlphaQA.onclick=async()=>{if(!ready||directAlphaQA.disabled)return;directAlphaQA.disabled=true;let rigs=[],prior=[];try{playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}const snapshot=game.snapshot(),{profileRenderStages}=await import('./qa-render-profile.js?dense=20261018-4'),results=[],saves=[];rigs=[renderer.livePlayer,renderer.liveEnemies];if(rigs.some(r=>!r?.alphaReadback))throw Error('native-alpha-readback-unavailable');prior=rigs.map(r=>({direct:r.directAlphaReadback,verify:r.verifyAlphaReadback}));for(const mode of [{name:'Canvas baseline',direct:false,verify:false,frames:100},{name:'Direct alpha exactness',direct:true,verify:true,frames:60},{name:'Direct alpha cost',direct:true,verify:false,frames:100}]){game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;for(const r of rigs){r.directAlphaReadback=mode.direct;r.verifyAlphaReadback=mode.verify;r.alphaReadback.reads=0;r.alphaReadback.fallbacks=0;r.alphaReadback.verification={calls:0,different:0,maxDelta:0,pixels:0};}status.textContent=mode.name+' · 실제60적 검수 중';const result=await profileRenderStages(renderer,game,{frames:mode.frames});results.push({name:mode.name,...result,alpha:rigs.map(r=>({reads:r.alphaReadback.reads,fallbacks:r.alphaReadback.fallbacks,verification:{...r.alphaReadback.verification}}))});if(!mode.verify)saves.push(JSON.stringify(game.snapshot()));}const report=document.createElement('pre');report.textContent=JSON.stringify({results,identicalSimulation:saves[0]===saves[1]},null,2);document.querySelector('aside').prepend(report);status.textContent='직접 알파·Canvas 전체 알파 비교 완료 · 실제 전투 저장 동일 '+(saves[0]===saves[1])+' · 각 구간 중첩/FPS 아님';}finally{rigs.forEach((r,i)=>{if(!r||!prior[i])return;r.directAlphaReadback=prior[i].direct;r.verifyAlphaReadback=prior[i].verify;});directAlphaQA.disabled=false;}};
+
+const corpseBatchQA=document.createElement('button');corpseBatchQA.textContent='사망 모션 묶음·60적 실제 전투 비교';document.querySelector('nav').append(corpseBatchQA);
+corpseBatchQA.onclick=async()=>{if(!ready||corpseBatchQA.disabled)return;corpseBatchQA.disabled=true;const prior=renderer.batchNativeCorpses;try{playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}const snapshot=game.snapshot(),{profileRenderStages}=await import('./qa-render-profile.js?dense=20261018-4'),results=[],saves=[];for(const batch of [false,true]){game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;renderer.batchNativeCorpses=batch;status.textContent='사망 모션 묶음 '+batch+' · 실제60적 비교 중';const result=await profileRenderStages(renderer,game);results.push({batch,...result});saves.push(JSON.stringify(game.snapshot()));const image=document.createElement('img');image.alt='사망 모션 묶음 '+batch;image.src=canvas.toDataURL();image.style.width='49%';document.body.append(image);}const report=document.createElement('pre');report.textContent=JSON.stringify({results,identicalSimulation:saves[0]===saves[1]},null,2);document.querySelector('aside').prepend(report);status.textContent='사망 모션 묶음 실제 비교 완료 · 전투 동일 '+(saves[0]===saves[1])+' · 리그 오류 '+(renderer.liveEnemies.error||'없음');}finally{renderer.batchNativeCorpses=prior;corpseBatchQA.disabled=false;}};
+
+
+const actionHitQA=document.createElement('button');actionHitQA.textContent='보스 공격 중 실제 탄환·상체 반응 검수';document.querySelector('nav').append(actionHitQA);
+actionHitQA.onclick=async()=>{if(!ready||actionHitQA.disabled)return;actionHitQA.disabled=true;try{playing=false;game=new Game({missionId:'mission-01',seed:774,weapon:'nailgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;game.spawnMissionBoss('mid');await load();const boss=game.boss;await renderer.preloadProductionBosses([boss.bossKey]);boss.x=game.player.x+90;boss.y=game.player.y;boss.attackState='windup';boss.attackTime=.6;const startHp=boss.hp;let ticks=0;while(boss.hp===startHp&&ticks++<40){game.tick(1/120,{moveX:0,moveY:0,shoot:ticks===1,fireMode:'manual',aimX:boss.x,aimY:boss.y});events();}if(!(startHp>boss.hp))throw Error('real-bullet-did-not-hit');const records=[];for(const mode of ['windup','charge']){boss.attackState=mode;boss.attackTime=.4;renderer.liveBoss.models.get(boss.bossKey).states.delete(boss);const before=JSON.stringify(game.snapshot());paint();records.push({state:mode,hitFlash:boss.hitFlash,stun:boss.stun,damage:startHp-boss.hp,...renderer.liveBoss.diagnostics,identicalSnapshot:before===JSON.stringify(game.snapshot())});const image=document.createElement('img');image.alt='보스 실제 탄환 피격 '+mode;image.src=renderer.liveBoss.frames.get(boss).image.toDataURL();image.style.width='256px';document.body.append(image);}const report=document.createElement('pre');report.textContent=JSON.stringify({records,note:'explicit attack-state fixture and fresh visual pose history; actual engine bullet collision and damage, no save access'},null,2);document.querySelector('aside').prepend(report);status.textContent='실제 못총 피해 '+(startHp-boss.hp)+' · 예고/공격 원본 유지 · 상체만 피격 · 저장 동일 '+records.every(r=>r.identicalSnapshot)+' · 리그 오류 '+(renderer.liveBoss.error||'없음');}finally{actionHitQA.disabled=false;}};
+
+const bloodArcQA=document.createElement('button');bloodArcQA.textContent='실제 혈흔 포물선·착지 검수';document.querySelector('nav').append(bloodArcQA);
+bloodArcQA.onclick=async()=>{if(!ready||bloodArcQA.disabled)return;bloodArcQA.disabled=true;try{playing=false;game=new Game({seed:774,weapon:'shotgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();const {organicSprayDroplet}=await import('./combat-detail.js');const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+70,y:game.player.y-40,hp:500,maxHp:500,speed:0});let contact=null,index=0;const moments=[0,.08,.16,.24,.28],records=[];for(let tick=0;tick<90&&index<moments.length;tick++){game.tick(1/120,{moveX:0,moveY:0,shoot:tick===0,fireMode:'manual',aimX:e.x,aimY:e.y});events();const p=game.particles.find(p=>p.kind==='weapon-impact'&&!p.shielded&&!p.surface);if(contact===null&&p)contact=game.time;if(contact!==null&&game.time-contact>=moments[index]){if(!p)throw Error('impact-expired-before-capture');const before=JSON.stringify(game.snapshot());paint();const drops=Array.from({length:9},(_,i)=>organicSprayDroplet(p,i,9));records.push({age:p.maxLife-p.life,drops: drops.map(d=>({x:d.x,y:d.y,z:d.z,landed:d.landed})),identicalSnapshot:before===JSON.stringify(game.snapshot())});const q=renderer.worldToScreen(p.x,p.y,12),detail=document.createElement('canvas');detail.width=detail.height=512;detail.getContext('2d').drawImage(canvas,(q.x-100)*renderer.dpr,(q.y-110)*renderer.dpr,200*renderer.dpr,200*renderer.dpr,0,0,512,512);const image=document.createElement('img');image.alt='실제 혈흔 탄도 '+moments[index]+'초';image.src=detail.toDataURL();image.style.width='256px';document.body.append(image);index++;}}if(index!==moments.length)throw Error('real-blood-captures-incomplete');const report=document.createElement('pre');report.textContent=JSON.stringify({records,damage:500-e.hp,note:'actual shotgun collision, explicit initial target placement; original rendered crop, no save access'},null,2);document.querySelector('aside').prepend(report);status.textContent='실제 산탄 명중 · 포물선5시점 · 마지막 지면 접촉 '+records.at(-1).drops.filter(d=>d.landed).length+'/9 · 저장 동일 '+records.every(r=>r.identicalSnapshot);}finally{bloodArcQA.disabled=false;}};
+
+const harborPowerQA=document.createElement('button');harborPowerQA.textContent='항만 침수 전력·차량 호위 검수 (일반 적 격리)';document.querySelector('nav').append(harborPowerQA);
+harborPowerQA.onclick=async()=>{if(!ready||harborPowerQA.disabled)return;harborPowerQA.disabled=true;try{playing=false;const {HARBOR_POWER_EXPEDITION}=await import('./expedition.js'),{runHarborPowerQA}=await import('./qa-harbor-power.js');game=new Game({seed:774,expeditionId:HARBOR_POWER_EXPEDITION.id});await load();const result=await runHarborPowerQA({onBoundary:async next=>{game=next;renderer.cameraReady=false;paint();const image=document.createElement('img');image.alt='항만 전력 목표 '+game.expedition.step;image.src=canvas.toDataURL();image.style.width='24%';document.body.append(image);await new Promise(requestAnimationFrame);}});game=result.game;paint();const report=document.createElement('pre');report.textContent=JSON.stringify(result.report,null,2);document.querySelector('aside').prepend(report);const story=document.createElement('section');story.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(story);status.textContent='일반 적 격리·실제 정예 전투 · 항만 '+game.expedition.step+'/8 · '+game.state+' · 충전12초/호위12초 복구 '+result.report.defenseRestored+'/'+result.report.escortRestored+' · 저장 접근 없음';}finally{harborPowerQA.disabled=false;}};
+
+const poseBoundsQA=document.createElement('button');poseBoundsQA.textContent='원본7종 GPU 복사·경계·픽셀 비교';document.querySelector('nav').append(poseBoundsQA);
+poseBoundsQA.onclick=async()=>{if(!ready||poseBoundsQA.disabled)return;poseBoundsQA.disabled=true;try{playing=false;await load();await renderer.liveEnemiesPromise;const {comparePoseBounds}=await import('./qa-pose-bounds.js');const result=await comparePoseBounds(renderer,{onImage:async(type,src)=>{const image=document.createElement('img');image.alt='CPU 읽기 없는 원본 '+type+' 공격';image.src=src;image.style.width='256px';document.body.append(image);status.textContent=type+' 원본 경계/픽셀 비교 중';await new Promise(requestAnimationFrame);}});const report=document.createElement('pre');report.textContent=JSON.stringify(result,null,2);document.querySelector('aside').prepend(report);status.textContent='원본56포즈 비교 완료 · 알파 경계 누락 '+result.reduce((n,r)=>n+r.bounds.misses,0)+' · 원본 배치/발 접점 동일 '+result.every(r=>r.placementSame)+' · 기본 경로 변경 없음';}finally{poseBoundsQA.disabled=false;}};
+
+const poseBoundsCrowdQA=document.createElement('button');poseBoundsCrowdQA.textContent='CPU 읽기 없는 원본 리그·60적 비용 비교';document.querySelector('nav').append(poseBoundsCrowdQA);
+poseBoundsCrowdQA.onclick=async()=>{if(!ready||poseBoundsCrowdQA.disabled)return;poseBoundsCrowdQA.disabled=true;let rig,prior;try{playing=false;game=new Game({seed:774});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;rig=renderer.liveEnemies;await rig.load('enemy-walker');const {SkinnedPoseBounds}=await import('./boss-rig/pose-bounds.js');rig.models.get('enemy-walker').poseBounds??=new SkinnedPoseBounds(rig.models.get('enemy-walker').root);for(let i=0;i<60;i++){const a=i*Math.PI*2/60,r=115+(i%4)*26;game.spawnEnemy('walker',r,{x:game.player.x+Math.cos(a)*r,y:game.player.y+Math.sin(a)*r});}const snapshot=game.snapshot(),{profileRenderStages}=await import('./qa-render-profile.js?dense=20261018-4'),results=[],saves=[];prior={fast:rig.gpuPoseBounds,verify:rig.verifyPoseBounds};for(const [index,fast]of [false,true,false].entries()){game=Game.restore(snapshot,{resumePlaying:true});renderer.cameraReady=false;rig.gpuPoseBounds=fast;rig.verifyPoseBounds=false;rig.boundsStats={samples:0,misses:0,maxExtraPixels:0,maxAreaRatio:0,gpuFrames:0,fallbacks:0};status.textContent='원본60적 · CPU 픽셀 읽기 '+(!fast)+' · 비교 '+(index+1)+'/3';const result=await profileRenderStages(renderer,game);results.push({fast,...result,bounds:{...rig.boundsStats}});saves.push(JSON.stringify(game.snapshot()));const image=document.createElement('img');image.alt='원본60적 CPU 읽기 '+(!fast)+' 비교 '+index;image.src=canvas.toDataURL();image.style.width='32%';document.body.append(image);}const report=document.createElement('pre');report.textContent=JSON.stringify({results,identicalSimulation:saves.every(s=>s===saves[0])},null,2);document.querySelector('aside').prepend(report);status.textContent='원본60적 읽기 비교 완료 · 실제 전투 동일 '+saves.every(s=>s===saves[0])+' · 기본 경로 변경 없음';}finally{if(rig&&prior){rig.gpuPoseBounds=prior.fast;rig.verifyPoseBounds=prior.verify;}poseBoundsCrowdQA.disabled=false;}};
+
+const hitEnvelopeQA=document.createElement('button');hitEnvelopeQA.textContent='원본7종 피격 반동 연결 검수';document.querySelector('nav').append(hitEnvelopeQA);
+hitEnvelopeQA.onclick=async()=>{if(!ready||hitEnvelopeQA.disabled)return;hitEnvelopeQA.disabled=true;playing=false;
+try{await renderer.liveEnemiesPromise;const rig=renderer.liveEnemies,report=[],ages=[0,.006,.012,.025,.05,.075,.10,.12];
+const sheet=document.createElement('canvas');sheet.width=ages.length*144;sheet.height=7*164;const ctx=sheet.getContext('2d');ctx.fillStyle='#242d30';ctx.fillRect(0,0,sheet.width,sheet.height);const before=JSON.stringify(game.snapshot());
+for(const [row,type]of ['walker','runner','shield','screamer','gas','elite','collector'].entries()){
+const key='enemy-'+type;rig.releaseUnused([key]);if(!await rig.load(key))throw Error(rig.error);const mapping=renderer.productionArt.manifest.enemies[type];await Promise.all((typeof mapping==='string'?[mapping]:Object.values(mapping)).map(id=>renderer.productionArt.load(id)));
+for(const [column,age]of ages.entries()){const actor={id:950+column,type,x:1200,y:930,hp:500,angle:.65,hitFlash:Math.max(0,.12-age),attackState:'walk'},selected=renderer.productionArt.enemyFrame(type,actor,{simulationTime:2+age});const fallback={...selected,locomotion:{pose:'walk',phase:2.4,angle:.65,moveWeight:1}};const frame=rig.frame(key,actor,2+age,fallback,{height:42});ctx.drawImage(frame.image,column*144,row*164,144,144);ctx.fillStyle='#eee';ctx.font='11px sans-serif';ctx.fillText(type+' '+Math.round(age*1000)+'ms',column*144+5,row*164+155);report.push({type,age,weight:rig.diagnostics.hitLayerWeight,clip:rig.diagnostics.clip,clipped:rig.diagnostics.clipped});}
+await new Promise(requestAnimationFrame);}
+const image=document.createElement('img');image.alt='원본7종 피격 반동 연결';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);const pre=document.createElement('pre');pre.textContent=JSON.stringify({report,identicalSnapshot:before===JSON.stringify(game.snapshot()),error:rig.error},null,2);document.querySelector('aside').prepend(pre);status.textContent='원본7종 56포즈 피격 반동 연결 완료 · 게임 타격·저장 변경 없음';
+}finally{hitEnvelopeQA.disabled=false;}};
+
+const hitLightQA=document.createElement('button');hitLightQA.textContent='실제 탄환 명중 부위 빛 비교';document.querySelector('nav').append(hitLightQA);
+hitLightQA.onclick=async()=>{if(!ready||hitLightQA.disabled)return;hitLightQA.disabled=true;playing=false;try{const reports=[];for(const weapon of ['nailgun','shotgun']){game=new Game({seed:774,weapon,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');const e=game.spawnEnemy('walker',300);Object.assign(e,{x:game.player.x+70,y:game.player.y-40,hp:500,maxHp:500,speed:0});let ticks=0;while(e.hp===500&&ticks++<40){game.tick(1/120,{shoot:ticks===1,fireMode:'manual',aimX:e.x,aimY:e.y});events();}if(e.hp===500)throw Error('real-bullet-did-not-hit');paint();const before=JSON.stringify(game.snapshot()),native=renderer.nativeActorFrames.get(e),impact=renderer.nativeHitLights.get(e.id);if(!native||!impact)throw Error('native-collision-light-missing');const sheet=document.createElement('canvas');sheet.width=512;sheet.height=280;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,512,280);const foot=native.placement.groundFoot||native.placement.foot;for(let i=0;i<2;i++){c.save();c.translate(i*256+128,220);c.scale(3,3);c.translate(-foot.x,-foot.y);renderer.productionArt.drawFrame(c,native);renderer.drawNativeHitFlash(c,native,e.hitFlash,i?impact:null);c.restore();c.fillStyle='#eee';c.font='14px sans-serif';c.fillText(i?'명중 부위 집중':'이전 전체 밝기',i*256+45,260);}const image=document.createElement('img');image.alt=weapon+' 실제 명중 부위 빛 비교';image.src=sheet.toDataURL();document.body.append(image);reports.push({weapon,damage:500-e.hp,hitFlash:e.hitFlash,impact:{x:impact.x,y:impact.y,z:impact.z,angle:impact.angle,targetId:impact.targetId},nativeRig:native.metadata.liveRig,identicalSnapshot:before===JSON.stringify(game.snapshot())});}const pre=document.createElement('pre');pre.textContent=JSON.stringify(reports,null,2);document.querySelector('aside').prepend(pre);status.textContent='실제2무기 명중 부위 빛 비교 완료 · 저장 동일 '+reports.every(r=>r.identicalSnapshot);}finally{hitLightQA.disabled=false;}};
+
+const patientRecordQA=document.createElement('button');patientRecordQA.textContent='환자 대조 기록·두 정예전 검수 (일반 적 격리)';document.querySelector('nav').append(patientRecordQA);
+patientRecordQA.onclick=async()=>{if(!ready||patientRecordQA.disabled)return;patientRecordQA.disabled=true;playing=false;try{const {PATIENT_RECORD_EXPEDITION}=await import('./expedition.js'),{runPatientRecordQA}=await import('./qa-patient-record.js');game=new Game({seed:774,expeditionId:PATIENT_RECORD_EXPEDITION.id});await load();const result=await runPatientRecordQA({onBoundary:async next=>{game=next;renderer.cameraReady=false;paint();const image=document.createElement('img');image.alt='환자 대조 목표 '+game.expedition.step;image.src=canvas.toDataURL();image.style.width='24%';document.body.append(image);await new Promise(requestAnimationFrame);}});game=result.game;paint();const pre=document.createElement('pre');pre.textContent=JSON.stringify(result.report,null,2);document.querySelector('aside').prepend(pre);const story=document.createElement('section');story.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(story);status.textContent='환자 대조 '+game.expedition.step+'/9 · '+game.state+' · 방어/교차 대조 복구 '+result.report.defenseRestored+'/'+result.report.relayRestored+' · 일반 적 격리·실제 두 정예전 · 저장 접근 없음';}finally{patientRecordQA.disabled=false;}};
+
+const reloadPoseQA=document.createElement('button');reloadPoseQA.textContent='원본2무기 실제 재장전 손동작 검수';document.querySelector('nav').append(reloadPoseQA);
+reloadPoseQA.onclick=async()=>{if(!ready||reloadPoseQA.disabled)return;reloadPoseQA.disabled=true;playing=false;try{const reports=[];for(const weapon of ['shotgun','nailgun']){game=new Game({seed:774,weapon,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();game.tick(1/120,{shoot:true,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});game.tick(1/120,{shoot:false,reload:true,fireMode:'manual'});events();const duration=game.player.reloadTime,records=[],sheet=document.createElement('canvas');sheet.width=7*180;sheet.height=210;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);let restored=false;
+for(const [i,target]of [0,.16,.37,.53,.74,.96,1.01].entries()){while(game.player.reloadTime>0&&1-game.player.reloadTime/duration<target){game.tick(1/120,{shoot:false,fireMode:'manual',moveX:0,moveY:.35,aimX:game.player.x+200,aimY:game.player.y});events();}if(!restored&&target>=.53){const r=Game.restore(game.snapshot(),{resumePlaying:true});if(!r)throw Error('actual-reload-restore');game=r;restored=true;}const before=JSON.stringify(game.snapshot());paint();c.drawImage(renderer.livePlayer.canvas,i*180,0,180,180);c.fillStyle='#eee';c.font='12px sans-serif';c.fillText(Math.round((1-game.player.reloadTime/duration)*100)+'% / '+game.player.ammo+'발',i*180+25,198);records.push({remaining:game.player.reloadTime,ammo:game.player.ammo,...renderer.livePlayer.diagnostics,identicalSnapshot:before===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);}
+const image=document.createElement('img');image.alt=weapon+' 원본 실제 재장전';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);reports.push({weapon,duration,restored,records});}const pre=document.createElement('pre');pre.textContent=JSON.stringify(reports,null,2);document.querySelector('aside').prepend(pre);status.textContent='원본2무기 실제 재장전·이동 중 손동작 · 중간 복구 · 종료 탄약 지급 완료';}finally{reloadPoseQA.disabled=false;}};
+
+const reloadSoundQA=document.createElement('button');reloadSoundQA.textContent='실제 재장전 단계 음향·일시정지 검수';document.querySelector('nav').append(reloadSoundQA);
+reloadSoundQA.onclick=async()=>{if(!ready||reloadSoundQA.disabled)return;reloadSoundQA.disabled=true;playing=false;audio.unlock();audio.setEnabled(true);const originalPlay=audio.play,reports=[];let records=[];audio.play=function(type,data){if(['reload','reload-stage','loaded'].includes(type))records.push({type,stage:data.stage,progress:data.progress,gameTime:game.time,audioTime:this.ctx?.currentTime,remaining:game.player.reloadTime});return originalPlay.call(this,type,data);};try{for(const weapon of ['shotgun','nailgun']){records=[];game=new Game({seed:774,weapon,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();game.tick(1/60,{shoot:true,fireMode:'manual'});events();game.tick(1/60,{shoot:false,reload:true,fireMode:'manual'});events();let restored=false,pauseUnchanged=false,ticks=0;while(game.player.reloadTime>0&&ticks++<300){await new Promise(requestAnimationFrame);game.tick(1/60,{shoot:false,fireMode:'manual',moveY:.25,aimX:game.player.x+200,aimY:game.player.y});events();paint();if(!restored&&game.player.reloadTime<(weapon==='shotgun'?1.35:1.1)*.58){game.pause();events();const remaining=game.player.reloadTime,count=records.length;for(let i=0;i<8;i++){await new Promise(requestAnimationFrame);game.tick(1/60);events();paint();}pauseUnchanged=remaining===game.player.reloadTime&&count===records.length;const r=Game.restore(game.snapshot());if(!r)throw Error('reload-audio-restore');game=r;game.resume();events();restored=true;}}if(game.player.reloadTime>0)throw Error('reload-audio-not-complete');reports.push({weapon,records:[...records],restored,pauseUnchanged,ammo:game.player.ammo,maxAmmo:game.player.maxAmmo,audioState:audio.ctx?.state});}
+for(let i=0;i<120&&audio.active;i++)await new Promise(requestAnimationFrame);const pre=document.createElement('pre');pre.textContent=JSON.stringify({reports,activeVoices:audio.active,audioState:audio.ctx?.state},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제2무기 재장전 단계 음향 · 일시정지/복구 '+reports.every(r=>r.pauseUnchanged&&r.restored)+' · 남은 음원 '+audio.active;
+}finally{audio.play=originalPlay;reloadSoundQA.disabled=false;}};
+
+const pivotQA=document.createElement('button');pivotQA.textContent='원본7종 정지 방향 전환 검수';document.querySelector('nav').append(pivotQA);
+pivotQA.onclick=async()=>{if(!ready||pivotQA.disabled)return;pivotQA.disabled=true;playing=false;try{await renderer.liveEnemiesPromise;const {EnemyLocomotionClock}=await import('./enemy-locomotion.js'),rig=renderer.liveEnemies,records=[],times=[0,.05,.1,.2,.3,.4,.5,.8,1.2];const sheet=document.createElement('canvas');sheet.width=times.length*144;sheet.height=7*164;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);const before=JSON.stringify(game.snapshot());for(const [row,type]of ['walker','runner','shield','screamer','gas','elite','collector'].entries()){const key='enemy-'+type;rig.releaseUnused([key]);if(!await rig.load(key))throw Error(rig.error);const mapping=renderer.productionArt.manifest.enemies[type];await Promise.all((typeof mapping==='string'?[mapping]:Object.values(mapping)).map(id=>renderer.productionArt.load(id)));const clock=new EnemyLocomotionClock(),actor={id:771,type,x:1200,y:930,hp:500,r:14,speed:40,angle:0};clock.select(actor,0);for(const [column,time]of times.entries()){actor.angle=time?Math.PI/2:0;const motion=clock.select(actor,time,{turnRate:4,cycleDistance:50}),selected=renderer.productionArt.enemyFrame(type,actor,{simulationTime:time}),frame=rig.frame(key,actor,time,{...selected,locomotion:motion},{height:42});c.drawImage(frame.image,column*144,row*164,144,144);c.fillStyle='#eee';c.font='11px sans-serif';c.fillText(type+' '+Math.round(motion.angle*180/Math.PI)+'°',column*144+5,row*164+155);records.push({type,time,angle:motion.angle,pivoting:motion.pivoting,phase:motion.phase,moveWeight:motion.moveWeight,clipped:rig.diagnostics.clipped});}await new Promise(requestAnimationFrame);}const image=document.createElement('img');image.alt='원본7종 정지 방향 전환';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);const pre=document.createElement('pre');pre.textContent=JSON.stringify({records,identicalSnapshot:before===JSON.stringify(game.snapshot()),note:'controlled stationary target-angle fixture; shield exact simulation angle retained, source models/clips unchanged',error:rig.error},null,2);document.querySelector('aside').prepend(pre);status.textContent='원본7종 정지 회전63포즈 완료 · 방패 실제 방향 유지 · 저장 동일 '+(before===JSON.stringify(game.snapshot()));}finally{pivotQA.disabled=false;}};
+
+const fireResidueQA=document.createElement('button');fireResidueQA.textContent='실제 화염병 소화 후 그을음 검수';document.querySelector('nav').append(fireResidueQA);
+fireResidueQA.onclick=async()=>{if(!ready||fireResidueQA.disabled)return;fireResidueQA.disabled=true;playing=false;try{game=new Game({seed:774,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();const target={x:game.player.x+220,y:game.player.y};game.tick(1/60,{molotov:true,targetX:target.x,targetY:target.y,shoot:false,fireMode:'manual'});events();let ticks=0;while(!game.fires.length&&ticks++<180){game.tick(1/60,{shoot:false,fireMode:'manual'});events();}if(!game.fires.length)throw Error('actual-molotov-not-landed');paint();const expectedEnd=game.time+game.fires[0].time,reports=[];let extinction=null;for(const [label,seconds]of [['활성 화염',game.time+.15],['소화 직후',expectedEnd+.04],['그을음 절반',expectedEnd+5.04],['그을음 소멸',expectedEnd+10.04]]){while(game.time<seconds){const had=game.fires.length;game.tick(1/60,{shoot:false,fireMode:'manual'});events();if(had&&!game.fires.length){paint();extinction=game.time;}}const before=JSON.stringify(game.snapshot());paint();reports.push({label,time:game.time,extinction,fires:game.fires.length,burns:[...renderer.fireGround.burns.values()].map(m=>({...m})),identicalSnapshot:before===JSON.stringify(game.snapshot())});const image=document.createElement('img');image.alt='실제 화염병 '+label;image.src=canvas.toDataURL();image.style.width='45%';document.body.append(image);await new Promise(requestAnimationFrame);}const pre=document.createElement('pre');pre.textContent=JSON.stringify(reports,null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 화염병 소화·그을음10초 감쇠 완료 · 피해/저장 변경 없음';}finally{fireResidueQA.disabled=false;}};
+
+const chargeWallQA=document.createElement('button');chargeWallQA.textContent='실제 보스 벽 돌진·충돌·복귀 검수';document.querySelector('nav').append(chargeWallQA);
+chargeWallQA.onclick=async()=>{if(!ready||chargeWallQA.disabled)return;chargeWallQA.disabled=true;playing=false;const oldImpact=renderer.onChargeImpact,hits=[];renderer.onChargeImpact=e=>{hits.push({time:game.time,...e});oldImpact?.(e);};try{game=new Game({seed:774,missionId:'mission-01',stageDuration:1e9});game.world.obstacles=[];game.enemies=[];game.spawnClock=1e9;const boss=game.spawnMissionBoss('mid');game.move(boss,1650-boss.x,930-boss.y);game.move(game.player,1200-game.player.x,930-game.player.y);boss.skillCd=0;game.world.obstacles.push({id:++game.id,x:1450,y:820,w:90,h:220,kind:'building',variant:'brick',height:100,hp:Infinity,maxHp:Infinity,destroyed:false});await load();await renderer.preloadProductionBosses([boss.bossKey]);const records=[];let previous='',captured=0,debrisCaptured=false;for(let i=0;i<240;i++){game.tick(1/60,{shoot:false,fireMode:'manual',aimX:boss.x,aimY:boss.y});events();if(i%3===0||previous!==boss.attackState){const before=JSON.stringify(game.snapshot());paint();records.push({time:game.time,state:boss.attackState,x:boss.x,y:boss.y,attackTime:boss.attackTime,clip:renderer.liveBoss.diagnostics?.clip,angle:renderer.liveBoss.diagnostics?.angle,depthOrder:{...renderer.depthOrder},clipped:renderer.liveBoss.diagnostics?.clipped,identicalSnapshot:before===JSON.stringify(game.snapshot())});if(hits.length>captured||previous!==boss.attackState&&boss.attackState==='recover'){const image=document.createElement('img');image.alt=hits.length>captured?'실제 보스 벽 충돌':'실제 보스 돌진 복귀';image.src=canvas.toDataURL();image.style.width='45%';document.body.append(image);captured=hits.length;}if(!debrisCaptured&&hits.length&&game.time-hits[0].time>=.15){const image=document.createElement('img');image.alt='실제 보스 벽 충돌 잔해';image.src=canvas.toDataURL();image.style.width='45%';document.body.append(image);debrisCaptured=true;}previous=boss.attackState;}if(i%30===0)await new Promise(requestAnimationFrame);}const pre=document.createElement('pre');pre.textContent=JSON.stringify({hits,records,hp:game.player.hp,note:'explicit single solid-wall geometry fixture, actual campaign boss warning/charge/recovery and movement collision; no attack timing or damage changes'},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 벽 돌진 충돌 '+hits.length+'회 · 복귀 '+boss.attackState+' · HP '+game.player.hp+' · 저장 동일 '+records.every(r=>r.identicalSnapshot);}finally{renderer.onChargeImpact=oldImpact;chargeWallQA.disabled=false;}};
+
+const haifaTransferQA=document.createElement('button');haifaTransferQA.textContent='하이파 두 구간 호위·실제 차단 차량 검수 (일반 적 격리)';document.querySelector('nav').append(haifaTransferQA);
+haifaTransferQA.onclick=async()=>{if(!ready||haifaTransferQA.disabled)return;haifaTransferQA.disabled=true;playing=false;try{const {HAIFA_TRANSFER_EXPEDITION,expeditionTransport}=await import('./expedition.js'),{runHaifaTransferQA}=await import('./qa-haifa-transfer.js');game=new Game({seed:774,expeditionId:HAIFA_TRANSFER_EXPEDITION.id});await load();const positions=[];const result=await runHaifaTransferQA({onBoundary:async next=>{game=next;renderer.cameraReady=false;paint();positions.push({step:game.expedition.step,transport:expeditionTransport(game)});const image=document.createElement('img');image.alt='하이파 이송 목표 '+game.expedition.step;image.src=canvas.toDataURL();image.style.width='24%';document.body.append(image);await new Promise(requestAnimationFrame);}});game=result.game;paint();const pre=document.createElement('pre');pre.textContent=JSON.stringify({...result.report,positions},null,2);document.querySelector('aside').prepend(pre);const story=document.createElement('section');story.innerHTML=expeditionResultHTML(game);document.querySelector('aside').prepend(story);status.textContent='하이파 이송 '+game.expedition.step+'/10 · '+game.state+' · 두 호위 복구 '+result.report.firstRestored+'/'+result.report.secondRestored+' · 실제 차단 차량 파괴 '+result.report.carDestroyed+' · 일반 적 격리·실제 전투';}finally{haifaTransferQA.disabled=false;}};
+
+const deathBridgeQA=document.createElement('button');deathBridgeQA.textContent='실제 탄환 사망·마지막 자세 연결 검수';document.querySelector('nav').append(deathBridgeQA);
+deathBridgeQA.onclick=async()=>{if(!ready||deathBridgeQA.disabled)return;deathBridgeQA.disabled=true;playing=false;try{game=new Game({seed:774,weapon:'nailgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');const e=game.spawnEnemy('walker',130);Object.assign(e,{x:game.player.x+130,y:game.player.y});const rig=renderer.liveEnemies,alive=document.createElement('canvas');alive.width=alive.height=256;const ac=alive.getContext('2d',{willReadFrequently:true});let ticks=0,lastData;paint();while(!e.dead&&ticks++<180){game.tick(1/120,{shoot:ticks>20,fireMode:'manual',aimX:e.x,aimY:e.y});events();if(!e.dead){paint();const frame=rig.frames.get(e);if(frame){ac.clearRect(0,0,256,256);ac.drawImage(frame.image,0,0);lastData=ac.getImageData(0,0,256,256).data;}}if(ticks%12===0)await new Promise(requestAnimationFrame);}if(!e.dead||!lastData)throw Error('actual-native-lethal-bullet-missing');const corpse=game.corpses.find(c=>c.seed===e.id),sheet=document.createElement('canvas');sheet.width=7*180;sheet.height=210;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);c.drawImage(alive,0,0,180,180);c.fillStyle='#eee';c.font='12px sans-serif';c.fillText('마지막 생존 자세',15,198);const records=[];let different=0,maxDelta=0;for(const [i,age]of [0,.025,.05,.08,.16,.4].entries()){while(12-corpse.time<age){game.tick(1/120,{shoot:false,fireMode:'manual'});events();}const before=JSON.stringify(game.snapshot());paint();const image=rig.frames.get(corpse)?.image;if(!image)throw Error('native-corpse-frame-missing');if(i===0){const read=document.createElement('canvas');read.width=read.height=256;const rc=read.getContext('2d',{willReadFrequently:true});rc.drawImage(image,0,0);const data=rc.getImageData(0,0,256,256).data;for(let n=0;n<data.length;n++)if(data[n]!==lastData[n]){different++;maxDelta=Math.max(maxDelta,Math.abs(data[n]-lastData[n]));}}c.drawImage(image,(i+1)*180,0,180,180);c.fillStyle='#eee';c.fillText(Math.round((12-corpse.time)*1000)+'ms',(i+1)*180+25,198);records.push({age:12-corpse.time,...rig.diagnostics,identicalSnapshot:before===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);}const image=document.createElement('img');image.alt='실제 탄환 사망 자세 연결';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);const pre=document.createElement('pre');pre.textContent=JSON.stringify({kills:game.kills,hp:game.player.hp,differentRgbaComponents:different,maxDelta,records,note:'actual nailgun lethal hit after normal enemy approach; original live pose history only, no damage or save changes'},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 탄환 사망 연결 · 첫 프레임 차이 '+different+'바이트 · 저장 동일 '+records.every(r=>r.identicalSnapshot);}finally{deathBridgeQA.disabled=false;}};
+
+const bossDeathBridgeQA=document.createElement('button');bossDeathBridgeQA.textContent='실제 보스 탄환 사망·마지막 자세 연결 검수';document.querySelector('nav').append(bossDeathBridgeQA);
+bossDeathBridgeQA.onclick=async()=>{if(!ready||bossDeathBridgeQA.disabled)return;bossDeathBridgeQA.disabled=true;playing=false;try{game=new Game({seed:774,weapon:'shotgun',missionId:'mission-01',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();const e=game.spawnMissionBoss('mid');await renderer.preloadProductionBosses([e.bossKey]);Object.assign(e,{x:game.player.x+130,y:game.player.y});const rig=renderer.liveBoss,alive=document.createElement('canvas');alive.width=alive.height=512;const ac=alive.getContext('2d',{willReadFrequently:true});let ticks=0,lastData;paint();while(!e.dead&&ticks++<1200){game.tick(1/120,{shoot:ticks>20,fireMode:'manual',aimX:e.x,aimY:e.y});events();if(!e.dead){paint();const frame=rig.frames.get(e);if(frame){ac.clearRect(0,0,512,512);ac.drawImage(frame.image,0,0);lastData=ac.getImageData(0,0,512,512).data;}}if(ticks%12===0)await new Promise(requestAnimationFrame);}if(!e.dead||!lastData)throw Error('actual-native-lethal-bullet-missing');const corpse=game.corpses.find(c=>c.seed===e.id),sheet=document.createElement('canvas');sheet.width=7*180;sheet.height=210;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);c.drawImage(alive,0,0,180,180);c.fillStyle='#eee';c.font='12px sans-serif';c.fillText('마지막 생존 자세',15,198);const records=[];let different=0,maxDelta=0;for(const [i,age]of [0,.025,.05,.08,.16,.4].entries()){while(12-corpse.time<age){if(game.state==='upgrade')game.chooseUpgrade(game.choices[0].id);game.tick(1/120,{shoot:false,fireMode:'manual'});events();}const before=JSON.stringify(game.snapshot());paint();const image=rig.frames.get(corpse)?.image;if(!image)throw Error('native-corpse-frame-missing');if(i===0){const read=document.createElement('canvas');read.width=read.height=512;const rc=read.getContext('2d',{willReadFrequently:true});rc.drawImage(image,0,0);const data=rc.getImageData(0,0,512,512).data;for(let n=0;n<data.length;n++)if(data[n]!==lastData[n]){different++;maxDelta=Math.max(maxDelta,Math.abs(data[n]-lastData[n]));}}c.drawImage(image,(i+1)*180,0,180,180);c.fillStyle='#eee';c.fillText(Math.round((12-corpse.time)*1000)+'ms',(i+1)*180+25,198);records.push({age:12-corpse.time,...rig.diagnostics,identicalSnapshot:before===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);}const image=document.createElement('img');image.alt='실제 보스 탄환 사망 자세 연결';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);const pre=document.createElement('pre');pre.textContent=JSON.stringify({kills:game.kills,hp:game.player.hp,differentRgbaComponents:different,maxDelta,records,note:'actual shotgun lethal hit against the normal-HP campaign mid boss; original live pose history only, no damage or save changes'},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 보스 사망 연결 · 첫 프레임 차이 '+different+'바이트 · 저장 동일 '+records.every(r=>r.identicalSnapshot);}finally{bossDeathBridgeQA.disabled=false;}};
+
+const weaponRecoilQA=document.createElement('button');weaponRecoilQA.textContent='원본2무기 실제 발사 반동·총구 검수';document.querySelector('nav').append(weaponRecoilQA);
+weaponRecoilQA.onclick=async()=>{if(!ready||weaponRecoilQA.disabled)return;weaponRecoilQA.disabled=true;playing=false;try{const reports=[];for(const weapon of ['shotgun','nailgun']){game=new Game({seed:774,weapon,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();for(let i=0;i<30;i++)game.tick(1/60,{shoot:false,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});events();paint();const sheet=document.createElement('canvas');sheet.width=7*220;sheet.height=250;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);c.drawImage(renderer.livePlayer.canvas,0,0,220,220);c.fillStyle='#eee';c.font='12px sans-serif';c.fillText('발사 전',35,238);const start=game.time,records=[];game.tick(1/240,{shoot:true,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});events();for(const [i,age]of [.004,.009,.025,.06,.09,.125].entries()){while(game.time-start<age){game.tick(1/240,{shoot:false,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});events();}const before=JSON.stringify(game.snapshot());paint();c.drawImage(renderer.livePlayer.canvas,(i+1)*220,0,220,220);c.fillStyle='#eee';c.fillText(Math.round((game.time-start)*1000)+'ms',(i+1)*220+35,238);const native=renderer.nativeActorFrames.get(game.player);records.push({time:game.time-start,ammo:game.player.ammo,recoil:game.player.recoil,...renderer.livePlayer.diagnostics,muzzle:native?.frame.weaponMuzzle,firstBullet:game.bullets[0]?renderer.nativeBulletShots.get(game.bullets[0]):null,identicalSnapshot:before===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);}const image=document.createElement('img');image.alt=weapon+' 실제 원본 무기 반동';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);let shots=0;while(game.player.ammo>0&&shots++<500){game.tick(1/60,{shoot:true,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});events();}const beforeReload=JSON.stringify(game.snapshot());paint();const autoReload={ammo:game.player.ammo,reloadTime:game.player.reloadTime,recoil:game.player.recoil,physicalRecoil:renderer.livePlayer.diagnostics.physicalRecoil,gripError:renderer.livePlayer.diagnostics.gripError,aimError:renderer.livePlayer.diagnostics.aimErrorDegrees,identicalSnapshot:beforeReload===JSON.stringify(game.snapshot())};reports.push({weapon,records,autoReload});}const pre=document.createElement('pre');pre.textContent=JSON.stringify(reports,null,2);document.querySelector('aside').prepend(pre);status.textContent='원본2무기 실제 발사 반동 · 양손/조준/총구 · 저장 동일 '+reports.every(r=>r.records.every(f=>f.identicalSnapshot));}finally{weaponRecoilQA.disabled=false;}};
+
+const upperActionQA=document.createElement('button');upperActionQA.textContent='실제 발사 중 피격·상체 연결 검수';document.querySelector('nav').append(upperActionQA);
+upperActionQA.onclick=async()=>{if(!ready||upperActionQA.disabled)return;upperActionQA.disabled=true;playing=false;try{
+ game=new Game({seed:774,weapon:'shotgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();
+ const input=shoot=>({moveY:1,shoot,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});
+ for(let i=0;i<60;i++)game.tick(1/60,input(false));events();paint();
+ game.tick(1/240,input(true));events();paint();for(let i=0;i<4;i++){game.tick(1/240,input(false));events();paint();}
+ const rig=renderer.livePlayer,before=document.createElement('canvas');before.width=before.height=256;const bc=before.getContext('2d',{willReadFrequently:true});bc.drawImage(rig.canvas,0,0);const data=bc.getImageData(0,0,256,256).data;
+ const sheet=document.createElement('canvas');sheet.width=7*220;sheet.height=250;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);c.drawImage(before,0,0,220,220);c.fillStyle='#eee';c.font='12px sans-serif';c.fillText('발사 중',35,238);
+ game.hurtPlayer(8,{x:game.player.x-20,y:game.player.y});events();const start=game.time,records=[];let different=0,maxDelta=0;
+ for(const [i,age]of [0,.008,.016,.05,.18,.36].entries()){
+  while(game.time-start<age){game.tick(1/240,input(false));events();}
+  const saved=JSON.stringify(game.snapshot());paint();
+  if(i===0){bc.clearRect(0,0,256,256);bc.drawImage(rig.canvas,0,0);const after=bc.getImageData(0,0,256,256).data;for(let n=0;n<data.length;n++)if(data[n]!==after[n]){different++;maxDelta=Math.max(maxDelta,Math.abs(data[n]-after[n]));}}
+  c.drawImage(rig.canvas,(i+1)*220,0,220,220);c.fillStyle='#eee';c.fillText(Math.round((game.time-start)*1000)+'ms',(i+1)*220+35,238);
+  records.push({age:game.time-start,hp:game.player.hp,flash:game.flash,...rig.diagnostics,identicalSnapshot:saved===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);
+ }
+ const image=document.createElement('img');image.alt='실제 발사 중 피격 상체 연결';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);
+ const pre=document.createElement('pre');pre.textContent=JSON.stringify({differentRgbaComponents:different,maxDelta,records,note:'actual normal shot then hurtPlayer(8) during continuous movement; no storage, damage, invulnerability or movement overrides'},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 발사→피격 연결 · 첫 자세 차이 '+different+'바이트 · 저장 동일 '+records.every(r=>r.identicalSnapshot);
+ }finally{upperActionQA.disabled=false;}};
+
+const playerDeathQA=document.createElement('button');playerDeathQA.textContent='주인공2무기 실제 사망·마지막 자세 연결 검수';document.querySelector('nav').append(playerDeathQA);
+playerDeathQA.onclick=async()=>{if(!ready||playerDeathQA.disabled)return;playerDeathQA.disabled=true;playing=false;try{
+ const reports=[];for(const weapon of ['shotgun','nailgun']){
+  game=new Game({seed:774,weapon,stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();
+  const input=shoot=>({moveY:1,shoot,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y});
+  for(let i=0;i<72;i++)game.tick(1/60,input(false));events();paint();game.tick(1/240,input(true));events();paint();
+  const rig=renderer.livePlayer,before=document.createElement('canvas');before.width=before.height=256;const bc=before.getContext('2d',{willReadFrequently:true});bc.drawImage(rig.canvas,0,0);const data=bc.getImageData(0,0,256,256).data;
+  const sheet=document.createElement('canvas');sheet.width=8*220;sheet.height=250;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);c.drawImage(before,0,0,220,220);c.fillStyle='#eee';c.font='12px sans-serif';c.fillText('마지막 이동·발사',25,238);
+  game.hurtPlayer(100,{x:game.player.x-20,y:game.player.y});events();if(game.state!=='dead')throw Error('actual-player-death-missing');
+  const records=[];let different=0,maxDelta=0;for(const [i,age]of [0,.025,.05,.08,.2,.6,2.2].entries()){
+   const saved=JSON.stringify(game.snapshot());paint(game,game.time+age);
+   if(i===0){bc.clearRect(0,0,256,256);bc.drawImage(rig.canvas,0,0);const after=bc.getImageData(0,0,256,256).data;for(let n=0;n<data.length;n++)if(data[n]!==after[n]){different++;maxDelta=Math.max(maxDelta,Math.abs(data[n]-after[n]));}}
+   c.drawImage(rig.canvas,(i+1)*220,0,220,220);c.fillStyle='#eee';c.fillText(Math.round(age*1000)+'ms',(i+1)*220+35,238);
+   const bounds=renderer.nativeActorFrames.get(game.player)?.frame.alphaBounds;
+   records.push({age,hp:game.player.hp,state:game.state,...rig.diagnostics,bounds,visualMuzzleRecoil:renderer.nativePlayerMuzzleRecoil,visualBulletAlpha:renderer.nativeBulletAlpha,visibleWeapons:[...rig.weapons].filter(([,w])=>w.root.parent&&w.root.visible).map(([key])=>key),identicalSnapshot:saved===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);
+  }
+  const gpuFramesBefore=rig.renderer.info.render.frame,savedFinal=JSON.stringify(game.snapshot());paint(game,game.time+2.3);const finalCache={gpuFramesBefore,gpuFramesAfter:rig.renderer.info.render.frame,identicalSnapshot:savedFinal===JSON.stringify(game.snapshot())};
+  const image=document.createElement('img');image.alt=weapon+' 주인공 실제 사망 연결';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);reports.push({weapon,differentRgbaComponents:different,maxDelta,records,finalCache});
+ }
+ const world=document.createElement('img');world.alt='주인공 사망 후 실제 전투 화면';world.src=canvas.toDataURL();world.style.maxWidth='100%';document.body.append(world);
+ const pre=document.createElement('pre');pre.textContent=JSON.stringify({reports,note:'normal movement and actual shot, then normal hurtPlayer(100) API explicit lethal fixture; subsequent real renderer end-clock frames, no simulation/storage mutations'},null,2);document.querySelector('aside').prepend(pre);status.textContent='주인공2무기 실제 사망 · 첫 자세 차이 '+reports.map(r=>r.differentRgbaComponents).join('/')+'바이트 · 저장 동일 '+reports.every(r=>r.records.every(f=>f.identicalSnapshot));
+ }finally{playerDeathQA.disabled=false;}};
+
+const playerActionDeathQA=document.createElement('button');playerActionDeathQA.textContent='재장전·화염병 투척 중 사망 연결 검수';document.querySelector('nav').append(playerActionDeathQA);
+playerActionDeathQA.onclick=async()=>{if(!ready||playerActionDeathQA.disabled)return;playerActionDeathQA.disabled=true;playing=false;try{
+ const reports=[];for(const mode of ['reload','throw']){
+  game=new Game({seed:774,weapon:mode==='reload'?'shotgun':'nailgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();
+  const input={shoot:false,fireMode:'manual',aimX:game.player.x+200,aimY:game.player.y};for(let i=0;i<72;i++)game.tick(1/60,input);events();paint();
+  if(mode==='reload'){game.tick(1/240,{...input,shoot:true});game.tick(1/240,{...input,reload:true});for(let i=0;i<65;i++)game.tick(1/240,input);}
+  else{game.tick(1/240,{...input,molotov:true,targetX:game.player.x+200,targetY:game.player.y});for(let i=0;i<29;i++)game.tick(1/240,input);}
+  events();paint();const rig=renderer.livePlayer,action=rig.diagnostics.action,before=document.createElement('canvas');before.width=before.height=256;const bc=before.getContext('2d',{willReadFrequently:true});bc.drawImage(rig.canvas,0,0);const data=bc.getImageData(0,0,256,256).data;
+  if(action!==mode)throw Error('expected-actual-action-'+mode);
+  const sheet=document.createElement('canvas');sheet.width=6*220;sheet.height=250;const c=sheet.getContext('2d');c.fillStyle='#263438';c.fillRect(0,0,sheet.width,sheet.height);c.drawImage(before,0,0,220,220);c.fillStyle='#eee';c.font='12px sans-serif';c.fillText(mode,35,238);
+  game.hurtPlayer(100,{x:game.player.x-20,y:game.player.y});events();if(game.state!=='dead')throw Error('actual-action-lethal-hit-missing');
+  const records=[];let different=0,maxDelta=0;for(const [i,age]of [0,.04,.08,.3,1.3].entries()){
+   const saved=JSON.stringify(game.snapshot());paint(game,game.time+age);
+   if(i===0){bc.clearRect(0,0,256,256);bc.drawImage(rig.canvas,0,0);const after=bc.getImageData(0,0,256,256).data;for(let n=0;n<data.length;n++)if(data[n]!==after[n]){different++;maxDelta=Math.max(maxDelta,Math.abs(data[n]-after[n]));}}
+   c.drawImage(rig.canvas,(i+1)*220,0,220,220);c.fillStyle='#eee';c.fillText(Math.round(age*1000)+'ms',(i+1)*220+35,238);
+   records.push({age,...rig.diagnostics,heldBottle:!!rig.deathState?.bottle,visibleWeapons:[...rig.weapons].filter(([,w])=>w.root.parent&&w.root.visible).map(([key])=>key),visualMuzzleRecoil:renderer.nativePlayerMuzzleRecoil,identicalSnapshot:saved===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);
+  }
+  const gpuFramesBefore=rig.renderer.info.render.frame,savedFinal=JSON.stringify(game.snapshot());paint(game,game.time+1.4);const finalCache={gpuFramesBefore,gpuFramesAfter:rig.renderer.info.render.frame,identicalSnapshot:savedFinal===JSON.stringify(game.snapshot())};
+  const image=document.createElement('img');image.alt=mode+' 중 실제 사망 연결';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);reports.push({mode,firstAction:action,differentRgbaComponents:different,maxDelta,records,finalCache});
+ }
+ const pre=document.createElement('pre');pre.textContent=JSON.stringify({reports,note:'normal reload or input.molotov, normal hurtPlayer(100) API explicit lethal fixture; no actor/save/invulnerability overrides'},null,2);document.querySelector('aside').prepend(pre);status.textContent='재장전·투척 사망 연결 · 첫 자세 차이 '+reports.map(r=>r.differentRgbaComponents).join('/')+'바이트 · 저장 동일 '+reports.every(r=>r.records.every(f=>f.identicalSnapshot));
+ }finally{playerActionDeathQA.disabled=false;}};
+
+const bossFinishedCacheQA=document.createElement('button');bossFinishedCacheQA.textContent='실제 보스 사망 완료·전투 중 GPU 재사용 검수';document.querySelector('nav').append(bossFinishedCacheQA);
+bossFinishedCacheQA.onclick=async()=>{if(!ready||bossFinishedCacheQA.disabled)return;bossFinishedCacheQA.disabled=true;playing=false;try{
+ game=new Game({seed:774,weapon:'shotgun',missionId:'mission-01',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();const boss=game.spawnMissionBoss('mid');await renderer.preloadProductionBosses([boss.bossKey]);Object.assign(boss,{x:game.player.x+130,y:game.player.y});const normalHp=boss.hp;let ticks=0;paint();
+ while(!boss.dead&&ticks++<1200){if(game.state==='upgrade')game.chooseUpgrade(game.choices[0].id);game.tick(1/120,{shoot:ticks>20,fireMode:'manual',aimX:boss.x,aimY:boss.y});events();if(ticks%12===0){paint();await new Promise(requestAnimationFrame);}}
+ if(!boss.dead)throw Error('normal-hp-boss-not-defeated');const corpse=game.corpses.find(c=>c.seed===boss.id);if(!corpse)throw Error('actual-boss-corpse-missing');paint();
+ const advance=age=>{let steps=0;while((corpse.duration??12)-corpse.time<age&&steps++<1200){if(game.state==='upgrade')game.chooseUpgrade(game.choices[0].id);if(game.state!=='playing')throw Error('playing-corpse-clock-required');game.tick(1/120,{shoot:false,fireMode:'manual'});events();}};
+ const rig=renderer.liveBoss,records=[],read=document.createElement('canvas');read.width=read.height=512;const rc=read.getContext('2d',{willReadFrequently:true});let firstData,different=0,maxDelta=0;
+ for(const age of [1.2,1.3]){advance(age);const snapshot=JSON.stringify(game.snapshot()),gpuBefore=rig.renderer.info.render.frame;paint();const image=rig.frames.get(corpse)?.image;if(!image)throw Error('finished-original-boss-frame-missing');rc.clearRect(0,0,512,512);rc.drawImage(image,0,0);const data=rc.getImageData(0,0,512,512).data;if(!firstData)firstData=data;else for(let n=0;n<data.length;n++)if(data[n]!==firstData[n]){different++;maxDelta=Math.max(maxDelta,Math.abs(data[n]-firstData[n]));}
+ records.push({age:(corpse.duration??12)-corpse.time,gameTime:game.time,state:game.state,gpuFramesBefore:gpuBefore,gpuFramesAfter:rig.renderer.info.render.frame,...rig.diagnostics,identicalSnapshot:snapshot===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);}
+ const image=document.createElement('img');image.alt='실제 보스 사망 완료 원본 자세';image.src=rig.frames.get(corpse).image.toDataURL();image.style.width='256px';document.body.append(image);
+ const pre=document.createElement('pre');pre.textContent=JSON.stringify({normalHp,kills:game.kills,hp:game.player.hp,differentRgbaComponents:different,maxDelta,records,note:'actual normal-HP mission01 midboss, explicit near-spawn isolation fixture, normal shotgun bullets/AI/offered upgrades; Game.time advances while the completed original corpse stays still, no save/HP/damage overrides'},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 보스 완료 자세 · GPU '+records[1].gpuFramesBefore+'→'+records[1].gpuFramesAfter+' · 원본 픽셀 차이 '+different+'바이트 · 저장 동일 '+records.every(r=>r.identicalSnapshot);
+ }finally{bossFinishedCacheQA.disabled=false;}};
+
+const corpseSwitchQA=document.createElement('button');corpseSwitchQA.textContent='실제 적 사망 완료·1.2초 전환·공유 이미지 재사용 검수';document.querySelector('nav').append(corpseSwitchQA);
+corpseSwitchQA.onclick=async()=>{if(!ready||corpseSwitchQA.disabled)return;corpseSwitchQA.disabled=true;playing=false;try{
+ game=new Game({seed:774,weapon:'nailgun',stageDuration:1e9});game.enemies=[];game.spawnClock=1e9;await load();await renderer.liveEnemiesPromise;await renderer.liveEnemies.load('enemy-walker');const e=game.spawnEnemy('walker',130);if(!e)throw Error('normal-walker-spawn-missing');const normalHp=e.hp;let ticks=0;paint();
+ while(!e.dead&&ticks++<360){game.tick(1/120,{shoot:true,fireMode:'manual',aimX:e.x,aimY:e.y});events();paint();if(ticks%12===0)await new Promise(requestAnimationFrame);}if(!e.dead)throw Error('actual-walker-lethal-bullet-missing');const corpse=game.corpses.find(c=>c.seed===e.id);paint();
+ const sheet=document.createElement('canvas');sheet.width=1080;sheet.height=270;const sc=sheet.getContext('2d');sc.fillStyle='#263438';sc.fillRect(0,0,1080,270);let firstData;const records=[];let replacement=null;
+ for(const [i,age]of [1.19,1.21,1.3].entries()){
+  if(i===2){let at=null;for(let n=0;n<16&&!at;n++){const a=n*Math.PI/8;if([40,80,120,151].every(r=>!game.blocked(game.player.x+Math.cos(a)*r,game.player.y+Math.sin(a)*r,16)))at={x:game.player.x+Math.cos(a)*151,y:game.player.y+Math.sin(a)*151};}if(!at)throw Error('safe-pool-reuse-spawn-missing');replacement=game.spawnEnemy('walker',151,at);}
+  while((corpse.duration??12)-corpse.time<age){if(game.state==='upgrade')game.chooseUpgrade(game.choices[0].id);game.tick(1/120,{shoot:false,fireMode:'manual'});events();}
+  const snapshot=JSON.stringify(game.snapshot());paint();const selected=renderer.nativeCorpseFrame(corpse,game,game.time);if(!selected)throw Error('corpse-source-frame-missing');const close=document.createElement('canvas');close.width=360;close.height=240;const c=close.getContext('2d',{willReadFrequently:true}),foot=selected.placement.groundFoot||selected.placement.foot;c.setTransform(3,0,0,3,180-foot.x*3,170-foot.y*3);renderer.productionArt.drawFrame(c,selected);const data=c.getImageData(0,0,360,240).data;let different=0,maxDelta=0;if(!firstData)firstData=data;else for(let n=0;n<data.length;n++)if(data[n]!==firstData[n]){different++;maxDelta=Math.max(maxDelta,Math.abs(data[n]-firstData[n]));}
+  sc.drawImage(close,i*360,0);sc.fillStyle='#eee';sc.font='12px sans-serif';sc.fillText(Math.round(((corpse.duration??12)-corpse.time)*1000)+'ms / '+(selected.metadata.liveRig?'native':'baked'),i*360+15,255);
+  records.push({age:(corpse.duration??12)-corpse.time,angle:corpse.angle,liveRig:!!selected.metadata.liveRig,completedNativeDeath:!!selected.completedNativeDeath,privateImage:selected.image!==renderer.liveEnemies.frames.get(corpse)?.image,completedImages:renderer.completedEnemyFrames?.entries.size,sample:selected.frame.sample,frameAngle:selected.frame.angle,bounds:selected.placement.bounds.body,differentRgbaComponents:different,maxDelta,poolOwnerId:renderer.liveEnemies.framePool.slots[0]?.owner?.id,poolOwnerSeed:renderer.liveEnemies.framePool.slots[0]?.owner?.seed,replacementId:replacement?.id,identicalSnapshot:snapshot===JSON.stringify(game.snapshot())});await new Promise(requestAnimationFrame);
+ }
+ const image=document.createElement('img');image.alt='실제 적 사망1.2초 전환 비교3배 표시';image.src=sheet.toDataURL();image.style.maxWidth='100%';document.body.append(image);const pre=document.createElement('pre');pre.textContent=JSON.stringify({normalHp,kills:game.kills,hp:game.player.hp,records,note:'normal seeded walker spawn/AI/nailgun kill; normal corpse countdown crosses1.2s, then a safe engine spawn at151units approaches normally and reuses the original render pool; canonical same-foot display at3x, no actor/save overrides'},null,2);document.querySelector('aside').prepend(pre);status.textContent='실제 적 완료 전환 · 픽셀 차이 '+records.map(r=>r.differentRgbaComponents).join('/')+' · 저장 동일 '+records.every(r=>r.identicalSnapshot);
+ }finally{corpseSwitchQA.disabled=false;}};
+
+// These older experiments explicitly compare the original full-image read.
+// Keep the production reduction out of both arms of their baseline comparison.
+for(const button of [inkCountQA,batchInkQA,directAlphaQA,poseBoundsQA,poseBoundsCrowdQA,corpseBatchQA]){
+ const action=button.onclick;
+ button.onclick=async function(...args){const rig=renderer.liveEnemies,prior=rig?.exactGPUAlphaBounds;if(rig)rig.exactGPUAlphaBounds=false;try{return await action.apply(this,args);}finally{if(rig){rig.exactGPUAlphaBounds=prior;if(!prior)rig.releaseExactGPUAlpha();}}};
+}
+
+const interpolationPoolQA=document.createElement('button');interpolationPoolQA.textContent='밀집 전투 보간 메모리 재사용 비교';document.querySelector('nav').append(interpolationPoolQA);
+interpolationPoolQA.onclick=async()=>{
+ if(!ready||playing)return;interpolationPoolQA.disabled=true;
+ try{
+  const {compareInterpolationPool}=await import('./qa-interpolation-pool.js');
+  const result=await compareInterpolationPool(renderer,canvas,{location,query:new URLSearchParams(location.search),beforeScenario:async current=>{game=current;await load();},onProgress:reuse=>{status.textContent='밀집 전투 보간 재사용 '+reuse+' · 실제 catch-up/원본 렌더';},onImage:(reuse,src)=>{const image=document.createElement('img');image.alt='밀집 보간 재사용 '+reuse;image.src=src;image.style.maxWidth='100%';document.body.append(image);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='interpolation-pool-report';pre.textContent=JSON.stringify(result.report,null,2);document.body.append(pre);status.textContent='보간 재사용 비교 완료 · 전투 '+result.report.identicalCombatState+' · 사건 '+result.report.identicalEvents;
+ }catch(error){status.textContent=error.message;throw error;}finally{interpolationPoolQA.disabled=false;}
+};
+const nativeShaderQA=document.createElement('button');nativeShaderQA.textContent='원본 캐릭터 첫 셰이더 준비 비교';document.querySelector('nav').append(nativeShaderQA);
+nativeShaderQA.onclick=async()=>{
+ if(!ready||playing)return;nativeShaderQA.disabled=true;
+ try{
+  const {compareNativeShaderWarmup}=await import('./qa-native-shader-warmup.js');
+  const result=await compareNativeShaderWarmup(renderer,canvas,{beforeScenario:async({weapon})=>{game=new Game({seed:774,missionId:'mission-01',weapon});await load();},onProgress:current=>{status.textContent='원본 셰이더 준비 비교 · '+current.phase+' · '+(current.type??current.count)+' · '+current.enabled;},onImage:current=>{const image=document.createElement('img');image.alt='셰이더 준비 '+current.phase+' '+(current.type??current.count)+' '+current.enabled;image.src=current.src;image.style.maxWidth='100%';document.body.append(image);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='native-shader-report';pre.textContent=JSON.stringify(result.report,null,2);document.body.append(pre);status.textContent='원본 셰이더 비교 완료 · 전투 '+result.report.reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · 원본 '+result.report.quality.every(r=>r.comparisons.every(p=>p.different===0&&p.geometrySame&&p.animationSame)&&r.passes.every(p=>p.outputsPrivate));
+ }catch(error){status.textContent=error.message;throw error;}finally{nativeShaderQA.disabled=false;}
+};
+const nativeTextureQA=document.createElement('button');nativeTextureQA.textContent='원본 텍스처 첫 업로드·밀집 전투 비교';document.querySelector('nav').append(nativeTextureQA);
+nativeTextureQA.onclick=async()=>{
+ if(!ready||playing||nativeTextureQA.disabled)return;nativeTextureQA.disabled=true;
+ try{
+  const {compareNativeShaderWarmup}=await import('./qa-native-shader-warmup.js');
+  const result=await compareNativeShaderWarmup(renderer,canvas,{mode:'textures',observeUploads:true,beforeScenario:async({weapon})=>{game=new Game({seed:774,missionId:'mission-01',weapon});await load();},onProgress:current=>{status.textContent='원본 텍스처 업로드 비교 · '+current.phase+' · '+(current.type??current.count)+' · '+current.enabled;},onImage:current=>{const image=document.createElement('img');image.alt='텍스처 업로드 '+current.phase+' '+(current.type??current.count)+' '+current.enabled;image.src=current.src;image.style.maxWidth='100%';document.body.append(image);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='native-texture-report';pre.textContent=JSON.stringify(result.report,null,2);document.body.append(pre);status.textContent='원본 텍스처 비교 완료 · 전투 '+result.report.reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · 원본 '+result.report.quality.every(r=>r.comparisons.every(p=>p.different===0&&p.geometrySame&&p.animationSame)&&r.passes.every(p=>p.outputsPrivate));
+ }catch(error){status.textContent=error.message;throw error;}finally{nativeTextureQA.disabled=false;}
+};
+
+const enemyGridQA=document.createElement('button');enemyGridQA.textContent='밀집 전투 분리 격자 재사용 비교';document.querySelector('nav').append(enemyGridQA);
+enemyGridQA.onclick=async()=>{
+ if(!ready||playing||enemyGridQA.disabled)return;enemyGridQA.disabled=true;
+ try{
+  const {compareEnemyGridReuse}=await import('./qa-enemy-grid-reuse.js');
+  const result=await compareEnemyGridReuse(renderer,canvas,{location,query:new URLSearchParams(location.search),observeCosts:new URLSearchParams(location.search).get('qa-grid-profile')!=='off',forceAllFresh:new URLSearchParams(location.search).get('qa-grid-control')==='1',beforeScenario:async current=>{game=current;await load();},onProgress:current=>{status.textContent='군집 분리 격자 '+current.phase+' · 재사용 '+current.reuse;},onImage:(reuse,src)=>{const image=document.createElement('img');image.alt='군집 분리 격자 재사용 '+reuse;image.src=src;image.style.maxWidth='100%';document.body.append(image);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='enemy-grid-report';pre.textContent=JSON.stringify(result.report,null,2);document.body.append(pre);status.textContent='군집 분리 비교 완료 · 전투 '+result.report.identicalCombatState+' · 사건 '+result.report.identicalEvents+' · 이동 '+result.report.identicalActorMotion;
+ }catch(error){status.textContent=error.message;throw error;}finally{enemyGridQA.disabled=false;}
+};
+const enemyPreparationQA=document.createElement('button');enemyPreparationQA.textContent='원본 적 그리기·불필요한 준비 비교';document.querySelector('nav').append(enemyPreparationQA);
+enemyPreparationQA.onclick=async()=>{
+ if(!ready||playing||enemyPreparationQA.disabled)return;enemyPreparationQA.disabled=true;
+ try{
+  const {compareEnemyGridReuse}=await import('./qa-enemy-grid-reuse.js');const query=new URLSearchParams(location.search);
+  const result=await compareEnemyGridReuse(renderer,canvas,{location,query,nativePreparation:true,observeCosts:query.get('qa-preparation-profile')!=='off',forceAllFresh:query.get('qa-preparation-control')==='1',beforeScenario:async current=>{game=current;await load();},onProgress:current=>{status.textContent='원본 적 준비 '+current.phase+' · 최적화 '+current.reuse;},onImage:(enabled,src)=>{const image=document.createElement('img');image.alt='원본 적 준비 최적화 '+enabled;image.src=src;image.style.maxWidth='100%';document.body.append(image);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='enemy-preparation-report';pre.textContent=JSON.stringify(result.report,null,2);document.body.append(pre);status.textContent='원본 적 준비 비교 완료 · 전투 '+result.report.identicalCombatState+' · 사건 '+result.report.identicalEvents+' · 이동 '+result.report.identicalActorMotion;
+ }catch(error){status.textContent=error.message;throw error;}finally{enemyPreparationQA.disabled=false;}
+};
+const ownedJSONQA=document.createElement('button');ownedJSONQA.textContent='원본 메타데이터 복사·밀집 전투 비교';document.querySelector('nav').append(ownedJSONQA);
+ownedJSONQA.onclick=async()=>{
+ if(!ready||playing||ownedJSONQA.disabled)return;ownedJSONQA.disabled=true;
+ try{
+  const {compareOwnedAtlasJSON}=await import('./qa-owned-atlas-json.js');const query=new URLSearchParams(location.search);
+  const result=await compareOwnedAtlasJSON(renderer,canvas,{location,query,forceAllFresh:query.get('qa-owned-control')==='1',beforeScenario:async current=>{game=current;await load();},onProgress:current=>{status.textContent='원본 메타데이터 '+current.phase+' · 복사 생략 '+current.reuse;},onImage:(enabled,src)=>{const image=document.createElement('img');image.alt='원본 메타데이터 복사 생략 '+enabled;image.src=src;image.style.maxWidth='100%';document.body.append(image);}});
+  game=result.game;const pre=document.createElement('pre');pre.id='owned-json-report';pre.textContent=JSON.stringify(result.report,null,2);document.body.append(pre);status.textContent='원본 메타데이터 비교 완료 · 전투 '+result.report.identicalCombatState+' · 사건 '+result.report.identicalEvents+' · 이동 '+result.report.identicalActorMotion;
+ }catch(error){status.textContent=error.message;throw error;}finally{ownedJSONQA.disabled=false;}
+};
+
+import {createQAStorage} from './qa-storage.js';
+// BEGIN GPU ALPHA PREUPLOAD UI
+// This isolated QA storage is an origin/ownership gate only. The standalone
+// page never exercises product save/Continue or accesses persistent storage.
+export function installGPUAlphaPreuploadQA({document,location,query=new URLSearchParams(location?.search??''),status,read,beforeScenario,setGame,paint,createStorage=createQAStorage,loadComparison=()=>import('./qa-gpu-alpha-preupload.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory'))return null;
+ const button=document.createElement('button');button.id='gpu-alpha-preupload-qa';button.textContent='공통 텍스처 준비·GPU 알파·60·180적 검수';document.querySelector('nav').append(button);let storage=null;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  button.disabled=true;status.textContent='공통 텍스처·GPU 알파 준비 중 · 독립 메모리 QA';
+  try{
+   await current.renderer.liveEnemiesPromise;
+   const {compareGPUAlphaPreupload}=await loadComparison();
+   storage??=createStorage(query,()=>{throw Error('gpu-alpha-preupload-persistent-storage-forbidden');});
+   const result=await compareGPUAlphaPreupload(current.renderer,current.canvas,{location,query,storage,beforeScenario,
+    onProgress:info=>{status.textContent=info.phase==='quality'?info.type+' · 원본56자세 별도 품질 검수':info.count+'적 · 공통 텍스처 준비 · GPU 알파 '+info.gpuEnabled;},
+    onImage:info=>{const image=document.createElement('img');image.alt=info.phase==='quality'?'GPU 알파 원본 품질 '+info.type:info.count+'적 GPU 알파 공통 준비 '+info.gpuEnabled;image.src=info.src;image.style.maxWidth='48%';document.body.append(image);}
+   });
+   setGame(result.game);const details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='공통 텍스처·GPU 알파 검수 기록';pre.id='gpu-alpha-preupload-report';pre.textContent=JSON.stringify(result.report,null,2);details.append(summary,pre);document.body.append(details);paint();
+   status.textContent='공통 텍스처·GPU 알파 검수 완료 · 전투/이벤트 동일 '+result.report.reports.every(r=>r.identicalCombatState&&r.identicalEvents)+' · 원본56자세 동일 '+result.report.original56.every(r=>r.comparisons.every(c=>c.different===0&&c.geometrySame&&c.animationSame))+' · 독립 메모리 QA · 앱 저장 미검수 · GPU 기본 OFF';return result;
+  }catch(error){status.textContent='공통 텍스처·GPU 알파 검수 중단 · '+(error?.message??String(error));throw error;}
+  finally{button.disabled=false;}
+ };
+ return {button};
+}
+// END GPU ALPHA PREUPLOAD UI
+installGPUAlphaPreuploadQA({document,location,status,read:()=>({ready,playing,renderer,canvas}),beforeScenario:async({weapon})=>{game=new Game({seed:774,missionId:'mission-01',weapon});await load();},setGame:current=>{game=current;},paint:()=>paint()});
+
+// BEGIN GPU ALPHA EMPTY LEASE UI
+export function installGPUAlphaEmptyLeaseQA({document,location,query=new URLSearchParams(location?.search??''),status,read,createStorage=createQAStorage,loadQA=()=>import('./qa-gpu-alpha-empty-lease.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory'))return null;
+ const button=document.createElement('button');button.id='gpu-alpha-empty-lease-qa';button.textContent='실제 빈 배치·GPU 준비 보존·원본12자세 검수';document.querySelector('nav').append(button);let storage=null;
+ const showReport=report=>{const details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');details.open=false;summary.textContent='빈 배치 GPU 준비 보존 · 독립 원본 검수 기록';pre.id='gpu-alpha-empty-lease-report';pre.textContent=JSON.stringify(report,null,2);details.append(summary,pre);document.body.append(details);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  button.disabled=true;status.textContent='실제 빈 배치 검수 준비 · 독립 원본 리그 · 저장 사용 안 함';
+  try{
+   await current.renderer.liveEnemiesPromise;
+   const {compareGPUAlphaEmptyLease}=await loadQA();storage??=createStorage(query,()=>{throw Error('gpu-alpha-empty-lease-persistent-storage-forbidden');});
+   const result=await compareGPUAlphaEmptyLease(current.renderer,{location,query,storage,
+    onProgress:info=>{status.textContent='빈 배치 GPU 준비 보존 · '+info.label;},
+    onImage:info=>{const image=document.createElement('img');image.id=info.phase==='first-12'?'gpu-alpha-empty-lease-proof':'gpu-alpha-empty-lease-corpse';image.alt=info.alt;image.src=info.src;image.style.maxWidth='100%';document.body.append(image);}
+   });
+   showReport(result.report);status.textContent='빈 배치 검수 완료 · 준비 리소스 동일 '+result.report.empty.resourceIdentitiesSame+' · 실제 GPU12셀/48바이트 · 원본 RGBA 차이 '+result.report.comparisons.reduce((sum,value)=>sum+value.different,0)+' · 완료 시체 보존 · 정리 '+result.report.cleanup.complete+' · GPU 기본 OFF';return result;
+  }catch(error){showReport({error:error?.message??String(error),cleanup:error?.cleanup??null});status.textContent='빈 배치 GPU 준비 검수 중단 · '+(error?.message??String(error));throw error;}
+  finally{button.disabled=false;}
+ };
+ return{button};
+}
+// END GPU ALPHA EMPTY LEASE UI
+installGPUAlphaEmptyLeaseQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN IMAGE DECODE COMBAT UI
+export function installImageDecodeCombatQA({document,location,query=new URLSearchParams(location?.search??''),status,read,beforeScenario,setGame,paint,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-image-decode-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory'))return null;
+ const button=document.createElement('button');button.id='image-decode-combat-qa';button.textContent='원본 이미지 디코딩·60·180적 첫 전투 비교';document.querySelector('nav').append(button);let storage=null;
+ const showReport=report=>{const details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='원본 이미지 디코딩 · 첫 전투와 전체 비용 기록';pre.id='image-decode-combat-report';pre.textContent=JSON.stringify(report,null,2);details.append(summary,pre);document.body.append(details);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='원본 이미지 디코딩 비교 준비 · 별도 메모리 QA';
+  try{
+   await current.renderer.liveEnemiesPromise;
+   const {compareImageDecodeCombat}=await loadQA();storage??=createStorage(query,()=>{throw Error('image-decode-persistent-storage-forbidden');});
+   const result=await compareImageDecodeCombat(current.renderer,current.canvas,{location,query,storage,signal:controller.signal,beforeScenario,
+    onProgress:info=>{status.textContent='원본 이미지 디코딩 · '+(info.count??'')+'적 · '+(info.phase??'')+' · 후보 '+!!info.decode;},
+    onImage:info=>{if(controller.signal.aborted)return;const image=document.createElement('img');image.alt=info.alt??('원본 이미지 디코딩 '+info.count+'적 · '+info.arm);image.src=info.src;image.style.maxWidth='48%';image.dataset.imageDecodeProof='true';document.body.append(image);}
+   });
+   if(controller.signal.aborted)return;
+   setGame(result.game);showReport(result.report);paint();status.textContent='원본 이미지 디코딩 비교 완료 · 기록에서 준비·첫 프레임·전체 비용 확인 · 원본 품질 유지 · 기본 적용 보류';return result;
+  }catch(error){if(controller.signal.aborted)return;showReport({error:error?.message??String(error),cleanup:error?.cleanup??null});status.textContent='원본 이미지 디코딩 비교 중단 · '+(error?.message??String(error));throw error;}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END IMAGE DECODE COMBAT UI
+installImageDecodeCombatQA({document,location,status,read:()=>({ready,playing,renderer,canvas}),beforeScenario:async({weapon})=>{game=new Game({seed:774,missionId:'mission-01',weapon});await load();},setGame:current=>{game=current;},paint:()=>paint()});
+
+// BEGIN BOSS HIT MOTION UI
+export function installBossHitMotionQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-boss-hit-motion.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory'))return null;
+ const button=document.createElement('button');button.id='boss-hit-motion-qa';button.textContent='중간·최종 보스 연사 반응·24종 동작 검수';document.querySelector('nav').append(button);let storage=null;
+ const show=report=>{const details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='보스 실제 동작과 연사 반응 검수 기록';pre.id='boss-hit-motion-report';pre.textContent=JSON.stringify(report,null,2);details.append(summary,pre);document.body.append(details);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='보스 연사 반응·원본 리그 동작 검사 준비 · 별도 메모리 QA';
+  try{
+   const {inspectBossHitMotion}=await loadQA();storage??=createStorage(query,()=>{throw Error('boss-hit-motion-persistent-storage-forbidden');});
+   const result=await inspectBossHitMotion(current.renderer,{location,query,storage,signal:controller.signal,
+    onProgress:info=>{status.textContent='보스 동작 검수 · '+(info.bossKey??'')+' · '+(info.phase??'');},
+    onImage:info=>{if(controller.signal.aborted)return;const image=document.createElement('img');image.alt=info.alt??('원본 보스 동작 '+info.bossKey);image.src=info.src;image.dataset.bossHitMotionProof='true';image.style.maxWidth='100%';document.body.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent='보스 동작 검수 완료 · 실제 리그·연사 피격·공격 연결 기록 확인 · 원본 모델 보존';return result;
+  }catch(error){if(controller.signal.aborted)return;show({error:error?.message??String(error),cleanup:error?.cleanup??null,combats:error?.combats??null,poseAudit:error?.poseAudit??null});status.textContent='보스 동작 검수 중단 · '+(error?.message??String(error));throw error;}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END BOSS HIT MOTION UI
+installBossHitMotionQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN BOSS ACTION LAYER UI
+export function installBossActionLayerQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-boss-action-layer.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory'))return null;
+ const select=document.createElement('select');select.id='boss-action-layer-key';select.setAttribute('aria-label','팔 동작 검수 최종보스');
+ for(let n=1;n<=12;n++){const key='boss-'+String(n).padStart(2,'0')+'-final',option=document.createElement('option');option.value=key;option.textContent=BOSS_CATALOG.find(boss=>boss.id===key)?.name??key;select.append(option);}
+ const all=document.createElement('option');all.value='all';all.textContent='최종보스 12종 전체';select.append(all);
+ const button=document.createElement('button');button.id='boss-action-layer-qa';button.textContent='선택한 최종보스 원본·새 팔 동작 비교';document.querySelector('nav').append(select,button);let storage=null;
+ const show=report=>{const details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='최종보스 팔 동작 · 원본 비교와 보존 검수';pre.id='boss-action-layer-report';pre.textContent=JSON.stringify(report,null,2);details.append(summary,pre);document.body.append(details);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='최종보스 원본·상체 동작 후보 비교 준비 · 별도 메모리 QA';
+  try{
+   const {compareBossActionLayer}=await loadQA();storage??=createStorage(query,()=>{throw Error('boss-action-layer-persistent-storage-forbidden');});
+   const result=await compareBossActionLayer(current.renderer,{location,query,storage,signal:controller.signal,bossKeys:select.value==='all'?null:[select.value],
+    onProgress:info=>{status.textContent='보스 팔 동작 비교 · '+(info.bossKey??'')+' · '+(info.phase??'')+' · 방향 '+(info.angleIndex??'');},
+    onImage:info=>{if(controller.signal.aborted)return;const image=document.createElement('img');image.alt=info.alt;image.src=info.src;image.dataset.bossActionLayerProof='true';image.style.maxWidth='100%';document.body.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent='보스 팔 동작 비교 완료 · 실제 손 정점·발 고정·원본 보존 기록 확인';return result;
+  }catch(error){if(controller.signal.aborted)return;show({error:error?.message??String(error),qa:error?.bossActionLayerQA??null});status.textContent='보스 팔 동작 비교 중단 · '+(error?.message??String(error));throw error;}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END BOSS ACTION LAYER UI
+installBossActionLayerQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN BUILDING OCCLUSION UI
+export function installBuildingOcclusionQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-building-occlusion.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory'))return null;
+ const button=document.createElement('button');button.id='building-occlusion-qa';button.textContent='건물 앞·뒤·모서리 캐릭터 가림 비교';document.querySelector('nav').append(button);let storage=null;
+ const show=report=>{const details=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='건물 깊이 정렬 · 합법 위치와 원본 body 검수';pre.id='building-occlusion-report';pre.textContent=JSON.stringify(report,null,2);details.append(summary,pre);document.body.append(details);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='별도 원본 월드 · 건물 가림 A/B 준비';
+  try{
+   const {compareBuildingOcclusion}=await loadQA();storage??=createStorage(query,()=>{throw Error('building-occlusion-persistent-storage-forbidden');});
+   const result=await compareBuildingOcclusion(current.renderer,current.canvas,{location,query,storage,signal:controller.signal,
+    onProgress:info=>{status.textContent='건물 가림 비교 · '+(info.kind??'')+' '+(info.face??'')+' · '+(info.phase??'');},
+    onImage:info=>{if(controller.signal.aborted)return;const image=document.createElement('img');image.alt=info.alt;image.src=info.src;image.dataset.buildingOcclusionProof='true';image.style.maxWidth='100%';document.body.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent='건물 가림 비교 완료 · 벽 외부 합법 위치 · 원본 캐릭터 픽셀 보존';return result;
+  }catch(error){if(controller.signal.aborted)return;show({error:error?.message??String(error),qa:error?.buildingOcclusionQA??null});status.textContent='건물 가림 비교 중단 · '+(error?.message??String(error));throw error;}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END BUILDING OCCLUSION UI
+installBuildingOcclusionQA({document,location,status,read:()=>({ready,playing,renderer,canvas})});
+
+// BEGIN CANVAS STATE PIXEL UI
+export function installCanvasStatePixelQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-pixels.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-canvas-state')!=='1')return null;
+ const button=document.createElement('button');button.id='canvas-state-pixels-qa';button.textContent='Canvas 상태 후보 · 원본 픽셀·복원 검수';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');
+ summary.textContent='Canvas 상태 후보 · 별도 원본 A/B/A';output.id='canvas-state-pixel-report';proof.id='canvas-state-pixel-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ const show=result=>{const {images=[],...report}=result;output.textContent=JSON.stringify(report,null,2);proof.replaceChildren();for(const item of images.slice(0,2)){const image=document.createElement('img');image.src=item.src;image.alt=item.alt;image.style.maxWidth='100%';proof.append(image);}return report;};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='원본 셀 · Canvas 상태 후보 A/B/A 검수 중';
+  try{
+   const {compareCanvasStatePixels}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){show({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='검수 중단 · 원본 준비 상태가 변경됨';return;}
+   storage??=createStorage(query,()=>{throw Error('canvas-state-persistent-storage-forbidden');});
+   const result=compareCanvasStatePixels({renderer:current.renderer,document,location,query,storage});if(controller.signal.aborted)return;
+   show(result);status.textContent=result.complete?'Canvas 상태 후보 · 원본 픽셀·복원 일치':'Canvas 상태 후보 · 미완료 또는 차이 발견';return result;
+  }catch(error){if(controller.signal.aborted)return;show({complete:false,reason:'canvas-state-pixel-qa-failed',error:error?.message??String(error)});status.textContent='Canvas 상태 후보 검수 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END CANVAS STATE PIXEL UI
+installCanvasStatePixelQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN CANVAS STATE COMBAT UI
+export function installCanvasStateCombatQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-canvas-combat')!=='1')return null;
+ const button=document.createElement('button');button.id='canvas-state-combat-qa';button.textContent='180적 Canvas 후보 · 동일 작업량 A/B/A';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='180적 시뮬레이션·보간·렌더 비용 비교';output.id='canvas-state-combat-report';proof.id='canvas-state-combat-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ const show=report=>{output.textContent=JSON.stringify(report,null,2);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='180적 동일 체크포인트 · 별도 렌더러 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){show({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='비교 중단 · 원본 준비 상태가 변경됨';return;}
+   storage??=createStorage(query,()=>{throw Error('canvas-combat-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='180적 A/B/A · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('180적 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent=result.report.complete?'180적 A/B/A 비교 완료 · 비용·동치·정리 기록 확인':'180적 A/B/A · 미완료 또는 동치 차이 발견';return result;
+  }catch(error){if(controller.signal.aborted)return;show({complete:false,reason:'canvas-combat-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null});status.textContent='180적 Canvas 후보 비교 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END CANVAS STATE COMBAT UI
+installCanvasStateCombatQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN RENDER ATTRIBUTION UI
+export function installRenderAttributionQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-render-attribution')!=='1')return null;
+ const button=document.createElement('button');button.id='render-attribution-qa';button.textContent='180적 첫 렌더 · 원본 구간별 비용';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='원본 첫 렌더 · 배경·주인공·적 비용 귀속';output.id='render-attribution-report';proof.id='render-attribution-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ const show=report=>{output.textContent=JSON.stringify(report,null,2);};
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='180적 원본 첫 렌더 · 별도 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){show({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='원본 계측 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('render-attribution-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,originalAttribution:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='원본 첫 렌더 비용 · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=2)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('원본 계측 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;show(result.report);status.textContent=result.report.complete?'원본 비용 귀속 완료 · 동치·품질·정리 기록 확인':'원본 비용 귀속 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;show({complete:false,reason:'render-attribution-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null});status.textContent='원본 비용 귀속 검수 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END RENDER ATTRIBUTION UI
+installRenderAttributionQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN PLAYER ATTRIBUTION UI
+export function installPlayerAttributionQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-render-attribution')!=='1'||query.get('qa-player-attribution')!=='1')return null;
+ const button=document.createElement('button');button.id='player-attribution-qa';button.textContent='주인공 포즈·그리기·픽셀 읽기 비용';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='주인공 원본 처리 · 첫 렌더 구간별 기록';output.id='player-attribution-report';proof.id='player-attribution-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 원본 계측 · 별도 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='주인공 계측 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('player-attribution-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,originalAttribution:true,playerAttribution:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='주인공 처리 비용 · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=2)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('주인공 계측 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'주인공 원본 계측 완료 · 동치·품질·정리 기록 확인':'주인공 원본 계측 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'player-attribution-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 원본 계측 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END PLAYER ATTRIBUTION UI
+installPlayerAttributionQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN PLAYER PREPARATION UI
+export function installPlayerPreparationQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-player-preparation')!=='1')return null;
+ const button=document.createElement('button');button.id='player-preparation-qa';button.textContent='주인공 첫 전투 · 원본 사전 준비 비교';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent='주인공 텍스처·셰이더 준비 · 원본 A/B/A';output.id='player-preparation-report';proof.id='player-preparation-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 사전 준비 후보 · 별도 원본 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='주인공 준비 비교 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('player-preparation-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,playerPreparation:true,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='주인공 원본 준비 A/B/A · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('주인공 사전 준비 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'주인공 준비 비교 완료 · 품질·준비 포함 비용 기록 확인':'주인공 준비 비교 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'player-preparation-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 사전 준비 비교 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END PLAYER PREPARATION UI
+installPlayerPreparationQA({document,location,status,read:()=>({ready,playing,renderer})});
+
+// BEGIN PLAYER ALPHA ROWS UI
+export function installPlayerAlphaRowsQA({document,location,query=new URLSearchParams(location?.search??''),status,read,eventTarget=globalThis,createStorage=createQAStorage,loadQA=()=>import('./qa-canvas-state-combat.js')}){
+ if(location?.protocol!=='http:'||!['localhost','127.0.0.1','[::1]','::1'].includes(location.hostname)||location.port!=='8851'||!query.has('qa')||!query.has('qa-memory')||query.get('qa-player-alpha-rows')!=='1')return null;
+ const verify=query.get('qa-player-alpha-rows-verify')==='1',button=document.createElement('button');button.id='player-alpha-rows-qa';button.textContent=verify?'주인공 행 경계 · 동일 프레임 품질 검사':'주인공 행 경계 · 180적 전투 비용';document.querySelector('nav').append(button);
+ const details=document.createElement('details'),summary=document.createElement('summary'),output=document.createElement('pre'),proof=document.createElement('div');summary.textContent=verify?'원본 RGBA와 행 경계 · 품질 A/B/A':'행 경계 읽기 · 준비·첫 전투·지속 비용';output.id='player-alpha-rows-report';proof.id='player-alpha-rows-proof';details.append(summary,output,proof);document.body.append(details);let storage;
+ button.onclick=async()=>{
+  const current=read();if(!current.ready||current.playing||button.disabled)return;
+  const controller=new AbortController(),hide=()=>controller.abort();button.disabled=true;proof.replaceChildren();eventTarget.addEventListener?.('pagehide',hide,{once:true});status.textContent='주인공 행 경계 후보 · 별도 원본 리그 준비';
+  try{
+   const {compareCanvasStateCombat}=await loadQA();if(controller.signal.aborted)return;
+   const latest=read();if(latest.renderer!==current.renderer||latest.playing||!latest.ready){output.textContent=JSON.stringify({complete:false,reason:'qa-owner-or-state-changed'});status.textContent='행 경계 비교 중단 · 준비 상태 변경';return;}
+   storage??=createStorage(query,()=>{throw Error('player-alpha-rows-persistent-storage-forbidden');});
+   const result=await compareCanvasStateCombat(current.renderer,{document,location,query,storage,signal:controller.signal,playerAlphaRows:true,playerAlphaRowsVerify:verify,
+    onProgress:info=>{if(!controller.signal.aborted)status.textContent='주인공 행 경계 A/B/A · '+(info.arm??info.phase??'준비')+' · '+(info.frame??'');},
+    onImage:info=>{if(controller.signal.aborted||proof.children.length>=3)return;const image=document.createElement('img');image.src=info.src;image.alt=info.alt??('주인공 행 경계 '+(info.arm??''));image.style.maxWidth='100%';proof.append(image);}
+   });
+   if(controller.signal.aborted)return;output.textContent=JSON.stringify(result.report,null,2);status.textContent=result.report.complete?'행 경계 비교 완료 · 품질·비용·정리 기록 확인':'행 경계 비교 · 미완료 또는 품질 차이';return result;
+  }catch(error){if(controller.signal.aborted)return;output.textContent=JSON.stringify({complete:false,reason:'player-alpha-rows-qa-failed',error:error?.message??String(error),report:error?.report??null,cleanup:error?.cleanup??null},null,2);status.textContent='주인공 행 경계 비교 중단';}
+  finally{eventTarget.removeEventListener?.('pagehide',hide);controller.abort();button.disabled=false;}
+ };
+ return{button};
+}
+// END PLAYER ALPHA ROWS UI
+installPlayerAlphaRowsQA({document,location,status,read:()=>({ready,playing,renderer})});

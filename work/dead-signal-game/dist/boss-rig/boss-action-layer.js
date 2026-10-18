@@ -2,6 +2,7 @@ import {getBoss} from '../campaign.js?v=0.29.0';
 
 const DEG=Math.PI/180,MAX_ANGLE=40*DEG,SHOULDER=20*DEG,FOREARM=10*DEG,TORSO=3*DEG;
 const caches=new WeakMap(),finite=Number.isFinite,clamp=value=>Math.max(0,Math.min(1,value));
+const foldCaches=new WeakMap();
 const ease=value=>{const p=clamp(value);return p*p*(3-2*p);};
 function diagnostics(supported,kind=''){
  return {supported,active:false,kind,pose:'',progress:0,shoulderRaise:0,forearmRaise:0,torsoPitch:0,maxCombinedAngle:0,appliedBones:0,cappedBones:0};
@@ -58,7 +59,14 @@ class BossActionLayer{
    let dw=entry.rw*w+entry.rx*x+entry.ry*y+entry.rz*z;
    if(dw<0){dx=-dx;dy=-dy;dz=-dz;dw=-dw;}
    const extraX=entry.role==='torso'?torso:.5*(2*Math.atan2(dx,dw));
-   const extraZ=entry.role==='torso'?0:entry.side*entry.weight*(entry.role==='arm'?SHOULDER:FOREARM)*raise;
+   let extraZ=entry.role==='torso'?0:entry.side*entry.weight*(entry.role==='arm'?SHOULDER:FOREARM)*raise;
+   // Dormant boss02-only profile. Keep the exact original expression above for
+   // the default entries, both signed zeroes, and the unchanged contact endpoint.
+   if(entry.peak!==undefined&&entry.role!=='torso'&&raise!==0&&raise!==-.4){
+    const base=entry.role==='arm'?SHOULDER:FOREARM,peak=entry.peak,m=Math.min(base,peak);
+    const mapped=raise>=0?m*raise+(peak-m)*raise*raise:base*raise+(m-base)*raise*(raise+.4)/.4;
+    extraZ=entry.side*entry.weight*mapped;
+   }
    let c=Math.cos(extraX*.5),s=Math.sin(extraX*.5);
    let nx=x*c+w*s,ny=y*c+z*s,nz=z*c-y*s,nw=w*c-x*s;
    c=Math.cos(extraZ*.5);s=Math.sin(extraZ*.5);
@@ -109,4 +117,21 @@ export function createBossActionLayer(sampler,key){
  const layer=new BossActionLayer(entries,boss.skill.kind);
  if(!byKey){byKey=new Map();caches.set(sampler,byKey);}byKey.set(key,layer);
  return layer;
+}
+
+// A separate cache and cloned entries keep the existing factory/layers intact.
+// This is an explicit QA profile, not an anatomical hinge or product approval.
+export function createBoss02FoldActionLayer(sampler,key){
+ if(key!=='boss-02-final')return unsupported;
+ const cached=foldCaches.get(sampler);if(cached)return cached;
+ const original=createBossActionLayer(sampler,key);if(!original.supported)return original;
+ const entries=original.entries.map(entry=>{
+  const copy={...entry};
+  if(entry.role!=='torso'){
+   const upper=/^DS_(?:Arm|Forearm)_0_/.test(entry.bone.name);
+   copy.peak=(entry.role==='arm'?(upper?30:8):(upper?32:4))*DEG;
+  }
+  return copy;
+ });
+ const layer=new BossActionLayer(entries,original.kind);layer.profile='boss02-fold-v1';foldCaches.set(sampler,layer);return layer;
 }

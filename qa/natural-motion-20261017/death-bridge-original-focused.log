@@ -1,0 +1,40 @@
+✔ fresh corpse inherits exact last rendered transforms and heading without actor/save writes (2.1794ms)
+✔ pose handoff rejects stale, distant, restored-world and late corpses and bounds cached histories (0.3072ms)
+✖ actual original enemy and boss walking pose survive the first death bridge sample instead of resetting legs (174.9938ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 330.0331
+
+✖ failing tests:
+
+test at work\dead-signal-game\tests\rig-pose-history.test.mjs:5:1
+✖ actual original enemy and boss walking pose survive the first death bridge sample instead of resetting legs (174.9938ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   -1.2584496289491542e-7,
+  +   -4.2608007788657765e-8,
+  +   2.4447217583656096e-9,
+  +   0.9999999999999911
+  -   -1.2584496289491653e-7,
+  -   -4.260800778865814e-8,
+  -   2.444721758365631e-9,
+  -   1
+    ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/rig-pose-history.test.mjs:5:1708)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ -1.2584496289491542e-7, -4.2608007788657765e-8, 2.4447217583656096e-9, 0.9999999999999911 ],
+    expected: [ -1.2584496289491653e-7, -4.260800778865814e-8, 2.444721758365631e-9, 1 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

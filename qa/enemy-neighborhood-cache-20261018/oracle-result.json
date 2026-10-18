@@ -1,0 +1,30 @@
+{
+  "tool": "qa-enemy-neighborhood-oracle",
+  "passed": false,
+  "sourceSHA": {
+    "engine": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "candidate": "25729a8d916a153859542f62288e73279866ed6d4ed06c390218274e0e2f694b",
+    "grid": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7",
+    "fixture": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "model": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+    "navigation": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9"
+  },
+  "cases": [
+    {
+      "name": "same-cell/all-nine boundaries/all-seven types/order/forceFresh/noncompact/bounded edges",
+      "passed": true
+    },
+    {
+      "name": "live actor getter reads and sequential earlier movement remain original",
+      "passed": true
+    }
+  ],
+  "errors": [
+    {
+      "name": "AssertionError",
+      "message": "The expression evaluated to a falsy value:\n\n  assert.ok(b.events.some(e=>e.type==='scream'))\n",
+      "stack": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(b.events.some(e=>e.type==='scream'))\n\n    at file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-neighborhood-cache-20261018/enemy-neighborhood-oracle.mjs:73:867\n    at record (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-neighborhood-cache-20261018/enemy-neighborhood-oracle.mjs:65:29)\n    at runOracle (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-neighborhood-cache-20261018/enemy-neighborhood-oracle.mjs:72:3)\n    at async file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-neighborhood-cache-20261018/enemy-neighborhood-oracle.mjs:96:207"
+    }
+  ],
+  "note": "Independent full original and candidate modules; approved three source replacements only. Unmodified Map/Array/Math intrinsics. The inspection helper differs only by an appended private owners export in both arms; the actual full-Game and CPU proofs use production helper. Controlled isolated arenas/coordinates and private existing-array mutations exercise lifecycle semantics, not normal spawning or performance. Private Map membership/value replacement during a pair callback is explicitly unsupported by the memo scope and is not claimed equivalent. No speed/FPS/heap/visual claim."
+}

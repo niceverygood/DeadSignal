@@ -1,0 +1,169 @@
+{
+  "scope": "180 original enemies; actual simulation/interpolation/Renderer; 40 fixed .12-second callbacks per A/B/A arm. CPU call-wall and final readback; excludes app HUD/audio/persistence. Not FPS or peak-memory evidence.",
+  "error": "qa-canvas-combat-whole-canvas-pixels-differ",
+  "timingSerializationDeltas": [
+    {
+      "label": "A2.callbacks.sumMs",
+      "actual": 2168.9000000953674,
+      "expected": 2168.900000095367,
+      "delta": 4.547473508864641e-13
+    },
+    {
+      "label": "improvementFraction",
+      "actual": -0.2389786920085404,
+      "expected": -0.23897869200854038,
+      "delta": -2.7755575615628914e-17
+    }
+  ],
+  "timingNote": "DOM result transport rounded some aggregate timing numbers by one ULP. Only arithmetic timing recomputation allows eight machine epsilons; all game/state/RNG/event and pixel criteria remain exact and unchanged.",
+  "passes": [
+    {
+      "arm": "A1",
+      "mode": "original",
+      "firstMs": 1323.800000011921,
+      "all40": {
+        "count": 40,
+        "medianMs": 50.5,
+        "p95Ms": 265.19999998807907,
+        "maxMs": 1323.800000011921,
+        "sumMs": 4116.500000119209
+      },
+      "steady30": {
+        "count": 30,
+        "medianMs": 50.5,
+        "p95Ms": 199.0999999642372,
+        "maxMs": 203.10000002384183,
+        "sumMs": 2166.700000166893
+      },
+      "drainInclusive": {
+        "count": 41,
+        "medianMs": 50.30000001192093,
+        "p95Ms": 203.10000002384183,
+        "maxMs": 1323.800000011921,
+        "sumMs": 4126.400000095367
+      },
+      "readbackMs": 9.899999976158142,
+      "callbackSumPlusReadbackMs": 4126.400000095367,
+      "manualCalls": 0,
+      "nativeFrames": 403,
+      "finalState": {
+        "enemies": 188,
+        "hp": 73,
+        "kills": 3,
+        "random": 3331604612,
+        "state": "playing",
+        "time": 4.799999999999988,
+        "visualRandom": 2139495574
+      }
+    },
+    {
+      "arm": "B",
+      "mode": "manual",
+      "firstMs": 401.5,
+      "all40": {
+        "count": 40,
+        "medianMs": 50.80000001192093,
+        "p95Ms": 259.5,
+        "maxMs": 401.5,
+        "sumMs": 2688.199999809265
+      },
+      "steady30": {
+        "count": 30,
+        "medianMs": 50.40000003576279,
+        "p95Ms": 76,
+        "maxMs": 259.5,
+        "sumMs": 1738.799999833107
+      },
+      "drainInclusive": {
+        "count": 41,
+        "medianMs": 50.5,
+        "p95Ms": 144.20000004768372,
+        "maxMs": 401.5,
+        "sumMs": 2697.999999821186
+      },
+      "readbackMs": 9.800000011920927,
+      "callbackSumPlusReadbackMs": 2697.999999821186,
+      "manualCalls": 6937,
+      "nativeFrames": 403,
+      "finalState": {
+        "enemies": 188,
+        "hp": 73,
+        "kills": 3,
+        "random": 3331604612,
+        "state": "playing",
+        "time": 4.799999999999988,
+        "visualRandom": 2139495574
+      }
+    },
+    {
+      "arm": "A2",
+      "mode": "original",
+      "firstMs": 363,
+      "all40": {
+        "count": 40,
+        "medianMs": 45,
+        "p95Ms": 133.9000000357628,
+        "maxMs": 363,
+        "sumMs": 2168.9000000953674
+      },
+      "steady30": {
+        "count": 30,
+        "medianMs": 45.69999998807907,
+        "p95Ms": 56.19999998807907,
+        "maxMs": 57.90000003576279,
+        "sumMs": 1361.9000000357628
+      },
+      "drainInclusive": {
+        "count": 41,
+        "medianMs": 43.90000003576279,
+        "p95Ms": 63.5,
+        "maxMs": 363,
+        "sumMs": 2177.6000000834465
+      },
+      "readbackMs": 8.699999988079071,
+      "callbackSumPlusReadbackMs": 2177.6000000834465,
+      "manualCalls": 0,
+      "nativeFrames": 403,
+      "finalState": {
+        "enemies": 188,
+        "hp": 73,
+        "kills": 3,
+        "random": 3331604612,
+        "state": "playing",
+        "time": 4.799999999999988,
+        "visualRandom": 2139495574
+      }
+    }
+  ],
+  "equivalenceExact": true,
+  "pixelsExact": false,
+  "pixels": {
+    "candidateVsFirst": {
+      "differentComponents": 53,
+      "dimensionsEqual": true,
+      "maxDelta": 8
+    },
+    "candidateVsRepeat": {
+      "differentComponents": 69,
+      "dimensionsEqual": true,
+      "maxDelta": 8
+    },
+    "originalRepeat": {
+      "differentComponents": 24,
+      "dimensionsEqual": true,
+      "maxDelta": 1
+    }
+  },
+  "cleanupComplete": true,
+  "performance": {
+    "fasterOriginalMs": 2177.6000000834465,
+    "candidateMs": 2697.999999821186,
+    "improvementFraction": -0.23897869200854038,
+    "callbackTailsNoWorse": false,
+    "drainTailsNoWorse": false,
+    "tailsNoWorse": false,
+    "costCriterionPassed": false
+  },
+  "actualAccepted": false,
+  "decision": "retain-QA-only; no product adoption"
+}

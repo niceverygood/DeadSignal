@@ -1,0 +1,20 @@
+✔ edge scan agrees with original full pixel bounds for sparse islands, cutouts and exact threshold pixels (8.3595ms)
+✔ single pixels on every border and empty frames keep exact clipping and empty semantics (1.7196ms)
+✔ batch-cell regions produce the same local bounds as individually cropped RGBA frames (1.1297ms)
+✔ actual alpha-derived contour coordinates survive validation, cloning and deep freezing without changing the input (22.53ms)
+✔ malformed optional contours reject the entire atlas before any PNG is decoded (163.894ms)
+✔ only complete validated tables bypass the declared mask, with a shared ready promise and no pixel read (5.2419ms)
+✔ complete contours work without a mask registration, while old and partial tables still require the existing mask/retry path (10.9826ms)
+✔ mask failure still blocks launch/restore for partial metadata; complete contours unblock it without changing the saved run or RNG (16.6494ms)
+✔ release/reload drops contour eligibility and never reuses a prior record or its readiness promise (8.3805ms)
+✔ late completion of a released legacy mask cannot overwrite or notify readiness for a reloaded contour record (7.3192ms)
+✔ actual original GLB keeps feet/hips unchanged while both native weapons follow independent spine aim (385.1155ms)
+✔ original idle/walk/run transitions stay finite and stance IK holds an actual planted ankle without stretching (110.8119ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 782.2169

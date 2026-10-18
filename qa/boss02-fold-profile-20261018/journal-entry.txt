@@ -1,0 +1,13 @@
+
+
+DEAD SIGNAL — 보스02 상단 팔 접힘 후보 (2026-10-18T11:17:02Z)
+
+원본 Meshy geometry/UV/skin/texture/clip을 보존한 boss02-fold-v1을 추가했다. 별도 factory/cache와 private constructor 옵션에서만 사용하며 제품 기본값은 OFF다. 상단 pair0 shoulder30/forearm32도·하단8/4도와 원래40도 한도, 접촉 끝값·기존 timing/torso/feet/root를 유지했다. 기존 factory/기본 constructor는 전체 역복원 oracle로 확인했다. 다른 보스 일괄 적용0.
+
+최초 집중44결과42PASS/2FAIL2851.066ms를 보존했다. 새 peaks fixture에 닫는2문자가 빠져6case가 미실행됐고, 기존 source guard가 선언한 dormant runtime 추가를 잡았다. fixture2문자와 전체 원본 역복원 guard만 수정했으며 runtime/시각기준은 바꾸지 않았다. 영향15case 재검수15/15PASS672.8078ms다. 최초49/49PASS로 합치지 않는다. 전체 npm test1374/1374PASS, fail/cancelled/skipped0,326877.3856ms. 기존 stressCPU14671ms/wall16785.44ms 통과지만 engine 동일이므로 최적화 성과가 아니다. 이전 CPU 실패는 그대로 보존했다. verify는 역사 .gitignore 크기 첫 불일치 exit1, manifest 수정0이다.
+
+별도 genuine-memory8851 own IAB9 native 최초1회: classic56active+6inactive와 walkprime, 기존188 A/B timeline쌍376실제GL, 추가4방향 .72peak8실제GL. 원본 source identity/bytes·feet/root·40도·nonclip·hit층·same-seed deathbridge·callback후 source 재검사를 통과했다. raw1521304B/atlas4096×6144/기존contact1024×1536/추가peak1024×2048를 보존했다. main/hit/death 수동재생·peak/25ms를 확인했고, 취소 후 atlas src없음/canvas0×0/peakSheet0·own tab9닫기/fresh부재·console0을 확인했다. worker bounded소유정리4/4완료/active0·원본main owner보존이다. 실제 Game 전투/FPS/peak RAM검수와 구분한다.
+
+시각판정(root+독립2review): OFF 원본A보다 상단 팔꿈치 접힘은 분명하지만 손이 낮고 준비→접촉→복귀 실루엣 대비는 약하다. legacy ON B대비 proxy 추가이동 약6–7px는 실제 손 해부학 증명이 아니다. 뚜렷한 찢김/뒤집힘/잘림은 안 보이나 자연스러운 slam 품질 합격이나 제품 기본ON은 보류한다. 원본 단일메시/높이가중치 때문에 각도 확대 전 실제 말단 영향 진단이 필요하다. 다음은 시계 확인 뒤 정상 Game에서 실제 경고→공격→회복과 효과 동기화를 제한된 QA trial로 검수할 수 있다. 이 trial도 자동 시각 승인으로 쓰지 않는다.
+
+664 지정기록이 repair/native/whole전후 exact, 이전617 중6선언변경 외 exact·보호원본22 exact다. 최초 소스647와 오류로그/13초기소스도 보존했다. 사용자8806/tab1/저장·유료Meshy·키저장·결제·automation7·새commitpush·공개·스토어 접근0. 원본모델/리그/클립/무드보드/플레이데이터 보존. 다른보스/중간보스·실전성능·모든자연스러움·100시간스토리는 미완료다. 마감2026-10-19 00:00KST(15:00Z)이후 새개발0·완료/미완료 기록후 automation4 PAUSED.

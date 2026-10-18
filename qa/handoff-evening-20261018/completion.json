@@ -1,0 +1,48 @@
+{
+  "preparedAt": "2026-10-18T12:09:51.950Z",
+  "scope": "User-authorized latest source/evidence/LFS snapshot and cross-computer handoff; recorded before the commit and network upload.",
+  "prompt": {
+    "file": "NEXT_COMPUTER_PROMPT_KO.txt",
+    "lines": 79,
+    "bytes": 11815,
+    "sha256": "1ddc9693b76881a4a3e53efec830cafaf07295068ab4b5d0c5b2847a4dfe6b0e",
+    "source": "qa/handoff-evening-20261018/CONTINUATION_PROMPT_KO.txt",
+    "oldCanonicalPreserved": "qa/handoff-evening-20261018/NEXT_COMPUTER_PROMPT-before.txt"
+  },
+  "git": {
+    "localBranch": "main",
+    "baseCommitBeforeSnapshot": "6878d5e181aa188b23bd850a80ab6c3b60c805fd",
+    "latestSnapshotPushExplicitlyApproved": true,
+    "approval": "Latest changes including handoff and Git LFS to origin/main",
+    "snapshotIdentity": "The commit containing this version of NEXT_COMPUTER_PROMPT_KO.txt; determine via actual Git metadata.",
+    "recordedBeforeCommit": true,
+    "pushSuccessNotAssertedBeforeNetwork": "Verify remote main equals the resulting HEAD after push. This file cannot contain its own future commit hash."
+  },
+  "latestWhole": {
+    "file": "qa/boss02-normal-fight-20261018/whole-test.txt",
+    "tests": 1381,
+    "pass": 1380,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 820698.0748,
+    "knownFailure": "Existing20-minute24k-tick CPU stress16141ms exceeds15000ms; wall29144.30ms. Engine/threshold unchanged, no favorable retry."
+  },
+  "verify": {
+    "file": "qa/boss02-normal-fight-20261018/verify.txt",
+    "exitCode": 1,
+    "firstMismatch": ".gitignore",
+    "historicalManifestRegenerated": false
+  },
+  "latestAtomicWork": {
+    "completion": "qa/boss02-normal-fight-20261018/completion.json",
+    "complete": true,
+    "records713Exact": true,
+    "originalAndFoldNormalGameNativePassed": true,
+    "initialTimerFailurePreserved": true,
+    "productBossActionDefaultEnabled": false
+  },
+  "newComputer": "Read actual HEAD and latest supplied files; GitLFS/Node22+ and npm run setup required. Preserve existing changes, original art and user saves. Do not claim unsupplied local changes exist in clone6878d5e. Revalidate on new hardware.",
+  "constraints": "Original Meshy assets, saves and historical QA preserved. No paid Meshy/payment/key storage/automation7/store/user8806/tab1 changes. Only this latest snapshot upload is explicitly approved; no automation changes or other publication inferred.",
+  "prePushStatusSnapshot": "before-push-approval/completion.json"
+}

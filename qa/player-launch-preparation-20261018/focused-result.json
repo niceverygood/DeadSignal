@@ -1,0 +1,35 @@
+{
+  "initial": {
+    "passed": 28,
+    "total": 34,
+    "failed": 6,
+    "durationMs": 47852.9242,
+    "reason": "test fixture treated original THREE.Skeleton as EventDispatcher before helper call"
+  },
+  "repair": {
+    "changed": [
+      "work/dead-signal-game/tests/qa-player-launch-preparation.test.mjs"
+    ],
+    "description": "Skeleton dispose is wrapped to count and call its original function; original event-dispatched asset disposal observers retained; no assertion/helper/quality/budget edits",
+    "passed": 6,
+    "total": 6,
+    "durationMs": 343.898
+  },
+  "wholePending": false,
+  "whole": {
+    "passed": 1223,
+    "total": 1224,
+    "failed": 1,
+    "new14Passed": true,
+    "exit": 1,
+    "durationMs": 233300.5253,
+    "failures": [
+      {
+        "name": "twenty minutes of seeded autopilot keeps entity pools finite and bounded",
+        "cpuMs": 16250,
+        "budgetMs": 15000,
+        "wallMs": 33111.98
+      }
+    ]
+  }
+}

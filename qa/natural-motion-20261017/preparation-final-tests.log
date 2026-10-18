@@ -1,0 +1,32 @@
+✔ all render actor pools interpolate without changing checkpoints, random streams or actor identity (45.815ms)
+✔ attack warnings, shields and gun aim keep exact angles while regular turns use the shortest arc (0.868ms)
+✔ paused positions snap once and stay fixed; teleports/new runs do not create sliding ghosts (1.5018ms)
+✔ substep renders are continuous and physics/checkpoints remain identical with interpolation enabled (24.213ms)
+✔ particle fade and recoil produce distinct subframes without changing exact physics or reset timing (2.552ms)
+✔ finale is locked after Haifa and original launch geometry/assets remain complete (67.6943ms)
+✔ actual final boss must die before the vaccine can be recovered, death alone is not victory (7.9229ms)
+✔ missing or falsely defeated active boss and legacy extra flags fail restore (3.5021ms)
+✔ legacy collector defeat still ends its original survival game (0.6142ms)
+✔ new finales require30s preparation while old four-field saves restore byte exactly (1.9588ms)
+✔ preparation progress and interpolated HUD stay continuous without changing the authoritative save (2.6803ms)
+✔ delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events (11.9127ms)
+✔ selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request (0.4927ms)
+✔ failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness (3.9861ms)
+✔ operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules (5.7761ms)
+✔ environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state (22.294ms)
+✔ preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure (1.5524ms)
+✔ registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks (4.0633ms)
+✔ actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable (15.7195ms)
+✔ launch decode work is bounded to four concurrent assets while every planned request is retained (0.7428ms)
+✔ radio starts on a real new mission and freezes across pause without touching checkpoints or RNG (50.1514ms)
+✔ only matching real boss milestones create cues; duplicates and false kills stay silent (0.8441ms)
+✔ restored progress does not replay opening, and fresh mission identity resets radio (1.3654ms)
+✔ victory clue requires the actual final boss result and never claims overseas maps are completed (0.5559ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 534.5908

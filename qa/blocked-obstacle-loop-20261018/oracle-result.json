@@ -1,0 +1,52 @@
+{
+  "tool": "qa-blocked-obstacle-oracle",
+  "passed": true,
+  "sourceSHA": {
+    "engine": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "candidate": "d12df8316e258d8254f89d18a4c887db67d0ab0391ce19513f062009eaf62335",
+    "grid": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7",
+    "fixture": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "model": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+    "navigation": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9"
+  },
+  "cases": [
+    {
+      "name": "radii, world boundaries, circle tangency/corner and destroyed/short-circuit outcomes",
+      "passed": true
+    },
+    {
+      "name": "native some exact sparse/inherited HasProperty/Get and rectangle getter order",
+      "passed": true
+    },
+    {
+      "name": "snapshot length, append/delete/hole filling and live destroyed/rect mutations",
+      "passed": true
+    },
+    {
+      "name": "Proxy Array ToLength uses one ordered conversion with string/fraction/NaN/negative/Infinity and throwing primitives",
+      "passed": true
+    },
+    {
+      "name": "controlled throw identity at some/length/HasProperty/Get/destroyed/rectangle and same-receiver reentry",
+      "passed": true
+    },
+    {
+      "name": "custom some receiver/callback protocol, poisoned apply/call, getter replacement and revoked custom Proxy",
+      "passed": true
+    },
+    {
+      "name": "non-Array native some fallback, absent/noncallable values and prefix getter observation",
+      "passed": true
+    },
+    {
+      "name": "water/roof/transport original prefix and valid checkpoint restore stay identical",
+      "passed": true
+    },
+    {
+      "name": "actual move sliding/walk phase and dynamic destroyed obstacles preserve exact numerical state",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "note": "Independent whole pinned before/candidate engine modules and exact two-replacement provenance. Normal unmodified Array/Math/Reflect intrinsics; ordinary arrays and controlled Proxy arrays test native length/HasProperty/Get/coercion, mutation and custom some semantics. Controlled thrown values preserve identity; built-in TypeError class is compared, not engine-specific error text/stack (including revoked native receivers). QA arenas, own getters and deliberate sparse arrays are protocol fixtures, not normal spawning or performance. No production edit, storage, CPU/FPS/heap or visual claim."
+}

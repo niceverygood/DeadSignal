@@ -1,0 +1,232 @@
+{
+  "passed": true,
+  "errors": [],
+  "evidence": [
+    {
+      "file": "iab-report.json",
+      "bytes": 1497192,
+      "sha256": "1f508bd15b00f19474f487913e1f18ebb4ceb671714c50e17caf39260d8bb0e0"
+    },
+    {
+      "file": "iab-atlas.png",
+      "bytes": 9371806,
+      "width": 4096,
+      "height": 6144,
+      "sha256": "53ee203b1b04f8c217f22a55f66a6f90bbb506031bcb182e6aa848aebadaaa93"
+    },
+    {
+      "file": "iab-contact.png",
+      "bytes": 709410,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "57cbc5079d4bd4897a9b12c186be20f08b2b1b93af2440daebfaab9acd0649e3"
+    }
+  ],
+  "pairedFrames": 188,
+  "classicActive": 56,
+  "classicInactive": 6,
+  "temporalNativeRenderFrames": 376,
+  "cleanup": {
+    "errors": [],
+    "complete": true,
+    "closing": true,
+    "modelsRemaining": 0,
+    "recordsRemaining": 0,
+    "pendingRemaining": 0,
+    "rawAlphaBytes": 0,
+    "alphaReadbackBytes": 0,
+    "batchInkBytes": 0,
+    "lateScheduled": 4,
+    "lateSettled": 4,
+    "ownedDrain": {
+      "complete": true,
+      "success": true,
+      "status": "complete",
+      "timedOut": false,
+      "overflow": false,
+      "capacity": 256,
+      "scheduled": 4,
+      "settled": 4,
+      "callbackEntered": 4,
+      "completed": 4,
+      "active": 0,
+      "fulfilled": 4,
+      "rejected": 0,
+      "retireFailed": 0,
+      "duplicates": 0,
+      "overflowed": 0,
+      "invalid": 0,
+      "observerFailures": 0,
+      "totalErrors": 0,
+      "lateRegistrations": 0,
+      "entries": [
+        {
+          "id": 1,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "registry",
+            "key": "registry"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 2,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "atlas",
+            "key": "boss-02-final-locomotion-hq32"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 3,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "atlas",
+            "key": "boss-02-final-rig-motion"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 4,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "model",
+            "key": "boss-02-final"
+          },
+          "status": "completed",
+          "fulfilled": true
+        }
+      ],
+      "pending": [],
+      "errors": [],
+      "wait": {
+        "started": true,
+        "finished": true,
+        "timeoutMs": 15000,
+        "startedAt": 21911.30000001192,
+        "deadlineAt": 36911.30000001192,
+        "elapsedMs": 0.10000002384185791,
+        "timerActive": false,
+        "timersScheduled": 0,
+        "timersCleared": 0,
+        "timersFired": 0,
+        "timerCleanupComplete": true
+      },
+      "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+    },
+    "trackerFinal": {
+      "complete": true,
+      "success": true,
+      "status": "complete",
+      "timedOut": false,
+      "overflow": false,
+      "capacity": 256,
+      "scheduled": 4,
+      "settled": 4,
+      "callbackEntered": 4,
+      "completed": 4,
+      "active": 0,
+      "fulfilled": 4,
+      "rejected": 0,
+      "retireFailed": 0,
+      "duplicates": 0,
+      "overflowed": 0,
+      "invalid": 0,
+      "observerFailures": 0,
+      "totalErrors": 0,
+      "lateRegistrations": 0,
+      "entries": [
+        {
+          "id": 1,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "registry",
+            "key": "registry"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 2,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "atlas",
+            "key": "boss-02-final-locomotion-hq32"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 3,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "atlas",
+            "key": "boss-02-final-rig-motion"
+          },
+          "status": "completed",
+          "fulfilled": true
+        },
+        {
+          "id": 4,
+          "label": {
+            "arm": "boss-actions",
+            "kind": "model",
+            "key": "boss-02-final"
+          },
+          "status": "completed",
+          "fulfilled": true
+        }
+      ],
+      "pending": [],
+      "errors": [],
+      "wait": {
+        "started": true,
+        "finished": true,
+        "timeoutMs": 15000,
+        "startedAt": 21911.30000001192,
+        "deadlineAt": 36911.30000001192,
+        "elapsedMs": 0.40000003576278687,
+        "timerActive": false,
+        "timersScheduled": 0,
+        "timersCleared": 0,
+        "timersFired": 0,
+        "timerCleanupComplete": true
+      },
+      "note": "Event-driven QA-owned cleanup bookkeeping only. Register each owned Promise before wait, or synchronously/asynchronously within a retirement that has not yet completed. Promise/thenable identity is deduplicated across this tracker: only its first accepted retirement runs. A fulfilled/rejected producer is not complete until its retirement (including any returned Promise and newly registered followers) finishes. Producer rejection alone is not a cleanup failure. Capacity is a lifetime entry bound, including completed entries; rejected capacity registrations are not observed and remain the caller's cleanup responsibility. The first wait uses one overall deadline with no polling and returns one fixed immutable report. Timeout does not cancel producer/retirement Promises; already accepted and later capacity-eligible followers continue best-effort, and later snapshots may differ from that fixed wait result. Work registered after an already completed wait cannot retroactively change its result. Reports retain primitive labels/status only, not values, raw errors, resources or Promises. This tracker performs no rendering, Game, storage or GPU operation."
+    },
+    "mainOwnersUnchanged": true,
+    "surfacesRemaining": 0,
+    "surfacesReleased": true,
+    "framePoolSlotsRemaining": 0,
+    "channelClosed": true,
+    "resourceRefsCleared": true,
+    "partialArtConstructorUnproven": false,
+    "partialRigConstructorUnproven": false,
+    "unownedArtRejected": false,
+    "unownedRigRejected": false,
+    "loadWait": {
+      "scheduled": 3,
+      "cleared": 3,
+      "fired": 0,
+      "active": 0
+    },
+    "retired": {
+      "geometries": 1,
+      "materials": 1,
+      "textures": 1,
+      "images": 1,
+      "skeletons": 1,
+      "helpers": 2,
+      "renderers": 1,
+      "contexts": 1
+    },
+    "partialChannelConstructorUnproven": false
+  },
+  "productAdopted": false,
+  "performanceEvidence": false,
+  "notes": "One original512 boss02 timeline run plus existing classic controls. Stored preview halves are256. Geometry/source/root/feet/clip/death-bridge checks are literal native worker results; PNG/FNV are diagnostics. This is not actual Game combat, complete boss catalogue, naturalness acceptance, FPS or peak memory. No favorable rerun."
+}

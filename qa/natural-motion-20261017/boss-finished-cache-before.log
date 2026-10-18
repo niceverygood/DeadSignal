@@ -1,0 +1,197 @@
+✖ finished original boss death reuses its own pose across advancing gameplay and other actors, with complete cache invalidation (111.5291ms)
+✖ a late live-to-death transition still completes instead of caching its inherited standing first pose (56.5094ms)
+✔ unfinished death and living clips retain advancing-frame sampling (49.4695ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 528.3815
+
+✖ failing tests:
+
+test at work\dead-signal-game\tests\rig-finished-death-cache.test.mjs:26:1
+✖ finished original boss death reuses its own pose across advancing gameplay and other actors, with complete cache invalidation (111.5291ms)
+  AssertionError [ERR_ASSERTION]: Values have same structure but are not reference-equal:
+  
+  ... Skipped lines
+  {
+    bones: [
+      {
+        position: Vector3 {
+          x: 1.4902328252792358,
+          y: 69.32898712158203,
+          z: 11.55589771270752
+        },
+        quaternion: Quaternion {
+          _w: 0.8661826252937317,
+          _x: 0.49538224935531616,
+          _y: -0.029017942026257515,
+          _z: 0.05900841951370239,
+          isQuaternion: true
+        },
+        scale: Vector3 {
+          x: 1,
+          y: 1,
+          z: 1
+        }
+      },
+      {
+        position: Vector3 {
+          x: -5.675246939063072e-8,
+          y: 14.158658981323242,
+          z: -3.8489815779030323e-7
+        },
+        quaternion: Quaternion {
+          _w: 0.997446596622467,
+          _x: 0.07050090283155441,
+          _y: -0.011148796416819096,
+          _z: 0.0023660939186811447,
+          isQuaternion: true
+        },
+        scale: Vector3 {
+          x: 1,
+          y: 1,
+          z: 1
+        }
+      },
+      {
+        position: Vector3 {
+          x: 2.1827871066193438e-8,
+          y: 14.158673286437988,
+          z: 0.00000104919308796525
+        },
+        quaternion: Quaternion {
+          _w: 0.9994908571243286,
+          _x: 0.021371446549892426,
+          _y: -0.02215162105858326,
+  ...}
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/rig-finished-death-cache.test.mjs:29:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      pose: { name: 'death', index: 6, time: 1.1200000047683716, locomotionMix: null, hasMoveWeight: false, hitLayer: null, loop: false, progress: 1, count: 64, sample: 63, angle: 0.8 },
+      bones: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ]
+    },
+    expected: {
+      pose: { name: 'death', index: 6, time: 1.1200000047683716, locomotionMix: null, hasMoveWeight: false, hitLayer: null, loop: false, progress: 1, count: 64, sample: 63, angle: 0.8 },
+      bones: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ]
+    },
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\dead-signal-game\tests\rig-finished-death-cache.test.mjs:40:1
+✖ a late live-to-death transition still completes instead of caching its inherited standing first pose (56.5094ms)
+  AssertionError [ERR_ASSERTION]: Values have same structure but are not reference-equal:
+  
+  ... Skipped lines
+  {
+    bones: [
+      {
+        position: Vector3 {
+          x: 1.4902328252792358,
+          y: 69.32898712158203,
+          z: 11.55589771270752
+        },
+        quaternion: Quaternion {
+          _w: 0.8661826252937317,
+          _x: 0.49538224935531616,
+          _y: -0.029017942026257515,
+          _z: 0.05900841951370239,
+          isQuaternion: true
+        },
+        scale: Vector3 {
+          x: 1,
+          y: 1,
+          z: 1
+        }
+      },
+      {
+        position: Vector3 {
+          x: -5.675246939063072e-8,
+          y: 14.158658981323242,
+          z: -3.8489815779030323e-7
+        },
+        quaternion: Quaternion {
+          _w: 0.997446596622467,
+          _x: 0.07050090283155441,
+          _y: -0.011148796416819096,
+          _z: 0.0023660939186811447,
+          isQuaternion: true
+        },
+        scale: Vector3 {
+          x: 1,
+          y: 1,
+          z: 1
+        }
+      },
+      {
+        position: Vector3 {
+          x: 2.1827871066193438e-8,
+          y: 14.158673286437988,
+          z: 0.00000104919308796525
+        },
+        quaternion: Quaternion {
+          _w: 0.9994908571243286,
+          _x: 0.021371446549892426,
+          _y: -0.02215162105858326,
+  ...}
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/rig-finished-death-cache.test.mjs:45:133)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: {
+      pose: { name: 'death', index: 6, time: 1.1200000047683716, locomotionMix: null, hasMoveWeight: false, hitLayer: null, loop: false, progress: 1, count: 64, sample: 63, angle: 0.8 },
+      bones: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ]
+    },
+    expected: {
+      pose: { name: 'death', index: 6, time: 1.1200000047683716, locomotionMix: null, hasMoveWeight: false, hitLayer: null, loop: false, progress: 1, count: 64, sample: 63, angle: 0.8 },
+      bones: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ]
+    },
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

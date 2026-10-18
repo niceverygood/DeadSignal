@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: the independent original module pins and currently imported geometry functions remain exact
+ok 1 - the independent original module pins and currently imported geometry functions remain exact
+  ---
+  duration_ms: 2.1689
+  type: 'test'
+  ...
+# Subtest: threshold7/8/255, empty, single x255, isolated rows and each image edge match full frozen outputs and endpoint slots
+ok 2 - threshold7/8/255, empty, single x255, isolated rows and each image edge match full frozen outputs and endpoint slots
+  ---
+  duration_ms: 69.4751
+  type: 'test'
+  ...
+# Subtest: every body height and .72 cutoff retains exact Float64 core height and original open contour row membership
+ok 3 - every body height and .72 cutoff retains exact Float64 core height and original open contour row membership
+  ---
+  duration_ms: 373.1934
+  type: 'test'
+  ...
+# Subtest: seeded opaque/threshold bodies and RGB changes preserve original geometry without mutating bytes
+ok 4 - seeded opaque/threshold bodies and RGB changes preserve original geometry without mutating bytes
+  ---
+  duration_ms: 61.6485
+  type: 'test'
+  ...
+# Subtest: one reusable cache is fully overwritten while previous outputs remain fresh and stable
+ok 5 - one reusable cache is fully overwritten while previous outputs remain fresh and stable
+  ---
+  duration_ms: 27.2627
+  type: 'test'
+  ...
+# Subtest: genuine offset, subclass and cross-realm fixed views use intrinsic brands without reading spoof getters
+ok 6 - genuine offset, subclass and cross-realm fixed views use intrinsic brands without reading spoof getters
+  ---
+  duration_ms: 24.4854
+  type: 'test'
+  ...
+# Subtest: wrong types, lengths, proxies and spoofed native brands reject before scratch or input writes
+ok 7 - wrong types, lengths, proxies and spoofed native brands reject before scratch or input writes
+  ---
+  duration_ms: 6.8827
+  type: 'test'
+  ...
+# Subtest: shared, resizable, detached and same-buffer views are outside the fixed owned-byte contract
+ok 8 - shared, resizable, detached and same-buffer views are outside the fixed owned-byte contract
+  ---
+  duration_ms: 13.8329
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 854.8464

@@ -1,0 +1,90 @@
+TAP version 13
+# Subtest: disabled probe preserves all eight prior modes against full pinned harness, including reports/clocks/Game/pixels and cleanup
+ok 1 - disabled probe preserves all eight prior modes against full pinned harness, including reports/clocks/Game/pixels and cleanup
+  ---
+  duration_ms: 281309.2212
+  type: 'test'
+  ...
+# Subtest: exact isolated own-data mode and branded-memory gate rejects mixed modes/accessors before owner or DOM reads
+ok 2 - exact isolated own-data mode and branded-memory gate rejects mixed modes/accessors before owner or DOM reads
+  ---
+  duration_ms: 14.1246
+  type: 'test'
+  ...
+# Subtest: two original arms retain primary R0, forty literal callbacks and strict AA without candidate or extra draw; extra reads never performance-accept
+ok 3 - two original arms retain primary R0, forty literal callbacks and strict AA without candidate or extra draw; extra reads never performance-accept
+  ---
+  duration_ms: 18499.2808
+  type: 'test'
+  ...
+# Subtest: unstable readback stops before second arm; independent strict AA, Game mutation and read errors preserve failure and ownership cleanup
+ok 4 - unstable readback stops before second arm; independent strict AA, Game mutation and read errors preserve failure and ownership cleanup
+  ---
+  duration_ms: 45950.1592
+  type: 'test'
+  ...
+# file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-original-readback-probe.test.mjs:17
+#  const nativePixels=bytes(16),actor={id:11,type:'walker',secret:nativePixels},selected={id:'enemy-walker-locomotion-hq32',metadata:{format:'meshy-iso-sprite-atlas'},secret:nativePixels},rig={size:256,ready:true,lost:false,error:null,models:new Map([['enemy-walker',{source:{secret:nativePixels}}],['enemy-runner',{source:{secret:nativePixels}}]]),pending:new Map([['enemy-elite',Promise.resolve(null)]]),renderer:{info:{render:{frame:80},memory:{textures:2}},render:fail('native render'),getContext:fail('native GPU query')},player={ready:true,error:null,renderer:{info:{render:{frame:80}},render:fail('player GL render')},frame:fail('player selection'),rasterFrame:fail('player raster')};
+#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^
+# SyntaxError: Unexpected token ';'
+#     at compileSourceTextModule (node:internal/modules/esm/utils:346:16)
+#     at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:110:18)
+#     at \#translate (node:internal/modules/esm/loader:559:20)
+#     at afterLoad (node:internal/modules/esm/loader:612:29)
+#     at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:617:12)
+#     at \#createModuleJob (node:internal/modules/esm/loader:640:36)
+#     at \#getJobFromResolveResult (node:internal/modules/esm/loader:353:34)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:321:41)
+#     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:25)
+# Node.js v22.23.3
+# Subtest: tests\\qa-original-readback-probe.test.mjs
+not ok 2 - tests\\qa-original-readback-probe.test.mjs
+  ---
+  duration_ms: 2092.7438
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-original-readback-probe.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: original readback UI preserves the full frozen prefix and rejects non-isolated gates before all DOM/owner/import/storage IO
+ok 6 - original readback UI preserves the full frozen prefix and rejects non-isolated gates before all DOM/owner/import/storage IO
+  ---
+  duration_ms: 3.6654
+  type: 'test'
+  ...
+# Subtest: ready idle clicks pass only the original-only mode, use genuine reused memory and retain at most two postprobe PNGs
+ok 7 - ready idle clicks pass only the original-only mode, use genuine reused memory and retain at most two postprobe PNGs
+  ---
+  duration_ms: 2.31
+  type: 'test'
+  ...
+# Subtest: duplicate clicks and owner/state replacement or pagehide during lazy import cannot start a late comparison
+ok 8 - duplicate clicks and owner/state replacement or pagehide during lazy import cannot start a late comparison
+  ---
+  duration_ms: 1.0251
+  type: 'test'
+  ...
+# Subtest: in-flight pagehide aborts the exact signal and suppresses late progress, images and completion UI
+ok 9 - in-flight pagehide aborts the exact signal and suppresses late progress, images and completion UI
+  ---
+  duration_ms: 0.5229
+  type: 'test'
+  ...
+# Subtest: strict readback/AA failures preserve raw report and cleanup, while incomplete reports are never labelled complete
+ok 10 - strict readback/AA failures preserve raw report and cleanup, while incomplete reports are never labelled complete
+  ---
+  duration_ms: 1.3238
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 352276.3045

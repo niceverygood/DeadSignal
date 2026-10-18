@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: every playable mission has a connected original story without changing its stable save ID
+ok 1 - every playable mission has a connected original story without changing its stable save ID
+  ---
+  duration_ms: 1.8834
+  type: 'test'
+  ...
+# Subtest: future route and100h goal remain explicitly planned, with original vaccine recovery finale
+ok 2 - future route and100h goal remain explicitly planned, with original vaccine recovery finale
+  ---
+  duration_ms: 0.6143
+  type: 'test'
+  ...
+# Subtest: mission clues are shown only after clearing and dossier escapes all authored strings
+ok 3 - mission clues are shown only after clearing and dossier escapes all authored strings
+  ---
+  duration_ms: 2.5353
+  type: 'test'
+  ...
+# Subtest: radio starts on a real new mission and freezes across pause without touching checkpoints or RNG
+ok 4 - radio starts on a real new mission and freezes across pause without touching checkpoints or RNG
+  ---
+  duration_ms: 8.9438
+  type: 'test'
+  ...
+# Subtest: only matching real boss milestones create cues; duplicates and false kills stay silent
+ok 5 - only matching real boss milestones create cues; duplicates and false kills stay silent
+  ---
+  duration_ms: 5.2983
+  type: 'test'
+  ...
+# Subtest: restored progress does not replay opening, and fresh mission identity resets radio
+ok 6 - restored progress does not replay opening, and fresh mission identity resets radio
+  ---
+  duration_ms: 1.0643
+  type: 'test'
+  ...
+# Subtest: victory clue requires the actual final boss result and never claims overseas maps are completed
+ok 7 - victory clue requires the actual final boss result and never claims overseas maps are completed
+  ---
+  duration_ms: 0.5995
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 194.6182

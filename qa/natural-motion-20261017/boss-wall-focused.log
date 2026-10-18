@@ -1,0 +1,14 @@
+✔ actual charge into solid wall emits one render-only material contact and keeps all gameplay state unchanged (178.1086ms)
+✔ no false collision from pause, stun, free movement or targets behind a wall; restart can contact again (0.5126ms)
+✔ a real explosion body sorts between background and foreground geometry, once, while ring/glow remain in the particle pass (15.217ms)
+✔ unavailable art keeps the original post-geometry fallback, and a failed depth draw attempts the image only once (5.1534ms)
+✔ camera/zoom/DPR keep the body in the same world transform and equal-depth actors stay above it (3.4923ms)
+✔ repeated paused/upgrade renders depth-sort every live burst once without changing Game/RNG or allocating another image (33.4468ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 313.765

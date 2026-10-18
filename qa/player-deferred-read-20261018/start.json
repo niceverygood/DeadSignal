@@ -1,0 +1,20 @@
+{
+  "startedUTC": "2026-10-18T05:48:01Z",
+  "deadline": "2026-10-19T00:00:00+09:00",
+  "task": "QA-only defer original player body Canvas fullRGBA read and pure bounds/core calculation until after armed colour GL render and composition",
+  "defaultProductChanged": false,
+  "gateDeclaredBeforeMeasurement": {
+    "wholeCanvas": "strict exact AA/AB/BA",
+    "game": "literal80 frame/effects/motion/events/commands/twoRNG comparisons",
+    "usage": "fresh owned unprimed original/deferred/original; B>=40 and zero fallback/unexpected/ownerMismatch",
+    "total": "preparation+callback40+finalReadback >=3% lower than fasterA",
+    "first": "callback0 no worse than eitherA",
+    "steady": "last30 callback median/p95/max/sum no worse than eitherA",
+    "tails": "all40 and drain41 p95/max no worse than eitherA",
+    "cleanup": "all owned handles/models/records retired, original owners/images/cache/saves untouched"
+  },
+  "noNewMeshyRequests": true,
+  "noPublication": true,
+  "noKeyStorage": true,
+  "rootSoleCPUAndGPUExecutor": true
+}

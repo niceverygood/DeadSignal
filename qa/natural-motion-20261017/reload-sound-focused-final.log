@@ -1,0 +1,18 @@
+✔ actual reload timing survives upgrades and restores without renderer-owned clocks (20.0148ms)
+✔ original reload IK moves only left arm rotations and joins both ready endpoints at every aim (123.3634ms)
+✔ actual reload cues cross authored hand stages once, freeze paused, and do not replay after restore (24.4805ms)
+✔ reload sounds issue no future wall-clock voices and stages retain weapon-specific mechanics (0.7694ms)
+✔ sound pan matches the isometric camera and attenuation stays bounded (1.7387ms)
+✔ voice graph uses per-event pan/gain, limiter and disconnects temporary nodes (1.4277ms)
+✔ actual bullet obstacle collision creates merged material feedback and keeps bullets stopped (8.8933ms)
+✔ crowded gunfire reserves headroom for real damage and layered explosions, then releases every voice (1.2305ms)
+✔ actual Molotov land/lure/reload events carry their real spatial source and weapon without new save fields (10.5062ms)
+✔ Molotov break and ignition have separate spectral layers; weapon reload mechanics have separated timing (0.5984ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 400.9603

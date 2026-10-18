@@ -1,0 +1,702 @@
+{
+  "browser": "Codex IAB2",
+  "sameBrowserAsHistoricalChrome": false,
+  "rawChars": 388072,
+  "complete": false,
+  "error": "qa-canvas-combat-cleanup-failed",
+  "qualityOnly": true,
+  "candidateAdopted": false,
+  "optimizationCostRuns": 0,
+  "performanceEvidence": false,
+  "fixture": {
+    "count": 180,
+    "weapon": "nailgun",
+    "baseEnemies": 5,
+    "seed": 774,
+    "snapshotValid": true,
+    "spawnClock": 1.5,
+    "note": "Explicit density fixture adds normal enemies through spawnEnemy and preserves initial enemies, spawnClock, HP, speed, AI, damage and normal subsequent spawning. Existing Continue/preload/resume UI launches the memory-only checkpoint."
+  },
+  "passes": [
+    {
+      "arm": "A1",
+      "mode": "original",
+      "callbacks": 40,
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      },
+      "probe": {
+        "complete": true,
+        "stable": true,
+        "reason": "stable-original-readbacks",
+        "readSequence": [
+          "R1",
+          "F",
+          "R2"
+        ],
+        "comparisons": {
+          "R0R1": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R0R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R1R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          }
+        },
+        "mainAttributes": {
+          "supported": true,
+          "available": true,
+          "values": {
+            "alpha": false,
+            "colorSpace": "srgb",
+            "colorType": "unorm8",
+            "desynchronized": false,
+            "willReadFrequently": false
+          },
+          "native": true
+        },
+        "floorAttributes": {
+          "supported": true,
+          "available": true,
+          "values": {
+            "alpha": true,
+            "colorSpace": "srgb",
+            "colorType": "unorm8",
+            "desynchronized": false,
+            "willReadFrequently": false
+          },
+          "native": true
+        },
+        "floorHash": {
+          "algorithm": "fnv1a32-bytes",
+          "bytes": 17280000,
+          "value": "f7a50238"
+        },
+        "mainHashes": {
+          "R0": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "R1": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "R2": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          }
+        },
+        "cleanup": {
+          "rawArraysRetained": false,
+          "newSurfaces": 0,
+          "newContextsCreatedByHelper": 0,
+          "existingFloorContextRequests": 1,
+          "productionMutations": 0,
+          "mainOwnerUnchanged": true,
+          "mainGeometryUnchanged": true,
+          "mainReadMethodUnchanged": true,
+          "floorOwnerUnchanged": true,
+          "floorGeometryUnchanged": true,
+          "floorWorldUnchanged": true,
+          "floorKeyUnchanged": true,
+          "floorReadMethodUnchanged": true
+        },
+        "errors": []
+      },
+      "gameUnchanged": true,
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "nativeObserved": {
+        "player": {
+          "present": true,
+          "ready": true,
+          "lost": false,
+          "error": null,
+          "modelCount": 2,
+          "modelKeys": [
+            "walk",
+            "run"
+          ],
+          "pendingCount": null,
+          "pendingKeys": [],
+          "renderFrame": 80
+        },
+        "enemies": {
+          "present": true,
+          "ready": null,
+          "lost": false,
+          "error": "",
+          "modelCount": 1,
+          "modelKeys": [
+            "enemy-walker"
+          ],
+          "pendingCount": 2,
+          "pendingKeys": [
+            "enemy-walker",
+            "enemy-gas"
+          ],
+          "renderFrame": 403
+        },
+        "boss": {
+          "present": true,
+          "ready": null,
+          "lost": false,
+          "error": "",
+          "modelCount": 2,
+          "modelKeys": [
+            "boss-01-mid",
+            "boss-01-final"
+          ],
+          "pendingCount": 2,
+          "pendingKeys": [
+            "boss-01-mid",
+            "boss-01-final"
+          ],
+          "renderFrame": 0
+        },
+        "enemySelection": {
+          "available": true,
+          "count": 12,
+          "observed": 12,
+          "truncated": false,
+          "entries": [
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            }
+          ]
+        },
+        "corpseSelection": {
+          "available": true,
+          "count": 0,
+          "observed": 0,
+          "truncated": false,
+          "entries": []
+        },
+        "playerLastSelection": {
+          "id": "survivor-original-live-rig",
+          "source": "native"
+        },
+        "fallbackVisible": {
+          "ids": [],
+          "complete": false,
+          "scope": "Cached selected entries for current liveEnemySelection/liveCorpseSelection only. Renderer exposes no enumerable selection ID list for all other baked/fallback-visible actors."
+        },
+        "lastPublicDrawStatus": {
+          "productionPlayer": "survivor-original-live-rig",
+          "productionDrawStatus": "native",
+          "productionRig": "live",
+          "productionEnemyRig": "live",
+          "productionBossRig": "ready"
+        }
+      }
+    },
+    {
+      "arm": "A2",
+      "mode": "original",
+      "callbacks": 40,
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      },
+      "probe": {
+        "complete": true,
+        "stable": true,
+        "reason": "stable-original-readbacks",
+        "readSequence": [
+          "R1",
+          "F",
+          "R2"
+        ],
+        "comparisons": {
+          "R0R1": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R0R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          },
+          "R1R2": {
+            "lengthA": 2457600,
+            "lengthB": 2457600,
+            "lengthEqual": true,
+            "components": 0,
+            "pixels": 0,
+            "maxDelta": 0,
+            "alphaComponents": 0,
+            "bounds": null,
+            "equal": true
+          }
+        },
+        "mainAttributes": {
+          "supported": true,
+          "available": true,
+          "values": {
+            "alpha": false,
+            "colorSpace": "srgb",
+            "colorType": "unorm8",
+            "desynchronized": false,
+            "willReadFrequently": false
+          },
+          "native": true
+        },
+        "floorAttributes": {
+          "supported": true,
+          "available": true,
+          "values": {
+            "alpha": true,
+            "colorSpace": "srgb",
+            "colorType": "unorm8",
+            "desynchronized": false,
+            "willReadFrequently": false
+          },
+          "native": true
+        },
+        "floorHash": {
+          "algorithm": "fnv1a32-bytes",
+          "bytes": 17280000,
+          "value": "f7a50238"
+        },
+        "mainHashes": {
+          "R0": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "R1": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          },
+          "R2": {
+            "algorithm": "fnv1a32-bytes",
+            "bytes": 2457600,
+            "value": "b1714eed"
+          }
+        },
+        "cleanup": {
+          "rawArraysRetained": false,
+          "newSurfaces": 0,
+          "newContextsCreatedByHelper": 0,
+          "existingFloorContextRequests": 1,
+          "productionMutations": 0,
+          "mainOwnerUnchanged": true,
+          "mainGeometryUnchanged": true,
+          "mainReadMethodUnchanged": true,
+          "floorOwnerUnchanged": true,
+          "floorGeometryUnchanged": true,
+          "floorWorldUnchanged": true,
+          "floorKeyUnchanged": true,
+          "floorReadMethodUnchanged": true
+        },
+        "errors": []
+      },
+      "gameUnchanged": true,
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "nativeObserved": {
+        "player": {
+          "present": true,
+          "ready": true,
+          "lost": false,
+          "error": null,
+          "modelCount": 2,
+          "modelKeys": [
+            "run",
+            "walk"
+          ],
+          "pendingCount": null,
+          "pendingKeys": [],
+          "renderFrame": 80
+        },
+        "enemies": {
+          "present": true,
+          "ready": null,
+          "lost": false,
+          "error": "",
+          "modelCount": 1,
+          "modelKeys": [
+            "enemy-walker"
+          ],
+          "pendingCount": 2,
+          "pendingKeys": [
+            "enemy-walker",
+            "enemy-gas"
+          ],
+          "renderFrame": 403
+        },
+        "boss": {
+          "present": true,
+          "ready": null,
+          "lost": false,
+          "error": "",
+          "modelCount": 2,
+          "modelKeys": [
+            "boss-01-mid",
+            "boss-01-final"
+          ],
+          "pendingCount": 2,
+          "pendingKeys": [
+            "boss-01-mid",
+            "boss-01-final"
+          ],
+          "renderFrame": 0
+        },
+        "enemySelection": {
+          "available": true,
+          "count": 12,
+          "observed": 12,
+          "truncated": false,
+          "entries": [
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            },
+            {
+              "type": null,
+              "bossKey": null,
+              "cached": true,
+              "id": "enemy-walker-rig-motion",
+              "source": "native"
+            }
+          ]
+        },
+        "corpseSelection": {
+          "available": true,
+          "count": 0,
+          "observed": 0,
+          "truncated": false,
+          "entries": []
+        },
+        "playerLastSelection": {
+          "id": "survivor-original-live-rig",
+          "source": "native"
+        },
+        "fallbackVisible": {
+          "ids": [],
+          "complete": false,
+          "scope": "Cached selected entries for current liveEnemySelection/liveCorpseSelection only. Renderer exposes no enumerable selection ID list for all other baked/fallback-visible actors."
+        },
+        "lastPublicDrawStatus": {
+          "productionPlayer": "survivor-original-live-rig",
+          "productionDrawStatus": "native",
+          "productionRig": "live",
+          "productionEnemyRig": "live",
+          "productionBossRig": "ready"
+        }
+      }
+    }
+  ],
+  "equivalence": {
+    "framesCompared": 40,
+    "state": true,
+    "events": true,
+    "commands": true,
+    "motion": true,
+    "random": true,
+    "visualRandom": true,
+    "mismatches": []
+  },
+  "pixels": {
+    "originalRepeat": {
+      "differentComponents": 0,
+      "maxDelta": 0,
+      "dimensionsEqual": true
+    }
+  },
+  "cleanup": {
+    "ownedRenderers": 2,
+    "retiredRenderers": 2,
+    "ownedArts": 2,
+    "releasedArts": 2,
+    "hostsCreated": 2,
+    "hostsRemoved": 2,
+    "lateScheduled": 8,
+    "lateSettled": 7,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": false
+  },
+  "images": [
+    {
+      "file": "iab-postprobe-a1.png",
+      "bytes": 1402617,
+      "sha256": "ae189d443a9422f8785c539fe4fe609c5b86feff4962edf6e5b8ff6879ae2eca",
+      "width": 960,
+      "height": 640,
+      "bitDepth": 8,
+      "colorType": 6
+    },
+    {
+      "file": "iab-postprobe-a2.png",
+      "bytes": 1402617,
+      "sha256": "ae189d443a9422f8785c539fe4fe609c5b86feff4962edf6e5b8ff6879ae2eca",
+      "width": 960,
+      "height": 640,
+      "bitDepth": 8,
+      "colorType": 6
+    }
+  ],
+  "postprobePNGBytesEqual": true,
+  "PNGCertifiedPrimaryR0": false,
+  "floorFullRGBAAcrossArmsCertified": false,
+  "console": [],
+  "tabCleanup": {
+    "ownedTab": "2",
+    "closeReturned": true,
+    "absentInFreshList": true,
+    "existingUserTabOperated": false,
+    "reportLateSettledStillUnproven": true,
+    "unknownChromeCreationOutcomeUnchanged": true
+  },
+  "extractionLimitations": [
+    "locator.count after expanded details timed out at3s; no new simulation/read/PNG export was retried",
+    "Native getAttribute captured each existing full PNG data URL without truncation; no pixel editing",
+    "Initial and result/page proof screenshots saved. Result-page.png shows main preview/summary; proof-page.png shows postprobe battle images"
+  ],
+  "interpretation": "All six same-context main comparisons and strict primary originalAA were exactly zero on this IAB run. This does not establish historical Chrome AA cause or performance improvement. Existing floor read fingerprints agree but are collision-prone summaries, not exact floor AA. Overall complete=false because8 late scheduled resources had7 settled at the report instant; tab closure was confirmed, but this does not retroactively certify those pending resource callbacks or prove a leak."
+}

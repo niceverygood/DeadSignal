@@ -1,0 +1,16 @@
+✔ delayed readiness commits one new Game/run ID only once; loading cannot mutate the existing checkpoint/RNG/events (15.8558ms)
+✔ selection/navigation cancellation retains cached loads and cannot commit or unlock a newer request (0.6312ms)
+✔ failed/rejected assets never replace a save; retry can restore a legacy neutral-equipment run after readiness (5.7161ms)
+✔ operation plan includes chosen player, only two mission bosses, actual pool/alarm assets and first matching world rules (4.085ms)
+✔ environment rule plan matches actual world vocabularies for all twelve maps and legacy routes without consuming Game state (27.5024ms)
+✔ preloader fetches only deduplicated planned IDs, retries failures and blocks a declared mask failure (1.2657ms)
+✔ registered enemies, bosses and speaker remain required atlases but only selected player poses require pixel masks (1.8528ms)
+✔ actual loader leaves unused failed masks alone while a failed survivor mask blocks restore and remains retryable (14.3419ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 370.7261

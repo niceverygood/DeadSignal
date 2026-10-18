@@ -1,0 +1,11 @@
+DeadSignal 원본 화면 반복 조사 · 2026-10-18 06:50:56 UTC
+
+직전 주인공읽기순서 QA의인계(decision.json/CONTINUATION_STATUS_KO.txt)를읽고새원자읽기조사를완료했습니다. 제품·기존QA source 변경0, 새성능run0, 새테스트재실행0. 마지막baseline은전체1264/1265PASS/기존CPU15188>15000 FAIL1, verify첫역사.gitignore FAIL1입니다. 457source/원본22records/기존UI187056B prefix는직전freeze와동일합니다(source-after-readonly.json).
+
+독립원인조사: renderer.makeFloor의원본asphalt32%·19000개seededsubpixelgrain·ISOdrawImage와전체vignette/fog/health/alarm합성은광역RGB가능경로입니다. 고정입력인데fresh각arm별Game/Renderer/Canvas는다른인스턴스라는점도분리했습니다. 정상경로의구체Canvas state누수나시간/무작위entropy 원인은찾지못했습니다. source-audit.json(13852B/c26d69…)과artifact-audit.json(13596B/be65d65…) 보존. AB347pixels국소차이와AA582443pixels(94.7987%)광역작은RGB차이는다른양상입니다. 582096pixels는A1=B이나A2만다름; nativeModels1/2/1와readback시간차이는교란변수이며backend원인증명이아닙니다. privateplayer40RGBA/meta0은전체NPC/바닥품질PASS가아닙니다.
+
+브라우저: 같은Chrome3 metadata연결을복구하여이전자체cost탭1494332567을닫고목록부재확인. 비용전투는여전히0회입니다. 별도새memorysmoke탭1494332598은원본QA 공개status준비완료/콘솔warn·error0을확인했고simulation·후보·비용실행0. 그러나Page.captureScreenshot이시간초과되어새화면시각인증완료를주장하지않습니다. 그탭도닫았으며마지막새목록에서1494332562/2567/2598모두부재확인. 최초close직후목록에smoke가잠시남았다가후속목록에서사라짐. 사용자8806/IAB/다른탭·저장조작0, browser/server강제종료0. 이전실패기록은덮어쓰지않았습니다.
+
+다음작업추천: 현재시간확인후마감전이면추가렌더/틱없이원본전용진단을opt-in으로구현. 마지막primaryR0와기존strictAA를유지한채즉시R1,기존floor읽기F,같은mainR2로순서를분리하고Canvasattributes/state·camera/floor/asphalt key·native modelkeys/선택fallbacksourceID를기록. R0/R1/R2불안정이면중단;추가read는quality전용·성능값재활용금지. floorF자체flush/materialize가능하므로pre-blit품질소급인증금지. 같은Renderer재렌더는privateclock/state를다시바꿀수있어첫진단에서는하지않습니다. tolerance완화·성공픽셀찾기재렌더·과거실패대체금지. defaultGPU/direct/row/preparation/deferred/boss팔후보OFF유지. 캡처제어가안정되기전새성능loop를강행하지않습니다.
+
+마감2026-10-19 00:00 KST 이후새개발0·기록후automation4 PAUSED. 현재automation4변경0,유료Meshy·키저장·결제·automation7·새Git공개/푸시·스토어0. 모든원본에셋/리그/클립/UV/texture/moodboard/플레이데이터보존. 100시간완성·무렉·모든동작완성주장0.

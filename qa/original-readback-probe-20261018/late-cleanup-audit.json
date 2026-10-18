@@ -1,0 +1,94 @@
+{
+  "task": "Read-only audit of the original-readback run's owned late-cleanup counter gap",
+  "reviewer": "render_cost_audit",
+  "reviewerExecutedNodeTestsGameRasterGPUBrowserOrBenchmarks": false,
+  "onlyReviewerWrite": "qa/original-readback-probe-20261018/late-cleanup-audit.json",
+  "evidence": "qa/original-readback-probe-20261018/iab-original-readback-raw.json",
+  "status": "The source has no final await for followed owned load promises; the saved counters are an as-of snapshot, not evidence of a proven memory leak or of later completion.",
+  "observed": {
+    "error": "qa-canvas-combat-cleanup-failed",
+    "complete": false,
+    "primaryOriginalAA": {"differentComponents": 0, "maxDelta": 0},
+    "bothProbeCompleteStableAndErrorFree": true,
+    "literalGameComparisons": 40,
+    "literalStateEventsCommandsMotionAndBothRNGExact": true,
+    "finalStateBothArms": {"hp": 73, "kills": 3, "enemies": 188, "time": 4.799999999999988, "random": 3331604612, "visualRandom": 2139495574, "state": "playing"},
+    "lateScheduled": 8,
+    "lateSettled": 7,
+    "errors": [],
+    "ownedRetiredRenderers": [2, 2],
+    "ownedReleasedArts": [2, 2],
+    "createdRemovedHosts": [2, 2],
+    "bothArmsReportedLatePending": 0,
+    "bothArmsImmediateRecordsAndModelsRemaining": 0,
+    "bothArmsCanvasReleasedAndMethodsRestored": true,
+    "mainOwnersArtRecordsNativeCachesAndSourceImagesUnchanged": true
+  },
+  "concreteFollowerSetAtLastProbe": {
+    "A1": {
+      "npcModelKeys": ["enemy-walker"],
+      "npcPendingKeys": ["enemy-walker", "enemy-gas"],
+      "bossModelKeys": ["boss-01-mid", "boss-01-final"],
+      "bossPendingKeys": ["boss-01-mid", "boss-01-final"],
+      "preparedPlayer": true
+    },
+    "A2": {
+      "npcModelKeys": ["enemy-walker"],
+      "npcPendingKeys": ["enemy-walker", "enemy-gas"],
+      "bossModelKeys": ["boss-01-mid", "boss-01-final"],
+      "bossPendingKeys": ["boss-01-mid", "boss-01-final"],
+      "preparedPlayer": true
+    },
+    "inference": "Four retained rig promises per arm account exactly for eight scheduled followers. The prepared walker and two boss promises are successful retained entries; a gas model is absent in each arm. One gas follower is the most concrete candidate for the uncounted settlement, but the report does not identify which arm or record that promise's state at finalization. A not-yet-run callback and an unresolved promise are not distinguished by these counters. No later completion or leak is asserted."
+  },
+  "sourcePaths": [
+    {
+      "file": "work/dead-signal-game/dist/boss-rig/live-boss.js",
+      "lines": [49, 58, 60, 62, 66],
+      "finding": "load stores its whole load promise in rig.pending and keeps successful entries. releaseUnused removes a pending entry when its corresponding model is present and released; an unfinished key without a model can remain in pending. Thus pending.size does not mean every entry is an unresolved request."
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "lines": [76, 78, 95, 97, 98, 136, 150, 168, 370],
+      "finding": "retireRig registers a follower for every previously unfollowed promise in rig.pending, including already-fulfilled prepared entries. It increments lateScheduled immediately, while lateSettled increments in the later promise callback before the late retirement attempt. The final cleanup predicate evaluates equality without awaiting those callbacks. Per-arm latePending snapshots only entry.pending from waiting(), not rig/player promises registered in entry.followed."
+    }
+  ],
+  "whyTheFieldsAreNotContradictory": [
+    "entry.pending is the set of generic waiting() promises still present at first retirement. It can be empty while separately tracked rig.pending followers remain outstanding.",
+    "entry.followed is a deduplication set and is never pruned on settlement. Its size would not be a reliable active-promise count either.",
+    "arm latePending and model/record counts are recorded on first retirement, not refreshed after every late callback. Zero immediate models does not prove that a future loader cannot register an owned model before its follower retires it.",
+    "Already-fulfilled load promises still schedule .then callbacks. Their registration increases scheduled before their callback increases settled; no final drain closes that observation interval.",
+    "Known runtime loads do not use the harness AbortSignal through the original GLTFLoader API. Aborting the harness and disposing its GPU context do not certify that all CPU/network model construction has already settled.",
+    "The captured complete:false is conservative and correct under the current predicate. It must not be changed to true merely because immediate resources are empty. The stored raw report must remain unchanged even if a callback later runs."
+  ],
+  "minimumNextOwnedDrainObserverContract": {
+    "scope": "QA-owned entries only, outside every preparation/combat/readback performance interval. No Game ticks, draws, new model requests, target mutations or product-source changes. Preserve the current failed raw report.",
+    "tracking": [
+      "Associate each followed promise with one stable per-entry token and a primitive source label such as arm/kind/key. Record registration, settled callback entry and retirement completion separately. Keep reporting bounded; if diagnostic capacity is exceeded, mark tracking incomplete rather than claim cleanup success.",
+      "Maintain an active set of cleanup-completion promises, distinct from the existing permanent deduplication set. Remove a token only after its late retirement attempt and any newly discovered owned followers have been registered. Native Promise state is not synchronously introspected.",
+      "Retain first cleanup errors and primitive pending labels. Do not retain model, image, actor, Promise or Error references in the serialized report. Keep ownership/protected-image guards and dispose-once handling unchanged."
+    ],
+    "boundedDrain": [
+      "After stopping forward work and retiring every owned entry, await active cleanup completions using one explicit overall deadline, for example the existing15-second asset-wait scale. This is a new declared cleanup deadline, not an enlarged launch timeout or a simulation wait.",
+      "Use event-driven Promise settlement, not polling, sleeping or a fixed favorable delay. After one settled batch, include newly registered cleanup work until the active set is empty or the same overall deadline expires. Already-fulfilled followers should finish through the ordinary microtask queue without an arbitrary pause.",
+      "Do not use the forward-work check() inside this phase: finished/controller abort are expected after retirement. Retain separate protected-owner checks and do not restart forward work because cleanup is pending.",
+      "A timeout, observer overflow or unproven parallel request keeps cleanup.complete=false and records pending labels, elapsed/deadline and cleanup errors. Installed late handlers may still retire their owned results later; their existence is not a promise that they actually completed before the deadline."
+    ],
+    "finalProof": [
+      "Only after a successful drain resnapshot owned model/pending/record state, Canvas release, wrapper restoration and all protected main owners/source-image dimensions. Do not use the stale first-retirement row as the final proof.",
+      "Require every registered cleanup completion to finish, no remaining active tracked work, zero final owned resources and the existing strict ownership/error predicates. Counters alone cannot replace these conditions.",
+      "Freeze a primitive as-of report before returning or throwing. Later callbacks must not retroactively turn the saved failed artifact into a success or silently alter its finalized counters. Preserve any earlier primary exception identity; cleanup timeout/error is supplementary when a primary failure already exists."
+    ],
+    "meaningfulControlledChecksForRoot": [
+      "Retire an owned rig containing only already-fulfilled retained promises; demonstrate queued followers drain without extra draw/tick and with exact final source guards.",
+      "Register one deferred on-demand gas load, retire first, resolve it later to insert a real controlled owned model, and require one late disposal, empty model/pending maps, then finalized completion.",
+      "Keep that load unresolved past the bounded deadline: preserve cleanup failure and its source label, then permit a later resolve only to verify eventual best-effort owned cleanup; do not alter the finalized failed report.",
+      "Reject a load or throw during late retirement; preserve primary/cleanup error policy and protected main resources. Include duplicate aliases and a cleanup callback that discovers another owned promise so active-set completion cannot finish prematurely."
+    ]
+  },
+  "limits": [
+    "This audit neither runs the drain nor observes any actual post-report promise settlement.",
+    "The new IAB original-only AA success does not erase the prior Chrome deferred-run whole-canvas failure or establish its backend cause.",
+    "Readback quality timings and an eventual cleanup drain are never optimization/FPS/GPU-duration or peak-memory evidence. Candidate/default-product status remains unchanged."
+  ]
+}

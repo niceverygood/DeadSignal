@@ -1,0 +1,15 @@
+DEAD SIGNAL — 늦은 원본 모델 정리 대기 검수 완료 (2026-10-18T08:02:16Z)
+
+이번 변경은 QA 도구의 소유 자원 정리 경로다. 게임 원본 동작·이미지·캐릭터·무기·저장은 변경하지 않았다. exact8851+진짜 메모리 QA+qa-original-readback=1+qa-owned-cleanup=1와 명시적 옵션에서만 동작한다. 전투 후 단일 최대15초 마감시간으로 늦은 작업의 퇴역 완료를 기다리며, 새로 발견된 후속 작업도 포함한다. 시간 초과·등록/퇴역/최종 스냅샷 오류는 실패로 보존하고 최종 원시 보고서는 이후 늦은 완료로 수정되지 않는다.
+
+새 검사18/18 PASS. 전체 npm test1298개 중1297PASS/기존 CPU 예산1FAIL:20분 headless CPU16859ms(기준15000), wall44604.39ms; 전체421949.1554ms. 재시도0. 기존8QA모드의 전체 이전 harness와 보고서/clock/Game/호출/픽셀/정리 동치도 PASS. npm run verify는 역사 .gitignore 크기 불일치에서 첫 실패; manifest 재생성0, 전체 원본 verify 통과 주장0.
+
+실제 IAB별도 새 탭/메모리 QA, 원본180적 seed774 못총, A1/A2 각40콜백. 두 실행 최종188적/HP73/3킬/게임시간4.8초, 모든 상태·명령·이벤트·이동·두 RNG40쌍 일치. 각arm R0/R1/F/R2 읽기 진단 안정, 엄격 wholeCanvasAA 성분차이0/max0. PNG2장은 진단 후 별도 export이며 primaryR0 PNG 동등 인증이 아니다.
+
+late 작업8건 scheduled/settled/completed8, active0, 퇴역실패/overflow/시간초과/정리오류0. 최종 정리 대기 582.8000000119209ms; 단일15000ms deadline/timer1개가 해제됐다. 최종 모든 보유rig 모델·pending·기록·무기0, 보유Canvas 해제와 main원본owner/record/cache/source 보존 통과. 콘솔경고/오류0. own QA탭만 닫고 부재확인; 사용자8806/IAB미선택 개조·저장 조작0. 이전8/7정리실패 원시파일과 감사9341B 해시는 그대로다.
+
+483개 검수 파일이 focused/whole/browser 전후 동일. 이전473 중 QA harness와 appended UI2개만 변경; 기존 UI193925B prefix byte exact, 보호원본22개 exact. Meshy 새생성/유료요청/키저장/Gitpush/공개/스토어제출/automation7재개0.
+
+한계: 이번은 정리 완료 판정과 검수 도구 개선이며 FPS·실제 peak RAM/VRAM·모든 캐릭터 자연스러움 완성·100시간 완성 주장이 아니다. 기록된 Promise와 정리 중 발견된 후속 작업, 알려진 보유rig/Canvas 범위만 인증한다. 이미 비운 corpse/fire 복사본은 기존 shrink 성공에 의존한다. 실패한 player Promise.all의 보이지 않는 병렬작업은 여전히 미확인 실패다. Chrome 역사 AA실패는 그대로이고 IAB성공으로 덮지 않는다. 최적화 후보들은 OFF 유지.
+
+다음 권장 작업: 고정된 실제 밀집 전투에서 전체 callback·CPU·메모리 할당 병목을 측정하고 원본 픽셀/동작을 유지하는 개선부터 구현·동일조건 검수. 이번 추가read 진단을 성능비교로 사용하지 않는다. 매 시작/다음 작업 전에 시계확인. 개발 마감2026-10-19 00:00 KST(2026-10-18 15:00Z) 뒤에는 정리만 기록하고 automation4 PAUSED.

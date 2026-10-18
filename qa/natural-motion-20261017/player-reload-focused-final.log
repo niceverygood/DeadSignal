@@ -1,0 +1,36 @@
+✔ actual reload timing survives upgrades and restores without renderer-owned clocks (22.5239ms)
+✖ original reload IK moves only left arm rotations and joins both ready endpoints at every aim (88.8512ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 337.2996
+
+✖ failing tests:
+
+test at work\dead-signal-game\tests\player-reload-pose.test.mjs:3:1
+✖ original reload IK moves only left arm rotations and joins both ready endpoints at every aim (88.8512ms)
+  AssertionError [ERR_ASSERTION]: Hips
+  + actual - expected
+  
+    Quaternion {
+  +   _onChangeCallback: [Function: onQuaternionChange],
+      _w: 0.9992751479606162,
+      _x: 0.028295263189733806,
+      _y: 0.024792550729571535,
+      _z: 0.0058171549282796334,
+      isQuaternion: true
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/player-reload-pose.test.mjs:4:775)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [Quaternion],
+    expected: [Quaternion],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,10 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const qa=new URL('./',import.meta.url),source=await readFile(new URL('engine-before.txt',qa)),file=new URL('../../work/dead-signal-game/dist/engine.js',qa);
+assert.equal(source.length,59149);assert.equal(createHash('sha256').update(source).digest('hex'),'72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce');assert.ok(source.equals(await readFile(file)));
+const old='const direction={x:e.navX||0,y:e.navY||0};if(direction.x||direction.y)e.angle=Math.atan2(direction.y,direction.x);this.move(e,(direction.x*e.speed+sx)*dt,(direction.y*e.speed+sy)*dt);';
+const replacement='const directionX=e.navX||0,directionY=e.navY||0;if(directionX||directionY)e.angle=Math.atan2(directionY,directionX);this.move(e,(directionX*e.speed+sx)*dt,(directionY*e.speed+sy)*dt);';
+const text=source.toString('utf8');assert.equal(text.split(old).length,2);const transformed=text.replace(old,replacement);assert.equal(transformed.replace(replacement,old),text);
+await writeFile(new URL('../../work/dead-signal-game/dist/qa-engine-direction-candidate.js',qa),transformed);
+await writeFile(new URL('candidate-transform.json',qa),JSON.stringify({old,replacement,soleReplacement:true,productionEngineUnchanged:true,sourceBytes:source.length,sourceSha256:createHash('sha256').update(source).digest('hex'),candidateBytes:Buffer.byteLength(transformed),candidateSha256:createHash('sha256').update(transformed).digest('hex')},null,2)+'\n');console.log('QA-pinned whole-engine candidate created, original unchanged');

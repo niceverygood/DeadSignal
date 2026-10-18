@@ -1,0 +1,59 @@
+{
+  "tool": "qa-enemy-neighborhood-exact-stress",
+  "arm": "original",
+  "status": "failed-original-callback",
+  "executed": true,
+  "assertSuccess": false,
+  "sourceSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "engineOriginalSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "engineCandidateSHA": "25729a8d916a153859542f62288e73279866ed6d4ed06c390218274e0e2f694b",
+  "engineProductionSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "modelSHA": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+  "fixtureSHA": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+  "gridSHA": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7",
+  "navigationSHA": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+  "rewrittenEngineSHA": "07ecc75b1696343b05e91cb5517e915b358c193543317b3d4383e213f8522fab",
+  "relativeImportCount": 26,
+  "invocationSHA": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+  "callbackSHA": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+  "expectedSHA": {
+    "fixture": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "invocation": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+    "callback": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+    "engine": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "candidate": "25729a8d916a153859542f62288e73279866ed6d4ed06c390218274e0e2f694b",
+    "model": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+    "navigation": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+    "grid": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7"
+  },
+  "originalTimeoutMs": 20000,
+  "originalCPUBudgetMs": 15000,
+  "originalLoopTicks": 24000,
+  "cpuMs": 17421,
+  "wallMs": 28663.63,
+  "finalState": null,
+  "diagnostics": [
+    "Stress wall=28663.63ms, CPU=17421.00ms"
+  ],
+  "errors": [
+    {
+      "name": "AssertionError",
+      "message": "Headless twenty minute simulation exceeds its CPU budget: CPU=17421.00ms, wall=28663.63ms",
+      "code": "ERR_ASSERTION",
+      "stack": "AssertionError [ERR_ASSERTION]: Headless twenty minute simulation exceeds its CPU budget: CPU=17421.00ms, wall=28663.63ms\n    at eval (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/engine.test.mjs?qa-enemy-neighborhood=original:35:10)\n    at runStressArm (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-neighborhood-cache-20261018/bench-enemy-neighborhood.mjs:114:19)\n    at async file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/qa/enemy-neighborhood-cache-20261018/bench-enemy-neighborhood.mjs:125:54"
+    }
+  ],
+  "acceptancePredeclared": {
+    "requiredOrder": [
+      "original",
+      "candidate",
+      "original"
+    ],
+    "candidateMustPassOriginalCPUBudget": true,
+    "candidateCPUUnderBothOriginals": true,
+    "minimumCPUImprovementAgainstFasterOriginalPercent": 3,
+    "otherwise": "park the QA candidate; no production change",
+    "scope": "One bracket does not establish statistical confidence, FPS or peak memory."
+  },
+  "note": "One exact source-pinned original twenty-minute callback receives a full original or QA-candidate engine, through the same dataURL/rebase loader and identical original relative-import URLs. All original callback input, 24000 ticks, assertions and CPU<15000ms budget remain unchanged. The original registration timeout option is checked at 20000ms; this CLI invokes the extracted synchronous callback directly, without a node:test watchdog. No method observers, extra snapshots, allocation/RNG counters or changed health/cadence occur inside timing. CPU/wall are the original diagnostic rounded to two decimals; private final Game locals are not exposed. This is not an npm-test/full-suite pass. The root must compare one sequential fresh-process A/B/A bracket including failures. Production engine/navigation/grid stay original. Candidate scope is call-local bounded cell-to-nine-bucket-reference reuse with normal unmodified Map/Array intrinsics and private tick-start grid membership. It keeps all nine refs/undefined in original order and repeats original length/pair reads and arithmetic; a cache miss prefetches refs before pairs, so side-effectful Map.get replacements are outside the contract. forceFreshEnemyGrid still chooses original fresh grid construction, with the candidate memo active thereafter; it is not a whole-update bypass oracle. Cleanup releases memo references before the original lease. The bounded new memo Map/slot arrays trade allocation and cleanup work for fewer bucket lookups; their reference cap is not a measured peak-RAM claim."
+}

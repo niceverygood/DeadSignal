@@ -1,0 +1,1909 @@
+{
+  "scope": "Original180 fixed-work A/A with player-only observation. Pose/IK frame self, raster-copy/alpha/contour self, two original GL calls and one original256² body read are separated. No extra draw/read/prime or optimization; timing includes synchronous wait and observer overhead, not GPU duration/FPS/peak memory.",
+  "error": "qa-canvas-combat-whole-canvas-pixels-differ",
+  "equivalenceExact": true,
+  "strictPixels": {
+    "originalRepeat": {
+      "differentComponents": 39,
+      "maxDelta": 2,
+      "dimensionsEqual": true
+    }
+  },
+  "cleanup": {
+    "ownedRenderers": 2,
+    "retiredRenderers": 2,
+    "ownedArts": 2,
+    "releasedArts": 2,
+    "hostsCreated": 2,
+    "hostsRemoved": 2,
+    "lateScheduled": 8,
+    "lateSettled": 8,
+    "uncancelableAsphaltPending": 0,
+    "unprovenPlayerParallelLoads": 0,
+    "errors": [],
+    "arms": [
+      {
+        "arm": "A1",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "attributionRestored": true
+      },
+      {
+        "arm": "A2",
+        "borrowedDetached": true,
+        "ownedRecordsRemaining": 0,
+        "npcModelsRemaining": 0,
+        "bossModelsRemaining": 0,
+        "playerModelsRemaining": 0,
+        "canvasReleased": true,
+        "installerRestored": true,
+        "latePending": 0,
+        "attributionRestored": true
+      }
+    ],
+    "mainOwnersUnchanged": true,
+    "mainArtUnchanged": true,
+    "mainRecordsUnchanged": true,
+    "mainNativeCachesUnchanged": true,
+    "mainSourceImagesUnchanged": true,
+    "complete": true
+  },
+  "arms": [
+    {
+      "arm": "A1",
+      "preparation": 4059.300000011921,
+      "firstCallbackMs": 637.6000000238419,
+      "all40Callback": {
+        "count": 40,
+        "sumMs": 2680.3000000715256,
+        "medianMs": 42.69999998807907,
+        "p95Ms": 219.60000002384186,
+        "maxMs": 637.6000000238419
+      },
+      "steady30Callback": {
+        "count": 30,
+        "sumMs": 1535.4999999403954,
+        "medianMs": 46.59999996423721,
+        "p95Ms": 103.39999997615814,
+        "maxMs": 126
+      },
+      "first": {
+        "frameIndex": 0,
+        "frameWallMs": 612.6000000238419,
+        "renderCalls": 1,
+        "stages": {
+          "player.glSubmit.body": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 147,
+            "selfMs": 147
+          },
+          "player.bodyRead": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 189.10000002384186,
+            "selfMs": 189.10000002384186
+          },
+          "player.glSubmit.armed": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 60.80000001192093,
+            "selfMs": 60.80000001192093
+          },
+          "player.rasterFrame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 398.4000000357628,
+            "selfMs": 1.5
+          },
+          "player.frame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 402.5999999642372,
+            "selfMs": 4.199999928474426
+          },
+          "renderer.nativePlayerFrame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 403.80000001192093,
+            "selfMs": 1.2000000476837158
+          },
+          "renderer.drawPlayer": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 404.60000002384186,
+            "selfMs": 0.800000011920929
+          },
+          "renderer.render": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 611.1000000238419,
+            "selfMs": 206.5
+          }
+        },
+        "buckets": {
+          "playerGLBody": {
+            "calls": 1,
+            "selfMs": 147
+          },
+          "playerBodyRead": {
+            "calls": 1,
+            "selfMs": 189.10000002384186
+          },
+          "playerGLArmed": {
+            "calls": 1,
+            "selfMs": 60.80000001192093
+          },
+          "playerRasterOther": {
+            "calls": 1,
+            "selfMs": 1.5
+          },
+          "playerPose": {
+            "calls": 1,
+            "selfMs": 4.199999928474426
+          },
+          "playerFrame": {
+            "calls": 1,
+            "selfMs": 1.2000000476837158
+          },
+          "playerOther": {
+            "calls": 1,
+            "selfMs": 0.800000011920929
+          },
+          "renderRemainder": {
+            "calls": 1,
+            "selfMs": 206.5
+          }
+        },
+        "selections": {
+          "player": {
+            "player": {
+              "calls": 1,
+              "native": 1,
+              "baked": 0,
+              "unknown": 0,
+              "none": 0,
+              "thrown": 0
+            }
+          },
+          "npc": {},
+          "boss": {}
+        },
+        "arm": "A1",
+        "frame": 0,
+        "first": true,
+        "playerCalls": {
+          "frameCalls": 1,
+          "rasterCalls": 1,
+          "glCalls": 2,
+          "glBodyCalls": 1,
+          "glArmedCalls": 1,
+          "glOtherCalls": 0,
+          "bodyReadCalls": 1,
+          "bodyRead256Calls": 1,
+          "bodyReadOtherCalls": 0,
+          "bodyReadPixels": 65536,
+          "bodyReadBytes": 262144,
+          "lastBodyWidth": 256,
+          "lastBodyHeight": 256
+        },
+        "readinessBefore": {
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 0,
+          "playerAttached": true,
+          "glAttached": true,
+          "bodyContextAttached": true,
+          "playerOwnerChanged": false
+        },
+        "readinessAfter": {
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 2,
+          "playerAttached": true,
+          "glAttached": true,
+          "bodyContextAttached": true,
+          "playerOwnerChanged": false
+        }
+      },
+      "all40Stages": {
+        "player.glSubmit.body": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 152.60000014305115,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.40000003576278687,
+            "maxMs": 147
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 152.60000014305115,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.40000003576278687,
+            "maxMs": 147
+          }
+        },
+        "player.bodyRead": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 379.80000001192093,
+            "medianMs": 4.400000035762787,
+            "p95Ms": 16.30000001192093,
+            "maxMs": 189.10000002384186
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 379.80000001192093,
+            "medianMs": 4.400000035762787,
+            "p95Ms": 16.30000001192093,
+            "maxMs": 189.10000002384186
+          }
+        },
+        "player.glSubmit.armed": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 67.59999978542328,
+            "medianMs": 0.19999998807907104,
+            "p95Ms": 0.3999999761581421,
+            "maxMs": 60.80000001192093
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 67.59999978542328,
+            "medianMs": 0.19999998807907104,
+            "p95Ms": 0.3999999761581421,
+            "maxMs": 60.80000001192093
+          }
+        },
+        "player.rasterFrame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 620.5000002384186,
+            "medianMs": 5.200000047683716,
+            "p95Ms": 18,
+            "maxMs": 398.4000000357628
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 20.500000298023224,
+            "medianMs": 0.4999999403953552,
+            "p95Ms": 1.0999999642372131,
+            "maxMs": 1.5
+          }
+        },
+        "player.frame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 645.6999999880791,
+            "medianMs": 5.800000011920929,
+            "p95Ms": 19,
+            "maxMs": 402.5999999642372
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 25.199999749660492,
+            "medianMs": 0.5,
+            "p95Ms": 1,
+            "maxMs": 4.199999928474426
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 652.7999999523163,
+            "medianMs": 5.899999976158142,
+            "p95Ms": 19.19999998807907,
+            "maxMs": 403.80000001192093
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 7.099999964237213,
+            "medianMs": 0.19999992847442627,
+            "p95Ms": 0.5,
+            "maxMs": 1.2000000476837158
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 657.9000000357628,
+            "medianMs": 5.900000035762787,
+            "p95Ms": 19.30000001192093,
+            "maxMs": 404.60000002384186
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 5.100000083446503,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.30000001192092896,
+            "maxMs": 0.800000011920929
+          }
+        },
+        "renderer.render": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 2121.100000023842,
+            "medianMs": 30,
+            "p95Ms": 202.10000002384186,
+            "maxMs": 611.1000000238419
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 1463.199999988079,
+            "medianMs": 24.30000001192093,
+            "p95Ms": 182.80000001192093,
+            "maxMs": 206.5
+          }
+        }
+      },
+      "steady30Stages": {
+        "player.glSubmit.body": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 3.900000035762787,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.20000004768371582,
+            "maxMs": 0.30000001192092896
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 3.900000035762787,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.20000004768371582,
+            "maxMs": 0.30000001192092896
+          }
+        },
+        "player.bodyRead": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 140.5999999642372,
+            "medianMs": 4.599999964237213,
+            "p95Ms": 6.5,
+            "maxMs": 6.599999964237213
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 140.5999999642372,
+            "medianMs": 4.599999964237213,
+            "p95Ms": 6.5,
+            "maxMs": 6.599999964237213
+          }
+        },
+        "player.glSubmit.armed": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 5.099999845027924,
+            "medianMs": 0.19999998807907104,
+            "p95Ms": 0.2999999523162842,
+            "maxMs": 0.3999999761581421
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 5.099999845027924,
+            "medianMs": 0.19999998807907104,
+            "p95Ms": 0.2999999523162842,
+            "maxMs": 0.3999999761581421
+          }
+        },
+        "player.rasterFrame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 164.20000022649765,
+            "medianMs": 5.300000011920929,
+            "p95Ms": 7.399999976158142,
+            "maxMs": 7.399999976158142
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 14.600000381469727,
+            "medianMs": 0.4999999403953552,
+            "p95Ms": 1.0999999642372131,
+            "maxMs": 1.0999999642372131
+          }
+        },
+        "player.frame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 178.50000005960464,
+            "medianMs": 5.800000011920929,
+            "p95Ms": 7.800000011920929,
+            "maxMs": 7.899999976158142
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 14.299999833106995,
+            "medianMs": 0.40000003576278687,
+            "p95Ms": 0.800000011920929,
+            "maxMs": 0.9999999403953552
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 182.99999994039536,
+            "medianMs": 5.899999976158142,
+            "p95Ms": 7.800000011920929,
+            "maxMs": 8.199999988079071
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 4.4999998807907104,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.30000001192092896,
+            "maxMs": 0.5
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 185.80000013113022,
+            "medianMs": 5.900000035762787,
+            "p95Ms": 7.900000035762787,
+            "maxMs": 8.399999976158142
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 2.8000001907348633,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.20000004768371582,
+            "maxMs": 0.30000001192092896
+          }
+        },
+        "renderer.render": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 1092.6999999284744,
+            "medianMs": 30.600000023841858,
+            "p95Ms": 85.69999998807907,
+            "maxMs": 101.80000001192093
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 906.8999997973442,
+            "medianMs": 24.499999940395355,
+            "p95Ms": 80.30000001192093,
+            "maxMs": 96.19999998807907
+          }
+        }
+      },
+      "callTotals": {
+        "frameCalls": 40,
+        "rasterCalls": 40,
+        "glCalls": 80,
+        "glBodyCalls": 40,
+        "glArmedCalls": 40,
+        "glOtherCalls": 0,
+        "bodyReadCalls": 40,
+        "bodyRead256Calls": 40,
+        "bodyReadOtherCalls": 0,
+        "bodyReadBytes": 10485760
+      },
+      "outliers": [
+        {
+          "frameIndex": 0,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 611.1000000238419,
+          "selfMs": 206.5,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.drawPlayer",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 404.60000002384186,
+          "selfMs": 0.800000011920929,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.nativePlayerFrame",
+          "type": null,
+          "source": "native",
+          "assetId": "survivor-original-live-rig",
+          "inclusiveMs": 403.80000001192093,
+          "selfMs": 1.2000000476837158,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.frame",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 402.5999999642372,
+          "selfMs": 4.199999928474426,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.rasterFrame",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 398.4000000357628,
+          "selfMs": 1.5,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 202.10000002384186,
+          "selfMs": 182.80000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.bodyRead",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 189.10000002384186,
+          "selfMs": 189.10000002384186,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": 256,
+          "readHeight": 256
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.glSubmit.body",
+          "type": null,
+          "source": "body",
+          "assetId": null,
+          "inclusiveMs": 147,
+          "selfMs": 147,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 1,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 32,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 101.80000001192093,
+          "selfMs": 96.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 31,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 85.69999998807907,
+          "selfMs": 80.30000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.glSubmit.armed",
+          "type": null,
+          "source": "armed",
+          "assetId": null,
+          "inclusiveMs": 60.80000001192093,
+          "selfMs": 60.80000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 2,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 7,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 51.5,
+          "selfMs": 39.80000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 33,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 49.59999996423721,
+          "selfMs": 41.799999952316284,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 35,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 46.19999998807907,
+          "selfMs": 40.499999940395355,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 29,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 42.40000003576279,
+          "selfMs": 34.5,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 21,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 40.19999998807907,
+          "selfMs": 34.30000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 22,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 35.299999952316284,
+          "selfMs": 26.899999976158142,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 27,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 34.69999998807907,
+          "selfMs": 28.400000035762787,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 38,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 34.5,
+          "selfMs": 28.600000023841858,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 37,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 33.59999996423721,
+          "selfMs": 25.69999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 25,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 33.39999997615814,
+          "selfMs": 25.899999976158142,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 39,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 33.39999997615814,
+          "selfMs": 27.499999940395355,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 28,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 32.5,
+          "selfMs": 26.80000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 8,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 30.80000001192093,
+          "selfMs": 24.700000047683716,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 34,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 30.80000001192093,
+          "selfMs": 24.30000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 17,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 30.600000023841858,
+          "selfMs": 24.80000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 19,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 30,
+          "selfMs": 23.899999976158142,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 18,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29.899999976158142,
+          "selfMs": 23.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 15,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29.80000001192093,
+          "selfMs": 23.30000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 36,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29.799999952316284,
+          "selfMs": 24.499999940395355,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 16,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29.700000047683716,
+          "selfMs": 23.30000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 13,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29.30000001192093,
+          "selfMs": 23.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        }
+      ],
+      "unmeasured": [],
+      "restoration": {
+        "restored": 7,
+        "shared": 0,
+        "foreignPreserved": 0,
+        "failed": 0
+      },
+      "runtimeNative": {
+        "maxModels": 1,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      }
+    },
+    {
+      "arm": "A2",
+      "preparation": 4324,
+      "firstCallbackMs": 353.39999997615814,
+      "all40Callback": {
+        "count": 40,
+        "sumMs": 2128.2000002861023,
+        "medianMs": 39.700000047683716,
+        "p95Ms": 131.4000000357628,
+        "maxMs": 353.39999997615814
+      },
+      "steady30Callback": {
+        "count": 30,
+        "sumMs": 1367.7000002861023,
+        "medianMs": 40.80000001192093,
+        "p95Ms": 71.70000004768372,
+        "maxMs": 88.10000002384186
+      },
+      "first": {
+        "frameIndex": 0,
+        "frameWallMs": 340.0999999642372,
+        "renderCalls": 1,
+        "stages": {
+          "player.glSubmit.body": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 107.5,
+            "selfMs": 107.5
+          },
+          "player.bodyRead": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 145.30000001192093,
+            "selfMs": 145.30000001192093
+          },
+          "player.glSubmit.armed": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 54.19999998807907,
+            "selfMs": 54.19999998807907
+          },
+          "player.rasterFrame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 307.69999998807907,
+            "selfMs": 0.699999988079071
+          },
+          "player.frame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 308.5999999642372,
+            "selfMs": 0.8999999761581421
+          },
+          "renderer.nativePlayerFrame": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 308.80000001192093,
+            "selfMs": 0.20000004768371582
+          },
+          "renderer.drawPlayer": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 308.9000000357628,
+            "selfMs": 0.10000002384185791
+          },
+          "renderer.render": {
+            "calls": 1,
+            "thrownCalls": 0,
+            "falseReturns": 0,
+            "inclusiveMs": 340,
+            "selfMs": 31.099999964237213
+          }
+        },
+        "buckets": {
+          "playerGLBody": {
+            "calls": 1,
+            "selfMs": 107.5
+          },
+          "playerBodyRead": {
+            "calls": 1,
+            "selfMs": 145.30000001192093
+          },
+          "playerGLArmed": {
+            "calls": 1,
+            "selfMs": 54.19999998807907
+          },
+          "playerRasterOther": {
+            "calls": 1,
+            "selfMs": 0.699999988079071
+          },
+          "playerPose": {
+            "calls": 1,
+            "selfMs": 0.8999999761581421
+          },
+          "playerFrame": {
+            "calls": 1,
+            "selfMs": 0.20000004768371582
+          },
+          "playerOther": {
+            "calls": 1,
+            "selfMs": 0.10000002384185791
+          },
+          "renderRemainder": {
+            "calls": 1,
+            "selfMs": 31.099999964237213
+          }
+        },
+        "selections": {
+          "player": {
+            "player": {
+              "calls": 1,
+              "native": 1,
+              "baked": 0,
+              "unknown": 0,
+              "none": 0,
+              "thrown": 0
+            }
+          },
+          "npc": {},
+          "boss": {}
+        },
+        "arm": "A2",
+        "frame": 0,
+        "first": true,
+        "playerCalls": {
+          "frameCalls": 1,
+          "rasterCalls": 1,
+          "glCalls": 2,
+          "glBodyCalls": 1,
+          "glArmedCalls": 1,
+          "glOtherCalls": 0,
+          "bodyReadCalls": 1,
+          "bodyRead256Calls": 1,
+          "bodyReadOtherCalls": 0,
+          "bodyReadPixels": 65536,
+          "bodyReadBytes": 262144,
+          "lastBodyWidth": 256,
+          "lastBodyHeight": 256
+        },
+        "readinessBefore": {
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 0,
+          "playerAttached": true,
+          "glAttached": true,
+          "bodyContextAttached": true,
+          "playerOwnerChanged": false
+        },
+        "readinessAfter": {
+          "playerReady": true,
+          "playerError": null,
+          "playerRenderFrames": 2,
+          "playerAttached": true,
+          "glAttached": true,
+          "bodyContextAttached": true,
+          "playerOwnerChanged": false
+        }
+      },
+      "all40Stages": {
+        "player.glSubmit.body": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 113.99999982118607,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.40000003576278687,
+            "maxMs": 107.5
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 113.99999982118607,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.40000003576278687,
+            "maxMs": 107.5
+          }
+        },
+        "player.bodyRead": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 324.3000002503395,
+            "medianMs": 4.5,
+            "p95Ms": 8.5,
+            "maxMs": 145.30000001192093
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 324.3000002503395,
+            "medianMs": 4.5,
+            "p95Ms": 8.5,
+            "maxMs": 145.30000001192093
+          }
+        },
+        "player.glSubmit.armed": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 60.59999996423721,
+            "medianMs": 0.19999998807907104,
+            "p95Ms": 0.6000000238418579,
+            "maxMs": 54.19999998807907
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 60.59999996423721,
+            "medianMs": 0.19999998807907104,
+            "p95Ms": 0.6000000238418579,
+            "maxMs": 54.19999998807907
+          }
+        },
+        "player.rasterFrame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 525,
+            "medianMs": 5.399999976158142,
+            "p95Ms": 9.900000035762787,
+            "maxMs": 307.69999998807907
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 26.099999964237213,
+            "medianMs": 0.40000003576278687,
+            "p95Ms": 2.399999976158142,
+            "maxMs": 4.699999988079071
+          }
+        },
+        "player.frame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 543.0000001788139,
+            "medianMs": 5.800000011920929,
+            "p95Ms": 10.300000011920929,
+            "maxMs": 308.5999999642372
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 18.000000178813934,
+            "medianMs": 0.40000003576278687,
+            "p95Ms": 0.8999999761581421,
+            "maxMs": 1.100000023841858
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 548.0000002980232,
+            "medianMs": 5.900000035762787,
+            "p95Ms": 10.5,
+            "maxMs": 308.80000001192093
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 5.0000001192092896,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.30000001192092896,
+            "maxMs": 0.30000001192092896
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 552.3000000715256,
+            "medianMs": 6,
+            "p95Ms": 10.599999964237213,
+            "maxMs": 308.9000000357628
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 4.29999977350235,
+            "medianMs": 0.09999996423721313,
+            "p95Ms": 0.30000001192092896,
+            "maxMs": 0.3999999761581421
+          }
+        },
+        "renderer.render": {
+          "calls": 40,
+          "inclusive": {
+            "count": 40,
+            "sumMs": 1604.300000011921,
+            "medianMs": 28.900000035762787,
+            "p95Ms": 117.80000001192093,
+            "maxMs": 340
+          },
+          "self": {
+            "count": 40,
+            "sumMs": 1051.9999999403954,
+            "medianMs": 22.5,
+            "p95Ms": 49.700000047683716,
+            "maxMs": 113.19999998807907
+          }
+        }
+      },
+      "steady30Stages": {
+        "player.glSubmit.body": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 5,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.3999999761581421,
+            "maxMs": 0.40000003576278687
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 5,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.3999999761581421,
+            "maxMs": 0.40000003576278687
+          }
+        },
+        "player.bodyRead": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 146.80000019073486,
+            "medianMs": 4.700000047683716,
+            "p95Ms": 7.300000011920929,
+            "maxMs": 8.5
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 146.80000019073486,
+            "medianMs": 4.700000047683716,
+            "p95Ms": 7.300000011920929,
+            "maxMs": 8.5
+          }
+        },
+        "player.glSubmit.armed": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 4.899999976158142,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.2999999523162842,
+            "maxMs": 0.6000000238418579
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 4.899999976158142,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.2999999523162842,
+            "maxMs": 0.6000000238418579
+          }
+        },
+        "player.rasterFrame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 176.4000000357628,
+            "medianMs": 5.599999964237213,
+            "p95Ms": 9,
+            "maxMs": 9.900000035762787
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 19.69999986886978,
+            "medianMs": 0.3999999761581421,
+            "p95Ms": 2.399999976158142,
+            "maxMs": 4.699999988079071
+          }
+        },
+        "player.frame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 189.70000010728836,
+            "medianMs": 6.099999964237213,
+            "p95Ms": 9.399999976158142,
+            "maxMs": 10.300000011920929
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 13.300000071525574,
+            "medianMs": 0.3999999761581421,
+            "p95Ms": 0.699999988079071,
+            "maxMs": 1.100000023841858
+          }
+        },
+        "renderer.nativePlayerFrame": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 193.50000017881393,
+            "medianMs": 6.099999964237213,
+            "p95Ms": 9.699999988079071,
+            "maxMs": 10.5
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 3.8000000715255737,
+            "medianMs": 0.10000002384185791,
+            "p95Ms": 0.30000001192092896,
+            "maxMs": 0.30000001192092896
+          }
+        },
+        "renderer.drawPlayer": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 196.60000002384186,
+            "medianMs": 6.199999988079071,
+            "p95Ms": 9.799999952316284,
+            "maxMs": 10.599999964237213
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 3.0999998450279236,
+            "medianMs": 0.09999996423721313,
+            "p95Ms": 0.20000004768371582,
+            "maxMs": 0.3999999761581421
+          }
+        },
+        "renderer.render": {
+          "calls": 30,
+          "inclusive": {
+            "count": 30,
+            "sumMs": 949.3999999761581,
+            "medianMs": 29,
+            "p95Ms": 53.80000001192093,
+            "maxMs": 59.5
+          },
+          "self": {
+            "count": 30,
+            "sumMs": 752.7999999523163,
+            "medianMs": 22.80000001192093,
+            "p95Ms": 47.19999998807907,
+            "maxMs": 49.700000047683716
+          }
+        }
+      },
+      "callTotals": {
+        "frameCalls": 40,
+        "rasterCalls": 40,
+        "glCalls": 80,
+        "glBodyCalls": 40,
+        "glArmedCalls": 40,
+        "glOtherCalls": 0,
+        "bodyReadCalls": 40,
+        "bodyRead256Calls": 40,
+        "bodyReadOtherCalls": 0,
+        "bodyReadBytes": 10485760
+      },
+      "outliers": [
+        {
+          "frameIndex": 0,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 340,
+          "selfMs": 31.099999964237213,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.drawPlayer",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 308.9000000357628,
+          "selfMs": 0.10000002384185791,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "renderer.nativePlayerFrame",
+          "type": null,
+          "source": "native",
+          "assetId": "survivor-original-live-rig",
+          "inclusiveMs": 308.80000001192093,
+          "selfMs": 0.20000004768371582,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.frame",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 308.5999999642372,
+          "selfMs": 0.8999999761581421,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.rasterFrame",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 307.69999998807907,
+          "selfMs": 0.699999988079071,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.bodyRead",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 145.30000001192093,
+          "selfMs": 145.30000001192093,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": 256,
+          "readHeight": 256
+        },
+        {
+          "frameIndex": 1,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 117.80000001192093,
+          "selfMs": 113.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.glSubmit.body",
+          "type": null,
+          "source": "body",
+          "assetId": null,
+          "inclusiveMs": 107.5,
+          "selfMs": 107.5,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 1,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 34,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 59.5,
+          "selfMs": 49.700000047683716,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 0,
+          "stage": "player.glSubmit.armed",
+          "type": null,
+          "source": "armed",
+          "assetId": null,
+          "inclusiveMs": 54.19999998807907,
+          "selfMs": 54.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 2,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 33,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 53.80000001192093,
+          "selfMs": 47.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 36,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 48.89999997615814,
+          "selfMs": 41.09999996423721,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 7,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 48,
+          "selfMs": 40.5,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 35,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 36.19999998807907,
+          "selfMs": 25.600000023841858,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 37,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 34.59999996423721,
+          "selfMs": 28.599999964237213,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 19,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 32.200000047683716,
+          "selfMs": 23.700000047683716,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 32,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 31.600000023841858,
+          "selfMs": 25.600000023841858,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 29,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 31.400000035762787,
+          "selfMs": 23.500000059604645,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 11,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 30.599999964237213,
+          "selfMs": 24.599999964237213,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 12,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 30.5,
+          "selfMs": 24.899999976158142,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 38,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 30.5,
+          "selfMs": 23,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 20,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29.899999976158142,
+          "selfMs": 22.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 18,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29.100000023841858,
+          "selfMs": 24.100000023841858,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 13,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29,
+          "selfMs": 23.19999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 22,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29,
+          "selfMs": 21.899999976158142,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 23,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 29,
+          "selfMs": 21.69999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 25,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 28.900000035762787,
+          "selfMs": 23.100000083446503,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 24,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 28.69999998807907,
+          "selfMs": 22.5,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 10,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 28.599999964237213,
+          "selfMs": 21.899999976158142,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 30,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 28.5,
+          "selfMs": 21.399999976158142,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 8,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 28,
+          "selfMs": 22.69999998807907,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        },
+        {
+          "frameIndex": 39,
+          "stage": "renderer.render",
+          "type": null,
+          "source": "unknown",
+          "assetId": null,
+          "inclusiveMs": 27.899999976158142,
+          "selfMs": 21.999999940395355,
+          "threw": false,
+          "falseReturn": false,
+          "glOrdinal": 0,
+          "readWidth": null,
+          "readHeight": null
+        }
+      ],
+      "unmeasured": [],
+      "restoration": {
+        "restored": 7,
+        "shared": 0,
+        "foreignPreserved": 0,
+        "failed": 0
+      },
+      "runtimeNative": {
+        "maxModels": 2,
+        "maxPending": 2,
+        "maxPendingWithoutModel": 1
+      },
+      "finalState": {
+        "hp": 73,
+        "kills": 3,
+        "enemies": 188,
+        "time": 4.799999999999988,
+        "random": 3331604612,
+        "visualRandom": 2139495574,
+        "state": "playing"
+      }
+    }
+  ]
+}

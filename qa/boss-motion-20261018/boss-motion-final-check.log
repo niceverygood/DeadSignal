@@ -1,0 +1,83 @@
+{
+  "at": "2026-10-18T00:16:04.651Z",
+  "runtime": "v22.23.3",
+  "freeze": {
+    "baseline": 356,
+    "current": 356,
+    "changed": [],
+    "missing": [],
+    "added": []
+  },
+  "previous": {
+    "baseline": 348,
+    "current": 356,
+    "changed": [
+      {
+        "path": "work/dead-signal-game/dist/qa-player-rig.js",
+        "before": "b26f483b85834ccf2a21e0bceda23c640b743df5d890f0766ec65e54243ed286",
+        "after": "aaaf30dcf318c39e166e1250994b6f0846cf6a03594ce95886e12b1404057ab6"
+      },
+      {
+        "path": "work/dead-signal-game/dist/engine.js",
+        "before": "4fa744ce8b245b8bcc5219214c881cbb73354bcfeed4357ac83929e714862b43",
+        "after": "3551287930debc315d25fd6ef9c5c51e0bf41af98f22f872ea485e5a6888df79"
+      },
+      {
+        "path": "work/dead-signal-game/tests/boss-combat.test.mjs",
+        "before": "9eb98b185ad81ee7bc94815087dfeb4adf93a5d58bd3f076eb63a17977526570",
+        "after": "c6f06b1f2c5a4b3a1a3ee372f790d05a3881a5192541612248a3030d8edcd867"
+      }
+    ],
+    "missing": [],
+    "added": [
+      "work/dead-signal-game/tests/qa-image-decode-preparation.test.mjs",
+      "work/dead-signal-game/tests/qa-image-decode-combat.test.mjs",
+      "work/dead-signal-game/tests/qa-boss-hit-motion.test.mjs",
+      "work/dead-signal-game/tests/boss-hit-motion.test.mjs",
+      "work/dead-signal-game/dist/qa-image-decode-preparation.js",
+      "work/dead-signal-game/dist/qa-image-decode-combat.js",
+      "work/dead-signal-game/dist/qa-boss-pose-audit.js",
+      "work/dead-signal-game/dist/qa-boss-hit-motion.js"
+    ]
+  },
+  "bossUIPrefixPreserved": true,
+  "decodeUIPrefixPreserved": true,
+  "uiBeforeBossBytes": 158850,
+  "uiBeforeDecodeBytes": 155704,
+  "uiAfterBytes": 161606,
+  "preserved": [
+    {
+      "path": "boss-rig/live-boss.js",
+      "same": true,
+      "sha256": "a42cc2e5f0b71150792c33213c6a2ed7cacb3788ec0512ff9c54c409b0a271a9"
+    },
+    {
+      "path": "boss-rig/boss-pose.js",
+      "same": true,
+      "sha256": "dbe72923e154d3df09a574c8118ef39f51be400e671f1fb9434c2220cb404076"
+    },
+    {
+      "path": "renderer.js",
+      "same": true,
+      "sha256": "621492d00a0fe0a50083de3c07237f1e8100939c1ce75b6ac9f1eeab477f80b3"
+    },
+    {
+      "path": "enemy-locomotion.js",
+      "same": true,
+      "sha256": "10b681927a3b080d47373aa91af53b6c201b0477b30511b9e66ad85c88023a35"
+    },
+    {
+      "path": "actor-interpolation.js",
+      "same": true,
+      "sha256": "ca3c22b0409bc4b296331658f57fb786a64e1efbd2c044fb34d3582a4b7f40cc"
+    },
+    {
+      "path": "production-art.js",
+      "same": true,
+      "sha256": "017c977b477d6f2d37067dfea48dbafa50166661cc93274bc549ab9354250c5d"
+    }
+  ],
+  "engineOnlyTwoIntentionalEdits": true,
+  "engineBeforeSHA": "4fa744ce8b245b8bcc5219214c881cbb73354bcfeed4357ac83929e714862b43",
+  "engineAfterSHA": "3551287930debc315d25fd6ef9c5c51e0bf41af98f22f872ea485e5a6888df79"
+}

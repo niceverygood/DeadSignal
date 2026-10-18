@@ -1,0 +1,50 @@
+✖ optional cold-chain branch unlocks after city while existing roof route and original launch assets stay intact (48.1996ms)
+✔ cold-chain objectives really defend, spawn a blocking elite and restore mid-defense without awarding vaccine (34.6846ms)
+✔ new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical (60.2784ms)
+✔ all field objectives are physically reachable from the actual spawn (18.4858ms)
+✔ objectives require proximity and sustained interaction; release, damage and pause prevent free completion (0.7372ms)
+✔ partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected (24.256ms)
+✔ actual objective completion raises threat then ends only after all three actions (1.1586ms)
+✔ expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock (1.0461ms)
+✔ finale is locked after Haifa and original launch geometry/assets remain complete (63.9308ms)
+✔ actual final boss must die before the vaccine can be recovered, death alone is not victory (5.7449ms)
+✔ missing or falsely defeated active boss and legacy extra flags fail restore (3.4655ms)
+✔ legacy collector defeat still ends its original survival game (2.7957ms)
+✔ new finales require30s preparation while old four-field saves restore byte exactly (2.5925ms)
+✔ preparation progress and interpolated HUD stay continuous without changing the authoritative save (2.7433ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 386.6428
+
+✖ failing tests:
+
+test at tests\cold-chain.test.mjs:2:1
+✖ optional cold-chain branch unlocks after city while existing roof route and original launch assets stay intact (48.1996ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'environment:rubble:',
+  +   'environment:hydrant:',
+  +   'environment:trash:',
+  +   'environment:sign:'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/cold-chain.test.mjs:2:568)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'environment:rubble:', 'environment:hydrant:', 'environment:trash:', 'environment:sign:' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

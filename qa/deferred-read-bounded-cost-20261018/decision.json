@@ -1,0 +1,225 @@
+{
+  "status": "bounded-deferred-native-cost-complete-pixels-exact-cost22.58percent-slower-product-off",
+  "completedAtUTC": "2026-10-18T08:49:06Z",
+  "scope": "QA-only bounded cleanup enabled for cost-only deferred-player-read harness; original runtime/assets/motion/defaults unchanged",
+  "tests": {
+    "initialFocused": {
+      "tests": 10,
+      "pass": 9,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 8364.7783
+    },
+    "repairFocused": {
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 8469.6139
+    },
+    "whole": {
+      "tests": 1314,
+      "pass": 1314,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 403687.7591
+    },
+    "failures": [],
+    "stress": "# Stress wall=16808.19ms, CPU=14422.00ms",
+    "exits": {
+      "whole": 0,
+      "verify": 1
+    },
+    "verify": "Historical .gitignore size mismatch at first row; original manifest unchanged, no full manifest certification."
+  },
+  "repair": {
+    "initialFocusedFailurePreserved": true,
+    "sourceAndTestInitialArchived": true,
+    "newModeInstallAttemptFlagOnly": true,
+    "neverAttemptedInstallHasNoMethodToRestore": true,
+    "attemptedPartialInstallStillUnproven": true,
+    "inverseHarnessExact": true,
+    "initialTestPrefixExact": true,
+    "repairFocused6Pass": true,
+    "oldThresholdsAndTimingUnchanged": true
+  },
+  "native": {
+    "brackets": 1,
+    "retries": 0,
+    "qualityProbeRuns": 0,
+    "passes": [
+      {
+        "arm": "A1",
+        "mode": "original",
+        "callbacks": 40,
+        "totalMs": 12618.900000035763,
+        "callbackSumMs": 4457.600000023842,
+        "firstCallbackMs": 880.1000000238419,
+        "steady30CallbackSumMs": 2652.300000011921,
+        "playerGLDraws": {
+          "before": 0,
+          "after": 80
+        },
+        "deferredUses": 0,
+        "verifyCalls": 0,
+        "finalState": {
+          "hp": 73,
+          "kills": 3,
+          "enemies": 188,
+          "time": 4.799999999999988,
+          "random": 3331604612,
+          "visualRandom": 2139495574,
+          "state": "playing"
+        }
+      },
+      {
+        "arm": "B",
+        "mode": "deferred",
+        "callbacks": 40,
+        "totalMs": 15468.400000154972,
+        "callbackSumMs": 4594.200000226498,
+        "firstCallbackMs": 694.3000000119209,
+        "steady30CallbackSumMs": 3008.4000000953674,
+        "playerGLDraws": {
+          "before": 0,
+          "after": 80
+        },
+        "deferredUses": 40,
+        "verifyCalls": 0,
+        "finalState": {
+          "hp": 73,
+          "kills": 3,
+          "enemies": 188,
+          "time": 4.799999999999988,
+          "random": 3331604612,
+          "visualRandom": 2139495574,
+          "state": "playing"
+        }
+      },
+      {
+        "arm": "A2",
+        "mode": "original",
+        "callbacks": 40,
+        "totalMs": 15915.99999988079,
+        "callbackSumMs": 3591.9999998807907,
+        "firstCallbackMs": 721.3000000119209,
+        "steady30CallbackSumMs": 2180.4999998807907,
+        "playerGLDraws": {
+          "before": 0,
+          "after": 80
+        },
+        "deferredUses": 0,
+        "verifyCalls": 0,
+        "finalState": {
+          "hp": 73,
+          "kills": 3,
+          "enemies": 188,
+          "time": 4.799999999999988,
+          "random": 3331604612,
+          "visualRandom": 2139495574,
+          "state": "playing"
+        }
+      }
+    ],
+    "pairedLiteralFrames": 80,
+    "rawWholePixels": {
+      "candidateVsFirst": {
+        "differentComponents": 0,
+        "maxDelta": 0,
+        "dimensionsEqual": true
+      },
+      "originalRepeat": {
+        "differentComponents": 0,
+        "maxDelta": 0,
+        "dimensionsEqual": true
+      },
+      "candidateVsRepeat": {
+        "differentComponents": 0,
+        "maxDelta": 0,
+        "dimensionsEqual": true
+      }
+    },
+    "performance": {
+      "accepted": false,
+      "adopted": false,
+      "qualityOnly": false,
+      "criterion": "preparation+callback40+finalReadback and steady30",
+      "fasterOriginalTotalMs": 12618.900000035763,
+      "candidateTotalMs": 15468.400000154972,
+      "improvementFraction": -0.22581207554629423,
+      "firstCallbackNoWorse": true,
+      "steady30NoWorse": false,
+      "callbackTailsNoWorse": false,
+      "drainTailsNoWorse": false,
+      "tailsNoWorse": false,
+      "requiredImprovementFraction": 0.03,
+      "note": "Predeclared before measurement: total preparation+40callbacks+finalDrain at least3% lower than fasterA; first callback and all four steady30 callback median/p95/max/sum no worse than eitherA, plus40/41 p95/max no worse. Native success-path quality, literal Game, usage without fallbacks, cleanup and strict whole AA/AB/BA are required. Same original fullRGBA read and original GL draw count remain. Single bracket is diagnostic, injected tests never accepted, no automatic adoption/FPS/memory claim."
+    },
+    "recomputed": {
+      "totalImprovement": -0.22581207554629423,
+      "steady30CallbackSumImprovement": -0.37968355893594974,
+      "all40CallbackSumImprovement": -0.279008908791472,
+      "firstNoWorse": true,
+      "steady30NoWorse": false,
+      "callbackTailsNoWorse": false,
+      "drainTailsNoWorse": false
+    },
+    "lateScheduled": 12,
+    "lateCompleted": 12,
+    "cleanupComplete": true,
+    "cleanupWaitMs": 1010.9000000357628,
+    "cleanupExcludedFromMetric": true,
+    "mainOwnersCachesSourcesPreserved": true,
+    "consoleWarningsErrors": 0,
+    "ownTabClosed": true,
+    "PNGs": [
+      {
+        "file": "iab-a1.png",
+        "bytes": 1402617,
+        "sha256": "ae189d443a9422f8785c539fe4fe609c5b86feff4962edf6e5b8ff6879ae2eca",
+        "width": 960,
+        "height": 640,
+        "note": "Final PNG exported separately after primary R0; exact PNG equality does not replace strict raw R0 pixel gate."
+      },
+      {
+        "file": "iab-b.png",
+        "bytes": 1402617,
+        "sha256": "ae189d443a9422f8785c539fe4fe609c5b86feff4962edf6e5b8ff6879ae2eca",
+        "width": 960,
+        "height": 640,
+        "note": "Final PNG exported separately after primary R0; exact PNG equality does not replace strict raw R0 pixel gate."
+      },
+      {
+        "file": "iab-a2.png",
+        "bytes": 1402617,
+        "sha256": "ae189d443a9422f8785c539fe4fe609c5b86feff4962edf6e5b8ff6879ae2eca",
+        "width": 960,
+        "height": 640,
+        "note": "Final PNG exported separately after primary R0; exact PNG equality does not replace strict raw R0 pixel gate."
+      }
+    ]
+  },
+  "source": {
+    "count": 504,
+    "changedPrevious496": [
+      "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "work/dead-signal-game/dist/qa-player-rig.js"
+    ],
+    "oldUIPrefixBytes": 197374,
+    "oldUIPrefixExact": true,
+    "original22Exact": true,
+    "allFinalStagesExact": true
+  },
+  "limitations": [
+    "One native IAB renderer-combat CPU-call wall diagnostic; no HUD/audio/persistence/presented FPS/GPU duration/peakRAM or allocation measurement.",
+    "Preparation and inter-arm late retire/source cache/driver/OS scheduling differ by runtime. Candidate was22.58% slower on total,27.90% onall40 callback sum and37.97% onsteady30 sum against fasteroriginal, so no favorable rerun or adoption. These are this run findings, not universal hardware conclusions.",
+    "Historical Chrome wholeCanvas AA1322575components/max69 and other failures remain preserved; current IAB strictAA/AB/BA0 does not explain or erase them. Previous quality/extra-read runs are not cost baselines.",
+    "Details expansion succeeded, later status text CDP Runtime.evaluate3000ms timedout. Raw report was already saved; native image getAttribute capturedall3PNGs and screenshot without rerender; cost1click/retry0.",
+    "Bounded cleanup certifies tracked owned promises and retained surfaces only; unobservable failed player sibling requests remain unproven.",
+    "Original Meshy assets/rigs/clips/moodboards/engine/productionplayer/playdata retained; user8806 and pendingIABupgrade untouched. No paid requests/keys/push/publication/store/automation7."
+  ],
+  "next": "Check clock before next atomic task. Defer candidate stays OFF. Use the measured whole-callback evidence to target another narrow original-render cost, such as repeated native player bounds/core scanning, only after source review shows exact successful-path equivalence and one predeclared cost gate; do not reduce animation frames or image quality. Preserve accumulated test/runtime failures and remaining11final-boss action-layer validations. At15:00Z record completed/pending work and pauseautomation4."
+}

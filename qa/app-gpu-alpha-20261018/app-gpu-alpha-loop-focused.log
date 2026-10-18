@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: the original artifacts and product callback, launch commits and native adoption paths remain unchanged
+ok 1 - the original artifacts and product callback, launch commits and native adoption paths remain unchanged
+  ---
+  duration_ms: 1.8643
+  type: 'test'
+  ...
+# Subtest: the exact app bootstrap installs the helper only after a valid guarded fixture and recognized mode
+ok 2 - the exact app bootstrap installs the helper only after a valid guarded fixture and recognized mode
+  ---
+  duration_ms: 18.0999
+  type: 'test'
+  ...
+# Subtest: without GPU or autostart flags the complete old manual report, clocks and actual Game results stay identical
+ok 3 - without GPU or autostart flags the complete old manual report, clocks and actual Game results stay identical
+  ---
+  duration_ms: 66.9536
+  type: 'test'
+  ...
+# Subtest: autostart lets the original callback drain pending resume events before observing the next playing callback once
+ok 4 - autostart lets the original callback drain pending resume events before observing the next playing callback once
+  ---
+  duration_ms: 14.6508
+  type: 'test'
+  ...
+# Subtest: automatic observation preserves actual catch-up state/events and optional pre-probe GPU counters as snapshots
+ok 5 - automatic observation preserves actual catch-up state/events and optional pre-probe GPU counters as snapshots
+  ---
+  duration_ms: 29.9899
+  type: 'test'
+  ...
+# Subtest: manual start consumes the one-shot autostart and external methods survive stop; thrown original callbacks keep identity
+ok 6 - manual start consumes the one-shot autostart and external methods survive stop; thrown original callbacks keep identity
+  ---
+  duration_ms: 20.7934
+  type: 'test'
+  ...
+# Subtest: pagehide keeps original pause/checkpoint calls and only stops the optional QA controller
+ok 7 - pagehide keeps original pause/checkpoint calls and only stops the optional QA controller
+  ---
+  duration_ms: 0.8754
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 349.758

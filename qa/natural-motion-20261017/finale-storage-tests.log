@@ -1,0 +1,24 @@
+✔ finale is locked after Haifa and original launch geometry/assets remain complete (208.5254ms)
+✔ actual final boss must die before the vaccine can be recovered, death alone is not victory (73.1024ms)
+✔ missing or falsely defeated active boss and legacy extra flags fail restore (3.4504ms)
+✔ legacy collector defeat still ends its original survival game (0.8377ms)
+✔ active run envelope accepts boundary metadata and keeps the selected route (3.2923ms)
+✔ malformed checkpoint envelopes cannot become resumable runs (1.0744ms)
+✔ checkpoint and progression round trip together in exactly one profile write (6.3407ms)
+✔ legacy profiles gain empty resume metadata without losing progression (0.3813ms)
+✔ atmosphere defaults for old or malformed profiles and both boolean preferences survive save and reload (1.3831ms)
+✔ completion history is sanitized and only the latest 64 distinct valid IDs are retained (0.3151ms)
+✔ a checkpoint for an already completed ID is suppressed on load (0.2154ms)
+✔ a completed run ID awards statistics and unlocks once, then clears its matching checkpoint (0.5901ms)
+✔ recording another run keeps an unrelated checkpoint and caps completion history (0.3046ms)
+✔ a failed atomic write preserves the persisted checkpoint and in-memory completion for retry (0.5433ms)
+✔ auto firing is the default and explicit auto/manual modes persist without changing the saved operation (0.5158ms)
+✔ minimap preferences default on for existing saves and preserve progression on either selection (0.462ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1191.8688

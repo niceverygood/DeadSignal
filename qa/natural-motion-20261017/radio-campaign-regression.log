@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: mission countdowns use the real mid and final thresholds independently of legacy district flags
+ok 1 - mission countdowns use the real mid and final thresholds independently of legacy district flags
+  ---
+  duration_ms: 11.4226
+  type: 'test'
+  ...
+# Subtest: all 24 real mission bosses own guidance and offscreen priority ahead of optional alarms
+ok 2 - all 24 real mission bosses own guidance and offscreen priority ahead of optional alarms
+  ---
+  duration_ms: 68.4845
+  type: 'test'
+  ...
+# Subtest: a fresh or legacy survivor unlocks exactly the first campaign mission
+ok 3 - a fresh or legacy survivor unlocks exactly the first campaign mission
+  ---
+  duration_ms: 3.8092
+  type: 'test'
+  ...
+# Subtest: progress sanitization requires a sequential clear prefix and rejects invalid boss and timing records
+ok 4 - progress sanitization requires a sequential clear prefix and rejects invalid boss and timing records
+  ---
+  duration_ms: 0.3654
+  type: 'test'
+  ...
+# Subtest: locked missions cannot be selected or cleared by an out of sequence result
+ok 5 - locked missions cannot be selected or cleared by an out of sequence result
+  ---
+  duration_ms: 0.4501
+  type: 'test'
+  ...
+# Subtest: twelve successive victories unlock only the next map and record both mission bosses
+ok 6 - twelve successive victories unlock only the next map and record both mission bosses
+  ---
+  duration_ms: 1.2786
+  type: 'test'
+  ...
+# Subtest: encounter records are idempotent and completion improves best time without duplicate mission clears
+ok 7 - encounter records are idempotent and completion improves best time without duplicate mission clears
+  ---
+  duration_ms: 0.2727
+  type: 'test'
+  ...
+# Subtest: campaign and old training/settings persist in one profile and a completed run cannot award twice
+ok 8 - campaign and old training/settings persist in one profile and a completed run cannot award twice
+  ---
+  duration_ms: 0.9559
+  type: 'test'
+  ...
+# Subtest: radio starts on a real new mission and freezes across pause without touching checkpoints or RNG
+ok 9 - radio starts on a real new mission and freezes across pause without touching checkpoints or RNG
+  ---
+  duration_ms: 11.5503
+  type: 'test'
+  ...
+# Subtest: only matching real boss milestones create cues; duplicates and false kills stay silent
+ok 10 - only matching real boss milestones create cues; duplicates and false kills stay silent
+  ---
+  duration_ms: 1.5202
+  type: 'test'
+  ...
+# Subtest: restored progress does not replay opening, and fresh mission identity resets radio
+ok 11 - restored progress does not replay opening, and fresh mission identity resets radio
+  ---
+  duration_ms: 1.0582
+  type: 'test'
+  ...
+# Subtest: victory clue requires the actual final boss result and never claims overseas maps are completed
+ok 12 - victory clue requires the actual final boss result and never claims overseas maps are completed
+  ---
+  duration_ms: 0.5884
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 268.8285

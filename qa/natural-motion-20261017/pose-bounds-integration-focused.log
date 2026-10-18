@@ -1,0 +1,30 @@
+✔ all six named spans select only their own native samples and clamp one shots (6.77ms)
+✔ combined walk loops through its own phase and idle breathes without running an action (0.588ms)
+✔ overlap, out-of-range spans, impossible time and missing idle reject the entire combined atlas (1.5626ms)
+✔ legacy single-clip metadata retains its distance phase and stationary frame selection (0.3109ms)
+✔ live boss warnings and recovery use saved countdowns; damage cannot hide the warning (16.3931ms)
+✔ each of the twelve real final boss skill states selects the correct attack window (24.3891ms)
+✔ ordinary hit reaction and native death stop inside their own one-shot spans (0.4223ms)
+✔ boss corpse identity persists through new checkpoints and old identity-free saves still restore (3.0047ms)
+✔ native corpse animation follows simulation through pause and completes once after terminal victory without mutating it (4.0435ms)
+✔ native dying bodies share the live actor depth sort and do not use the generic ground prepass (2.4481ms)
+✔ losslessly packed variable rectangles preserve every frame world bounds, anchors and sample indices (22.2943ms)
+✔ packed pivots outside their cropped rectangle remain valid and keep the ground anchor exact (8.2813ms)
+✔ packed validation rejects overlap, fractional or out-of-image rectangles, cropped bounds and unknown packing (22.122ms)
+✔ the atlas loader and draw path use each packed source rect rather than the original frame canvas size (7.5713ms)
+✔ real ordinary NPC contact strikes and scream releases use existing saved cooldowns without new gameplay (1.988ms)
+✔ ordinary NPC death reuses its exact registered enemy identity and the same saved corpse lifetime (5.6835ms)
+✔ optional hero action reel handles real shooting, hurt and death while preserving packed locomotion aliases and the actual player clock (24.8678ms)
+✔ a missing hero action reel and real reload cooldown retain original equipped hero art instead of substituting an unarmed model (23.6392ms)
+✔ fresh death poses share the living atlas and retain the total twelve-pose budget (2.198ms)
+✔ atlas failures release batch state and reset budgets for the original fallback draw (0.4153ms)
+✔ thousands of changing crowd actors use a fixed12 image surfaces and stale ownership cannot leak a different character (2.5723ms)
+✔ unpooled hero/boss/death images remain valid and reserving a smaller batch never reallocates surfaces (0.339ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 363.594

@@ -1,0 +1,86 @@
+TAP version 13
+# Subtest: old bounded original and disabled-bounded deferred failure paths retain full frozen-before reports, clocks and call order
+ok 1 - old bounded original and disabled-bounded deferred failure paths retain full frozen-before reports, clocks and call order
+  ---
+  duration_ms: 339.5826
+  type: 'test'
+  ...
+# Subtest: bounded deferred cost requires exclusive exact flags and genuine memory before any owner, DOM or factory access
+ok 2 - bounded deferred cost requires exclusive exact flags and genuine memory before any owner, DOM or factory access
+  ---
+  duration_ms: 1.002
+  type: 'test'
+  ...
+# Subtest: three original/deferred/original40-callback arms preserve real Game and exact pixels while late native loads drain outside costs
+ok 3 - three original/deferred/original40-callback arms preserve real Game and exact pixels while late native loads drain outside costs
+  ---
+  duration_ms: 5448.6289
+  type: 'test'
+  ...
+# Subtest: timeout preserves frozen primary failure and late retirement, while stop/read faults remain errors instead of successful cleanup
+ok 4 - timeout preserves frozen primary failure and late retirement, while stop/read faults remain errors instead of successful cleanup
+  ---
+  duration_ms: 1641.5542
+  type: 'test'
+  ...
+# Subtest: aborting preloading still drains owned late work without drawing, and reports stay fixed after cleanup
+not ok 5 - aborting preloading still drains owned late work without drawing, and reports stay fixed after cleanup
+  ---
+  duration_ms: 32.8313
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-deferred-bounded-combat.test.mjs:271:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-deferred-bounded-combat.test.mjs:283:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: deferred bounded UI appends to the exact197374-byte prior UI and gates both exact flags while excluding quality verification before IO
+ok 6 - deferred bounded UI appends to the exact197374-byte prior UI and gates both exact flags while excluding quality verification before IO
+  ---
+  duration_ms: 3.4287
+  type: 'test'
+  ...
+# Subtest: only ready idle clicks request unverified deferred A/B/A cost with separate15-second cleanup, genuine memory reuse and three PNGs
+ok 7 - only ready idle clicks request unverified deferred A/B/A cost with separate15-second cleanup, genuine memory reuse and three PNGs
+  ---
+  duration_ms: 1.9677
+  type: 'test'
+  ...
+# Subtest: duplicates and changed renderer/readiness/playing/pagehide during lazy import cannot start a late deferred bounded cost job
+ok 8 - duplicates and changed renderer/readiness/playing/pagehide during lazy import cannot start a late deferred bounded cost job
+  ---
+  duration_ms: 1.5322
+  type: 'test'
+  ...
+# Subtest: pagehide aborts running deferred cost and suppresses late progress/images/result while restoring button and listeners
+ok 9 - pagehide aborts running deferred cost and suppresses late progress/images/result while restoring button and listeners
+  ---
+  duration_ms: 0.6553
+  type: 'test'
+  ...
+# Subtest: raw cleanup and strict-AA failures retain report evidence without displaying successful or adopted cost
+ok 10 - raw cleanup and strict-AA failures retain report evidence without displaying successful or adopted cost
+  ---
+  duration_ms: 2.5788
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8364.7783

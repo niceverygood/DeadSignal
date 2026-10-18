@@ -1,0 +1,34 @@
+TAP version 13
+# Subtest: attribution UI preserves the entire prior QA source and is absent unless the precise isolated gate passes
+ok 1 - attribution UI preserves the entire prior QA source and is absent unless the precise isolated gate passes
+  ---
+  duration_ms: 2.7763
+  type: 'test'
+  ...
+# Subtest: only a ready idle click imports the original-only harness, with bounded images and memory reuse
+ok 2 - only a ready idle click imports the original-only harness, with bounded images and memory reuse
+  ---
+  duration_ms: 1.5566
+  type: 'test'
+  ...
+# Subtest: owner replacement and pagehide during import never start a late comparison
+ok 3 - owner replacement and pagehide during import never start a late comparison
+  ---
+  duration_ms: 0.5229
+  type: 'test'
+  ...
+# Subtest: in-flight cancellation suppresses late UI while genuine failure reports and cleanup stay available
+ok 4 - in-flight cancellation suppresses late UI while genuine failure reports and cleanup stay available
+  ---
+  duration_ms: 1.6619
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 121.4144

@@ -1,0 +1,48 @@
+{
+  "kind": "independent-focused-test-review",
+  "createdUTC": "2026-10-18T07:11:57.9111443Z",
+  "test": {
+    "path": "work/dead-signal-game/tests/qa-original-readback-probe.test.mjs",
+    "bytes": 13917,
+    "sha256": "7c0b4c9dc5a46781527667b07c450d17899c35c9741f1bcf0da77af2f4f2db4b",
+    "cases": 6
+  },
+  "helper": {
+    "path": "work/dead-signal-game/dist/qa-canvas-readback-probe.js",
+    "bytes": 18207,
+    "sha256": "a18eabe971e500c349fb5ef97f1754cfc118c35ae9a161e69f0376037da159fd"
+  },
+  "execution": {
+    "node": 0,
+    "game": 0,
+    "tests": 0,
+    "benchmarks": 0,
+    "browser": 0
+  },
+  "review": {
+    "readOrder": "R0->immediate R1; unstable R1 stops before floor owner/context/F/R2; otherwise optional existing floor context/F then R2",
+    "comparison": "strict lengths/components/pixels/maxDelta/alphaComponents/bounds/equality; no tolerance",
+    "invalidInputs": "primary before renderer access; unsupported main/floor geometry/method/cache evidence; malformed R1/F/R2 data and Error/null/0 throws",
+    "ownership": "original descriptors, state, maps, selected references and source bytes preserved; no render/tick/selection/export/drawing/wrapping/new surface calls",
+    "nativeConfound": "existing native model keys2/pending1/renderFrame80 and cached baked selection IDs are primitive observations only; fallback inventory explicitly incomplete",
+    "retention": "primitive DTO tree has no views/maps/actors/closures/accessors; mutating all source buffers/maps after return leaves report unchanged",
+    "scope": "explicit small testAPI is injected:true and cannot certify native Canvas/GPU behavior",
+    "preflightCorrections": [
+      "invalid raw dimensions normalized to finite/null DTO values",
+      "throw null records a stage-qualified primitive error"
+    ]
+  },
+  "limitations": [
+    "Static review and test authoring only; focused test not executed by this agent.",
+    "No native/browser/Canvas backend stability, GPU readiness, visual acceptance, speed/FPS or peak-memory claim.",
+    "Existing whole-scene A/A failures and CPU15000 budget remain unchanged.",
+    "Readback may itself materialize backing storage; post-read state is not a pre-read state certificate."
+  ],
+  "preservation": {
+    "productEdits": 0,
+    "originalTestEdits": 0,
+    "historicalRecordEdits": 0,
+    "userStorageOperations": 0,
+    "paidRequests": 0
+  }
+}

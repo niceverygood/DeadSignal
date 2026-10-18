@@ -1,0 +1,154 @@
+TAP version 13
+# Subtest: GPU alpha bound records decode empty cells and inclusive one-pixel/extreme coordinates for all twelve cells
+ok 1 - GPU alpha bound records decode empty cells and inclusive one-pixel/extreme coordinates for all twelve cells
+  ---
+  duration_ms: 2.2603
+  type: 'test'
+  ...
+# Subtest: unsupported renderer, invalid atlas sizes and lost/nondefault contexts fail before allocation or rendering
+ok 2 - unsupported renderer, invalid atlas sizes and lost/nondefault contexts fail before allocation or rendering
+  ---
+  duration_ms: 3.98
+  type: 'test'
+  ...
+# Subtest: read uses raw nearest RGBA targets, copies first, restores state, reuses 12/5/12 resources and releases resized or changed-owner resources
+ok 3 - read uses raw nearest RGBA targets, copies first, restores state, reuses 12/5/12 resources and releases resized or changed-owner resources
+  ---
+  duration_ms: 8.2421
+  type: 'test'
+  ...
+# Subtest: copy, render, read and GL failures release resources and restore every saved renderer state before a clean retry
+ok 4 - copy, render, read and GL failures release resources and restore every saved renderer state before a clean retry
+  ---
+  duration_ms: 3.7062
+  type: 'test'
+  ...
+# Subtest: LiveBossRig batch integration keeps exact alpha metadata, placement, clipping and private original outputs while preserving legacy fallbacks
+ok 5 - LiveBossRig batch integration keeps exact alpha metadata, placement, clipping and private original outputs while preserving legacy fallbacks
+  ---
+  duration_ms: 373.0167
+  type: 'test'
+  ...
+# Subtest: single-frame original rig cache invalidates exact/verify modes without disposing every compatible sampled pose
+ok 6 - single-frame original rig cache invalidates exact/verify modes without disposing every compatible sampled pose
+  ---
+  duration_ms: 25.0603
+  type: 'test'
+  ...
+# Subtest: twelve-cell threshold uses CPU at eleven without disposal churn and invalidates same-time private caches when changed
+ok 7 - twelve-cell threshold uses CPU at eleven without disposal churn and invalidates same-time private caches when changed
+  ---
+  duration_ms: 249.7651
+  type: 'test'
+  ...
+# Subtest: idle cleanup retains GPU resources for live or fresh death selections and releases them without changing completed private corpses
+ok 8 - idle cleanup retains GPU resources for live or fresh death selections and releases them without changing completed private corpses
+  ---
+  duration_ms: 13.9357
+  type: 'test'
+  ...
+# Subtest: idle cleanup shrinks the retained colour atlas after the reduction helper has already disposed itself on a read failure
+ok 9 - idle cleanup shrinks the retained colour atlas after the reduction helper has already disposed itself on a read failure
+  ---
+  duration_ms: 83.3041
+  type: 'test'
+  ...
+# Subtest: GPU colour-copy failures preserve successful frame statistics and recover through the same-frame legacy compositor in batch and single paths
+ok 10 - GPU colour-copy failures preserve successful frame statistics and recover through the same-frame legacy compositor in batch and single paths
+  ---
+  duration_ms: 492.0118
+  type: 'test'
+  ...
+# Subtest: empty batches without a valid explicit lease preserve the pinned full-original protocol, fallback and resource-disposal order
+ok 11 - empty batches without a valid explicit lease preserve the pinned full-original protocol, fallback and resource-disposal order
+  ---
+  duration_ms: 32.5548
+  type: 'test'
+  ...
+# Subtest: actual pending and ready leases survive an empty batch without draws or reads and the next twelve-cell original batch reuses its resources
+ok 12 - actual pending and ready leases survive an empty batch without draws or reads and the next twelve-cell original batch reuses its resources
+  ---
+  duration_ms: 3.71
+  type: 'test'
+  ...
+# Subtest: successful lease retention is the sole intended original-oracle difference and leaves completed private death data unchanged
+ok 13 - successful lease retention is the sole intended original-oracle difference and leaves completed private death data unchanged
+  ---
+  duration_ms: 1.028
+  type: 'test'
+  ...
+# Subtest: early original exceptions preserve throw identity, batch detachment and protocol before lease checks
+ok 14 - early original exceptions preserve throw identity, batch detachment and protocol before lease checks
+  ---
+  duration_ms: 1.7709
+  type: 'test'
+  ...
+# Subtest: context loss, failed reprepare, abort and timeout invalidate retained generations and late completion cannot resurrect them
+ok 15 - context loss, failed reprepare, abort and timeout invalidate retained generations and late completion cannot resurrect them
+  ---
+  duration_ms: 23.7783
+  type: 'test'
+  ...
+# Subtest: unsupported, invalid, pre-aborted and state-getter failures refuse warmup before allocation without changing read statistics or source pixels
+ok 16 - unsupported, invalid, pre-aborted and state-getter failures refuse warmup before allocation without changing read statistics or source pixels
+  ---
+  duration_ms: 6.6875
+  type: 'test'
+  ...
+# Subtest: warmup compiles both materials once, restores state before waiting, shares its flight and lets the next exact read reuse every resource
+ok 17 - warmup compiles both materials once, restores state before waiting, shares its flight and lets the next exact read reuse every resource
+  ---
+  duration_ms: 6.9707
+  type: 'test'
+  ...
+# Subtest: abort and dispose settle immediately, release once and isolate late completion or rejection from a replacement flight
+ok 18 - abort and dispose settle immediately, release once and isolate late completion or rejection from a replacement flight
+  ---
+  duration_ms: 11.6784
+  type: 'test'
+  ...
+# Subtest: preparation, binding, compilation and readonly restoration failures never report READY and release resources before retry
+ok 19 - preparation, binding, compilation and readonly restoration failures never report READY and release resources before retry
+  ---
+  duration_ms: 4.4068
+  type: 'test'
+  ...
+# Subtest: timeout, context loss and XR changes cancel pending readiness without late resurrection and allow clean preparation afterward
+ok 20 - timeout, context loss and XR changes cancel pending readiness without late resurrection and allow clean preparation afterward
+  ---
+  duration_ms: 4.3604
+  type: 'test'
+  ...
+# Subtest: one failed restoration setter still attempts every subsequent renderer-state restoration and never reports READY
+ok 21 - one failed restoration setter still attempts every subsequent renderer-state restoration and never reports READY
+  ---
+  duration_ms: 3.0466
+  type: 'test'
+  ...
+# Subtest: prepare cancels an in-flight generation and event-supported context loss invalidates even a transient lost/restored interval while unregistering old owners
+ok 22 - prepare cancels an in-flight generation and event-supported context loss invalidates even a transient lost/restored interval while unregistering old owners
+  ---
+  duration_ms: 3.4288
+  type: 'test'
+  ...
+# Subtest: explicit idle leases are bounded, survive only pending preparation or readiness before the first successful read, and do not appear by default
+ok 23 - explicit idle leases are bounded, survive only pending preparation or readiness before the first successful read, and do not appear by default
+  ---
+  duration_ms: 3.7229
+  type: 'test'
+  ...
+# Subtest: actual LiveBossRig idle cleanup honors only compatible explicit leases and preserves private completed death images through release
+ok 24 - actual LiveBossRig idle cleanup honors only compatible explicit leases and preserves private completed death images through release
+  ---
+  duration_ms: 6.3381
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1482.6229

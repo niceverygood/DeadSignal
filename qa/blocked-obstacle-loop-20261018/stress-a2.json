@@ -1,0 +1,53 @@
+{
+  "tool": "qa-blocked-obstacle-exact-stress",
+  "arm": "original",
+  "status": "passed-original-callback",
+  "executed": true,
+  "assertSuccess": true,
+  "sourceSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "engineOriginalSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "engineCandidateSHA": "d12df8316e258d8254f89d18a4c887db67d0ab0391ce19513f062009eaf62335",
+  "engineProductionSHA": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "modelSHA": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+  "fixtureSHA": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+  "gridSHA": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7",
+  "navigationSHA": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+  "rewrittenEngineSHA": "d5d0ce88dc2819dd8379fa6b30804229ab344027f14e2870d509e3ff2d55e8e6",
+  "relativeImportCount": 26,
+  "candidateTransformVerified": true,
+  "invocationSHA": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+  "callbackSHA": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+  "expectedSHA": {
+    "fixture": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "invocation": "671ae4bf837801fec8165596268504486ff388259e527c2ef1a1852e684938a9",
+    "callback": "38cbf37b4e66c32a5b2545d127f49f1b8032020baf95fc70a780ac6967ba46b4",
+    "engine": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "candidate": "d12df8316e258d8254f89d18a4c887db67d0ab0391ce19513f062009eaf62335",
+    "model": "9e066a693078ae8fd7aa01d7bbd39829598e356f8191bf9b725e483d0b88a9ce",
+    "navigation": "549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9",
+    "grid": "938bed7097a7cd0db0659744bb1a18747f1ddeb943ae810633abf2fce4b21da7"
+  },
+  "originalTimeoutMs": 20000,
+  "originalCPUBudgetMs": 15000,
+  "originalLoopTicks": 24000,
+  "cpuMs": 13562,
+  "wallMs": 13480.08,
+  "finalState": null,
+  "diagnostics": [
+    "Stress wall=13480.08ms, CPU=13562.00ms"
+  ],
+  "errors": [],
+  "acceptancePredeclared": {
+    "requiredOrder": [
+      "original",
+      "candidate",
+      "original"
+    ],
+    "candidateMustPassOriginalCPUBudget": true,
+    "candidateCPUUnderBothOriginals": true,
+    "minimumCPUImprovementAgainstFasterOriginalPercent": 3,
+    "otherwise": "park the QA candidate; no production change",
+    "scope": "One bracket does not establish statistical confidence, FPS or peak memory."
+  },
+  "note": "One exact source-pinned original twenty-minute callback receives a full original or QA-candidate engine, through the same dataURL/rebase loader and identical original relative-import URLs. All original callback input, 24000 ticks, assertions and CPU<15000ms budget remain unchanged. The original registration timeout option is checked at 20000ms; this CLI invokes the extracted synchronous callback directly, without a node:test watchdog. No method observers, extra snapshots, allocation/RNG counters or changed health/cadence occur inside timing. CPU/wall are the original diagnostic rounded to two decimals; private final Game locals are not exposed. This is not an npm-test/full-suite pass. The root must compare one sequential fresh-process A/B/A bracket including failures. Production engine/navigation/grid stay original. Candidate scope is only the final obstacles.some callback in blocked. Normal arrays using the captured original Array.prototype.some receive an indexed scan with one native-compatible length conversion/snapshot, original HasProperty-before-Get holes/inherited-index behavior, and the original destroyed/circleRect short-circuit. Custom some methods and non-arrays receive the unchanged original callback through captured Reflect.apply with original receiver. Water/transport/roof/border checks, geometry math, AI, grid/navigation, damping, inputs, events, IDs, RNG and saves remain unchanged. Normal unmodified Array/Math/Reflect intrinsics are assumed. Custom some identity is checked before Array.isArray, retaining custom-callable fallback even if its getter revokes an array Proxy. Native TypeError message/stack equality across different call forms is not claimed; original controlled thrown values are propagated unchanged. There are no new persistent caches or hotpath measurement counters, and no memory/FPS claim."
+}

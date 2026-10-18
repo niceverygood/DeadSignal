@@ -1,0 +1,15 @@
+✔ enemy stride is actual distance and body scale, with stable individual phase and no actor writes (4.4592ms)
+✔ walking turns take the shortest bounded arc while warnings and charges use the exact danger angle (0.3214ms)
+✔ blocked movement, paused draws and knockback never spin the legs; restore has deterministic phase (0.3088ms)
+✔ measured sole correction is limited and never flattens running flight or adjusts actions (0.9183ms)
+✔ native start/stop weight is time based and keeps distance cadence frozen when blocked (1.9342ms)
+✔ stationary enemy follows a changed target with bounded original steps and no translation or actor writes (3.4019ms)
+✔ stationary turning preserves wrap direction and warning/charge/shield/stun honesty (1.3027ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 132.8899

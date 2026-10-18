@@ -1,0 +1,250 @@
+{
+  "passed": true,
+  "analyses": [
+    {
+      "mode": "original",
+      "file": "iab-original-repaired.json",
+      "bytes": 1139116,
+      "sha256": "a296e9b0636e3e7f432a164b2e350eab74c15d7ae9bb32751749054032d67af5",
+      "passed": true,
+      "errors": [],
+      "reason": "game-limit",
+      "final": {
+        "state": "playing",
+        "time": 12.000000000000176,
+        "playerHp": 5.499999999999975,
+        "bossHp": 1089,
+        "ammo": 24,
+        "random": 4241933970,
+        "visualRandom": 45579
+      },
+      "preparation": {
+        "timeoutMs": 60000,
+        "complete": true,
+        "elapsedMs": 5782.099999964237
+      },
+      "evidence": {
+        "bossWarnings": 1,
+        "bossSkills": 1,
+        "hurtEvents": 10,
+        "hitEvents": 0,
+        "nativeFrames": 348,
+        "nativeGLSubmissions": 348,
+        "recoverObserved": true,
+        "actualProfile": null,
+        "normalTerminal": false,
+        "nativeWindupFrames": 29,
+        "nativeAttackFrames": 40,
+        "firstSkillNativeAttack": true
+      },
+      "source": {
+        "unchanged": true,
+        "bytesCompared": 3606388,
+        "meshes": 1
+      },
+      "ticks": 720,
+      "frames": 348,
+      "warningTick": {
+        "index": 420,
+        "time": 7.016666666666647,
+        "remaining": 1.2
+      },
+      "skillTick": {
+        "index": 492,
+        "time": 8.216666666666654,
+        "remaining": 1.6,
+        "events": [
+          {
+            "type": "bossskill",
+            "bossKey": "boss-02-final",
+            "role": "final",
+            "kind": "slam"
+          }
+        ]
+      },
+      "firstSkillFrame": {
+        "index": 258,
+        "time": 8.233333333333322,
+        "native": {
+          "renderActorId": 30,
+          "time": 8.219333333333317,
+          "attackState": "recover",
+          "attackTime": 1.5973333333333366,
+          "hitFlash": 0,
+          "savedCountdownProgress": 0.0016666666666647068,
+          "diagnostic": {
+            "key": "boss-02-final",
+            "clip": "attack",
+            "sample": 0,
+            "sampleDensity": 64,
+            "continuousSampling": true,
+            "deathBridgeWeight": 0,
+            "hitLayerWeight": 0,
+            "hitTorsoOnly": false,
+            "boundsKind": "alpha",
+            "source": "work/meshy-sprite-baker/models/boss-02-final-rig-motion.glb",
+            "angle": 4.707889840209923,
+            "clipped": false,
+            "bossActionsEnabled": false,
+            "bossActionsActive": false,
+            "bossActionsBones": 0,
+            "bossActionsMaxRadians": 0,
+            "bossActionsKind": "slam"
+          },
+          "stateKey": "attack",
+          "transition": {
+            "start": 8.219333333333317,
+            "duration": 0.075,
+            "elapsed": 0
+          },
+          "previousRendered": {
+            "time": 8.169333333333315,
+            "clip": "windup",
+            "savedCountdownProgress": 0.9605555555555535
+          },
+          "nativeGLSubmissions": 1,
+          "private512": true,
+          "drawnNative": true
+        }
+      },
+      "cleanup": {
+        "complete": true,
+        "drainScheduled": 46,
+        "drainCompleted": 46,
+        "elapsedMs": 3760.899999976158,
+        "resourcesReleased": true
+      },
+      "claims": {
+        "actualFight": true,
+        "productDefaultEnabled": false,
+        "allBossNaturalness": false,
+        "performanceFPS": false,
+        "peakRAMVRAM": false,
+        "crossPassEquality": false
+      }
+    },
+    {
+      "mode": "fold",
+      "file": "iab-fold.json",
+      "bytes": 1204371,
+      "sha256": "dc4e5537e7a6d2c8ddb07e5a2c46c65ac7fe5d831928cf446347adb313e7055d",
+      "passed": true,
+      "errors": [],
+      "reason": "game-limit",
+      "final": {
+        "state": "playing",
+        "time": 12.000000000000176,
+        "playerHp": 5.499999999999975,
+        "bossHp": 1089,
+        "ammo": 24,
+        "random": 4241933970,
+        "visualRandom": 45579
+      },
+      "preparation": {
+        "timeoutMs": 60000,
+        "complete": true,
+        "elapsedMs": 14362.599999964237
+      },
+      "evidence": {
+        "bossWarnings": 1,
+        "bossSkills": 1,
+        "hurtEvents": 10,
+        "hitEvents": 0,
+        "nativeFrames": 386,
+        "nativeGLSubmissions": 386,
+        "recoverObserved": true,
+        "actualProfile": "boss02-fold-v1",
+        "normalTerminal": false,
+        "nativeWindupFrames": 33,
+        "nativeAttackFrames": 45,
+        "firstSkillNativeAttack": true
+      },
+      "source": {
+        "unchanged": true,
+        "bytesCompared": 3606388,
+        "meshes": 1
+      },
+      "ticks": 720,
+      "frames": 386,
+      "warningTick": {
+        "index": 420,
+        "time": 7.016666666666647,
+        "remaining": 1.2
+      },
+      "skillTick": {
+        "index": 492,
+        "time": 8.216666666666654,
+        "remaining": 1.6,
+        "events": [
+          {
+            "type": "bossskill",
+            "bossKey": "boss-02-final",
+            "role": "final",
+            "kind": "slam"
+          }
+        ]
+      },
+      "firstSkillFrame": {
+        "index": 286,
+        "time": 8.24999999999999,
+        "native": {
+          "renderActorId": 30,
+          "time": 8.23843333333331,
+          "attackState": "recover",
+          "attackTime": 1.5782333333333454,
+          "hitFlash": 0,
+          "savedCountdownProgress": 0.013604166666659201,
+          "diagnostic": {
+            "key": "boss-02-final",
+            "clip": "attack",
+            "sample": 0,
+            "sampleDensity": 64,
+            "continuousSampling": true,
+            "deathBridgeWeight": 0,
+            "hitLayerWeight": 0,
+            "hitTorsoOnly": false,
+            "boundsKind": "alpha",
+            "source": "work/meshy-sprite-baker/models/boss-02-final-rig-motion.glb",
+            "angle": 4.707889840209923,
+            "clipped": false,
+            "bossActionsEnabled": true,
+            "bossActionsActive": true,
+            "bossActionsBones": 9,
+            "bossActionsMaxRadians": 0.13913415473111876,
+            "bossActionsKind": "slam"
+          },
+          "stateKey": "attack",
+          "transition": {
+            "start": 8.23843333333331,
+            "duration": 0.075,
+            "elapsed": 0
+          },
+          "previousRendered": {
+            "time": 8.188433333333307,
+            "clip": "windup",
+            "savedCountdownProgress": 0.9764722222222129
+          },
+          "nativeGLSubmissions": 1,
+          "private512": true,
+          "drawnNative": true
+        }
+      },
+      "cleanup": {
+        "complete": true,
+        "drainScheduled": 46,
+        "drainCompleted": 46,
+        "elapsedMs": 858.6000000238419,
+        "resourcesReleased": true
+      },
+      "claims": {
+        "actualFight": true,
+        "productDefaultEnabled": false,
+        "allBossNaturalness": false,
+        "performanceFPS": false,
+        "peakRAMVRAM": false,
+        "crossPassEquality": false
+      }
+    }
+  ],
+  "note": "Separate original OFF and fold ON native runs. No favorable unchanged rerun; initial timer failure is preserved separately. Different RAF schedules are not certified equal. The75ms state/previous progress records identify the actual transition; visual acceptance remains separate."
+}

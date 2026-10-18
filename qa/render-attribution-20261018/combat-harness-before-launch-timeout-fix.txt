@@ -1,0 +1,287 @@
+import {Renderer} from './renderer.js?v=0.29.0&dense=20261018-4';
+import {ProductionArt} from './production-art.js?v=0.29.0';
+import {Game} from './engine.js?v=0.29.0';
+import {ActorInterpolation} from './actor-interpolation.js';
+import {advanceSimulation,FIXED_STEP} from './simulation.js?v=0.29.0';
+import {productionLaunchPlan,preloadLaunchPlan} from './launch-gate.js';
+import {isQAMemoryStorage,createQAStorage} from './qa-storage.js';
+import {loadProfile} from './storage.js?v=0.29.0';
+import {seedAppLoopQA} from './qa-app-loop.js';
+import {installCanvasStateCandidate} from './qa-canvas-state-install.js';
+import {Cache} from './player-rig/vendor/three.module.js';
+
+const active=new WeakSet(),ARMS=Object.freeze([['A1','original'],['B','manual'],['A2','original']]);
+const ATTRIBUTION_ARMS=Object.freeze([['A1','original'],['A2','original']]);
+const NO_INSTALLER=Object.freeze({available:true,ownerMismatchCalls:0,falseReturns:0,bakedNpcManualCalls:0,candidateUsed:0,factoryCalls:0});
+const ownData=(object,key)=>{const d=object&&Object.getOwnPropertyDescriptor(object,key);return d&&'value'in d?d.value:undefined;};
+const sameDescriptor=(a,b)=>!a&&!b||!!a&&!!b&&Reflect.ownKeys(a).length===Reflect.ownKeys(b).length&&Reflect.ownKeys(a).every(key=>Object.hasOwn(b,key)&&Object.is(a[key],b[key]));
+const sameOwn=(object,saved)=>{const current=Object.getOwnPropertyDescriptors(object);return Reflect.ownKeys(current).length===Reflect.ownKeys(saved).length&&Reflect.ownKeys(saved).every(key=>sameDescriptor(current[key],saved[key]));};
+const text=error=>{try{return typeof error?.message==='string'?error.message:String(error);}catch{return'qa-canvas-combat-error';}};
+const summarize=values=>{const sorted=[...values].sort((a,b)=>a-b);return{count:values.length,medianMs:sorted[Math.floor(sorted.length*.5)]??0,p95Ms:sorted[Math.floor(sorted.length*.95)]??0,maxMs:sorted.at(-1)??0,sumMs:values.reduce((sum,n)=>sum+n,0)};};
+const summarizeFrames=frames=>Object.fromEntries(['simulationMs','interpolationMs','renderMs','callbackMs'].map(key=>[key,summarize(frames.map(frame=>frame[key]))]));
+const pixelDifference=(a,b)=>{if(a.length!==b.length)return{differentComponents:Math.max(a.length,b.length),maxDelta:255,dimensionsEqual:false};let differentComponents=0,maxDelta=0;for(let i=0;i<a.length;i++){const delta=Math.abs(a[i]-b[i]);if(delta)differentComponents++;if(delta>maxDelta)maxDelta=delta;}return{differentComponents,maxDelta,dimensionsEqual:true};};
+const json=value=>JSON.stringify(value);
+function gameProof(game,events,commands){
+ const snapshot=game.snapshot();if(!snapshot)throw Error('qa-canvas-combat-valid-checkpoint-required');
+ return{state:json({snapshot,particles:game.particles,texts:game.texts,links:game.links,shake:game.shake,flash:game.flash}),events:json(events),commands:json(commands),motion:json(game.enemies.map(e=>[e.id,e.x,e.y,e.vx,e.vy,e.angle,e.walkPhase,e.navX,e.navY,e.navTime,e.navTarget===game.player?'player':e.navTarget===game.lure?'lure':null,e.navTargetX,e.navTargetY])),random:game.random.getState(),visualRandom:game.visualRandom.getState()};
+}
+function passedGate(location,query,storage,flag='qa-canvas-combat'){
+ try{return location?.protocol==='http:'&&['127.0.0.1','localhost','[::1]'].includes(location.hostname)&&location.port==='8851'&&query?.has('qa')&&query.has('qa-memory')&&query.get(flag)==='1'&&isQAMemoryStorage(storage);}catch{return false;}
+}
+
+// This separate button-called harness owns every rendering context that it
+// draws into. The supplied product Renderer is a read-only source of ready
+// records. It never receives a method call, wrapper, pose or field assignment.
+export async function compareCanvasStateCombat(mainRenderer,options={}){
+ const location=options.location??globalThis.location,query=options.query??new URLSearchParams(location?.search??''),storage=options.storage;
+ const originalAttribution=ownData(options,'originalAttribution')===true,arms=originalAttribution?ATTRIBUTION_ARMS:ARMS;
+ if(!passedGate(location,query,storage,originalAttribution?'qa-render-attribution':'qa-canvas-combat'))return{report:{available:false,complete:false,reason:'8851-genuine-memory-qa-required'}};
+ const {document=globalThis.document,signal,onProgress=()=>{},onImage=()=>{},testDeps}=options;
+ const deps={Renderer,ProductionArt,Game,ActorInterpolation,advanceSimulation,FIXED_STEP,productionLaunchPlan,preloadLaunchPlan,seedAppLoopQA,loadProfile,createQAStorage,installCanvasStateCandidate,now:()=>performance.now(),yieldFrames:()=>new Promise(resolve=>requestAnimationFrame(resolve)),cache:Cache,...testDeps};
+ if(!mainRenderer||typeof mainRenderer!=='object'||active.has(mainRenderer))throw Error('qa-canvas-combat-invalid-or-active-owner');
+ if(signal?.aborted)throw Error('qa-canvas-combat-aborted');
+ const mainDescriptors=Object.getOwnPropertyDescriptors(mainRenderer),mainArt=ownData(mainRenderer,'productionArt');
+ if(!mainArt||!(ownData(mainArt,'records') instanceof Map)||!ownData(mainArt,'manifest'))throw Error('qa-canvas-combat-original-ready-art-required');
+ const artDescriptors=Object.getOwnPropertyDescriptors(mainArt),records=mainArt.records,recordsBefore=[...records],recordDescriptors=new Map(recordsBefore.map(([,record])=>[record,Object.getOwnPropertyDescriptors(record)]));
+ const protectedRigs=new Set(['liveEnemies','liveBoss','livePlayer'].map(key=>ownData(mainRenderer,key)).filter(Boolean));
+ const protectedModels=[...protectedRigs].filter(rig=>rig.models instanceof Map).map(rig=>({rig,map:rig.models,entries:[...rig.models]}));
+ const selection=ownData(mainRenderer,'liveEnemySelection'),selectionEntries=selection instanceof Set?[...selection]:null,actorFrames=ownData(mainRenderer,'nativeActorFrames');
+ const frameEntries=selectionEntries&&actorFrames instanceof WeakMap?selectionEntries.map(actor=>[actor,actorFrames.get(actor)]):[];
+ const protectedImages=new Set(recordsBefore.flatMap(([,record])=>[record.image,record.bodyAlpha]).filter(Boolean));
+ for(const name of ['canvas','floor','minimapCanvas','nativeMaskCanvas'])if(ownData(mainRenderer,name))protectedImages.add(ownData(mainRenderer,name));
+ for(const rig of protectedRigs){for(const name of ['canvas','body','ink','bottleCanvas','raw','gpuRaw'])if(ownData(rig,name))protectedImages.add(ownData(rig,name));if(rig.renderer?.domElement)protectedImages.add(rig.renderer.domElement);for(const slot of rig.framePool?.slots??[])if(slot.image)protectedImages.add(slot.image);}
+ for(const [,selected]of frameEntries)if(selected?.image)protectedImages.add(selected.image);
+ for(const value of ownData(mainRenderer,'completedEnemyFrames')?.entries?.values?.()??[])if(value.selected?.image)protectedImages.add(value.selected.image);
+ const protectedImageDimensions=[...protectedImages].map(image=>[image,image.width,image.height]);
+ const nativeMainCurrent=()=>protectedModels.every(({rig,map,entries})=>rig.models===map&&map.size===entries.length&&entries.every(([key,model])=>map.get(key)===model))&&(!selectionEntries||selection.size===selectionEntries.length&&selectionEntries.every(actor=>selection.has(actor)))&&frameEntries.every(([actor,selected])=>actorFrames.get(actor)===selected);
+ const controller=new AbortController(),owned=[],images=[],baseline=[],pixelBuffers=[];
+ const cleanup={ownedRenderers:0,retiredRenderers:0,ownedArts:0,releasedArts:0,hostsCreated:0,hostsRemoved:0,lateScheduled:0,lateSettled:0,uncancelableAsphaltPending:0,unprovenPlayerParallelLoads:0,errors:[],arms:[],mainOwnersUnchanged:false,mainArtUnchanged:false,mainRecordsUnchanged:false,mainNativeCachesUnchanged:false,mainSourceImagesUnchanged:false,complete:false};
+ const report={available:true,complete:false,injected:testDeps!==undefined,fixture:null,passes:[],equivalence:{framesCompared:0,state:true,events:true,commands:true,motion:true,random:true,visualRandom:true,mismatches:[]},pixels:null,performance:null,cleanup,note:'8851 genuine-memory QA only. Fresh owned Renderer/Art/native player and initial max-three-model NPC preparation per original/manual/original arm. Original on-demand species loads remain enabled; actual runtime model/pending maxima are reported. Main ready records are borrowed by identity and never loaded, masked or released through a mutating path. Forty fixed .12-second catch-up callbacks include their first draw; batch-eight rAF yields are reported separately. This is a renderer combat harness without app HUD, audio or persistence, not presented FPS. Certification and lifecycle wrappers are inside render timing in every arm; no Canvas-stage, native-stage or frame-cost observer is installed. Literal per-frame checkpoint/effects/motion/commands/events and both RNG states are compared outside timers. Final whole-canvas readback and PNG export follow the measured loop. Existing twelve-state/two-selected-cell pixel QA is separate evidence, not proof for every source frame. Shared URL decode caches and the live product caches remain resident; fresh instances do not imply cold driver/URL caches. Owned native pending promises are followed through late success/failure for retirement. A failed player Promise.all can have unobservable sibling requests; that failure is explicitly cleanup-unproven rather than called complete. Timings are CPU call wall, not GPU duration or peak memory. No product optimization is adopted by this utility.'};
+ if(originalAttribution){report.originalAttribution=true;report.profileOnly=true;report.note='Explicit qa-render-attribution=1 plus own-data originalAttribution:true: original A1/A2 only, with the same owned preparation, normal180 checkpoint, forty fixed callbacks, literal equivalence and strict whole-canvas AA gate. No Canvas state candidate or candidate installer is constructed. A lazily imported outer-method profiler observes original calls only; its begin/end/restoration overhead is included in callback/render wall. Inclusive and exclusive spans are distinct; never add parent and child durations. Two original arms are attribution diagnostics, not a performance-win or adoption comparison. '+report.note.replace('per original/manual/original arm','per original A1/A2 arm').replace('Certification and lifecycle wrappers are inside render timing in every arm; no Canvas-stage, native-stage or frame-cost observer is installed.','No Canvas-stage or other frame/native observer is installed alongside the attribution profiler.');}
+ let finished=false,primary=null,abortReject;
+ const aborted=new Promise((resolve,reject)=>{abortReject=reject;});aborted.catch(()=>{});
+ const now=()=>{const value=deps.now();if(!Number.isFinite(value))throw Error('qa-canvas-combat-finite-clock-required');return value;};
+ const cleanupError=(where,error)=>cleanup.errors.push({where,error:text(error)});
+ const mainCurrent=()=>{try{return sameOwn(mainRenderer,mainDescriptors)&&sameOwn(mainArt,artDescriptors)&&mainArt.records===records&&records.size===recordsBefore.length&&recordsBefore.every(([id,record])=>records.get(id)===record&&sameOwn(record,recordDescriptors.get(record)))&&nativeMainCurrent();}catch{return false;}};
+ const check=()=>{if(finished||signal?.aborted||controller.signal.aborted)throw Error('qa-canvas-combat-aborted');if(!mainCurrent())throw Error('qa-canvas-combat-main-owner-or-record-changed');};
+ const abort=()=>{if(!controller.signal.aborted){controller.abort();abortReject(Error('qa-canvas-combat-aborted'));}};
+ function waiting(promise,label,entry=null){
+  const pending=Promise.resolve(promise);if(entry)entry.pending.add(pending);
+  pending.then(()=>{if(entry){entry.pending.delete(pending);if(entry.closed){cleanup.lateSettled++;operation('late.arm',()=>retire(entry,true));}}},()=>{if(entry){entry.pending.delete(pending);if(entry.closed){cleanup.lateSettled++;operation('late.arm',()=>retire(entry,true));}}});
+  let timer;const timeout=new Promise((resolve,reject)=>{timer=setTimeout(()=>reject(Error('qa-canvas-combat-timeout-'+label)),15000);});
+  return Promise.race([pending,aborted,timeout]).finally(()=>clearTimeout(timer));
+ }
+ function operation(where,fn){try{fn();}catch(error){cleanupError(where,error);}}
+ function shrink(canvas){if(protectedImages.has(canvas))throw Error('qa-canvas-combat-protected-source-image');if(canvas&&typeof canvas.width==='number'&&typeof canvas.height==='number'){canvas.width=0;canvas.height=0;}}
+ function disposeOnce(entry,where,value,fn){if(!value||typeof value!=='object'||entry.disposedObjects.has(value))return;entry.disposedObjects.add(value);operation(where,fn);}
+ function shrinkRig(rig,entry,kind){
+  if(protectedRigs.has(rig))throw Error('qa-canvas-combat-protected-rig');
+  for(const name of ['raw','ink','gpuRaw'])operation(kind+'.'+name,()=>shrink(rig[name]));
+  operation(kind+'.surface',()=>shrink(rig.renderer?.domElement));
+  for(const slot of rig.framePool?.slots??rig.pool?.slots??[])operation(kind+'.slot',()=>{shrink(slot.image);shrink(slot.canvas);shrink(slot.body);slot.owner=null;});
+ }
+ function retireRig(rig,entry,kind){
+  if(!rig)return;
+  if(protectedRigs.has(rig)){cleanupError(kind,Error('qa-canvas-combat-protected-rig'));return;}
+  for(const [key,promise]of rig.pending instanceof Map?rig.pending:[]){
+   if(!promise||typeof promise.then!=='function'||entry.followed.has(promise))continue;
+   entry.followed.add(promise);cleanup.lateScheduled++;
+   const settled=()=>{cleanup.lateSettled++;operation(kind+'.late-model',()=>{retireRig(rig,entry,kind);if(rig.pending?.get(key)===promise)rig.pending.delete(key);});};
+   Promise.resolve(promise).then(settled,settled);
+  }
+  operation(kind+'.models',()=>rig.releaseUnused?.([]));operation(kind+'.alpha',()=>rig.releaseExactGPUAlpha?.());operation(kind+'.alphaReadback',()=>rig.alphaReadback?.dispose?.());
+  if(!entry.contexts.has(rig)){
+   entry.contexts.add(rig);operation(kind+'.dispose',()=>rig.renderer?.dispose?.());operation(kind+'.context',()=>rig.renderer?.forceContextLoss?.());
+  }
+  shrinkRig(rig,entry,kind);
+  operation(kind+'.scene',()=>rig.scene?.clear?.());
+ }
+ function retirePlayer(player,entry){
+  if(!player)return;if(protectedRigs.has(player)){cleanupError('player',Error('qa-canvas-combat-protected-player'));return;}
+  if(!entry.prepared){
+   if(player.ready!==true&&player.pending&&typeof player.pending.then==='function'&&!entry.unprovenPlayer){entry.unprovenPlayer=true;cleanup.unprovenPlayerParallelLoads++;}
+   for(const promise of [player.pending,player.bottlePromise,...(player.weaponLoads?.values?.()??[])]){
+    if(!promise||typeof promise.then!=='function'||entry.followed.has(promise))continue;
+    entry.followed.add(promise);cleanup.lateScheduled++;const settled=()=>{cleanup.lateSettled++;operation('player.late-load',()=>retirePlayer(player,entry));};Promise.resolve(promise).then(settled,settled);
+   }
+  }
+  const geometries=new Set(),materials=new Set(),textures=new Set(),skeletons=new Set();
+  const visit=object=>{if(object.geometry)geometries.add(object.geometry);if(object.skeleton)skeletons.add(object.skeleton);for(const material of Array.isArray(object.material)?object.material:object.material?[object.material]:[]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}};
+  const roots=new Set([player.bottle,...[...(player.models?.values?.()??[])].flatMap(model=>[model.root,model.subject]),...[...(player.weapons?.values?.()??[])].map(weapon=>weapon.root)].filter(Boolean));
+  for(const root of roots)operation('player.traverse',()=>root.traverse?.(visit));
+  for(const value of skeletons)disposeOnce(entry,'player.skeleton',value,()=>value.dispose?.());
+  for(const value of geometries)disposeOnce(entry,'player.geometry',value,()=>value.dispose?.());
+  for(const value of materials)disposeOnce(entry,'player.material',value,()=>value.dispose?.());
+  const images=new Set();for(const value of textures){disposeOnce(entry,'player.texture',value,()=>value.dispose?.());if(value.source?.data)images.add(value.source.data);}
+  for(const image of images)disposeOnce(entry,'player.bitmap',image,()=>{if(protectedImages.has(image))throw Error('qa-canvas-combat-protected-source-bitmap');image.close?.();});
+  operation('player.alpha',()=>player.alphaReadback?.dispose?.());
+  if(!entry.contexts.has(player)){entry.contexts.add(player);operation('player.dispose',()=>player.renderer?.dispose?.());operation('player.context',()=>player.renderer?.forceContextLoss?.());}
+  for(const name of ['canvas','body','ink','bottleCanvas'])operation('player.'+name,()=>shrink(player[name]));
+  operation('player.surface',()=>shrink(player.renderer?.domElement));
+  operation('player.models',()=>player.models?.clear?.());operation('player.weapons',()=>player.weapons?.clear?.());operation('player.weaponLoads',()=>player.weaponLoads?.clear?.());operation('player.scene',()=>player.scene?.clear?.());player.bottle=null;
+ }
+ function retire(entry,late=false){
+  if(!entry||entry.closed&&!late)return;const first=!entry.closed;entry.closed=true;
+  if(first){
+   cleanup.lateScheduled+=entry.pending.size;
+   if(entry.attribution)operation('attribution.stop',()=>{entry.attributionFinal=entry.attribution.stop();if(entry.pass)entry.pass.attribution=entry.attributionFinal;if(!entry.attributionFinal?.cleanupComplete)throw Error('qa-render-attribution-cleanup-failed');entry.attribution=null;});
+   if(entry.tickExpected)operation('tick.restore',()=>{const current=Object.getOwnPropertyDescriptor(entry.game,'tick');if(!sameDescriptor(current,entry.tickExpected))throw Error('tick-external-replacement-preserved');if(entry.tickBefore)Object.defineProperty(entry.game,'tick',entry.tickBefore);else delete entry.game.tick;entry.tickExpected=null;});
+   if(entry.installer)operation('installer.stop',()=>{entry.installFinal=entry.installer.stop();if(!entry.installFinal.cleanupComplete)throw Error('qa-canvas-combat-installer-cleanup-failed');entry.installer=null;});
+  }
+  const renderer=entry.renderer;
+  if(first&&renderer?.textureStatus==='loading')cleanup.uncancelableAsphaltPending++;
+  if(entry.plan?.nativeCandidate){const handle=entry.plan.nativeCandidate;const rig=handle.candidate?.rig??handle.rig;if(rig&&protectedRigs.has(rig))cleanupError('handle.dispose',Error('qa-canvas-combat-protected-handle'));else{operation('handle.dispose',()=>handle.dispose?.());if(rig){if(!handle.adopted)entry.contexts.add(rig);retireRig(rig,entry,'candidate');}}}
+  if(entry.oldNative)operation('npc.old-canvases',()=>shrinkRig(entry.oldNative,entry,'npc.old'));
+  if(renderer){
+   retireRig(renderer.liveEnemies,entry,'npc');retireRig(renderer.liveBoss,entry,'boss');retirePlayer(renderer.livePlayer,entry);
+   for(const key of entry.prepared?[]:['liveEnemiesPromise','liveBossPromise','livePlayerPromise']){
+    const promise=renderer[key];if(promise&&typeof promise.then==='function'&&!entry.followed.has(promise)){
+     entry.followed.add(promise);cleanup.lateScheduled++;Promise.resolve(promise).then(value=>{cleanup.lateSettled++;operation('late.'+key,()=>{if(key==='livePlayerPromise')retirePlayer(value,entry);else retireRig(value,entry,'late.'+key);});},()=>{cleanup.lateSettled++;});
+    }
+   }
+   for(const name of ['floor','minimapCanvas','nativeMaskCanvas'])operation('renderer.'+name,()=>shrink(renderer[name]));
+   for(const cache of [renderer.fireGround?.cache,renderer.fireGround?.burns])if(cache instanceof Map){for(const value of cache.values())for(const candidate of [value?.image,value?.scorch,value?.light])operation('renderer.fireGround',()=>shrink(candidate));cache.clear();}
+   operation('renderer.completed',()=>{for(const value of renderer.completedEnemyFrames?.entries?.values?.()??[])operation('renderer.completed.image',()=>{const selected=value.selected;if(selected?.completedNativeDeath!==true||selected.metadata?.liveRig!==true)throw Error('qa-canvas-combat-unowned-completed-image');shrink(selected.image);});renderer.completedEnemyFrames?.entries?.clear?.();});
+   operation('renderer.references',()=>{renderer.liveEnemySelection?.clear?.();renderer.liveCorpseSelection?.clear?.();renderer.floorWorld=null;renderer.onProductionChange=null;if(renderer.fireGround)renderer.fireGround.world=null;if(renderer.impactMarks){renderer.impactMarks.items=[];renderer.impactMarks.obstacles?.clear?.();renderer.impactMarks.world=null;}if(renderer.chargeWallFeedback){renderer.chargeWallFeedback.items=[];renderer.chargeWallFeedback.world=null;}});
+   if(renderer.asphaltImage){renderer.asphaltImage.onload=null;renderer.asphaltImage.onerror=null;renderer.asphaltImage=null;}
+  }
+  if(entry.art){
+   for(const [id,record]of entry.borrowed)if(entry.art.records.get(id)===record)entry.art.records.delete(id);
+   operation('art.release',()=>entry.art.releaseUnusedAssets([]));
+   entry.art.onChange=null;
+  }
+  operation('canvas.release',()=>shrink(entry.canvas));
+  if(first){operation('host.remove',()=>entry.host.remove());cleanup.hostsRemoved++;if(renderer)cleanup.retiredRenderers++;if(entry.art)cleanup.releasedArts++;}
+  if(!entry.pending.size&&!late)entry.released=true;
+  if(first){const row={arm:entry.arm,borrowedDetached:!entry.art||[...entry.borrowed.keys()].every(id=>entry.art.records.get(id)!==entry.borrowed.get(id)),ownedRecordsRemaining:entry.art?.records?.size??0,npcModelsRemaining:renderer?.liveEnemies?.models?.size??0,bossModelsRemaining:renderer?.liveBoss?.models?.size??0,playerModelsRemaining:renderer?.livePlayer?.models?.size??0,canvasReleased:entry.canvas.width===0&&entry.canvas.height===0,installerRestored:!entry.installer&&!entry.installFinal||entry.installFinal?.cleanupComplete===true,latePending:entry.pending.size};if(originalAttribution)row.attributionRestored=!entry.attribution&&!entry.attributionFinal||entry.attributionFinal?.cleanupComplete===true;cleanup.arms.push(row);}
+  if(first){entry.borrowed.clear();entry.commands=[];entry.game=null;}
+ }
+ async function waitAssets(renderer){
+  if(deps.waitAssets){await deps.waitAssets(renderer,{signal:controller.signal,timeoutMs:15000});return;}
+  const start=now();while(renderer.textureStatus==='loading'){check();if(now()-start>=15000)throw Error('qa-canvas-combat-asphalt-timeout');await waiting(new Promise(resolve=>setTimeout(resolve,20)),'asphalt');}
+  if(renderer.textureStatus!=='ready'||!renderer.asphaltImage)throw Error('qa-canvas-combat-original-asphalt-required');
+  // These product modules are shared, not owned by this harness. Await their
+  // existing loads; never dispose their images or global decode caches.
+  for(const art of [renderer.fireArt,renderer.explosionArt])if(art?.load)await waiting(art.load(),'effect-art');
+ }
+ function createOwned(arm,game){
+  const host=document.createElement('div'),canvas=document.createElement('canvas');
+  const entry={arm,game,host,canvas,art:null,renderer:null,borrowed:new Map(),pending:new Set(),followed:new Set(),contexts:new Set(),disposedObjects:new WeakSet(),closed:false,released:false,installer:null,installFinal:null,attribution:null,attributionFinal:null,pass:null,tickBefore:null,tickExpected:null,commands:[]};owned.push(entry);
+  cleanup.hostsCreated++;host.style.cssText='position:fixed;left:-10000px;top:0;width:960px;height:640px;overflow:hidden;pointer-events:none;';canvas.style.width='960px';canvas.style.height='640px';host.appendChild(canvas);document.body.appendChild(host);
+  entry.art=new deps.ProductionArt({manifest:mainArt.manifest,baseURL:mainArt.baseURL,fetchImpl:mainArt.fetchImpl,ImageCtor:mainArt.ImageCtor,timeoutMs:15000,onChange:null,forceLegacyMetadataParse:mainArt.forceLegacyMetadataParse===true});cleanup.ownedArts++;
+  for(const [id,record]of recordsBefore){
+   const asset=mainArt.manifest.assets?.[id];
+   if(record.status==='ready'&&record.image&&record.metadata&&(!asset?.bodyAlpha||record.bodyAlphaStatus==='ready')){entry.borrowed.set(id,record);entry.art.records.set(id,record);}
+  }
+  const load=entry.art.load,body=entry.art.loadBodyAlpha;
+  entry.art.load=function(id,...args){const record=entry.borrowed.get(id);if(record){if(this.records.get(id)!==record||record.status!=='ready')throw Error('qa-canvas-combat-borrowed-record-stale');return Promise.resolve(true);}return Reflect.apply(load,this,[id,...args]);};
+  entry.art.loadBodyAlpha=function(id,...args){const record=entry.borrowed.get(id);if(record){if(this.records.get(id)!==record||record.bodyAlphaStatus!=='ready')throw Error('qa-canvas-combat-borrowed-mask-not-ready');return Promise.resolve(true);}return Reflect.apply(body,this,[id,...args]);};
+  entry.renderer=new deps.Renderer(canvas,{productionArt:entry.art});cleanup.ownedRenderers++;
+  return entry;
+ }
+ active.add(mainRenderer);
+ try{
+  signal?.addEventListener?.('abort',abort,{once:true});check();
+  if(deps.cache?.enabled!==false)throw Error('qa-canvas-combat-independent-uncached-models-required');
+  const fixtureQuery=new URLSearchParams(query);fixtureQuery.set('qa-loop','1');fixtureQuery.set('qa-loop-count','180');
+  const memory=deps.createQAStorage(fixtureQuery,()=>{throw Error('qa-canvas-combat-persistent-storage-forbidden');}),profile=deps.loadProfile(memory);
+  report.fixture=deps.seedAppLoopQA(profile,memory,{location,query:fixtureQuery});
+  if(!report.fixture?.snapshotValid||report.fixture.count!==180||report.fixture.weapon!=='nailgun'||!profile.activeRun?.game)throw Error('qa-canvas-combat-original-180-fixture-required');
+  const checkpoint=profile.activeRun.game;
+  for(const [arm,mode]of arms){
+   check();onProgress({arm,phase:'preparation'});check();
+   const game=deps.Game.restore(checkpoint,{resumePlaying:true});if(!game||game.state!=='playing'||game.enemies.length!==180)throw Error('qa-canvas-combat-original-checkpoint-restore-failed');
+   const beforePreparation=gameProof(game,game.events,[]),preparationStart=now(),entry=createOwned(arm,game),renderer=entry.renderer,canvas=entry.canvas;
+   entry.plan=deps.productionLaunchPlan({manifest:entry.art.manifest,weapon:game.player.weapon,mission:game.mission,world:game.world,nativeGame:game});
+   if(!entry.plan.nativeEnemyKeys?.length||entry.plan.nativeEnemyKeys.length>3)throw Error('qa-canvas-combat-original-max-three-roster-required');
+   const loadStart=now(),loaded=await waiting(deps.preloadLaunchPlan(renderer,entry.plan,{signal:controller.signal,prepareNative:true}),'original-launch',entry);check();
+   const loadAndNativePreparationMs=now()-loadStart,handle=entry.plan.nativeCandidate,candidate=handle?.candidate??handle,rig=candidate?.rig;
+   if(loaded!==true||!handle||typeof handle.dispose!=='function'||!rig||protectedRigs.has(rig)||rig===handle.old||handle.adopted||handle.disposed||candidate.isReady?.()!==true||candidate.report?.prepared!==true)throw Error('qa-canvas-combat-fresh-original-native-preparation-required');
+   const nativePreparation=candidate.report;
+   if(nativePreparation.textureUpload?.submitted!==true||nativePreparation.textureUpload.stateNormalized!==true||nativePreparation.textureUpload.error||!nativePreparation.shaders?.length||!nativePreparation.shaders.every(value=>value.ready===true))throw Error('qa-canvas-combat-common-original-texture-shader-required');
+   if(rig.size!==256||rig.models?.size>3||rig.renderer?.info?.render?.frame!==0||rig.exactGPUAlphaBounds||rig.gpuPoseBounds||rig.directAlphaReadback||rig.cropNativeComposite||rig.batchInkComposite)throw Error('qa-canvas-combat-original-native-defaults-required');
+   if(handle.old){if(protectedRigs.has(handle.old))throw Error('qa-canvas-combat-protected-old-native');entry.oldNative=handle.old;}
+   if(renderer.adoptProductionEnemyLaunch(handle)!==true||renderer.liveEnemies!==rig)throw Error('qa-canvas-combat-owned-native-adopt-failed');
+   if(handle.old)entry.contexts.add(handle.old);
+   if(renderer.livePlayer?.ready!==true)throw Error('qa-canvas-combat-original-native-player-required');
+   if(renderer.livePlayer.renderer?.info?.render?.frame!==0||renderer.liveBoss&&(renderer.liveBoss.size!==512||renderer.liveBoss.renderer?.info?.render?.frame!==0||renderer.liveBoss.exactGPUAlphaBounds||renderer.liveBoss.gpuPoseBounds||renderer.liveBoss.directAlphaReadback))throw Error('qa-canvas-combat-no-prime-original-player-boss-required');
+   const assetsStart=now();await waitAssets(renderer);check();const assetsReadyMs=now()-assetsStart;entry.prepared=true;
+   if(json(gameProof(game,game.events,[]))!==json(beforePreparation))throw Error('qa-canvas-combat-preparation-mutated-game');
+   const sourceProof={borrowedRecords:entry.borrowed.size,ownedRecords:entry.art.records.size-entry.borrowed.size,readyRecords:[...entry.art.records.values()].filter(record=>record.status==='ready').length,nativeKeys:[...entry.plan.nativeEnemyKeys],nativeModels:rig.models?.size??0,nativeSize:rig.size,bossModels:renderer.liveBoss?.models?.size??0,bossSize:renderer.liveBoss?.size??null,nativeDrawsBefore:rig.renderer.info.render.frame,playerDrawsBefore:renderer.livePlayer.renderer?.info?.render?.frame??0,gpuAlphaEnabled:!!rig.exactGPUAlphaBounds,asphaltReady:renderer.textureStatus==='ready'};
+   if(originalAttribution){
+    const create=deps.createRenderAttribution??(await waiting(import('./qa-render-attribution.js'),'attribution-module',entry)).createRenderAttribution;check();
+    if(typeof create!=='function')throw Error('qa-render-attribution-factory-required');
+    entry.attribution=create({renderer,now:deps.now,enabled:true,limit:40,maxOutliers:32});
+    if(!entry.attribution||['beginFrame','endFrame','report','stop'].some(key=>typeof entry.attribution[key]!=='function')||entry.attribution.report().enabled!==true)throw Error('qa-render-attribution-unavailable');
+   }else{
+    entry.installer=deps.installCanvasStateCandidate({renderer,mode});
+    if(entry.installer?.report?.().available!==true)throw Error('qa-canvas-combat-installer-unavailable');
+   }
+   const tick=game.tick;entry.tickBefore=Object.getOwnPropertyDescriptor(game,'tick');
+   const tracedTick=function(...args){if(this===game)entry.commands.push({dt:args[0],command:{...args[1]}});return Reflect.apply(tick,this,args);};
+   Object.defineProperty(game,'tick',{value:tracedTick,writable:true,configurable:true,enumerable:false});entry.tickExpected=Object.getOwnPropertyDescriptor(game,'tick');
+   const preparationMs=now()-preparationStart,samples=[],yields=[],interpolation=new deps.ActorInterpolation();let accumulator=0,previousFrameStart=null;
+   const pass={arm,mode,preparation:{preparationMs,loadAndNativePreparationMs,assetsReadyMs,native:nativePreparation,source:sourceProof},firstFrame:null,all40Summary:null,steady30Summary:null,samples,installer:null,canvas:{width:canvas.width,height:canvas.height,dpr:renderer.dpr,cssWidth:renderer.width,cssHeight:renderer.height},readbackMs:0,exportMs:0,yields,finalState:null};if(originalAttribution)pass.attribution=null;entry.pass=pass;report.passes.push(pass);
+   const passStart=now();
+   for(let frame=0;frame<40;frame++){
+    check();if(game.state!=='playing')throw Error('qa-canvas-combat-normal-run-ended-'+arm+'-'+frame);
+    onProgress({arm,phase:'combat',frame});check();entry.commands=[];
+    const before=entry.installer?entry.installer.report():NO_INSTALLER,start=now();accumulator+=.12;
+    const advanced=deps.advanceSimulation(game,{moveX:0,moveY:0,shoot:false,fireMode:'auto',aimX:game.player.x+300,aimY:game.player.y},accumulator,{interpolator:interpolation});accumulator=advanced.accumulator;
+    const simulationEnd=now(),events=game.drainEvents(),interpolationStart=now(),view=interpolation.sample(game,accumulator/deps.FIXED_STEP,deps.FIXED_STEP),interpolationEnd=now();
+    if(originalAttribution){
+     entry.attribution.beginFrame({arm,frame,first:frame===0});let renderThrew=false;
+     try{renderer.render(view,advanced.command,(frame+1)*.12);}catch(error){renderThrew=true;throw error;}
+     finally{try{entry.attribution.endFrame({arm,frame});}catch(error){if(renderThrew)cleanupError('attribution.endFrame',error);else throw error;}}
+    }else renderer.render(view,advanced.command,(frame+1)*.12);
+    const end=now(),after=entry.installer?entry.installer.report():NO_INSTALLER;
+    const sample={frame,captureIntervalMs:previousFrameStart===null?null:start-previousFrameStart,simulationMs:simulationEnd-start,interpolationMs:interpolationEnd-interpolationStart,renderMs:end-interpolationEnd,callbackMs:end-start,tickCount:entry.commands.length,commands:entry.commands,bakedNpcManualCalls:after.bakedNpcManualCalls-before.bakedNpcManualCalls,candidateUsed:after.candidateUsed-before.candidateUsed,factoryCalls:after.factoryCalls-before.factoryCalls,nativeSelected:renderer.liveEnemySelection?.size??0,nativeRenderFrame:rig.renderer.info.render.frame,nativeModels:rig.models?.size??0,nativePending:rig.pending?.size??0,nativePendingWithoutModel:rig.pending instanceof Map?[...rig.pending.keys()].filter(key=>!rig.models.has(key)).length:0};previousFrameStart=start;samples.push(sample);
+    if(after.available!==true||after.ownerMismatchCalls||after.falseReturns||rig.error||rig.lost||rig.exactGPUAlphaBounds||rig.gpuAlphaStats?.frames||rig.gpuAlphaBounds?.reads||sample.nativeSelected>12)throw Error('qa-canvas-combat-render-guard-failed');
+    if(game.state!=='playing')throw Error('qa-canvas-combat-normal-run-ended-'+arm+'-'+frame);
+    const proof=gameProof(game,events,entry.commands);
+    if(arm==='A1')baseline.push(proof);else{
+     report.equivalence.framesCompared++;
+     for(const key of ['state','events','commands','motion','random','visualRandom'])if(proof[key]!==baseline[frame][key]){report.equivalence[key]=false;if(report.equivalence.mismatches.length<3)report.equivalence.mismatches.push({arm,frame,field:key,expected:baseline[frame][key],actual:proof[key]});}
+    }
+    if((frame+1)%8===0){const yieldStart=now();await waiting(deps.yieldFrames({arm,frame,signal:controller.signal}),'batch-eight-yield',entry);yields.push({afterFrame:frame,elapsedMs:now()-yieldStart});check();}
+   }
+   pass.passWallMs=now()-passStart;pass.firstFrame=samples[0];pass.all40Summary=summarizeFrames(samples);pass.steady30Summary=summarizeFrames(samples.slice(10));pass.installer=entry.installer?entry.installer.report():null;if(originalAttribution){pass.attribution=entry.attribution.report();if(pass.attribution.samples?.length!==40)throw Error('qa-render-attribution-forty-samples-required');}pass.runtimeNative={maxModels:Math.max(...samples.map(sample=>sample.nativeModels)),maxPending:Math.max(...samples.map(sample=>sample.nativePending)),maxPendingWithoutModel:Math.max(...samples.map(sample=>sample.nativePendingWithoutModel))};
+   if(!samples.some(sample=>sample.nativeSelected>0)||rig.renderer.info.render.frame<=sourceProof.nativeDrawsBefore)throw Error('qa-canvas-combat-real-native-render-required');
+   if(mode==='manual'&&!(pass.installer.bakedNpcManualCalls>0&&pass.installer.candidateUsed>0))throw Error('qa-canvas-combat-positive-baked-manual-usage-required');
+   if(mode==='original'&&pass.installer&&(pass.installer.candidateUsed||pass.installer.bakedNpcManualCalls))throw Error('qa-canvas-combat-original-arm-not-original');
+   pass.finalState={hp:game.player.hp,kills:game.kills,enemies:game.enemies.length,time:game.time,random:game.random.getState(),visualRandom:game.visualRandom.getState(),state:game.state};
+   const readStart=now(),pixels=renderer.ctx.getImageData(0,0,canvas.width,canvas.height).data;pixelBuffers.push(pixels);pass.readbackMs=now()-readStart;
+   pass.sumPlusReadbackMs=pass.all40Summary.callbackMs.sumMs+pass.readbackMs;pass.drainInclusiveSummary=summarize([...samples.map(sample=>sample.callbackMs),pass.readbackMs]);
+   const exportStart=now();images.push({arm,src:canvas.toDataURL('image/png'),alt:'180적 원본 전투 Canvas '+arm+' ('+mode+')'});pass.exportMs=now()-exportStart;
+   pass.preparationPlusFirstMs=preparationMs+samples[0].callbackMs;pass.preparationPlusAll40Ms=preparationMs+pass.all40Summary.callbackMs.sumMs;
+   operation('arm.retire',()=>retire(entry));pass.installer=entry.installFinal;check();
+  }
+  if(originalAttribution){
+   report.pixels={originalRepeat:pixelDifference(pixelBuffers[0],pixelBuffers[1])};
+   report.readbackStorage={arrays:pixelBuffers.length,bytes:pixelBuffers.reduce((sum,value)=>sum+value.byteLength,0),pngCount:images.length,note:'Two original final-canvas arrays and at most two PNG strings; raw arrays are dropped after strict AA comparison. Not a peak-memory measurement.'};
+  }else{
+  report.pixels={candidateVsFirst:pixelDifference(pixelBuffers[0],pixelBuffers[1]),originalRepeat:pixelDifference(pixelBuffers[0],pixelBuffers[2]),candidateVsRepeat:pixelDifference(pixelBuffers[1],pixelBuffers[2])};
+  report.readbackStorage={arrays:pixelBuffers.length,bytes:pixelBuffers.reduce((sum,value)=>sum+value.byteLength,0),pngCount:images.length,note:'Three sequential final-canvas readback arrays and at most three PNG strings are retained until comparison, then raw arrays are dropped; source-pixel storage only, not a peak-memory measurement.'};
+  const [a,b,a2]=report.passes,fastSum=Math.min(a.sumPlusReadbackMs,a2.sumPlusReadbackMs),improvement=fastSum?1-b.sumPlusReadbackMs/fastSum:0;
+  const callbackTailsNoWorse=b.all40Summary.callbackMs.p95Ms<=Math.min(a.all40Summary.callbackMs.p95Ms,a2.all40Summary.callbackMs.p95Ms)&&b.all40Summary.callbackMs.maxMs<=Math.min(a.all40Summary.callbackMs.maxMs,a2.all40Summary.callbackMs.maxMs);
+  const drainTailsNoWorse=b.drainInclusiveSummary.p95Ms<=Math.min(a.drainInclusiveSummary.p95Ms,a2.drainInclusiveSummary.p95Ms)&&b.drainInclusiveSummary.maxMs<=Math.min(a.drainInclusiveSummary.maxMs,a2.drainInclusiveSummary.maxMs),tailsNoWorse=callbackTailsNoWorse&&drainTailsNoWorse;
+  report.performance={accepted:false,fasterOriginalAll40SumMs:Math.min(a.all40Summary.callbackMs.sumMs,a2.all40Summary.callbackMs.sumMs),candidateAll40SumMs:b.all40Summary.callbackMs.sumMs,fasterOriginalSumPlusReadbackMs:fastSum,candidateSumPlusReadbackMs:b.sumPlusReadbackMs,improvementFraction:improvement,callbackTailsNoWorse,drainTailsNoWorse,tailsNoWorse,requiredImprovementFraction:.03,note:'Diagnostic precriterion only: at least3% lower all40 callback sum plus final readback drain than the faster original arm; both callback40 and drain-inclusive41 p95/max may not regress against either original arm. Quality, literal equivalence, positive baked usage and cleanup must also pass. Injected tests are never accepted. No default adoption or FPS claim.'};
+  }
+  for(const image of images){check();await waiting(onImage({...image}),'image-callback');}check();
+  if(report.equivalence.mismatches.length)throw Error('qa-canvas-combat-literal-game-equivalence-failed');
+  if(Object.values(report.pixels).some(diff=>diff.differentComponents!==0||diff.maxDelta!==0||!diff.dimensionsEqual))throw Error('qa-canvas-combat-whole-canvas-pixels-differ');
+ }catch(error){primary=error;report.error=text(error);}
+ finally{
+  finished=true;try{signal?.removeEventListener?.('abort',abort);}catch(error){cleanupError('signal.detach',error);}try{controller.abort();}catch(error){cleanupError('signal.abort',error);}
+  for(const entry of owned)operation('arm.retire',()=>retire(entry));
+  operation('main.owner-proof',()=>{cleanup.mainOwnersUnchanged=sameOwn(mainRenderer,mainDescriptors);cleanup.mainArtUnchanged=sameOwn(mainArt,artDescriptors);cleanup.mainRecordsUnchanged=mainArt.records===records&&records.size===recordsBefore.length&&recordsBefore.every(([id,record])=>records.get(id)===record&&sameOwn(record,recordDescriptors.get(record)));cleanup.mainNativeCachesUnchanged=nativeMainCurrent();cleanup.mainSourceImagesUnchanged=protectedImageDimensions.every(([image,width,height])=>Object.is(image.width,width)&&Object.is(image.height,height));});
+  cleanup.complete=cleanup.errors.length===0&&cleanup.uncancelableAsphaltPending===0&&cleanup.unprovenPlayerParallelLoads===0&&cleanup.mainOwnersUnchanged&&cleanup.mainArtUnchanged&&cleanup.mainRecordsUnchanged&&cleanup.mainNativeCachesUnchanged&&cleanup.mainSourceImagesUnchanged&&cleanup.ownedRenderers===cleanup.retiredRenderers&&cleanup.ownedArts===cleanup.releasedArts&&cleanup.hostsCreated===cleanup.hostsRemoved&&cleanup.arms.every(arm=>arm.borrowedDetached&&arm.ownedRecordsRemaining===0&&arm.npcModelsRemaining===0&&arm.bossModelsRemaining===0&&arm.playerModelsRemaining===0&&arm.canvasReleased&&arm.installerRestored)&&cleanup.lateScheduled===cleanup.lateSettled;
+  if(originalAttribution)cleanup.complete=cleanup.complete&&cleanup.arms.every(arm=>arm.attributionRestored===true);
+  active.delete(mainRenderer);baseline.length=0;pixelBuffers.length=0;
+ }
+ if(!primary&&!cleanup.complete){primary=Error('qa-canvas-combat-cleanup-failed');report.error=primary.message;}
+ report.complete=!primary&&cleanup.complete&&report.passes.length===arms.length;
+ if(report.performance)report.performance.accepted=!report.injected&&report.complete&&report.performance.improvementFraction>=.03&&report.performance.tailsNoWorse;
+ if(primary){try{Object.defineProperty(primary,'report',{value:report,configurable:true,enumerable:true});Object.defineProperty(primary,'cleanup',{value:cleanup,configurable:true,enumerable:true});}catch{}throw primary;}
+ return{report};
+}

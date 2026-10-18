@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: bounded retirement requires exact opt-in plus original-only genuine memory before owner or dependency reads
+ok 1 - bounded retirement requires exact opt-in plus original-only genuine memory before owner or dependency reads
+  ---
+  duration_ms: 298.4359
+  type: 'test'
+  ...
+# Subtest: fulfilled retained native promises drain after80 original callbacks without extra ticks, pixels or battle-clock cost
+ok 2 - fulfilled retained native promises drain after80 original callbacks without extra ticks, pixels or battle-clock cost
+  ---
+  duration_ms: 4384.6183
+  type: 'test'
+  ...
+# Subtest: a late on-demand model retires once while preserving the primary render error and Game state
+ok 3 - a late on-demand model retires once while preserving the primary render error and Game state
+  ---
+  duration_ms: 99.1661
+  type: 'test'
+  ...
+# Subtest: deadline leaves immutable pending evidence, late best-effort retirement cannot rewrite the saved failure, and abort does not cancel cleanup drain
+ok 4 - deadline leaves immutable pending evidence, late best-effort retirement cannot rewrite the saved failure, and abort does not cancel cleanup drain
+  ---
+  duration_ms: 117.4763
+  type: 'test'
+  ...
+# Subtest: registration and final snapshot faults preserve the primary error, protected owner proof and finalized failure
+ok 5 - registration and final snapshot faults preserve the primary error, protected owner proof and finalized failure
+  ---
+  duration_ms: 124.8622
+  type: 'test'
+  ...
+# Subtest: a fulfilled owned load stays active until its asynchronous retirement ends
+ok 6 - a fulfilled owned load stays active until its asynchronous retirement ends
+  ---
+  duration_ms: 8.2955
+  type: 'test'
+  ...
+# Subtest: producer rejection is retired once and differs from a retirement failure, including opaque thrown values
+ok 7 - producer rejection is retired once and differs from a retirement failure, including opaque thrown values
+  ---
+  duration_ms: 2.2861
+  type: 'test'
+  ...
+# Subtest: one event-driven deadline times out unresolved work, while late retirement cannot mutate the saved result
+ok 8 - one event-driven deadline times out unresolved work, while late retirement cannot mutate the saved result
+  ---
+  duration_ms: 3.508
+  type: 'test'
+  ...
+# Subtest: duplicate identities retain only the first callback and newly discovered followers delay completion without resetting the deadline
+ok 9 - duplicate identities retain only the first callback and newly discovered followers delay completion without resetting the deadline
+  ---
+  duration_ms: 0.9978
+  type: 'test'
+  ...
+# Subtest: lifetime capacity refusal attaches no retirement and preserves caller-owned overflow cleanup
+ok 10 - lifetime capacity refusal attaches no retirement and preserves caller-owned overflow cleanup
+  ---
+  duration_ms: 0.7822
+  type: 'test'
+  ...
+# Subtest: labels and diagnostics copy only bounded own primitives without invoking getters or retaining resource/error objects
+ok 11 - labels and diagnostics copy only bounded own primitives without invoking getters or retaining resource/error objects
+  ---
+  duration_ms: 0.7749
+  type: 'test'
+  ...
+# Subtest: timeout/capacity bounds and timer failures stay bounded and report incomplete infrastructure honestly
+ok 12 - timeout/capacity bounds and timer failures stay bounded and report incomplete infrastructure honestly
+  ---
+  duration_ms: 9.211
+  type: 'test'
+  ...
+# Subtest: work accepted after a finished empty wait remains best-effort and cannot retroactively certify the old result
+ok 13 - work accepted after a finished empty wait remains best-effort and cannot retroactively certify the old result
+  ---
+  duration_ms: 0.7547
+  type: 'test'
+  ...
+# Subtest: owned cleanup UI appends to the exact complete193925-byte prior UI and requires both exact isolated query flags before IO
+ok 14 - owned cleanup UI appends to the exact complete193925-byte prior UI and requires both exact isolated query flags before IO
+  ---
+  duration_ms: 3.6226
+  type: 'test'
+  ...
+# Subtest: only ready idle clicks start original-only bounded cleanup, state the outside-battle15-second limit, and reuse genuine memory
+ok 15 - only ready idle clicks start original-only bounded cleanup, state the outside-battle15-second limit, and reuse genuine memory
+  ---
+  duration_ms: 2.4401
+  type: 'test'
+  ...
+# Subtest: duplicate clicks and changed renderer/readiness/playing/pagehide during import never start a late owned cleanup job
+ok 16 - duplicate clicks and changed renderer/readiness/playing/pagehide during import never start a late owned cleanup job
+  ---
+  duration_ms: 2.747
+  type: 'test'
+  ...
+# Subtest: pagehide aborts the running signal and suppresses late diagnostic progress/images/result while restoring button/listener ownership
+ok 17 - pagehide aborts the running signal and suppresses late diagnostic progress/images/result while restoring button/listener ownership
+  ---
+  duration_ms: 0.8145
+  type: 'test'
+  ...
+# Subtest: timeout/strict-AA raw failures keep pending labels and cleanup evidence, and incomplete results are not displayed as successful
+ok 18 - timeout/strict-AA raw failures keep pending labels and cleanup evidence, and incomplete results are not displayed as successful
+  ---
+  duration_ms: 2.4364
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6052.7785

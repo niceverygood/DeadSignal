@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: original observer tick arguments, post-catchup drains, final checkpoint and both RNGs replay exactly without mutating trace input
+ok 1 - original observer tick arguments, post-catchup drains, final checkpoint and both RNGs replay exactly without mutating trace input
+  ---
+  duration_ms: 66.8194
+  type: 'test'
+  ...
+# Subtest: checkpoint, RNG, frame and recorded-event mismatches are exposed strictly without changing HP, inventing drains or filtering events
+ok 2 - checkpoint, RNG, frame and recorded-event mismatches are exposed strictly without changing HP, inventing drains or filtering events
+  ---
+  duration_ms: 37.6033
+  type: 'test'
+  ...
+# Subtest: ambiguous event-drain evidence, invalid ordering/counts and unrestorable checkpoints fail instead of claiming an exact replay
+ok 3 - ambiguous event-drain evidence, invalid ordering/counts and unrestorable checkpoints fail instead of claiming an exact replay
+  ---
+  duration_ms: 46.9518
+  type: 'test'
+  ...
+# Subtest: initial, final and every before/after context must contain real supported game fields before replay can claim context equality
+ok 4 - initial, final and every before/after context must contain real supported game fields before replay can claim context equality
+  ---
+  duration_ms: 39.6015
+  type: 'test'
+  ...
+# Subtest: CLI creates reports exclusively, preserves original evidence, reports mismatches as exit1 and invalid input/I/O as exit2
+ok 5 - CLI creates reports exclusively, preserves original evidence, reports mismatches as exit1 and invalid input/I/O as exit2
+  ---
+  duration_ms: 52.7136
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 514.1521

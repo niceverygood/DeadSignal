@@ -1,0 +1,60 @@
+
+=== focused upload profile 2026-10-18 ===
+TAP version 13
+# Subtest: setup only retrieves the existing context once and observes each original upload/draw call without extra GPU work or asset preparation
+ok 1 - setup only retrieves the existing context once and observes each original upload/draw call without extra GPU work or asset preparation
+  ---
+  duration_ms: 8.0775
+  type: 'test'
+  ...
+# Subtest: wrappers preserve receiver, argument and result identities, original throws, and exact accessor/data descriptors
+ok 2 - wrappers preserve receiver, argument and result identities, original throws, and exact accessor/data descriptors
+  ---
+  duration_ms: 1.9295
+  type: 'test'
+  ...
+# Subtest: overlapping observers execute originals once and restore independently in either stop order
+ok 3 - overlapping observers execute originals once and restore independently in either stop order
+  ---
+  duration_ms: 1.5327
+  type: 'test'
+  ...
+# Subtest: stopping preserves a later external method replacement and rejects further wrapping of its stale slot
+ok 4 - stopping preserves a later external method replacement and rejects further wrapping of its stale slot
+  ---
+  duration_ms: 0.8476
+  type: 'test'
+  ...
+# Subtest: disabled profiles perform no rig or clock access and broken clocks never change original results or exceptions
+ok 5 - disabled profiles perform no rig or clock access and broken clocks never change original results or exceptions
+  ---
+  duration_ms: 2.4813
+  type: 'test'
+  ...
+# Subtest: nested CPU stage measurements overlap and cannot be added to infer frame or GPU time
+ok 6 - nested CPU stage measurements overlap and cannot be added to infer frame or GPU time
+  ---
+  duration_ms: 0.7119
+  type: 'test'
+  ...
+# Subtest: frame boundaries ignore unmeasured calls, reject nested frames, and discard an open sample on idempotent stop
+ok 7 - frame boundaries ignore unmeasured calls, reject nested frames, and discard an open sample on idempotent stop
+  ---
+  duration_ms: 0.7438
+  type: 'test'
+  ...
+# Subtest: missing contexts and broken loaded-subject traversal report unmeasured stages without loading, drawing or blocking cleanup
+ok 8 - missing contexts and broken loaded-subject traversal report unmeasured stages without loading, drawing or blocking cleanup
+  ---
+  duration_ms: 1.3876
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 188.0105

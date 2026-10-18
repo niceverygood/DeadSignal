@@ -1,0 +1,122 @@
+{
+  "task": "Fixed256 original player CPU alpha geometry: independent read-only protocol review",
+  "reviewer": "frame_pacing_audit",
+  "status": "QA-only pure CPU candidate recommendation; no adoption or execution",
+  "originalSources": [
+    {
+      "path": "work/dead-signal-game/dist/player-rig/live-player.js",
+      "bytes": 16124,
+      "sha256": "cf5c5721485f0ca2e531136d1a845d1111260ff12a3aaecf14e23312f702dfba",
+      "locations": "rasterFrame174-193; nativeAlphaBounds180, core182, bodyIdentificationContour192"
+    },
+    {
+      "path": "work/dead-signal-game/dist/native-alpha-bounds.js",
+      "bytes": 574,
+      "sha256": "3816c17f737f013f24642f3bca48dba964fa1e02d53d4e665ad9ba235c1efdcb",
+      "locations": "whole nativeAlphaBounds function"
+    },
+    {
+      "path": "work/dead-signal-game/dist/production-art.js",
+      "bytes": 45528,
+      "sha256": "017c977b477d6f2d37067dfea48dbafa50166661cc93274bc549ab9354250c5d",
+      "locations": "bodyIdentificationContour355-372"
+    }
+  ],
+  "sourceFacts": [
+    "Original raster obtains one pre-weapon256x256 RGBA body array, uses nativeAlphaBounds for global bounds, computes core.height=bounds.height*.72, then calls bodyIdentificationContour on the same array for the upper-body silhouette.",
+    "nativeAlphaBounds already searches only inward from each row's left and right edge; it does not visit every interior alpha sample of an occupied row.",
+    "bodyIdentificationContour repeats edge searches within the global body x extent for the top..floor(core.y+core.height) rows. A row-endpoint cache can remove that repeated search, not all original alpha reads or the native Canvas readback.",
+    "Original contour output requires more than one occupied included row, contains fresh left/right point objects, and top aliases exactly left[0] and right[0].",
+    "Original bounds uses alpha<threshold while contour uses alpha>=threshold. These are complementary for finite byte values, but not for generic undefined/NaN values; a generic-array contract cannot be assumed."
+  ],
+  "proposedPureDomain": {
+    "input": "An attached non-shared Uint8ClampedArray of exactly256*256*4 bytes from the same original successful native body Canvas read. Fixed width/height256, threshold8 and full-image ROI only.",
+    "rejectOrFallback": "Unsupported width/height, ROI/threshold, detached/shared buffer, non-byte/generic array or untrusted getter-driven input must not be silently treated as equivalent. Preserve the old public helpers and their generic contracts.",
+    "oneRowEdgePass": "Keep original row ascending order and original left/right alpha comparisons. Store each row's left and right-exclusive endpoints while deriving the same global left/top/right/bottom.",
+    "cache": "One reusable Uint16Array(512),1024 bytes for256 [left,rightExclusive] pairs. Empty rows use left256/right0; this distinguishes a valid single pixel at x255. Every row must be rewritten each call to prevent stale edges.",
+    "bounds": "Return the exact original global bounds or the raster's existing empty fallback{x:256,y:256,width:1,height:1}; preserve width/right-exclusive and height/bottom-exclusive arithmetic.",
+    "core": "Use exactly{x:bounds.x,y:bounds.y,width:bounds.width,height:bounds.height*.72}, preserving IEEE64 operation order.",
+    "contour": "After bounds/core exist, read cached endpoints only for the original included rows. Preserve Math.floor(core.y+core.height), y+.5, right-exclusive coordinates, occupied-row count>1 requirement, fresh output point/array identities and top's aliases. Do not close/fill the torso cutoff or include legs/gun.",
+    "outputOwnership": "Fresh original-shape bounds/core/contour objects per call. The reusable row buffer remains private and is not embedded in frame/selected/metadata/report or retained by callers.",
+    "newAllocations": "Contour arrays/point objects remain necessary for original identity and value contracts; do not claim allocation-free output. Only a bounded row cache is added."
+  },
+  "savedActualAttribution": {
+    "source": "qa/player-attribution-20261018/analysis.json and browser-result.json",
+    "scope": "Original180 fixed-work A1/A2 with player-only original-call observation. These are historical diagnostic call-wall measurements, not a new performance test or a candidate A/B.",
+    "strictWholeRepeat": {
+      "differentComponents": 39,
+      "maxDelta": 2,
+      "passed": false
+    },
+    "steady30": [
+      {
+        "arm": "A1",
+        "callbackSumMs": 1535.4999999403954,
+        "callbackMedianMs": 46.59999996423721,
+        "rasterOtherSumMs": 14.600000381469727,
+        "rasterOtherMedianMs": 0.4999999403953552,
+        "rasterOtherP95Ms": 1.0999999642372131,
+        "rasterOtherMaxMs": 1.0999999642372131,
+        "rasterOtherFractionOfCallbackSumApprox": 0.0095099,
+        "bodyReadSumMs": 140.5999999642372,
+        "bodyReadMedianMs": 4.599999964237213
+      },
+      {
+        "arm": "A2",
+        "callbackSumMs": 1367.7000002861023,
+        "callbackMedianMs": 40.80000001192093,
+        "rasterOtherSumMs": 19.69999986886978,
+        "rasterOtherMedianMs": 0.3999999761581421,
+        "rasterOtherP95Ms": 2.399999976158142,
+        "rasterOtherMaxMs": 4.699999988079071,
+        "rasterOtherFractionOfCallbackSumApprox": 0.0144037,
+        "bodyReadSumMs": 146.80000019073486,
+        "bodyReadMedianMs": 4.700000047683716
+      }
+    ],
+    "firstUse": {
+      "A1": {"bodyGLms": 147, "armedGLms": 60.80000001192093, "bodyReadMs": 189.10000002384186, "rasterOtherMs": 1.5},
+      "A2ProvidedByPriorRootAnalysis": {"bodyGLms": 107.5, "armedGLms": 54.2, "bodyReadMs": 145.3, "rasterOtherMs": 0.7}
+    },
+    "interpretation": "The entire raster self remainder is only about0.95%/1.44% of steady callback totals and includes copies/composition, alpha/contour, metadata and observer overhead. Alpha geometry is an unknown smaller subset. Even eliminating this whole measured remainder would not establish a3% whole-callback saving in these samples. The native body-read wait and first GL cost are not removed by CPU row reuse. Inclusive parent/child spans must not be summed."
+  },
+  "feasibilityDecision": {
+    "exactness": "Feasible in the narrow byte-array domain without changing source pixels, threshold, bounds, contour shape, draw/read count or quality.",
+    "expectedScale": "Micro-optimization until independently measured; no existing evidence supports a material whole-frame or whole-app speedup.",
+    "productionBoundary": "Keep the protected original player and22 original source records unchanged. First implement and prove only a standalone QA CPU helper. A future full-raster candidate requires a deliberate separate task after the pure CPU gate; no product rewrite is justified by a microbench alone.",
+    "orderingRiskForLaterRaster": "Original contour executes after armed GL/Canvas composition and fallback metadata/frame spreads. Moving contour construction earlier can change behavior if foreign callbacks/getters mutate source state. Any later integration must preserve original ordering where feasible or explicitly restrict to original owned native assets; no universal getter/exception equivalence claim."
+  },
+  "focusedOraclePlan": [
+    "Pin complete original nativeAlphaBounds and production-art module sources as independent oracles. Compare every number with Object.is/IEEE64 representation and every object/array shape, including empty fallback and top alias identities.",
+    "Cover alpha0/7/8/255 boundaries, all-empty, full mask, each edge/corner, single x255 pixel, one/two occupied rows, noncontiguous rows, holes, narrow/wide bodies, top/bottom clipping, odd/even heights and every fractional .72 cutoff.",
+    "Use deterministic byte masks with RGB noise to prove only alpha controls geometry. Test consecutive populated/empty/narrow masks through one reusable cache to catch stale row state.",
+    "Verify input byte array/dimensions/options are never mutated and returned contours from earlier calls do not alias reused cache or later results.",
+    "Include meaningful unsupported/detached/shared/generic input behavior without claiming broader old-helper equivalence or silently accepting getter-driven data.",
+    "Use real original captured256x256 pre-weapon RGBA for both weapons and representative idle/walk/run/recoil/reload/throw/hit/death/heading poses as independent exact data, not just procedural masks. No assets, clips or animation frames are synthesized."
+  ],
+  "pureCPUBenchmarkPlan": {
+    "authority": "Root sole executor, after source/oracle freeze and with no concurrent browser/CPU/GPU/test job.",
+    "order": "One independent-process A1 original-two-functions, B fused-row-cache, A2 original-two-functions bracket with identical Node22 flags and exact input buffer order.",
+    "timing": "Time only original bounds+core+contour calls versus candidate equivalent calls, including candidate normal guard/cache work and original output allocations. Imports, input loading, hashing, output comparison, report serialization, cleanup and cache/fixture setup are outside timers. First cache initialization is reported separately rather than hidden as a steady win.",
+    "coverage": "Use the same bounded actual pose buffers and deterministic edge fixtures in all arms, cycle in a fixed order and consume outputs equivalently. Never optimize away outputs or retain an unbounded history.",
+    "gate": "Predeclare a minimum relative CPU+wall improvement and no output mismatches before execution. Preserve first/all/steady/absolute time per call. A tiny percentage from submillisecond work is a micro result, not proof of whole-frame gain.",
+    "claimLimit": "1024 bytes is the explicit reusable CPU row-cache capacity only, not measured total/peak heap, GPU memory or a promise of fewer allocations after JIT. No FPS, GPU-readback or bodyRead wait reduction claim."
+  },
+  "nativeQualityBeforeAnyRasterAdoption": [
+    "On an owned fresh native player, feed each original captured body RGBA array to both original and QA helper outside any cost timing and require exact bounds/core/contour, while preserving the input bytes and original source identity.",
+    "If root later authorizes a raster candidate, preserve original one body Canvas read, two GL draws, pre-weapon body image, colour/ink composition and placement. Compare same-pose full body/colour RGBA and metadata strictly at zero tolerance, not merely the reduced geometry DTO.",
+    "Whole-scene strict AA/AB/BA, literal Game/events/commands/motion/both RNG and owned cleanup remain separate mandatory gates; historical original-repeat pixel failures are retained and cannot be erased by exact pure geometry."
+  ],
+  "performedByReviewer": {
+    "readOnlySourceAndSavedJSONInspection": true,
+    "sourceByteAndSHAInspection": true,
+    "wroteOnlyProtocolReview": true,
+    "node": false,
+    "tests": false,
+    "Game": false,
+    "CPUOrGPUBenchmarks": false,
+    "browser": false,
+    "productOrAssetEdits": false,
+    "paidRequests": false
+  }
+}

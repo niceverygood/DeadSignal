@@ -1,0 +1,48 @@
+✔ all six named spans select only their own native samples and clamp one shots (16.4011ms)
+✔ combined walk loops through its own phase and idle breathes without running an action (0.5679ms)
+✔ overlap, out-of-range spans, impossible time and missing idle reject the entire combined atlas (1.5257ms)
+✔ legacy single-clip metadata retains its distance phase and stationary frame selection (0.2553ms)
+✔ live boss warnings and recovery use saved countdowns; damage cannot hide the warning (16.5485ms)
+✔ each of the twelve real final boss skill states selects the correct attack window (48.9225ms)
+✔ ordinary hit reaction and native death stop inside their own one-shot spans (0.4178ms)
+✔ boss corpse identity persists through new checkpoints and old identity-free saves still restore (10.8866ms)
+✔ native corpse animation follows simulation through pause and completes once after terminal victory without mutating it (8.9833ms)
+✔ native dying bodies share the live actor depth sort and do not use the generic ground prepass (6.0437ms)
+✔ losslessly packed variable rectangles preserve every frame world bounds, anchors and sample indices (37.9902ms)
+✔ packed pivots outside their cropped rectangle remain valid and keep the ground anchor exact (8.6978ms)
+✔ packed validation rejects overlap, fractional or out-of-image rectangles, cropped bounds and unknown packing (57.9388ms)
+✔ the atlas loader and draw path use each packed source rect rather than the original frame canvas size (13.5097ms)
+✔ real ordinary NPC contact strikes and scream releases use existing saved cooldowns without new gameplay (1.8624ms)
+✔ ordinary NPC death reuses its exact registered enemy identity and the same saved corpse lifetime (10.1014ms)
+✔ optional hero action reel handles real shooting, hurt and death while preserving packed locomotion aliases and the actual player clock (49.1021ms)
+✔ a missing hero action reel and real reload cooldown retain original equipped hero art instead of substituting an unarmed model (94.6579ms)
+✔ fresh death poses share the living atlas and retain the total twelve-pose budget (2.1282ms)
+✔ atlas failures release batch state and reset budgets for the original fallback draw (0.3842ms)
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (4.3234ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (341.2869ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (4.7322ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.7768ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (24.3456ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (3.9157ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (266.4463ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (93.7683ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (62.6272ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (30.008ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (5.023ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (8.9142ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (1.2741ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (93.6952ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (3.0957ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (8.5654ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (1.7049ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (504.8905ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (29.8763ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (174.2404ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2077.9824

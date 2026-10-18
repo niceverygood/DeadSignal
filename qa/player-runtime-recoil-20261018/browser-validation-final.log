@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "fixture": "existing actual original two-weapon QA button; seed774; enemies isolated",
+  "url": "http://localhost:8851/qa-player-rig.html?qa=1&qa-memory=recoil-restore-20261018",
+  "summary": [
+    {
+      "weapon": "shotgun",
+      "frames": 6,
+      "peakRetraction": 1.0666793258101852,
+      "maxGripError": 1.4043333874306805e-15,
+      "maxSupportError": 0.000002065023176548789,
+      "maxAimErrorDegrees": 0,
+      "returnedToZero": true,
+      "lastShotReloadRecoil": 1.0422367969821675
+    },
+    {
+      "weapon": "nailgun",
+      "frames": 6,
+      "peakRetraction": 0.33939796730324057,
+      "maxGripError": 3.58724037616909e-15,
+      "maxSupportError": 0.0000022698620754592933,
+      "maxAimErrorDegrees": 0,
+      "returnedToZero": true,
+      "lastShotReloadRecoil": 0.33162079903978015
+    }
+  ],
+  "consoleWarningsAndErrors": 0,
+  "limits": [
+    "single original idle aim; does not certify dense-battle frame cost or all character motion",
+    "numeric feet/geometry preservation is covered separately by unchanged original rig tests"
+  ]
+}

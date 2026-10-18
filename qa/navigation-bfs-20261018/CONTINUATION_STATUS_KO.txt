@@ -1,0 +1,23 @@
+2026-10-18 11:25 KST 완료 / root CPU·브라우저 작업 종료 / QA-only BFS 후보 미채택
+마감2026-10-19 00:00 KST(15:00Z). 이번작업실제02:16:50Z착수/02:25:10Z결정. Git base6878d5e181aa188b23bd850a80ab6c3b60c805fd. 직전사용자요청의Gitpush/다른PC 인계는이미완료; 이번heartbeat에서는새commit/push/외부공개없음.
+
+후보 범위: 원본 Navigation549e01276b6b670234df5c80507ef30b8f1ec1513be8477281e59b38e21367d9에서 _grid/_field popped-node당기본 _neighbors 콜백호출만동일8방향순서/산술/typed-array발견즉시쓰기로펼쳤다. 원래메서드를node당1회읽고캡처한기본메서드identity인경우만inline, 다른callable은captured Reflect.apply로원래this/인자/새callback을전달. getter/중간prototype교체/retained callback 지원. 경로/LOS/AI주기/행동/배열종류/sentinel/캐시규모/플레이데이터/이미지미변경. scalar후보수정혼합0. V8 lexicalcontext 할당감소는미확정,import전intrinsic변조/비callableTypeError문구·stack까지같다고주장하지않는다.
+원본 current-navigation.txt12361B SHA549e0127…367d9; 후보13407B SHA03ca2abc2140a45b443e54116c77904aadfe2e4039e793ddad6c83383dae5810. 독립oracle16216B SHAeb2c0b54bbdb7ee15a27657d81c577e6db8a7766dcb9a522a73dded84b84c980; bench9333B SHAa66c4c968c5d414a1588093b601ac20d8caf9bb5f02f969abc478571199438b0; Gameoracle7820B SHA12d065970ce2cba6e44a3820328291ef0ba91dace5ab8e0fc04b23d704975961. 후보raw직접import는상대roof경로때문에금지; 각CLI는실제dist/navigation.js기준rebasing을제공한다.
+
+실제Root검수(Node22.23.3):
+- navigation-bfs-oracle 6/6PASS/2076.0977ms/취소·생략0. fullinverse bytes; 전체components/distances/next/field·grid LRU;getter1회/customthis·인자/동일예외/retainedfreshcallbacks/중간prototype교체/7radii/동적파괴·물·옥상/반복방향 IEEE64 포함.
+- 별도 실제Game 원본vs후보 2seed×60/180/210적×360ticks =2166회 strict snapshot/runtime/events/양RNG 비교 PASS. 전6case360playing ticks, 실제생성BFS field수 각100/108/108/152/160/149, grid/field생성coverage도동등. 원래세계·HP·자동spawnclock/정상spawnEnemy·입력·업그레이드 유지. 이관찰은비계측벤치callback에넣지않았다.
+- 기존source-pinned24,000틱/원래CPU15000assert를원본A1→후보B→원본A2 각fresh Node로한번씩순차실행. A1 CPU15297ms/wall18244.41ms FAIL; B CPU14499/wall17298.68 PASS; A2 CPU14641/wall17318.08 PASS. 후보는양원본보다낮지만더빠른원본대비0.969879%감소로사전>=3%기준미달. 원본A자체변동과FAIL을숨기지않고재측정으로좋은결과찾지않음. decision.json: adopted=false/parked-insufficient-measured-gain. 제품미채택.
+
+실제브라우저원본baseline:
+- 새Chrome own1494332476, localhost8851?qa-memory=nav-bfs-original-20261018&qa-loop=1&qa-loop-count=180&qa-loop-cost=1&qa-loop-autostart=1에서이어하기→원본preload→계속하기UI로메모리180적전투실행. 기존사용자탭/pending선택접근0.
+- 기존앱원래루프40playingcallbacks/40callbacks, normalauto combat/원본이미지·사운드·메모리checkpoint 그대로. frameCPU 중앙61.6ms/p95 184.1ms, renderer중앙44.1ms/p95121.8ms. RAF중앙1000.8ms로정상presented FPS인증이아님. 최종관찰stateplaying/time4.5333/HP73/enemies188/playerLivetrue/GPUexactfalse/rigError빈값, console warn/error0. 관찰후LV2개조UI로나와우리pending을선택하지않고own탭close+absent 확인. 보고서browser-original-180.json, 원본proofPNG저장/직접시각확인.
+- 후보는제품미설치라후보브라우저A/B를수행하지않았다. 실제wholeframe/peakmemory이득·무렉주장없음. root CPUjob/우리QA탭모두종료.
+
+제품보존: source-before/after.json의Nav/engine/model/원래engine.test 4SHA 모두같음, gitdiff --exit-code -- tools work/dead-signal-game/dist work/dead-signal-game/tests =0. 새제품변경없어전체npmtest/verify를반복하지않음. 최신whole1119/1120PASS/CPU15062>15000유일FAIL과verify역사.gitignore mismatch는계속유효. Meshy원본/리그·무드보드·8806·IAB·서버·저장보존. 유료생성/결제/키저장/automation7재개/외부공개/스토어제출없음.
+
+다음권장: 실제renderer.draw 관련원본이미지처리비용을 report.cost 에서추적하여원본픽셀·동작·depth순서를유지하는bounded reuse/caching QA 후보1개부터검토. 이전GPUalpha/imageDecode 후보와보스상체추가레이어는기본OFF; 실패·부정결과를근거없이재적용하지말것. 원본과같은실제180조건의전후wholeframe·오류·자원release/메모리상한과정확한픽셀검수없이는채택/승리주장금지. cold첫hero건물텍스처차이원인, 보스추가레이어나머지11종실기검수/전체12종미완료, 실기기성능·100h연결임무목표는여전히미완료다. automation4는마감전계속/마감후정리PAUSED, automation7금지유지.
+
+[2026-10-18 11:27 KST 실제 렌더 비용 읽기 검토 / 추가 구현·실행 없음]
+원본40callback의중첩stage는합산하지않는다. renderer.render 중앙44.1/p95121.8/max125ms. 관측38프레임 NPC native CPU atlas read 중앙약16/p9530.7/max32.6ms, player bodyRead 중앙7.9/p9512.2/max21.6ms. baked적 ProductionArt.drawFrame은40프레임중앙1.5ms이나p9564.8/max87ms로긴지연. F33 callback189.3/render125ms에서baked176calls64.8ms/nativeCPUread27.2ms/playerread9.7ms; F0 render121.8ms중baked180calls87ms/native0. 첫decode만이원인이라고단정할수없다. 이값은wait·계측오버헤드를포함하는동기호출wall측정으로GPU실행·FPS·peakRAM이아니다.
+다음원자작업은캐시를바로제품에넣기전에 QA-owned Canvas에서기존 ProductionArt.drawFrame의save/상태설정/drawImage/restore 구간만분리하고asset+rect별 outlier를상한이있는primitive기록으로추적하는것을권장. 추가draw/pixelread/bitmap할당없이 원래this·args·return·throw·descriptor복원을보존하고전체pixels/body/physics/RNG/depth 동치/첫프레임·steady분리/같은180조건40callbacks/계측overhead를검증. 이것은미구현추천이며cache/statefastpath성공증거가아니다. 기존GPUalpha/decode기본OFF 판단그대로. 모든rootCPU·브라우저job과agent검토종료,새작업착수는다음heartbeat의실제시간/최신인계확인후에만한다.

@@ -1,0 +1,110 @@
+{
+  "task": "Scalar direction literal: predeclared independent benchmark review",
+  "reviewer": "frame_pacing_audit",
+  "status": "protocol frozen before execution; QA candidate only",
+  "sourceScope": {
+    "originalArtifact": "qa/engine-collision-profile-20261018/engine-before.txt",
+    "originalProduction": "work/dead-signal-game/dist/engine.js",
+    "originalBytes": 59149,
+    "originalSHA256": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+    "candidate": "work/dead-signal-game/dist/qa-engine-direction-candidate.js",
+    "candidateSHA256": null,
+    "candidatePinPolicy": "Root must pin the completed candidate before any run. Reversing its one approved direction-literal replacement must reproduce the complete frozen original bytes.",
+    "allowedChange": "Only updateEnemies line423: replace the non-escaping {x:e.navX||0,y:e.navY||0} direction literal and its local property uses with directionX/directionY scalar locals.",
+    "preserve": [
+      "Read e.navX then e.navY once each; preserve truthiness and original ToPrimitive/coercion order, angle setter, speed reads twice, move receiver/arguments/return/throw behavior.",
+      "No damping, navigation, separation, collision, fields/LRU, spawning, entity count, AI cadence, asset, quality, RNG, IDs, events or save change.",
+      "Production engine.js remains the frozen original unless all later adoption gates are independently met. This protocol does not authorize product installation."
+    ]
+  },
+  "originalFixture": {
+    "path": "work/dead-signal-game/tests/engine.test.mjs",
+    "bytes": 29739,
+    "sha256": "6b92a458bcdcbde255eb413e5bf8bf9f313b951f32fd08129944897ccb922df8",
+    "title": "twenty minutes of seeded autopilot keeps entity pools finite and bounded",
+    "lines": "565-597",
+    "seed": 774,
+    "weapon": "nailgun",
+    "stageDuration": 1000000000,
+    "ticks": 24000,
+    "dt": 0.05,
+    "cpuBudgetMs": 15000,
+    "testTimeoutMs": 20000,
+    "stressOnlyInvulnerability": "Keep the existing game.player.invul=1 assignment exactly; it is explicitly a stress fixture, not normal combat evidence.",
+    "commandsAndAssertions": [
+      "Keep first upgrade choice selection, first living enemy aim, tick/300 movement, dash tick%80, lure tick%250, molotov tick%350 and shoot:true exactly.",
+      "Drain original events exactly once after every original tick; do not add a drain, tick, pose update or method observer.",
+      "Preserve all original every100tick pool, position, hp/parts and blocked-player assertions, plus final simulated/time/kills assertions.",
+      "Preserve the original strict CPU assertion cpuMs<15000 and the original20000ms test timeout; do not turn a failed budget into a pass by changing either threshold."
+    ]
+  },
+  "diagnosticProfile": {
+    "providedByRoot": true,
+    "approximateCPUms": 16484,
+    "approximateWallMs": 18385,
+    "eligiblePerformanceBaseline": false,
+    "reason": "The CPU profile adds instrumentation and is only hotspot evidence. It is not the unprofiled A/B/A baseline or a measurement of eliminated allocations."
+  },
+  "executionPlan": {
+    "executor": "root only",
+    "order": ["A1 original", "B scalar candidate", "A2 original"],
+    "brackets": 1,
+    "processes": "Three sequential fresh independent Node.js22 processes with identical flags, environment, source dependency URLs and fixture input. No concurrent Node/test/profile/browser/GPU job.",
+    "prohibited": [
+      "No --cpu-prof or debugger/profiler in the acceptance runs, no forced GC, no warmup, no process reuse, no retry to seek a passing bracket.",
+      "No per-tick checkpoint/hash/event instrumentation, method observer, allocation counter or static Game setting alteration in the measured loop.",
+      "No imports, source hashing, JSON serialization, report comparison, final checkpoint hashing or cleanup inside the simulation timers."
+    ],
+    "wholeRun": "Measure original-loop CPU and call wall at full precision, including the identical bounded window clock overhead in all arms. Preserve original rounded diagnostics only as display, not as the gate calculation.",
+    "windows": {
+      "count": 12,
+      "ticksEach": 2000,
+      "metrics": ["CPU ms", "wall ms"],
+      "timingPolicy": "Only twelve fixed boundary measurements; do not change commands, event drains or original assertions. All boundary clock/CPU costs remain included in the outer run. Window sums are not assumed to equal outer time exactly.",
+      "p95Definition": "Nearest rank: sorted[ceil(0.95*n)-1]. With n=12, p95 is the12th value and therefore equals max; these are not independent tail confirmations.",
+      "baselineLimitation": "Windowed runs add bounded measurement work. They compare identical A/B/A protocols and must not be described as byte-identical timing of the original uninstrumented callback. The unchanged whole test remains separate validation."
+    },
+    "finalState": "Capture and hash final checkpoint, relevant runtime effects/pools and both RNG states only after every timer stops. A final hash alone cannot establish discarded per-tick event order.",
+    "failureRetention": "Use new exclusive output paths. Retain every original result, failure, exit status, timing, source pin and comparison; never overwrite bad evidence with a later run."
+  },
+  "nodeGate": {
+    "allRequired": [
+      "All three arms finish the full24000 original ticks and satisfy all original functional/pool assertions; the candidate must also pass the unchanged15000ms CPU budget and20000ms test-timeout contract.",
+      "Independent frozen-original whole-engine source/provenance oracle passes; direction getters/coercions/setters/speed reads/move exceptions preserve the original observable order.",
+      "Root's independent2166 comparisons over two seeds and60/180/210 actors show exact full state, actions/events and both RNG streams each tick, with no relaxed tolerance or filtered mismatches.",
+      "Final benchmark state/runtime/RNG hashes are equal across A1/B/A2.",
+      "Candidate CPU gain >=3% against min(A1 CPU,A2 CPU), and candidate wall gain >=3% against min(A1 wall,A2 wall), using full precision and checking the two metrics independently.",
+      "Candidate2000tick-window CPU p95/max and wall p95/max do not exceed the corresponding value of either original arm; no tail tolerance is introduced."
+    ],
+    "gainFormula": "1 - B / min(A1,A2)",
+    "onAnyFailure": "Park the candidate OFF. Do not tune, retry, weaken assertions, combine another optimization or install product code within this atomic task.",
+    "claimLimit": "Even a passing single bracket is one controlled-host result, not guaranteed cross-device benefit, measured heap elimination, GPU improvement or presented FPS. V8 may already scalarize the original literal."
+  },
+  "browserGate": {
+    "onlyIfNodeGatePasses": true,
+    "origin": "HTTP loopback8851 with qa + genuine branded in-memory QA storage; user8806 and its saved/pending upgrade state untouched",
+    "fixture": "Normal180-actor owned-memory combat original/candidate/original with the same fixed workload and original source assets, native12/256 quality and cleanup contracts.",
+    "required": [
+      "Literal callback state/events/actions/motion/effects/both RNG comparisons pass across80 comparison pairs.",
+      "OriginalR0 whole-canvas strict AB/AA/BA pixel comparisons have zero changed components and zero maximum delta at equal dimensions; existing AA instability is preserved, not attributed to this candidate or waived.",
+      "All owned-resource, main-owner/source/image and method-restoration proofs pass. No injected/fallback/incomplete path can certify adoption."
+    ],
+    "ifNodeFails": "Candidate remains OFF; any original-only browser quality check is evidence for the unchanged current renderer, not candidate validation or a replacement cost bracket.",
+    "limitations": "Actual rAF scheduling and fixed-work callback timing are distinct. Do not claim presented FPS or compare prior browser callback costs as direct A/B when schedule/profile scopes differ."
+  },
+  "finalValidation": {
+    "wholeSuite": "Root runs the existing whole test suite once after final source freeze, with the original concurrency/budgets and all failures preserved.",
+    "adoption": "This review authorizes no adoption. Passing Node is only permission to attempt the separate browser quality gate; any unresolved state, pixels, resources or original-suite failure remains explicit."
+  },
+  "performedByReviewer": {
+    "readOnlySourceAndFixtureInspection": true,
+    "originalByteAndSHAInspection": true,
+    "wroteOnlyProtocolReview": true,
+    "node": false,
+    "tests": false,
+    "Game": false,
+    "benchmarks": false,
+    "browser": false,
+    "productionEdits": false
+  }
+}

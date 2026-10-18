@@ -1,0 +1,59 @@
+{
+  "reviewer": "render_cost_audit",
+  "scope": "Read-only review of bounded owned-cleanup harness integration and tracker",
+  "reviewerRanTestsGameRasterGPUBrowserOrBenchmarks": false,
+  "onlyReviewerWrite": "qa/owned-late-cleanup-20261018/integration-review.json",
+  "status": "No remaining release blocker found in the reviewed current native-owned resource path. Focused, legacy-parity and actual cleanup evidence remain pending root execution.",
+  "reviewedFiles": [
+    {"path": "work/dead-signal-game/dist/qa-canvas-state-combat.js", "bytes": 71409, "sha256": "a1034de38e494e4c399c1a7725242193aa6d240f7ae2083b54f2e212ad138d7c"},
+    {"path": "work/dead-signal-game/dist/qa-owned-cleanup-tracker.js", "bytes": 9424, "sha256": "e5f46f819af311f193e37fe63a8c1537ad9da51c826aa135339d3ca74872f347"},
+    {"path": "qa/owned-late-cleanup-20261018/combat-harness-before.txt", "bytes": 65836, "sha256": "47289d0b5daf0f5fe08001b4f95f0aab23a297200302cf79de6194b49972678c"}
+  ],
+  "findingsAddressedDuringRootReview": [
+    {
+      "topic": "Thrown tracker registration",
+      "initialRisk": "A thrown follow() registration could abort retireRig/retire(entry) before other owned resources were retired.",
+      "currentCode": "followOwned catches registration errors, records late.registration and installs the same best-effort fallback used for rejected registrations. Rejected-capacity and cross-owner registrations also keep cleanup failure visible.",
+      "rootRegressionPresent": "qa-owned-cleanup-combat.test.mjs registration fault case",
+      "executedByReviewer": false
+    },
+    {
+      "topic": "Final snapshot failure",
+      "initialRisk": "An unguarded post-drain row/surface getter failure inside finally could replace the primary error and bypass main-owner proof, active-owner removal and finalized report creation.",
+      "currentCode": "Each final snapshot runs through operation('late.final-snapshot.<arm>'), starts finalAfterDrain=false and marks true only after successful capture. Snapshot errors remain in cleanup.errors, so cleanup cannot pass, while mandatory owner proof/finalization continue.",
+      "rootRegressionPresent": "qa-owned-cleanup-combat.test.mjs final raw getter fault case",
+      "executedByReviewer": false
+    },
+    {
+      "topic": "Invalid drain result",
+      "currentCode": "A missing/non-object wait result is rejected within the drain try/catch and replaced by an explicit failed drain record. The normal exported tracker returns a frozen primitive report.",
+      "executedByReviewer": false
+    }
+  ],
+  "checkedCurrentContracts": {
+    "gate": "Own-data boundedOwnedCleanup===true requires originalReadbackProbe===true plus the exact qa-owned-cleanup gate before dependency/owner/DOM access. The original exact qa-original-readback gate and all other mode-exclusion checks still apply. The new UI requires both query flags.",
+    "disabledMode": "The tracker import/factory/wait and new final-row fields are conditional. Existing unbounded waiting callbacks and retirement branches remain selected when false. report.cleanup remains the original cleanup object in old modes; the changed primary.cleanup annotation therefore retains that same alias. The new own-data option descriptor read and a private WeakMap allocation exist outside battle timing; universal hostile-options/allocation equivalence is not claimed. Full-before report/method/clock parity must be demonstrated by the existing root tests, not by this static review.",
+    "primaryQuality": "Both new-mode arms remain original. R0 stays in pixelBuffers and supplies strict original AA. Probe and postprobe PNG behavior are unchanged by the cleanup option. OriginalReadbackProbe prevents performance acceptance, independently of cleanup completion.",
+    "registration": "The per-entry followed Set prevents duplicate same-entry registration; the tracker deduplicates Promise identity and labels accepted work. Cross-entry ownership conflicts become errors with best-effort separate retirement. Registration failure cannot silently count as successful cleanup.",
+    "retirementCompletion": "Tracker completed counts follow retirement completion, including a returned Promise. Newly registered child work remains active before a retiring parent is completed. Producer rejection itself is not a cleanup failure if its owned retirement succeeds; retirement/observer/overflow errors prevent tracker success.",
+    "deadline": "Root actual mode fixes timeoutMs=15000. The tracker uses one event-driven wait/deadline and checks completion time as well as the timer, so a synchronous retirement overrun cannot pass merely because the event loop delayed its timeout callback. No polling, tick, draw, new load or render is added.",
+    "finalResources": "After wait, the harness resnapshots records, current NPC/boss/player models, NPC/boss pending maps, player weapon/load maps, generic entry.pending and every rig in entry.contexts. It requires zero final models/pending, zero-size retained renderer/rig/pool canvases, finalAfterDrain and tracker.success. Main owner/source-image proof follows the drain. Counters alone are insufficient.",
+    "immutability": "The final returned/thrown report.cleanup is JSON-detached and recursively frozen. Later best-effort retirement modifies the internal cleanup object, not this fixed as-of copy. Earlier primary failures remain the thrown value; cleanup failure becomes the primary only if no earlier failure exists.",
+    "protectedOwnership": "Existing main-rig/image guards, borrowed-record detach, disposeOnce and context-disposal deduplication remain. Aborting forward work does not cancel the bounded owned cleanup phase; no protected main owner is intentionally retired."
+  },
+  "scopeLimitsNotCurrentReleaseBlockers": [
+    "nativeCanvasesReleased explicitly checks retained renderer, rig and pool surfaces. Completed-corpse/fire-cache canvases cleared from maps are retired through existing guarded native Canvas shrink calls rather than independently enumerated again by that final field. Do not describe this one field alone as an exhaustive inventory of every disposed Canvas.",
+    "entry.oldNative is included in entry.contexts and its final models/pending/surfaces are checked, but its pending promises are not explicitly followed by this tracker: current retirement calls shrinkRig for it. Native adoption itself installs best-effort old-promise retirement. The present fresh owned Renderer creates the initial old NPC rig without loading models, so its pending map is empty on the intended path. A future fixture with preexisting old pending loads may conservatively fail final pending checks before their outside-tracker cleanup settles; do not claim that broader case was drained.",
+    "The normal exported tracker produces a primitive JSON-safe report. Arbitrarily forged injected tracker reports with throwing nested getters, cyclic values or unrelated asynchronous retirement behavior are not certified by this static review. Injected tests cannot establish native cleanup or performance evidence.",
+    "Best-effort fallback retirement callbacks currently call synchronous owned retirement functions. If those functions later become asynchronous, rejected returned cleanup promises need explicit observation in the fallback path as well.",
+    "A fixed timeout report cannot certify eventual resource retirement after its deadline. Later callbacks may still clean their owned results, but must not retroactively turn the saved failure into a success."
+  ],
+  "rootValidationNeeded": [
+    "Pinned full-before old-mode report/call/clock equality, including explicit disabled boundedOwnedCleanup and no disabled tracker import/factory use.",
+    "Already-fulfilled retained model promises, a genuinely deferred late model, rejection, deadline and late completion after immutable failure.",
+    "Registration refusal/throw and final snapshot failure while preserving a preexisting primary and protected main proof.",
+    "Final rows include all intended owned rigs and retained native Canvas surfaces; resource/follower status is rechecked after drain rather than copied from first retirement.",
+    "One actual genuine-memory original-only A/A run with strict R0/probe/Game gates and explicit as-of late-drain evidence; preserve the previous8/7 failed raw run and prior cross-context whole-canvas failures."
+  ],
+  "claims": {"productChangesReviewed": false, "candidateAdopted": false, "qualityPassClaimedHere": false, "cleanupPassClaimedHere": false, "performanceGainClaimedHere": false}
+}

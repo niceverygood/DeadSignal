@@ -1,0 +1,76 @@
+✖ harbor branch preserves the main route and original-art world while exposing its own optional card (25.7531ms)
+✖ harbor transport physically blocks actors and restored navigation while its state stays in saved progress (3.0752ms)
+✖ actual isolated harbor combat completes all eight goals and restores defense and escort without awarding vaccine (23.5333ms)
+✔ northern fresh launch has exact native checkpoint/bunker/vehicle coverage and valid save theme (28.469ms)
+✔ escort uses constant-distance polyline travel and every payload footprint stays clear (21.4306ms)
+✔ escort advances only beside a clear vehicle, holds without reversing when blocked or away, and freezes paused (2.7924ms)
+✔ vehicle render interpolation is smooth and cannot alter progress, RNG or checkpoints (1.8871ms)
+✔ actual expedition completion keeps payload at arrival and awards the earned Israel cargo clue only after exit (5.7048ms)
+✔ sea launch matches actual original-art world and requires northern cargo evidence (19.6255ms)
+✔ all relay zones and boarding objectives are physically reachable without crossing water (26.805ms)
+✔ cross-channel relay keeps earned progress, changes real target every8 seconds, pauses and restores mid-channel (2.6409ms)
+✔ saved water boundary is canonical and cannot smuggle new hazards into old runs or place actors in the sea (4.6647ms)
+✔ Molotov landing in water makes a splash and never creates floating persistent fire (1.637ms)
+✔ water rendering preserves canvas/world state and original native fire clusters stay on supported ground (2.2393ms)
+✔ story route shows seven actual linked chapters plus the optional cold-chain branch with real unlocks (2.7023ms)
+✔ active saved expedition uses continue rather than creating a replacement, and final vaccine wording needs final clearance (0.6406ms)
+✔ memory-only actual app QA never reads or writes local profiles, and new QA sessions are fresh (0.8635ms)
+✔ normal launch keeps default storage, while original qa profile suffix remains unchanged (0.2966ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 15
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 320.5949
+
+✖ failing tests:
+
+test at tests\harbor-power.test.mjs:6:1
+✖ harbor branch preserves the main route and original-art world while exposing its own optional card (25.7531ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Game.restore(g.snapshot()))
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/harbor-power.test.mjs:13:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\harbor-power.test.mjs:15:1
+✖ harbor transport physically blocks actors and restored navigation while its state stays in saved progress (3.0752ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r)
+  
+      at TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/harbor-power.test.mjs:17:210)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\harbor-power.test.mjs:20:1
+✖ actual isolated harbor combat completes all eight goals and restores defense and escort without awarding vaccine (23.5333ms)
+  Error: harbor-power-progress-restore
+      at runHarborPowerQA (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/dist/qa-harbor-power.js:16:192)
+      at async TestContext.<anonymous> (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/harbor-power.test.mjs:21:17)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

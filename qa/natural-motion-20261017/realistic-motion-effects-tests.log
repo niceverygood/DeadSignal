@@ -1,0 +1,41 @@
+✔ enemy-walker: unchanged original rig has distinct continuous walk/attack/hit poses (210.7266ms)
+✔ enemy-runner: unchanged original rig has distinct continuous walk/attack/hit poses (150.0188ms)
+✔ enemy-shield: unchanged original rig has distinct continuous walk/attack/hit poses (165.1094ms)
+✔ enemy-screamer: unchanged original rig has distinct continuous walk/attack/hit poses (264.3559ms)
+✔ enemy-gas: unchanged original rig has distinct continuous walk/attack/hit poses (144.8639ms)
+✔ enemy-elite: unchanged original rig has distinct continuous walk/attack/hit poses (145.7034ms)
+✔ enemy-collector: unchanged original rig has distinct continuous walk/attack/hit poses (142.8136ms)
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (3.2583ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (141.0239ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (1.403ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.5438ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (0.3644ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (1.0737ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (172.0323ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (22.5335ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (36.6378ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (24.3781ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (4.1775ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (9.4762ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (1.0971ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (50.9164ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (2.855ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (5.6377ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (2.4384ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (347.4494ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (34.0296ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (171.3062ms)
+✔ contact gives way to a wider shock ring and fragments without losing weapon identity (1.1494ms)
+✔ longer shotgun follow-through expires and restores while damage and RNG stay exact (25.7656ms)
+✔ pellet impacts merge per target without altering damage, knockback, or combat RNG (1.5939ms)
+✔ burn does not create fake bullet impacts and shield feedback remains distinct (0.4029ms)
+✔ weapon effects restore canvas state and never mutate supplied actors/particles (1.0377ms)
+✔ material contact separates gold ricochets from masonry dust and restores at every age (0.8956ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1455.7002

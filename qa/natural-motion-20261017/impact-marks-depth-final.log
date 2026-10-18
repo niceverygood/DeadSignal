@@ -1,0 +1,34 @@
+✔ a real explosion body sorts between background and foreground geometry, once, while ring/glow remain in the particle pass (21.317ms)
+✔ unavailable art keeps the original post-geometry fallback, and a failed depth draw attempts the image only once (4.1438ms)
+✔ camera/zoom/DPR keep the body in the same world transform and equal-depth actors stay above it (3.7889ms)
+✔ repeated paused/upgrade renders depth-sort every live burst once without changing Game/RNG or allocating another image (35.0839ms)
+✔ actual front-face bullet collision leaves bounded visual scars without changing saved simulation/RNG (18.9022ms)
+✔ hidden/back faces, shields and destroyed objects do not leave visible scars; renderer history resets between worlds (0.3921ms)
+✔ surface and ground marks restore compositing/alpha and remain fixed under paused redraw (0.8173ms)
+✔ fractional render time settling after pause does not erase already settled marks (0.1986ms)
+✔ all six named spans select only their own native samples and clamp one shots (6.6123ms)
+✔ combined walk loops through its own phase and idle breathes without running an action (0.6867ms)
+✔ overlap, out-of-range spans, impossible time and missing idle reject the entire combined atlas (4.4386ms)
+✔ legacy single-clip metadata retains its distance phase and stationary frame selection (0.4139ms)
+✔ live boss warnings and recovery use saved countdowns; damage cannot hide the warning (16.1473ms)
+✔ each of the twelve real final boss skill states selects the correct attack window (26.1047ms)
+✔ ordinary hit reaction and native death stop inside their own one-shot spans (0.5582ms)
+✔ boss corpse identity persists through new checkpoints and old identity-free saves still restore (3.5309ms)
+✔ native corpse animation follows simulation through pause and completes once after terminal victory without mutating it (4.7929ms)
+✔ native dying bodies share the live actor depth sort and do not use the generic ground prepass (2.7667ms)
+✔ losslessly packed variable rectangles preserve every frame world bounds, anchors and sample indices (19.6581ms)
+✔ packed pivots outside their cropped rectangle remain valid and keep the ground anchor exact (6.7522ms)
+✔ packed validation rejects overlap, fractional or out-of-image rectangles, cropped bounds and unknown packing (21.2494ms)
+✔ the atlas loader and draw path use each packed source rect rather than the original frame canvas size (8.064ms)
+✔ real ordinary NPC contact strikes and scream releases use existing saved cooldowns without new gameplay (1.2252ms)
+✔ ordinary NPC death reuses its exact registered enemy identity and the same saved corpse lifetime (5.7519ms)
+✔ optional hero action reel handles real shooting, hurt and death while preserving packed locomotion aliases and the actual player clock (24.6922ms)
+✔ a missing hero action reel and real reload cooldown retain original equipped hero art instead of substituting an unarmed model (23.1458ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 409.9131

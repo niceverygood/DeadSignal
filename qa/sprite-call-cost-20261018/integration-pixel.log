@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: default QA loop keeps the original game/events/RNG, profile ordering and report shape without creating a sprite observer
+ok 1 - default QA loop keeps the original game/events/RNG, profile ordering and report shape without creating a sprite observer
+  ---
+  duration_ms: 132.9295
+  type: 'test'
+  ...
+# Subtest: only the exact optional flag creates the sprite observer; nested begin/end/stop order preserves the original frame and game
+ok 2 - only the exact optional flag creates the sprite observer; nested begin/end/stop order preserves the original frame and game
+  ---
+  duration_ms: 170.6275
+  type: 'test'
+  ...
+# Subtest: outside the exact genuine-memory 8851 gate, no DOM, renderer, read, storage or optional observer access occurs
+ok 3 - outside the exact genuine-memory 8851 gate, no DOM, renderer, read, storage or optional observer access occurs
+  ---
+  duration_ms: 21.546
+  type: 'test'
+  ...
+# Subtest: an unexpected sprite stop failure does not prevent existing cost/native cleanup or proof/report delivery
+ok 4 - an unexpected sprite stop failure does not prevent existing cost/native cleanup or proof/report delivery
+  ---
+  duration_ms: 13.7682
+  type: 'test'
+  ...
+# Subtest: the separate pixel action stays disabled until observation ends and never runs in the measured callback
+ok 5 - the separate pixel action stays disabled until observation ends and never runs in the measured callback
+  ---
+  duration_ms: 32.4822
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 905.5489

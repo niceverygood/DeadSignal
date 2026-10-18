@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: R1 is the immediate next read before hashes/state metadata, then a stable no-floor probe reads only main R2
+ok 1 - R1 is the immediate next read before hashes/state metadata, then a stable no-floor probe reads only main R2
+  ---
+  duration_ms: 16.1174
+  type: 'test'
+  ...
+# Subtest: an unstable immediate R1 stops without a floor context/read or another main read and records exact strict component differences
+ok 2 - an unstable immediate R1 stops without a floor context/read or another main read and records exact strict component differences
+  ---
+  duration_ms: 1.145
+  type: 'test'
+  ...
+# Subtest: optional existing-floor F precedes R2 and an exact R0/R1 does not hide a later two-pixel three-component change
+ok 3 - optional existing-floor F precedes R2 and an exact R0/R1 does not hide a later two-pixel three-component change
+  ---
+  duration_ms: 44.3242
+  type: 'test'
+  ...
+# Subtest: a fully stable floor sequence exposes primitive native-readiness confounds without claiming native equivalence or retaining buffers
+ok 4 - a fully stable floor sequence exposes primitive native-readiness confounds without claiming native equivalence or retaining buffers
+  ---
+  duration_ms: 1.9447
+  type: 'test'
+  ...
+# Subtest: invalid primary/main geometry fails before R1 and invalid required floor fails after R1 without silently skipping F
+ok 5 - invalid primary/main geometry fails before R1 and invalid required floor fails after R1 without silently skipping F
+  ---
+  duration_ms: 12.0965
+  type: 'test'
+  ...
+# Subtest: R1/F/R2 read throws and malformed returned arrays preserve diagnostics while stopping the remaining stages and never retrying
+ok 6 - R1/F/R2 read throws and malformed returned arrays preserve diagnostics while stopping the remaining stages and never retrying
+  ---
+  duration_ms: 12.6563
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1747.0947

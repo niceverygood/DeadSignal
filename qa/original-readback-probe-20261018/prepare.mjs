@@ -1,0 +1,16 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const root=new URL('../../',import.meta.url),qa=new URL('./',import.meta.url);
+const previous=await readFile(new URL('../player-deferred-read-20261018/source-freeze-final.json',qa));
+const prior=JSON.parse(previous);
+const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+const file='work/dead-signal-game/dist/qa-canvas-state-combat.js';
+const bytes=await readFile(new URL(file,root)),row=prior.files.find(row=>row.file===file);
+assert.equal(bytes.length,row.bytes);assert.equal(sha(bytes),row.sha256);
+await writeFile(new URL('combat-harness-before.txt',qa),bytes,{flag:'wx'});
+await writeFile(new URL('previous-source-freeze.json',qa),previous,{flag:'wx'});
+const fixture=await readFile(new URL('../player-deferred-read-20261018/combat-fixture-before.txt',qa));
+await writeFile(new URL('combat-fixture-before.txt',qa),fixture,{flag:'wx'});
+await writeFile(new URL('start.json',qa),JSON.stringify({startedUTC:'2026-10-18T07:01:25Z',deadline:'2026-10-19T00:00:00+09:00',scope:'QA-only original whole-Canvas readback investigation',productChanges:false,candidateChanges:false,originalArms:2,callbacksPerArm:40,extraTicks:0,extraDraws:0,primaryR0Kept:true,sequence:'R0 existing primary read; immediate R1; if exact, existing floor F; unchanged main R2; then postprobe PNG',stopOnUnstableR1:true,strictOriginalAA:true,thresholdRelaxation:false,performanceAccepted:false,qualityReadsAreNotCostEvidence:true,originalAssetsAndUserSavesPreserved:true,rootSoleExecutor:true},null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({oldCount:prior.files.length,harness:row,fixtureBytes:fixture.length}));

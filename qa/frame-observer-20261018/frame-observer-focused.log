@@ -1,0 +1,188 @@
+TAP version 13
+# Subtest: app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+ok 1 - app-loop QA requires the exact loopback origin, flags and genuine Map storage without accessing persistent storage
+  ---
+  duration_ms: 7.4115
+  type: 'test'
+  ...
+# Subtest: memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+ok 2 - memory dense checkpoints preserve the five normal initial actors, player rules and live spawning across allowed densities
+  ---
+  duration_ms: 208.511
+  type: 'test'
+  ...
+# Subtest: invalid density never seeds or saves a partial memory checkpoint
+ok 3 - invalid density never seeds or saves a partial memory checkpoint
+  ---
+  duration_ms: 1.5793
+  type: 'test'
+  ...
+# Subtest: real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+ok 4 - real one-second callback catch-up, interpolation, events, audio and autosave remain identical with the product-loop observer
+  ---
+  duration_ms: 110.8297
+  type: 'test'
+  ...
+# Subtest: the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+ok 5 - the frame wrapper preserves pass-through return/throw and methods are restored even after an observed stage throws
+  ---
+  duration_ms: 12.9507
+  type: 'test'
+  ...
+# Subtest: external replacements survive stop and a new Game releases the previous instance wrappers
+ok 6 - external replacements survive stop and a new Game releases the previous instance wrappers
+  ---
+  duration_ms: 6.7733
+  type: 'test'
+  ...
+# Subtest: start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+ok 7 - start requires an uncovered playing state and sample/callback limits stop once without mutating gameplay
+  ---
+  duration_ms: 6.1614
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original frame return value
+ok 8 - a failing stop observer cannot replace the original frame return value
+  ---
+  duration_ms: 3.4543
+  type: 'test'
+  ...
+# Subtest: a failing stop observer cannot replace the original thrown frame error
+ok 9 - a failing stop observer cannot replace the original thrown frame error
+  ---
+  duration_ms: 3.3524
+  type: 'test'
+  ...
+# Subtest: 60/180 observed actor fixtures retain original exact reports, labels, nested calls, cold caches and owner identities
+ok 10 - 60/180 observed actor fixtures retain original exact reports, labels, nested calls, cold caches and owner identities
+  ---
+  duration_ms: 70.7045
+  type: 'test'
+  ...
+# Subtest: original returns, Promise/throw identity, receiver/args, descriptors, missing stages and broken clocks remain exact
+not ok 11 - original returns, Promise/throw identity, receiver/args, descriptors, missing stages and broken clocks remain exact
+  ---
+  duration_ms: 4.0935
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-frame-cost-pool.test.mjs:96:1'
+  failureType: 'testCodeFailure'
+  error: 'metadata must stay unread'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    get metadata (file:///C:/Users/nicev/Documents/Codex/2026-10-16/meshy-plugin-meshy-openai-plugin-openai-2/outputs/DeadSignal/work/dead-signal-game/tests/qa-frame-cost-pool.test.mjs:84:78)
+    objEquiv (node:internal/util/comparisons:966:30)
+    handleCycles (node:internal/util/comparisons:541:17)
+    keyCheck (node:internal/util/comparisons:496:10)
+    objectComparisonStart (node:internal/util/comparisons:300:12)
+    innerDeepEqual (node:internal/util/comparisons:264:10)
+    objEquiv (node:internal/util/comparisons:995:41)
+    handleCycles (node:internal/util/comparisons:541:17)
+    keyCheck (node:internal/util/comparisons:496:10)
+    objectComparisonStart (node:internal/util/comparisons:298:12)
+  ...
+# Subtest: overlapping profiles stop in either order and restore every exact owner method descriptor
+not ok 12 - overlapping profiles stop in either order and restore every exact owner method descriptor
+  ---
+  duration_ms: 4.7141
+  type: 'test'
+  location: 'C:\\Users\\nicev\\Documents\\Codex\\2026-10-16\\meshy-plugin-meshy-openai-plugin-openai-2\\outputs\\DeadSignal\\work\\dead-signal-game\\tests\\qa-frame-cost-pool.test.mjs:106:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    ... Skipped lines
+    
+      {
+        drawCampaignBoss: {
+          configurable: true,
+          enumerable: true,
+          value: [Function (anonymous)],
+    ...
+          enumerable: true,
+    +     value: {
+    +       originalFloor: true
+    +     },
+    -     value: null,
+          writable: true
+        },
+        livePlayer: {
+          configurable: true,
+          enumerable: true,
+    
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: recursive same-slot dispatch, live listener removal/addition, custom original.apply and external replacement match the original
+ok 13 - recursive same-slot dispatch, live listener removal/addition, custom original.apply and external replacement match the original
+  ---
+  duration_ms: 0.6973
+  type: 'test'
+  ...
+# Subtest: observer-clock recursion, frame rotation, stop and throw preserve frame capture and original lifecycle reports
+ok 14 - observer-clock recursion, frame rotation, stop and throw preserve frame capture and original lifecycle reports
+  ---
+  duration_ms: 3.5945
+  type: 'test'
+  ...
+# Subtest: read callbacks that recurse, rotate frames, stop or throw keep the original lifecycle and error behavior
+ok 15 - read callbacks that recurse, rotate frames, stop or throw keep the original lifecycle and error behavior
+  ---
+  duration_ms: 1.8346
+  type: 'test'
+  ...
+# Subtest: QA-only factory capture proves steady reuse, bounded idle pools and clearing of every inactive reference
+ok 16 - QA-only factory capture proves steady reuse, bounded idle pools and clearing of every inactive reference
+  ---
+  duration_ms: 56.1887
+  type: 'test'
+  ...
+# Subtest: instance-only observation preserves original outputs and calls, records real Navigation cold work and existing player reads without initiating any work
+ok 17 - instance-only observation preserves original outputs and calls, records real Navigation cold work and existing player reads without initiating any work
+  ---
+  duration_ms: 8.3855
+  type: 'test'
+  ...
+# Subtest: this/arguments/return, promise and thrown identities survive broken clocks and readonly methods; disabled mode never reads any owner or clock
+ok 18 - this/arguments/return, promise and thrown identities survive broken clocks and readonly methods; disabled mode never reads any owner or clock
+  ---
+  duration_ms: 1.5744
+  type: 'test'
+  ...
+# Subtest: overlap restoration works in either order, owner replacement releases prior hooks and external method replacement is preserved
+ok 19 - overlap restoration works in either order, owner replacement releases prior hooks and external method replacement is preserved
+  ---
+  duration_ms: 2.7193
+  type: 'test'
+  ...
+# Subtest: lazy existing player surfaces are attached at first use, navigation replacement and bounded cache snapshots are observational only
+ok 20 - lazy existing player surfaces are attached at first use, navigation replacement and bounded cache snapshots are observational only
+  ---
+  duration_ms: 1.2273
+  type: 'test'
+  ...
+# Subtest: actual ProductionArt sprite calls are scoped once to the innermost renderer category and conservatively split into native/baked/unknown without Canvas hooks
+ok 21 - actual ProductionArt sprite calls are scoped once to the innermost renderer category and conservatively split into native/baked/unknown without Canvas hooks
+  ---
+  duration_ms: 1.4527
+  type: 'test'
+  ...
+# Subtest: scoped sprite observation preserves original this/args/return/Promise/throw identities and restores category after errors without invoking metadata getters
+ok 22 - scoped sprite observation preserves original this/args/return/Promise/throw identities and restores category after errors without invoking metadata getters
+  ---
+  duration_ms: 0.7447
+  type: 'test'
+  ...
+# Subtest: overlapping sprite observers restore replaced ProductionArt owners independently and preserve external replacement descriptors
+ok 23 - overlapping sprite observers restore replaced ProductionArt owners independently and preserve external replacement descriptors
+  ---
+  duration_ms: 0.7937
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 21
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 659.9448

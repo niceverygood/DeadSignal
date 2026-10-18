@@ -1,0 +1,17 @@
+✔ actual original GLB keeps feet/hips unchanged while both native weapons follow independent spine aim (2465.311ms)
+✔ original idle/walk/run transitions stay finite and stance IK holds an actual planted ankle without stretching (187.9758ms)
+✔ actual reload timing survives upgrades and restores without renderer-owned clocks (93.263ms)
+✔ original reload IK moves only left arm rotations and joins both ready endpoints at every aim (1069.0214ms)
+✔ actual original shot-to-hit transition retains first-frame torso rotation and exact moving lower-body transforms (714.4071ms)
+✔ original residual attack bend releases continuously to neutral and paused redraws stay identical (157.6021ms)
+✔ weapon impulse has continuous onset/release and a stronger shotgun with no extra timer (2.0136ms)
+✔ actual original two-hand weapons recoil without stretching, losing aim or changing feet at eight headings (2145.3303ms)
+✔ last actual shot starts automatic reload while its saved recoil still drives a physical impulse (53.228ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5390.9289

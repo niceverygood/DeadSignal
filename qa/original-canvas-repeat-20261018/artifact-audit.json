@@ -1,0 +1,190 @@
+{
+  "task": "Read-only audit of saved deferred-player quality evidence and minimum original-canvas repeat diagnosis",
+  "requestedStartUTC": "2026-10-18T06:42:43Z",
+  "reviewer": "render_cost_audit",
+  "reviewerRanNodeRasterBrowserTestsOrBenchmarks": false,
+  "reviewerDecodedOrModifiedPixels": false,
+  "onlyReviewerWrite": "qa/original-canvas-repeat-20261018/artifact-audit.json",
+  "status": "Strict whole-canvas failure is independently reproduced in the saved evidence; its rendering cause remains unresolved.",
+  "candidateAdopted": false,
+  "performanceRunAvailable": false,
+  "evidence": [
+    {
+      "path": "qa/player-deferred-read-20261018/browser-quality.json",
+      "bytes": 559175,
+      "sha256": "f9af3364f69587aa0608d937676062d5a1ab74012be172f84a4bee698ab2eecd"
+    },
+    {
+      "path": "qa/player-deferred-read-20261018/quality-analysis.json",
+      "bytes": 18537,
+      "sha256": "5e0e43f4accf2dab46cb25d5f351dfb69d0de28b1261d454981845dd45b624de"
+    },
+    {
+      "path": "qa/player-deferred-read-20261018/quality-png-analysis.json",
+      "bytes": 228966,
+      "sha256": "e4cd453680541ce0791898544acca5a33c5270847cd57823bbdbbfd7bfab7f1c"
+    },
+    {
+      "path": "qa/player-deferred-read-20261018/analyze-pngs.mjs",
+      "bytes": 17442,
+      "sha256": "0673ff54d5f7bb8baa9fd020cdc3fe21dbb67cdf0bb4230f692f785c57f1ba91"
+    },
+    {
+      "path": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "bytes": 62558,
+      "sha256": "72bc1e76066fe4b8e710b0217ae8aab61f15ee55d24a857bd894ad5154db01f4"
+    },
+    {
+      "path": "work/dead-signal-game/dist/renderer.js",
+      "bytes": 137275,
+      "sha256": "4ca94fcf3188f6665eff5587d96eda47ffd44a843c63e99a997d1a830128a1e2"
+    }
+  ],
+  "pngProvenanceFromPreviouslyExecutedDecoder": {
+    "allThreeBrowserComponentCountsMaxDeltasAndDimensionsReproduced": true,
+    "crcChecked": true,
+    "size": [960, 640],
+    "bitDepth": 8,
+    "colourType": 6,
+    "colourAncillaryChunks": [],
+    "pngs": [
+      {
+        "arm": "A1",
+        "bytes": 1397411,
+        "pngSha256": "a812360c9582a4d56da4ae26a57f4551e939621d368b1e05adb529ca395dc5bb",
+        "rgbaSha256": "45e3cbf3ab5f60c02c21fd2d2eeb94fe81f3b9bed7da173ffee3e3feafff22e9"
+      },
+      {
+        "arm": "B",
+        "bytes": 1397412,
+        "pngSha256": "5947562df8622e642c302e44021f63932b4737225cff8bf9fe516caa27e3c8df",
+        "rgbaSha256": "d115af83b67efdbff01758d1b20b0b739a9a9f5dbcd2657ef7509c3008b55a5e"
+      },
+      {
+        "arm": "A2",
+        "bytes": 1388339,
+        "pngSha256": "163771517fb5481309ebe3ef113ab93cb0b7c0c52afa6bad5db66944ed0b67b3",
+        "rgbaSha256": "3d1d4f7e2919c2f93a086ca595b3892150ae97f273d22d7cc39c22a5ce278a62"
+      }
+    ],
+    "limit": "This audit reads the saved decoder JSON. It does not rerun that decoder or independently render the images. The recorded exact reproduction excludes a simple reported-count/PNG mismatch for these files; it does not identify the renderer cause."
+  },
+  "observedPixels": {
+    "signedDeltaConvention": "second image minus first image",
+    "AB": {
+      "differentComponents": 903,
+      "maxDelta": 67,
+      "differentPixels": 347,
+      "fractionOfPixels": 0.0005647786458333334,
+      "bboxInclusive": [392, 207, 717, 574],
+      "occupied120x80Regions": 6,
+      "changedRGB": [318, 303, 282],
+      "signedRGBSums": [-51, -92, -162],
+      "changedAlpha": 0,
+      "note": "A small localized residual remains a strict failure. The same-pose player proof does not assign these pixels to the player, NPCs or another world layer."
+    },
+    "AA": {
+      "differentComponents": 1322575,
+      "maxDelta": 69,
+      "differentPixels": 582443,
+      "fractionOfPixels": 0.9479866536458333,
+      "bboxInclusive": [0, 0, 959, 639],
+      "occupied120x80Regions": 64,
+      "changedPixelsPerRegionMinMax": [6194, 9545],
+      "changedRGB": [422779, 477739, 422057],
+      "negativeRGB": [302275, 384411, 299116],
+      "positiveRGB": [120504, 93328, 122941],
+      "signedRGBSums": [-285793, -537823, -279910],
+      "meanAbsoluteChangedRGBDelta": [1.9023295859065847, 1.9896282279654791, 1.7380875095070096],
+      "changedRGBComponentsWithAbsDeltaAtMost2": [361642, 391164, 369277],
+      "changedAlpha": 0,
+      "dominantSignedBins": {
+        "r": [{"delta": -1, "count": 187667}, {"delta": 1, "count": 76288}, {"delta": -2, "count": 73080}],
+        "g": [{"delta": -1, "count": 174988}, {"delta": -2, "count": 140231}, {"delta": 1, "count": 56376}],
+        "b": [{"delta": -1, "count": 187174}, {"delta": 1, "count": 81163}, {"delta": -2, "count": 75596}]
+      }
+    },
+    "BA": {
+      "differentComponents": 1322461,
+      "maxDelta": 60,
+      "differentPixels": 582427,
+      "fractionOfPixels": 0.9479606119791667,
+      "bboxInclusive": [0, 0, 959, 639],
+      "occupied120x80Regions": 64,
+      "changedRGB": [422733, 477689, 422039],
+      "signedRGBSums": [-285742, -537731, -279748],
+      "meanAbsoluteChangedRGBDelta": [1.8975712802170637, 1.9872029709706525, 1.7369626977601595],
+      "changedAlpha": 0
+    },
+    "pixelMembership": {
+      "allThreeImagesEqual": 31957,
+      "A1EqualsBAndBothDifferFromA2": 582096,
+      "BEqualsA2ButA1Differs": 16,
+      "allThreePairComparisonsDiffer": 331,
+      "AAAndBAIntersection": 582427,
+      "ABPixelsOutsideAADifference": 0
+    },
+    "interpretation": "Most of the whole-scene mismatch is shared by both comparisons against the original A2 output, and consists largely of small predominantly negative RGB deltas spread over the entire viewport. This explains a visually similar image despite many changed components. It is not evidence that the mismatch is harmless, that a tolerance is appropriate, or that a particular Canvas backend caused it. Alpha invariance is weak evidence here because Renderer creates the main context with alpha:false."
+  },
+  "observedRuntime": {
+    "GameLiteralComparisons": 80,
+    "stateEventsCommandsMotionAndBothRNGExact": true,
+    "samePosePlayerVerificationCalls": 40,
+    "samePoseFullColourBodyAndMetadataAB_AA_BA": 0,
+    "playerGLFrames": [80, 240, 80],
+    "runtimeMaxNativeModels": [1, 2, 1],
+    "runtimeMaxPending": [2, 2, 2],
+    "finalPendingWithoutModel": [1, 0, 1],
+    "preparedNativeKeys": ["enemy-walker"],
+    "asphaltReadyAllArms": true,
+    "GPUAlphaDisabledAllArms": true,
+    "sameCanvasSizeDPRAllArms": [960, 640, 1],
+    "firstCallbackMs": [1558.4000000357628, 866.8999999761581, 1996.3999999761581],
+    "all40CallbackSumMs": [7486.900000333786, 9750.300000071526, 15081.799999773502],
+    "all40CallbackMedianMs": [106.69999998807907, 187.10000002384186, 292.5],
+    "finalReadbackMs": [15.300000011920929, 14.5, 1.800000011920929],
+    "PNGExportMs": [464.7999999523163, 65.29999995231628, 41.39999997615814],
+    "cleanup": {"retiredRenderers": 3, "ownedRenderers": 3, "lateScheduled": 12, "lateSettled": 12, "errors": 0, "mainOwnersAndSourcesUnchanged": true},
+    "limits": [
+      "The same-pose proof is for the player's original private body/colour raster on one context at a time. It does not certify NPC source readiness, final world compositing, floor pixels or every renderer cache across fresh arms.",
+      "Game equivalence does not imply renderer readiness equivalence: on-demand model completion differs in B. Model count alone does not identify which final visible body was rendered natively or baked.",
+      "A2's slower callbacks and shorter final read/export are compatible with several scheduling/backing-store explanations but provide no backend trace or causal proof.",
+      "B verification adds four player GL renders per frame relative to controls, plus extra Canvas captures. All these timings are quality-run diagnostics, never the missing cost-only run or an optimization result."
+    ]
+  },
+  "sourceObservations": [
+    {
+      "file": "work/dead-signal-game/dist/renderer.js",
+      "lines": [127, 440, 450, 472, 478, 690, 715, 643, 773],
+      "finding": "Main Canvas uses alpha:false without willReadFrequently; floor is a separately generated Canvas with default2D context. The floor contains deterministic many-small-fill/line work and the original ready asphalt image, then is scaled/isometrically sampled by the main draw. Fog/vignette add broad low-alpha composition. Source arithmetic is deterministic, but neither floor bytes nor actual renderer context/backing-store state were captured in this run. These are concrete observation points, not proven causes."
+    },
+    {
+      "file": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "lines": [170, 192, 223, 313, 320, 322],
+      "finding": "Each arm owns a fresh Renderer and awaits original asphalt readiness. One final wholeCanvas getImageData is followed synchronously by PNG export. The saved PNG comparison reproduces that readback comparison. Current readiness proof lacks floor bytes, native selected-input details and main/floor Canvas attributes, so it cannot distinguish source raster differences from target compositing/readback differences."
+    }
+  ],
+  "minimumNextDiagnosticProtocol": {
+    "scope": "One predeclared original-only A1/A2 pair using the existing combat harness ownership/preparation/literal-equivalence/cleanup path, with a new explicit8851 HTTP genuine-memory diagnostic gate. No candidate/profiler/prime draw, no new assets, no alternative selected pose, and no retry to seek a passing image.",
+    "unchangedWork": "Each fresh original arm executes exactly the same normal180 checkpoint, forty fixed.12 callbacks, interpolation, commands, AI, HP, spawning and original render timestamps. Keep unmodified primary final readback R0 and its strict A1/A2 comparison. Do not replace the existing performance gate with this diagnostic.",
+    "primitiveObservationOnly": [
+      "At first and final already-executed frame boundaries record Canvas physical/CSS size+DPR, camera/cameraProjection/zoom/offsetY/lastNow, native context attributes where supported, getTransform and alpha/composite/filter/smoothing state. Context attributes describe the public contract, not an authoritative GPU-versus-software backend flag.",
+      "Record existing floor identity changes, dimensions/floorKey/floorWorld relation, asphalt ready status and original image dimensions. Do not call makeFloor or draw it again.",
+      "Record actual model/pending keys and already-cached selected native actor id/type, selected.id, metadata.liveRig, frame.rect and placement at the final view. Read caches only: do not call selection, nativeEnemyFrame, rig.frame, load or pose methods. This separates the documented model-readiness mismatch from claimed Game equality."
+    ],
+    "postCostReadSequenceNoDrawOrAwaitBetween": [
+      "R0: retain the original final wholeCanvas getImageData as the primary evidence and original drain timing.",
+      "R1: one immediate second wholeCanvas read, with no intervening draw, PNG export, floor read, tick, pose call or await. Compare R0/R1 at zero tolerance. If it differs, preserve both and stop the diagnostic; do not rerender or proceed to search for a stable image.",
+      "If R0/R1 is exact, read the already-generated floor once into F, then take R2 of the unchanged wholeCanvas with no intervening draw/await. Compare R1/R2 at zero tolerance. Keep F only long enough for cross-arm exact comparison and a bounded diagnostic export/hash; drop its raw buffer before retirement.",
+      "Export the ordinary final PNG once, record its exact position in this sequence and decode it offline against the retained R0/R2 hashes/counts. This extra read sequence is explicit quality overhead and must not be called the original PNG/export or cost-only protocol."
+    ],
+    "decisionMatrix": [
+      "R0!=R1: unchanged-target readback/flush stability is implicated; no selected pose or Game update occurred between the reads. This still does not name the driver/backend cause.",
+      "R0==R1 but R1!=R2: the extra floor read precedes an observable target change without a draw. Preserve this unusual source/flush interaction rather than silently preparing the floor before a new benchmark.",
+      "Within-arm target reads stable, floor F differs across originals: a concrete post-cost floor-source capture discrepancy exists; compare its recorded inputs/state. Because the floor read can itself flush or materialize that Canvas, F is not automatically proof of the exact bytes sampled by the earlier main draw, or proof of the source-generation cause.",
+      "Within-arm reads and cross-arm floor exact, whole AA still fails: next inspect target composition/renderer-state and cached actor/environment inputs. Matching the floor alone does not certify all other world layers."
+    ],
+    "memoryAndCleanup": "Only one owned arm and its existing Canvas/rigs remain active at a time. Reuse three bounded wholeCanvas read buffers for diagnosis and retain at most one prior floor baseline plus the current floor; no persistent bitmap/frame cache. Release these buffers and owned contexts through existing retirement, follow late loads, preserve main/borrowed identities and report any incomplete cleanup. These are source storage limits, not peak-memory measurements.",
+    "acceptance": "Diagnostic performance.accepted=false unconditionally. Existing candidate remainsOFF; original strict AA/AB/BA, zero tolerance, original Game/source/cleanup requirements and predeclared prep+40+drain/first/steady/tail performance criteria remain unchanged. A newly failing or passing diagnostic cannot retroactively change saved failures or substitute for the unexecuted cost-only A/B/A."
+  }
+}

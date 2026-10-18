@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: all original play branches retain exact PCM, random stream and voice graph at 44.1/48/96 kHz on cache miss, reuse and forced-original path
+ok 1 - all original play branches retain exact PCM, random stream and voice graph at 44.1/48/96 kHz on cache miss, reuse and forced-original path
+  ---
+  duration_ms: 766.1696
+  type: 'test'
+  ...
+# Subtest: voice caps, throttle boundaries, mute/suspended state, missing panner and ended cleanup remain the original behavior
+ok 2 - voice caps, throttle boundaries, mute/suspended state, missing panner and ended cleanup remain the original behavior
+  ---
+  duration_ms: 221.1167
+  type: 'test'
+  ...
+# Subtest: cached envelope stores exact Float64 decay only, saves actual pow calls, and survives context replacement without crossing AudioSystem owners
+ok 3 - cached envelope stores exact Float64 decay only, saves actual pow calls, and survives context replacement without crossing AudioSystem owners
+  ---
+  duration_ms: 4.1393
+  type: 'test'
+  ...
+# Subtest: first-arrival admission never exceeds 24 curves or 1 MiB and full/oversized/invalid requests retain the original PCM path without churn
+ok 4 - first-arrival admission never exceeds 24 curves or 1 MiB and full/oversized/invalid requests retain the original PCM path without churn
+  ---
+  duration_ms: 150.5701
+  type: 'test'
+  ...
+# Subtest: optional allocation and interrupted generation failures preserve original samples/graph and never publish incomplete curves
+ok 5 - optional allocation and interrupted generation failures preserve original samples/graph and never publish incomplete curves
+  ---
+  duration_ms: 6.0711
+  type: 'test'
+  ...
+# Subtest: offline audio comparison requires the genuine 8851 memory QA before source fetch or AudioContext access
+ok 6 - offline audio comparison requires the genuine 8851 memory QA before source fetch or AudioContext access
+  ---
+  duration_ms: 2.7146
+  type: 'test'
+  ...
+# Subtest: seeded noise observation preserves exact Math.random descriptor even on throws and rejects asynchronous callbacks
+ok 7 - seeded noise observation preserves exact Math.random descriptor even on throws and rejects asynchronous callbacks
+  ---
+  duration_ms: 2.6828
+  type: 'test'
+  ...
+# Subtest: native offline browser oracle is the byte exact independent original; PCM comparison catches scalar and length differences
+ok 8 - native offline browser oracle is the byte exact independent original; PCM comparison catches scalar and length differences
+  ---
+  duration_ms: 7.3803
+  type: 'test'
+  ...
+# Subtest: fixture has sixteen cold lengths and seeded steady blocks cover actual gain/filter/delay recipes without consuming the noise RNG
+ok 9 - fixture has sixteen cold lengths and seeded steady blocks cover actual gain/filter/delay recipes without consuming the noise RNG
+  ---
+  duration_ms: 6.4898
+  type: 'test'
+  ...
+# Subtest: immutable original SHA/import semantics and actual original/cached noise preserve exact PCM, RNG and fresh voice graphs
+ok 10 - immutable original SHA/import semantics and actual original/cached noise preserve exact PCM, RNG and fresh voice graphs
+  ---
+  duration_ms: 21.8286
+  type: 'test'
+  ...
+# Subtest: fake allocates fresh Float32 buffers, returns channel identity and consumes only current nodes after original onended cleanup
+ok 11 - fake allocates fresh Float32 buffers, returns channel identity and consumes only current nodes after original onended cleanup
+  ---
+  duration_ms: 0.7704
+  type: 'test'
+  ...
+# Subtest: only original noise calls are bracketed by clocks/CPU reads, hashing and cache inspection are outside, and global RNG restores on observer failure
+ok 12 - only original noise calls are bracketed by clocks/CPU reads, hashing and cache inspection are outside, and global RNG restores on observer failure
+  ---
+  duration_ms: 1.8073
+  type: 'test'
+  ...
+# Subtest: A/B/A child contract is sequential with equal options, strict PCM/RNG/node oracles and separately bounded cache admission
+ok 13 - A/B/A child contract is sequential with equal options, strict PCM/RNG/node oracles and separately bounded cache admission
+  ---
+  duration_ms: 4.8868
+  type: 'test'
+  ...
+# Subtest: CLI exclusively creates reports and keeps existing evidence intact; mismatch and child failures remain explicit without real diagnostics
+ok 14 - CLI exclusively creates reports and keeps existing evidence intact; mismatch and child failures remain explicit without real diagnostics
+  ---
+  duration_ms: 11.2235
+  type: 'test'
+  ...
+# Subtest: actual reload cues cross authored hand stages once, freeze paused, and do not replay after restore
+ok 15 - actual reload cues cross authored hand stages once, freeze paused, and do not replay after restore
+  ---
+  duration_ms: 23.6168
+  type: 'test'
+  ...
+# Subtest: reload sounds issue no future wall-clock voices and stages retain weapon-specific mechanics
+ok 16 - reload sounds issue no future wall-clock voices and stages retain weapon-specific mechanics
+  ---
+  duration_ms: 1.0697
+  type: 'test'
+  ...
+# Subtest: sound pan matches the isometric camera and attenuation stays bounded
+ok 17 - sound pan matches the isometric camera and attenuation stays bounded
+  ---
+  duration_ms: 2.2593
+  type: 'test'
+  ...
+# Subtest: voice graph uses per-event pan/gain, limiter and disconnects temporary nodes
+ok 18 - voice graph uses per-event pan/gain, limiter and disconnects temporary nodes
+  ---
+  duration_ms: 1.3647
+  type: 'test'
+  ...
+# Subtest: actual bullet obstacle collision creates merged material feedback and keeps bullets stopped
+ok 19 - actual bullet obstacle collision creates merged material feedback and keeps bullets stopped
+  ---
+  duration_ms: 9.0549
+  type: 'test'
+  ...
+# Subtest: crowded gunfire reserves headroom for real damage and layered explosions, then releases every voice
+ok 20 - crowded gunfire reserves headroom for real damage and layered explosions, then releases every voice
+  ---
+  duration_ms: 1.2229
+  type: 'test'
+  ...
+# Subtest: actual Molotov land/lure/reload events carry their real spatial source and weapon without new save fields
+ok 21 - actual Molotov land/lure/reload events carry their real spatial source and weapon without new save fields
+  ---
+  duration_ms: 13.1778
+  type: 'test'
+  ...
+# Subtest: Molotov break and ignition have separate spectral layers; weapon reload mechanics have separated timing
+ok 22 - Molotov break and ignition have separate spectral layers; weapon reload mechanics have separated timing
+  ---
+  duration_ms: 0.5343
+  type: 'test'
+  ...
+# Subtest: boss wall collision has distinct low concrete and metal layers with no future attack clock
+ok 23 - boss wall collision has distinct low concrete and metal layers with no future attack clock
+  ---
+  duration_ms: 0.3511
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1350.2408

@@ -1,0 +1,40 @@
+✔ the actual untouched RGBA PNG has the recorded digest and its 313/314px sixteen-frame metadata covers it exactly (6.1563ms)
+✔ metadata rejects missing/overlapping/nonfinite/clipped frames and invalid foot pivots without mutating the input (4.386ms)
+✔ one image load is shared by repeat callers; PNG errors, dimension mismatches and timeouts safely retain explicit retry behavior (8.6171ms)
+✔ time-based sixteen-frame playback loops exactly, handles clock boundaries and uses no random or wall clock (0.5089ms)
+✔ exact variable source rectangles draw nine connected clusters with stable ground pivots and no accumulating image cache (4.411ms)
+✔ larger flame bodies retain nine ground anchors while small fields and explicit widths stay bounded (0.7788ms)
+✔ the connected field has one centre and eight evenly spaced ground anchors, dispersed frames and no per-draw trigonometry (0.7095ms)
+✔ actual thrown fire keeps its ground extent and save state while replacing only triangle flames; pause and reduced motion freeze the sprite sample (9.7483ms)
+✔ actual boss fire warning and damage field geometry stay intact and only its active flame body uses the nine sprites (9.2029ms)
+✔ unavailable optional art preserves original fire fallback and a runtime singleton shares one decode across renderers (6.0432ms)
+✔ repeated loaded VFX renders preserve actual Game timers/RNG/effects and Canvas state without reading random or wall clock (2.5779ms)
+✔ native flame clusters can be restricted to supported surfaces without changing canvas state or substituting fallback polygons (0.4649ms)
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (6.4449ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (123.5182ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (2.5833ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.5369ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (0.5128ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (1.8953ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (155.7088ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (22.3096ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (35.6701ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (21.9898ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (4.5756ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (7.8091ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (0.6608ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (45.7031ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (3.1694ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (6.4754ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (1.0783ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (305.2974ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (26.8814ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (141.2011ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1147.8879

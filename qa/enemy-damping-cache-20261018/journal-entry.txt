@@ -1,0 +1,15 @@
+
+
+DEAD SIGNAL — 밀집 전투 숫자 감쇠 캐시 단일 후보 (2026-10-18T10:48:52Z)
+
+실제engine59149B/SHA72487b35…5260ce를그대로두고별도생성copy만비교했다. updateEnemies 호출local numericDt/지연enemyDamping과기존2개vx/vy pair만바꾼후보이며3site전체역치환exact, 원본모듈/모델/AI/이펙트/화질/저장변경0이다. 숫자dt의첫도달vx RHS에서만계산해재사용하고 nonnumber는원래coercion/exp를반복한다. 정상변경없는Mathintrinsics전제이고 외부Math.exp교체나그호출횟수동등은주장하지않는다.
+
+최초집중7/7PASS5608.2715ms: sourcepin/inverse, IEEE64 signedzero/subnormal/Infinity/NaNpayload·두감쇠site, getter/setter/coercion/throw/partialwrite/earlycontinue/재진입local/grid정리와2seed×60/180/210 실제Game360pairedtick·366state비교·두RNG/events/actoridentity를확인했다. 원본581/제품engine이바이트exact여서직전whole1354(1353PASS/기존CPU1FAIL,384417.8468ms)와verify역사.gitignore첫불일치baseline을재사용했다. 새whole1361실행·전체PASS주장0이며제품변경없는QA후보에동일장기stress/native를유리하게반복하지않았다.
+
+원본180명V8프로파일1회:670samples/전체1.312568s, updateEnemies sampledself341748us, move102038us, direction42842us, GC139443us. startup/fixture/2warmup/8측정episode/proof를모두포함한표본이므로실측함수CPU나Math.exp=0비용/GC원인으로해석하지않는다. 프로파일을끈별도최초A1/B/A2는60/180/210명각2warmup+8fresh×200scheduled60Hz, seed774 mission01 못총 정상HP/AI/spawn 유지. 각arm/count1600active/0terminal이고총14400측정tick, B/A2의48개전체직렬화Game/RNG/events/commands/navigation이A1과같다. JSON의-0정규화는별도명시했고dampingIEEE는unit으로검수했다. setup/snapshot/hash/비교는비용밖, 명령생성·실제tick·원래eventdrain/기록은비용안이다.
+
+CPU합ms A1/B/A2:60명298/205/124,180명472/454/423,210명578/514/640. 빠른A대비B는60명65.3226%/180명7.3286%느리고210명11.0727%빠르나, 원본CPU drift가140.3226/11.5839/10.7266%로전부사전10%를초과했다.60명wall/tail·180명CPU/p95도실패해정해둔180/210둘다5%CPU절감·회귀한도·안정성기준미통과, inconclusive/OFF·제품미채택·유리한재실행0이다. speedup/FPS/전체프레임/GPU/peakRAM성과로표현하지않는다.
+
+617기록이focused/측정전후exact, 이전581·보호원본22·제품engine원문을보존했다. 별도브라우저실행0이며사용자tab1/8806/플레이저장접근0이다. rawprofile/전체비용JSON/최초로그/판정/소스freeze를보존했다. 다음은시계확인뒤보스02상단쌍접힘후보를기존188timeline/다각도에검수하는작업을권한다. 이후CPU는updateEnemies/이동의실제비용을근거로더좁게검토하며private버킷index순회도V8가기존iterator를소거할수있어실측전이득을단정하지않는다. 밀집전투CPU예산/실제프레임성능·자연스러움·100시간스토리는여전히미완료다.
+
+Meshy원본에셋/리그/클립/무드보드/플레이데이터변경0. 유료생성/결제/키저장/automation7/새commitpush/외부공개/스토어0. 마감2026-10-19 00:00KST(15:00Z)이후새개발0·완료/미완료기록후automation4 PAUSED, 이번자동화변경0.

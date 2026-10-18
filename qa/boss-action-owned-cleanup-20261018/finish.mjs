@@ -1,0 +1,15 @@
+import {readFile,appendFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const qa=new URL('./',import.meta.url),journal=new URL('../../WINDOWS_CONTINUATION.txt',qa);
+const before=await readFile(journal),entry=await readFile(new URL('journal-entry.txt',qa));
+assert.equal(before.includes(entry),false,'Do not append this atomic task twice');
+const whole=await readFile(new URL('whole-test.txt',qa),'utf8'),done=JSON.parse(await readFile(new URL('completion.json',qa),'utf8'));
+for(const [key,value]of [['tests',1341],['pass',1340],['fail',1],['cancelled',0],['skipped',0]])assert.equal(Number([...whole.matchAll(new RegExp('^# '+key+' (\\d+)$','gm'))].at(-1)?.[1]),value);
+assert.ok(whole.includes('CPU=15562.00ms, wall=21365.10ms'));assert.equal(done.whole.durationMs,418533.4444);
+const native=JSON.parse(await readFile(new URL('native-analysis.json',qa),'utf8'));assert.equal(native.passed,true);assert.equal(native.bosses.length,2);
+const freeze=JSON.parse(await readFile(new URL('source-freeze.json',qa),'utf8'));for(const file of ['source-after-native.json','source-after-whole.json'])assert.deepEqual(JSON.parse(await readFile(new URL(file,qa),'utf8')).files,freeze.files);
+await appendFile(journal,entry);const after=await readFile(journal);assert.ok(after.subarray(0,before.length).equals(before));assert.ok(after.subarray(before.length).equals(entry));
+const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
+await writeFile(new URL('journal-preservation.json',qa),JSON.stringify({beforeBytes:before.length,beforeSHA256:sha(before),appendedBytes:entry.length,entrySHA256:sha(entry),afterBytes:after.length,afterSHA256:sha(after),originalPrefixExact:true,atomicEntryAppendedOnce:true,sourceRecords547Exact:true},null,2)+'\n');
+console.log(JSON.stringify({journalPrefixExact:true,entryAppendedOnce:true,wholePass:1340,wholeFail:1,nativeBossSubsetsPassed:2,sourceRecordsExact:547}));

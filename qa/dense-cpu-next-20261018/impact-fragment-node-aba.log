@@ -1,0 +1,202 @@
+{
+  "diagnosticOnly": true,
+  "iterations": 40000,
+  "processOrder": "sequential fresh Node A original → B candidate → A original-repeat",
+  "outputsExact": true,
+  "allValid": true,
+  "runs": [
+    {
+      "arm": "A",
+      "mode": "original",
+      "nodeVersion": "v22.23.3",
+      "v8Version": "12.4.254.21-node.57",
+      "platform": "win32",
+      "arch": "x64",
+      "nodeFlags": [],
+      "originalModuleSha256": "a83043664f378b645bdad3c8e19a47077b3824bba629a3a6462bb6b597896dc0",
+      "candidateModuleSha256": "3c84025b562192dd603866b0e3cb954908c9c0347d76f516b74ff07dcd51729c",
+      "recipeCount": 252,
+      "iterations": 40000,
+      "setup": {
+        "dependencyImportWallMs": 30.966699999999975,
+        "moduleImportWallMs": 10.135899999999992,
+        "moduleImportScope": "Shared dependencies preloaded identically in each worker; module import includes parse/evaluation and any candidate table initialization, not an isolated32-trig timer."
+      },
+      "measurement": {
+        "cold": {
+          "callWallMs": 9.782100000000014,
+          "callCpuMs": 15,
+          "returnValue": true,
+          "commands": 104,
+          "checksum": 5497.672002704354,
+          "depth": 0,
+          "state": {
+            "globalAlpha": 0.73,
+            "globalCompositeOperation": "source-over",
+            "fillStyle": "#102030",
+            "strokeStyle": "#405060",
+            "lineWidth": 1.25
+          }
+        },
+        "steady": {
+          "calls": 40000,
+          "callWallMs": 543.4909,
+          "callCpuMs": 282,
+          "returnChecksum": 40000,
+          "commands": 3985542,
+          "scalarChecksum": 423173559.4061317
+        },
+        "finalState": {
+          "globalAlpha": 0.73,
+          "globalCompositeOperation": "source-over",
+          "fillStyle": "#102030",
+          "strokeStyle": "#405060",
+          "lineWidth": 1.25
+        },
+        "depth": 0,
+        "inputsUnchanged": true,
+        "inputSha256": "a605630264ebbaf61c209a73ea30a86df02763f0ffffbc686a5acdab7f37f091"
+      },
+      "proof": {
+        "commands": 39170,
+        "commandSha256": "ae1def2c8b9cb3cbb076228d206c01a941a518fb57e95841e93d59fc218d5aaa",
+        "returns": 252,
+        "inputSha256": "a605630264ebbaf61c209a73ea30a86df02763f0ffffbc686a5acdab7f37f091",
+        "inputsUnchanged": true,
+        "stateRestored": true,
+        "depth": 0
+      },
+      "valid": true,
+      "note": "Bounded sequential fresh Node processes run immutable original → SHA-pinned current candidate → immutable original. The candidate precomputes fixed6/10-fragment spread/cos/sin and hoists Math.pow(t,.65) to once per follow-through:24/40 fixed trig calls and5/9 progress pow calls move out of each respective fragment loop. Only actual public drawWeaponImpact calls and the identical lightweight scalar geometry/command-count consumer are timed. The sink uses preallocated save/restore slots, does not retain geometry, and introduces no command trace, hashing or coordinate-array allocation inside call timing. Its JavaScript overhead is included; it prevents simply discarding all coordinates but is not native Canvas. Complete command/IEEE64 hashes and input/state checks run in a separate untimed pass. Module import wall includes parse/evaluation and candidate table initialization; the32 fixed sin/cos initialization calls are not free, and their individual cost is not isolated from import overhead. Shared dependency import is reported separately. Normal unmodified Math is assumed; no monkeypatch, forcedGC, escape of source objects or changed particles/frames is used. These timings are not Canvas/GPU execution, browser/frame pacing, audible or visual quality, game performance, actual heap allocation, or FPS evidence. There is no performance pass/fail threshold."
+    },
+    {
+      "arm": "B",
+      "mode": "candidate",
+      "nodeVersion": "v22.23.3",
+      "v8Version": "12.4.254.21-node.57",
+      "platform": "win32",
+      "arch": "x64",
+      "nodeFlags": [],
+      "originalModuleSha256": "a83043664f378b645bdad3c8e19a47077b3824bba629a3a6462bb6b597896dc0",
+      "candidateModuleSha256": "3c84025b562192dd603866b0e3cb954908c9c0347d76f516b74ff07dcd51729c",
+      "recipeCount": 252,
+      "iterations": 40000,
+      "setup": {
+        "dependencyImportWallMs": 13.318399999999997,
+        "moduleImportWallMs": 8.886700000000019,
+        "moduleImportScope": "Shared dependencies preloaded identically in each worker; module import includes parse/evaluation and any candidate table initialization, not an isolated32-trig timer."
+      },
+      "measurement": {
+        "cold": {
+          "callWallMs": 1.3459000000000003,
+          "callCpuMs": 0,
+          "returnValue": true,
+          "commands": 104,
+          "checksum": 5497.672002704354,
+          "depth": 0,
+          "state": {
+            "globalAlpha": 0.73,
+            "globalCompositeOperation": "source-over",
+            "fillStyle": "#102030",
+            "strokeStyle": "#405060",
+            "lineWidth": 1.25
+          }
+        },
+        "steady": {
+          "calls": 40000,
+          "callWallMs": 275.34659999999997,
+          "callCpuMs": 219,
+          "returnChecksum": 40000,
+          "commands": 3985542,
+          "scalarChecksum": 423173559.4061317
+        },
+        "finalState": {
+          "globalAlpha": 0.73,
+          "globalCompositeOperation": "source-over",
+          "fillStyle": "#102030",
+          "strokeStyle": "#405060",
+          "lineWidth": 1.25
+        },
+        "depth": 0,
+        "inputsUnchanged": true,
+        "inputSha256": "a605630264ebbaf61c209a73ea30a86df02763f0ffffbc686a5acdab7f37f091"
+      },
+      "proof": {
+        "commands": 39170,
+        "commandSha256": "ae1def2c8b9cb3cbb076228d206c01a941a518fb57e95841e93d59fc218d5aaa",
+        "returns": 252,
+        "inputSha256": "a605630264ebbaf61c209a73ea30a86df02763f0ffffbc686a5acdab7f37f091",
+        "inputsUnchanged": true,
+        "stateRestored": true,
+        "depth": 0
+      },
+      "valid": true,
+      "note": "Bounded sequential fresh Node processes run immutable original → SHA-pinned current candidate → immutable original. The candidate precomputes fixed6/10-fragment spread/cos/sin and hoists Math.pow(t,.65) to once per follow-through:24/40 fixed trig calls and5/9 progress pow calls move out of each respective fragment loop. Only actual public drawWeaponImpact calls and the identical lightweight scalar geometry/command-count consumer are timed. The sink uses preallocated save/restore slots, does not retain geometry, and introduces no command trace, hashing or coordinate-array allocation inside call timing. Its JavaScript overhead is included; it prevents simply discarding all coordinates but is not native Canvas. Complete command/IEEE64 hashes and input/state checks run in a separate untimed pass. Module import wall includes parse/evaluation and candidate table initialization; the32 fixed sin/cos initialization calls are not free, and their individual cost is not isolated from import overhead. Shared dependency import is reported separately. Normal unmodified Math is assumed; no monkeypatch, forcedGC, escape of source objects or changed particles/frames is used. These timings are not Canvas/GPU execution, browser/frame pacing, audible or visual quality, game performance, actual heap allocation, or FPS evidence. There is no performance pass/fail threshold."
+    },
+    {
+      "arm": "A-repeat",
+      "mode": "original",
+      "nodeVersion": "v22.23.3",
+      "v8Version": "12.4.254.21-node.57",
+      "platform": "win32",
+      "arch": "x64",
+      "nodeFlags": [],
+      "originalModuleSha256": "a83043664f378b645bdad3c8e19a47077b3824bba629a3a6462bb6b597896dc0",
+      "candidateModuleSha256": "3c84025b562192dd603866b0e3cb954908c9c0347d76f516b74ff07dcd51729c",
+      "recipeCount": 252,
+      "iterations": 40000,
+      "setup": {
+        "dependencyImportWallMs": 12.531799999999976,
+        "moduleImportWallMs": 4.628100000000018,
+        "moduleImportScope": "Shared dependencies preloaded identically in each worker; module import includes parse/evaluation and any candidate table initialization, not an isolated32-trig timer."
+      },
+      "measurement": {
+        "cold": {
+          "callWallMs": 5.367399999999975,
+          "callCpuMs": 0,
+          "returnValue": true,
+          "commands": 104,
+          "checksum": 5497.672002704354,
+          "depth": 0,
+          "state": {
+            "globalAlpha": 0.73,
+            "globalCompositeOperation": "source-over",
+            "fillStyle": "#102030",
+            "strokeStyle": "#405060",
+            "lineWidth": 1.25
+          }
+        },
+        "steady": {
+          "calls": 40000,
+          "callWallMs": 557.3104000000001,
+          "callCpuMs": 267,
+          "returnChecksum": 40000,
+          "commands": 3985542,
+          "scalarChecksum": 423173559.4061317
+        },
+        "finalState": {
+          "globalAlpha": 0.73,
+          "globalCompositeOperation": "source-over",
+          "fillStyle": "#102030",
+          "strokeStyle": "#405060",
+          "lineWidth": 1.25
+        },
+        "depth": 0,
+        "inputsUnchanged": true,
+        "inputSha256": "a605630264ebbaf61c209a73ea30a86df02763f0ffffbc686a5acdab7f37f091"
+      },
+      "proof": {
+        "commands": 39170,
+        "commandSha256": "ae1def2c8b9cb3cbb076228d206c01a941a518fb57e95841e93d59fc218d5aaa",
+        "returns": 252,
+        "inputSha256": "a605630264ebbaf61c209a73ea30a86df02763f0ffffbc686a5acdab7f37f091",
+        "inputsUnchanged": true,
+        "stateRestored": true,
+        "depth": 0
+      },
+      "valid": true,
+      "note": "Bounded sequential fresh Node processes run immutable original → SHA-pinned current candidate → immutable original. The candidate precomputes fixed6/10-fragment spread/cos/sin and hoists Math.pow(t,.65) to once per follow-through:24/40 fixed trig calls and5/9 progress pow calls move out of each respective fragment loop. Only actual public drawWeaponImpact calls and the identical lightweight scalar geometry/command-count consumer are timed. The sink uses preallocated save/restore slots, does not retain geometry, and introduces no command trace, hashing or coordinate-array allocation inside call timing. Its JavaScript overhead is included; it prevents simply discarding all coordinates but is not native Canvas. Complete command/IEEE64 hashes and input/state checks run in a separate untimed pass. Module import wall includes parse/evaluation and candidate table initialization; the32 fixed sin/cos initialization calls are not free, and their individual cost is not isolated from import overhead. Shared dependency import is reported separately. Normal unmodified Math is assumed; no monkeypatch, forcedGC, escape of source objects or changed particles/frames is used. These timings are not Canvas/GPU execution, browser/frame pacing, audible or visual quality, game performance, actual heap allocation, or FPS evidence. There is no performance pass/fail threshold."
+    }
+  ],
+  "note": "Bounded sequential fresh Node processes run immutable original → SHA-pinned current candidate → immutable original. The candidate precomputes fixed6/10-fragment spread/cos/sin and hoists Math.pow(t,.65) to once per follow-through:24/40 fixed trig calls and5/9 progress pow calls move out of each respective fragment loop. Only actual public drawWeaponImpact calls and the identical lightweight scalar geometry/command-count consumer are timed. The sink uses preallocated save/restore slots, does not retain geometry, and introduces no command trace, hashing or coordinate-array allocation inside call timing. Its JavaScript overhead is included; it prevents simply discarding all coordinates but is not native Canvas. Complete command/IEEE64 hashes and input/state checks run in a separate untimed pass. Module import wall includes parse/evaluation and candidate table initialization; the32 fixed sin/cos initialization calls are not free, and their individual cost is not isolated from import overhead. Shared dependency import is reported separately. Normal unmodified Math is assumed; no monkeypatch, forcedGC, escape of source objects or changed particles/frames is used. These timings are not Canvas/GPU execution, browser/frame pacing, audible or visual quality, game performance, actual heap allocation, or FPS evidence. There is no performance pass/fail threshold."
+}

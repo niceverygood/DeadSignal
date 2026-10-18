@@ -1,0 +1,16 @@
+✔ finished original enemy frame owns a private copy when the live atlas is overwritten, without corpse writes (3.4261ms)
+✔ finished-image cache stays at twelve256px bodies and releases missing, expired or restored-world corpses (0.6542ms)
+✔ unfinished transitions, baked frames, bosses and oversized surfaces are not frozen, and pose/size changes invalidate (1.2631ms)
+✔ fresh death poses share the living atlas and retain the total twelve-pose budget (2.2669ms)
+✔ atlas failures release batch state and reset budgets for the original fallback draw (0.2864ms)
+✔ finished original boss death reuses its own pose across advancing gameplay and other actors, with complete cache invalidation (130.2025ms)
+✔ a late live-to-death transition still completes instead of caching its inherited standing first pose (63.5873ms)
+✔ unfinished death and living clips retain advancing-frame sampling (50.0872ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 481.0436

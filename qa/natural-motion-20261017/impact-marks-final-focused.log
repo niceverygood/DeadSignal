@@ -1,0 +1,32 @@
+✔ actual front-face bullet collision leaves bounded visual scars without changing saved simulation/RNG (18.2393ms)
+✔ hidden/back faces, shields and destroyed objects do not leave visible scars; renderer history resets between worlds (0.3578ms)
+✔ surface and ground marks restore compositing/alpha and remain fixed under paused redraw (0.5956ms)
+✔ fractional render time settling after pause does not erase already settled marks (0.2063ms)
+✔ critical screen feedback skips inactive scenes and invalid or healthy values without allocating a gradient (3.1839ms)
+✔ actual critical rendering keeps a transparent center and static screen edges beneath objective markers regardless of visual options (116.9789ms)
+✔ critical gradients reuse their viewport cache and resize or DPR changes replace it once without leaking canvas state (2.3234ms)
+✔ the actual camera inverse accounts for its screen offset, zoom and sprite height (0.6188ms)
+✔ resizing retains pointer accuracy and limits the backing canvas pixel ratio (0.3195ms)
+✔ automatic brackets follow only a living selected body and manual mode retains its pointer marker (1.0004ms)
+✔ the player outline appears once for a front body occluder and skips behind, dead, culled and feet-only bodies (150.0279ms)
+✔ the outline follows particles and precedes text and cursor only in alive nonterminal scenes (21.3685ms)
+✔ head, coat and backpack outline paths share the actual camera transform and keep constant CSS width across DPR and resize (33.4991ms)
+✔ repeated adaptive outline rendering and camera following preserve checkpoints, both RNG streams and effect queues (21.9433ms)
+✔ objective directions hide visible or dead targets and preserve offscreen roles and screen headings (4.0992ms)
+✔ whole direction markers avoid measured HUDs on portrait, desktop and touch landscape screens (7.7231ms)
+✔ same-direction objective markers keep mandatory priority and omit optional marks when only one slot is free (0.6699ms)
+✔ objective arrows recompute after resize, remain steady during viewport shake, and leave real combat state unchanged (45.4101ms)
+✔ hidden minimaps and noncombat or small screens skip terrain preparation and drawing (3.0364ms)
+✔ minimap terrain is reused for dynamic actors and exits and rebuilt once for destruction, district and resize (6.7877ms)
+✔ living alarm, blockade and collector markers use different shapes and dead markers disappear dynamically (0.9885ms)
+✔ the camera follows in seconds and environment rendering preserves combat, both RNG streams and effect queues (302.095ms)
+✔ environment and reduced-motion switches suppress rain and ripples while retaining static atmosphere (25.7729ms)
+✔ optional asphalt loading falls back safely and replaces only the cached floor after a valid image arrives (136.0446ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1092.8556

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: only the twelve original DS final rigs are supported; unsupported/inactive calls perform exactly zero bone changes
+ok 1 - only the twelve original DS final rigs are supported; unsupported/inactive calls perform exactly zero bone changes
+  ---
+  duration_ms: 73.7581
+  type: 'test'
+  ...
+# Subtest: windup visibly raises the paired original X-lever arms and holds20/10 degrees at its end without moving feet/root/head
+ok 2 - windup visibly raises the paired original X-lever arms and holds20/10 degrees at its end without moving feet/root/head
+  ---
+  duration_ms: 1.8969
+  type: 'test'
+  ...
+# Subtest: all skill families have bounded smooth layer endpoints and carry the same held raise into attack, with original base-clip transitions left to LiveBoss
+ok 3 - all skill families have bounded smooth layer endpoints and carry the same held raise into attack, with original base-clip transitions left to LiveBoss
+  ---
+  duration_ms: 266.162
+  type: 'test'
+  ...
+# Subtest: travelling/guarding families brace once, hammer families downstroke, and release/reach envelopes remain distinct and return to neutral
+ok 4 - travelling/guarding families brace once, hammer families downstroke, and release/reach envelopes remain distinct and return to neutral
+  ---
+  duration_ms: 3.67
+  type: 'test'
+  ...
+# Subtest: the fresh-sample X articulation is amplified only1.5x and capped40 degrees; repeated fresh replays retain exact source identity/data with no drift
+ok 5 - the fresh-sample X articulation is amplified only1.5x and capped40 degrees; repeated fresh replays retain exact source identity/data with no drift
+  ---
+  duration_ms: 4.7064
+  type: 'test'
+  ...
+# Subtest: the actual SHA-pinned original hammer GLB keeps mesh/UV/skin/clip/rest data and exact planted bone transforms while its sampled upper-body quaternion changes
+ok 6 - the actual SHA-pinned original hammer GLB keeps mesh/UV/skin/clip/rest data and exact planted bone transforms while its sampled upper-body quaternion changes
+  ---
+  duration_ms: 834.2032
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2051.436

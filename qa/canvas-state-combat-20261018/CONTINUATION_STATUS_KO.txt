@@ -1,0 +1,27 @@
+2026-10-18 Canvas 상태 후보 실제 밀집 전투 검수
+
+판정: 후보는 QA-only로 보존하고 제품에 적용하지 않는다.
+신규 qa-canvas-state-install.js는 원본 Renderer.nativeEnemyFrame이 최종 반환한 baked 일반 NPC에만 일회성 인증/사용권을 부여한다. 보스/native/player/options/hit-light 재사용은 원본 fallback. qa-canvas-state-combat.js는 별도 8851 genuine-memory 버튼에서 새 owned Renderer/Art/player/NPC/boss를 생성해 원본180 checkpoint의 A1/B/A2를 비교한다. 제품 Game/Renderer/ProductionArt/원본Meshy/리그/기존 저장은 변경하지 않았다. 기존 qa-player-rig.js의170464byte 전체 prefix는 동일하고 opt-in UI만 append했다.
+
+실제 run1(Chrome1494332514): 정상HP·스폰·AI·auto사격을 유지한40×.12초 catch-up+보간+실제렌더, arm별288ticks/게임4.8초. 80frame의 literal checkpoint/effects/motion/commands/events/두RNG 비교 모두 exact. 최종 세 arm HP73/처치3/적188/random3331604612/visualRandom2139495574로 같다. factory7743/draw9850/native403·최대12선택은 동일, B의 baked manual6937calls/false0을 실제 확인했다.
+원본 준비는 walker1모델/256, 보스2모델/512, player ready, ready27records(공유4+owned23), 사전draw0/GPU추가flagOFF. F0 native NPC0, F1부터 native 사용. on-demand 모델 완료 시점은 달라 런타임 최대 모델 A1=1/B·A2=2, pending-without-model최대1이었다. 따라서 GPU/모델 로드까지 모든 작업이 동일한 완전한 성능 실험이라고 확대하지 않는다.
+
+첫 callback A1/B/A2=1323.8/401.5/363ms; all40 중앙50.5/50.8/45ms, p95=265.2/259.5/133.9ms, max=첫callback과 동일. callback합4116.5/2688.2/2168.9ms+finalreadback9.9/9.8/8.7ms=4126.4/2698/2177.6ms. 후보B는 더 빠른 원본A2보다23.90% 느리다. steady30도 중앙50.5/50.4/45.7ms, p95=199.1/76/56.2ms, max203.1/259.5/57.9ms. 사전기준(양원본보다 낮고 더 빠른A대비합+readback>=3%감소, callback40와drain포함41 p95/max 악화0) 실패. 첫 A1만 기준으로 개선 주장하지 않는다. 준비/첫/steady/전체/최종drain을 별도 기록했으며 Canvas8stage나frame-costobserver는 설치하지 않았다.
+전체Canvas strictRGBA: A1/B53components max8, A1/A2 24components max1, B/A2 69components max8. 원본끼리도 차이가 있지만 허용오차나추가prime로 숨기지 않는다. quality gate실패/error를 그대로 보존하고 후보를 적용하지 않는다. 원인은 아직 미확정이다. 과거 cold원본wholeScene max33 문제를 해결했다고 주장하지 않는다.
+
+정리: owned renderer/art/host3/3, 남은records/models0, late12/12, 원본owner/art/record/nativecache/image dimensions 동일, errors[], cleanupcomplete. 실제콘솔warn/error0. 우리2514탭 close/freshlistabsent. 사용자8806/IAB/audio-envelope/pending/save/server 미조작.
+늦은 NPC pending 완료 뒤 모델이 다시 등록되는 경로를 추적해 owned자원만 재정리한다. player 부분실패의 병렬siblings 완료를 증명할 수 없으면 cleanup을 incomplete/unproven으로 명시한다. 원본 이미지 identity/dimensions를 보호하고 player material/geometry/texture/bitmap은 중복dispose/close하지 않는다. successful adoption이 원래 해제한 oldNPC GPU는 재해제하지 않고 own backingcanvas만 비운다.
+
+캡처 문제/보완: run1 DOM tool이 큰 src 문자열을200000chars로 잘라 PNG3개가 각149990bytes로 불완전했다. 이 파일들은 실패 증거로 그대로 보존하며 화면 인증에 사용하지 않는다. 별도 capture-repair run(Chrome1494332520)을 오직 완전한 증거 저장을 위해 실행했다. 100000chars 단위 분할 읽기로 raw report539700chars와 완전한PNG3개(각약1.397MB/IEND확인)를 저장했다. capture-repair-B.png를 직접 시각확인해 원본벽돌건물/주인공/밀집좀비/미니맵 표시를 확인했다. 이 재실행의 성능은 run1 비용 판정을 대체하지 않는다. repair도80frame exact/cleanupcomplete/console0, strictRGBA AB39/AA27/BA46components max1로 실패 보존. 우리2520탭 close/absent.
+run1 numeric DOM transport가 timing 합계 한 곳을1ULP 반올림해 최초 offline strictsum검사는 실패했다(A2 재계산2168.9000000953674 vs 전달2168.900000095367). 별도QA analyse.mjs의 시간 산술 재계산에만8machine-epsilon 검사를 적용하고 차이를 기록했다. game/RNG/events/화면 품질 gate는 전혀 완화하지 않았다. 첫 source379 freeze→browser 이후변경0 확인한 뒤 이 analyse만 보완하고 before-whole379를 별도 동결했다.
+
+집중 검수: 초기32/32PASS15558.1663ms, 최종32/32PASS14082.9033ms/취소·생략0. installer6+combat4+UI5 및 이전candidate17. actual Game oracle/원래180/40frame replay/실제factory scope/fallback/unknowngetter0/descriptor복원/긍정manual사용량/prime0/원본이미지보호/owneddispose1회/늦은모델load/abort/실패원본error유지/주입테스트의강제비채택을 포함한다. Node22.23.3. helperSHA3b3ae5ca126f3a3c840bd73138ea9fac3eb770056288a74837eafc94cffbf92d, installerSHA939103ea6d3e6e48b20224f1325660a77c4ca649ee330c399fea59456b896df6.
+
+전체검사 최종 결과는 아래 완료 블록을 확인한다. 현재 root만 npm test session13775, 기본concurrency2/원래stressCPU15000/fixture변경0으로 실행 중이다. verify는 기존 .gitignore 역사manifest mismatch/exit1 그대로이며 immutable목록은 고치지 않았다. before-whole379를 기준으로 검사후source/원본22records 재확인 필요. 그 전에는 전체PASS를 주장하지 않는다.
+
+다음 원자작업 추천: 후보제품설치 보류. 원본 첫 render의 floor/cache·player native·NPC native·baked NPC·나머지 비용을 기존 outer method scoped QA로 구분하고 타입별 모델ready시점을 함께 기록한다. first A1→A2의 큰 차이와 F0native0 때문에 현재 자료만으로 save/restore·atlas decode·주인공GL 중 원인을 고를 수 없다. Canvas8중첩hooks/추가draw·prime/HP·AI품질축소 없이 원본 A/A부터 검수한다. 아직 미구현이다.
+이번검수는 메인앱HUD/audio/persistence를 제외한 별도fixed-work fixture다. 정상FPS/전체앱성능/peakRAM/실기기/모든캐릭터 자연스러움/100시간완성 증거가 아니다. GPUalpha/decode/추가보스상체 기본OFF 유지. canonical반동setup복구와 이전제품개선 보존. 새Gitpush/유료Meshy/키저장/결제/automation7재개/외부공개/스토어제출0. automation4의2026-10-19 00:00KST마감/이후새작업금지·정리후PAUSED 조건 유지.
+
+[2026-10-18 12:56 KST 최종 완료 / root·agent 실행 종료]
+Node22.23.3 최종 npmtest session13775 exit0:1178/1178PASS128902.539ms/실패·취소·생략0. 원래20분stressCPU13375<15000/wall13673.94ms/예산·fixture·원본engine불변. source-after-whole379가before-whole379와전체SHA일치, 보호22records exact/전체QA prefix170464bytes exact. browser 이후새offline analyse.mjs만1ULP전달대응으로변경했고 제품/harness/test는변경0임을확인했다. verify는기존 .gitignore역사mismatch1 그대로, immutable보존.
+이번원자작업 구현·실제비교·실패판정·전체회귀검수·기록 완료. 제품수동Canvas후보미채택. decision.json/analysis.json/원본run1·별도capture-repair결과/완전PNG3개/오류와불완전캡처 모두보존. 우리CPU/GPU/QA탭·agent작업 모두종료/사용자8806·IAB·pending·저장·서버·원본유지. 다음원자작업은위추천만있으며아직미착수; 시작전실제시계와최신인계를읽고자동화중복금지. 오늘자정2026-10-19 00:00KST마감/automation4ACTIVE·마감뒤정리후PAUSED/automation7·유료·키저장·공개·스토어금지유지.

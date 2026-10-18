@@ -1,0 +1,102 @@
+{
+  "review": "Independent read-only source and lifetime review before root execution",
+  "status": "no release blocker found within the declared native successful-path QA scope; tests and actual quality/performance remain pending",
+  "reviewedBeforeExecution": true,
+  "reviewerExecutedNodeTestsBenchBrowserGPU": false,
+  "onlyReviewerWrite": "qa/player-deferred-read-20261018/review.json",
+  "productAdopted": false,
+  "files": [
+    {
+      "path": "work/dead-signal-game/dist/player-rig/live-player.js",
+      "before": "qa/player-deferred-read-20261018/player-live-before.txt",
+      "bytes": 16124,
+      "sha256": "cf5c5721485f0ca2e531136d1a845d1111260ff12a3aaecf14e23312f702dfba"
+    },
+    {
+      "path": "work/dead-signal-game/dist/player-rig/qa-live-player-deferred.js",
+      "bytes": 16124,
+      "sha256": "2c45565ed4416d727fd6974c60241490c4c3341f59ed5c6e4fee74be61a7f170"
+    },
+    {
+      "path": "work/dead-signal-game/dist/qa-player-deferred-read-install.js",
+      "bytes": 15740,
+      "sha256": "3c4d5580b6030c5169f23b20e4781696bb3fd2f0646da7e594440e7cb7991966"
+    },
+    {
+      "path": "work/dead-signal-game/dist/qa-canvas-state-combat.js",
+      "bytes": 62558,
+      "sha256": "72bc1e76066fe4b8e710b0217ae8aab61f15ee55d24a857bd894ad5154db01f4"
+    },
+    {
+      "path": "qa/player-deferred-read-20261018/provenance.json",
+      "bytes": 3376,
+      "sha256": "4a87029a7371cd1847e571b85787d84f2a5c06d995d1856633d239cda8df72cb"
+    }
+  ],
+  "independentSourceChecks": {
+    "relocatedOriginalReadBlockOccurrences": 1,
+    "inverseWholeCandidateEqualsPinnedOriginal": true,
+    "sameFolderImportsAndOriginalAssetBase": true,
+    "bodyCanvasClearAndCopyRemainBeforeArmedGL": true,
+    "readAndPureBoundsCoreNowAfterColourComposition": true,
+    "readStillPrecedesFallbackMetadataAndFrameGetters": true,
+    "costModeOriginalTwoGLDrawsAndOneFullRGBABodyRead": true,
+    "candidateConstructorOrLoadNotCalledByInstaller": true,
+    "noOriginalGeometryUVTexturesRigClipsPhysicsRNGOrSaveChange": true,
+    "footPivotReferenceLimit": "The copied module has a different private PIVOT object identity. Numeric pivot values and current placement consumers are preserved; universal constant-reference identity is not claimed."
+  },
+  "installerReview": {
+    "defaultDisabledControlNoOwnerHookOrCandidateResource": true,
+    "freshReadyFrameZeroOriginalPlayerSourceGuard": true,
+    "originalAndCandidateRasterSourceFingerprints": ["eb5f9c06", "7964b30a"],
+    "originalUnwrappedThreeRenderFingerprint": "5f756eb1",
+    "nativeContextBrandAndFourMethodGuards": true,
+    "inkGlobalCompositeOperationAndFillStyleAccessorsGuarded": true,
+    "directAndVerifyFlagsUseOriginalRasterFallback": true,
+    "reentryForeignReceiverChangedOwnerOrUnsupportedCallBlocksAcceptance": true,
+    "noOriginalRetryAfterCandidateStarts": true,
+    "originalThisArgumentsReturnAndThrownValueForwarding": true,
+    "conditionalFullDescriptorRestorePreservesForeignReplacement": true,
+    "stopDuringCallDefersReferenceReleaseUntilFinally": true,
+    "idempotentStopNoCallerGPUOrAssetDisposal": true,
+    "injectedCanvasAPIExplicitlyMarkedAndIneligibleForActualAcceptance": true
+  },
+  "supportedScopeAndLimits": [
+    "Genuine QA-owned original assets with untouched native Canvas methods/accessors on successful calls are the supported path.",
+    "The body canvas logically snapshots the pre-weapon body before armed GL; the intervening original GL and colour/ink composition do not write that body canvas in the supported path.",
+    "Universal exceptional side-effect order is impossible: a deferred getImageData failure follows armed/compositor work, while an armed/compositor failure can precede body reading. The same thrown value is forwarded without retry, not an identical amount of preceding drawing.",
+    "Mutation of global ImageData or HTMLCanvas accessors, Three render-graph prototypes/callbacks, or arbitrary foreign graph callbacks that write the body canvas is unsupported. No comprehensive hostile-object-graph traversal or universal compatibility claim is made.",
+    "The raw copied candidate class is not a standalone direct-alpha implementation; only the guarded installer routes supported calls to its raster method.",
+    "FNV guards are consumer checks, not cryptographic provenance. Pinned whole-source SHA256 and inverse-source evidence are separate.",
+    "Deferring the read does not remove bodyCanvas drawImage, fullRGBA allocation/read, GPU wait or compositor work. It can merely move a stall; improvement is unproven.",
+    "Existing strict wholeCanvas original A/A failures remain unresolved and cannot be replaced by same-context quality evidence."
+  ],
+  "qualityProtocol": {
+    "separateVerifyOnlyMode": true,
+    "sameAlreadyComputedPoseAndArgumentsNoSelectionTickClipAdvance": true,
+    "originalCandidateOriginalRasterWithFinalOriginalResult": true,
+    "nativeBodyAndColourRGBAAndMetadataAB_AA_BAZeroTolerance": true,
+    "totalSixGLDrawsAndSixExplicitCanvasCapturesAreNotCostEvidence": true,
+    "sameContextCannotOverrideSeparateFreshWholeCanvasGate": true
+  },
+  "predeclaredAcceptanceGateReviewed": {
+    "normalOwned180OriginalDeferredOriginalFortyCallbacks": true,
+    "strictWholeCanvasAB_AA_BA": "zero different components and zero maximum delta; no tolerance relaxation or favorable remeasurement",
+    "literalGameEffectsMotionEventsCommandsBothRNG": "80 per-frame comparisons exact",
+    "actualCandidateUsage": "at least40 supported calls and zero fallback/unexpected/ownerMismatch",
+    "totalPreparationPlusFortyCallbacksPlusFinalDrain": "at least3% below the faster original arm",
+    "firstCallback": "no worse than either original arm",
+    "steadyThirtyCallbackMedianP95MaxSum": "all four no worse than either original arm",
+    "allFortyCallbackP95Max": "no worse than either original arm",
+    "drainInclusiveFortyOneP95Max": "no worse than either original arm",
+    "cleanup": "owned handles/models/records retired; original owners/images/cache unchanged; pending late work accounted for",
+    "verifyAndInjectedRunsCannotBePerformanceAccepted": true,
+    "noAutomaticProductAdoptionFPSGPUTimeOrPeakMemoryClaim": true
+  },
+  "requiredNextEvidence": [
+    "Root-only focused independent original raster/source/descriptor/fallback/lifetime tests and old-mode fullmodule regression.",
+    "Actual same-context original/deferred/original native body/colour/metadata quality at the supported fixed poses.",
+    "One unprimed cost-only fresh A/B/A with every predeclared total/first/steady/tail/equivalence/strict wholeCanvas/cleanup criterion preserved.",
+    "Retain any failure and original raw evidence; do not claim a performance or quality win before those gates pass."
+  ]
+}

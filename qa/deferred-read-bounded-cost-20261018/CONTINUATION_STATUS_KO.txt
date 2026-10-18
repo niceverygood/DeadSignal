@@ -1,0 +1,17 @@
+DEAD SIGNAL — 주인공 읽기 순서 비용·정리 검수 (2026-10-18T08:49:06Z)
+
+구현은 QA cost전용이다. exact8851/진짜메모리/qa-player-deferred-read=1/qa-owned-cleanup=1와 두명시옵션에서만 기존original/deferred/original40callback 비교에 bounded소유자원정리를결합했다. verify=1·readbackprobe·다른실험혼합은차단한다. 추가R1/F/R2·같은포즈재렌더·새profile/prime/Game tick은없다. 기존UI197374B전체접두부를보존하고별도button/details만append했다. 원본engine/player/에셋/동작/저장/default변경0이다.
+
+최초focused10개중9PASS/1FAIL(8364.7783ms): preload도중취소돼 installer를전혀호출하지않은경우도원래stop증거를요구하던보수적오판을발견했다. 초기harness/test/full504freeze/log는별도보존했다. 새cost경로에만 installAttempted=false를등록시초기화하고 실제install호출직전에true로바꿔, 엄격false인경우만복원대상이없다고판정했다. 호출후throw/부분후크/stop실패는여전히원래cleanupComplete증명필수다. 원래코드역복원byteexact·기존test전부접두부exact/assertion변경0, 부분후크후throw검사1개추가. 영향받는combat6개재검수6/6PASS(8469.6139ms), 이전UI5PASS. 단일최초11/11로표현하지않는다.
+
+전체 npm test1314/1314PASS, fail/cancelled/skipped0,403687.7591ms. 기존20분stress CPU14422ms/wall16808.19ms통과. 원본engine동일이므로최적화성과로해석하지않으며이전CPU실패보존. 기존8QA모드full-before report/clock/Game/픽셀/정리동치도통과했다. npm run verify는역사.gitignore크기첫불일치에서실패, manifest재생성0/전체원본통과주장0. final504파일은수정후focused/whole/browser전후exact, 이전496중QAharness/UI2개만변경, 보호원본22exact.
+
+실제IAB별도메모리cost1회·재시도0: 정상HP/AI seed774 mission01 못총180초기적, A1/B/A2각40×.12callback,각playerGL0→80(원본2회/프레임)·같은포즈verify0. 후보40회사용/no fallback/owner/unexpected0. 최종모든실행HP73/3킬/188적/time4.8/RNG3331604612/visualRNG2139495574, literalGame·이펙트·이벤트·명령·이동·두RNG80쌍exact. 원래최종R0의엄격wholeAA/AB/BA 성분0/max0. 늦은모델12/12완료/active0·모든최종소유자원/메서드복원·main원본보존통과, cleanup대기1010.9000000357628ms는모든비용합밖별도다. consolewarn/error0. ownQA탭만닫고목록부재확인, 사용자8806/IABpending개조/저장조작0.
+
+비용판정: 준비+40callback+finalreadback합 A1=12618.900000035763ms / B=15468.400000154972ms / A2=15915.99999988079ms. 후보는빠른A대비22.5812%더느리다. all40callback합4457.600000023842/4594.200000226498/3591.9999998807907ms, 후보27.9009%더느림; steady30합2652.300000011921/3008.4000000953674/2180.4999998807907ms, 후보37.9684%더느림. 첫callback880.1000000238419/694.3000000119209/721.3000000119209ms만유리하지만 steady30·40/41tail도불합격이다. accepted/adopted=false·제품OFF유지, 유리한재실행0. 하드웨어보편결론/FPS·GPU시간·peakRAM/VRAM·실제할당감소주장0.
+
+raw보고서/PNGA1-B-A2/screenshot/console/탭정리·실패보존. details펼친후status읽기가CDP3초timeout했으나이미raw저장완료, nativegetAttribute로PNG3장과후보전투screenshot을끝까지보존했다. 재렌더/추가전투0. PNG별도export는원래R0동등인증PNG가아니며rawR0기준이품질판정이다. 이전Chrome wholeAA1322575/max69실패원본은그대로고이번IAB0으로덮지않는다.
+
+Meshy원본모델·리그·클립·무드보드·무기/폭발이미지·플레이데이터보존; 유료Meshy/결제/키저장/새commitpush/외부공개/스토어/automation7재개0. 100시간·모든캐릭터자연스러움·무렉완성주장0.
+
+다음권장: 현재시각을먼저확인하고deferred후보는OFF유지. 동일원본렌더에서반복되는player bounds/core스캔등다른좁은비용을source검토후선정한다. 정확성/예외범위와cost기준을사전선언하고원본프레임수·화질·AI를줄이지않는다. 보스나머지11종팔동작검증/실기기/FPS·메모리검증/100시간스토리는미완료다. 마감2026-10-19 00:00KST(2026-10-18 15:00Z)후새개발0·완료/미완료기록후automation4 PAUSED.

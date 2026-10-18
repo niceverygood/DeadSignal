@@ -1,0 +1,15 @@
+{
+  "tabId": "6",
+  "buttonClicks": 1,
+  "nativeReruns": 0,
+  "reportSavedBeforeUIExpansion": true,
+  "posePNGsSavedBeforeExpansion": true,
+  "uiRecovery": {
+    "failedAction": "Playwright role=button lookup for summary",
+    "reason": "native AX exposes summary as button but Playwright snapshot exposes generic; no click occurred",
+    "resolution": "fresh DOM snapshot then unique getByText summary click"
+  },
+  "screenshot": "iab-proof.png",
+  "userTabTouched": false,
+  "user8806Touched": false
+}

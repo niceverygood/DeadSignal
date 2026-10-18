@@ -1,0 +1,84 @@
+{
+  "task": "Original Canvas readback sequence diagnostic",
+  "reviewer": "frame_pacing_audit",
+  "status": "source-frozen; execution delegated to root",
+  "filesWritten": [
+    "work/dead-signal-game/dist/qa-canvas-readback-probe.js",
+    "qa/original-readback-probe-20261018/helper-source-review.json"
+  ],
+  "source": {
+    "path": "work/dead-signal-game/dist/qa-canvas-readback-probe.js",
+    "bytes": 18207,
+    "sha256": "a18eabe971e500c349fb5ef97f1754cfc118c35ae9a161e69f0376037da159fd"
+  },
+  "inspectedOriginal": {
+    "path": "work/dead-signal-game/dist/renderer.js",
+    "bytes": 137275,
+    "sha256": "4ca94fcf3188f6665eff5587d96eda47ffd44a843c63e99a997d1a830128a1e2",
+    "facts": [
+      "Renderer constructor stores the original canvas and its getContext('2d', {alpha:false}) context at lines 126-127.",
+      "makeFloor stores floorWorld/floorKey, creates the floor canvas, assigns world dimensions and creates its default 2D context at lines 440-450.",
+      "The original Renderer exposes no stored floor 2D context reference; this diagnostic obtains that already source-created context with getContext('2d') and no options.",
+      "nativeActorFrames is a WeakMap, while liveEnemySelection/liveCorpseSelection provide bounded eligible actor sets. They cannot enumerate every other visible baked actor selection.",
+      "Native rig models/pending maps and player last.selected are existing public fields. The diagnostic reads these fields only after the pixel-read sequence."
+    ]
+  },
+  "api": {
+    "export": "probeOriginalReadback(renderer, primaryPixels, options={})",
+    "synchronous": true,
+    "options": {
+      "readFloor": "exact true requests F; default false gives R0/R1/R2 control",
+      "injected": "exact true marks fake/injected caller; never certifies a browser run",
+      "testAPI": "explicit mainWidth/mainHeight/floorWidth/floorHeight permits smaller bounded fake fixtures and always marks injected=true"
+    },
+    "nativeGeometry": {
+      "mainWidth": 960,
+      "mainHeight": 640,
+      "floorWidth": 2400,
+      "floorHeight": 1800
+    },
+    "primary": "Existing Uint8Array or Uint8ClampedArray R0.data, exact main RGBA length. Wrong type/length returns before renderer/context observation.",
+    "sequence": [
+      "Validate R0 length, original main owner/context.canvas identity, geometry and callable getImageData.",
+      "Read R1 immediately; no primary pixel loop, hashing, camera, state or readiness inspection precedes this read.",
+      "Compare all R0/R1 components exactly. Any difference ends the sequence without even observing floor properties or attempting R2.",
+      "If requested, validate the original cached floor owner/key/world/dimensions, get its existing 2D context without options and read F once.",
+      "Read R2 on the same main context, without drawing, ticks, awaits, exports or floor hashing between F and R2.",
+      "Compare R0/R2 and R1/R2 exactly, then calculate bounded fingerprints and collect primitive diagnostics."
+    ],
+    "completion": {
+      "R1Difference": "complete=false, stable=false, reason=main-immediate-repeat-differed",
+      "R2Difference": "complete=true, stable=false; all requested pixel reads completed but main repeat differed",
+      "allEqual": "complete=true, stable=true, reason=stable-original-readbacks",
+      "failure": "Requested unavailable floor, invalid returned RGBA, actual read/metadata exception or detected owner/method/geometry change cannot yield a successful complete report. Thrown null/undefined/0 receive an error entry too."
+    }
+  },
+  "primitiveEvidence": [
+    "Exact length, changed components, changed pixels, maximum delta, alpha-component count and changed bounding rectangle for main read comparisons.",
+    "Byte length and collision-prone FNV1a32 fingerprints for R0/R1/F/R2; no raw arrays, ImageData, Canvas, context, Game, actor, rig, model, selected, metadata or Promise reference escapes.",
+    "Post-sequence main/floor context attributes when supported; fillStyle type/value, alpha, composite, smoothing, filter, shadows and transform. Unsupported attributes are explicitly unavailable.",
+    "Main geometry, camera/projection/zoom/dpr, cached floor key/world primitive seed/dimensions/theme/city/mission/palette and asphalt status/presence. No asset source URL is reported.",
+    "Bounded native model/pending keys and cached eligible selections. fallbackVisible.complete is always false because non-enumerable WeakMap/public fields cannot prove every visible baked ID.",
+    "Current owner/geometry/method identities, existing floor context request count, primitive error stages and cleanup facts."
+  ],
+  "scopeAndLimitations": [
+    "This helper is only for the root-controlled, already rendered, original QA-owned Renderer. Cache-key/world presence is source-path evidence for a pre-existing floor context, not a universal authenticity proof against a forged caller.",
+    "Native function/prototype observations and getContextAttributes do not establish a rendering backend, GPU execution, GPU readiness or a cause for any pixel difference.",
+    "F is a single original floor read. Equal floor fingerprints are not strict full-floor A/A equality; no F2 is read and hash collisions remain possible.",
+    "Pixel readback may materialize backing storage and allocates native ImageData buffers. This diagnostic does not claim memory reduction, peak heap/GPU memory, timing improvement or presented FPS.",
+    "Canvas state diagnostics are collected after the read sequence. No pre-read state equality, clip/path inspection, deep Game/source snapshot or broad arbitrary Proxy/getter equivalence is claimed.",
+    "No source image, Canvas, context state, method descriptor, native model or Game is assigned, wrapped, resized, primed, drawn, loaded, disposed or exported by this helper.",
+    "A post-probe PNG export is a separate read/serialization and cannot certify the exact bytes of the caller's R0. Existing R0 arrays remain the authority for whole-arm strict A/A comparison."
+  ],
+  "verificationPerformedByThisAgent": {
+    "sourceInspection": true,
+    "fileByteAndSHAInspection": true,
+    "node": false,
+    "tests": false,
+    "gameExecution": false,
+    "benchmarks": false,
+    "browserOrUI": false,
+    "gpu": false,
+    "productionEdits": false
+  }
+}

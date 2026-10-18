@@ -1,0 +1,28 @@
+✔ all render actor pools interpolate without changing checkpoints, random streams or actor identity (59.653ms)
+✔ attack warnings, shields and gun aim keep exact angles while regular turns use the shortest arc (2.5909ms)
+✔ paused positions snap once and stay fixed; teleports/new runs do not create sliding ghosts (1.0974ms)
+✔ substep renders are continuous and physics/checkpoints remain identical with interpolation enabled (52.8858ms)
+✔ particle fade and recoil produce distinct subframes without changing exact physics or reset timing (2.1701ms)
+✔ new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical (91.8223ms)
+✔ all field objectives are physically reachable from the actual spawn (17.7305ms)
+✔ objectives require proximity and sustained interaction; release, damage and pause prevent free completion (2.7705ms)
+✔ partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected (13.3857ms)
+✔ actual objective completion raises threat then ends only after all three actions (0.7449ms)
+✔ expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock (0.996ms)
+✔ finale is locked after Haifa and original launch geometry/assets remain complete (134.2137ms)
+✔ actual final boss must die before the vaccine can be recovered, death alone is not victory (5.1843ms)
+✔ missing or falsely defeated active boss and legacy extra flags fail restore (3.3135ms)
+✔ legacy collector defeat still ends its original survival game (0.7794ms)
+✔ new finales require30s preparation while old four-field saves restore byte exactly (5.6617ms)
+✔ radio starts on a real new mission and freezes across pause without touching checkpoints or RNG (9.0691ms)
+✔ only matching real boss milestones create cues; duplicates and false kills stay silent (0.9282ms)
+✔ restored progress does not replay opening, and fresh mission identity resets radio (1.7307ms)
+✔ victory clue requires the actual final boss result and never claims overseas maps are completed (0.6144ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 832.5911

@@ -1,0 +1,757 @@
+{
+  "diagnosticOnly": true,
+  "scope": "actual walker/runner/gas launch roster, deduplicated asset IDs in catalog order",
+  "gcMode": "normal; no forced GC",
+  "cacheCondition": "one retained frozen result per selected asset ID; no upfront parsed-metadata cache",
+  "processOrder": "sequential A legacy → B owned → A legacy-repeat; each arm is a newly spawned Node process",
+  "outputsExact": true,
+  "allValid": true,
+  "allFrozen": true,
+  "runs": [
+    {
+      "arm": "A",
+      "mode": "legacy",
+      "scope": "launch",
+      "nodeVersion": "v22.23.3",
+      "v8Version": "12.4.254.21-node.57",
+      "nodeFlags": [],
+      "originalModuleSha256": "b3c2aae00ce820449be98c82c17deb8d52623b01b018d9127d988e9f0337805f",
+      "candidateModuleSha256": "63c3d09781711d84fed43569cefcb5ea44a253831ab03cbb5a60378efadcc967",
+      "moduleImportWallMs": 19.0676,
+      "startMemory": {
+        "process": {
+          "rss": 40509440,
+          "heapTotal": 7581696,
+          "heapUsed": 5617984,
+          "external": 2349130,
+          "arrayBuffers": 16831
+        },
+        "v8Heap": {
+          "total_heap_size": 7581696,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 7581696,
+          "total_available_size": 4339520592,
+          "used_heap_size": 5622696,
+          "heap_size_limit": 4345298944,
+          "malloced_memory": 434272,
+          "peak_malloced_memory": 893224,
+          "does_zap_garbage": 0,
+          "number_of_native_contexts": 2,
+          "number_of_detached_contexts": 0,
+          "total_global_handles_size": 8192,
+          "used_global_handles_size": 3136,
+          "external_memory": 2200574
+        },
+        "processMaxRssKiB": 39572,
+        "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+      },
+      "afterModuleMemory": {
+        "process": {
+          "rss": 43802624,
+          "heapTotal": 8822784,
+          "heapUsed": 7119968,
+          "external": 2448026,
+          "arrayBuffers": 264283
+        },
+        "v8Heap": {
+          "total_heap_size": 8822784,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 8822784,
+          "total_available_size": 4337555160,
+          "used_heap_size": 7120192,
+          "heap_size_limit": 4345298944,
+          "malloced_memory": 426080,
+          "peak_malloced_memory": 893224,
+          "does_zap_garbage": 0,
+          "number_of_native_contexts": 2,
+          "number_of_detached_contexts": 0,
+          "total_global_handles_size": 8192,
+          "used_global_handles_size": 3648,
+          "external_memory": 2448026
+        },
+        "processMaxRssKiB": 43100,
+        "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+      },
+      "cacheCondition": "one retained frozen result per selected asset ID; no upfront parsed-metadata cache",
+      "retainedResults": 6,
+      "files": [
+        {
+          "id": "enemy-walker-locomotion-hq32",
+          "metadata": "enemy-walker-locomotion-hq32/metadata.json",
+          "sourceBytes": 2351352,
+          "sourceSha256": "23fb49e360a22a30c8df5b69550410c91b2c5609c6941e156b5eddcf1e488964",
+          "frames": 512,
+          "outputJsonSha256": "ce99b292fc7120b38173266bef6b90986eabf76b896eb199157d3671101e5be7",
+          "strictTreeSha256": "e94b75d2e54bda6ac649482d1e82de9ccc88c403b0c31af0b1c90ec54edf55e5",
+          "allFrozen": true,
+          "objectCount": 109548,
+          "error": null,
+          "parseValidateFreezeWallMs": 488.6629,
+          "parseValidateFreezeCpuMs": 266,
+          "cpuMicroseconds": {
+            "user": 219000,
+            "system": 47000
+          }
+        },
+        {
+          "id": "enemy-walker-rig-motion",
+          "metadata": "enemy-walker-rig-motion/metadata.json",
+          "sourceBytes": 2233279,
+          "sourceSha256": "e020423932200382b93b98cb29e3836fe517bf6ab4fcf36651d42e12cd265988",
+          "frames": 512,
+          "outputJsonSha256": "2b5958b21290e2163e2baf2b70f987076145295ad3c7d97a3248e2d3d89d58b3",
+          "strictTreeSha256": "ea0177e4541da5d110d3405aac262890e8b1790c7458185c59964f68d58775ec",
+          "allFrozen": true,
+          "objectCount": 103267,
+          "error": null,
+          "parseValidateFreezeWallMs": 157.61979999999994,
+          "parseValidateFreezeCpuMs": 171,
+          "cpuMicroseconds": {
+            "user": 156000,
+            "system": 15000
+          }
+        },
+        {
+          "id": "enemy-runner-locomotion-hq32",
+          "metadata": "enemy-runner-locomotion-hq32/metadata.json",
+          "sourceBytes": 2152533,
+          "sourceSha256": "e46db0746dbad97177a7cddb6f3115684a3f999ca7a4d763b343d04684f3e56d",
+          "frames": 512,
+          "outputJsonSha256": "bfd6915f2e2f2c3051fb82bfc47ecf303cafdab45124a350cd872abb3f5ef772",
+          "strictTreeSha256": "93cc52fb0dc3d5dd57eaf7f9ab22d9c53379621c631c6eb42742fe9a72db1254",
+          "allFrozen": true,
+          "objectCount": 98172,
+          "error": null,
+          "parseValidateFreezeWallMs": 125.50130000000013,
+          "parseValidateFreezeCpuMs": 188,
+          "cpuMicroseconds": {
+            "user": 141000,
+            "system": 47000
+          }
+        },
+        {
+          "id": "enemy-runner-rig-motion",
+          "metadata": "enemy-runner-rig-motion/metadata.json",
+          "sourceBytes": 2019011,
+          "sourceSha256": "0db9c879702b473cdd34d52cc2261f0f9b7b18dd189623dc5f5185251e1e08c3",
+          "frames": 512,
+          "outputJsonSha256": "72cdd0316bc18f2033134e93251b70b96342e42b98ff0758fe8da56f813f58d1",
+          "strictTreeSha256": "a7cb7fee494401047b247899c5d0518ba8f9c90c7bfb730174d133750cdedff9",
+          "allFrozen": true,
+          "objectCount": 91269,
+          "error": null,
+          "parseValidateFreezeWallMs": 108.14670000000001,
+          "parseValidateFreezeCpuMs": 109,
+          "cpuMicroseconds": {
+            "user": 109000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-gas-locomotion-hq32",
+          "metadata": "enemy-gas-locomotion-hq32/metadata.json",
+          "sourceBytes": 2230534,
+          "sourceSha256": "823dba85c2a8558d2976c9727ed16fe6e71f013585de054edbb84f8746c27edb",
+          "frames": 512,
+          "outputJsonSha256": "656a2d4c21d310325cd452fbe117052df8923120144b1e8f2b0f39e1a218526d",
+          "strictTreeSha256": "7def928cd57917574b1e52bfad60308a67b52dea351c37c4f616c1cc3a5506d2",
+          "allFrozen": true,
+          "objectCount": 102414,
+          "error": null,
+          "parseValidateFreezeWallMs": 126.25370000000021,
+          "parseValidateFreezeCpuMs": 125,
+          "cpuMicroseconds": {
+            "user": 109000,
+            "system": 16000
+          }
+        },
+        {
+          "id": "enemy-gas-rig-motion",
+          "metadata": "enemy-gas-rig-motion/metadata.json",
+          "sourceBytes": 2169189,
+          "sourceSha256": "49464f058bb73f5da1d58ac8a780effb725c109c8d318935e49ec3bc4eee3a7e",
+          "frames": 512,
+          "outputJsonSha256": "8fabcad528f21e2d349e7073b63aeab128d514d31dd7dd6170fd779dbf1e600d",
+          "strictTreeSha256": "c0348890c75e5e0382ebd18b637c93d94a6948a24145860046ddadd13c7a1839",
+          "allFrozen": true,
+          "objectCount": 99611,
+          "error": null,
+          "parseValidateFreezeWallMs": 135.34220000000005,
+          "parseValidateFreezeCpuMs": 94,
+          "cpuMicroseconds": {
+            "user": 94000,
+            "system": 0
+          }
+        }
+      ],
+      "totalSourceBytes": 13155898,
+      "totalFrames": 3072,
+      "allValid": true,
+      "allFrozen": true,
+      "parseValidateFreezeWallMs": 1141.5266000000004,
+      "parseValidateFreezeCpuMs": 953,
+      "memory": {
+        "snapshots": {
+          "beforeProcessing": {
+            "process": {
+              "rss": 43847680,
+              "heapTotal": 8822784,
+              "heapUsed": 7198480,
+              "external": 2448026,
+              "arrayBuffers": 264283
+            },
+            "v8Heap": {
+              "total_heap_size": 8822784,
+              "total_heap_size_executable": 262144,
+              "total_physical_size": 8822784,
+              "total_available_size": 4337476648,
+              "used_heap_size": 7198704,
+              "heap_size_limit": 4345298944,
+              "malloced_memory": 426080,
+              "peak_malloced_memory": 893224,
+              "does_zap_garbage": 0,
+              "number_of_native_contexts": 2,
+              "number_of_detached_contexts": 0,
+              "total_global_handles_size": 8192,
+              "used_global_handles_size": 3648,
+              "external_memory": 2448026
+            },
+            "processMaxRssKiB": 43100,
+            "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+          },
+          "afterProcessingBeforeGC": {
+            "process": {
+              "rss": 182525952,
+              "heapTotal": 109420544,
+              "heapUsed": 78353880,
+              "external": 2725849,
+              "arrayBuffers": 542106
+            },
+            "v8Heap": {
+              "total_heap_size": 109420544,
+              "total_heap_size_executable": 262144,
+              "total_physical_size": 109420544,
+              "total_available_size": 4265467816,
+              "used_heap_size": 78354024,
+              "heap_size_limit": 4345298944,
+              "malloced_memory": 278576,
+              "peak_malloced_memory": 2973240,
+              "does_zap_garbage": 0,
+              "number_of_native_contexts": 2,
+              "number_of_detached_contexts": 0,
+              "total_global_handles_size": 8192,
+              "used_global_handles_size": 3680,
+              "external_memory": 2725849
+            },
+            "processMaxRssKiB": 199768,
+            "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+          }
+        },
+        "sampledHeapUsedMax": 132629504,
+        "sampledRssMax": 202747904,
+        "processHighWaterRssKiB": 199768,
+        "processHighWaterRssBytes": 204562432,
+        "heapMaximumScope": "Maximum of samples after each file verification only; not a continuous JS-heap peak. End heap is separately reported as a snapshot.",
+        "gcMode": "normal execution; no explicit GC calls"
+      },
+      "note": "Isolated sequential Node-process legacy/owned/legacy comparison, same ordered local metadata texts and one final-result cache. Only each parse/validate/freeze call is timed; file reads, module import, hashing, freeze verification, memory sampling and output are outside those call intervals. Process CPU includes all process threads, including concurrent JIT/GC work. Memory snapshots and sampled heap maxima are not continuous peak JS heap. resourceUsage.maxRSS is process RSS high-water (Node kilobytes when available), including startup, input, verification and native allocations; it is not pure JS metadata memory or game/GPU/RAM usage. Forced GC, when explicitly requested with --expose-gc and --gc in every worker, is a separate retained-memory diagnostic and does not represent normal app behavior. No PNG decode, rendering, network, Game, browser or persistent save is used."
+    },
+    {
+      "arm": "B",
+      "mode": "owned",
+      "scope": "launch",
+      "nodeVersion": "v22.23.3",
+      "v8Version": "12.4.254.21-node.57",
+      "nodeFlags": [],
+      "originalModuleSha256": "b3c2aae00ce820449be98c82c17deb8d52623b01b018d9127d988e9f0337805f",
+      "candidateModuleSha256": "63c3d09781711d84fed43569cefcb5ea44a253831ab03cbb5a60378efadcc967",
+      "moduleImportWallMs": 5.581800000000001,
+      "startMemory": {
+        "process": {
+          "rss": 40308736,
+          "heapTotal": 7581696,
+          "heapUsed": 5597560,
+          "external": 2349130,
+          "arrayBuffers": 16831
+        },
+        "v8Heap": {
+          "total_heap_size": 7581696,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 7581696,
+          "total_available_size": 4339541016,
+          "used_heap_size": 5602272,
+          "heap_size_limit": 4345298944,
+          "malloced_memory": 434272,
+          "peak_malloced_memory": 893224,
+          "does_zap_garbage": 0,
+          "number_of_native_contexts": 2,
+          "number_of_detached_contexts": 0,
+          "total_global_handles_size": 8192,
+          "used_global_handles_size": 3136,
+          "external_memory": 2200574
+        },
+        "processMaxRssKiB": 39628,
+        "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+      },
+      "afterModuleMemory": {
+        "process": {
+          "rss": 42516480,
+          "heapTotal": 7843840,
+          "heapUsed": 6129728,
+          "external": 2340254,
+          "arrayBuffers": 156511
+        },
+        "v8Heap": {
+          "total_heap_size": 7843840,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 7843840,
+          "total_available_size": 4339008888,
+          "used_heap_size": 6129952,
+          "heap_size_limit": 4345298944,
+          "malloced_memory": 754144,
+          "peak_malloced_memory": 893224,
+          "does_zap_garbage": 0,
+          "number_of_native_contexts": 2,
+          "number_of_detached_contexts": 0,
+          "total_global_handles_size": 8192,
+          "used_global_handles_size": 3744,
+          "external_memory": 2340254
+        },
+        "processMaxRssKiB": 41520,
+        "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+      },
+      "cacheCondition": "one retained frozen result per selected asset ID; no upfront parsed-metadata cache",
+      "retainedResults": 6,
+      "files": [
+        {
+          "id": "enemy-walker-locomotion-hq32",
+          "metadata": "enemy-walker-locomotion-hq32/metadata.json",
+          "sourceBytes": 2351352,
+          "sourceSha256": "23fb49e360a22a30c8df5b69550410c91b2c5609c6941e156b5eddcf1e488964",
+          "frames": 512,
+          "outputJsonSha256": "ce99b292fc7120b38173266bef6b90986eabf76b896eb199157d3671101e5be7",
+          "strictTreeSha256": "e94b75d2e54bda6ac649482d1e82de9ccc88c403b0c31af0b1c90ec54edf55e5",
+          "allFrozen": true,
+          "objectCount": 109548,
+          "error": null,
+          "parseValidateFreezeWallMs": 96.0829,
+          "parseValidateFreezeCpuMs": 125,
+          "cpuMicroseconds": {
+            "user": 125000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-walker-rig-motion",
+          "metadata": "enemy-walker-rig-motion/metadata.json",
+          "sourceBytes": 2233279,
+          "sourceSha256": "e020423932200382b93b98cb29e3836fe517bf6ab4fcf36651d42e12cd265988",
+          "frames": 512,
+          "outputJsonSha256": "2b5958b21290e2163e2baf2b70f987076145295ad3c7d97a3248e2d3d89d58b3",
+          "strictTreeSha256": "ea0177e4541da5d110d3405aac262890e8b1790c7458185c59964f68d58775ec",
+          "allFrozen": true,
+          "objectCount": 103267,
+          "error": null,
+          "parseValidateFreezeWallMs": 93.46700000000004,
+          "parseValidateFreezeCpuMs": 109,
+          "cpuMicroseconds": {
+            "user": 94000,
+            "system": 15000
+          }
+        },
+        {
+          "id": "enemy-runner-locomotion-hq32",
+          "metadata": "enemy-runner-locomotion-hq32/metadata.json",
+          "sourceBytes": 2152533,
+          "sourceSha256": "e46db0746dbad97177a7cddb6f3115684a3f999ca7a4d763b343d04684f3e56d",
+          "frames": 512,
+          "outputJsonSha256": "bfd6915f2e2f2c3051fb82bfc47ecf303cafdab45124a350cd872abb3f5ef772",
+          "strictTreeSha256": "93cc52fb0dc3d5dd57eaf7f9ab22d9c53379621c631c6eb42742fe9a72db1254",
+          "allFrozen": true,
+          "objectCount": 98172,
+          "error": null,
+          "parseValidateFreezeWallMs": 74.20000000000005,
+          "parseValidateFreezeCpuMs": 78,
+          "cpuMicroseconds": {
+            "user": 78000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-runner-rig-motion",
+          "metadata": "enemy-runner-rig-motion/metadata.json",
+          "sourceBytes": 2019011,
+          "sourceSha256": "0db9c879702b473cdd34d52cc2261f0f9b7b18dd189623dc5f5185251e1e08c3",
+          "frames": 512,
+          "outputJsonSha256": "72cdd0316bc18f2033134e93251b70b96342e42b98ff0758fe8da56f813f58d1",
+          "strictTreeSha256": "a7cb7fee494401047b247899c5d0518ba8f9c90c7bfb730174d133750cdedff9",
+          "allFrozen": true,
+          "objectCount": 91269,
+          "error": null,
+          "parseValidateFreezeWallMs": 59.85390000000007,
+          "parseValidateFreezeCpuMs": 62,
+          "cpuMicroseconds": {
+            "user": 62000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-gas-locomotion-hq32",
+          "metadata": "enemy-gas-locomotion-hq32/metadata.json",
+          "sourceBytes": 2230534,
+          "sourceSha256": "823dba85c2a8558d2976c9727ed16fe6e71f013585de054edbb84f8746c27edb",
+          "frames": 512,
+          "outputJsonSha256": "656a2d4c21d310325cd452fbe117052df8923120144b1e8f2b0f39e1a218526d",
+          "strictTreeSha256": "7def928cd57917574b1e52bfad60308a67b52dea351c37c4f616c1cc3a5506d2",
+          "allFrozen": true,
+          "objectCount": 102414,
+          "error": null,
+          "parseValidateFreezeWallMs": 76.16080000000011,
+          "parseValidateFreezeCpuMs": 78,
+          "cpuMicroseconds": {
+            "user": 78000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-gas-rig-motion",
+          "metadata": "enemy-gas-rig-motion/metadata.json",
+          "sourceBytes": 2169189,
+          "sourceSha256": "49464f058bb73f5da1d58ac8a780effb725c109c8d318935e49ec3bc4eee3a7e",
+          "frames": 512,
+          "outputJsonSha256": "8fabcad528f21e2d349e7073b63aeab128d514d31dd7dd6170fd779dbf1e600d",
+          "strictTreeSha256": "c0348890c75e5e0382ebd18b637c93d94a6948a24145860046ddadd13c7a1839",
+          "allFrozen": true,
+          "objectCount": 99611,
+          "error": null,
+          "parseValidateFreezeWallMs": 67.14200000000005,
+          "parseValidateFreezeCpuMs": 62,
+          "cpuMicroseconds": {
+            "user": 62000,
+            "system": 0
+          }
+        }
+      ],
+      "totalSourceBytes": 13155898,
+      "totalFrames": 3072,
+      "allValid": true,
+      "allFrozen": true,
+      "parseValidateFreezeWallMs": 466.9066000000003,
+      "parseValidateFreezeCpuMs": 514,
+      "memory": {
+        "snapshots": {
+          "beforeProcessing": {
+            "process": {
+              "rss": 42336256,
+              "heapTotal": 7843840,
+              "heapUsed": 6210344,
+              "external": 2340254,
+              "arrayBuffers": 156511
+            },
+            "v8Heap": {
+              "total_heap_size": 7843840,
+              "total_heap_size_executable": 262144,
+              "total_physical_size": 7843840,
+              "total_available_size": 4338928272,
+              "used_heap_size": 6210568,
+              "heap_size_limit": 4345298944,
+              "malloced_memory": 426080,
+              "peak_malloced_memory": 893224,
+              "does_zap_garbage": 0,
+              "number_of_native_contexts": 2,
+              "number_of_detached_contexts": 0,
+              "total_global_handles_size": 8192,
+              "used_global_handles_size": 3744,
+              "external_memory": 2340254
+            },
+            "processMaxRssKiB": 41536,
+            "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+          },
+          "afterProcessingBeforeGC": {
+            "process": {
+              "rss": 134750208,
+              "heapTotal": 98054144,
+              "heapUsed": 77161104,
+              "external": 2725449,
+              "arrayBuffers": 541706
+            },
+            "v8Heap": {
+              "total_heap_size": 98054144,
+              "total_heap_size_executable": 262144,
+              "total_physical_size": 98054144,
+              "total_available_size": 4266788392,
+              "used_heap_size": 77161248,
+              "heap_size_limit": 4345298944,
+              "malloced_memory": 278576,
+              "peak_malloced_memory": 3005112,
+              "does_zap_garbage": 0,
+              "number_of_native_contexts": 2,
+              "number_of_detached_contexts": 0,
+              "total_global_handles_size": 8192,
+              "used_global_handles_size": 3680,
+              "external_memory": 2725449
+            },
+            "processMaxRssKiB": 144856,
+            "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+          }
+        },
+        "sampledHeapUsedMax": 77424136,
+        "sampledRssMax": 147689472,
+        "processHighWaterRssKiB": 144856,
+        "processHighWaterRssBytes": 148332544,
+        "heapMaximumScope": "Maximum of samples after each file verification only; not a continuous JS-heap peak. End heap is separately reported as a snapshot.",
+        "gcMode": "normal execution; no explicit GC calls"
+      },
+      "note": "Isolated sequential Node-process legacy/owned/legacy comparison, same ordered local metadata texts and one final-result cache. Only each parse/validate/freeze call is timed; file reads, module import, hashing, freeze verification, memory sampling and output are outside those call intervals. Process CPU includes all process threads, including concurrent JIT/GC work. Memory snapshots and sampled heap maxima are not continuous peak JS heap. resourceUsage.maxRSS is process RSS high-water (Node kilobytes when available), including startup, input, verification and native allocations; it is not pure JS metadata memory or game/GPU/RAM usage. Forced GC, when explicitly requested with --expose-gc and --gc in every worker, is a separate retained-memory diagnostic and does not represent normal app behavior. No PNG decode, rendering, network, Game, browser or persistent save is used."
+    },
+    {
+      "arm": "A-repeat",
+      "mode": "legacy",
+      "scope": "launch",
+      "nodeVersion": "v22.23.3",
+      "v8Version": "12.4.254.21-node.57",
+      "nodeFlags": [],
+      "originalModuleSha256": "b3c2aae00ce820449be98c82c17deb8d52623b01b018d9127d988e9f0337805f",
+      "candidateModuleSha256": "63c3d09781711d84fed43569cefcb5ea44a253831ab03cbb5a60378efadcc967",
+      "moduleImportWallMs": 10.332999999999998,
+      "startMemory": {
+        "process": {
+          "rss": 40325120,
+          "heapTotal": 7581696,
+          "heapUsed": 5616088,
+          "external": 2349130,
+          "arrayBuffers": 16831
+        },
+        "v8Heap": {
+          "total_heap_size": 7581696,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 7581696,
+          "total_available_size": 4339522488,
+          "used_heap_size": 5620800,
+          "heap_size_limit": 4345298944,
+          "malloced_memory": 434272,
+          "peak_malloced_memory": 893224,
+          "does_zap_garbage": 0,
+          "number_of_native_contexts": 2,
+          "number_of_detached_contexts": 0,
+          "total_global_handles_size": 8192,
+          "used_global_handles_size": 3136,
+          "external_memory": 2200574
+        },
+        "processMaxRssKiB": 39632,
+        "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+      },
+      "afterModuleMemory": {
+        "process": {
+          "rss": 44216320,
+          "heapTotal": 8822784,
+          "heapUsed": 7116664,
+          "external": 2448026,
+          "arrayBuffers": 264283
+        },
+        "v8Heap": {
+          "total_heap_size": 8822784,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 8822784,
+          "total_available_size": 4337558472,
+          "used_heap_size": 7116888,
+          "heap_size_limit": 4345298944,
+          "malloced_memory": 897488,
+          "peak_malloced_memory": 893224,
+          "does_zap_garbage": 0,
+          "number_of_native_contexts": 2,
+          "number_of_detached_contexts": 0,
+          "total_global_handles_size": 8192,
+          "used_global_handles_size": 3648,
+          "external_memory": 2448026
+        },
+        "processMaxRssKiB": 43180,
+        "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+      },
+      "cacheCondition": "one retained frozen result per selected asset ID; no upfront parsed-metadata cache",
+      "retainedResults": 6,
+      "files": [
+        {
+          "id": "enemy-walker-locomotion-hq32",
+          "metadata": "enemy-walker-locomotion-hq32/metadata.json",
+          "sourceBytes": 2351352,
+          "sourceSha256": "23fb49e360a22a30c8df5b69550410c91b2c5609c6941e156b5eddcf1e488964",
+          "frames": 512,
+          "outputJsonSha256": "ce99b292fc7120b38173266bef6b90986eabf76b896eb199157d3671101e5be7",
+          "strictTreeSha256": "e94b75d2e54bda6ac649482d1e82de9ccc88c403b0c31af0b1c90ec54edf55e5",
+          "allFrozen": true,
+          "objectCount": 109548,
+          "error": null,
+          "parseValidateFreezeWallMs": 178.36560000000003,
+          "parseValidateFreezeCpuMs": 218,
+          "cpuMicroseconds": {
+            "user": 203000,
+            "system": 15000
+          }
+        },
+        {
+          "id": "enemy-walker-rig-motion",
+          "metadata": "enemy-walker-rig-motion/metadata.json",
+          "sourceBytes": 2233279,
+          "sourceSha256": "e020423932200382b93b98cb29e3836fe517bf6ab4fcf36651d42e12cd265988",
+          "frames": 512,
+          "outputJsonSha256": "2b5958b21290e2163e2baf2b70f987076145295ad3c7d97a3248e2d3d89d58b3",
+          "strictTreeSha256": "ea0177e4541da5d110d3405aac262890e8b1790c7458185c59964f68d58775ec",
+          "allFrozen": true,
+          "objectCount": 103267,
+          "error": null,
+          "parseValidateFreezeWallMs": 119.56100000000004,
+          "parseValidateFreezeCpuMs": 109,
+          "cpuMicroseconds": {
+            "user": 109000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-runner-locomotion-hq32",
+          "metadata": "enemy-runner-locomotion-hq32/metadata.json",
+          "sourceBytes": 2152533,
+          "sourceSha256": "e46db0746dbad97177a7cddb6f3115684a3f999ca7a4d763b343d04684f3e56d",
+          "frames": 512,
+          "outputJsonSha256": "bfd6915f2e2f2c3051fb82bfc47ecf303cafdab45124a350cd872abb3f5ef772",
+          "strictTreeSha256": "93cc52fb0dc3d5dd57eaf7f9ab22d9c53379621c631c6eb42742fe9a72db1254",
+          "allFrozen": true,
+          "objectCount": 98172,
+          "error": null,
+          "parseValidateFreezeWallMs": 113.85759999999993,
+          "parseValidateFreezeCpuMs": 125,
+          "cpuMicroseconds": {
+            "user": 125000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-runner-rig-motion",
+          "metadata": "enemy-runner-rig-motion/metadata.json",
+          "sourceBytes": 2019011,
+          "sourceSha256": "0db9c879702b473cdd34d52cc2261f0f9b7b18dd189623dc5f5185251e1e08c3",
+          "frames": 512,
+          "outputJsonSha256": "72cdd0316bc18f2033134e93251b70b96342e42b98ff0758fe8da56f813f58d1",
+          "strictTreeSha256": "a7cb7fee494401047b247899c5d0518ba8f9c90c7bfb730174d133750cdedff9",
+          "allFrozen": true,
+          "objectCount": 91269,
+          "error": null,
+          "parseValidateFreezeWallMs": 110.93790000000013,
+          "parseValidateFreezeCpuMs": 109,
+          "cpuMicroseconds": {
+            "user": 109000,
+            "system": 0
+          }
+        },
+        {
+          "id": "enemy-gas-locomotion-hq32",
+          "metadata": "enemy-gas-locomotion-hq32/metadata.json",
+          "sourceBytes": 2230534,
+          "sourceSha256": "823dba85c2a8558d2976c9727ed16fe6e71f013585de054edbb84f8746c27edb",
+          "frames": 512,
+          "outputJsonSha256": "656a2d4c21d310325cd452fbe117052df8923120144b1e8f2b0f39e1a218526d",
+          "strictTreeSha256": "7def928cd57917574b1e52bfad60308a67b52dea351c37c4f616c1cc3a5506d2",
+          "allFrozen": true,
+          "objectCount": 102414,
+          "error": null,
+          "parseValidateFreezeWallMs": 125.61270000000013,
+          "parseValidateFreezeCpuMs": 187,
+          "cpuMicroseconds": {
+            "user": 172000,
+            "system": 15000
+          }
+        },
+        {
+          "id": "enemy-gas-rig-motion",
+          "metadata": "enemy-gas-rig-motion/metadata.json",
+          "sourceBytes": 2169189,
+          "sourceSha256": "49464f058bb73f5da1d58ac8a780effb725c109c8d318935e49ec3bc4eee3a7e",
+          "frames": 512,
+          "outputJsonSha256": "8fabcad528f21e2d349e7073b63aeab128d514d31dd7dd6170fd779dbf1e600d",
+          "strictTreeSha256": "c0348890c75e5e0382ebd18b637c93d94a6948a24145860046ddadd13c7a1839",
+          "allFrozen": true,
+          "objectCount": 99611,
+          "error": null,
+          "parseValidateFreezeWallMs": 159.1506000000004,
+          "parseValidateFreezeCpuMs": 188,
+          "cpuMicroseconds": {
+            "user": 188000,
+            "system": 0
+          }
+        }
+      ],
+      "totalSourceBytes": 13155898,
+      "totalFrames": 3072,
+      "allValid": true,
+      "allFrozen": true,
+      "parseValidateFreezeWallMs": 807.4854000000007,
+      "parseValidateFreezeCpuMs": 936,
+      "memory": {
+        "snapshots": {
+          "beforeProcessing": {
+            "process": {
+              "rss": 43958272,
+              "heapTotal": 8822784,
+              "heapUsed": 7198480,
+              "external": 2448026,
+              "arrayBuffers": 264283
+            },
+            "v8Heap": {
+              "total_heap_size": 8822784,
+              "total_heap_size_executable": 262144,
+              "total_physical_size": 8822784,
+              "total_available_size": 4337476656,
+              "used_heap_size": 7198704,
+              "heap_size_limit": 4345298944,
+              "malloced_memory": 426080,
+              "peak_malloced_memory": 893224,
+              "does_zap_garbage": 0,
+              "number_of_native_contexts": 2,
+              "number_of_detached_contexts": 0,
+              "total_global_handles_size": 8192,
+              "used_global_handles_size": 3648,
+              "external_memory": 2448026
+            },
+            "processMaxRssKiB": 43224,
+            "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+          },
+          "afterProcessingBeforeGC": {
+            "process": {
+              "rss": 183414784,
+              "heapTotal": 124379136,
+              "heapUsed": 78449608,
+              "external": 2726249,
+              "arrayBuffers": 542506
+            },
+            "v8Heap": {
+              "total_heap_size": 124379136,
+              "total_heap_size_executable": 262144,
+              "total_physical_size": 124379136,
+              "total_available_size": 4263641632,
+              "used_heap_size": 78449752,
+              "heap_size_limit": 4345298944,
+              "malloced_memory": 278576,
+              "peak_malloced_memory": 3006456,
+              "does_zap_garbage": 0,
+              "number_of_native_contexts": 2,
+              "number_of_detached_contexts": 0,
+              "total_global_handles_size": 8192,
+              "used_global_handles_size": 3712,
+              "external_memory": 2726249
+            },
+            "processMaxRssKiB": 202828,
+            "scope": "Sampled process/V8 counters; maxRSS is process high-water including startup/input/verification, not peak JS heap."
+          }
+        },
+        "sampledHeapUsedMax": 132482688,
+        "sampledRssMax": 200540160,
+        "processHighWaterRssKiB": 202828,
+        "processHighWaterRssBytes": 207695872,
+        "heapMaximumScope": "Maximum of samples after each file verification only; not a continuous JS-heap peak. End heap is separately reported as a snapshot.",
+        "gcMode": "normal execution; no explicit GC calls"
+      },
+      "note": "Isolated sequential Node-process legacy/owned/legacy comparison, same ordered local metadata texts and one final-result cache. Only each parse/validate/freeze call is timed; file reads, module import, hashing, freeze verification, memory sampling and output are outside those call intervals. Process CPU includes all process threads, including concurrent JIT/GC work. Memory snapshots and sampled heap maxima are not continuous peak JS heap. resourceUsage.maxRSS is process RSS high-water (Node kilobytes when available), including startup, input, verification and native allocations; it is not pure JS metadata memory or game/GPU/RAM usage. Forced GC, when explicitly requested with --expose-gc and --gc in every worker, is a separate retained-memory diagnostic and does not represent normal app behavior. No PNG decode, rendering, network, Game, browser or persistent save is used."
+    }
+  ],
+  "note": "Isolated sequential Node-process legacy/owned/legacy comparison, same ordered local metadata texts and one final-result cache. Only each parse/validate/freeze call is timed; file reads, module import, hashing, freeze verification, memory sampling and output are outside those call intervals. Process CPU includes all process threads, including concurrent JIT/GC work. Memory snapshots and sampled heap maxima are not continuous peak JS heap. resourceUsage.maxRSS is process RSS high-water (Node kilobytes when available), including startup, input, verification and native allocations; it is not pure JS metadata memory or game/GPU/RAM usage. Forced GC, when explicitly requested with --expose-gc and --gc in every worker, is a separate retained-memory diagnostic and does not represent normal app behavior. No PNG decode, rendering, network, Game, browser or persistent save is used."
+}

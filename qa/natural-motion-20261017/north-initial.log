@@ -1,0 +1,28 @@
+✔ new expedition keeps exact approved city layout and art coverage; old snapshots stay byte identical (35.4827ms)
+✔ all field objectives are physically reachable from the actual spawn (27.4689ms)
+✔ objectives require proximity and sustained interaction; release, damage and pause prevent free completion (2.1135ms)
+✔ partial objective progress restores deterministically and corrupt or campaign-mixed states are rejected (11.0104ms)
+✔ actual objective completion raises threat then ends only after all three actions (0.6643ms)
+✔ expedition clear gets its own progress and does not award a legacy escape win or shortcut weapon unlock (0.8634ms)
+✔ hospital fresh launch and actual world agree and all props use original approved native art (11.2067ms)
+✔ hospital targets and guard are reachable at real player and elite radii without crossing walls (24.2364ms)
+✔ hospital guard blocks records until actually killed and survives checkpoint resume (6.226ms)
+✔ hospital records require sustained interaction and correct theme, then produce the northern cargo clue (3.9266ms)
+✔ roof clear unlocks hospital without bypassing city progress or claiming a completed vaccine (0.5334ms)
+✔ a failed guard spawn cannot silently open the hospital archive and can retry from a valid save (0.5856ms)
+✔ roof union supports overlap joins but rejects void and keeps finite-radius bodies off every outside edge (3.6627ms)
+✔ actual player and large elite navigation cross only the catwalk without cutting across air (39.775ms)
+✔ actual rooftop has complete original native art coverage and cannot dash through the void (21.0533ms)
+✔ defense advances while moving inside the signal radius, decays outside, pauses and saves mid-transmission (2.1584ms)
+✔ roof metadata is key-order independent but rejects forged platforms, elevation and off-platform saved actors (5.2675ms)
+✔ rooftop requires city progress and records its own verified objective completion without erasing the first expedition (0.7025ms)
+✔ molotov aimed into rooftop void falls below the level, resumes mid-fall and creates no floating damage field (2.8735ms)
+✔ fresh launch preloads the actual expedition world and native roof surface before commit (7.3091ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 237.407

@@ -1,0 +1,79 @@
+DEAD SIGNAL — 다른 컴퓨터에서 이어서 작업할 프롬프트
+아래 전체를 새 Codex 대화에 전달하세요. 기준일 2026-10-18 KST.
+
+DeadSignal 개발을 이 컴퓨터에서 이어서 진행해 주세요.
+저장소 https://github.com/niceverygood/DeadSignal.git / main / 웹 work/dead-signal-game v0.29.0
+
+사용자가 2026-10-18 KST에 최신 변경과 Git LFS 에셋의 커밋·푸시를 명시적으로 승인했습니다. 이 파일을 포함한 main 커밋이 이번 최신 인계 스냅샷입니다. 커밋 자체의 SHA를 본문에 넣으면 자기 참조가 되므로, 새 PC에서 git log -1과 git ls-remote --heads origin main을 실행해 실제 원격과 로컬을 확인하세요. 커밋 직전 기준점은 6878d5e181aa188b23bd850a80ab6c3b60c805fd(2026-10-18 11:04:51 KST)였습니다.
+새 PC의 HEAD가 여전히 6878d5e이면 구버전입니다. 기존 변경을 보존하며 원격 main을 받아 이 파일·boss02 fold·정상 전투 QA·앱 전용 player-rig-src가 존재하는지 확인하세요. 아래 기록은 해당 소스가 포함된 인계 기준이며, 푸시 전 상태 질문과 당시 문서는 qa/handoff-evening-20261018/before-push-approval/에 역사 자료로 보존했습니다.
+기존 clone은 git status/remote/branch/log 및 untracked 변경을 먼저 확인하고 보존하세요. reset --hard/clean/강제 checkout/force push로 덮지 마세요. 깨끗하고 fast-forward 가능할 때만 git pull --ff-only를 사용하세요.
+같은 Codex 계정만으로 파일·서버·브라우저 저장·Node PATH·자동화 상태가 다른 PC에 동기화되지 않습니다. Git 푸시 여부는 실제 remote/local/dirty 상태로 답하고, 새 add/commit/push는 현재 사용자 요청 범위를 따르세요.
+
+수정 전 AGENTS.md, README.txt, HANDOFF.txt, CONTINUE_PROMPT.txt, NEXT_COMPUTER_PROMPT_KO.txt, WINDOWS_CONTINUATION.txt 마지막 블록, .transfer/VALIDATION.json·TOOLS.txt를 읽으세요.
+최신 QA는 qa/building-occlusion-20261018, qa/upgrade-status-20261018, qa/boss-motion-20261018, qa/boss-action-layer-20261018의 CONTINUATION_STATUS_KO.txt와 qa/boss02-fold-profile-20261018·qa/boss02-normal-fight-20261018의 원시 결과/프로토콜/동결/최초 실패 기록을 읽으세요.
+최종 종료·verify·전체 검사·Git 상태는 qa/handoff-evening-20261018/completion.json 및 연결 로그를 확인하세요. 문서의 과거 수치나 .transfer의 최초 Mac 검수를 현재 PC 검수로 사용하지 마세요.
+
+새 clone이면 현재 OS에 맞는 Git/Git LFS/Node.js22 이상/npm을 준비하세요.
+git lfs install
+git clone https://github.com/niceverygood/DeadSignal.git
+cd DeadSignal
+git lfs pull
+git lfs fsck
+git status --short
+node --version
+npm --version
+기존 저장소에는 clone을 반복하지 마세요. LFS 포인터를 실제 GLB/PNG로 오인하지 말고, 인증·다운로드·디스크 오류를 유료 용량 구매나 자격증명 Git 저장으로 해결하지 마세요.
+
+저장소 루트에서 순서대로 복원·검수하세요.
+npm run verify
+npm run setup
+npm test
+npm start
+LFS 다운로드만으로 native 실행 준비가 끝나지 않습니다. setup은 잠긴 아트 도구4곳을 npm ci --ignore-scripts로 복원하고 player/boss/enemy runtime 준비 도구로 ignored vendor/models/도우미/config/provenance/registry를 재구성합니다. 원본 GLB/PNG/UV/클립은 바꾸지 않습니다.
+추가된 앱 전용 player-rig-src/weapon-pose.js 준비 경로를 보존하고, 옛 meshy-sprite-baker 원본이나 이미 등록된 아트의 등록 스크립트를 다시 수정/실행하지 마세요. 이 새 소스가 현재 인계 커밋에 포함됐는지 실제 파일과 Git으로 확인하세요.
+verify는 최초 .transfer/manifest.json 기준으로 의도된 .gitignore mismatch가 알려져 있습니다. 누락 LFS와 개발 변경을 구분해 로그를 남기고, manifest 재생성으로 실패를 숨기지 마세요. 알려진 mismatch만으로 setup/test/브라우저 검수를 포기하지 마세요.
+qa frozen .txt 전체 원본은 독립 SHA oracle입니다. 내용/줄바꿈/이름과 .gitattributes의 * -text/LFS 규칙을 보존하세요.
+
+사용자 게임 기본8806은 건드리지 말고 기존 서버를 종료하지 않은 채 별도 빈8851에서 QA하세요.
+npm start -- --port 8851
+http://localhost:8851/?qa=1&qa-memory=next-computer-validation
+실제 createQAStorage가 만든 genuine 메모리 저장을 사용하세요. 임의 Map/query만으로 genuine 검수라고 하지 마세요. 사용자8806 localStorage·작전·미선택 강화 카드를 대신 선택/삭제/초기화하지 마세요.
+플레이 저장은 Git이나 Codex 계정으로 자동 이관되지 않습니다. 새 PC에서 원본 로딩, 메뉴→출격/이어하기, 이동/조준/반동, 보스 공격/피격/사망, 탄환/화염병/폭발/음향, 강화 선택/재개와 콘솔을 실제 검수해 이 PC 결과로 남기세요.
+
+유지할 현재 구현:
+- 원본 Meshy 모델·리그·UV·텍스처·클립·승인 무드보드 및 기존 진행/저장을 보존했습니다. 절차적 대체 캐릭터나 새 유료 아트로 교체하지 마세요.
+- 일반 연속피격 .09초 stun이 보스 AI/이동/공격을 계속 막던 문제를 수정했습니다. 보스의 일반 피격은 vx/vy/stun을 덮지 않으며 명시적 stun/저장 상태는 유지합니다. 실제4전투/원본24모델 포즈 증거와 전 캐릭터 자연스러움 인증을 구분하세요.
+- 강화의 옛3/5단계 선택 상한 제거, 높은 rank의 효과/공급/저장복원, 큰 LV 표시와 실제 능력치·보유 스킬 UI가 연결됐습니다. 기존 구간/RNG/저장 계약과 공유 upgrade-model.js 수식을 유지하세요. 카드의 /최대 표시를 되돌리지 마세요. 훈련의 별도 실제 /3 제한은 유지합니다.
+- 건물 정렬 순환 때 앞 캐릭터가 외벽 뒤에 묻히던 오류를 보수적 whole-draw 가림 범위로 고쳤습니다. 뒤 캐릭터 가림과 원본 body/metadata/placement를 유지합니다. 첫 cold 전체 그림 차이는 별도 원인 미확정 증거가 있습니다.
+- native 주인공의 물리적 무기 후퇴를 앱 전용 canonical source로 복구했습니다. 기본후퇴0 원래 출력·양손 grip·발·조준 보존 및 무기별 검수/provenance가 있으므로 setup이 옛 사본으로 되돌리지 않게 하세요.
+- 모바일1.0.0은 웹0.26 기반입니다. 최신 웹 변경 이식·실기기 성능/메모리·정밀 발 IK·서명/배포는 별도 과제입니다.
+
+최신 전체 검사:
+npm test1381개 중1380PASS/1FAIL, 취소·생략0, 총820698.0748ms로 완료했습니다. 유일 실패는 기존24k틱 스트레스 CPU16141ms>15000ms, 벽29144.30ms입니다. 최종 완료/verify/source 동결은 completion.json을 우선 확인하세요.
+직전 작업5 전체1374/1374PASS도 있었으나 CPU 예산은 host/JIT/부하 변동으로 재차 실패했습니다. 단일 통과를 CPU 해결·무렉 완성으로 표현하지 마세요.
+기존24k틱/20분 fixture, CPU15000ms 예산, 조건·동시2·timeout을 완화하거나 유리한 결과까지 재시도하지 마세요. profiler의 준비/워밍업/검증 표본과 비계측 비용을 구분하세요.
+현재 CPU/Nav/neighbor/blocked/direction/damping 후보는 모두 제품 미적용/OFF 또는 inconclusive입니다. 다른 Canvas/readback/alpha/decode QA 소스도 존재만으로 채택됐다고 가정하지 마세요. 반려·실패 원시 결과는 보존합니다.
+
+boss02 최신 상태:
+boss02-fold-v1은 boss02 최종보스 전용 QA 상체 접힘 프로필이며 제품 bossActionLayerEnabled는 여전히 기본false입니다. 다른11최종보스 전체 적용·자연스러움 인증은 미완료입니다.
+작업5는 실제 native 기존188쌍 타임라인+4방향 정점8표본+기존62표본을 확인했습니다. 팔꿈치 개선과 아직 약한 손끝 가독성을 구분하세요.
+작업6 Aoriginal/Bfold는 정상 mission02 final-entry, seed774/nailgun, HP·초기 적·스폰·stageDuration·skillCd7·경고1.2/회복1.6을 유지해 각각720틱/46late cleanup을 완료했습니다. 원본 월드520 통로와 mid-boss flags만 명시적 QA 진입 fixture이며 스토리 완주가 아닙니다. 두 실전 모두 무사격/actual hit0이며 기록의 hurt10은 player 피해입니다. 사격·보스 피격층·실제 음향은 이번 실전 미검수이고 이전 controlled QA와 구분해야 합니다.
+최초 원본A는 준비 중 Illegal invocation/전투0으로 실패했습니다. 원본 raw/console/screen/source를 보존한 뒤 타이머2개 global receiver 바인딩만 수정하고 별도 repair A/B를 실행했습니다. 최초부터 성공했다고 쓰지 마세요.
+http://localhost:8851/boss02-fight-qa.html?qa=1&qa-memory=next-boss02-original&qa-boss02-fight=original
+http://localhost:8851/boss02-fight-qa.html?qa=1&qa-memory=next-boss02-fold&qa-boss02-fight=fold
+각 모드는 fresh 페이지당 수동1회입니다. 전체 준비60초·최대12게임초/실제300초·정리15초를 구분합니다. 초기 무사격, 정상 AI 타이머를 기다리며 원래 입력/사격/피해를 사용합니다. FPS·실제 음향 출력·게임 완성 인증이 아닙니다.
+실제 bosswarn/bossskill/hurt/hit 발생 틱, 보간 renderActor의 transition start/duration과 직전 경고 progress, 실제 GL/clip/raw PNG로 판단하세요. 실제 rAF나 수동 입력이 다르면 cross-pass 상태/전체픽셀 동일을 주장하지 마세요.
+
+다음 작은 작업 후보(최신 사용자 우선순위 확인 후 선택):
+1. 피해 텍스트9.450000…→9.45처럼 표시만 간결하게 만드세요. 실제 HP/피해/물리/저장/RNG를 반올림하지 마세요.
+2. 보스 충격 시점·효과·손끝 skin-weighted 위치를 진단하세요. 원본 clip X 경계 약15도 차이 가능성도 확인하고, 75ms 전환을 무조건 삭제하거나 각도만 크게 올리지 마세요.
+3. 밀집 전투 실제 비용과 CPU 예산 초과를 개선하되 AI 주기/적 수/경로/그림/효과 품질이나 예산을 낮추지 마세요. 정확한 상태·이벤트·양RNG oracle와 사전 단일 동일조건 A/B/A로 판단하세요.
+100시간 플레이·전 캐릭터 자연스러움·무렉·정상 FPS·실측 RAM/모바일 완성은 아직 미검증입니다. 구현 소스와 실제 완주/실기기 증거를 구분하세요.
+
+금지·권한·일정:
+유료 Meshy 요청/결제/충전/키 저장, 브라우저 프로필·사용자 세이브 Git 저장, 서명자료 업로드/스토어 제출 금지. 기존 원본을 재사용하세요.
+과거 절대경로/PID/탭ID/서버를 그대로 재사용하지 말고 현재 상태를 확인하세요. 이전 PC 진행 작업과 검수 중복도 피하세요.
+automation-7 재개 금지. 이 프롬프트만으로 automation4/기타 자동화를 생성·재개하거나 옛 마감 연장을 승인받았다고 가정하지 마세요.
+이전 PC automation4 마감은2026-10-19 00:00KST(2026-10-18 15:00UTC)였습니다. 그 자동화의 중단규칙을 보존하되 새 PC에서 사용자가 새로 요청한 수동 개발까지 영구 금지하는 규칙으로 해석하지 마세요. 현재 시간과 최신 명시 사용자 지시를 확인하세요.
+이번 최신 스냅샷의 origin/main 푸시는 사용자가 별도로 승인했습니다. 이것을 이후 새 발행·스토어 제출·자동화 재개의 포괄 승인으로 확대하지 마세요. 이후 푸시는 새 사용자의 요청 범위와 실제 remote HEAD를 확인하세요.
+먼저 최신 파일·Git·completion 상태와 원격/로컬만 있는 작업을 솔직히 요약한 뒤, 이 PC에서 복원·검수하고 사용자의 다음 작업을 진행하세요.

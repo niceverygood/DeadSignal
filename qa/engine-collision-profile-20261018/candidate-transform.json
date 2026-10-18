@@ -1,0 +1,10 @@
+{
+  "old": "const direction={x:e.navX||0,y:e.navY||0};if(direction.x||direction.y)e.angle=Math.atan2(direction.y,direction.x);this.move(e,(direction.x*e.speed+sx)*dt,(direction.y*e.speed+sy)*dt);",
+  "replacement": "const directionX=e.navX||0,directionY=e.navY||0;if(directionX||directionY)e.angle=Math.atan2(directionY,directionX);this.move(e,(directionX*e.speed+sx)*dt,(directionY*e.speed+sy)*dt);",
+  "soleReplacement": true,
+  "productionEngineUnchanged": true,
+  "sourceBytes": 59149,
+  "sourceSha256": "72487b352161059b5745a3e5cfc149ff71ae3f7b98c7e310b5d8b3a5345260ce",
+  "candidateBytes": 59149,
+  "candidateSha256": "62d0bd9a718757354a62e36d928c75a97f4a464ffd93d81e2344648183f6f34d"
+}
